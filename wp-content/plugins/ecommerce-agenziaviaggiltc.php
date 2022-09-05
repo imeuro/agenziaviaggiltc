@@ -191,9 +191,9 @@ function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
   		// LOAD THE WC LOGGER
 	   $logger = wc_get_logger();
 	    
-	   // LOG NEW PRICE TO CUSTOM "price-changes" LOG
-	   $logger->info( wc_print_r( $download, true ) );
-	   $logger->info( 'attachment url:'.$download['file']['file'] );
+	   // LOG DL details
+	   // $logger->info( wc_print_r( $download, true ) );
+	   $logger->info( wc_print_r($download['file']['file'], true ) );
 	 
 
   		$attachments[] = $download['file']['file'];
