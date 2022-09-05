@@ -188,10 +188,12 @@ function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
 		// LOG DL details
 		$logger->info( '+++++' );
 		$logger->info( "tickets attached to order #".$order_id.": " );
-		$logger->info( wc_print_r(ABSPATH . parse_url($download["file"]["file"], PHP_URL_PATH), true ) );
-
+		
 		$DL_path = parse_url($download["file"]["file"], PHP_URL_PATH);
 		$DL_path = ltrim($DL_path, '/');
+
+		$logger->info( wc_print_r(ABSPATH . $DL_path, true ) );
+
   		$attachments[] = ABSPATH . $DL_path;
 
   	}
