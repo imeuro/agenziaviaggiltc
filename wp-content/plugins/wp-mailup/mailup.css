@@ -1,0 +1,173 @@
+@charset "utf-8";
+/* CSS Document */
+.clear{
+	clear:both;
+}
+
+.wrap-content{
+	width:67%;
+	width:98%;
+	float:left;
+}
+
+.wrap-right{
+	width:30%;
+	float:right;
+	background-color:transparent;
+}
+
+.wrap-right h3{
+	background:#DFDFDF url("../../../wp-admin/images/gray-grad.png") repeat-x scroll left top;
+	text-shadow:0 1px 0 #fff;
+	margin:0 0 0 0;
+	-moz-border-radius:6px 6px 0px 0px;
+	-webkit-border-radius:6px 6px 0px 0px;
+	border-radius:6px 6px 0px 0px;
+	padding:15px 9px;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 1px;
+	display:block;
+}
+
+.wrap-right .inside{
+	min-height:100px;
+	padding:10px;
+}
+#mailUpSettingForm{
+	margin:0;
+	padding:0;
+}
+.menu_list{
+	/* width:430px; */
+	width:100%;
+	min-height:400px;
+	/* background-color:#015361; */
+	padding:5px;
+	/* border:2px solid #CCC; */
+	/* color:#fff; */
+}
+.menu_head {
+	display:block;
+	padding: 5px 10px;
+	cursor: pointer;
+	position: relative;
+	margin:4px 1px;
+	font-size: 120%;
+	color:#666;
+	background-color: #F1F1F1;
+    vertical-align: middle;
+	font-family: Georgia, "Times New Roman", "Bitstream Charter", Times, serif;
+	line-height: 34px;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#F9F9F9), to(#ECECEC)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(top, #F9F9F9, #ECECEC); /* Chrome 10+, Saf5.1+ */
+	background-image: -moz-linear-gradient(top, #F9F9F9, #ECECEC); /* FF3.6+ */
+	background-image: -ms-linear-gradient(top, #F9F9F9, #ECECEC); /* IE10 */
+	background-image: -o-linear-gradient(top, #F9F9F9, #ECECEC); /* Opera 11.10+ */
+	background-image: linear-gradient(top, #F9F9F9, #ECECEC); /* W3C */
+}
+.menu_body {
+	display:none;
+}
+.menu_body a {
+	display:block;
+	background-color:#EFEFEF;
+	padding-left:10px;
+	font-weight:bold;
+	text-decoration:none;
+}
+	
+	.menu_body a:hover {
+		text-decoration:underline;
+	}
+	
+	.menu_body a.nostyle {
+		display:inline;
+		background-color:transparent;
+		padding-left:0;
+		font-weight:normal;
+		text-decoration:none;
+	}
+
+
+.setting-table{
+	width:100%;
+	/* border:1px solid #000; */
+	padding: 10px 0px;
+	text-align:center;
+}
+
+.setting-table td{
+	padding:3px 3px;
+	text-align:left;
+}
+
+.setting-text{
+}
+
+.general-data{
+	width:360px;
+}
+
+.select-box{
+	min-width:100px;
+}
+
+td.setting-label{
+	text-align:left;
+	width:10%;
+	min-width: 200px;
+}
+
+table.setting-table td label, table.setting-table th{
+	text-align: left;
+	color:#666;
+}
+
+.setting-table .setting-target {
+	text-align:left;
+}
+
+#save-message{
+	font-size:11px;
+	padding-left:5px;
+	white-space:nowrap;
+}
+
+.setting-save-container{
+	padding-top:20px;
+}
+
+img.help_icon{
+	border:none;
+	float:right;
+	/* position:relative; */
+	height:18px;
+	width:21px;
+	/* bottom:5px; */
+	/* right:30px; */
+	z-index:1;
+	padding-top:7px;
+}
+
+img.toggle_icon{
+	border:none;
+	float:right;
+	/* position:relative; */
+	/* height:18px; */
+	/* width:21px; */
+	/* top:-4px; */
+	/* right:0px; */
+	z-index:1;
+}
+
+.about-mailup a { 
+	color:#21759B !important; 
+	line-height:26px; 
+	font-weight:normal; 
+	font-size:13px;
+	text-decoration: none;
+}
+	.about-mailup a:hover { 
+		color: #666 !important;
+	}

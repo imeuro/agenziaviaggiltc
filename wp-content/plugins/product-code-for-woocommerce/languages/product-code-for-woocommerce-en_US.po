@@ -1,0 +1,246 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Product Code for WooCommerce\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 03:02-0500\n"
+"PO-Revision-Date: 2022-02-23 03:04-0500\n"
+"Last-Translator: \n"
+"Language-Team: English (United States)\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: product-code-for-woocommerce.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Loco-Version: 2.5.7; wp-5.9\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: classes/class-pcfw-admin-settings.php:46
+#: classes/class-pcfw-admin-settings.php:217
+#: classes/class-pcfw-admin-settings.php:331
+msgid "Product code"
+msgstr "Product code"
+
+#: classes/class-pcfw-admin-settings.php:64
+msgid "Successfully Updated Redirecting back...."
+msgstr "Successfully Updated Redirecting back...."
+
+#: classes/class-pcfw-admin-settings.php:70
+msgid "Failed to update please retry later, Redirecting back... "
+msgstr "Failed to update please retry later, Redirecting back... "
+
+#: classes/class-pcfw-admin-settings.php:118
+#: classes/class-pcfw-admin-settings.php:126 templates/variation-field.php:21
+#: templates/variation-field.php:27
+msgid ""
+" refers to a company’s unique internal product identifier, needed for online "
+"product fulfillment"
+msgstr ""
+" refers to a company’s unique internal product identifier, needed for online "
+"product fulfillment"
+
+#: classes/class-pcfw-admin-settings.php:226
+#: classes/class-pcfw-admin-settings.php:337
+msgid "Product code 2"
+msgstr "Product code 2"
+
+#: classes/class-pcfw-admin-settings.php:235
+msgid "Code"
+msgstr "Code"
+
+#: classes/class-pcfw-admin-settings.php:244
+msgid "Code 2"
+msgstr "Code 2"
+
+#: classes/class-pcfw-services.php:97
+msgid "View Details"
+msgstr "View Details"
+
+#: classes/class-pcfw-services.php:101
+msgid "Donation for Homeless"
+msgstr "Donation for Homeless"
+
+#: classes/class-pcfw-services.php:136 classes/class-pcfw-services.php:150
+#: classes/class-pcfw-services.php:163 classes/class-pcfw-services.php:168
+#: classes/class-pcfw-services.php:191 classes/class-pcfw-services.php:213
+#: classes/class-pcfw-services.php:222 classes/class-pcfw-services.php:227
+#: classes/class-pcfw-services.php:244 classes/class-pcfw-services.php:249
+#: templates/product-meta-row.php:25 templates/product-meta-row.php:51
+#: templates/quick-edit-text-field.php:15
+#: templates/quick-edit-text-field.php:23
+msgid "Product Code"
+msgstr "Product Code"
+
+#: classes/class-pcfw-services.php:260
+msgid "Product Code Settings"
+msgstr "Product Code Settings"
+
+#: classes/class-pcfw-services.php:267
+msgid "Show Product Code"
+msgstr "Show Product Code"
+
+#: classes/class-pcfw-services.php:271 classes/class-pcfw-services.php:305
+msgid ""
+"Display product code on user side on the products posts, checkout, cart, and "
+"receipts"
+msgstr ""
+"Display product code on user side on the products posts, checkout, cart, and "
+"receipts"
+
+#: classes/class-pcfw-services.php:275
+msgid "Field Title"
+msgstr "Field Title"
+
+#: classes/class-pcfw-services.php:280
+msgid ""
+"Field title can be edited to read anything, no longer than 12 characters "
+"including spaces"
+msgstr ""
+"Field title can be edited to read anything, no longer than 12 characters "
+"including spaces"
+
+#: classes/class-pcfw-services.php:284
+msgid "Products Column Title"
+msgstr "Products Column Title"
+
+#: classes/class-pcfw-services.php:289
+msgid ""
+"Admin products column title can be edited to read anything, no longer than "
+"12 characters including spaces"
+msgstr ""
+"Admin products column title can be edited to read anything, no longer than "
+"12 characters including spaces"
+
+#: classes/class-pcfw-services.php:293
+msgid "Enable Second Product Code"
+msgstr "Enable Second Product Code"
+
+#: classes/class-pcfw-services.php:297
+msgid "Display second product code field."
+msgstr "Display second product code field."
+
+#: classes/class-pcfw-services.php:301
+msgid "Show Second Product Code"
+msgstr "Show Second Product Code"
+
+#: classes/class-pcfw-services.php:309
+msgid "Second Field Title"
+msgstr "Second Field Title"
+
+#: classes/class-pcfw-services.php:314
+msgid ""
+"Field title can be edited to read anything, no longer than 14 characters "
+"including spaces"
+msgstr ""
+"Field title can be edited to read anything, no longer than 14 characters "
+"including spaces"
+
+#: classes/class-pcfw-services.php:318
+msgid "Second Products Column Title"
+msgstr "Second Products Column Title"
+
+#: classes/class-pcfw-services.php:323
+msgid ""
+"Admin second products column title can be edited to read anything, no longer "
+"than 14 characters including spaces"
+msgstr ""
+"Admin second products column title can be edited to read anything, no longer "
+"than 14 characters including spaces"
+
+#: classes/class-pcfw-services.php:327
+msgid "Hide Field When Empty"
+msgstr "Hide Field When Empty"
+
+#: classes/class-pcfw-services.php:331
+msgid "Hide primary and secondary user side display when field is left blank"
+msgstr "Hide primary and secondary user side display when field is left blank"
+
+#: classes/class-pcfw-services.php:335
+msgid "Enable Structured Data Product"
+msgstr "Enable Structured Data Product"
+
+#: classes/class-pcfw-services.php:339
+msgid "Apply structure data property set on the product code."
+msgstr "Apply structure data property set on the product code."
+
+#: classes/class-pcfw-services.php:343
+msgid "Structured Data Product"
+msgstr "Structured Data Product"
+
+#: classes/class-pcfw-services.php:344
+msgid ""
+"Choose the structured data property set when using a trade number for schema "
+"compliance."
+msgstr ""
+"Choose the structured data property set when using a trade number for schema "
+"compliance."
+
+#: classes/class-pcfw-services.php:429
+msgid ""
+"Product Code for WooCommerce Add-on requires Woocommerce plugin to be "
+"installed and activated."
+msgstr ""
+"Product Code for WooCommerce Add-on requires Woocommerce plugin to be "
+"installed and activated."
+
+#: classes/class-pcfw-services.php:467
+msgid "Product Code:"
+msgstr "Product Code:"
+
+#: classes/class-pcfw-services.php:468
+msgid "Product Code Second:"
+msgstr "Product Code Second:"
+
+#: product-code-for-woocommerce.php:56
+msgid "Settings"
+msgstr "Settings"
+
+#: product-code-for-woocommerce.php:116
+msgid ""
+"<strong>NOTICE! Product Code For WooCommerce</strong> must update your "
+"database to modify meta fields. Consider backing up database first."
+msgstr ""
+"<strong>NOTICE! Product Code For WooCommerce</strong> must update your "
+"database to modify meta fields. Consider backing up database first."
+
+#: product-code-for-woocommerce.php:116
+msgid "Update Now"
+msgstr "Update Now"
+
+#: templates/product-meta-row.php:29 templates/product-meta-row.php:55
+msgid "N/A"
+msgstr "N/A"
+
+#. Plugin Name of the plugin/theme
+msgid "Product Code for WooCommerce"
+msgstr "Product Code for WooCommerce"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wordpress.org/plugins/product-code-for-woocommerce"
+msgstr "http://wordpress.org/plugins/product-code-for-woocommerce"
+
+#. Description of the plugin/theme
+msgid ""
+"Plugin provides a unique internal product identifier in addition to the "
+"GTIN, EAN, SKU and UPC throughout the order process. A secondary product "
+"code field can be activated from setup."
+msgstr ""
+"Plugin provides a unique internal product identifier in addition to the "
+"GTIN, EAN, SKU and UPC throughout the order process. A secondary product "
+"code field can be activated from setup."
+
+#. Author of the plugin/theme
+msgid "Artios Media"
+msgstr "Artios Media"
+
+#. Author URI of the plugin/theme
+msgid "http://www.artiosmedia.com"
+msgstr "http://www.artiosmedia.com"

@@ -1,0 +1,36 @@
+﻿.subscribeForm{
+	background-color:#CCC;
+	-moz-border-radius:5px;
+	-moz-box-shadow:1px 1px 1px 1px #C8C8C8;
+	font:normal normal normal 0.9em/18px Verdana, Geneva, sans-serif;
+}
+.subscribeForm label{
+	color:#666666;
+}
+.subscribeForm textarea{
+	width:90%;
+	color:#666666;
+	font-family:Verdana, Geneva, sans-serif;
+}
+.subscribeForm input[type=text]{
+	color:#666666;
+}
+.subscribeForm input[type=submit]{
+	border:1px solid #555;
+	color:#fff;
+	background-color:#777;
+	cursor:pointer;
+	text-transform:uppercase;
+	font-weight:bold;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+.subscribeForm input[type=submit]:hover{
+	color:#D4D0C8;
+	background-color:#333333;
+}
+.subscribeForm .widget-title{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#222222;
+}

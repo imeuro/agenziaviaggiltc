@@ -1,0 +1,100 @@
+# Translation of Plugins - Advanced Editor Tools (previously TinyMCE Advanced) - Stable (latest release) in Polish
+# This file is distributed under the same license as the Plugins - Advanced Editor Tools (previously TinyMCE Advanced) - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-08-26 08:04:37+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: pl\n"
+"Project-Id-Version: Plugins - Advanced Editor Tools (previously TinyMCE Advanced) - Stable (latest release)\n"
+
+#: tinymce-advanced.php:1344
+msgid "Settings"
+msgstr "Ustawienia główne"
+
+#: tadv_admin.php:789
+msgid "Font sizes"
+msgstr "Rozmiar czcionki"
+
+#: tadv_admin.php:759
+msgid "Options"
+msgstr "Ustawienia"
+
+#: tadv_admin.php:36
+msgid "Default settings restored."
+msgstr "Domyślne ustawienia przywrócone."
+
+#: tadv_admin.php:63
+msgid "Back to Editor Settings"
+msgstr "Powrót do Ustawień Edytora"
+
+#: tadv_admin.php:57
+msgid "Verify"
+msgstr "Zweryfikuj"
+
+#: tadv_admin.php:76
+msgid "Importing of settings failed."
+msgstr "Importowanie ustawień nie powiodło się."
+
+#: tadv_admin.php:106
+msgid "ERROR: All toolbars are empty. Default settings loaded."
+msgstr "BŁĄD: Wszystkie paski narzędzi są puste. Domyślne ustawienia przywrócone."
+
+#: tadv_admin.php:596
+msgid "Enable the editor menu."
+msgstr "Włącz menu edytora."
+
+#: tadv_admin.php:713
+msgid "Unused Buttons"
+msgstr "Nieużywane przyciski"
+
+#: tadv_admin.php:769
+msgid "List Style Options"
+msgstr "Ustawienia Stylu Listy"
+
+#: tadv_admin.php:777
+msgid "Context Menu"
+msgstr "Menu Kontekstowe"
+
+#: tadv_admin.php:856
+msgid "However it may behave unexpectedly in rare cases, so test it thoroughly before enabling it permanently."
+msgstr "Może to jednak zachowywać się nieprzewidzianie w rzadkich przypadkach, więc przetestuj tą opcję dogłębnie przed korzystaniem z niej na stałe."
+
+#: tadv_admin.php:950
+msgid "Administration"
+msgstr "Administracja"
+
+#: tadv_admin.php:988
+msgid "Restore Default Settings"
+msgstr "Przywróć Domyślne Ustawienia"
+
+#: tadv_admin.php:994
+msgid "The [Toolbar toggle] button shows or hides the second, third, and forth button rows. It will only work when it is in the first row and there are buttons in the second row."
+msgstr "Przycisk [Przełącz widoczność paska narzędzi] pokazuje lub ukrywa drugi, trzeci i czwarty rząd przycisków. Będzie działać tylko jeśli jest w pierwszym rzędzie i istnieją przyciski w drugim."
+
+#: tinymce-advanced.php:386
+msgid "Please upgrade your WordPress installation or download an <a href=\"%s\">older version of the plugin</a>."
+msgstr "Zaktualizuj swoją instalację WordPressa lub pobierz <a href=\"%s\">starszą wersję tej wtyczki</a>."
+
+#: tadv_admin.php:144 tadv_admin.php:989
+msgid "Save Changes"
+msgstr "Zapisz zmiany"
+
+#: tadv_admin.php:798
+msgid "Advanced Options"
+msgstr "Opcje zaawansowane"
+
+#: tadv_admin.php:132
+msgid "Settings saved."
+msgstr "Ustawienia zostały zapisane."
+
+#: tadv_admin.php:960
+msgid "Import Settings"
+msgstr "Ustawienia importu"
+
+#: tadv_admin.php:959
+msgid "Export Settings"
+msgstr "Ustawienia eksportu"

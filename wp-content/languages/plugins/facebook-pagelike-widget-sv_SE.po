@@ -1,0 +1,123 @@
+# Translation of Plugins - Widget for Social Page Feeds - Development (trunk) in Swedish
+# This file is distributed under the same license as the Plugins - Widget for Social Page Feeds - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-04-09 10:35:59+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-rc.4\n"
+"Language: sv_SE\n"
+"Project-Id-Version: Plugins - Widget for Social Page Feeds - Development (trunk)\n"
+
+#: includes/add-review.php:101
+msgid "Leave a Review"
+msgstr "Lämna en recension"
+
+#: includes/add-review.php:61
+msgid "%s minutes"
+msgstr "%s minuter"
+
+#: includes/add-review.php:57
+msgid "%s days"
+msgstr "%s dagar"
+
+#: includes/add-review.php:53
+msgid "a week"
+msgstr "en vecka"
+
+#: includes/add-review.php:49
+msgid "a year"
+msgid_plural "%s years"
+msgstr[0] "ett år"
+msgstr[1] "%s år"
+
+#: includes/add-review.php:95
+msgid "Are you enjoying using Facebook Page Feeds Widget?"
+msgstr "Gillar du att använda Facebook Page Feeds Widget?"
+
+#: includes/add-review.php:92
+msgid "Facebook Page Feeds WordPress Plugin"
+msgstr "Tillägg Facebook Page Feeds WordPress"
+
+#: includes/add-review.php:103
+msgid "No thanks / I already have"
+msgstr "Nej tack/det har jag redan gjort"
+
+#: includes/add-review.php:97
+msgid "You have been using <strong><a href=\"https://wordpress.org/plugins/facebook-pagelike-widget/\" target=\"_blank\">%1$s</a></strong> for sometime now! Could you please do me a favor and give it a 5-star rating on WordPress to help us spread the word and encourage my hardwork?"
+msgstr "Du har använt <strong><a href=\"https://wordpress.org/plugins/facebook-pagelike-widget/\" target=\"_blank\">%1$s</a></strong> ett tag nu! Kan du vara vänlig och göra mig en tjänst och ge det ett 5-stjärnigt betyg på WordPress för att hjälpa oss sprida ordet och uppmuntra mitt hårda arbete?"
+
+#. Plugin Name of the plugin
+msgid "Widget for Social Page Feeds"
+msgstr "Widget for Social Page Feeds"
+
+#: fb_class.php:129
+msgid "Tabs:"
+msgstr "Flikar:"
+
+#: fb_class.php:159
+msgid "Show Friend's Faces"
+msgstr "Visa vänners ansikten"
+
+#: fb_class.php:155
+msgid "Hide Cover Photo"
+msgstr "Dölj omslagsfoto"
+
+#. Author of the plugin
+msgid "Milap Patel"
+msgstr "Milap Patel"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "https://patelmilap.wordpress.com/"
+msgstr "https://patelmilap.wordpress.com/"
+
+#: fb_class.php:210
+msgid "Custom Css:"
+msgstr "Anpassad CSS:"
+
+#: fb_class.php:186
+msgid "Language:"
+msgstr "Språk:"
+
+#: fb_class.php:174
+msgid "Set Height:"
+msgstr "Ställ in höjd:"
+
+#: fb_class.php:170
+msgid "Set Width:"
+msgstr "Ställ in bredd:"
+
+#: fb_class.php:151
+msgid "Show posts from the Page timeline"
+msgstr "Visa inlägg från sidans tidslinje"
+
+#: fb_class.php:163
+msgid "Show Small Header"
+msgstr "Visa litet sidhuvud"
+
+#: fb_class.php:167
+msgid "Adapt To Plugin Container Width"
+msgstr "Anpassa till tilläggsbehållarens bredd"
+
+#: fb_class.php:118
+msgid "Valid Facebook Pages!"
+msgstr "Giltiga Facebook-sidor!"
+
+#: fb_class.php:116
+msgid "Works with only"
+msgstr "Fungerar endast med"
+
+#: fb_class.php:113
+msgid "Facebook Page Url:"
+msgstr "URL till Facebook-sida:"
+
+#: fb_class.php:109
+msgid "Facebook Application Id:"
+msgstr "Applikations-ID för Facebook:"
+
+#: fb_class.php:105
+msgid "Title:"
+msgstr "Rubrik:"

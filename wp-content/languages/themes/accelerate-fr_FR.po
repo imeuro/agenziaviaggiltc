@@ -1,0 +1,654 @@
+# Translation of Themes - Accelerate in French (France)
+# This file is distributed under the same license as the Themes - Accelerate package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2018-05-22 11:18:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha\n"
+"Language: fr\n"
+"Project-Id-Version: Themes - Accelerate\n"
+
+#. Theme Name of the theme
+#: inc/admin/class-accelerate-admin.php:186 inc/demo-config.php:22
+msgid "Accelerate"
+msgstr "Accelerate"
+
+#: inc/customizer.php:138
+msgid "Switch to new responsive menu."
+msgstr "Basculer vers le nouveau menu responsive"
+
+#: inc/customizer.php:125
+msgid "Responsive Menu Style"
+msgstr "Style de menu responsive"
+
+#: inc/demo-config.php:26
+msgid "Accelerate Pro"
+msgstr "Accelerate Pro"
+
+#: inc/admin/class-accelerate-dashboard.php:98
+msgid "Got theme support question?"
+msgstr "Question de support du thème ?"
+
+#: inc/admin/class-accelerate-admin.php:196
+msgid "Get started with Accelerate"
+msgstr "Commencez avec Accelerate"
+
+#: inc/admin/class-accelerate-admin.php:190
+msgid "Welcome! Thank you for choosing Accelerate! To fully take advantage of the best our theme can offer please make sure you visit our %swelcome page%s."
+msgstr "Bienvenue ! Merci d’avoir choisi Accelerate ! Pour tirer pleinement avantage de ce que notre meilleur thème peut offrir, visitez notre %spage de bienvenue%s."
+
+#: inc/admin/class-accelerate-admin.php:181
+msgid "Dismiss"
+msgstr "Ignorer"
+
+#: inc/admin/class-accelerate-admin.php:159
+msgid "Cheatin&#8217; huh?"
+msgstr "Alors, on triche ?"
+
+#: inc/admin/class-accelerate-admin.php:155
+msgid "Action failed. Please refresh the page and retry."
+msgstr "Action échouée. Veuillez rafraîchir la page et essayer à nouveau."
+
+#: search.php:18
+msgid "Search Results"
+msgstr "Chercher les résultats"
+
+#: inc/customizer.php:42
+msgid "View PRO version"
+msgstr "Voir la Version Pro"
+
+#. Template Name of the theme
+msgid "Contact Page Template"
+msgstr "Modèle de page contact"
+
+#. Template Name of the theme
+msgid "Business Template"
+msgstr "Modèle business"
+
+#: sidebar-left.php:36 sidebar.php:36
+msgid "Meta"
+msgstr "Méta"
+
+#: searchform.php:11 searchform.php:12
+msgid "Search"
+msgstr "Recherche"
+
+#: inc/admin/class-accelerate-dashboard.php:89
+msgid "Documentation"
+msgstr "Documentation"
+
+#: inc/customizer.php:509
+msgid "Enter link to redirect for the slide title"
+msgstr "Entrez un lien de redirection pour le titre de panneau"
+
+#: inc/customizer.php:496
+msgid "Left side"
+msgstr "Côté gauche"
+
+#: inc/customizer.php:495
+msgid "Right side"
+msgstr "Côté droit"
+
+#: inc/customizer.php:491
+msgid "Slider text position."
+msgstr "Position de texte de diaporama"
+
+#: inc/customizer.php:476
+msgid "Enter description for this slide"
+msgstr "Saisissez la description pour ce panneau"
+
+#: inc/customizer.php:462
+msgid "Enter title for this slide"
+msgstr "Entrez le titre du panneau"
+
+#: inc/customizer.php:448
+msgid "Upload image"
+msgstr "Télécharger l'image"
+
+#: inc/customizer.php:435
+msgid "Slider #%1$s"
+msgstr "Diaporama #%1$s"
+
+#: inc/customizer.php:426
+msgid "Check to activate slider."
+msgstr "Cochez pour activer le carrousel."
+
+#: inc/customizer.php:413
+msgid "Activate slider"
+msgstr "Activer le carrousel"
+
+#: inc/customizer.php:407
+msgid "Slider"
+msgstr "Diaporama"
+
+#: inc/customizer.php:340
+msgid "Additional"
+msgstr "Suppléments"
+
+#: inc/customizer.php:329
+msgid "Write your custom css."
+msgstr "Écrivez votre propre CSS"
+
+#: inc/customizer.php:316
+msgid "Custom CSS"
+msgstr "CSS personnalisé"
+
+#: inc/customizer.php:306
+msgid "This will reflect in links, buttons and many others. Choose a color to match your site and logo."
+msgstr "Ceci sera répercuté dans les liens, les boutons et plus encore. Choisissez une couleur correpondant à votre site."
+
+#: inc/customizer.php:294
+msgid "Primary color option"
+msgstr "Couleur principale"
+
+#: inc/customizer.php:285
+msgid "Small featured image with alternating sides"
+msgstr "Petite image mise en avant avec des côtés alternants"
+
+#: inc/customizer.php:284
+msgid "Small featured image"
+msgstr "Petite image mise en avant"
+
+#: inc/customizer.php:283
+msgid "Large featured image"
+msgstr "Grande image mise en avant"
+
+#: inc/customizer.php:281
+msgid "Choose the display type for the latests posts view or posts page view (static front page)."
+msgstr "Choisissez le type d’affichage pour les derniers articles ou pour la vue de page (page d’accueil statique)"
+
+#: inc/customizer.php:268
+msgid "Posts page listing display type"
+msgstr "Type d’affichage des articles"
+
+#: inc/customizer.php:254
+msgid "Select default layout for single posts. This layout will be reflected in all single posts unless unique layout is set for specific post."
+msgstr "Choisissez l'agencement par défaut pour les articles. Cet agencement s'applique à tous les articles à moins que le contraire ne soit spécifié."
+
+#: inc/customizer.php:241
+msgid "Default layout for single posts only"
+msgstr "Agencement par défaut pour les articles seulement"
+
+#: inc/customizer.php:227
+msgid "Select default layout for pages. This layout will be reflected in all pages unless unique layout is set for specific page."
+msgstr "Choisissez l'agencement par défaut pour les pages. Cet agencement s'applique à toute les pages à moins que le contraire ne soit spécifié."
+
+#: inc/customizer.php:214
+msgid "Default layout for pages only"
+msgstr "Agencement par défaut pour les pages seulement"
+
+#: inc/customizer.php:200
+msgid "Select default layout. This layout will be reflected in whole site archives, search etc. The layout for a single post and page can be controlled from below options."
+msgstr "Choisissez l'agencement par défaut. Cet agencement s'applique aux archives, aux recherches, etc. L'agencement pour un article ou une page peut être contrôlé par les options suivantes."
+
+#: inc/customizer.php:187
+msgid "Default layout"
+msgstr "Mise en page par défaut"
+
+#: inc/customizer.php:171
+msgid "Wide layout"
+msgstr "Style Large"
+
+#: inc/customizer.php:170
+msgid "Boxed layout"
+msgstr "Style Boîte"
+
+#: inc/customizer.php:168
+msgid "Choose your site layout. The change is reflected in whole site."
+msgstr "Choisissez votre agencement. Les changements s'appliquent à tout le site."
+
+#: inc/customizer.php:154
+msgid "Site Layout"
+msgstr "Agencement du site"
+
+#: inc/customizer.php:148
+msgid "Design"
+msgstr "Design"
+
+#: inc/customizer.php:118
+msgid "Position Three: Display the Header image below main/primary menu."
+msgstr "Position trois : Affichage de l’image d’en-tête sous le menu principal"
+
+#: inc/customizer.php:117
+msgid "Position Two (Default): Display the Header image between site title/text and the main/primary menu."
+msgstr "Position deux (par défaut) : Affichage de l’image d’en-tête entre le titre/texte du site et le menu principal"
+
+#: inc/customizer.php:116
+msgid "Position One: Display the Header image just above the site title/text."
+msgstr "Position un : Affichage de l’image d’en-tête juste au dessus du titre/texte du site"
+
+#: inc/customizer.php:113
+msgid "Choose top header image display position."
+msgstr "Choisissez la position de l'image d'en-tête."
+
+#: inc/customizer.php:100
+msgid "Header Image Position"
+msgstr "Position Image En-tête"
+
+#: inc/customizer.php:87
+msgid "Choose the option that you want."
+msgstr "Choisissez l'option que vous voulez."
+
+#: inc/customizer.php:74
+msgid "Show"
+msgstr "Afficher"
+
+#: inc/customizer.php:93
+msgid "Disable"
+msgstr "Désactiver"
+
+#: inc/customizer.php:92
+msgid "Show Both"
+msgstr "Afficher les deux"
+
+#: inc/customizer.php:91
+msgid "Header Text Only"
+msgstr "Texte d'En-tête Seulement"
+
+#: inc/customizer.php:90
+msgid "Header Logo Only"
+msgstr "Logo d'En-tête Seulement"
+
+#: inc/customizer.php:67
+msgid "Header Logo"
+msgstr "Logo d'En-tête"
+
+#: inc/customizer.php:61
+msgid "Header"
+msgstr "En-tête"
+
+#: no-results.php:27
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "Il semblerait que nous ne soyons pas en mesure de trouver votre contenu. Essayez en lançant une recherche."
+
+#: no-results.php:22
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "Désolé, mais rien ne correspond à votre recherche. Veuillez réessayer avec des mots différents."
+
+#: no-results.php:18
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "Prêt à publier votre premier article&nbsp;? <a href=\"%1$s\">Lancez-vous</a>&nbsp;!"
+
+#: navigation.php:21 navigation.php:33
+msgid "Next &rarr;"
+msgstr "Suivant &rarr;"
+
+#: navigation.php:20 navigation.php:32
+msgid "&larr; Previous"
+msgstr "&larr; Précédent"
+
+#: inc/widgets/accelerate-custom-tag-widget.php:14
+msgid "TG: Custom Tag Cloud"
+msgstr "TG : Nuage personnalisé d’étiquettes"
+
+#: inc/widgets/accelerate-custom-tag-widget.php:10
+msgid "Custom Tag Cloud"
+msgstr "Nuage personnalisé d’étiquettes"
+
+#: inc/widgets/accelerate-image-service-widget.php:39
+msgid "Display Read more"
+msgstr "Afficher Lire la Suite"
+
+#: inc/widgets/accelerate-image-service-widget.php:14
+msgid "TG: Image Services"
+msgstr "TG : Image de services"
+
+#: inc/widgets/accelerate-image-service-widget.php:10
+msgid "Display some pages as services. Best for Business Top or Bottom sidebar."
+msgstr "Affiche quelques pages en temps que services. Optimisé pour les barres de haut et bas du template Business."
+
+#: inc/widgets/accelerate-recent-work-widget.php:38
+msgid "Description"
+msgstr "Description"
+
+#: inc/widgets/accelerate-recent-work-widget.php:14
+msgid "TG: Featured Widget"
+msgstr "TG : Widget mis en avant"
+
+#: inc/widgets/accelerate-recent-work-widget.php:10
+msgid "Show your some pages as recent work. Best for Business Top or Bottom sidebar."
+msgstr "Affiche quelques unes de vos pages comme travaux récents. Optimisé pour les barres de haut et bas du template Business."
+
+#: inc/widgets/accelerate-call-to-action-widget.php:45
+msgid "Open in new tab"
+msgstr "Ouvrir dans un nouvel onglet"
+
+#: inc/widgets/accelerate-call-to-action-widget.php:41
+msgid "Button Redirect Link:"
+msgstr "Lien de redirection du bouton :"
+
+#: inc/widgets/accelerate-call-to-action-widget.php:37
+msgid "Button Text:"
+msgstr "Text du bouton :"
+
+#: inc/widgets/accelerate-call-to-action-widget.php:34
+msgid "Call to Action Additional Text"
+msgstr "Text supplémentaire de l'appel à initiative"
+
+#: inc/widgets/accelerate-call-to-action-widget.php:32
+msgid "Call to Action Main Text"
+msgstr "Text de l'appel à initiative"
+
+#: inc/widgets/accelerate-call-to-action-widget.php:14
+msgid "TG: Call To Action Widget"
+msgstr "TG : Widget d'appel à initiative"
+
+#: inc/widgets/accelerate-call-to-action-widget.php:10
+msgid "Use this widget to show the call to action section."
+msgstr "Utilisez ce widget pour afficher une section d'appel à initiative."
+
+#: inc/widgets/accelerate-featured-single-page-widget.php:43
+#: inc/widgets/accelerate-featured-single-page-widget.php:48
+msgid "Show Image After Title"
+msgstr "Afficher l'image après le titre"
+
+#: inc/widgets/accelerate-featured-single-page-widget.php:42
+#: inc/widgets/accelerate-featured-single-page-widget.php:47
+msgid "Show Image Before Title"
+msgstr "Afficher l'image avant le titre"
+
+#: inc/widgets/accelerate-featured-single-page-widget.php:37
+msgid "Remove Featured image"
+msgstr "Supprimer l&rsquo;image à la une"
+
+#: inc/widgets/accelerate-recent-work-widget.php:42
+#: inc/widgets/accelerate-image-service-widget.php:32
+#: inc/widgets/accelerate-featured-single-page-widget.php:33
+msgid "Page"
+msgstr "Page"
+
+#: inc/widgets/accelerate-featured-single-page-widget.php:30
+msgid "Displays the title of the Page if title input is empty."
+msgstr "Affiche le titre de la page si le champ de titre est vide."
+
+#: inc/widgets/accelerate-recent-work-widget.php:35
+#: inc/widgets/accelerate-custom-tag-widget.php:45
+#: inc/widgets/accelerate-featured-single-page-widget.php:27
+msgid "Title:"
+msgstr "Titre&nbsp;:"
+
+#: inc/widgets/accelerate-featured-single-page-widget.php:24
+msgid "Suitable for Business Sidebar and Left/Right Sidebar."
+msgstr "Pour les barres Business et les barres de droite/gauche"
+
+#: inc/widgets/accelerate-featured-single-page-widget.php:15
+msgid "TG: Featured Single Page"
+msgstr "TG : Page mise en avant"
+
+#: inc/widgets/accelerate-featured-single-page-widget.php:11
+msgid "Display Featured Single Page"
+msgstr "Affiche une seule page mise en avant"
+
+#: inc/widgets/widgets.php:108
+msgid "Shows widgets at footer sidebar three."
+msgstr "Afficher les widgets dans la barre de pied de page 3."
+
+#: inc/widgets/widgets.php:106
+msgid "Footer Sidebar Three"
+msgstr "Barre de pied de page 3"
+
+#: inc/widgets/widgets.php:97
+msgid "Shows widgets at footer sidebar two."
+msgstr "Afficher les widgets dans la barre de pied de page 2."
+
+#: inc/widgets/widgets.php:95
+msgid "Footer Sidebar Two"
+msgstr "Barre de pied de page 2"
+
+#: inc/widgets/widgets.php:86
+msgid "Shows widgets at footer sidebar one."
+msgstr "Afficher les widgets dans la barre de pied de page 1."
+
+#: inc/widgets/widgets.php:84
+msgid "Footer Sidebar One"
+msgstr "Barre de pied de page 1"
+
+#: inc/widgets/widgets.php:75
+msgid "Shows widgets on Error 404 page."
+msgstr "Afficher les widgets sur la page d'erreur 404."
+
+#: inc/widgets/widgets.php:73
+msgid "Error 404 Page Sidebar"
+msgstr "Barre de la page d'erreur 404"
+
+#: inc/widgets/widgets.php:64
+msgid "Shows widgets on Contact Page Template."
+msgstr "Afficher les widgets sur le template de contact."
+
+#: inc/widgets/widgets.php:62
+msgid "Contact Page Sidebar"
+msgstr "Barre de la page de contact"
+
+#: inc/widgets/widgets.php:53
+msgid "Shows widgets on Business Page Template."
+msgstr "Afficher les widgets sur la page Business"
+
+#: inc/widgets/widgets.php:51
+msgid "Business Sidebar"
+msgstr "Barre Business"
+
+#: inc/widgets/widgets.php:42
+msgid "Shows widgets in header section just above the main navigation menu."
+msgstr "Afficher les widgets dans l'en-tête juste avant le menu de navigation principal."
+
+#: inc/widgets/widgets.php:40
+msgid "Header Sidebar"
+msgstr "Barre d'en-tête"
+
+#: inc/widgets/widgets.php:31
+msgid "Shows widgets at Left side."
+msgstr "Affiche les widgets sur le côté gauche"
+
+#: inc/widgets/widgets.php:20
+msgid "Shows widgets at Right side."
+msgstr "Affiche les widgets sur le côté droit"
+
+#: inc/functions.php:565
+msgid "Theme: %1$s by %2$s."
+msgstr "Thème %1$s par %2$s."
+
+#: inc/functions.php:565
+msgid "Powered by %s."
+msgstr "Propulsé par %s."
+
+#: inc/functions.php:565
+msgid "Copyright &copy; %1$s %2$s."
+msgstr "Copyright &copy; %1$s %2$s."
+
+#: inc/functions.php:561
+msgid "WordPress"
+msgstr "WordPress"
+
+#: inc/functions.php:537
+msgid "Reply"
+msgstr "Répondre"
+
+#: inc/functions.php:531
+msgid "Your comment is awaiting moderation."
+msgstr "Votre commentaire est en attente de validation."
+
+#: inc/functions.php:523
+msgid "%1$s at %2$s"
+msgstr "%1$s à %2$s"
+
+#: inc/functions.php:520
+msgid "Post author"
+msgstr "Auteur de l&rsquo;article"
+
+#: inc/functions.php:505
+msgid "(Edit)"
+msgstr "(Modifier)"
+
+#: inc/functions.php:505
+msgid "Pingback:"
+msgstr "Ping&nbsp;:"
+
+#: inc/functions.php:479
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Articles plus récents <span class=\"meta-nav\">&rarr;</span>"
+
+#: inc/functions.php:475
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr "<span class=\"meta-nav\">&larr;</span> Articles plus anciens"
+
+#: navigation.php:41 inc/functions.php:470
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr "&rarr;"
+
+#: navigation.php:40 inc/functions.php:469
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr "&larr;"
+
+#: inc/functions.php:465
+msgid "Post navigation"
+msgstr "Navigation des articles"
+
+#: inc/functions.php:353
+msgid "Edit"
+msgstr "Modifier"
+
+#: inc/functions.php:350
+msgid "<i class=\"fa fa-comments\"></i> % Comments"
+msgstr "<i class=\"fa fa-comments\"></i> % commentaires"
+
+#: inc/functions.php:350
+msgid "<i class=\"fa fa-comment\"></i> 1 Comment"
+msgstr "<i class=\"fa fa-comment\"></i> 1 commentaire"
+
+#: inc/functions.php:350
+msgid "<i class=\"fa fa-comment\"></i> 0 Comment"
+msgstr "<i class=\"fa fa-comment\"></i> 0 commentaire"
+
+#: inc/functions.php:296
+msgid "<span class=\"cat-links\"><i class=\"fa fa-folder-open\"></i>%1$s</span>"
+msgstr "<span class=\"cat-links\"><i class=\"fa fa-folder-open\"></i>%1$s</span>"
+
+#: inc/functions.php:294 inc/functions.php:344
+msgid ", "
+msgstr ", "
+
+#: inc/admin/meta-boxes.php:48
+msgid "No Sidebar Content Centered"
+msgstr "Pas de barre latérale, contenu centré"
+
+#: inc/admin/meta-boxes.php:43
+msgid "No Sidebar Full Width"
+msgstr "Pas de barre latérale, largeur maximale"
+
+#: inc/widgets/widgets.php:29 inc/admin/meta-boxes.php:38
+msgid "Left Sidebar"
+msgstr "Colonne latérale gauche"
+
+#: inc/widgets/widgets.php:18 inc/admin/meta-boxes.php:33
+msgid "Right Sidebar"
+msgstr "Colonne latérale droite"
+
+#: inc/admin/meta-boxes.php:28
+msgid "Default Layout"
+msgstr "Mise en page par défaut"
+
+#: inc/admin/meta-boxes.php:16 inc/admin/meta-boxes.php:18
+msgid "Select Layout"
+msgstr "Choisir l'agencement"
+
+#: header.php:111
+msgid "Menu"
+msgstr "Menu"
+
+#: functions.php:89
+msgid "Footer Menu"
+msgstr "Menu du bas de page"
+
+#: functions.php:88
+msgid "Primary/Main Menu"
+msgstr "Menu principal/primaire"
+
+#: content-single.php:31 content-page.php:26
+msgid "Pages:"
+msgstr "Pages&nbsp;:"
+
+#: content.php:48 inc/widgets/accelerate-image-service-widget.php:111
+#: inc/widgets/accelerate-featured-single-page-widget.php:95
+#: content-blog-large-image.php:40 content-blog-small-image.php:41
+msgid "Read more"
+msgstr "Lire la suite"
+
+#: comments.php:67
+msgid "Comments are closed."
+msgstr "Les commentaires sont fermés."
+
+#: comments.php:40 comments.php:57
+msgid "Newer Comments &rarr;"
+msgstr "Commentaires plus récents &rarr;"
+
+#: comments.php:39 comments.php:56
+msgid "&larr; Older Comments"
+msgstr "&larr; Commentaire plus ancien"
+
+#: comments.php:38 comments.php:55
+msgid "Comment navigation"
+msgstr "Navigation des commentaires"
+
+#: comments.php:31
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "Une réflexion au sujet de &laquo;&nbsp;%2$s&nbsp;&raquo;"
+msgstr[1] "%1$s réflexions au sujet de &laquo;&nbsp;%2$s&nbsp;&raquo;"
+
+#: archive.php:66 sidebar-left.php:29 sidebar.php:29
+msgid "Archives"
+msgstr "Archives"
+
+#: archive.php:63
+msgid "Links"
+msgstr "Liens"
+
+#: archive.php:60
+msgid "Quotes"
+msgstr "Citations"
+
+#: archive.php:57
+msgid "Videos"
+msgstr "Vidéos"
+
+#: archive.php:54
+msgid "Images"
+msgstr "Images"
+
+#: archive.php:51
+msgid "Asides"
+msgstr "En passant"
+
+#: archive.php:48
+msgid "Year: %s"
+msgstr "Année : %s"
+
+#: archive.php:45
+msgid "Month: %s"
+msgstr "Mois : %s"
+
+#: archive.php:42
+msgid "Day: %s"
+msgstr "Jour : %s"
+
+#: archive.php:34
+msgid "Author: %s"
+msgstr "Auteur : %s"
+
+#: 404.php:22
+msgid "It looks like nothing was found at this location. Try the search below."
+msgstr "Il semblerait que rien n'ait été trouvé à cette adresse. Essayez l'outil recherche suivant."
+
+#: 404.php:20
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Oups&nbsp;! Cette page est introuvable."
+
+#. Author of the theme
+#: inc/functions.php:563
+msgid "ThemeGrill"
+msgstr "ThemeGrill"

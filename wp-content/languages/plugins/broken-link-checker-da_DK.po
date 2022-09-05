@@ -1,0 +1,1823 @@
+# Translation of Plugins - Broken Link Checker - Stable (latest release) in Danish
+# This file is distributed under the same license as the Plugins - Broken Link Checker - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-06-05 21:29:03+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: da_DK\n"
+"Project-Id-Version: Plugins - Broken Link Checker - Stable (latest release)\n"
+
+#. Author URI of the plugin
+msgid "https://wpmudev.com/"
+msgstr "https://wpmudev.com/"
+
+#: core/core.php:974
+msgid "It's used on over 80,000 sites just like yours."
+msgstr "Bruges på over 80.000 websteder, ligesom din."
+
+#: core/core.php:970
+msgid "Install the free <a href=\"%s\" class=\"thickbox open-plugin-details-modal\">External Links plugin</a> to control if external links open in a new tab, and their nofollow, noopener and UGC options."
+msgstr "Installer det gratis <a href=\"%s\" class=\"thickbox open-plugin-details-modal\">External Links plugin</a>, for at kontrollere om eksterne links åbner i en ny fane, samt om der bruges nofollow, noopener og UGC muligheder."
+
+#: core/core.php:965
+msgid "Configure <a target=\"_blank\" href=\"%s\">External Links</a> settings."
+msgstr "Konfigurer indstillinger for<a target=\"_blank\" href=\"%s\">Eksterne links</a>."
+
+#: core/core.php:958
+msgctxt "settings page"
+msgid "Control external links"
+msgstr "Kontroller eksterne links"
+
+#: includes/admin/links-page-js.php:654
+msgid "Are you sure you want to unlink and remove this link from all posts?"
+msgstr "Er du sikker på du ønsker fjerne linket og slette det fra indholdet?"
+
+#: modules/checkers/http.php:466
+msgid "Using WP HTTP"
+msgstr "Brug WP HTTP"
+
+#: core/core.php:1494
+msgid "Log file clear schedule"
+msgstr "Tidsplan for rydning af logfilen"
+
+#: core/core.php:1148
+msgid "Disable post modified date change when link is edited"
+msgstr "Deaktiver opdatering af ændringsdato på indholdet, når linket er redigeret "
+
+#: core/core.php:1143
+msgid "Post Modified Date"
+msgstr "Indholdets ændringsdato"
+
+#: core/core.php:1136
+msgid "Use your own %1$sapi key%2$s for checking youtube links."
+msgstr "Brug din egen %1$sAPI-nøgle%2$s, for at gennemgå YouTube-links."
+
+#: core/core.php:1124
+msgid "YouTube API Key"
+msgstr "YouTube API-nøgle"
+
+#. Author of the plugin
+msgid "WPMU DEV"
+msgstr "WPMU DEV"
+
+#: includes/link-query.php:47
+msgctxt "filter heading"
+msgid "Warnings"
+msgstr "Advarsler"
+
+#: includes/any-post.php:824
+msgid "%1$d \"%2$s\" deleted."
+msgid_plural "%1$d \"%2$s\" deleted."
+msgstr[0] "%1$d \"%2$s\" er slettet"
+msgstr[1] "%1$d \"%2$s\" er slettet"
+
+#: core/core.php:1688
+msgid "Enter the keys of acf fields you want to check (one per line). If a field contains HTML code, prefix its name with <code>html:</code>. For example, <code>html:field_586a3eaa4091b</code>."
+msgstr "Indtast de acf-felter, du ønsker at tjekke (en pr. linje). Hvis et felt indeholder HTML-kode, skal du sætte <code>html:</code> foran dets navn. F.eks.: <code>html:field_586a3eaa4091b</code>"
+
+#: core/init.php:237
+msgid "Every 10 minutes"
+msgstr "Hvert 10. minut"
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/broken-link-checker/"
+msgstr "https://wordpress.org/plugins/broken-link-checker/"
+
+#. Description of the plugin
+msgid "Checks your blog for broken links and missing images and notifies you on the dashboard if any are found."
+msgstr "Tjekker din blog for døde links og manglende billeder og giver dig besked i kontrolpanelet, hvis det er tilfældet."
+
+#: modules/parsers/metadata.php:141 modules/parsers/acf_field.php:120
+msgid "Custom field"
+msgstr "Eget felt"
+
+#: modules/parsers/image.php:193
+msgid "Image"
+msgstr "Billede"
+
+#: modules/extras/youtube.php:264
+msgid "Unknown YouTube API response received."
+msgstr "Ukendt YouTube-API-svar modtaget."
+
+#: modules/extras/youtube.php:216
+msgid "Playlist OK"
+msgstr "Afspilningsliste OK"
+
+#: modules/extras/youtube.php:207
+msgid "Video Restricted"
+msgstr "Video ikke offentligt tilgængelig"
+
+#: modules/extras/youtube.php:201
+msgid "Video status : %1$s%2$s"
+msgstr "Video status : %1$s%2$s"
+
+#: modules/extras/youtube.php:191
+msgctxt "link status"
+msgid "Empty Playlist"
+msgstr "Tøm afspilningsliste"
+
+#: modules/extras/youtube.php:190
+msgid "This playlist has no entries or all entries have been deleted."
+msgstr "Denne afspilningsliste indeholder ingen numre, eller alle numre er blevet slettet."
+
+#: modules/extras/youtube.php:183
+msgid "Playlist Restricted"
+msgstr "Afspilningsliste med begrænset adgang"
+
+#: modules/extras/youtube.php:173 modules/extras/youtube.php:176
+msgid "Playlist Not Found"
+msgstr "Afspilningsliste ikke fundet"
+
+#: modules/extras/youtube.php:151 modules/extras/youtube.php:154
+msgid "Video Not Found"
+msgstr "Video ikke fundet"
+
+#: modules/extras/youtube.php:140
+msgid "Video OK"
+msgstr "Video OK"
+
+#: modules/extras/youtube-playlist-embed.php:25
+msgid "Embedded YouTube playlist"
+msgstr "Indsat YouTube-afspilningsliste"
+
+#: modules/extras/youtube-playlist-embed.php:24
+msgid "YouTube Playlist"
+msgstr "YouTube-afspilningsliste"
+
+#: modules/extras/youtube-iframe.php:26 modules/extras/youtube-embed.php:25
+msgid "Embedded YouTube video"
+msgstr "Indsat YouTube-videoe"
+
+#: modules/extras/youtube-iframe.php:25 modules/extras/youtube-embed.php:24
+msgid "YouTube Video"
+msgstr "YouTube-videoe"
+
+#: modules/extras/vimeo-embed.php:25
+msgid "Embedded Vimeo video"
+msgstr "Indsat Vimeo-videoe"
+
+#: modules/extras/vimeo-embed.php:24
+msgid "Vimeo Video"
+msgstr "Vimeo-videoe"
+
+#: modules/extras/rapidshare.php:189
+msgid "RapidShare API error: %s"
+msgstr "RapidShare-API-fejl: %s"
+
+#: modules/extras/rapidshare.php:183
+msgid "RapidShare : %s"
+msgstr "RapidShare : %s"
+
+#: modules/extras/rapidshare.php:172
+msgid "File Locked"
+msgstr "Fil låst"
+
+#: modules/extras/rapidshare.php:165
+msgid "File Blocked"
+msgstr "Fil blokeret"
+
+#: modules/extras/rapidshare.php:158
+msgid "RS Server Down"
+msgstr "RS-server nede"
+
+#: modules/extras/rapidshare.php:51
+msgid "Using RapidShare API"
+msgstr "Bruger RapidShare API"
+
+#: modules/extras/mediafire.php:109
+msgid "Permission Denied"
+msgstr "Tilladelse nægtet"
+
+#: modules/extras/mediafire.php:97 modules/extras/mediafire.php:103
+#: modules/extras/rapidshare.php:139
+msgid "Not Found"
+msgstr "Ikke fundet"
+
+#: modules/extras/googlevideo-embed.php:25
+msgid "Embedded GoogleVideo video"
+msgstr "Indsatte GoogleVideo-videoer"
+
+#: modules/extras/googlevideo-embed.php:24
+msgid "GoogleVideo Video"
+msgstr "GoogleVideo-video"
+
+#: modules/extras/embed-parser-base.php:199
+msgid "Embedded videos can't be edited using Broken Link Checker. Please edit or replace the video in question manually."
+msgstr "Indlejrede videoer kan ikke redigeres med Broken Link Checker. Redigér venligst selv pågældende video eller erstat videoen."
+
+#: modules/extras/dailymotion-embed.php:24
+msgid "Embedded DailyMotion video"
+msgstr "Indsat DailyMotion-videoe"
+
+#: modules/extras/dailymotion-embed.php:23
+msgid "DailyMotion Video"
+msgstr "DailyMotion-video"
+
+#: modules/containers/dummy.php:34 modules/containers/dummy.php:45
+msgid "I don't know how to edit a '%1$s' [%2$d]."
+msgstr "Jeg ved ikke, hvordan man redigere en '%1$s' [%2$d]."
+
+#: modules/containers/acf_field.php:258 modules/containers/custom_field.php:272
+msgid "View \"%s\""
+msgstr "Se \"%s\""
+
+#: modules/containers/acf_field.php:234 modules/containers/custom_field.php:238
+msgid "Edit this post"
+msgstr "Redigér dette indlæg"
+
+#: modules/containers/acf_field.php:132 modules/containers/custom_field.php:137
+msgid "Failed to delete the meta field '%1$s' on %2$s [%3$d]"
+msgstr "Kunne ikke slette metafeltet '%1$s' på %2$s [%3$d]"
+
+#: modules/containers/acf_field.php:102 modules/containers/custom_field.php:107
+msgid "Failed to update the meta field '%1$s' on %2$s [%3$d]"
+msgstr "Kunne ikke opdatere metafeltet '%1$s' på %2$s [%3$d]"
+
+#: modules/containers/comment.php:385
+msgid "%d comment moved to the Trash."
+msgid_plural "%d comments moved to the Trash."
+msgstr[0] "%d kommentar flyttet til papirkurven"
+msgstr[1] "%d kommentarer flyttet til papirkurven"
+
+#: modules/containers/comment.php:366
+msgid "%d comment has been deleted."
+msgid_plural "%d comments have been deleted."
+msgstr[0] "%d kommentar er blevet slettet"
+msgstr[1] "%d kommentarer er blevet slettede"
+
+#: modules/containers/comment.php:189
+msgid "Comment"
+msgstr "Kommentar"
+
+#: modules/containers/comment.php:172
+msgid "View comment"
+msgstr "Se kommentar"
+
+#: modules/containers/comment.php:168
+msgctxt "verb"
+msgid "Trash"
+msgstr "Kassér"
+
+#: modules/containers/comment.php:168
+msgid "Move this comment to the trash"
+msgstr "Flyt denne kommentar til papirkurven"
+
+#: modules/containers/comment.php:166
+msgid "Delete Permanently"
+msgstr "Slet permanent"
+
+#: modules/containers/comment.php:159 modules/containers/comment.php:201
+msgid "Edit comment"
+msgstr "Redigér kommentar"
+
+#: modules/containers/comment.php:95
+msgid "Can't move comment %d to the trash"
+msgstr "Kan ikke flytte kommentar %d til papirkurven"
+
+#: modules/containers/comment.php:74
+msgid "Failed to delete comment %d"
+msgstr "Det mislykkedes at slette kommentaren %d"
+
+#: modules/containers/comment.php:53
+msgid "Updating comment %d failed"
+msgstr "Opdatering af kommentaren %d mislykkedes"
+
+#: modules/containers/blogroll.php:298
+msgid "%d blogroll link deleted."
+msgid_plural "%d blogroll links deleted."
+msgstr[0] "%d link slettet fra Links"
+msgstr[1] "%d links slettet fra Links"
+
+#: modules/containers/blogroll.php:128
+msgid "Failed to delete blogroll link \"%1$s\" (%2$d)"
+msgstr "Kunne ikke slette linket til blogroll \"%1$s\" (%2$d)"
+
+#: modules/containers/blogroll.php:97
+msgid "Updating bookmark %d failed"
+msgstr "Opdatering af bogmærket %d mislykkedes"
+
+#: modules/containers/blogroll.php:47
+msgid ""
+"You are about to delete this link '%s'\n"
+"  'Cancel' to stop, 'OK' to delete."
+msgstr ""
+"Du er ved at slette dette link: '%s'\n"
+" 'Annullér' for at stoppe, 'OK' for at slette."
+
+#: modules/containers/blogroll.php:27 modules/containers/blogroll.php:46
+msgid "Edit this bookmark"
+msgstr "Redigér dette bogmærke"
+
+#: modules/containers/blogroll.php:21
+msgid "Bookmark"
+msgstr "Bogmærke"
+
+#: modules/checkers/http.php:459
+msgid "Request timed out."
+msgstr "Anmodning fik timeout."
+
+#: modules/checkers/http.php:379
+msgid "Most likely the connection timed out or the domain doesn't exist."
+msgstr "Det sandsynligste er, at forbindelsen fik timeout eller at domænet ikke eksisterer."
+
+#: modules/checkers/http.php:361 modules/checkers/http.php:450
+msgid "(No response)"
+msgstr "(Intet svar)"
+
+#: modules/checkers/http.php:359 modules/checkers/http.php:448
+msgid "HTTP code : %d"
+msgstr "HTTP-kode: %d"
+
+#: modules/checkers/http.php:305
+msgid "Connection Failed"
+msgstr "Forbindelse mislykkedes"
+
+#: modules/checkers/http.php:289
+msgid "Server Not Found"
+msgstr "Server ikke fundet"
+
+#: includes/utility-class.php:265
+msgid "%d month ago"
+msgid_plural "%d months ago"
+msgstr[0] "%d måned siden"
+msgstr[1] "%d måneder siden"
+
+#: includes/utility-class.php:264
+msgid "%d month"
+msgid_plural "%d months"
+msgstr[0] "%d måned"
+msgstr[1] "%d måneder"
+
+#: includes/utility-class.php:261
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d dag siden"
+msgstr[1] "%d dage siden"
+
+#: includes/utility-class.php:260
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d dag"
+msgstr[1] "%d dage"
+
+#: includes/utility-class.php:257
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] "%d time siden"
+msgstr[1] "%d timer siden"
+
+#: includes/utility-class.php:256
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d time"
+msgstr[1] "%d timer"
+
+#: includes/utility-class.php:253
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] "%d minut siden"
+msgstr[1] "%d minutter siden"
+
+#: includes/utility-class.php:252
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d minut"
+msgstr[1] "%d minutter"
+
+#: includes/utility-class.php:249
+msgid "%d second ago"
+msgid_plural "%d seconds ago"
+msgstr[0] "%d sekund siden"
+msgstr[1] "%d sekunder siden"
+
+#: includes/utility-class.php:248
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d sekund"
+msgstr[1] "%d sekunder"
+
+#: includes/parsers.php:132
+msgid "Unlinking is not implemented in the '%s' parser"
+msgstr "Fjernelse af links er ikke implementeret i '%s'-parseren"
+
+#: includes/parsers.php:117
+msgid "Editing is not implemented in the '%s' parser"
+msgstr "Redigering er ikke implementeret i '%s'-parser"
+
+#: modules/extras/youtube.php:141 modules/extras/youtube.php:217
+#: modules/extras/rapidshare.php:145 modules/extras/rapidshare.php:151
+#: modules/extras/rapidshare.php:178 includes/links.php:1058
+msgctxt "link status"
+msgid "OK"
+msgstr "OK"
+
+#: includes/links.php:1055
+msgid "False positive"
+msgstr "Falsk positiv"
+
+#: includes/links.php:1052
+msgid "Not checked"
+msgstr "Ikke tjekket"
+
+#: modules/extras/mediafire.php:115 modules/extras/youtube.php:135
+#: modules/extras/youtube.php:230 modules/checkers/http.php:312
+#: modules/checkers/http.php:316 includes/links.php:1029
+msgid "Unknown Error"
+msgstr "Ukendt fejl"
+
+#: includes/links.php:1016
+msgctxt "link status"
+msgid "Unknown"
+msgstr "Ukendt"
+
+#: includes/links.php:902 includes/links.php:939
+msgid "Couldn't delete the link's database record"
+msgstr "Kunne ikke slette linkets databasepost"
+
+#: includes/links.php:848
+msgid "This link is not a redirect"
+msgstr "Dette link er ikke en redirect"
+
+#: includes/links.php:781
+msgid "Failed to create a DB entry for the new URL."
+msgstr "Det mislykkedes at oprette en databasepost for den nye URL."
+
+#: includes/links.php:755
+msgid "This link can not be edited because it is not used anywhere on this site."
+msgstr "Dette link kan ikke redigeres, fordi det ikke bruges noget steds på denne site."
+
+#: includes/links.php:738 includes/links.php:841 includes/links.php:875
+msgid "Link is not valid"
+msgstr "Link er ikke gyldigt"
+
+#: includes/links.php:505
+msgid "Link is valid."
+msgstr "Link er aktivt."
+
+#: includes/links.php:503
+msgid "Link is broken."
+msgstr "Link er dødt."
+
+#: includes/links.php:271
+msgid "The plugin doesn't know how to check this type of link."
+msgstr "Pluginnet ved ikke, hvordan det skal tjekke denne type links."
+
+#: includes/links.php:225
+msgid "The plugin script was terminated while trying to check the link."
+msgstr "Pluginskriptet blev afbrudt, mens det prøvede at tjekke et link."
+
+#: includes/link-query.php:83 includes/link-query.php:131
+msgid "No links found for your query"
+msgstr "Din forespørgsel returnerede ingen links"
+
+#: includes/link-query.php:82
+msgid "Search Results"
+msgstr "Søgeresultater"
+
+#: includes/link-query.php:68
+msgid "No dismissed links found"
+msgstr "Ingen ignorerede links fundet"
+
+#: includes/link-query.php:67
+msgid "Dismissed Links"
+msgstr "Ignorerede links"
+
+#: includes/link-query.php:66
+msgid "Dismissed"
+msgstr "Ignoreret"
+
+#: includes/link-query.php:58
+msgid "No redirects found"
+msgstr "Ingen redirigeringer fundet"
+
+#: includes/link-query.php:57
+msgid "Redirected Links"
+msgstr "Redirigerede links"
+
+#: includes/link-query.php:56
+msgid "Redirects"
+msgstr "Redirigerede"
+
+#: includes/link-query.php:48
+msgid "No warnings found"
+msgstr "Ingen advarsler fundet"
+
+#: includes/link-query.php:46
+msgctxt "filter name"
+msgid "Warnings"
+msgstr "Advarsler"
+
+#: includes/link-query.php:38
+msgid "No broken links found"
+msgstr "Ingen døde links fundet"
+
+#: includes/link-query.php:36
+msgid "Broken"
+msgstr "Døde"
+
+#: includes/link-query.php:27
+msgid "No links found (yet)"
+msgstr "Ingen links fundet (endnu)"
+
+#: includes/link-query.php:26
+msgid "Detected Links"
+msgstr "Fundne links"
+
+#: includes/link-query.php:25
+msgid "All"
+msgstr "Alle"
+
+#: includes/instances.php:118 includes/instances.php:174
+msgid "Parser '%s' not found."
+msgstr "Parser '%s' ikke fundet."
+
+#: includes/instances.php:109 includes/instances.php:165
+msgid "Container %1$s[%2$d] not found"
+msgstr "Containeren %1$s[%2$d] blev ikke fundet"
+
+#: includes/extra-strings.php:20
+msgctxt "module name"
+msgid "Pages"
+msgstr "Sider"
+
+#: includes/extra-strings.php:19
+msgctxt "module name"
+msgid "Posts"
+msgstr "Indlæg"
+
+#: includes/extra-strings.php:18
+msgctxt "module name"
+msgid "YouTube API"
+msgstr "YouTube API"
+
+#: includes/extra-strings.php:17
+msgctxt "module name"
+msgid "Smart YouTube httpv:// URLs"
+msgstr "Smart YouTube httpv:// URLs"
+
+#: includes/extra-strings.php:16
+msgctxt "module name"
+msgid "RapidShare API"
+msgstr "RapidShare API"
+
+#: includes/extra-strings.php:15
+msgctxt "module name"
+msgid "Plaintext URLs"
+msgstr "URL&#39;er i alm. tekst"
+
+#: includes/extra-strings.php:14
+msgctxt "module name"
+msgid "MediaFire API"
+msgstr "MediaFire API"
+
+#: includes/extra-strings.php:13
+msgctxt "module name"
+msgid "HTML links"
+msgstr "HTML-links"
+
+#: includes/extra-strings.php:12
+msgctxt "module name"
+msgid "HTML images"
+msgstr "HTML-billeder"
+
+#: includes/extra-strings.php:11
+msgctxt "module name"
+msgid "Embedded YouTube videos (old embed code)"
+msgstr "Indlejrede YouTube-videoer (gl. indlejringskode)"
+
+#: includes/extra-strings.php:10
+msgctxt "module name"
+msgid "Embedded YouTube videos"
+msgstr "Indlejrede YouTube-videoer"
+
+#: includes/extra-strings.php:9
+msgctxt "module name"
+msgid "Embedded YouTube playlists (old embed code)"
+msgstr "Indlejrede YouTube-afspilningslister (gl. indlejringskode)"
+
+#: includes/extra-strings.php:8
+msgctxt "module name"
+msgid "Embedded Vimeo videos"
+msgstr "Indlejrede Vimeo-videoer"
+
+#: includes/extra-strings.php:7
+msgctxt "module name"
+msgid "Embedded GoogleVideo videos"
+msgstr "Indlejrede GoogleVideo-videoer"
+
+#: includes/extra-strings.php:6
+msgctxt "module name"
+msgid "Embedded DailyMotion videos"
+msgstr "Indlejrede DailyMotion-videoer"
+
+#: includes/extra-strings.php:5
+msgctxt "module name"
+msgid "Custom fields"
+msgstr "Brugerdefinerede felter"
+
+#: includes/extra-strings.php:4
+msgctxt "module name"
+msgid "Comments"
+msgstr "Kommentarer"
+
+#: includes/extra-strings.php:3
+msgctxt "module name"
+msgid "Blogroll items"
+msgstr "Linkliste-elementer"
+
+#: includes/extra-strings.php:2
+msgctxt "module name"
+msgid "Basic HTTP"
+msgstr "Basic HTTP"
+
+#: includes/containers.php:930 includes/containers.php:948
+msgid "Container type '%s' not recognized"
+msgstr "Container-type '%s' ikke genkendt"
+
+#: includes/containers.php:123
+msgid "%1$d '%2$s' has been deleted"
+msgid_plural "%1$d '%2$s' have been deleted"
+msgstr[0] "%1$d '%2$s er blevet slettet"
+msgstr[1] "%1$d '%2$s blev slettet"
+
+#: includes/any-post.php:847
+msgid "%1$d \"%2$s\" moved to the Trash."
+msgid_plural "%1$d \"%2$s\" moved to the Trash."
+msgstr[0] "%1$d \"%2$s\" flyttet til papirkurven."
+msgstr[1] "%1$d \"%2$s\" flyttet til papirkurven."
+
+#: includes/any-post.php:845
+msgid "%d page moved to the Trash."
+msgid_plural "%d pages moved to the Trash."
+msgstr[0] "%d side flyttet til papirkurven"
+msgstr[1] "%d side flyttet til papirkurven"
+
+#: includes/any-post.php:843
+msgid "%d post moved to the Trash."
+msgid_plural "%d posts moved to the Trash."
+msgstr[0] "%d indlæg flyttet til papirkurven"
+msgstr[1] "%d indlæg flyttet til papirkurven"
+
+#: includes/any-post.php:822
+msgid "%d page deleted."
+msgid_plural "%d pages deleted."
+msgstr[0] "%d side slettet"
+msgstr[1] "%d sider slettet"
+
+#: includes/any-post.php:820
+msgid "%d post deleted."
+msgid_plural "%d posts deleted."
+msgstr[0] "%d indlæg slettet"
+msgstr[1] "%d indlæg slettet"
+
+#: modules/containers/acf_field.php:353 modules/containers/custom_field.php:379
+#: includes/any-post.php:713
+msgid "Failed to move post \"%1$s\" (%2$d) to the trash"
+msgstr "Kunne ikke flytte indholdet \"%1$s\" (%2$d), til papirkurven"
+
+#: modules/containers/acf_field.php:341 modules/containers/custom_field.php:360
+#: includes/any-post.php:693
+msgid "Can't move post \"%1$s\" (%2$d) to the trash because the trash feature is disabled"
+msgstr "Kan ikke flytte indholdet \"%1$s\" (%2$d) til papirkurven, fordi papirkurvsfunktionen er deaktiveret"
+
+#: modules/containers/acf_field.php:327 modules/containers/custom_field.php:341
+#: includes/any-post.php:674
+msgid "Failed to delete post \"%1$s\" (%2$d)"
+msgstr "Kunne ikke at slette indholdet \"%1$s\" (%2$d)"
+
+#: includes/any-post.php:613
+msgid "Updating post %d failed"
+msgstr "Opdatering af indlægget %d mislykkedes"
+
+#: modules/containers/comment.php:43 modules/containers/blogroll.php:83
+#: includes/any-post.php:599
+msgid "Nothing to update"
+msgstr "Intet at opdatere"
+
+#: modules/containers/acf_field.php:248 modules/containers/custom_field.php:252
+#: includes/any-post.php:535
+msgid "Edit this item"
+msgstr "Redigér denne"
+
+#: modules/containers/acf_field.php:258 modules/containers/comment.php:172
+#: modules/containers/custom_field.php:272 includes/any-post.php:516
+msgid "View"
+msgstr "Se"
+
+#: includes/any-post.php:515
+msgid "View &#8220;%s&#8221;"
+msgstr "Vis &#8220;%s&#8221;"
+
+#: includes/any-post.php:508
+msgid "Preview"
+msgstr "Preview"
+
+#: includes/any-post.php:507
+msgid "Preview &#8220;%s&#8221;"
+msgstr "Preview &#8220;%s&#8221;"
+
+#: modules/containers/acf_field.php:254 modules/containers/blogroll.php:47
+#: modules/containers/custom_field.php:267 includes/any-post.php:494
+msgid "Delete"
+msgstr "Slet"
+
+#: modules/containers/acf_field.php:254 modules/containers/custom_field.php:265
+#: includes/any-post.php:492
+msgid "Delete this item permanently"
+msgstr "Slet dette indlæg permanent"
+
+#: modules/containers/acf_field.php:252 modules/containers/custom_field.php:260
+#: includes/any-post.php:487
+msgid "Trash"
+msgstr "Papirkurv"
+
+#: modules/containers/acf_field.php:252 modules/containers/custom_field.php:258
+#: includes/any-post.php:485
+msgid "Move this item to the Trash"
+msgstr "Flyt denne til papirkurven"
+
+#: modules/containers/acf_field.php:248 modules/containers/comment.php:159
+#: modules/containers/blogroll.php:46 modules/containers/custom_field.php:252
+#: includes/any-post.php:477
+msgid "Edit"
+msgstr "Redigér"
+
+#: includes/admin/table-printer.php:917
+msgid "Use this URL"
+msgstr "Brug denne URL"
+
+#: includes/admin/table-printer.php:897
+msgctxt "inline link editor"
+msgid "Suggestions"
+msgstr "Forslag"
+
+#: includes/admin/table-printer.php:892
+msgctxt "inline link editor"
+msgid "URL"
+msgstr "URL"
+
+#: includes/admin/table-printer.php:887
+msgctxt "inline link editor"
+msgid "Text"
+msgstr "Tekst"
+
+#: includes/admin/table-printer.php:884
+msgctxt "inline editor title"
+msgid "Edit Link"
+msgstr "Redigér link"
+
+#: includes/admin/table-printer.php:807
+msgid "[An orphaned link! This is a bug.]"
+msgstr "[En forælderløs link! Dette er en bug.]"
+
+#: includes/admin/table-printer.php:780
+msgid "Update URL"
+msgstr "Opdatér URL"
+
+#: includes/admin/table-printer.php:746
+msgid "Replace this redirect with a direct link"
+msgstr "Erstat denne redirect med et direkte link"
+
+#: includes/admin/table-printer.php:733
+msgid "Undismiss"
+msgstr "Ignorér ikke"
+
+#: includes/admin/table-printer.php:732
+msgid "Undismiss this link"
+msgstr "Ignorér ikke dette link"
+
+#: includes/admin/table-printer.php:726
+msgid "Hide this link and do not report it again unless its status changes"
+msgstr "Gem dette link og rapportér det ikke igen, med mindre dets status ændres"
+
+#: includes/admin/table-printer.php:718
+msgid "Remove this link from the list of broken links and mark it as valid"
+msgstr "Fjern dette link fra listen over døde links og markér det som aktivt"
+
+#: includes/admin/table-printer.php:712
+msgid "Remove this link from all posts"
+msgstr "Fjern dette link fra alle indlæg"
+
+#: includes/admin/table-printer.php:710
+msgid "Edit this link"
+msgstr "Redigér dette link"
+
+#: includes/admin/table-printer.php:689
+msgctxt "link in the \"Status\" column"
+msgid "Details"
+msgstr "Detaljer"
+
+#: includes/admin/table-printer.php:677
+msgid "Broken for"
+msgstr "Død for"
+
+#: includes/admin/table-printer.php:662
+msgctxt "checked how long ago"
+msgid "Checked"
+msgstr "Tjekket"
+
+#: includes/admin/table-printer.php:644 includes/admin/table-printer.php:688
+msgid "Show more info about this link"
+msgstr "Vis flere oplysninger om dette link"
+
+#: includes/admin/table-printer.php:617
+msgid "Log"
+msgstr "Log"
+
+#: includes/admin/table-printer.php:606
+msgid "This link has been broken for %s."
+msgstr "Dette link har været dødt i %s."
+
+#: includes/admin/table-printer.php:598
+msgid "This link has failed %d time."
+msgid_plural "This link has failed %d times."
+msgstr[0] "Der har været fejl på dette link %d gang."
+msgstr[1] "Der har været fejl på dette link %d gange."
+
+#: includes/admin/table-printer.php:587
+msgid "Instance count"
+msgstr "Antal instanser"
+
+#: includes/admin/table-printer.php:580
+msgid "Redirect count"
+msgstr "Antal redirigeringer"
+
+#: includes/admin/table-printer.php:573
+msgid "Final URL"
+msgstr "Endelige URL"
+
+#: includes/admin/table-printer.php:569
+msgid "%2.3f seconds"
+msgstr "%2.3f sekunder"
+
+#: includes/admin/table-printer.php:566
+msgid "Response time"
+msgstr "Svartid"
+
+#: includes/admin/table-printer.php:548 core/core.php:1500
+msgid "Never"
+msgstr "Aldrig"
+
+#: includes/admin/table-printer.php:543
+msgid "Link last checked"
+msgstr "Link sidst tjekket"
+
+#: includes/admin/table-printer.php:536
+msgid "Post published on"
+msgstr "Indlæg udgivet den"
+
+#: includes/admin/table-printer.php:378 includes/admin/table-printer.php:905
+msgid "Update"
+msgstr "Opdatér"
+
+#: includes/admin/table-printer.php:369
+msgid "Regular expression"
+msgstr "Regular expression"
+
+#: includes/admin/table-printer.php:365
+msgid "Case sensitive"
+msgstr "Der skelnes mellem små og store bogstaver"
+
+#: includes/admin/table-printer.php:357
+msgid "Replace with"
+msgstr "Erstat med"
+
+#: includes/admin/table-printer.php:353
+msgid "Find"
+msgstr "Find"
+
+#: includes/admin/table-printer.php:351
+msgid "Bulk Edit URLs"
+msgstr "Masseredigér URL&#39;er"
+
+#: includes/admin/table-printer.php:328
+msgid "Displaying %1$s&#8211;%2$s of <span class=\"current-link-count\">%3$s</span>"
+msgstr "Viser %1$s&#8211;%2$s af <span class=\"current-link-count\">%3$s</span>"
+
+#: includes/admin/table-printer.php:319
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: includes/admin/table-printer.php:318
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: includes/admin/table-printer.php:302
+msgid "Delete sources"
+msgstr "Slet kilder"
+
+#: includes/admin/table-printer.php:300
+msgid "Move sources to Trash"
+msgstr "Flyt kilder til papirkurven"
+
+#: includes/admin/table-printer.php:295
+msgid "Mark as not broken"
+msgstr "Markér som ikke-død"
+
+#: includes/admin/table-printer.php:294
+msgid "Fix redirects"
+msgstr "Fix redirigerede"
+
+#: includes/admin/table-printer.php:291
+msgid "Bulk Actions"
+msgstr "Massehandlinger"
+
+#: includes/admin/table-printer.php:240
+msgid "Redirect URL"
+msgstr "Redirigér URL"
+
+#: includes/admin/table-printer.php:233
+msgid "Link Text"
+msgstr "Linktekst"
+
+#: includes/admin/table-printer.php:227
+msgid "Source"
+msgstr "Kilde"
+
+#: includes/admin/table-printer.php:197
+msgid "Detailed View"
+msgstr "Detaljeret visning"
+
+#: includes/admin/table-printer.php:192
+msgid "Compact View"
+msgstr "Kompakt visning"
+
+#: includes/admin/search-form.php:113 includes/admin/table-printer.php:375
+#: includes/admin/table-printer.php:779 includes/admin/table-printer.php:904
+msgid "Cancel"
+msgstr "Annullér"
+
+#: includes/admin/search-form.php:112
+msgid "Search Links"
+msgstr "Søg links"
+
+#: includes/admin/search-form.php:74
+msgid "Links used in"
+msgstr "Links brugt i"
+
+#: includes/admin/search-form.php:70
+msgid "Any"
+msgstr "Alle"
+
+#: includes/admin/search-form.php:68 includes/admin/search-form.php:85
+msgid "Link type"
+msgstr "Linktype"
+
+#: includes/admin/search-form.php:51
+msgid "Link status"
+msgstr "Linkstatus"
+
+#: includes/admin/search-form.php:48 includes/admin/table-printer.php:559
+msgid "HTTP code"
+msgstr "HTTP-kode"
+
+#: includes/admin/search-form.php:45 includes/admin/table-printer.php:220
+msgid "URL"
+msgstr "URL"
+
+#: includes/admin/search-form.php:42
+msgid "Link text"
+msgstr "Linktekst"
+
+#: includes/admin/search-form.php:32 includes/link-query.php:81
+msgid "Search"
+msgstr "Søg"
+
+#: includes/admin/search-form.php:26
+msgid "Delete This Filter"
+msgstr "Slet dette filter"
+
+#: includes/admin/search-form.php:16
+msgid "Save This Search As a Filter"
+msgstr "Gem denne søgning som et filter"
+
+#: includes/admin/options-page-js.php:54
+msgid "Hide debug info"
+msgstr "Skjul debug-info"
+
+#: includes/admin/links-page-js.php:943
+msgid "Select one or more links to edit."
+msgstr "Vælg en eller flere links, der skal redigeres."
+
+#: includes/admin/links-page-js.php:936
+msgid "Enter a search string first."
+msgstr "Indtast først en søgestreng."
+
+#: includes/admin/links-page-js.php:806
+msgid ""
+"Are you sure you want to remove the selected links? This action can't be undone.\n"
+"'Cancel' to stop, 'OK' to remove"
+msgstr ""
+"Er du sikker på, at du ønsker at fjerne de valgte links? Denne handling kan ikke fortrydes.\n"
+"'Annullér' for at stoppe, 'OK' for at slette"
+
+#: includes/admin/links-page-js.php:792
+msgid ""
+"Are you sure you want to delete all posts, bookmarks or other items that contain any of the selected links? This action can't be undone.\n"
+"'Cancel' to stop, 'OK' to delete"
+msgstr ""
+"Er du sikker på, at du ønsker at slette alle indlæg, bogmærker og andre ting, der indeholder et af de valgte links? Denne handling kan ikke fortrydes.\n"
+"'Annullér' for at stoppe, 'OK' for at slette"
+
+#: includes/admin/links-page-js.php:768
+msgid ""
+"You are about to delete the current filter.\n"
+"'Cancel' to stop, 'OK' to delete"
+msgstr ""
+"Du er ved at slette det aktuelle filter\n"
+" 'Annullér' for at stoppe, 'OK' for at slette"
+
+#: includes/admin/links-page-js.php:756
+msgid "Enter a name for the new custom filter"
+msgstr "Indtast et navn for dit nye filter"
+
+#: includes/admin/links-page-js.php:708
+msgid "The following error(s) occured :"
+msgstr "De(n) følgende fejl skete:"
+
+#: includes/admin/links-page-js.php:705
+msgid "The plugin failed to remove the link."
+msgstr "Det mislykkedes for pluginnet at fjerne linket."
+
+#: includes/admin/links-page-js.php:700
+msgid "However, %d instances couldn't be removed."
+msgstr "Men %d steder kunne linket ikke fjernes."
+
+#: includes/admin/links-page-js.php:694
+msgid "%d instances of the link were successfully unlinked."
+msgstr "%d steder med dette link fik linket fjernet med succes."
+
+#: includes/admin/links-page-js.php:615
+msgid "Error: Link URL must not be empty."
+msgstr "Fejl: Link-URL skal være udfyldt."
+
+#: includes/admin/links-page-js.php:543
+msgid "The following error(s) occurred :"
+msgstr "De(n) følgende fejl opstod :"
+
+#: includes/admin/links-page-js.php:540
+msgid "The link could not be modified."
+msgstr "Linket kunne ikke ændres."
+
+#: includes/admin/links-page-js.php:534
+msgid "However, %d instances couldn't be edited and still point to the old URL."
+msgstr "Men %d steder kunne ikke redigeres og peger stadig på det gamle URL."
+
+#: includes/admin/links-page-js.php:528
+msgid "%d instances of the link were successfully modified."
+msgstr "%d steder med dette link blev ændret med succes."
+
+#: includes/admin/links-page-js.php:431
+msgctxt "link suggestions"
+msgid "Archived page from %s (via the Wayback Machine)"
+msgstr "Arkiveret side fra %s (via Wayback Machine)"
+
+#: includes/admin/links-page-js.php:430
+msgctxt "link suggestions"
+msgid "No suggestions available."
+msgstr "Ingen forslag at vise."
+
+#: includes/admin/links-page-js.php:429
+msgctxt "link suggestions"
+msgid "Searching..."
+msgstr "Søger …"
+
+#: includes/admin/links-page-js.php:371
+msgctxt "link text"
+msgid "(Multiple links)"
+msgstr "(Flere links)"
+
+#: includes/admin/links-page-js.php:370
+msgctxt "link text"
+msgid "(None)"
+msgstr "(Ingen)"
+
+#: includes/admin/links-page-js.php:64 includes/admin/links-page-js.php:659
+msgid "Wait..."
+msgstr "Vent ..."
+
+#: includes/admin/db-upgrade.php:96
+msgid "Failed to delete old DB tables. Database error : %s"
+msgstr "Det mislykkedes at slette gamle databasetabeller. Databasefejl: %s"
+
+#: core/init.php:323
+msgid "Broken Link Checker installation failed. Try deactivating and then reactivating the plugin."
+msgstr "Installation af Broken Link Checker mislykkedes. Prøv at deaktivere og dernæst reaktivere pluginnet."
+
+#: core/init.php:250
+msgid "Twice a Month"
+msgstr "To gange om måneden"
+
+#: core/init.php:244
+msgid "Once Weekly"
+msgstr "Engang om ugen"
+
+#: core/core.php:4117
+msgid "Broken Link Checker has detected %d new broken link in your posts."
+msgid_plural "Broken Link Checker has detected %d new broken links in your posts."
+msgstr[0] "Broken Link Checker har opdaget %d nyt dødt link i dine indlæg."
+msgstr[1] "Broken Link Checker har opdaget %d nye døde links i dine indlæg."
+
+#: core/core.php:4063
+msgid "You can see all broken links here:"
+msgstr "Du kan se alle de døde links her:"
+
+#: core/core.php:4049
+msgid "Source : %s"
+msgstr "Kilde: %s"
+
+#: core/core.php:4048
+msgid "Link URL : <a href=\"%1$s\">%2$s</a>"
+msgstr "Link URL: <a href=\"%1$s\">%2$s</a>"
+
+#: core/core.php:4047
+msgid "Link text : %s"
+msgstr "Linktekst: %s"
+
+#: core/core.php:4038
+msgid "Here's a list of the new broken links: "
+msgstr "Her er en liste med de nye døde links: "
+
+#: core/core.php:4029
+msgid "Here's a list of the first %d broken links:"
+msgid_plural "Here's a list of the first %d broken links:"
+msgstr[0] "Her er en liste med det første døde link:"
+msgstr[1] "Her er en liste med de første %d døde links:"
+
+#: core/core.php:3998
+msgid "Broken Link Checker has detected %d new broken link on your site."
+msgid_plural "Broken Link Checker has detected %d new broken links on your site."
+msgstr[0] "Broken Link Checker har opdaget %d nyt dødt link på din site."
+msgstr[1] "Broken Link Checker har opdaget %d nye døde links på din site."
+
+#: core/core.php:3993 core/core.php:4112
+msgid "[%s] Broken links detected"
+msgstr "[%s] døde links fundet"
+
+#: core/core.php:3864
+msgid "If this value is zero even after several page reloads you have probably encountered a bug."
+msgstr "Hvis denne værdi er nul selv efter adskillige genindlæsninger af siden har du sandsynligvis opdaget en bug."
+
+#: core/core.php:3845
+msgid "Database character set"
+msgstr "Databasetegnsæt"
+
+#: core/core.php:3827
+msgid "Redirects may be detected as broken links when open_basedir is on."
+msgstr "Redirigeringer kan (fejlagtigt) blive bestemt som døde links, når open_basedir er til."
+
+#: core/core.php:3826
+msgid "On ( %s )"
+msgstr "Fra ( %s )"
+
+#: core/core.php:3818 core/core.php:3832
+msgid "Off"
+msgstr "Fra"
+
+#: core/core.php:3813
+msgid "Redirects may be detected as broken links when safe_mode is on."
+msgstr "Redirigeringer kan (fejlagtigt) blive bestemt som døde links, når safe_mode er til."
+
+#: core/core.php:3812
+msgid "On"
+msgstr "Til"
+
+#: core/core.php:3802
+msgid "You must have either CURL or Snoopy installed for the plugin to work!"
+msgstr "Du skal have enten cURL eller Snoopy installeret, hvis pluginnet skal virke!"
+
+#: core/core.php:3789
+msgid "Installed"
+msgstr "Installeret"
+
+#: core/core.php:3783
+msgid "CURL version"
+msgstr "cURL version"
+
+#: core/core.php:3780 core/core.php:3796 core/core.php:3801
+msgid "Not installed"
+msgstr "Ikke installeret"
+
+#: core/core.php:3769
+msgid "You have an old version of CURL. Redirect detection may not work properly."
+msgstr "Du har en gammel version af cURL. Det er ikke sikkert, at detektion af redirigeringer fungerer ordentligt."
+
+#: core/core.php:3756
+msgid "MySQL version"
+msgstr "MySQL version"
+
+#: core/core.php:3750
+msgid "PHP version"
+msgstr "PHP version"
+
+#. Plugin Name of the plugin
+#: core/core.php:3730
+msgid "Broken Link Checker"
+msgstr "Broken Link Checker"
+
+#: core/core.php:3676
+msgid "Failed to load link details (%s)"
+msgstr "Det mislykkedes at indlæse link-detaljer (%s)"
+
+#: core/core.php:3662
+msgid "Error : link ID not specified"
+msgstr "Fejl: link-id ikke angivet"
+
+#: core/core.php:3649
+msgid "You don't have sufficient privileges to access this information!"
+msgstr "Du har ikke tilstrækkelige rettigheder til at tilgå denne information!"
+
+#: core/core.php:3481
+msgid "An unexpected error occured!"
+msgstr "En uventet fejl opstod!"
+
+#: core/core.php:3400
+msgid "An unexpected error occurred!"
+msgstr "En uventet fejl opstod!"
+
+#: core/core.php:3366 core/core.php:3380
+msgid "Oops, the new URL is invalid!"
+msgstr "Ups. Den nye URL er ugyldig!"
+
+#: core/core.php:3340
+msgid "Error : link_id or new_url not specified"
+msgstr "Fejl: link_id eller new_url ikke angivet"
+
+#: core/core.php:3275 core/core.php:3316 core/core.php:3501 core/core.php:3523
+#: core/core.php:3601
+msgid "Error : link_id not specified"
+msgstr "Fejl: link_id ikke angivet"
+
+#: core/core.php:3272 core/core.php:3313
+msgid "Oops, couldn't modify the link!"
+msgstr "Ups, kunne ikke ændre linket!"
+
+#: core/core.php:3252 core/core.php:3299 core/core.php:3353 core/core.php:3468
+#: core/core.php:3536 core/core.php:3614
+msgid "Oops, I can't find the link %d"
+msgstr "Ups. Jeg kan ikke finde linket %d"
+
+#: core/core.php:3187
+msgctxt "current load"
+msgid "Unknown"
+msgstr "Ukendt"
+
+#: core/core.php:3161
+msgid "No links detected."
+msgstr "Ingen links fundet."
+
+#: core/core.php:3159
+msgid "Searching your blog for links..."
+msgstr "Gennemsøger din blog for links ..."
+
+#: core/core.php:3152
+msgid "Detected %1$s in %2$s."
+msgstr "Fandt %1$s i %2$s."
+
+#: core/core.php:3146
+msgid "Detected %1$s in %2$s and still searching..."
+msgstr "Fandt %1$s i %2$s og leder stadigvæk ..."
+
+#: core/core.php:3140
+msgctxt "for the \"Detected X unique URLs in Y links\" message"
+msgid "%d link"
+msgid_plural "%d links"
+msgstr[0] "%d link"
+msgstr[1] "%d links"
+
+#: core/core.php:3136
+msgctxt "for the \"Detected X unique URLs in Y links\" message"
+msgid "%d unique URL"
+msgid_plural "%d unique URLs"
+msgstr[0] "%d unik URL"
+msgstr[1] "%d unikke URL&#39;er"
+
+#: core/core.php:3130
+msgid "No URLs in the work queue."
+msgstr "Ingen URL&#39;er i arbejdskøen"
+
+#: core/core.php:3126
+msgid "%d URL in the work queue"
+msgid_plural "%d URLs in the work queue"
+msgstr[0] "%d URL i arbejdskøen"
+msgstr[1] "%d URL&#39;er i arbejdskøen"
+
+#: core/core.php:3119
+msgid "No broken links found."
+msgstr "Ingen døde links fundet."
+
+#: core/core.php:3113
+msgid "Found %d broken link"
+msgid_plural "Found %d broken links"
+msgstr[0] "Har fundet %d dødt link"
+msgstr[1] "Har fundet %d døde links"
+
+#: core/core.php:3112
+msgid "View broken links"
+msgstr "Se døde links"
+
+#: core/core.php:2672 core/core.php:3244 core/core.php:3291 core/core.php:3330
+#: core/core.php:3454 core/core.php:3513 core/core.php:3591
+msgid "You're not allowed to do that!"
+msgstr "Du har ikke lov til at gøre dette!"
+
+#: core/core.php:2653
+msgid "Color-code status codes"
+msgstr "Kod statuskoder med farver"
+
+#: core/core.php:2644
+msgid "Highlight links broken for at least %s days"
+msgstr "Fremhæv links, der har været døde i mindst %s dage"
+
+#: core/core.php:2629
+msgid "Misc"
+msgstr "Diverse"
+
+#: includes/admin/table-printer.php:175 core/core.php:2625
+msgid "Apply"
+msgstr "Anvend"
+
+#: core/core.php:2624
+msgid "links"
+msgstr "links"
+
+#: core/core.php:2617
+msgid "Show on screen"
+msgstr "Vis på skærm"
+
+#: core/core.php:2598
+msgid "Table columns"
+msgstr "Tabelkolonner"
+
+#: core/core.php:2573
+msgctxt "a link from the admin notice under Tools - Broken links - Warnings"
+msgid "Change warning settings"
+msgstr "Ændr advarselsindstillinger"
+
+#: core/core.php:2567
+msgctxt "admin notice under Tools - Broken links - Warnings"
+msgid "Hide notice"
+msgstr "Skjul besked"
+
+#: core/core.php:2562
+msgid "The \"Warnings\" page lists problems that are probably temporary or suspected to be false positives.<br> Warnings that persist for a long time will usually be reclassified as broken links."
+msgstr "Siden med \"Advarsler\" specificerer problemer, som sandsynligvis er midlertidige, eller som formodentlig er falske positiver.<br> Advarsler, der fortsætter i lang tid, vil sædvanligvis blive reklassificeret som døde links."
+
+#: core/core.php:2505
+msgid "%d link dismissed"
+msgid_plural "%d links dismissed"
+msgstr[0] "%d link ignoreret"
+msgstr[1] "%d links ignorerede"
+
+#: core/core.php:2442
+msgid "%d link marked as not broken"
+msgid_plural "%d links marked as not broken"
+msgstr[0] "Et link markeret som ikke-dødt"
+msgstr[1] "%d links markeret som ikke-døde"
+
+#: core/core.php:2431 core/core.php:2494
+msgid "Couldn't modify link %d"
+msgstr "Kunne ikke ændre linket %d"
+
+#: core/core.php:2423 core/core.php:3260
+msgid "This link was manually marked as working by the user."
+msgstr "Dette link blev markeret manuelt som et aktivt link af brugeren."
+
+#: core/core.php:2374
+msgid "%d link scheduled for rechecking"
+msgid_plural "%d links scheduled for rechecking"
+msgstr[0] "%d link er planlagt til at blive tjekket igen"
+msgstr[1] "%d links er planlagt til at blive tjekket igen"
+
+#: core/core.php:2336
+msgid "Didn't find anything to delete!"
+msgstr "Fandt ikke noget, der kan slettes!"
+
+#: core/core.php:2314
+msgid "%d item was skipped because it can't be moved to the Trash. You need to delete it manually."
+msgid_plural "%d items were skipped because they can't be moved to the Trash. You need to delete them manually."
+msgstr[0] "%d link blev skippet, fordi det ikke kan flyttes til papirkurven. Du er nødt til at slette den selv."
+msgstr[1] "%d link blev skippet, fordi de ikke kan flyttes til papirkurven. Du er nødt til at slette dem selv."
+
+#: core/core.php:2204
+msgid "Failed to remove %d link"
+msgid_plural "Failed to remove %d links"
+msgstr[0] "Det mislykkedes for pluginnet at fjerne %d link."
+msgstr[1] "Det mislykkedes for pluginnet at fjerne %d links."
+
+#: core/core.php:2193
+msgid "%d link removed"
+msgid_plural "%d links removed"
+msgstr[0] "%d link fjernet"
+msgstr[1] "%d links fjernet"
+
+#: core/core.php:2102
+msgid "Failed to update %d link."
+msgid_plural "Failed to update %d links."
+msgstr[0] "Det mislykkedes at opdatere %d link."
+msgstr[1] "Det mislykkedes at opdatere %d links."
+
+#: core/core.php:2091
+msgid "%d link updated."
+msgid_plural "%d links updated."
+msgstr[0] "%d link opdateret."
+msgstr[1] "%d links opdateret."
+
+#: core/core.php:2011
+msgid "None of the selected links are redirects!"
+msgstr "Ingen af de valgte links er redirigerede links!"
+
+#: core/core.php:2000
+msgid "Failed to fix %d redirect"
+msgid_plural "Failed to fix %d redirects"
+msgstr[0] "Det lykkedes ikke at fixe %d redirigeret link"
+msgstr[1] "Det lykkedes ikke at fixe %d redirigerede links"
+
+#: core/core.php:1989
+msgid "Replaced %d redirect with a direct link"
+msgid_plural "Replaced %d redirects with direct links"
+msgstr[0] "Erstattede %d redirigeret link med et direkte link"
+msgstr[1] "Erstattede %d redirigerede links med direkte links"
+
+#: core/core.php:1940
+msgid "Filter deleted"
+msgstr "Filter slettet"
+
+#: core/core.php:1933
+msgid "Filter ID not specified."
+msgstr "Filter-id ikke angivet."
+
+#: core/core.php:1906
+msgid "Filter \"%s\" created"
+msgstr "Filter \"%s\" oprettet"
+
+#: core/core.php:1896
+msgid "Invalid search query."
+msgstr "Ugyldig søgeforespørgsel."
+
+#: core/core.php:1892
+msgid "You must enter a filter name!"
+msgstr "Du <i>skal</i> indtaste et filternavn!"
+
+#: core/core.php:1825 core/core.php:1911 core/core.php:1943
+msgid "Database error : %s"
+msgstr "Database-fejl : %s"
+
+#: core/core.php:1674
+msgid "Enter the names of custom fields you want to check (one per line). If a field contains HTML code, prefix its name with <code>html:</code>. For example, <code>html:field_name</code>."
+msgstr "Indtast navnene på de brugerdefinerede felter, du ønsker at tjekke (én pr. linje). Hvis et felt indeholder HTML-kode, skal du sætte <code>html:</code> foran dets navn. For eksempel: <code>html:feltnavn</code>."
+
+#: core/core.php:1592
+msgid "Configure"
+msgstr "Konfigurér"
+
+#: core/core.php:1541
+msgid "Save Changes"
+msgstr "Gem ændringer"
+
+#: core/core.php:1529
+msgid "The \"Nuclear Option\". Click this button to make the plugin empty its link database and recheck the entire site from scratch."
+msgstr "\"Bombe\"-indstilling. Klik på denne knap for at få pluginnet til at tømme dets linkdatabase og tjekke hele siten igen helt forfra."
+
+#: core/core.php:1524
+msgid "Re-check all pages"
+msgstr "Tjek alle sider igen"
+
+#: core/core.php:1521
+msgid "Forced recheck"
+msgstr "Tvungen nytjek"
+
+#: core/core.php:1484
+msgctxt "log file location"
+msgid "Custom"
+msgstr "Brugerdefineret"
+
+#: core/core.php:1468
+msgctxt "log file location"
+msgid "Default"
+msgstr "Standard"
+
+#: core/core.php:1459
+msgid "Log file location"
+msgstr "Placering af logfil"
+
+#: core/core.php:1452
+msgid "Enable logging"
+msgstr "Aktivér logning"
+
+#: core/core.php:1446
+msgid "Logging"
+msgstr "Logning"
+
+#: core/core.php:1426
+msgid "Target resource usage"
+msgstr "Ønsket resourceforbrug"
+
+#: core/core.php:1418
+msgid "Load limiting only works on Linux-like systems where <code>/proc/loadavg</code> is present and accessible."
+msgstr "Begrænsning af belastning virker kun på Linux-lignende systemer, hvor <code>/proc/loadavg</code> findes og er tilgængelig."
+
+#: core/core.php:1416
+msgid "Not available"
+msgstr "Ikke tilgængelig"
+
+#: core/core.php:1407
+msgid "Link checking will be suspended if the average <a href=\"%s\">server load</a> rises above this number. Leave this field blank to disable load limiting."
+msgstr "Linktjekning vil blive midlertidigt afbrudt, hvis den gennemsnitlige <a href=\"%s\">serverbelastning</a> er større end dette tal. Lad feltet stå tomt, hvis du vil deaktivere begrænsning af belastningen."
+
+#: core/core.php:1402
+msgid "Current load : %s"
+msgstr "Aktuel belastning: %s"
+
+#: core/core.php:1387
+msgid "Server load limit"
+msgstr "Begrænsning på serverbelastning"
+
+#: core/core.php:1378
+msgid "The plugin works by periodically launching a background job that parses your posts for links, checks the discovered URLs, and performs other time-consuming tasks. Here you can set for how long, at most, the link monitor may run each time before stopping."
+msgstr "Pluginnet fungerer ved med mellemrum at oprette et job i baggrunden, som undersøger dine indlæg for links, tjekker de fundne URL&#39;er og foretager andre tidskrævende opgaver. Her kan du angive, hvor længe linkovervågningen max må køre hver gang, inden den skal stoppe."
+
+#: core/core.php:1361
+msgid "Max. execution time"
+msgstr "Max udførelsestid"
+
+#: core/core.php:1343
+msgctxt "settings page"
+msgid "Show link actions"
+msgstr "Vis linkhandlinger"
+
+#: core/core.php:1327
+msgctxt "dashboard widget visibility"
+msgid "Nobody (disables the widget)"
+msgstr "Ingen (deaktiverer widgetten)"
+
+#: core/core.php:1326
+msgctxt "dashboard widget visibility"
+msgid "Editor and above"
+msgstr "Redaktør og over"
+
+#: core/core.php:1325
+msgctxt "dashboard widget visibility"
+msgid "Administrator"
+msgstr "Administrator"
+
+#: core/core.php:1320
+msgid "Show the dashboard widget for"
+msgstr "Vis kontrolpanelwidget for"
+
+#: core/core.php:1312
+msgid "Run hourly in the background"
+msgstr "Kør hver time i baggrunden"
+
+#: core/core.php:1300
+msgid "Run continuously while the Dashboard is open"
+msgstr "Kør kontinuerligt, når kontrolpanelet er åbent"
+
+#: core/core.php:1288
+msgid "Link monitor"
+msgstr "Linkovervågning"
+
+#: core/core.php:1281
+msgid "Links that take longer than this to load will be marked as broken."
+msgstr "Links, som tager længere tid at tjekke end dette, vil blive markeret som døde."
+
+#: core/core.php:1272 core/core.php:1367 core/core.php:3839
+msgid "%s seconds"
+msgstr "%s sekunder"
+
+#: includes/links.php:1033 core/core.php:1266
+msgid "Timeout"
+msgstr "Timeout"
+
+#: core/core.php:1247
+msgid "Check links using"
+msgstr "Tjek link med"
+
+#: core/core.php:1226
+msgid "Don't check links where the URL contains any of these words (one per line) :"
+msgstr "Tjek ikke links, hvor URL&#39;en indeholder et af disse ord (et ord per linje):"
+
+#: core/core.php:1225
+msgid "Exclusion list"
+msgstr "Eksklusionsliste"
+
+#: core/core.php:1218
+msgid "Error : All link parsers missing!"
+msgstr "Fejl: Alle linkparsers mangler!"
+
+#: core/core.php:1212
+msgid "Link types"
+msgstr "Linktyper"
+
+#: core/core.php:1179
+msgid "Post statuses"
+msgstr "Indlægsstatusser"
+
+#: core/core.php:1163
+msgid "Look for links in"
+msgstr "Se efter links i"
+
+#: core/core.php:1117
+msgid "Turning off this option will make the plugin report all problems as broken links."
+msgstr "Fravælges denne indstilling, rapporterer pluginnet alle problemer som døde links."
+
+#: core/core.php:1113
+msgid "Show uncertain or minor problems as \"warnings\" instead of \"broken\""
+msgstr "Vis ubetydelige eller mindre problemer som \"advarsler \" i stedet for \"ødelagte \""
+
+#: core/core.php:1108
+msgctxt "settings page"
+msgid "Warnings"
+msgstr "Advarsler"
+
+#: core/core.php:1102
+msgid "Suggest alternatives to broken links"
+msgstr "Foreslå erstatninger for døde links"
+
+#: core/core.php:1097
+msgctxt "settings page"
+msgid "Suggestions"
+msgstr "Forslag"
+
+#: core/core.php:1086
+msgctxt "\"Link tweaks\" settings"
+msgid "These settings only apply to the content of posts, not comments or custom fields."
+msgstr "Disse indstillinger gælder kun indlæggenes indhold, ikke kommentarer eller brugerdefinerede felter."
+
+#: core/core.php:1080
+msgid "Stop search engines from following broken links"
+msgstr "Forhindr søgemaskiner i at følge døde links"
+
+#: core/core.php:1063
+msgid "Example : Lorem ipsum <span %s>removed link</span>, dolor sit amet."
+msgstr "Eksempel : Lorem ipsum <span %s>removed link</span>, dolor sit amet."
+
+#: core/core.php:1035
+msgid "Apply custom formatting to removed links"
+msgstr "Anvend egen formattering på links, der er fjernet"
+
+#: core/core.php:1022 core/core.php:1066
+msgid "Click \"Save Changes\" to update example output."
+msgstr "Klike \"Gem ændringer\" for at opdatere eksempelvisningen."
+
+#: core/core.php:1019
+msgid "Example : Lorem ipsum <a %s>broken link</a>, dolor sit amet."
+msgstr "Eksempel : Lorem ipsum <a %s>broken link</a>, dolor sit amet."
+
+#: core/core.php:997 core/core.php:1040
+msgid "Edit CSS"
+msgstr "Redigér CSS"
+
+#: core/core.php:992
+msgid "Apply custom formatting to broken links"
+msgstr "Anvend egen formattering på døde links"
+
+#: core/core.php:982
+msgid "Link tweaks"
+msgstr "Linktilpasninger"
+
+#: core/core.php:950
+msgid "Leave empty to use the e-mail address specified in Settings &rarr; General."
+msgstr "Skal ikke udfyldes, hvis du vil bruge e-mailadressen indtastet i Indstillinger &rarr; Generelt."
+
+#: core/core.php:938
+msgid "Notification e-mail address"
+msgstr "E-mailadresse til beskedmails"
+
+#: core/core.php:931
+msgid "Send authors e-mail notifications about broken links in their posts"
+msgstr "Send forfattere e-mail-meddelelser om døde links i deres indlæg"
+
+#: core/core.php:919
+msgid "Send me e-mail notifications about newly detected broken links"
+msgstr "Send mig e-mail-meddelelser om nyligt opdagede døde links"
+
+#: core/core.php:909
+msgid "E-mail notifications"
+msgstr "E-mail-meddelelser"
+
+#: core/core.php:902
+msgid "Existing links will be checked this often. New links will usually be checked ASAP."
+msgstr "Eksisterende links vil blive tjekket med dette mellemrum. Nye links tjekkes normalt så hurtigt som muligt."
+
+#: core/core.php:893
+msgid "Every %s hours"
+msgstr "hver %s timer"
+
+#: core/core.php:888
+msgid "Check each link"
+msgstr "Tjek hvert link"
+
+#: includes/admin/options-page-js.php:56 core/core.php:860
+msgid "Show debug info"
+msgstr "Vis debug-info"
+
+#: includes/admin/table-printer.php:215 core/core.php:858
+msgid "Status"
+msgstr "Status"
+
+#: core/core.php:814
+msgid "Broken Link Checker Options"
+msgstr "Indstillinger for Broken Link Checker"
+
+#: core/core.php:799
+msgid "Advanced"
+msgstr "Avanceret"
+
+#: core/core.php:798
+msgid "Protocols & APIs"
+msgstr "Protokoller & API'er"
+
+#: core/core.php:797
+msgid "Which Links To Check"
+msgstr "Hvilke links der skal tjekkes"
+
+#: core/core.php:796
+msgid "Look For Links In"
+msgstr "Se efter links i"
+
+#: core/core.php:795
+msgid "General"
+msgstr "Generel"
+
+#: core/core.php:772
+msgid "Complete site recheck started."
+msgstr "Fuldstændig ny tjek af site påbegyndt."
+
+#: core/core.php:764
+msgid "Thank you for your donation!"
+msgstr "Tak for din donation!"
+
+#: core/core.php:758
+msgid "Settings saved."
+msgstr "Indstillinger gemt."
+
+#: includes/admin/table-printer.php:747 core/core.php:482
+msgctxt "link action; replace one redirect with a direct link"
+msgid "Fix redirect"
+msgstr "Fiks redirect"
+
+#: includes/admin/table-printer.php:293 includes/admin/table-printer.php:739
+#: core/core.php:481
+msgid "Recheck"
+msgstr "Tjek igen"
+
+#: includes/admin/table-printer.php:296 includes/admin/table-printer.php:727
+#: core/core.php:480
+msgid "Dismiss"
+msgstr "Ignorér"
+
+#: includes/admin/links-page-js.php:111 includes/admin/table-printer.php:719
+#: core/core.php:479
+msgid "Not broken"
+msgstr "Ikke død"
+
+#: includes/admin/links-page-js.php:716 includes/admin/table-printer.php:297
+#: includes/admin/table-printer.php:713 core/core.php:478
+msgid "Unlink"
+msgstr "Fjern link"
+
+#: includes/admin/table-printer.php:292 includes/admin/table-printer.php:710
+#: core/core.php:477
+msgid "Edit URL"
+msgstr "Redigér URL"
+
+#: core/core.php:439
+msgid "Settings"
+msgstr "Indstillinger"
+
+#: core/core.php:421
+msgid "Go to Broken Links"
+msgstr "Gå til døde links"
+
+#: core/core.php:405
+msgid "View Broken Links"
+msgstr "Se døde links"
+
+#: includes/link-query.php:37 core/core.php:389
+msgid "Broken Links"
+msgstr "Døde links"
+
+#: core/core.php:383
+msgid "Link Checker"
+msgstr "Link Checker"
+
+#: core/core.php:382
+msgid "Link Checker Settings"
+msgstr "Link Checker-indstillinger"
+
+#: core/core.php:286
+msgid "Automatically expand the widget if broken links have been detected"
+msgstr "Automatisk udvid widgetten, hvis der er fundet døde links"
+
+#: includes/admin/options-page-js.php:18 core/core.php:243
+msgid "[ Network error ]"
+msgstr "[ Network-fejl ]"
+
+#: includes/admin/links-page-js.php:45 core/core.php:219
+msgid "Loading..."
+msgstr "Indlæser ..."

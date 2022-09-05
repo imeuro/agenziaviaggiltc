@@ -1,0 +1,1676 @@
+# Translation of Plugins - WordPress Button Plugin MaxButtons - Stable (latest release) in Dutch
+# This file is distributed under the same license as the Plugins - WordPress Button Plugin MaxButtons - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-06-02 08:43:40+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: nl\n"
+"Project-Id-Version: Plugins - WordPress Button Plugin MaxButtons - Stable (latest release)\n"
+
+#: blocks/basic.php:383
+msgid ""
+"<p>This text will appear when hovering over the button. You can try this in the preview.</p>\n"
+"\t\t\t\t\t<p class=\"shortcode\">Shortcode attribute : linktitle</p>"
+msgstr "<p>Deze tekst wordt weergegeven wanneer je over de knop hovert. Je kunt dit in de preview proberen.</p><p class=\"shortcode\">Shortcode-attribuut: linktitle</p>"
+
+#: blocks/basic.php:374
+msgid "This will tell the browser to download the URL"
+msgstr "Dit zal de browser vertellen om de URL te downloaden"
+
+#: blocks/basic.php:302
+msgid ""
+"<p>Enter any URL you wish to link to. Use 'Select Site Content' button to search in your pages, posts and media </p>\n"
+"\t\t\t\t\t<p>Examples: <br><ul class='nowrap'><li> https://example.com/ </li>\n"
+"\t\t\t\t\t\t\t\t <li> /local-page/ </li>\n"
+"\t\t\t\t\t\t\t\t <li> javascript:window.history.back(); </li></ul></p>\n"
+"\t\t\t\t\t<p class='shortcode'> Shortcode attribute : url </p>"
+msgstr ""
+"<p>Voer een URL in waarnaar je wil linken. Gebruik de knop 'Site-inhoud selecteren' om te zoeken in je pagina's, berichten en media</p><p> \n"
+"\t\t\t\t\tVoorbeelden:<br><ul class='nowrap'><li> https://example.com/</li>\n"
+"\t\t\t\t\t<li> /lokale-pagina/</li>\n"
+"\t\t\t\t\t<li> javascript: window.history.back ();</li></ul></p>\n"
+"\t\t\t\t\t<p class='shortcode'> Shortcode-kenmerk: url</p>"
+
+#: blocks/basic.php:283
+msgid ""
+"<p>Internal name for button. Specify purpose or use. Additional info can be added to description.</p> <p>You can use button name in the shortcode <br> [maxbutton name=\"button-name\"] </p>\n"
+"\t\t\t\t\t\t<p class=\"shortcode\"> Shortcode attribute : name </p>"
+msgstr ""
+"<p>Interne naam voor knop. Specificeer het doel of gebruik. Aanvullende informatie kan aan de beschrijving worden toegevoegd.</p><p> Je kunt de knopnaam in de shortcode gebruiken<br> [maxbutton name = \"button-name\"]</p>\n"
+"\t\t\t\t\t\t<p class=\"shortcode\"> Shortcode attribuut: naam</p>"
+
+#: blocks/responsive.php:304
+msgid "Save changes and add new responsive screen"
+msgstr "Sla wijzigingen op en voeg een nieuw responsive scherm toe"
+
+#: blocks/responsive.php:279
+msgid "When active, the button will not display at all in this screen. This can be used to hide the butt on devices"
+msgstr "Indien actief, wordt de knop helemaal niet weergegeven in dit scherm. Dit kan worden gebruikt om de knop op apparaten te verbergen"
+
+#: blocks/responsive.php:238
+msgid "This will fill out the width and height fields according to the chosen preset. Select a preset and click \"Apply Preset\""
+msgstr "Dit vult de velden voor breedte en hoogte in volgens de gekozen preset. Selecteer een voorinstelling en klik op \"Voorinstelling toepassen\""
+
+#: blocks/responsive.php:196
+msgid "<p>Add a Responsive Screen to prepare your button for mobile devices. <br> Put the width and height of the view screen you want this design to be active at. <br> Then click the 'save changes and add screen' button.</p> "
+msgstr "<p>Voeg een responsive scherm toe om je knop voor te bereiden op mobiele apparaten.<br> Stel de breedte en hoogte van het weergavescherm in waarop je wilt dat dit ontwerp actief is.<br> Klik vervolgens op de knop 'wijzigingen opslaan en scherm toevoegen'.</p> "
+
+#: blocks/responsive.php:188
+msgid "Responsive Screen Settings"
+msgstr "Responsive scherm instellingen"
+
+#: includes/maxbuttons-button.php:215
+msgid "for mobile"
+msgstr "voor mobiel"
+
+#: includes/maxbuttons-button.php:214
+msgid "Add a new responsive screen for mobile devices"
+msgstr "Voeg een nieuw responsive scherm toe voor mobiele apparaten"
+
+#: includes/maxbuttons-button.php:96
+msgid "Read our documentation"
+msgstr "Lees onze documentatie"
+
+#: includes/maxbuttons-button.php:95
+msgid "More on shortcodes, button sizes, mobile devices: "
+msgstr "Meer over shortcodes, knop groottes, mobiele apparaten: "
+
+#: includes/maxbuttons-button.php:91
+msgid "Create an %s Responsive Screen %s with the +Add button below. You can fully customize your look on mobile devices!"
+msgstr "Maak een %s responsive scherm %s met de knop + Toevoegen hieronder. Je kunt je look volledig aanpassen op mobiele apparaten!"
+
+#: includes/maxbuttons-button.php:89
+msgid "Looking off on Mobile?"
+msgstr "Looking uit op mobiel?"
+
+#: classes/admin-class.php:386 blocks/basic.php:367
+msgid "URL is download"
+msgstr "URL is download"
+
+#: classes/maxbuttons-class.php:527
+msgid "Detected Errors:"
+msgstr "Ontdekte fouten:"
+
+#: classes/maxbuttons-class.php:522
+msgid ""
+"MaxButtons has detected Javascript not loading as expected. Often this is caused by other plugins conflicting or crashing. %s\n"
+"\t\t\t\t\t- Disable other plugins and see if this error goes away %s\n"
+"\t\t\t\t\t- Check developer console (F12) on your browser to check which script is causing the issue %s\n"
+"\t\t\t\t\t- Contact our support %s\n"
+"\t\t\t\t"
+msgstr ""
+"MaxButtons heeft gedetecteerd dat Javascript niet laadt zoals verwacht. Dit wordt vaak veroorzaakt doordat andere plugins conflicteren of crashen. %s\n"
+"\t\t\t\t\t- Schakel andere plugins uit en kijk of deze fout verdwijnt %s\n"
+"\t\t\t\t\t- Controleer de ontwikkelaarsconsole (F12) in je browser om te controleren welk script het probleem\n"
+"\t\t\t\t\t   veroorzaakt %s\n"
+"\t\t\t\t\t- Neem contact op met onze ondersteuning %s\n"
+"\t\t\t\t\t"
+
+#: classes/maxbuttons-class.php:521
+msgid "Maxbuttons detected an Error"
+msgstr "Maxbuttons heeft een fout ontdekt"
+
+#: classes/maxbuttons-admin-helper.php:292
+msgid "Send your suggestions to %s"
+msgstr "Verzend je suggesties naar %s"
+
+#: classes/maxbuttons-admin-helper.php:291
+msgid "Is there a feature you would like for us to add to <b>MaxButtons</b>? <br> Let us know."
+msgstr "Is er een functie die je ons zou willen laten toevoegen aan <b>MaxButtons</b>?<br> Laat het ons weten."
+
+#: includes/maxbuttons-settings.php:146
+msgid "The button will resize to this amount of percentage of the screen width. Default 90%"
+msgstr "De grootte van de knop wordt aangepast naar dit percentage van de schermbreedte. Standaard 90%"
+
+#: includes/maxbuttons-settings.php:143
+msgid "Auto button size on screen"
+msgstr "Auto knop grootte op scherm"
+
+#: includes/maxbuttons-settings.php:131
+msgid "Auto font size reduction"
+msgstr "Auto lettertype grootte reductie"
+
+#: maxbuttons.php:43
+msgid "MaxButtons requires at least PHP 7 . You are running version: %s "
+msgstr "MaxButtons vereist op zijn minst PHP 7. Je draait op versie: %s "
+
+#: classes/maxbuttons-class.php:513
+msgid "Color value"
+msgstr "Kleurwaarde"
+
+#: classes/maxbuttons-class.php:512
+msgid "Select Color"
+msgstr "Selecteer kleur"
+
+#: classes/maxbuttons-class.php:511
+msgid "Select default color"
+msgstr "Kies standaard kleur"
+
+#: classes/maxbuttons-class.php:510
+msgid "Default"
+msgstr "Standaard"
+
+#: classes/maxbuttons-class.php:509
+msgid "Clear color"
+msgstr "Kleur wissen"
+
+#: includes/maxbuttons-settings.php:114
+msgid "Active when a button doesn't have any responsive screens. Autoresponsive makes the button smaller and relative to the screen on devices smaller than 480px. When enabled, it automatically applies this styling."
+msgstr "Actief als een knop geen responsive schermen heeft. Autoresponsive maakt de knop kleiner en relatief ten opzichte van het scherm op apparaten kleiner dan 480px. Indien ingeschakeld, wordt deze stijl automatisch toegepast."
+
+#: includes/maxbuttons-settings.php:113
+msgid "Apply auto-responsive"
+msgstr "Pas auto-responsive toe"
+
+#: blocks/basic.php:621
+msgid "Using percentages makes the button size to the page element. The live preview can be unreliable"
+msgstr "Het gebruik van percentages maakt de knopgrootte tot het pagina-element. De live preview kan onbetrouwbaar zijn"
+
+#: blocks/basic.php:602
+msgid "Height Unit"
+msgstr "Hoogte-eenheid"
+
+#: blocks/basic.php:574 blocks/container.php:190
+msgid "Width Unit"
+msgstr "Breedte-eenheid"
+
+#: blocks/basic.php:394
+msgid "Shortcode attribute: text"
+msgstr "Kenmerk shortcode: tekst"
+
+#: blocks/basic.php:322
+msgid "<strong>Tip: </strong> You don't need to copy buttons to change URL or Text. See the examples on top of page"
+msgstr "<strong> Tip: </strong> je hoeft geen knoppen te kopiëren om de URL of tekst te wijzigen. Zie de voorbeelden bovenaan de pagina"
+
+#: blocks/responsive.php:337
+msgid "See all features"
+msgstr "Alle functies bekijken"
+
+#: blocks/responsive.php:334
+msgid "Google Fonts and Font-Awesome"
+msgstr "Google Fonts en Font-Awesome"
+
+#: blocks/responsive.php:333
+msgid "Effects"
+msgstr "Effecten"
+
+#: blocks/responsive.php:331
+msgid "Infinite amount of screens"
+msgstr "Oneindig aantal schermen"
+
+#: blocks/responsive.php:329
+msgid "The best button editor for WordPress includes: "
+msgstr "De beste knopeditor voor WordPress omvat:"
+
+#: blocks/responsive.php:328
+msgid "You already have %s screens. To add more responsive screens to your buttons, upgrade to MaxButtons PRO."
+msgstr "Je hebt al %s schermen. Upgrade naar MaxButtons PRO om meer responsieve schermen aan je knoppen toe te voegen."
+
+#: blocks/responsive.php:327
+msgid "Save your settings first to remove the screen"
+msgstr "Sla eerst je instellingen op om het scherm te verwijderen"
+
+#: blocks/responsive.php:322
+msgid "Upgrade Today"
+msgstr "Upgrade vandaag"
+
+#: blocks/responsive.php:321
+msgid "upgrade"
+msgstr "upgrade"
+
+#: blocks/responsive.php:288
+msgid "Remove this screen"
+msgstr "Dit scherm verwijderen"
+
+#: blocks/responsive.php:267
+msgid "Biggest screen size this screen will show. 0 for no maximum"
+msgstr "Grootste schermgrootte die op dit scherm wordt weergegeven. 0 voor geen maximum"
+
+#: blocks/responsive.php:263
+msgid "Maximum Width"
+msgstr "Maximale breedte"
+
+#: blocks/responsive.php:256
+msgid "Smallest screen size this screen will show. 0 for all"
+msgstr "Kleinste schermgrootte die op dit scherm wordt weergegeven. 0 voor iedereen"
+
+#: blocks/responsive.php:251
+msgid "Minimum Width"
+msgstr "Minimale breedte"
+
+#: blocks/responsive.php:242
+msgid "Selecting a preset will overwrite screen settings below"
+msgstr "Als je een voorinstelling selecteert, worden de onderstaande scherminstellingen overschreven"
+
+#: blocks/responsive.php:235
+msgid "Apply preset"
+msgstr "Voorinstelling toepassen"
+
+#: blocks/responsive.php:220
+msgid "Select a Preset"
+msgstr "Selecteer een voorinstelling"
+
+#: blocks/responsive.php:206
+msgid "The internal name for this screen. [optional]"
+msgstr "De interne naam voor dit scherm. [optioneel]"
+
+#: blocks/responsive.php:203
+msgid "Screen Name"
+msgstr "Scherm naam"
+
+#: blocks/responsive.php:187
+msgid "responsive"
+msgstr "snel reagerend"
+
+#: blocks/responsive.php:156
+msgid "No Preset"
+msgstr "Geen voorinstelling"
+
+#: blocks/responsive.php:151
+msgid "Old Phone (480px)"
+msgstr "Oude telefoon (480px)"
+
+#: blocks/responsive.php:150
+msgid "Small screen (640px)"
+msgstr "Klein scherm (640px)"
+
+#: blocks/responsive.php:149
+msgid "Medium Smartphone (768px)"
+msgstr "Middelgrote smartphone (768px)"
+
+#: blocks/responsive.php:148
+msgid "Modern Smartphone (1080px)"
+msgstr "Moderne smartphone (1080px)"
+
+#: views/modals/copy-modal.php:28
+msgid "All Options"
+msgstr "Alle opties"
+
+#: includes/maxbuttons-button.php:236
+msgid "Set width and height to use this responsive screen"
+msgstr "Stel breedte en hoogte in om dit responsieve scherm te gebruiken"
+
+#: includes/maxbuttons-button.php:231
+msgid "Shows at screen size bigger than %s"
+msgstr "Toont op schermgrootte groter dan %s"
+
+#: includes/maxbuttons-button.php:225
+msgid "Shows at screen size smaller than %s"
+msgstr "Toont op schermgrootte kleiner dan %s"
+
+#: includes/maxbuttons-button.php:220
+msgid "Shows at screen size from %s to %s"
+msgstr "Toont op schermgrootte van %s tot %s"
+
+#: includes/maxbuttons-button.php:210
+msgid "Your main button for all screens. "
+msgstr "Je hoofdknop voor alle schermen."
+
+#: includes/maxbuttons-button.php:124 includes/maxbuttons-button.php:129
+msgid "auto"
+msgstr "auto"
+
+#: includes/maxbuttons-welcome.php:22
+msgid "You can use your button design many times. Even with a different text and link!"
+msgstr "Je kan je knopontwerp vele malen gebruiken. Zelfs met een andere tekst en link!"
+
+#: includes/maxbuttons-welcome.php:22
+msgid "Do Not Repeat!"
+msgstr "Herhaal niet!"
+
+#: includes/maxbuttons-welcome.php:20
+msgid "MaxButtons uses shortcodes. These are small snippets you can copy into your posts and pages. You will see a button in your post editor which will make this easier."
+msgstr "MaxButtons gebruikt shortcodes. Dit zijn kleine snippets die je naar je berichten en pagina's kan kopiëren. Je ziet een knop in je berichteditor die dit gemakkelijker zal maken."
+
+#: includes/maxbuttons-welcome.php:18
+msgid "Organize your Designs"
+msgstr "Organiseer je ontwerpen"
+
+#: includes/maxbuttons-settings.php:225
+msgid "Remigrate Responsive"
+msgstr "Responsief opnieuw migreren"
+
+#: includes/maxbuttons-settings.php:224
+msgid "In case you still have legacy responsive data ( before version 8 ) and this was not migrated for some reason.  <strong>Warning</strong> Create a database backup. Use at your own risk. "
+msgstr "Als je nog steeds verouderde responsieve gegevens hebt (vóór versie 8) en deze om de een of andere reden niet is gemigreerd. <strong> Waarschuwing </strong> Maak een databasebackup. Gebruik op eigen risico."
+
+#: includes/maxbuttons-settings.php:223
+msgid "Retry Responsive Migration"
+msgstr "Responsieve migratie opnieuw proberen"
+
+#: classes/maxbuttons-class.php:499
+msgid "Are you sure you want to remove this screen?"
+msgstr "Weet je zeker dat je dit scherm wilt verwijderen?"
+
+#: classes/screen.php:71
+msgid "Main"
+msgstr "Hoofd"
+
+#: classes/maxbuttons-class.php:82
+msgid "Can't read directory. %s Reinstall the plugin or check directory permissions"
+msgstr "Kan de directory niet lezen. %s Herinstalleer de plugin of controleer de rechten van de directory"
+
+#: classes/maxbuttons-class.php:81
+msgid "Fatal Problem with MaxButtons"
+msgstr "Fataal probleem met MaxButtons"
+
+#: classes/controllers/listController.php:70
+msgid "Something went wrong with the form, nonce not verified"
+msgstr "Er ging iets mis met het formulier, nonce niet geverifieerd"
+
+#: includes/maxbuttons-list.php:96
+msgid "Empty Trash"
+msgstr "Leeg de Prullenbak"
+
+#: includes/maxbuttons-list.php:96
+msgid "Permanently delete all buttons in trash. Are you sure?"
+msgstr "Verwijder alle knoppen uit de prullenbak. Ben je daar zeker van?"
+
+#: classes/controllers/listController.php:152
+msgid "Emptied Trash"
+msgstr "Prullenbak geleegd"
+
+#: blocks/container.php:257
+msgid "Float can help to align the button and other content on the same line"
+msgstr "Float kan helpen de button op één lijn te plaatsen tezamen met andere inhoud op dezelfde lijn"
+
+#: blocks/container.php:154
+msgid "Creates a container around the button which pushes other content"
+msgstr "Creëert een houder rond de button die andere inhoud wegdrukt"
+
+#: blocks/advanced.php:139
+msgid "Enabling the \"Use External CSS\" will stop loading any button styling. You will need to put the button style manually"
+msgstr "Aanzetten van Üse External CSS\" stopt het laden van elke button styling. Je dient de button style zelf handmatig te maken"
+
+#: blocks/basic.php:569
+msgid "Width and Height are optional. When set to 0, button size will be determined by text size plus padding"
+msgstr "Breedte en hoogte zijn optioneel. Wanneer de waarde 0 is zal de knopgrootte worden bepaald door de grootte van de tekst plus de padding"
+
+#: includes/maxbuttons-settings.php:173
+msgid "You can add link formats not regarded as \"safe\" by WordPress. Use this if links are removed or lose their protocol ( xx:// ). For instance: \"file,sms,skype\" ."
+msgstr "Je kunt link formats die door WordPress niet als veilig worden gezien gebruiken. Gebruik dit wanneer links zijn verwijderd of hun protocol verlezen (xx://). Voorbeeld: \"file,sms,skype\"."
+
+#: classes/max-utils.php:171
+msgid "Desktop, > 1224px"
+msgstr "Desktop, > 1224px"
+
+#: classes/max-utils.php:168
+msgid "Ipad (all) / Large phones (768px-1024px)"
+msgstr "Ipad (all) / Large phones (768px-1024px)"
+
+#: classes/max-utils.php:167
+msgid "Medium-size (smart)phone (480px-768px)"
+msgstr "Medium-size (smart)phone (480px-768px)"
+
+#: classes/max-utils.php:166
+msgid "Small phones (portrait), < 320px "
+msgstr "Small phones (portrait), < 320px "
+
+#: classes/max-utils.php:164
+msgid "Small phones, < 480px"
+msgstr "Small phones, < 480px"
+
+#: blocks/container.php:145
+msgid "container"
+msgstr "container"
+
+#: blocks/border.php:117
+msgid "border"
+msgstr "rand"
+
+#: blocks/basic.php:266
+msgid "basic"
+msgstr "basic"
+
+#: blocks/advanced.php:106
+msgid "advanced"
+msgstr "advanced"
+
+#: blocks/gradient.php:56
+msgid "gradient-options"
+msgstr "gradient-options"
+
+#: blocks/text.php:151
+msgid "shadow"
+msgstr "schaduw"
+
+#: blocks/basic.php:249
+msgid "Already used in : "
+msgstr "Reeds gebruikt in: "
+
+#: blocks/basic.php:248
+msgid "Button name already used. Using non-unique names with the shortcode can cause issues"
+msgstr "Knopnaam al eerder gebruikt. Het gebruik van niet unieke namen met shortcode kan problemen veroorzaken"
+
+#: includes/maxbuttons-settings.php:29
+msgid "MaxButtons User Level for editing buttons"
+msgstr "MaxButtons gebruikers niveau voor het bewerken van knoppen"
+
+#: blocks/basic.php:312
+msgid "Select Site Content"
+msgstr "Selecteer site inhoud"
+
+#: includes/maxbuttons-support.php:28
+msgid "%sSupport Forums%s."
+msgstr "%sSupport Forums%s."
+
+#: includes/maxbuttons-button.php:81
+msgid "More tips"
+msgstr "Meer tips"
+
+#: includes/maxbuttons-button.php:58
+msgid "How to make your life easier"
+msgstr "Hoe het leven makkelijker te maken"
+
+#: classes/maxbuttons-class.php:616
+msgid "Use this Button"
+msgstr "Gebruik deze knop"
+
+#: classes/admin-class.php:346
+msgid "More Options"
+msgstr "Meer opties"
+
+#: classes/admin-class.php:313
+msgid "Change the options to add shortcode attributes. "
+msgstr "Wijzig de opties om shortcode attributes toe te voegen. "
+
+#: classes/admin-class.php:311
+msgid "Shortcode Options"
+msgstr "Shortcode Opties"
+
+#: includes/social-share.php:75
+msgid "Check plugin on WordPress site"
+msgstr "Check plugin op de WordPress site"
+
+#: includes/social-share.php:74
+msgid "Install for Free!"
+msgstr "Installeer gratis!"
+
+#: includes/social-share.php:68
+msgid "Add custom buttons via MaxButtons"
+msgstr "Voeg aangepaste knoppen toe via MaxButtons"
+
+#: includes/social-share.php:67
+msgid "More options for customization"
+msgstr "Meer aanpassingsopties"
+
+#: includes/social-share.php:66
+msgid "Customize Twitter hashtag per post for maximum SEO value"
+msgstr "Pas Twitter hashtag aan per post voor maximum SEO waarde"
+
+#: includes/social-share.php:63
+msgid "Only with MaxButton PRO:"
+msgstr "Alleen met MaxButton PRO:"
+
+#: includes/social-share.php:59
+msgid "Customizable layout"
+msgstr "Aanpasbare lay-out"
+
+#: includes/social-share.php:45
+msgid ""
+"Many networks: Facebook,\n"
+"\t\t    Twitter,\n"
+"\t\t    Instagram,\n"
+"\t\t    Pinterest,\n"
+"\t\t    Linkedin,\n"
+"\t\t    Google+,\n"
+"\t\t    YouTube,\n"
+"\t\t    Pinterest,\n"
+"\t\t    VKontakte,\n"
+"\t\t    StumbleUpon,\n"
+"\t\t    Reddit,\n"
+"\t\t    Whatsapp,\n"
+"\t\t    Buffer"
+msgstr ""
+"Veel netwerken: Facebook,\n"
+"\t\t    Twitter,\n"
+"\t\t    Instagram,\n"
+"\t\t    Pinterest,\n"
+"\t\t    Linkedin,\n"
+"\t\t    Google+,\n"
+"\t\t    YouTube,\n"
+"\t\t    Pinterest,\n"
+"\t\t    VKontakte,\n"
+"\t\t    StumbleUpon,\n"
+"\t\t    Reddit,\n"
+"\t\t    Whatsapp,\n"
+"\t\t    Buffer"
+
+#: includes/social-share.php:44
+msgid "Presets to get going quickly"
+msgstr "Vooraf instellingen om snel aan de slag te gaan"
+
+#: includes/social-share.php:42
+msgid "Features"
+msgstr "Kenmerken"
+
+#: includes/social-share.php:33
+msgid "We created a brand new plugin to make your Social Share experiences better."
+msgstr "We creëerden een nagelnieuwe plugin om je Social Share ervaringen te verbeteren."
+
+#: includes/social-share.php:31
+msgid "MaxButtons Share Buttons"
+msgstr "MaxButtons Share Buttons"
+
+#: includes/social-share.php:17
+msgid "WordPress Share Buttons"
+msgstr "WordPress Share Buttons"
+
+#: includes/maxbuttons-welcome.php:13
+msgid "Support Forums"
+msgstr "Support Forums"
+
+#: includes/maxbuttons-welcome.php:12
+msgid "Creating buttons with MaxButtons"
+msgstr "Knoppen aanmaken met MaxButtons"
+
+#: includes/maxbuttons-welcome.php:10
+msgid "Some links that may be helpful:"
+msgstr "Enige links die van pas kunnen komen:"
+
+#: includes/maxbuttons-welcome.php:7
+msgid "To get you started, %s Create your first button %s"
+msgstr "Om te beginnen, %s Creëer je eerste knop %s"
+
+#: includes/maxbuttons-welcome.php:5
+msgid "Welcome to MaxButtons!"
+msgstr "Welkom bij MaxButtons!"
+
+#: classes/maxbuttons-class.php:348
+msgid "Share Buttons"
+msgstr "Deel knoppen"
+
+#: classes/maxbuttons-class.php:347
+msgid "MaxButtons: Share Buttons"
+msgstr "MaxButtons: Share Buttons"
+
+#: includes/maxbuttons-settings.php:172
+msgid "Separate multiple protocols with comma"
+msgstr "Scheid meerdere waardes van elkaar met een komma. "
+
+#: includes/maxbuttons-settings.php:171
+msgid "Additional allowed link protocols"
+msgstr "Toegevoegde toegestane link protocollen"
+
+#: includes/maxbuttons-button.php:74
+msgid "Same button with diffent text"
+msgstr "Dezelfde knop met een andere tekst"
+
+#: includes/maxbuttons-button.php:70
+msgid "Same button with different link"
+msgstr "Dezelfde knop met een verschillende link"
+
+#: includes/maxbuttons-button.php:55
+msgid "Shortcode options can make using MaxButtons much easier! Check all possible options"
+msgstr "Shortcode opties kunnen het gebruik van Maxbuttons veel makkelijker maken! Bekijk alle mogelijkheden"
+
+#: classes/admin-class.php:30
+msgid "[Site Default]"
+msgstr "Site-standaard"
+
+#: classes/admin-class.php:402 blocks/basic.php:378
+msgid "Button Tooltip"
+msgstr "Knop Tooltip"
+
+#: blocks/text.php:147 blocks/gradient.php:81 blocks/basic.php:271
+#: blocks/border.php:112
+msgid "Copy Color to other field"
+msgstr "Kopieer kleur naar een ander veld"
+
+#: blocks/text.php:146 blocks/gradient.php:80 blocks/basic.php:270
+#: blocks/border.php:111
+msgid "Replace color from other field"
+msgstr "Vervang kleur met die van een ander veld"
+
+#: includes/maxbuttons-settings.php:99
+msgid ""
+"A lot of modern themes render their templates as \"border box\". If you notice that padding\n"
+"                     \t\t\t\t\t\t   and borders looks differently on the site compared to preview, try to turn this option on"
+msgstr ""
+"Veel moderne thema's geven hun templates weer als een \"border box\". Als je ziet dat padding\n"
+"                     \t\t\t\t\t\t   en borders er anders uitzien op de site dan in de preview, probeer dan deze optie aan te zetten"
+
+#: includes/maxbuttons-settings.php:98
+msgid "Preview in Border Box mode"
+msgstr "Preview in Border Box mode"
+
+#: includes/maxbuttons-no-simplexml.php:27
+msgid "SimpleXML installation"
+msgstr "SimpleXML installatie"
+
+#: includes/maxbuttons-no-simplexml.php:23
+msgid ""
+"To enable this module please install the SimpleXML PHP module. If you don't know how, ask your support from your\n"
+"\thosting provider"
+msgstr ""
+"Om dit module te activeren installeer dan de SimpleXML PHP module. Als je niet weet hoe je dat moet doen, vraag dan ondersteuning van je\n"
+"\thosting provider"
+
+#: includes/maxbuttons-no-simplexml.php:21
+msgid "PHP Module SimpleXML not found. This module will not work"
+msgstr "PHP Module SimpleXML niet gevonden. Deze module werkt niet"
+
+#: includes/maxbuttons-no-simplexml.php:13
+msgid "Packs"
+msgstr "Paketten"
+
+#: includes/maxbuttons-no-simplexml.php:6
+msgid "Enable SimpleXML"
+msgstr "Zet SimpleXML aan"
+
+#: includes/maxbuttons-settings.php:74
+msgid "Minify Button CSS"
+msgstr "Verklein Button CSS"
+
+#: includes/maxbuttons-settings.php:73
+msgid "Recommended, only turn off in case of issues. You will have to clear your cache after changing this setting"
+msgstr "Aangeraden word dit alleen bij problemen uit te zetten. Je zult je cache moeten schoonmaken nadat je deze setting hebt gewijzigd"
+
+#: includes/maxbuttons-settings.php:54
+msgid "Hide \"add button\" in post editor toolbar"
+msgstr "Verberg \"add button\" in post editor toolbar"
+
+#: views/modals/copy-modal.php:24
+msgid "Both"
+msgstr "Beide"
+
+#: views/modals/copy-modal.php:11
+msgid "You probably don't want to copy your button!"
+msgstr "Je wilt waarschijnlijk je knop niet kopiëren!"
+
+#: views/modals/copy-modal.php:33
+msgid "Your button has not been saved. Any changes will be lost!"
+msgstr "Je knop is niet opgeslagen. Alle wijzigingen zullen verloren gaan!"
+
+#: views/modals/trash-modal.php:7
+msgid "The button will be moved to trash. It can be recovered from the trash bin later. Continue?"
+msgstr "De knop wordt naar de prullenbak verplaatst. Deze kan er later weer uit worden gehaald. Doorgaan?"
+
+#: views/modals/trash-modal.php:6
+msgid "Trash button"
+msgstr "Prullenbak knop"
+
+#: classes/maxbuttons-class.php:626
+msgid "Add to Editor"
+msgstr "Voeg toe aan de Editor"
+
+#: classes/maxbuttons-class.php:625
+msgid "If you want to change the URL or Text of the Button, enter the appropiate field. If you want to use the button values, just click Add to editor"
+msgstr "Als je de URL of de tekst van de button wilt wijzigen vul het betreffende veld in. Als je de waardes van de button wilt gebruiken klik dan alleen op Voeg toe van de editor"
+
+#: classes/maxbuttons-class.php:624 classes/admin-class.php:334
+msgid "Button Text"
+msgstr "Knoptekst"
+
+#: classes/maxbuttons-class.php:623 classes/admin-class.php:321
+msgid "Button URL"
+msgstr "Knop url"
+
+#: classes/admin-class.php:220
+msgid "Click on a button to select it and add the shortcode to the editor"
+msgstr "Klik op een knop om hem te selecteren en voeg de shortcode toe in de editor"
+
+#: blocks/gradient.php:84
+msgid "Use Gradients"
+msgstr "Gebruik Gradients"
+
+#: blocks/border.php:271
+msgid "Shadow Spread"
+msgstr "Schaduw verspreiding"
+
+#: blocks/gradient.php:150
+msgid "Background hover"
+msgstr "Achtergrond zweven"
+
+#: blocks/gradient.php:120
+msgid "Background color"
+msgstr "Achtergrondkleur"
+
+#: includes/maxbuttons-settings.php:86
+msgid "Hide description field"
+msgstr "Verberg het veld beschrijving"
+
+#: blocks/container.php:215
+msgid "Margin"
+msgstr "Kantlijn"
+
+#: blocks/container.php:171
+msgid "Center the container"
+msgstr "Centreer de inhoud"
+
+#: blocks/advanced.php:148
+msgid "Warning: This will remove all styling of the buttons!"
+msgstr "Waarschuwing: Dit verwijdert alle styling van de knoppen!"
+
+#: blocks/text.php:191
+msgid "Shadow Color"
+msgstr "Schaduwkleur"
+
+#: blocks/gradient.php:201
+msgid "Hover opacity"
+msgstr "Zweefdoorzichtigheid"
+
+#: blocks/gradient.php:178
+msgid "Normal Opacity"
+msgstr "Normale doorzichtigheid"
+
+#: blocks/gradient.php:108
+msgid "End"
+msgstr "Einde"
+
+#: blocks/gradient.php:101
+msgid "Start"
+msgstr "Start"
+
+#: blocks/gradient.php:57
+msgid "Background"
+msgstr "Achtergrond"
+
+#: blocks/border.php:283
+msgid "Border Shadow Color"
+msgstr "Schaduwkleur van de begrenzing"
+
+#: blocks/text.php:178 blocks/border.php:262
+msgid "Shadow Blur"
+msgstr "Schaduwvervaging"
+
+#: blocks/border.php:221
+msgid "Border Color"
+msgstr "Randkleur"
+
+#: blocks/text.php:152
+msgid "Text Shadow"
+msgstr "Tekst schaduw"
+
+#: blocks/basic.php:532
+msgid "Text Color Hover"
+msgstr "Zwevende tekstkleur"
+
+#: blocks/basic.php:519
+msgid "Text Color"
+msgstr "Tekstkleur"
+
+#: blocks/basic.php:277 blocks/basic.php:282
+msgid "Button Name"
+msgstr "Knopnaam"
+
+#: blocks/basic.php:492
+msgid "Padding Right"
+msgstr "Opvulling rechts"
+
+#: blocks/basic.php:510
+msgid "Padding Left"
+msgstr "Opvulling links"
+
+#: blocks/basic.php:501
+msgid "Padding Bottom"
+msgstr "Onderkant opvulling"
+
+#: blocks/basic.php:483
+msgid "Padding Top"
+msgstr "Bovenkant opvulling"
+
+#: blocks/basic.php:468
+msgid "Align right"
+msgstr "Rechts uitlijnen"
+
+#: blocks/basic.php:458
+msgid "Align center"
+msgstr "Centreren"
+
+#: blocks/basic.php:448
+msgid "Align left"
+msgstr "Links uitlijnen"
+
+#: blocks/basic.php:438
+msgid "Italic"
+msgstr "Italic"
+
+#: blocks/basic.php:427
+msgid "Bold"
+msgstr "Vetgedrukt"
+
+#: views/modals/copy-modal.php:35
+msgid "Do you want to copy this button to a new button?"
+msgstr "Wil je deze knop naar een nieuwe knop kopiëren?"
+
+#: views/modals/copy-modal.php:7
+msgid "Copy this button"
+msgstr "Kopieer deze knop"
+
+#: blocks/advanced.php:192
+msgid "Close"
+msgstr "Sluit"
+
+#: classes/admin-class.php:419 blocks/advanced.php:122
+msgid "Extra classes"
+msgstr "Extra klassen"
+
+#: blocks/advanced.php:124
+msgid "Useful for custom code or other plugins who target classes"
+msgstr "Nuttig voor aangepaste code of andere plugins die klassen tot doel hebben"
+
+#: blocks/advanced.php:131
+msgid "Custom Rel Tag"
+msgstr "Aangepaste Rel Tag"
+
+#: blocks/advanced.php:133
+msgid "Useful when button is targeting lightbox and/or popup plugins that use this method"
+msgstr "Nuttig als de button een lichtbox en/of popup plugins tot doel heeft die deze methode gebruiken"
+
+#: assets/integrations/shortcake/shortcake.php:116
+msgid "Custom Text [optional]"
+msgstr "Pas tekst aan"
+
+#: assets/integrations/shortcake/shortcake.php:111 blocks/basic.php:299
+msgid "http://"
+msgstr "http://"
+
+#: assets/integrations/shortcake/shortcake.php:106
+msgid "Custom URL [optional]"
+msgstr "Pas de URL aan  [optioneell]"
+
+#: assets/integrations/shortcake/shortcake.php:102
+msgid "Select a button"
+msgstr "Selecteer een button"
+
+#: blocks/text.php:79
+msgid "YOUR TEXT"
+msgstr "EIGEN TEKST"
+
+#: assets/integrations/siteorigins_builder/widgets/maxbuttons-widget/maxbuttons-widget.php:46
+msgid "Open in a new window [optional]"
+msgstr "Open in een nieuw tabblad [optioneel]"
+
+#: assets/integrations/siteorigins_builder/widgets/maxbuttons-widget/maxbuttons-widget.php:40
+msgid "Destination URL [optional]"
+msgstr "Bestemmingsadres URL [optional]"
+
+#: assets/integrations/siteorigins_builder/widgets/maxbuttons-widget/maxbuttons-widget.php:35
+msgid "Button text [optional]"
+msgstr "Knop tekst [optioneel]"
+
+#: assets/integrations/siteorigins_builder/widgets/maxbuttons-widget/maxbuttons-widget.php:29
+msgid "Select a maxbutton"
+msgstr "Selecteer een maxbutton"
+
+#: assets/integrations/siteorigins_builder/widgets/maxbuttons-widget/maxbuttons-widget.php:20
+msgid "MaxButtons for the page builder."
+msgstr "MaxButtons voor de pagina bouwer."
+
+#: assets/integrations/siteorigins_builder/fields/maxbutton.class.php:117
+msgid "Selected Button"
+msgstr "Geselecteerde knop"
+
+#: assets/integrations/siteorigins_builder/fields/maxbutton.class.php:113
+msgid "Select a Button"
+msgstr "Selecteer een knop"
+
+#: assets/integrations/siteorigins_builder/fields/maxbutton.class.php:69
+msgid "Set Media"
+msgstr "Zet media"
+
+#: assets/integrations/siteorigins_builder/fields/maxbutton.class.php:68
+msgid "Choose Maxbutton"
+msgstr "Kies Maxbutton"
+
+#: includes/maxbuttons-list.php:185
+msgid "or"
+msgstr "of"
+
+#: classes/maxbuttons-admin-helper.php:324
+msgid "Get Started"
+msgstr "Aan de slag"
+
+#: classes/maxbuttons-admin-helper.php:321
+msgid "The Max Foundry Team"
+msgstr "Het Max Foundry Team"
+
+#: classes/maxbuttons-admin-helper.php:319
+msgid "Click Get Started and we will have your social media icons up and running on your site super quick!"
+msgstr "Klik op Aan de slag en we hebben je social media icons supersnel aan de gang op je site!"
+
+#: classes/maxbuttons-admin-helper.php:317
+msgid "By upgrading to %sMaxButtons Pro%s you get an 13 additional Social Sharing button sets along with the ability to build your own Social Sharing sets using your own icons, using Google Fonts in your Social Sharing buttons along with all of the features that come with our premium product."
+msgstr "Door te upgraden naar %sMaxButtons Pro%s krijg je 13 additionele Social Sharing button sets samen met de mogelijkheid jouw eigen Social Sharing sets te bouwen met jouw eigen icons, met gebruikmaking van Google Fonts in je Social Sharing buttons naast alle features die ons premium product bevat."
+
+#: classes/maxbuttons-admin-helper.php:315
+msgid "You build your Social Sharing set by selecting the buttons you want in your collection.  Then click the Add selected buttons button in the lower right.  Aside from being included in your collection your selected buttons are now included with all of the other buttons on your site.  You can edit those buttons by going to the Buttons section in the Nav bar on the left."
+msgstr "Je bouwt je Social Sharing set door de knoppen te selecteren die je in jouw collectie wilt hebben. Daarna klik je op de Voeg geselecteerde knoppen toe knop rechts onder. Behalve toegevoegd te zijn in jouw collectie zijn jouw geselecteerde knoppen nu ook beschikbaar samen met alle overige knoppen van je site. Je kunt deze knoppen bewerken door naar de Knoppen sectie in de Navigatie werkbalk links te gaan."
+
+#: classes/maxbuttons-admin-helper.php:313
+msgid "After clicking the Get Started link below you’ll come to the ‘Select your buttons’ page.  Here you will see the listing of free Social Sharing sets plus all of the buttons that you have on your site can be used in the collection that you are putting together."
+msgstr "Na op de Aan de slag link hieronder geklikt te hebben kom je op de 'Selecteer je buttons' pagina. Hier zie je een lijst van gratis Social Sharing sets inclusief alle knoppen op je site die je kunt gebruiken voor de collectie die je aan het maken bent."
+
+#: classes/maxbuttons-admin-helper.php:311
+msgid "MaxButtons comes with 5 terrific free sets of Social Sharing buttons for you to use: Notched Box Social Share, Modern Social Share, Round White Social Share, Social Share Squares, Minimalistic Share Buttons.  You can also add any other button you have made to a collection of Social Sharing buttons."
+msgstr "MaxButtons bevat 5 fantastische gratis sets Social Sharing knoppen voor jou om te gebruiken: Notched Box Social Share, Modern Social Share, Round White Social Share, Social Share Squares, Minimalistic Share Buttons.  Ook kan je iedere andere knop die je zelf gemaakt hebt toevoegen aan een collectie van Social Sharing buttons."
+
+#: classes/maxbuttons-admin-helper.php:310
+msgid "Social Sharing sets are collections of buttons that are primarily used to promote your social media profiles on your site."
+msgstr "Social Sharing sets zijn collecties van buttons die in eerste instantie gebruikt worden om de sociale media profielen op je site te promoten."
+
+#: classes/maxbuttons-admin-helper.php:309
+msgid "Welcome to MaxButtons Social Sharing"
+msgstr "Welkom bij MaxButtons Social Sharing"
+
+#: classes/maxbuttons-class.php:571
+msgid "OK"
+msgstr "Oké"
+
+#: classes/maxbuttons-class.php:508
+msgid "Clear"
+msgstr "Duidelijk"
+
+#: classes/maxbuttons-class.php:593
+msgid "You have unsaved data, are you sure you want to leave the page?"
+msgstr "Je hebt wijzigingen die niet zijn opgeslagen. Weet je zeker dat je deze pagina wilt verlaten?"
+
+#: classes/max-utils.php:38
+msgid "Nonce not verified ("
+msgstr "Nonce is niet geverifiëerd ("
+
+#: blocks/meta.php:86
+msgid "Meta"
+msgstr "Meta"
+
+#: blocks/responsive.php:332
+msgid "Icons and Images"
+msgstr "Pictogrammen en afbeeldingen"
+
+#: includes/maxbuttons-settings.php:294
+msgid "I need to bulk edit something"
+msgstr "Ik moet overal iets wijzigen"
+
+#: includes/maxbuttons-settings.php:285
+msgid "I understand that this may destroy all my buttons"
+msgstr "Ik begrijp dat dit al mijn knoppen kan verwijderen"
+
+#: includes/maxbuttons-settings.php:282 includes/maxbuttons-settings.php:288
+msgid "Replace"
+msgstr "Vervangen"
+
+#: includes/maxbuttons-settings.php:281
+msgid "Search"
+msgstr "Zoeken"
+
+#: includes/maxbuttons-settings.php:279
+msgid "Field"
+msgstr "Veld"
+
+#: includes/maxbuttons-settings.php:277
+msgid "Using Bulk editor MAY and probably WILL destroy your buttons. In case you wish to prevent this - please BACKUP all your buttons before proceeding!"
+msgstr "Gebruikmaking van de Bulk editor KAN en ZAL hoogstwaarschijnlijk je buttons vernietigen. Om dit te voorkomen BACKUP s.v.p. al je buttons alvorens door te gaan!"
+
+#: includes/maxbuttons-settings.php:274
+msgid "Bulk edit"
+msgstr "Bulkbewerken"
+
+#: classes/admin-class.php:231
+msgid "Click %shere%s to add one"
+msgstr "Klik %shier%s om er een toe te voegen"
+
+#: classes/admin-class.php:230
+msgid "You didn't create any buttons yet!"
+msgstr "Je hebt nog geen knop aangemaakt!"
+
+#: includes/maxbuttons-button.php:105
+msgid "Preview"
+msgstr "Voorvertoning"
+
+#: includes/maxbuttons-button.php:86
+msgid "By using this syntax when you edit and save your button it will be changed everywhere it is used on your site. If you delete the button and create a new one with the same name the new button will be used on your site. Easy!"
+msgstr "Door het gebruik van deze syntaxis wanneer je jouw knop bewerkt wordt het overal op je site waar je deze gebruikt gewijzigd. Als je deze knop verwijdert en een nieuwe aanmaakt met dezelfde naam zal deze op je gehele site worden gebruikt. Eenvoudig!"
+
+#: includes/maxbuttons-button.php:52
+msgid "To use this button, place the following shortcode anywhere you want it to appear in your site content:"
+msgstr "Om deze button te gebruiken plaats de volgende shortcode op elke plaats waar je dit wenst in de inhoud van de site:"
+
+#. Author URI of the plugin
+msgid "http://maxfoundry.com"
+msgstr "http://maxfoundry.com"
+
+#. Author of the plugin
+msgid "Max Foundry"
+msgstr "Max Foundry"
+
+#. Description of the plugin
+msgid "The best WordPress button generator. This is the free version; the Pro version <a href=\"http://maxbuttons.com/?ref=mbfree\">can be found here</a>."
+msgstr "De beste WordPress button generator. DIT is de gratis versie; de Pro versie <a href=\"http://maxbuttons.com/?ref=mbfree\">vind je hier</a>."
+
+#. Plugin URI of the plugin
+msgid "http://maxbuttons.com"
+msgstr "http://maxbuttons.com"
+
+#: maxbuttons.php:27
+msgid "Already found an instance of MaxButtons running. Please check if you are trying to activate two MaxButtons plugins and deactivate one. "
+msgstr "MaxButtons draait al op deze machine. Check s.v.p. of je tracht een nieuwe(re) versie te starten en een oude(re) te deactiveren. "
+
+#: includes/maxbuttons-support.php:32
+msgid "You may be asked to provide the information below to help troubleshoot your issue."
+msgstr "Je kunt gevraagd worden onderstaande informatie te verstrekken om je probleem te onderzoeken."
+
+#: includes/maxbuttons-support.php:19
+msgid "Go to support"
+msgstr "Ga naar ondersteuning"
+
+#: includes/maxbuttons-settings.php:243
+msgid "Change MaxButtons Table To UTF8"
+msgstr "Wijzig de MaxButtons tabel naar UTF8"
+
+#: includes/maxbuttons-settings.php:240
+msgid "The button below should help fix the \"foreign character issue\" some people experience when using MaxButtons. If you use foreign characters in your buttons and after saving see ????, use this button."
+msgstr "De onderstaande knop zou het \"vreemde tekens probleem\" dat sommige MaxButtons gebruikers ondervinden kunnen helpen oplossen. Als je vreemde tekens gebruikt in je knoppen en na het opslaan ervan ???? ziet, gebruik deze dan."
+
+#: includes/maxbuttons-settings.php:238
+msgid "WARNING: We strongly recommend backing up your database before altering the charset of the MaxButtons table in your WordPress database."
+msgstr "WAARSCHUWING: Wij raden ten sterkste aan om een backup van je database te maken alvorens de tekenset van de MaxButtons tabel in je WordPress database te wijzigen."
+
+#: includes/maxbuttons-settings.php:235
+msgid "UTF8 Table Fix"
+msgstr "UTF8 Table Fix"
+
+#: includes/maxbuttons-settings.php:212
+msgid "Remigrate"
+msgstr "Remigreren"
+
+#: includes/maxbuttons-settings.php:211
+msgid "In case the upgrade functionality failed to move your old buttons from MaxButtons before version 3, you can do so here manually. <strong>Attention</strong>  The new database table (maxbuttonsv3) *must* be empty, and the old database table *must* contain buttons otherwise this will not run. Run this <strong>at your own risk</strong> - it is strongly advised to make a backup before doing so."
+msgstr "In het geval dat de verplaatsing van je oude buttons van MaxButtons van voor versie 3 functioneel faalde kan je dat hier handmatig doen.  <strong>Attentie</strong>  De nieuwe database tabel (maxbuttonsv3) *moet* leeg zijn en de oude database tabel *moet*  buttons bevatten anders zal dit niet werken. Doe dit <strong>op eigen risico</strong> - het wordt ten sterkste aangeraden om een backup te maken alvorens dit te doen."
+
+#: includes/maxbuttons-settings.php:210
+msgid "Retry Database migration"
+msgstr "Probeer Database migratie opnieuw"
+
+#: includes/maxbuttons-settings.php:194
+msgid "Reset Cache"
+msgstr "Reset Cache"
+
+#: includes/maxbuttons-settings.php:192
+msgid ""
+"Maxbuttons caches the style output allowing for lightning fast display of your buttons. In the event\n"
+"        \t\t\tthis cache needs to be flushed and rebuilt you can reset the cache here."
+msgstr ""
+"Maxbuttons zet de stijl output in cache geheugen voor een razendsnelle display van je buttons.\n"
+"Voor het geval dat deze cache verwijderd en herschapen moet worden kan je de cache hier resetten."
+
+#: includes/maxbuttons-settings.php:190
+msgid "Clear button cache"
+msgstr "Wis de knop cache"
+
+#: includes/maxbuttons-settings.php:39
+msgid "For more details on user roles and permissions, click %s here%s."
+msgstr "Voor meer details over gebruikers rol en toestemmingen, klik %s hier%s."
+
+#: includes/maxbuttons-pro.php:16 blocks/responsive.php:336
+msgid "Buy Now"
+msgstr "Nu Kopen"
+
+#: classes/maxbuttons-class.php:572 classes/maxbuttons-class.php:619
+#: views/modals/copy-modal.php:41
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: classes/maxbuttons-class.php:617
+msgid "Loading your buttons"
+msgstr "Bezig met het laden van je buttons"
+
+#: classes/maxbuttons-class.php:618
+msgid "Click on a button from the list below to place the button shortcode in the editor."
+msgstr "Klik op een knop in de lijst hieronder om de knop shortcode in de editor te plaatsen."
+
+#: classes/maxbuttons-class.php:615
+msgid "Insert Button into Editor"
+msgstr "Zet knop in de editor"
+
+#: includes/maxbuttons-list.php:162
+msgid "Edit"
+msgstr "Bewerken"
+
+#: includes/maxbuttons-list.php:26
+msgid "Overview"
+msgstr "Overzicht"
+
+#: classes/controllers/listController.php:91
+msgid " buttons to the trash."
+msgstr " knoppen naar de prullenbak."
+
+#: classes/controllers/listController.php:91
+msgid "Moved "
+msgstr "Verplaatst "
+
+#: classes/controllers/listController.php:87
+#: classes/controllers/listController.php:139
+msgid "Moved 1 button to the trash."
+msgstr "1 knop naar de prullenbak verplaatst."
+
+#: includes/maxbuttons-list-trash.php:148
+msgid "Actions"
+msgstr "Acties"
+
+#: includes/maxbuttons-list.php:138 includes/maxbuttons-list-trash.php:147
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: includes/maxbuttons-list.php:131 includes/maxbuttons-list-trash.php:146
+msgid "Name and Description"
+msgstr "Naam en omschrijving"
+
+#: includes/maxbuttons-list.php:93 includes/maxbuttons-list-trash.php:139
+msgid "Apply"
+msgstr "Uitvoeren"
+
+#: includes/maxbuttons-list.php:90 includes/maxbuttons-list.php:175
+#: includes/maxbuttons-list-trash.php:137
+#: includes/maxbuttons-list-trash.php:175
+msgid "Delete Permanently"
+msgstr "Permanent verwijderen"
+
+#: includes/maxbuttons-list.php:89 includes/maxbuttons-list.php:173
+#: includes/maxbuttons-list-trash.php:136
+#: includes/maxbuttons-list-trash.php:173
+msgid "Restore"
+msgstr "Herstellen"
+
+#: includes/maxbuttons-list.php:83 includes/maxbuttons-list-trash.php:135
+msgid "Bulk Actions"
+msgstr "Acties"
+
+#: includes/maxbuttons-list.php:49 includes/maxbuttons-list.php:54
+#: includes/maxbuttons-list-trash.php:130
+msgid "Trash"
+msgstr "Prullenbak"
+
+#: includes/maxbuttons-list.php:48 includes/maxbuttons-list.php:53
+#: includes/maxbuttons-list-trash.php:128
+msgid "All"
+msgstr "Alles"
+
+#: includes/maxbuttons-list-trash.php:110
+msgid "MaxButtons: Button List"
+msgstr "MaxButtons: Lijst van knoppen"
+
+#: includes/maxbuttons-list-trash.php:46
+#: classes/controllers/listController.php:130
+msgid "Deleted "
+msgstr "Verwijderd "
+
+#: includes/maxbuttons-list-trash.php:42 includes/maxbuttons-list-trash.php:57
+#: classes/controllers/listController.php:126
+#: classes/controllers/listController.php:147
+msgid "Deleted 1 button."
+msgstr "1 knop verwijderd."
+
+#: includes/maxbuttons-list-trash.php:29 includes/maxbuttons-list-trash.php:46
+#: classes/controllers/listController.php:111
+#: classes/controllers/listController.php:130
+msgid " buttons."
+msgstr " knoppen."
+
+#: includes/maxbuttons-list-trash.php:29
+#: classes/controllers/listController.php:111
+msgid "Restored "
+msgstr "Teruggezet "
+
+#: includes/maxbuttons-list-trash.php:25 includes/maxbuttons-list-trash.php:53
+#: classes/controllers/listController.php:107
+#: classes/controllers/listController.php:143
+msgid "Restored 1 button."
+msgstr "1 knop teruggezet."
+
+#: includes/maxbuttons-button.php:158
+msgid "Change this color to see your button on a different background."
+msgstr "Wijzig deze kleur om je knop op een andere achtergrond te zien."
+
+#: includes/maxbuttons-button.php:133
+msgid "The top is the normal button, the bottom one is the hover."
+msgstr "De bovenste is de normale knop, de onderste de zwevende."
+
+#: includes/maxbuttons-button.php:82
+msgid "If you use this button on a static page, on multiple pages, or upload your theme to another WordPress installation choose an unique name and use "
+msgstr "Als je deze button gebruikt op een statische pagina, op meerdere pagina's of wanneer je jouw thema upload naar een andere WordPress installatie kies dan een unieke naam en gebruik deze "
+
+#: includes/maxbuttons-button.php:77
+msgid "All possible shortcode options"
+msgstr "Alle mogelijke shortcode opties"
+
+#: views/modals/copy-modal.php:20
+msgid "Use the same button but change the text"
+msgstr "Gebruik dezelfde knop maar wijzig de tekst"
+
+#: views/modals/copy-modal.php:16
+msgid "Add the same button with different link"
+msgstr "Voeg dezelfde knop toe met een andere link"
+
+#: includes/maxbuttons-button.php:66
+msgid "Add a button by using the button name"
+msgstr "Voeg een knop toe door de naam van de knop te gebruiken"
+
+#: classes/maxbuttons-class.php:570 views/modals/delete-modal.php:12
+#: views/modals/trash-modal.php:12
+msgid "No"
+msgstr "Nee"
+
+#: classes/maxbuttons-class.php:569 views/modals/delete-modal.php:10
+#: views/modals/trash-modal.php:10
+msgid "Yes"
+msgstr "Ja"
+
+#: views/modals/delete-modal.php:7
+msgid "You are about to permanently remove this button. Are you sure?"
+msgstr "Je staat op het punt deze knop permanent te verwijderen. Ben je daar zeker van?"
+
+#: views/modals/delete-modal.php:6
+msgid "Removing button"
+msgstr "Knop verwijderen"
+
+#: classes/controller.php:74
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: includes/maxbuttons-list.php:86 classes/controller.php:73
+msgid "Move to Trash"
+msgstr "Verplaats naar prullenbak"
+
+#: classes/controller.php:71 views/modals/copy-modal.php:39
+msgid "Copy"
+msgstr "Kopieer"
+
+#: classes/controller.php:70
+msgid "Save"
+msgstr "Bewaar"
+
+#: includes/maxbuttons-button.php:9
+msgid "Button editor"
+msgstr "Knop bewerker"
+
+#: classes/controllers/editorController.php:50
+msgid "MaxButtons could not find this button in the database. It might not be possible to save this button! Please check your database or contact support! "
+msgstr "MaxButtons kon deze knop niet in de database vinden. Het is waarschijnlijk niet mogelijk deze knop op te slaan! Check s.v.p. je database of vraag ondersteuning! "
+
+#: classes/controllers/editorController.php:42
+msgid "Maxbuttons button id is zero. Your data is not saved correctly! Please check your database."
+msgstr "Het id van de MaxButtons button is nul. Je data is niet correct opgeslagen! Check s.v.p. je database."
+
+#: classes/controllers/editorController.php:148
+msgid "Maxbuttons Error: Button id should never be zero"
+msgstr "Maxbuttons Fout: Button id kan nooit nul zijn"
+
+#: classes/maxbuttons-admin-helper.php:257
+msgid "Go to the last page"
+msgstr "Ga naar de laatste pagina"
+
+#: classes/maxbuttons-admin-helper.php:251
+msgid "Go to the next page"
+msgstr "Ga naar de volgende pagina"
+
+#: classes/maxbuttons-admin-helper.php:245
+msgid "of"
+msgstr "van"
+
+#: classes/maxbuttons-admin-helper.php:242
+msgid "Go to the previous page"
+msgstr "Ga naar de vorige pagina"
+
+#: classes/maxbuttons-admin-helper.php:236
+msgid "Go to the first page"
+msgstr "Ga naar de eerste pagina"
+
+#: classes/maxbuttons-admin-helper.php:27
+msgid "Upgrade to MaxButtons Pro today!  %sClick Here%s"
+msgstr "Upgrade naar MaxButtons Pro vandaag!  %sKlik Hier%s"
+
+#: blocks/border.php:108
+msgid "solid"
+msgstr "doorlopend"
+
+#: blocks/border.php:107
+msgid "ridge"
+msgstr "rand"
+
+#: blocks/border.php:106
+msgid "outset"
+msgstr "begin"
+
+#: blocks/border.php:105
+msgid "inset"
+msgstr "inset"
+
+#: blocks/border.php:104
+msgid "groove"
+msgstr "groove"
+
+#: blocks/border.php:103
+msgid "double"
+msgstr "dubbel"
+
+#: blocks/border.php:102
+msgid "dotted"
+msgstr "gestippeld"
+
+#: blocks/border.php:101
+msgid "dashed"
+msgstr "gestreept"
+
+#: includes/admin_header.php:15
+msgid "MaxButtons:"
+msgstr "MaxButtons:"
+
+#: classes/maxbuttons-class.php:663
+msgid "Add Button"
+msgstr "Knop toevoegen"
+
+#: classes/maxbuttons-class.php:761
+msgid "%sUpgrade to Pro Version%s"
+msgstr "%sUpgrade naar de Pro Versie%s"
+
+#: classes/maxbuttons-class.php:620
+msgid "Select a MaxButton"
+msgstr "Selecteer een MaxButton"
+
+#: includes/maxbuttons-support.php:18 classes/maxbuttons-class.php:340
+#: classes/maxbuttons-admin-helper.php:47
+msgid "Support"
+msgstr "Ondersteuning"
+
+#: classes/maxbuttons-class.php:339
+msgid "MaxButtons: Support"
+msgstr "MaxButtons: Ondersteuning"
+
+#: includes/maxbuttons-settings.php:10 includes/maxbuttons-settings.php:19
+#: includes/maxbuttons-settings.php:22 classes/maxbuttons-class.php:333
+#: classes/maxbuttons-admin-helper.php:43
+msgid "Settings"
+msgstr "Instellingen"
+
+#: classes/maxbuttons-class.php:332
+msgid "MaxButtons: Settings"
+msgstr "MaxButtons: Instellingen"
+
+#: includes/maxbuttons-pro.php:11 classes/maxbuttons-class.php:326
+#: classes/maxbuttons-admin-helper.php:39
+msgid "Upgrade to Pro"
+msgstr "Upgrade naar Pro"
+
+#: classes/maxbuttons-class.php:325
+msgid "MaxButtons: Upgrade to Pro"
+msgstr "MaxButtons: Upgrade naar Pro"
+
+#: includes/maxbuttons-list-trash.php:120 classes/controller.php:69
+#: classes/maxbuttons-class.php:318
+msgid "Add New"
+msgstr "Nieuwe toevoegen"
+
+#: classes/maxbuttons-class.php:317
+msgid "MaxButtons: Add/Edit Button"
+msgstr "MaxButtons: Bewerk/Voeg knop toe"
+
+#: classes/maxbuttons-class.php:312 classes/maxbuttons-class.php:750
+#: classes/maxbuttons-admin-helper.php:36
+msgid "Buttons"
+msgstr "Knoppen"
+
+#. Plugin Name of the plugin
+#: assets/integrations/shortcake/shortcake.php:63
+#: assets/integrations/siteorigins_builder/sitebuilder.php:8
+#: assets/integrations/siteorigins_builder/widgets/maxbuttons-widget/maxbuttons-widget.php:18
+#: classes/maxbuttons-class.php:301
+msgid "MaxButtons"
+msgstr "MaxButtons"
+
+#: classes/maxbuttons-class.php:300
+msgid "MaxButtons: Buttons"
+msgstr "MaxButtons: Knoppen"
+
+#: classes/max-utils.php:459
+msgid "MaxButtons Loading Time:"
+msgstr "MaxButtons Laadtijd:"
+
+#: classes/max-utils.php:186
+msgid "Set your own breakpoints"
+msgstr "Zet je eigen breekpunten"
+
+#: classes/max-utils.php:185
+msgid "Large desktop screens, from 1824px"
+msgstr "Grote desktop monitors, vanaf 1824px"
+
+#: classes/max-utils.php:184
+msgid "Desktop screens from 1224px"
+msgstr "Desktop monitors vanaf 1224px"
+
+#: classes/max-utils.php:183
+msgid "Optimized for deviced between 768px and 1024 in portrait"
+msgstr "Geoptimaliseerd voor apparaten tussen 768px en 1024 in portrait"
+
+#: classes/max-utils.php:182
+msgid "Optimized for devices between 768px and 1024px in landscape"
+msgstr "Geoptimaliseerd voor apparaten tussen 768px en 1024 in landscape"
+
+#: classes/max-utils.php:181
+msgid "Optimized for medium sizes devices between 480px and 768px"
+msgstr "Geoptimaliseerd voor mediumgrote apparaten tussen 480px en 768px"
+
+#: classes/max-utils.php:180
+msgid "Optimized for devices between 768px and 1024px"
+msgstr "Geoptimaliseerd voor apparaten tussen 768px en 1024px"
+
+#: classes/max-utils.php:179
+msgid "Optimized for small phones ( screen size max 320px )"
+msgstr "Geoptimaliseerd voor kleine telefoons ( schermgrootte max 320px )"
+
+#: classes/max-utils.php:178
+msgid "Optimzed for small smartphones in landscape and higher ( screen sizes 321px - 480px)"
+msgstr "Geoptimaliseerd voor kleine smartphones in landschap en hoger (schermgroottes 321px - 480px)"
+
+#: classes/max-utils.php:177
+msgid "Optimized for small smartphones ( screen sizes under 480px )"
+msgstr "Geoptimaliseerd voor kleine smartphones (schermgroottes kleiner dan 480px)"
+
+#: classes/max-utils.php:173
+msgid "Custom size"
+msgstr "Aangepast formaat"
+
+#: classes/max-utils.php:172
+msgid "Large desktops"
+msgstr "Grote desktops"
+
+#: classes/max-utils.php:170
+msgid "Ipad portrait"
+msgstr "Ipad portret"
+
+#: classes/max-utils.php:169
+msgid "Ipad landscape"
+msgstr "Ipad landscape"
+
+#: classes/max-utils.php:165
+msgid "Small phones (landscape) "
+msgstr "Kleine telefoons (landscape) "
+
+#: blocks/basic.php:478
+msgid "Padding"
+msgstr "Opvulling"
+
+#: blocks/basic.php:402
+msgid "Font"
+msgstr "Lettertype"
+
+#: assets/integrations/shortcake/shortcake.php:98
+#: includes/maxbuttons-list.php:123 includes/maxbuttons-list-trash.php:145
+msgid "Button"
+msgstr "Knop"
+
+#: classes/screen.php:90
+msgid "Add"
+msgstr "Toevoegen"
+
+#: blocks/responsive.php:276
+msgid "Hide button in this screen"
+msgstr "Verberg knop in dit scherm"
+
+#: includes/maxbuttons-settings.php:134 includes/maxbuttons-settings.php:147
+#: blocks/basic.php:542 blocks/basic.php:558 blocks/basic.php:592
+#: blocks/basic.php:616 blocks/container.php:206
+msgid "%"
+msgstr "%"
+
+#: includes/maxbuttons-button.php:119 includes/maxbuttons-button.php:120
+#: includes/maxbuttons-button.php:219 includes/maxbuttons-button.php:220
+#: includes/maxbuttons-button.php:224 includes/maxbuttons-button.php:225
+#: includes/maxbuttons-button.php:230 includes/maxbuttons-button.php:231
+#: blocks/basic.php:420 blocks/basic.php:542 blocks/basic.php:558
+#: blocks/basic.php:581 blocks/basic.php:608 blocks/border.php:212
+#: blocks/container.php:197 blocks/responsive.php:252 blocks/responsive.php:269
+msgid "px"
+msgstr "px"
+
+#: blocks/gradient.php:224
+msgid "Gradient stop"
+msgstr "Verloop stop"
+
+#: blocks/basic.php:563
+msgid "Button Height"
+msgstr "Knop hoogte"
+
+#: blocks/basic.php:548
+msgid "Button Width"
+msgstr "Breedte knop"
+
+#: blocks/container.php:252
+msgid "Alignment"
+msgstr "Uitlijning"
+
+#: blocks/container.php:247
+msgid "Margin Left"
+msgstr "Kantlijn links"
+
+#: blocks/container.php:238
+msgid "Margin Bottom"
+msgstr "Kantlijn onder"
+
+#: blocks/container.php:229
+msgid "Margin Right"
+msgstr "Kantlijn rechts"
+
+#: blocks/container.php:220
+msgid "Margin Top"
+msgstr "Kantlijn boven"
+
+#: blocks/container.php:151
+msgid "Use Container"
+msgstr "Gebruik Container"
+
+#: blocks/container.php:146
+msgid "Container"
+msgstr "Container"
+
+#: blocks/text.php:204 blocks/border.php:234 blocks/border.php:296
+msgid "Hover"
+msgstr "Zweef over"
+
+#: blocks/basic.php:389
+msgid "Text"
+msgstr "Tekst"
+
+#: blocks/text.php:168 blocks/border.php:253
+msgid "Shadow Offset Top"
+msgstr "Schaduwafstand boven"
+
+#: blocks/text.php:158 blocks/border.php:244
+msgid "Shadow Offset Left"
+msgstr "Schaduwafstand links"
+
+#: blocks/border.php:207 blocks/container.php:184
+msgid "Width"
+msgstr "Breedte"
+
+#: blocks/border.php:197
+msgid "Style"
+msgstr "Vormgeving"
+
+#: blocks/border.php:191
+msgid "Bottom Right"
+msgstr "Onder rechts"
+
+#: blocks/border.php:189
+msgid "Bottom Left"
+msgstr "Onder links"
+
+#: blocks/border.php:187
+msgid "Top Right"
+msgstr "Boven rechts"
+
+#: classes/field.php:79
+msgid "Default:"
+msgstr "Standaard:"
+
+#: blocks/border.php:185
+msgid "Top Left"
+msgstr "Boven links"
+
+#: blocks/border.php:124
+msgid "Radius"
+msgstr "Radius"
+
+#: blocks/border.php:118
+msgid "Border"
+msgstr "Rand"
+
+#: classes/admin-class.php:369 blocks/basic.php:355
+msgid "Use rel=\"nofollow\""
+msgstr "Gebruik rel=\"nofollow\""
+
+#: classes/admin-class.php:353 blocks/basic.php:343
+msgid "Open in New Window"
+msgstr "Open in nieuw venster"
+
+#: blocks/basic.php:295
+msgid "URL"
+msgstr "URL"
+
+#: blocks/basic.php:638
+msgid "Brief explanation about how and where the button is used."
+msgstr "Korte verklaring over hoe en waar de button wordt gebruikt."
+
+#: blocks/basic.php:632
+msgid "Description"
+msgstr "Beschrijving"
+
+#: blocks/basic.php:267
+msgid "Basics"
+msgstr "Basics"
+
+#: blocks/advanced.php:187
+msgid "Please save the button first"
+msgstr "Sla eerst de knop op"
+
+#: blocks/advanced.php:170
+msgid "If the \"Use External CSS\" option is enabled for this button, copy and paste the CSS code below into your theme stylesheet."
+msgstr "Indien de \"Use External CSS\" optie is ingeschakeld voor deze, kopieer en plak de CSS code hieronder in je thema's stijlpagina."
+
+#: blocks/advanced.php:168
+msgid "External CSS"
+msgstr "Externe CSS"
+
+#: blocks/advanced.php:156
+msgid "View CSS"
+msgstr "Zie CSS"
+
+#: blocks/advanced.php:140
+msgid "Use External CSS"
+msgstr "Gebruik Externe CSS"
+
+#: blocks/advanced.php:115
+msgid "Use !Important"
+msgstr "Gebruik !important"
+
+#: blocks/advanced.php:111
+msgid "Adding !important to the button styles can help avoid potential conflicts with your theme styles."
+msgstr "Het toevoegen van !important aan je button stijlen kan potentiële conflicten met je thema stijlen helpen voorkomen."
+
+#: includes/maxbuttons-settings.php:203 blocks/advanced.php:107
+msgid "Advanced"
+msgstr "Geavanceerd"

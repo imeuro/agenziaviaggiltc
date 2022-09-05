@@ -1,0 +1,3574 @@
+# Translation of Plugins - Caldera Forms &#8211; More Than Contact Forms - Stable (latest release) in Dutch
+# This file is distributed under the same license as the Plugins - Caldera Forms &#8211; More Than Contact Forms - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-07-15 13:03:29+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: nl\n"
+"Project-Id-Version: Plugins - Caldera Forms &#8211; More Than Contact Forms - Stable (latest release)\n"
+
+#: sendwp/init.php:14
+msgid "SendWP is already connected."
+msgstr "SendWP is al verbonden."
+
+#: classes/admin/assets.php:321
+msgid "Add Line"
+msgstr "Regel toevoegen"
+
+#: classes/admin/assets.php:319
+msgid "New Condition"
+msgstr "Nieuwe conditie"
+
+#: classes/admin/assets.php:316
+msgid "Are you sure you would like to remove this conditional group"
+msgstr "Weet je zeker dat je deze voorwaardelijke groep wilt verwijderen?"
+
+#: classes/admin/assets.php:312
+msgid "Add Rule"
+msgstr "Regel toevoegen"
+
+#: classes/admin/assets.php:308
+msgid "And"
+msgstr "En"
+
+#: classes/admin/assets.php:307
+msgid "If"
+msgstr "Als"
+
+#: classes/api/forms.php:111
+msgid "Not saved"
+msgstr "Niet opgeslagen"
+
+#: classes/api/forms.php:40
+msgid "ID of form"
+msgstr "ID van formulier"
+
+#: classes/api/forms.php:30 classes/api/forms.php:35
+msgid "Caldera Forms editor nonce"
+msgstr "Caldera Forms editor nonce"
+
+#: includes/custom_field_class.php:38
+msgid "A live gravatar preview"
+msgstr "Een live gravatar-preview"
+
+#: fields/gravatar/config.php:12
+msgid "Mystery Person"
+msgstr "Mystery Person"
+
+#: fields/text/config.php:53
+msgid "e.g."
+msgstr "bijv."
+
+#: ui/emails/settings.php:33
+msgid "Signup for SendWP"
+msgstr "Aanmelden voor SendWP"
+
+#: ui/emails/settings.php:22
+msgid "SendWP makes getting emails delivered as simple as a few clicks. So you can relax, knowing those important emails are being delivered on time."
+msgstr "SendWP maakt het ontvangen van e-mails zo eenvoudig als een paar klikken. Je kan dus ontspannen, wetende dat die belangrijke e-mails op tijd worden afgeleverd."
+
+#: ui/emails/settings.php:18
+msgid "Getting WordPress email into an inbox just got a lot easier!"
+msgstr "Het is een stuk eenvoudiger geworden om WordPress e-mail in een inbox te krijgen!"
+
+#: ui/panels/emailer.php:206
+msgid "%sSendWP%s - Fix Your WordPress Email%sThe easy solution to transactional email in WordPress"
+msgstr " %sSendWP %s - Fix Your WordPress Email %sDe gemakkelijke oplossing voor transactionele e-mail in WordPress"
+
+#: sendwp/handler.php:80
+msgid "Something went wrong. SendWP was not installed correctly."
+msgstr "Er is iets fout gegaan. SendWP is niet correct geïnstalleerd."
+
+#: sendwp/init.php:13
+msgid "Ask an administrator for install_plugins capability"
+msgstr "Vraag een beheerder naar de mogelijkheid van install_plugins"
+
+#: sendwp/init.php:12
+msgid "Security failed to check sendwp_install_nonce"
+msgstr "Beveiliging kan sendwp_install_nonce niet controleren"
+
+#: ui/admin.php:112
+msgid "Close Entry Viewer"
+msgstr "Entry Viewer sluiten"
+
+#: ui/admin.php:111
+msgid "Click to close entry Viewer"
+msgstr "Klik om item te sluiten Viewer"
+
+#: classes/core.php:1572
+msgid "A symbol in the formula"
+msgstr "Een symbool in de formule"
+
+#: classes/core.php:1464
+msgid "has been deprecated in calculation fields for compatibility with PHP 7.2 or later"
+msgstr "is verouderd in berekeningsvelden voor compatibiliteit met PHP 7.2 of hoger"
+
+#: classes/render/assets.php:1014
+msgid "This value should be the same."
+msgstr "Deze waarde moet hetzelfde zijn."
+
+#: classes/render/assets.php:1013
+msgid "You must select between %s and %s choices."
+msgstr "Je moet kiezen tussen %s en %s keuzes."
+
+#: classes/render/assets.php:1012
+msgid "You must select %s choices or fewer."
+msgstr "Je moet %s keuzes of minder selecteren."
+
+#: classes/render/assets.php:1011
+msgid "You must select at least %s choices."
+msgstr "Je moet ten minste %s keuzes selecteren."
+
+#: classes/render/assets.php:1010
+msgid "This value length is invalid. It should be between %s and %s characters long."
+msgstr "Deze waarde lengte is ongeldig. Het moet tussen %s en %s tekens lang zijn."
+
+#: classes/render/assets.php:1009
+msgid "This value is too long. It should have %s characters or fewer."
+msgstr "Deze waarde is te lang. Het mag %s tekens of minder bevatten."
+
+#: classes/render/assets.php:1008
+msgid "This value is too short. It should have %s characters or more."
+msgstr "Deze waarde is te kort. Het moet %s tekens of meer bevatten."
+
+#: classes/render/assets.php:1007
+msgid "This value should be between %s and %s."
+msgstr "Deze waarde moet tussen %s en %s liggen."
+
+#: classes/render/assets.php:1006
+msgid "This value should be lower than or equal to %s."
+msgstr "Deze waarde moet lager zijn dan of gelijk zijn aan %s."
+
+#: classes/render/assets.php:1005
+msgid "This value should be greater than or equal to %s."
+msgstr "Deze waarde moet groter zijn dan of gelijk zijn aan %s."
+
+#: classes/render/assets.php:1003
+msgid "This value is required"
+msgstr "Deze waarde is vereist"
+
+#: classes/render/assets.php:1002
+msgid "This value should not be blank."
+msgstr "Deze waarde mag niet leeg zijn."
+
+#: classes/render/assets.php:1000
+msgid "This value should be alphanumeric."
+msgstr "Deze waarde moet alfanumeriek zijn."
+
+#: classes/render/assets.php:999
+msgid "This value should be digits."
+msgstr "Deze waarde moet cijfers zijn."
+
+#: classes/render/assets.php:998
+msgid "This value should be a valid integer."
+msgstr "Deze waarde moet een geldig geheel getal zijn."
+
+#: classes/render/assets.php:997
+msgid "This value should be a valid number."
+msgstr "Deze waarde moet een geldig getal zijn."
+
+#: classes/render/assets.php:996
+msgid "This value should be a valid url."
+msgstr "Deze waarde moet een geldige URL zijn."
+
+#: classes/render/assets.php:995
+msgid "This value should be a valid email."
+msgstr "Deze waarde moet een geldig e-mailadres zijn."
+
+#: classes/render/assets.php:993 classes/render/assets.php:1004
+msgid "This value seems to be invalid."
+msgstr "Deze waarde lijkt ongeldig te zijn."
+
+#: cf2/RestApi/Queue/RunQueue.php:31
+msgid "Total jobs to run per back"
+msgstr "Totaal aantal taken dat per back moet worden uitgevoerd"
+
+#: cf2/RestApi/File/CreateFile.php:46
+msgid "Unique control string for field"
+msgstr "Unieke controlestring voor veld"
+
+#: cf2/RestApi/File/CreateFile.php:41
+msgid "ID for field files are submitted to"
+msgstr "ID voor veldbestanden wordt ingediend bij"
+
+#: cf2/RestApi/File/CreateFile.php:36
+msgid "ID for form field belongs to"
+msgstr "ID voor formulierveld behoort tot"
+
+#: cf2/RestApi/File/CreateFile.php:31
+msgid "Verification token (nonce) for form"
+msgstr "Verificatietoken (nonce) voor formulier"
+
+#: cf2/RestApi/File/CreateFile.php:27
+msgid "MD5 has of files to upload, should have same order as files arg"
+msgstr "MD5 hash van bestanden om te uploaden, moet dezelfde volgorde hebben als bestanden arg"
+
+#: cf2/Fields/FieldTypeFactory.php:45
+msgid "Field type not found"
+msgstr "Veldtype niet gevonden"
+
+#: cf2/Fields/FieldTypes/FileFieldType.php:37
+msgid "Advanced File Uploader (2.0)"
+msgstr "Geavanceerde bestandsuploader (2.0)"
+
+#: cf2/Fields/FieldTypes/TextFieldType.php:38
+msgid "Text Field (CF2)"
+msgstr "Text Field (CF2)"
+
+#: cf2/Fields/FieldTypes/TextFieldType.php:32
+msgid "Text Field With Super Powers"
+msgstr "Tekstveld met superkrachten"
+
+#: cf2/Fields/Handlers/FileUpload.php:85
+msgid "Content hash did not match expected."
+msgstr "Inhoud-hash komt niet overeen met verwacht."
+
+#: cf2/Fields/Handlers/FileUpload.php:78
+msgid "A file is too large. Please try another."
+msgstr "Een bestand is te groot. Probeer een andere."
+
+#: cf2/Fields/Handlers/FileUpload.php:74
+msgid "A file type is not allowed. Please try another."
+msgstr "Een bestandstype is niet toegestaan. Probeer een andere."
+
+#: fields/cf2_file/config.php:115
+msgid "Image Preview Width"
+msgstr "Breedte afbeeldingsvoorbeeld"
+
+#: fields/cf2_file/config.php:96
+msgid "Image Preview Height"
+msgstr "Hoogte afbeeldingsvoorbeeld"
+
+#: fields/cf2_file/config.php:88
+msgid "Use image previews"
+msgstr "Afbeeldingsvoorbeelden gebruiken"
+
+#: fields/advanced_file/config_template.php:3
+msgid "This file type is discontinued and no longer supported. Please switch to the new advanced file field."
+msgstr "Dit bestandstype wordt niet meer ondersteund en wordt niet meer ondersteund. Schakel over naar het nieuwe geavanceerde bestandsveld."
+
+#: fields/cf2_file/config.php:76 fields/file/config_template.php:76
+msgid "Max file size in bytes. If 0, any file size is allowed."
+msgstr "Maximale bestandsgrootte in bytes. Als 0, is elke bestandsgrootte toegestaan."
+
+#: fields/cf2_file/config.php:62 fields/file/config_template.php:62
+msgid "Max Upload Size"
+msgstr "Maximale uploadgrootte"
+
+#: classes/render/assets.php:798
+msgid "This file type is not allowed. Allowed types are "
+msgstr "Dit bestandstype is niet toegestaan. Toegestane typen zijn"
+
+#: classes/render/assets.php:797
+msgid "This file is too large. Maximum size is "
+msgstr "Dit bestand is te groot. Maximale grootte is"
+
+#: classes/render/assets.php:796
+msgid "bytes"
+msgstr "bytes"
+
+#: classes/render/assets.php:795
+msgid "Field is required"
+msgstr "Veld is verplicht"
+
+#: classes/render/assets.php:794
+msgid "Unknown File Process Error"
+msgstr "Onbekende bestandsprocesfout"
+
+#: classes/render/assets.php:793
+msgid "Please check files type and size"
+msgstr "Controleer het bestandstype en de grootte"
+
+#: classes/render/assets.php:792
+msgid "These Files have been rejected : "
+msgstr "Deze bestanden zijn geweigerd:"
+
+#: classes/render/assets.php:791
+msgid " could not be processed"
+msgstr "kon niet worden verwerkt"
+
+#: classes/render/assets.php:790
+msgid "Error: "
+msgstr "Fout:"
+
+#: classes/render/assets.php:788
+msgid "Drop files or click to select files to Upload"
+msgstr "Zet bestanden neer of klik om bestanden te selecteren om te uploaden"
+
+#: classes/render/assets.php:787
+msgid "Remove file"
+msgstr "Bestand verwijderen"
+
+#: classes/api/forms.php:492
+msgid "The ID of a form to clone"
+msgstr "De ID van een te klonen formulier"
+
+#: classes/api/forms.php:486
+msgid "The form template to use"
+msgstr "De te gebruiken formuliertemplate"
+
+#: classes/api/forms.php:477
+msgid "The type of form to create"
+msgstr "Het type formulier dat je wil maken"
+
+#: classes/api/forms.php:470
+msgid "The name for the form"
+msgstr "De naam voor het formulier"
+
+#: classes/api/forms.php:463
+msgid "The desired form ID"
+msgstr "Het gewenste formulier-ID"
+
+#: classes/api/response_factory.php:24
+msgid "Form not created"
+msgstr "Formulier niet gemaakt"
+
+#: classes/fields.php:419 cf2/Fields/FieldTypes/FileFieldType.php:31
+msgid "File upload field with more features than standard HTML5 input."
+msgstr "Veld voor bestandsupload met meer functies dan standaard HTML5-invoer."
+
+#: classes/fields.php:417
+msgid "Advanced File Uploader (1.0)"
+msgstr "Geavanceerde bestandsuploader (1.0)"
+
+#: classes/fields.php:406
+msgid "Basic HTML5 File Uploader"
+msgstr "Eenvoudige HTML5-bestandsuploader"
+
+#: classes/admin.php:1314
+msgid "Form could not be imported. File type must be JSON."
+msgstr "Formulier kan niet worden geïmporteerd. Bestandstype moet JSON zijn."
+
+#: includes/field_processors.php:282
+msgid "Not a valid email address"
+msgstr "Geen geldig e-mail adres"
+
+#: fields/gdpr/field.php:14
+msgid "Privacy Policy Page"
+msgstr "Pagina Privacybeleid"
+
+#: fields/gdpr/config_template.php:72
+msgid "The text to be used as the title attribute of the Privacy Page link (leave empty to not display title attribute)."
+msgstr "De tekst die moet worden gebruikt als titelkenmerk van de link Privacypagina (laat leeg om titelkenmerk niet weer te geven)."
+
+#: fields/gdpr/config_template.php:57
+msgid "Link's title attribute"
+msgstr "Titelkenmerk van link"
+
+#: fields/gdpr/config_template.php:50
+msgid "This text will be linked to Privacy Policy content page."
+msgstr "Deze tekst wordt gekoppeld aan de inhoudspagina van het privacybeleid."
+
+#: fields/gdpr/config_template.php:34
+msgid "Linked Text"
+msgstr "Gelinkte tekst"
+
+#: fields/gdpr/config_template.php:27
+msgid "The terms of the agreement to data collection."
+msgstr "De voorwaarden van de overeenkomst voor gegevensverzameling."
+
+#: fields/gdpr/config_template.php:12
+msgid "Agreement"
+msgstr "Overeenkomst"
+
+#: classes/entry/fields.php:115
+msgid "Field Not Found"
+msgstr "Veld niet gevonden"
+
+#: ui/panels/form-settings.php:140
+msgid "Delete all the entries saved for this form. This can NOT be undone."
+msgstr "Verwijder alle bewaarde items van dit formulier. Dit kan NIET ongedaan worden gemaakt."
+
+#: ui/panels/form-settings.php:132
+msgid "No"
+msgstr "Nee"
+
+#: ui/panels/form-settings.php:120
+msgid "Are you sure you want to delete all the entries saved for this form ?"
+msgstr "Weet je zeker dat je alle bewaarde items van dit formulier wilt verwijderen?"
+
+#: ui/panels/form-settings.php:113
+msgid "Delete All Saved Entries"
+msgstr "Verwijder alle bewaarde items"
+
+#: ui/panels/form-settings.php:99
+msgid "Delete Saved Entries"
+msgstr "Verwijder bewaarde items"
+
+#: includes/cf-pro-client/classes/admin/scripts.php:111
+msgid "Free Trial"
+msgstr "Gratis proefversie"
+
+#: includes/cf-pro-client/classes/admin/scripts.php:107
+msgid "Account"
+msgstr "Account"
+
+#: includes/cf-pro-client/classes/admin/scripts.php:105
+msgid "Connected"
+msgstr "Verbonden"
+
+#: includes/cf-pro-client/classes/admin/scripts.php:104
+msgid "Not Connected"
+msgstr "Niet verbonden"
+
+#: includes/cf-pro-client/classes/admin/scripts.php:102
+msgid "Start Free Trial"
+msgstr "Gratis proefperiode starten"
+
+#: includes/cf-pro-client/classes/admin/scripts.php:101
+msgid "View Documentation"
+msgstr "Documentatie bekijken"
+
+#: includes/cf-pro-client/classes/admin/scripts.php:99
+msgid "Ready to try Caldera Forms Pro? Plans start at just $14.99/ month with a 7 day free trial."
+msgstr "Klaar om Caldera Forms Pro te proberen? Plannen beginnen bij slechts $ 14,99/maand met een gratis proefperiode van 7 dagen."
+
+#: includes/cf-pro-client/classes/admin/scripts.php:96
+msgid "Add-ons Included in Yearly Plans"
+msgstr "Add-ons opgenomen in jaarplannen"
+
+#: includes/cf-pro-client/classes/admin/scripts.php:95
+msgid "Priority Support."
+msgstr "Prioritaire ondersteuning."
+
+#: includes/cf-pro-client/classes/admin/scripts.php:93
+msgid "Enhanced Email Delivery"
+msgstr "Verbeterde e-mailbezorging"
+
+#: includes/cf-pro-client/classes/admin/scripts.php:92
+msgid "Benefits"
+msgstr "Voordelen"
+
+#: includes/cf-pro-client/classes/admin/scripts.php:90
+msgid "Caldera Forms Pro is an app + plugin that makes forms easy."
+msgstr "Caldera Forms Pro is een app + plugin die formulieren gemakkelijk maakt."
+
+#: classes/gdpr.php:230
+msgid "WordPress User Email"
+msgstr "E-mail van WordPress-gebruiker"
+
+#: classes/gdpr.php:224
+msgid "WordPress User Name"
+msgstr "WordPress gebruikersnaam"
+
+#: classes/gdpr.php:216
+msgid "Date"
+msgstr "Datum"
+
+#: classes/fields.php:390
+msgid "Record consent to collect personally identifying information (PII)."
+msgstr "Registreer de toestemming om persoonlijk identificeerbare informatie (PII) te verzamelen."
+
+#: classes/fields.php:389
+msgid "Consent Field"
+msgstr "Toestemmingsveld"
+
+#: classes/api/forms.php:151 classes/api/forms.php:157
+msgid "Array of fields that contain personally identifying information"
+msgstr "Reeks velden die persoonlijk identificeerbare informatie bevatten"
+
+#: classes/api/forms.php:145
+msgid "Array of fields that can be used to find personally identifying information saved with this form."
+msgstr "Een reeks velden die kunnen worden gebruikt om persoonlijk identificeerbare informatie te vinden die met dit formulier is opgeslagen."
+
+#: classes/api/entries.php:154
+msgid "Entries deleted"
+msgstr "Regels verwijderd"
+
+#: classes/admin.php:2151
+msgid "If you request that personal data shared with this site is deleted, the corresponding data shared with CalderaWP will also be deleted when the request is fulfilled."
+msgstr "Als je verzoekt ​​dat persoonlijke gegevens die met deze site worden gedeeld, worden verwijderd, worden de bijbehorende gegevens die met CalderaWP worden gedeeld ook verwijderd wanneer aan het verzoek is voldaan."
+
+#: classes/admin.php:2150
+msgid "This data will be stored on servers controlled by CalderaWP LLC, the makers of Caldera Forms, and operated by Linode and Amazon Web Services. Meta data about emails will be stored by SendGrid and Amazon Web Services"
+msgstr "Deze gegevens worden opgeslagen op servers die worden beheerd door CalderaWP LLC, de makers van Caldera Forms, en worden beheerd door Linode en Amazon Web Services. Metagegevens over e-mails worden opgeslagen door SendGrid en Amazon Web Services"
+
+#: classes/admin.php:2149
+msgid "This site uses a third-party service to deliver some emails."
+msgstr "Deze site maakt gebruik van een externe service om enkele e-mails te bezorgen."
+
+#: classes/admin.php:2148
+msgid "Caldera Forms Pro: Data Collection"
+msgstr "Caldera Forms Pro: gegevensverzameling"
+
+#: classes/admin.php:2136
+msgid "Some data may be shared with other services including [list services such as MailChimp, PayPal]"
+msgstr "Sommige gegevens kunnen worden gedeeld met andere services, waaronder [lijstservices zoals MailChimp, PayPal]"
+
+#: classes/admin.php:2135
+msgid "Suggested Text (if you use add-ons that interact with third party services) -"
+msgstr "Voorgestelde tekst (als je add-ons gebruikt die samenwerken met services van derden) -"
+
+#: classes/admin.php:2134
+msgid "Caldera Forms stores data only briefly for each submission. Uploaded media files may remain on the server"
+msgstr "Caldera Forms slaat de gegevens slechts kort op voor elke inzending. Geüploade mediabestanden kunnen op de server blijven staan ​​"
+
+#: classes/admin.php:2133
+msgid "Suggested Text (if you do not have entry tracking enabled) -"
+msgstr "Voorgestelde tekst (als je het bijhouden van vermeldingen niet hebt ingeschakeld) -"
+
+#: classes/admin.php:2132
+msgid "Caldera Forms stores a record of all form submissions. Your data may be deleted by the site administrator. You may request a report of saved data related to your email address."
+msgstr "Caldera Forms slaat een record op van alle formulierinzendingen. Je gegevens kunnen worden verwijderd door de sitebeheerder. Je kan een rapport opvragen van opgeslagen gegevens met betrekking tot je e-mailadres."
+
+#: classes/admin.php:2131
+msgid "Suggested Text (if you have entry tracking enabled) -"
+msgstr "Voorgestelde tekst (als invoerregistratie is ingeschakeld) -"
+
+#: classes/admin.php:2130
+msgid "Caldera Forms: Data Collection"
+msgstr "Caldera Forms: Data Collection"
+
+#: classes/admin.php:2107
+msgid "Privacy Settings"
+msgstr "Privacy instellingen"
+
+#: caldera-core.php:170
+msgid "Form could not be loaded. Contact the site administrator."
+msgstr "Formulier kan niet worden geladen. Neem contact op met de sitebeheerder."
+
+#: caldera-core.php:167
+msgid "Your version of WordPress or PHP is incompatible with Caldera Forms."
+msgstr "Je versie van WordPress of PHP is niet compatibel met Caldera Forms."
+
+#: caldera-core.php:44
+msgid "Your version of WordPress is incompatible with Caldera Forms and can not be used."
+msgstr "Je versie van WordPress is niet compatibel met Caldera Forms en kan niet worden gebruikt."
+
+#: caldera-core.php:27
+msgid "Your version of PHP is incompatible with Caldera Forms and can not be used."
+msgstr "Je versie van PHP is niet compatibel met Caldera Forms en kan niet worden gebruikt."
+
+#: fields/html/config_template.php:30
+msgid "HTML field content is not shown in emails. Check here to add this content to the {summary} magic tag."
+msgstr "HTML-veldinhoud wordt niet weergegeven in e-mails. Vink dit aan om deze inhoud toe te voegen aan de {summary} magische tag."
+
+#: fields/html/config_template.php:15
+msgid "Email Summary?"
+msgstr "E-mail samenvatting"
+
+#: classes/admin/privacy.php:90
+msgid "Does field contain Personally Identifying Information (PII)?"
+msgstr "Bevat dit veld Persoonlijk Identificeerbare Informatie (PII)?"
+
+#. translators: it's abbreviation for Personally Identifying Information
+#: classes/admin/privacy.php:57
+msgid "PII"
+msgstr "PII"
+
+#: ui/panels/anti-spam.php:128
+msgid "Field with the form submitter's email address"
+msgstr "Veld met het e-mailadres van de inzender"
+
+#: ui/panels/anti-spam.php:106
+msgid "Field with the form submitter's name."
+msgstr "Veld met de naam van de inzender."
+
+#: ui/panels/anti-spam.php:90
+msgid "Sender Name"
+msgstr "Naam afzender"
+
+#: ui/panels/anti-spam.php:78
+msgid "Requires Caldera Forms Pro"
+msgstr "Caldera Forms Pro vereist"
+
+#: ui/panels/anti-spam.php:75
+msgid "Uses Caldera Forms Pro for spam scan and email address blacklist check."
+msgstr "Gebruikt Caldera Forms Pro voor spam en e-mailadres blacklist controle."
+
+#: ui/panels/anti-spam.php:58
+msgid "Advanced"
+msgstr "Geavanceerd"
+
+#: ui/panels/anti-spam.php:50 ui/panels/form-settings.php:258
+msgid "Uses an anti-spam honeypot"
+msgstr "Gebruikt anti spam honeypot"
+
+#: ui/panels/anti-spam.php:28
+msgid "AntiSpam Settings"
+msgstr "AntiSpam Instellingen"
+
+#: ui/admin_templates.php:157
+msgid "Is this file from a trusted source?"
+msgstr "Komt dit bestand van een betrouwbare bron?"
+
+#: ui/admin_templates.php:144
+msgid "Trusted Source"
+msgstr "Betrouwbare Bron"
+
+#: classes/admin.php:1842
+msgid "Anti-spam documentation"
+msgstr "Anti spam documentatie"
+
+#: classes/admin.php:1838
+msgid "Anti Spam"
+msgstr "Anti spam"
+
+#: classes/admin.php:1836
+msgid "Anti-Spam"
+msgstr "Anti spam"
+
+#: includes/cf-pro-client/classes/admin/scripts.php:87
+msgid "Setting a higher level than notice may affect performance, and should only be used when instructed by support."
+msgstr "Een hoger niveau dan bericht selecteren kan prestaties beïnvloeden en dient alleen te worden gebruikt indien aangegeven door ondersteuning."
+
+#: includes/cf-pro-client/classes/admin/scripts.php:86
+msgid "Minimum Log Level"
+msgstr "Minimale logniveau"
+
+#: includes/templates/variable-price-example.php:86
+msgid "Value Small"
+msgstr "Waarde Klein"
+
+#: includes/templates/variable-price-example.php:67
+msgid "Value Big"
+msgstr "Waarde Groot"
+
+#: ui/pro.php:24
+msgid "For more information, please see: "
+msgstr "Voor meer informatie, bekijk:"
+
+#: ui/pro.php:22
+msgid "Caldera Forms Pro could not be loaded because your site's version of PHP is out of date. Caldera Forms Pro requires PHP 5.6 or later."
+msgstr "Caldera Forms Pro kon niet ingeladen worden, omdat de PHP versie van je site verouderd is. Caldera Forms Pro vereist PHP 5.6 of hoger."
+
+#: includes/cf-pro-client/classes/messages.php:205
+msgid "Could not find message."
+msgstr "Bericht kon niet gevonden worden."
+
+#: includes/cf-pro-client/classes/messages.php:89
+msgid "Could not store message"
+msgstr "Bericht kon niet worden opgeslagen"
+
+#: includes/cf-pro-client/classes/log/papertrail.php:72
+msgid "Invalid Papertrail destination (%s >> %s:%s)."
+msgstr "Ongeldige bestemming van papierwinkel (%s >> %s:%s)."
+
+#: includes/cf-pro-client/classes/api/local/files.php:81
+msgid "File not found"
+msgstr "Bestand niet gevonden"
+
+#: includes/cf-pro-client/classes/admin/tab.php:49
+msgid "Caldera Forms Pro Settings For This Form"
+msgstr "Caldera Forms Pro instellingen voor dit formulier"
+
+#: includes/cf-pro-client/classes/admin/tab.php:48
+msgid "Pro"
+msgstr "Pro"
+
+#: includes/cf-pro-client/classes/admin/scripts.php:84
+msgid "You must add your API keys to use Caldera Forms Pro"
+msgstr "Je moet je API-sleutels toevoegen om Caldera Forms Pro te kunnen gebruiken"
+
+#: includes/cf-pro-client/classes/admin/scripts.php:83
+msgid "Settings could not be saved"
+msgstr "Instellingen konden niet opgeslagen worden"
+
+#: includes/cf-pro-client/classes/admin/scripts.php:82
+msgid "Settings Saved"
+msgstr "Instellingen opgeslagen"
+
+#: includes/cf-pro-client/bootstrap-cf-pro.php:204
+#: includes/cf-pro-client/bootstrap-cf-pro.php:213
+msgid "Download Form Entry As PDF"
+msgstr "Download formulier inzending als PDF"
+
+#: ui/edit.php:133
+msgid "Source"
+msgstr "Bron"
+
+#: ui/admin_templates.php:43 ui/panels/form-settings.php:148
+msgid "Create sub-menu entry viewer"
+msgstr "Maak een submenu aan om inschrijvingen te bekijken"
+
+#: ui/admin.php:305
+msgid "WordPress reports that you are not using SSL. Your forms may be marked insecure by browsers if not loaded using HTTPS."
+msgstr "WordPress geeft aan dat je geen SSL gebruikt. Je formulieren worden mogelijk als onveilig aangemerkt door browsers als ze niet geladen worden met HTTPS."
+
+#: ui/admin.php:302
+msgid "Your Forms Might Be Marked Insecure"
+msgstr "Je formulieren worden mogelijk als onveilig aangemerkt"
+
+#: ui/admin.php:101
+msgid "Click to change order of the forms"
+msgstr "Klik om de sortering van de formulieren te wijzigen"
+
+#: ui/admin.php:97
+msgid "Order Forms By Name"
+msgstr "Sorteer formulieren op naam"
+
+#: ui/admin.php:94
+msgid "Order Forms By ID"
+msgstr "Sorteer formulieren op ID"
+
+#: processors/auto_responder/config.php:38
+msgid "CC"
+msgstr "CC"
+
+#: processors/auto_responder/config.php:26
+msgid "Reply To"
+msgstr "Antwoord aan"
+
+#: classes/support.php:197
+msgid "Not Active"
+msgstr "Inactief"
+
+#: includes/field_processors.php:255
+msgid "Value is required"
+msgstr "Waarde is verplicht"
+
+#: includes/field_processors.php:231
+msgid "Country code is required"
+msgstr "Landcode is verplicht"
+
+#: ui/entries/toolbar.php:46
+msgctxt "Status: In trash"
+msgid "Trash"
+msgstr "Prullenbak"
+
+#: ui/admin_templates.php:199 ui/admin_templates.php:219
+#: ui/admin_templates.php:239
+msgid "Learn more about General and Email Settings."
+msgstr "Leer meer over de algemene en e-mailinstellingen."
+
+#: ui/admin.php:198
+msgid "Entry viewer is disabled due to your PHP version, see %s"
+msgstr "Het bekijken van inzendingen is uitgeschakeld vanwege je PHP versie.sZie %s"
+
+#: includes/plugin-page-banner.php:276
+msgid "Subscribe"
+msgstr "Abonneer"
+
+#: includes/field_processors.php:149
+msgid "Invalid file upload handler. See %s"
+msgstr "Ongeldige handeling voor bestand uploading. Zie %s"
+
+#: classes/render/modals.php:164
+msgid "Click to open the form %s in a modal"
+msgstr "Klik om het %s formulier in een modal te openen"
+
+#: classes/entry/ui.php:197 classes/admin.php:503 classes/admin.php:504
+msgctxt "Verb: Action of moving to trash"
+msgid "Trash"
+msgstr "Prullenbak"
+
+#: ui/edit.php:757
+msgid "Exit Revision"
+msgstr "Verlaat revisie"
+
+#: classes/admin/clippy.php:162
+msgid "Success rate for emails is %d percent of %s total emails."
+msgstr "Slaagkans voor e-mail is %d procent van het totaal van %s e-mail."
+
+#: ui/panels/layout_toolbar.php:37
+msgid "Form Elements & Fields"
+msgstr "Formulier Elementen & Velden"
+
+#: includes/templates/variable-price-example.php:263
+msgid "Pay"
+msgstr "Betalen"
+
+#: includes/templates/variable-price-example.php:193
+msgid "Small"
+msgstr "Klein"
+
+#: includes/templates/variable-price-example.php:187
+msgid "Big"
+msgstr "Groot"
+
+#: includes/templates/variable-price-example.php:161
+msgid "Option 2 Type"
+msgstr "Optie 2 Type"
+
+#: includes/templates/variable-price-example.php:150
+#: ui/panels/form-settings.php:126
+msgid "Yes"
+msgstr "Ja"
+
+#: includes/templates/variable-price-example.php:124
+msgid "Want Option 1?"
+msgstr "Wil je Optie 1?"
+
+#: includes/templates/variable-price-example.php:105
+msgid "Base"
+msgstr "Basis"
+
+#: includes/templates/variable-price-example.php:18
+msgid "Variable Price Example"
+msgstr "Variabele prijs voorbeeld"
+
+#: includes/templates/starter-contact-form.php:157
+msgid "Send Message"
+msgstr "Verstuur bericht"
+
+#: includes/templates/starter-contact-form.php:137
+msgid "Comments / Questions"
+msgstr "Opmerkingen / Vragen"
+
+#: includes/templates/starter-contact-form.php:125
+msgid "Feel free to ask a question or simply leave a comment."
+msgstr "Stel gerust een vraag of laat eenvoudigweg een reactie achter."
+
+#: includes/templates/starter-contact-form.php:124
+msgid "How can we help?"
+msgstr "Hoe kunnen we helpen?"
+
+#: includes/templates/starter-contact-form.php:47
+msgid "Let us know how to get back to you."
+msgstr "Vertel ons hoe we contact met je kunnen opnemen."
+
+#: includes/templates/starter-contact-form.php:46
+msgid "Your Details"
+msgstr "Je gegevens"
+
+#: includes/templates/starter-contact-form.php:14
+msgid "Basic starter contact form with auto-responder processor."
+msgstr "Basis starter contactformulier met automatisch antwoord verwerker."
+
+#: includes/templates/simple-booking-form-example.php:208
+msgid "Comments"
+msgstr "Opmerkingen"
+
+#: includes/templates/simple-booking-form-example.php:187
+msgid "Number of children"
+msgstr "Aantal kinderen"
+
+#: includes/templates/simple-booking-form-example.php:165
+msgid "Number of adults"
+msgstr "Aantal volwassenen"
+
+#: includes/templates/simple-booking-form-example.php:144
+msgid "Check out date"
+msgstr "Check-out datum"
+
+#: includes/templates/simple-booking-form-example.php:123
+msgid "Check in date"
+msgstr "Check-in datum"
+
+#: includes/templates/simple-booking-form-example.php:83
+msgid "Mobile Number"
+msgstr "Mobiel nummer"
+
+#: includes/templates/registration-form-example.php:267
+msgid "Three People"
+msgstr "Drie personen"
+
+#: includes/templates/registration-form-example.php:233
+msgid "Two People"
+msgstr "Twee personen"
+
+#: includes/templates/registration-form-example.php:186
+msgid "Person Three Name"
+msgstr "Persoon drie naam"
+
+#: includes/templates/registration-form-example.php:167
+msgid "Person Three Email"
+msgstr "Persoon drie e-mailadres"
+
+#: includes/templates/registration-form-example.php:148
+msgid "Person Two Email"
+msgstr "Persoon twee e-mailadres"
+
+#: includes/templates/registration-form-example.php:128
+msgid "Person Two Name"
+msgstr "Persoon twee naam"
+
+#: includes/templates/registration-form-example.php:109
+msgid "Person One Email"
+msgstr "Persoon een e-mailadres"
+
+#: includes/templates/registration-form-example.php:89
+msgid "Person One Name"
+msgstr "Persoon een naam"
+
+#: includes/templates/registration-form-example.php:80
+msgid "Three"
+msgstr "Drie"
+
+#: includes/templates/registration-form-example.php:75
+msgid "Two"
+msgstr "Twee"
+
+#: includes/templates/variable-price-example.php:48
+#: includes/templates/registration-form-example.php:70
+msgid "One"
+msgstr "Een"
+
+#: includes/templates/registration-form-example.php:47
+msgid "Number of People"
+msgstr "Aantal personen"
+
+#: includes/templates/registration-form-example.php:16
+msgid "Registration Form"
+msgstr "Registratieformulier"
+
+#: includes/templates/rate-our-service-example.php:76
+msgid "How would you rate your experience"
+msgstr "Hoe zou je je ervaring waarderen"
+
+#: includes/templates/rate-our-service-example.php:36
+msgid "Full Name"
+msgstr "Volledige naam"
+
+#: includes/templates/rate-our-service-example.php:7
+#: includes/templates/rate-our-service-example.php:141
+#: includes/templates/rate-our-service-example.php:147
+msgid "Rate our service"
+msgstr "Beoordeel onze service"
+
+#: includes/templates/job-application-form-example.php:325
+msgid "Edit information"
+msgstr "Informatie bewerken"
+
+#: includes/templates/job-application-form-example.php:286
+msgid "Profile"
+msgstr "Profiel"
+
+#: includes/templates/job-application-form-example.php:250
+msgid "Preview Information"
+msgstr "Informatie voorbeeld"
+
+#: includes/templates/job-application-form-example.php:231
+#: includes/templates/rate-our-service-example.php:99
+msgid "Message / Comments"
+msgstr "Bericht / opmerkingen"
+
+#: includes/templates/job-application-form-example.php:212
+msgid "Upload CV"
+msgstr "CV uploaden"
+
+#: includes/templates/job-application-form-example.php:192
+msgid "Alternate Contact Number"
+msgstr "Alternatief contactnummer"
+
+#: includes/templates/job-application-form-example.php:172
+msgid "Contact Number"
+msgstr "Contactnummer"
+
+#: includes/templates/simple-booking-form-example.php:62
+#: includes/templates/job-application-form-example.php:132
+#: includes/templates/starter-contact-form.php:79
+msgid "Last Name"
+msgstr "Achternaam"
+
+#: includes/templates/simple-booking-form-example.php:41
+#: includes/templates/job-application-form-example.php:111
+#: includes/templates/starter-contact-form.php:59
+msgid "First Name"
+msgstr "Voornaam"
+
+#: includes/templates/job-application-form-example.php:102
+msgid "Dr."
+msgstr "Dr."
+
+#: includes/templates/job-application-form-example.php:97
+msgid "Prof."
+msgstr "Prof."
+
+#: includes/templates/job-application-form-example.php:92
+msgid "Mrs."
+msgstr "Mevr."
+
+#: includes/templates/job-application-form-example.php:87
+msgid "Ms."
+msgstr "Mevr."
+
+#: includes/templates/job-application-form-example.php:82
+msgid "Mr."
+msgstr "Dhr."
+
+#: includes/templates/job-application-form-example.php:77
+msgid "Choose One"
+msgstr "Maak een keuze"
+
+#: includes/templates/job-application-form-example.php:15
+msgid "Job Application"
+msgstr "Sollicitatie"
+
+#: classes/fields.php:268
+msgid "Credit Card Expiration Date"
+msgstr "Creditcard vervaldatum"
+
+#: classes/core.php:679
+msgid "The captcha wasn't entered correctly."
+msgstr "De captcha is niet correct ingevuld."
+
+#: ui/support/clippy_templates.php:20
+msgid "All Documentation"
+msgstr "Alle documentatie"
+
+#: ui/support/clippy_templates.php:9
+msgid "Documentation"
+msgstr "Documentatie"
+
+#: ui/panels/revisions.php:33
+msgid "No Saved Revisions"
+msgstr "Geen opgeslagen revisies"
+
+#: ui/panels/revisions.php:30
+msgid "View Selected Revision"
+msgstr "Bekijk geselecteerde revisie"
+
+#: ui/panels/revisions.php:21
+msgid "Edit Revision:"
+msgstr "Bewerk revisie:"
+
+#: ui/panels/revisions.php:14
+msgid "Choose Revision To Edit"
+msgstr "Kies revisie om te bewerken"
+
+#: ui/panels/revisions.php:3
+msgid "Currently Viewing A Revision"
+msgstr "Momenteel revisie aan het bekijken"
+
+#: ui/edit.php:775
+msgid "Preview Form Revision"
+msgstr "Voorbeeld formulierrevisie"
+
+#: ui/edit.php:769
+msgid "Restore Form Revision"
+msgstr "Herstel formulierrevisie"
+
+#: ui/admin_templates.php:265
+msgid "Some usage data will be shared with CDN providers."
+msgstr "Sommige gebruiksdata zal worden gedeeld met CDN-aanbieders."
+
+#: ui/admin_templates.php:262
+msgid "Enable Free CDN"
+msgstr "Activeer gratis CDN"
+
+#: ui/admin_templates.php:260
+msgid "Learn more about the free CDN and usage sharing."
+msgstr "Leer meer over de gratis CDN en het delen van gebruik."
+
+#: classes/field/localizer.php:109
+msgid "An out of date version of jQuery is loaded on the page. Form may not function properly."
+msgstr "Een verouderde versie van jQuery is geladen op de pagina. Het formulier werkt mogelijk niet correct."
+
+#: classes/field/localizer.php:108
+msgid "Submission URL and current URL protocols do not match. Form may not function properly."
+msgstr "Verzend-URL en huidige URL protocollen komen niet overeen. Het formulier werkt mogelijk niet correct."
+
+#: classes/api/forms.php:294
+msgid "No Revisions Found For This Form"
+msgstr "Geen revisies gevonden voor dit formulier"
+
+#: classes/admin.php:1773
+msgid "Working with form revisions and drafts"
+msgstr "Werken met formulierrevisies en concepten"
+
+#: classes/admin.php:1767 classes/admin.php:1769
+msgid "Revisions"
+msgstr "Revisies"
+
+#: classes/admin/clippy.php:257
+msgid "Extend Caldera Forms With Our Add-ons"
+msgstr "Breid Caldera Forms uit met onze add-ons"
+
+#: classes/admin/clippy.php:260
+msgid "Have You Tried Caldera Forms Pro Yet?"
+msgstr "Heb je Caldera Forms Pro al geprobeerd?"
+
+#: classes/admin/clippy.php:251
+msgid "Get A Free Add-on For Caldera Forms"
+msgstr "Ontvang een gratis add-on voor Caldera Forms"
+
+#: ui/admin.php:119
+msgid "Message Resent"
+msgstr "Bericht opnieuw verzonden"
+
+#: classes/fields.php:376
+msgid "Capture all UTM tags"
+msgstr "Leg alle UTM tags vast"
+
+#: classes/fields.php:373
+msgid "UTM"
+msgstr "UTM"
+
+#: classes/entry/ui.php:201
+msgid "Resend"
+msgstr "Verzend opnieuw"
+
+#: classes/entry/ui.php:201
+msgid "Click to resend email from this message"
+msgstr "Klik om de e-mail van dit bericht opnieuw te verzenden"
+
+#: includes/cf-pro-client/classes/admin/scripts.php:110
+msgid "What is Caldera Forms Pro ?"
+msgstr "Wat is Caldera Forms Pro?"
+
+#: ui/panels/emailer.php:74
+msgid "Do Not Use A Magic Tag"
+msgstr "Gebruik geen magische tag"
+
+#: ui/panels/emailer.php:73
+msgid "Email Address for sender. If you want to use a form field use the \"Reply To Email\" setting below."
+msgstr "E-mailadres voor afzender. Als je een formulierveld wil gebruiken, gebruik de \"Antwoord naar e-mailadres\" instelling hieronder."
+
+#: ui/edit.php:868
+msgid "Click to view help doc on CalderaForms.com"
+msgstr "Klik om de hulpdocumentatie op CalderaForms.com te bekijken."
+
+#: ui/edit.php:327 ui/edit.php:329 ui/edit.php:1095 ui/edit.php:1103
+msgid "Calculation Value"
+msgstr "Calculatiewaarde"
+
+#: ui/edit.php:323 ui/edit.php:1091
+msgid "Learn more about using select field options"
+msgstr "Leer meer over het gebruik van selectieveld opties"
+
+#: fields/select2/field/config.php:44
+#: fields/toggle_switch/config_template.php:39
+#: fields/dropdown/config_template.php:17 fields/radio/config_template.php:18
+#: fields/checkbox/config_template.php:17
+msgid "Overwrite default option - useful for setting default with magic tags."
+msgstr "Overschrijf standaard optie - handig voor het instellen van standaard met magische tags."
+
+#: fields/select2/field/config.php:39
+#: fields/toggle_switch/config_template.php:34
+#: fields/dropdown/config_template.php:12 fields/radio/config_template.php:13
+#: fields/checkbox/config_template.php:12
+msgid "Default Option"
+msgstr "Standaard optie"
+
+#: classes/admin.php:1826
+msgid "Responsive settings getting started guide"
+msgstr "Responsive instellingen startersgids"
+
+#: classes/admin.php:1787
+msgid "Variables getting started guide"
+msgstr "Variabelen startersgids"
+
+#: classes/admin.php:1763
+msgid "Conditionals getting started guide"
+msgstr "Voorwaarden startersgids"
+
+#: classes/admin.php:1753
+msgid "Processors getting started guide"
+msgstr "Verwerkers startersgids"
+
+#: classes/admin.php:1743
+msgid "Learn to use the Caldera Forms email notification"
+msgstr "Leer de Caldera Forms e-mailmeldingen gebruiken"
+
+#: classes/admin.php:1733
+msgid "Using multi-page forms."
+msgstr "Meer-pagina formulieren gebruiken."
+
+#: classes/admin.php:1723
+msgid "Caldera Forms layout builder getting started guide"
+msgstr "Caldera Forms lay-out bouwer startersgids"
+
+#: classes/admin.php:1091 classes/admin.php:1092 ui/extend.php:53
+msgid "Add-ons"
+msgstr "Add-ons"
+
+#: classes/admin.php:237
+msgid "US States"
+msgstr "US staten"
+
+#: classes/admin/pro.php:55 classes/admin/pro.php:56 classes/admin.php:2167
+#: includes/cf-pro-client/classes/admin/menu.php:39
+#: includes/cf-pro-client/classes/admin/menu.php:40
+msgid "Caldera Forms Pro"
+msgstr "Caldera Forms Pro"
+
+#: ui/panels/layout.php:107
+msgid "Click to add a new row to layout."
+msgstr "Klik om een nieuwe rij toe te voegen aan de lay-out."
+
+#: classes/admin/assets.php:338
+msgid "Delete row."
+msgstr "Rij verwijderen."
+
+#: classes/admin/assets.php:337
+msgid "Split row."
+msgstr "Rij splitsen."
+
+#: classes/admin/assets.php:336
+msgid "Add field to row"
+msgstr "Veld toevoegen aan rij"
+
+#: ui/panels/layout_toolbar.php:12
+msgid "Drag this box onto the layout grid where you want the field to appear"
+msgstr "Sleep deze box op het lay-out grid waar je het veld wil laten verschijnen."
+
+#: classes/core.php:1543
+msgid "Calculation is invalid (division by zero)"
+msgstr "Ongeldige berekening (kan niet delen door nul)"
+
+#: ui/entries/pagination.php:13 ui/viewer-two/viewer.php:61
+msgid "Entries Per Page"
+msgstr "Inzendingen per pagina"
+
+#: ui/viewer-two/viewer.php:58
+msgid "Next"
+msgstr "Volgende"
+
+#: ui/viewer-two/viewer.php:57
+msgid "Next page of entries"
+msgstr "Volgende pagina met inzendingen"
+
+#: ui/viewer-two/viewer.php:55
+msgid "Previous"
+msgstr "Vorige"
+
+#: ui/viewer-two/viewer.php:54
+msgid "Previous page of entries"
+msgstr "Vorige pagina met inzendingen"
+
+#: ui/viewer-two/viewer.php:45
+msgid "Details"
+msgstr "Details"
+
+#: ui/viewer-two/viewer.php:44
+msgid "View Entry Details"
+msgstr "Toon details van inzending"
+
+#: ui/viewer-two/viewer.php:10
+msgid "Click To Close"
+msgstr "Klik om te sluiten"
+
+#: ui/panels/form-settings.php:74
+msgid "Message to show after form is submitted."
+msgstr "Bericht om te tonen na verzenden van het formulier."
+
+#: ui/panels/form-settings.php:54
+msgid "When form is submitted, do not scroll page."
+msgstr "Scroll de pagina niet na verzenden van het formulier."
+
+#: ui/panels/form-settings.php:47
+msgid "When form is submitted, scroll page to form message."
+msgstr "Scroll de pagina naar formulierbericht"
+
+#: ui/panels/form-settings.php:40
+msgid "Scroll To Top On Submit"
+msgstr "Scroll naar boven bij verzenden van formulier"
+
+#: ui/entries/toolbar.php:55
+msgid "Bulk Action For Entries"
+msgstr "Bulk actie voor inzendingen"
+
+#: ui/entries/pagination.php:19
+msgid "Go to the last page"
+msgstr "Ga naar laatste pagina"
+
+#: ui/entries/pagination.php:18
+msgid "Go to the next page"
+msgstr "Ga naar volgende pagina"
+
+#: ui/entries/pagination.php:17
+msgid "of"
+msgstr "van"
+
+#: ui/entries/pagination.php:16
+msgid "Go to the previous page"
+msgstr "Ga naar vorige pagina"
+
+#: ui/entries/pagination.php:15
+msgid "Go to the first page"
+msgstr "Ga naar eerste pagina"
+
+#: ui/entries/pagination.php:11
+msgid "Posts Per Page"
+msgstr "Posts per pagina"
+
+#: processors/functions.php:68
+msgid "If this conditional is used, default recipient will be removed from recipients"
+msgstr "Als deze voorwaarde wordt gebruikt wordt de standaard ontvanger verwijderd van de ontvangers"
+
+#: processors/functions.php:67
+msgid "Remove Default?"
+msgstr "Verwijder standaard?"
+
+#: fields/wysiwyg/config_template.php:31
+msgid "Restrictive"
+msgstr "Beperkend"
+
+#: fields/wysiwyg/config_template.php:28
+msgid "Permissive"
+msgstr "Toestaand"
+
+#: fields/wysiwyg/config_template.php:24
+msgid "Sanitization Level"
+msgstr "Saneringsniveau"
+
+#: fields/wysiwyg/config_template.php:13
+msgid "Language Code"
+msgstr "Taalcode"
+
+#: fields/section-break/config.php:15
+msgid "Width of section break element, as a percentage."
+msgstr "Breedte van break element van de sectie, als percentage."
+
+#: fields/section-break/config.php:9
+msgid "Width"
+msgstr "Breedte"
+
+#: fields/phone_better/config.php:27
+msgid "If not checked, formatting will be for local use, without country code"
+msgstr "Wanneer niet aangevinkt, zal het formaat zijn voor lokaal gebruik, zonder landcode."
+
+#: fields/phone_better/config.php:22
+msgid "Use Country Code"
+msgstr "Gebruik landcode"
+
+#: fields/phone/config.php:48
+msgid "Custom Phone Number Format"
+msgstr "Aangepast telefoonnummer formaat"
+
+#: fields/number/config.php:39
+msgid "Step (increment size)"
+msgstr "Stapgrootte"
+
+#: fields/credit_card_number/config.php:40
+msgid "Link a secret code field for validation."
+msgstr "Link naar een geheime code veld voor validatie."
+
+#: fields/credit_card_number/config.php:34
+msgid "Secret Code Field"
+msgstr "Veld voor geheime code"
+
+#: fields/credit_card_number/config.php:27
+msgid "Link an expiration field for validation."
+msgstr "Koppel een vervaltijd veld voor validatie."
+
+#: fields/credit_card_number/config.php:21
+msgid "Expiration Field"
+msgstr "Vervaldatum veld"
+
+#: fields/credit_card_cvc/config.php:27
+msgid "If set, the type of card will be used for verification."
+msgstr "Wanneer ingeschakeld zal het kaarttype gebruikt worden voor verificatie."
+
+#: fields/credit_card_cvc/config.php:21
+msgid "Credit Card Field"
+msgstr "Creditcard veld"
+
+#: fields/color_picker/setup.php:3
+msgid "Default Color"
+msgstr "Standaardkleur"
+
+#: classes/fields.php:470
+msgid "An HR tag to separate sections of your form."
+msgstr "Een HR-tag om secties van je formulier te scheiden."
+
+#: classes/fields.php:469
+msgid "Section Break"
+msgstr "Sectie-einde"
+
+#: classes/fields.php:454
+msgid "Live updating summary of submission"
+msgstr "Live updatende samenvatting van invoer"
+
+#: classes/fields.php:453
+#: includes/templates/job-application-form-example.php:308
+msgid "Summary"
+msgstr "Samenvatting"
+
+#: classes/fields.php:283
+msgid "Credit Card CVC With Validation"
+msgstr "Creditcard CVC met validatie"
+
+#: classes/fields.php:282
+msgid "Credit Card CVC"
+msgstr "Creditcard CVC"
+
+#: classes/fields.php:269
+msgid "Credit Card Expiration Date With Validation"
+msgstr "Creditcard vervaldatum met validatie"
+
+#: classes/fields.php:257 classes/fields.php:272 classes/fields.php:286
+#: ui/edit.php:374 ui/edit.php:1018
+msgid "eCommerce"
+msgstr "eCommerce"
+
+#: classes/fields.php:255
+msgid "Credit Card Number With Validation"
+msgstr "Creditcardnummer met validatie"
+
+#: classes/fields.php:254
+msgid "Credit Card Number"
+msgstr "Creditcardnummer"
+
+#: classes/fields.php:243
+msgid "URL input for website addresses"
+msgstr "URL invoer voor webadressen"
+
+#: classes/fields.php:225
+msgid "TinyMCE WYSIWYG editor"
+msgstr "TinyMCE WYSIWYG editor"
+
+#: classes/fields.php:224
+msgid "Rich Editor"
+msgstr "Uitgebreide editor"
+
+#: classes/fields.php:195
+msgid "Phone Number (Basic)"
+msgstr "Telefoonnummer (basis)"
+
+#: classes/fields.php:186
+msgid "Number with minimum and maximum controls"
+msgstr "Nummer met minimum en maximum"
+
+#: classes/fields.php:185
+msgid "Number"
+msgstr "Nummer"
+
+#: classes/fields.php:165
+msgid "Phone number with advanced options and international formatting"
+msgstr "Telefoonnummer met geavanceerde opties en internationale opmaak"
+
+#: classes/fields.php:164
+msgid "Phone Number (Better)"
+msgstr "Telefoonnummer (beter)"
+
+#: classes/field/js.php:568
+msgid "Invalid Security Code"
+msgstr "Veiligheidscode ongeldig"
+
+#: classes/field/js.php:546
+msgid "Invalid Expiration Date"
+msgstr "Ongeldige vervaldatum"
+
+#: classes/field/js.php:514
+msgid "Invalid Card Number"
+msgstr "Ongeldig creditcardnummer"
+
+#: classes/field/js.php:240
+msgid "Number is too short"
+msgstr "Nummer is te kort"
+
+#: classes/field/js.php:239
+msgid "Number is too long"
+msgstr "Nummer is te lang"
+
+#: classes/field/js.php:238 includes/field_processors.php:308
+msgid "Not a number"
+msgstr "Dit is geen nummer"
+
+#: classes/field/js.php:237
+msgid "Invalid country code"
+msgstr "Ongeldige landcode"
+
+#: classes/field/js.php:236
+msgid "Invalid number"
+msgstr "Ongeldig nummer"
+
+#: classes/entry/vue.php:123
+msgid "You are not allowed to view this."
+msgstr "Je hebt geen toestemming om dit te bekijken."
+
+#: classes/entry/vue.php:122
+msgid "No Entries To Display"
+msgstr "Geen inzendingen om te tonen"
+
+#: classes/core.php:5222
+msgid "Submission rejected, token invalid"
+msgstr "Verzending afgewezen, token ongeldig"
+
+#: classes/core.php:1226
+msgid "Send email to different recipients depending on conditions"
+msgstr "Stuur een e-mail naar verschillende ontvangers, afhankelijk van voorwaarden."
+
+#: classes/core.php:1225
+msgid "Conditional Recipient"
+msgstr "Voorwaardelijke ontvanger"
+
+#: classes/api/entries.php:117
+msgid "Entry Not Deleted"
+msgstr "Inzending niet verwijderd"
+
+#: classes/api/entries.php:115
+msgid "Entry Deleted"
+msgstr "Inzending verwijderd"
+
+#: classes/admin.php:276
+msgid "Job Application Form - with Gravatar preview"
+msgstr "Sollicitatieformulier - met Gravatar voorvertoning"
+
+#: classes/admin.php:272
+msgid "Rate Our Service Form - with star review"
+msgstr "Beoordeel onze service-formulier - met sterrenbeoordeling"
+
+#: classes/admin.php:268 includes/templates/simple-booking-form-example.php:7
+#: includes/templates/simple-booking-form-example.php:256
+msgid "Simple Booking Form"
+msgstr "Eenvoudig boekingsformulier"
+
+#: classes/admin.php:256 includes/templates/starter-contact-form.php:13
+#: includes/templates/starter-contact-form.php:216
+msgid "Contact Form"
+msgstr "Contactformulier"
+
+#: includes/ajax.php:76
+msgid "See Example"
+msgstr "Toon voorbeeld"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "https://CalderaForms.com"
+msgstr "https://CalderaForms.com"
+
+#: fields/cf2_text/config.php:34 fields/text/config.php:34
+msgid "Change the field type."
+msgstr "Verander veldtype."
+
+#: fields/cf2_text/config.php:19 fields/text/config.php:19
+msgid "HTML5 Type"
+msgstr "HTML5 Type"
+
+#: fields/calculation/config.php:41
+msgid "Decimal Separator"
+msgstr "Scheidingsteken decimaal"
+
+#: fields/calculation/config.php:33
+msgid "Thousands Separator"
+msgstr "Scheidingsteken duizendtal"
+
+#: classes/admin/clippy.php:212 ui/admin.php:287
+msgid "Read Now"
+msgstr "Lees nu"
+
+#: classes/admin/clippy.php:209 ui/admin.php:283
+msgid "We have a complete getting started guide for new users."
+msgstr "We hebben een complete startershandleiding voor nieuwe gebruikers."
+
+#: classes/admin/clippy.php:206 ui/admin.php:280
+msgid "New To Caldera Forms?"
+msgstr "Nieuw bij Caldera Forms?"
+
+#: classes/admin/clippy.php:184
+msgid "Read The Guide"
+msgstr "Lees de handleiding"
+
+#: classes/admin/clippy.php:178
+msgid "Need Help Creating A Form?"
+msgstr "Hulp nodig bij het maken van een formulier?"
+
+#: classes/admin/clippy.php:165
+msgid "Enable usage tracking to get email stats."
+msgstr "Schakel gebruikerstracking in om e-mailstatistieken te ontvangen."
+
+#: classes/admin/clippy.php:150
+msgid "Email Resources"
+msgstr "E-mail middelen"
+
+#: classes/admin/clippy.php:144
+msgid "Email Stats"
+msgstr "E-mailstatistieken"
+
+#: includes/plugin-page-banner.php:273
+msgid "Get notified of plugin updates:"
+msgstr "Ontvang notificatie van plugin updates:"
+
+#: includes/plugin-page-banner.php:263
+msgid "Go Further"
+msgstr "Ga verder"
+
+#: includes/plugin-page-banner.php:256
+msgid "Get Started"
+msgstr "Begin"
+
+#: includes/plugin-page-banner.php:247
+msgid "Thanks for installing Caldera Forms"
+msgstr "Bedankt voor het installeren van Caldera Forms"
+
+#: fields/toggle_switch/field.php:42
+msgid "Choose Option"
+msgstr "Kies optie"
+
+#: fields/gravatar/field.php:17
+msgid "Gravatar Image"
+msgstr "Gravatar afbeelding"
+
+#: classes/api/response_factory.php:35
+msgid "Form entry not found"
+msgstr "Formulierinzending niet gevonden"
+
+#: classes/api/response_factory.php:13 classes/api/entries.php:138
+msgid "Form not found"
+msgstr "Formulier niet gevonden"
+
+#: classes/api/crud.php:296
+msgid "Route Not Yet Implemented :("
+msgstr "Route nog niet geïmplementeerd :("
+
+#: ui/panels/emailer.php:124
+msgid "Who to send email to? Use a comma separated list of email addresses to send to more than one address."
+msgstr "Naar wie moet de e-mail verstuurd worden? Gebruik een kommagescheiden lijst van e-mailadressen om naar meerdere e-mailadressen te versturen."
+
+#: ui/panels/emailer.php:120
+msgid "Email Recipients"
+msgstr "E-mailontvangers"
+
+#: ui/panels/emailer.php:56
+msgid "Name for email sender"
+msgstr "Naam voor e-mailafzender"
+
+#: ui/panels/emailer.php:32
+msgid "Use The Mailer"
+msgstr "Gebruik de mailer"
+
+#: classes/admin/apeasyqueries.php:34
+msgid "Easy Queries"
+msgstr "Eenvoudige Queries"
+
+#: classes/admin/apeasyqueries.php:19
+msgid "Easy Query"
+msgstr "Eenvoudige Query"
+
+#: classes/admin/apeasypods.php:19 classes/admin/apeasypods.php:34
+msgid "Easy Pod"
+msgstr "Eenvoudige Pod"
+
+#: classes/admin/privacy.php:92 classes/admin/php.php:126 caldera-core.php:30
+#: ui/emails/settings.php:37 ui/emails/settings.php:75 ui/extend.php:101
+#: ui/support/clippy_templates.php:37 ui/support/panels/support.php:20
+#: ui/admin.php:309
+msgid "Learn More"
+msgstr "Meer weten"
+
+#: includes/cf-pro-client/classes/admin/scripts.php:94
+msgid "Form To PDF"
+msgstr "Formulier naar PDF"
+
+#: ui/extend.php:52
+msgid "View Caldera Forms Add-ons"
+msgstr "Toon add-ons voor Caldera Forms"
+
+#: classes/core.php:4865
+msgid "Navigate to %s"
+msgstr "Navigeer naar %s"
+
+#: classes/email/settings.php:259
+msgid "Switching email services requires PHP 5.4 or later. PHP 5.6 is strongly recommended."
+msgstr "Wisselen van e-mailservice vereist PHP 5.4 of later. PHP 5.6 is sterk aanbevolen."
+
+#: ui/panels/layout_toolbar.php:17
+msgid "Add Field"
+msgstr "Veld toevoegen"
+
+#: ui/panels/emailer.php:186
+msgid "Allows you to preview the message and who the message is sent to, as well as the subject. You should turn this off when not testing."
+msgstr "Staat je toe om een voorbeeld van het bericht te zien zoals verzonden naar de ontvanger. Je moet dit uitschakelen wanneer je niet aan het testen bent."
+
+#: ui/panels/emailer.php:180
+msgid "Save Preview"
+msgstr "Voorbeeld opslaan"
+
+#: ui/entries/toolbar.php:49 ui/entries_toolbar.php:47
+msgid "Export All"
+msgstr "Alles exporteren"
+
+#: ui/entries/toolbar.php:8 ui/entries_toolbar.php:8
+msgid "Click to close entry viewer"
+msgstr "Klik om item viewer te sluiten"
+
+#: ui/emails/settings.php:84
+msgid "Save Email Settings"
+msgstr "E-mailinstellingen opslaan"
+
+#: ui/emails/settings.php:74
+msgid "Documentation for configuring SendGrid API"
+msgstr "Documentatie voor het instellen van SendGrid API"
+
+#: ui/emails/settings.php:65 ui/emails/settings.php:72
+msgid "SendGrid API Key"
+msgstr "SendGrid API-sleutel"
+
+#: ui/emails/settings.php:60
+msgid "By default Caldera Forms uses WordPress to send emails. You can choose to use another method to increase reliability of emails and reduce server load."
+msgstr "Standaard gebruikt Caldera Forms Wordpress om e-mails te versturen. Je kunt kiezen om een andere methode te gebruiken om de betrouwbaarheid van e-mail te verbeteren en serverbelasting te verminderen."
+
+#: ui/emails/settings.php:55
+msgid "Caldera (coming soon)"
+msgstr "Caldera (volgt binnenkort)"
+
+#: ui/emails/settings.php:52
+msgid "SendGrid"
+msgstr "SendGrid"
+
+#: ui/emails/settings.php:49
+msgid "WordPress"
+msgstr "WordPress"
+
+#: ui/emails/settings.php:44
+msgid "Email System"
+msgstr "E-mailsysteem"
+
+#: ui/emails/email-preview.php:26
+msgid "Caldera Forms Email Preview"
+msgstr "Caldera forms e-mail voorbeeld"
+
+#: ui/edit.php:1048
+msgid "Set Field"
+msgstr "Veld instellen"
+
+#: ui/panels/form-settings.php:30
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: ui/edit.php:793
+msgid "Preview Last Email"
+msgstr "Toon laatste e-mail"
+
+#: includes/cf-pro-client/classes/admin/scripts.php:108
+#: ui/panels/form-settings.php:14 ui/edit.php:731
+msgid "Form Settings"
+msgstr "Formulierinstellingen"
+
+#: ui/edit.php:648
+msgid "Delete Field"
+msgstr "Veld verwijderen"
+
+#: ui/edit.php:543
+msgid "Field Type"
+msgstr "Veldtype"
+
+#: classes/admin/assets.php:320 ui/edit.php:526
+msgid "Fields"
+msgstr "Velden"
+
+#: ui/edit.php:355
+msgid "Option values must be unique."
+msgstr "Waarde van optie moet uniek zijn."
+
+#: ui/edit.php:303
+msgid "Select a preset"
+msgstr "Selecteer een voorinstelling"
+
+#: ui/edit.php:300
+msgid "Bulk Insert / Preset"
+msgstr "Bulk invoegen / voorinstelling"
+
+#: ui/admin.php:504
+msgid "Close Email Settings"
+msgstr "E-mailinstellingen sluiten"
+
+#: ui/admin.php:177
+msgid "Get Shortcode"
+msgstr "Shortcode opvragen"
+
+#: ui/admin.php:84
+msgid "Click to modify Caldera Forms general settings"
+msgstr "Klik om de algemene instellingenv an Caldera Forms aan te passen"
+
+#: ui/admin.php:70 ui/admin.php:495 ui/admin.php:508
+msgid "Email Settings"
+msgstr "E-mailinstellingen"
+
+#: ui/admin.php:69
+msgid "Click to modify Caldera Forms email settings"
+msgstr "Klik om de e-mailinstellingen van Caldera Forms aan te passen"
+
+#: fields/recaptcha/preview.php:5
+msgid "Click here for more information."
+msgstr "Klik hier voor meer informatie."
+
+#: fields/recaptcha/preview.php:4
+msgid "Documenation for this field type"
+msgstr "Documentatie voor dit veldtype"
+
+#: fields/recaptcha/preview.php:3
+msgid "This field type is discontinued."
+msgstr "Dit veldtype is niet meer in gebruik."
+
+#: fields/advanced_file/field.php:67 includes/field_processors.php:110
+msgid "This file type is not allowed. Please try another."
+msgstr "Dit veldtype is niet toegestaan. Probeer een ander."
+
+#: fields/advanced_file/field.php:66
+msgid "This file is empty. Please try another."
+msgstr "Dit bestand is leeg. Probeer een ander."
+
+#: fields/advanced_file/field.php:65
+msgid "File exceeds the maximum upload size for this site."
+msgstr "Bestand is groter dan toegestaan voor deze site."
+
+#: fields/cf2_file/config.php:38 fields/file/config_template.php:37
+#: fields/advanced_file/config_template.php:28
+msgid "Add to Media Library"
+msgstr "Toevoegen aan mediabibliotheek"
+
+#: classes/email/previews.php:55
+msgid "There is no saved email preview. Please submit this form with email previewing on and then try again."
+msgstr "Er is geen opgeslagen e-mail voorbeeld. Verzend een formulier met e-mail voorbeelden aan en probeer het opnieuw."
+
+#: classes/fields.php:101 ui/edit.php:1024 ui/edit.php:1044
+msgid "Discontinued"
+msgstr "Niet meer in gebruik"
+
+#: classes/fields.php:491 classes/fields.php:506 classes/fields.php:521
+#: classes/fields.php:534 classes/fields.php:554 classes/fields.php:572
+#: classes/fields.php:587 classes/fields.php:608 ui/edit.php:373
+#: ui/edit.php:1015
+msgid "Select"
+msgstr "Selecteren"
+
+#: classes/admin.php:375
+msgid "Change Template"
+msgstr "Template wijzigen"
+
+#: classes/admin.php:365
+msgid "Blank Form"
+msgstr "Leeg formulier"
+
+#: classes/admin.php:319
+msgid "Preview not available"
+msgstr "Voorbeeld niet beschikbaar"
+
+#: classes/admin.php:219
+msgid "Canadian Provinces & Territories"
+msgstr "Canadese provincies & territoria"
+
+#: classes/admin.php:207
+msgid "Continents"
+msgstr "Continenten"
+
+#: classes/admin.php:203
+msgid "Countries (Names Only)"
+msgstr "Landen (alleen namen)"
+
+#: classes/admin.php:199
+msgid "Countries (ISO Alpha-2)"
+msgstr "Landen (ISO Alpha-2)"
+
+#: ui/support/panels/support.php:24
+msgid "Let us write you some code for you"
+msgstr "Laat ons een stukje code voor je schrijven"
+
+#: ui/support/panels/support.php:24
+msgid "Need an integration with a third-party service or to modify the default of Caldera Forms or to do something else special?"
+msgstr "Integratie met een service van een derde partij nodig, of aanpassingen nodig aan Caldera Forms om iets speciaals te doen?"
+
+#: ui/support/panels/support.php:24
+msgid "Customization"
+msgstr "Aanpassingen"
+
+#: ui/support/panels/support.php:23
+msgid "We can help"
+msgstr "We kunnen helpen"
+
+#: ui/support/panels/support.php:23
+msgid "Got a really trick form and not a lot of time?"
+msgstr "Heb je een lastig formulier en niet veel tijd?"
+
+#: ui/support/panels/support.php:23
+msgid "Form Creation"
+msgstr "Maken formulier"
+
+#: ui/support/panels/support.php:20
+msgid "Direct support from our team, your questions answered within one business day."
+msgstr "Directe ondersteuning van ons team. Je vragen worden binnen een werkdag beantwoord."
+
+#: ui/support/panels/support.php:20
+msgid "Priority Support"
+msgstr "Prioriteitsondersteuning"
+
+#: ui/support/panels/support.php:17
+msgid "Caldera Forms is free to use, if you need any help, we provide services to ensure you can get the most out of Caldera Forms."
+msgstr "Caldera Forms is gratis om te gebruiken. Als je hulp nodig hebt bieden wij je services om zeker te weten dat je het meeste uit Caldera Forms kunt halen."
+
+#: ui/support/panels/support.php:14
+msgid "Caldera Forms Support"
+msgstr "Caldera Forms ondersteuning"
+
+#: ui/support/panels/debug.php:21
+msgid "Full Debug Information"
+msgstr "Volledige debug informatie"
+
+#: ui/support/panels/debug.php:14
+msgid "Short Debug Information"
+msgstr "Korte debug informatie"
+
+#: ui/support/panels/beta.php:38
+msgid "You can download the latest beta as a zip file and install it manually."
+msgstr "Je kunt de laatste beta als zip-bestand downloaden en het handmatig installeren."
+
+#: ui/support/panels/beta.php:29
+msgid "If you have installed the plugin via Git, you can pull the \"develop\" branch."
+msgstr "Wanneer de plugin via Git geïnstalleerd is kunt je de \"develop\" tak oproepen."
+
+#: ui/support/panels/beta.php:23
+msgid "You can use the GitHub Updater plugin."
+msgstr "Je kunt de Github updater plugin gebruiken."
+
+#: ui/support/panels/beta.php:17
+msgid "You can install the CalderaWP License manager plugin to automatically update to the latest beta of Caldera Forms."
+msgstr "Je kunt de CalderaWP licentiemanager plugin installeren om automatisch te updaten naar de laatste beta van Caldera Forms."
+
+#: ui/support/panels/beta.php:13
+msgid "Options For Getting The Latest Version of Caldera Forms:"
+msgstr "Opties om de laatste versie van Caldera Forms te krijgen:"
+
+#: ui/support/page.php:33
+msgid "Get Latest Beta"
+msgstr "Krijg laatste beta"
+
+#: ui/support/page.php:28
+msgid "Debug Information"
+msgstr "Debug informatie"
+
+#: ui/support/page.php:23
+msgid "How To Get Support"
+msgstr "Hoe krijg ik ondersteuning"
+
+#: ui/support/page.php:17
+msgid "Caldera Forms: Support"
+msgstr "Caldera Forms: ondersteuning"
+
+#: ui/insert_shortcode.php:41
+msgid "Modal Width"
+msgstr "Modale breedte"
+
+#: ui/insert_shortcode.php:39
+msgid "Open Modal Text"
+msgstr "Open modale tekst"
+
+#: ui/insert_shortcode.php:36
+msgid "Link"
+msgstr "Link"
+
+#: ui/insert_shortcode.php:34
+msgid "Open Modal Trigger Type"
+msgstr "Open modaal trigger type"
+
+#: ui/insert_shortcode.php:32
+msgid "Set as Modal"
+msgstr "Stel in als modaal"
+
+#: ui/insert_shortcode.php:31
+msgid "Options"
+msgstr "Opties"
+
+#: fields/file/field.php:11 fields/advanced_file/field.php:21
+msgid "Add Files"
+msgstr "Bestanden toevoegen"
+
+#: fields/advanced_file/field.php:19
+msgid "Add File"
+msgstr "Bestand toevoegen"
+
+#: fields/cf2_file/config.php:3 fields/file/config_template.php:26
+#: fields/advanced_file/config_template.php:36
+msgid "Button Text"
+msgstr "Knoptekst"
+
+#: classes/support.php:68 classes/support.php:69
+msgid "Support"
+msgstr "Ondersteuning"
+
+#: ui/admin_templates.php:47 ui/panels/form-settings.php:161
+msgid "Creates a sub-menu item of the Caldera Forms menu and a page to show entries for this form."
+msgstr "Maak een submenu-item bij het Caldera Forms menu en een pagina om de inzendingen van dit formulier te bekijken."
+
+#: classes/core.php:1583
+msgid "Calculation is invalid"
+msgstr "Berekening is ongeldig"
+
+#: classes/admin.php:1506
+msgid "Could not process export. This is most likely due to a problem with the form configuration."
+msgstr "Exporteren kon niet worden uitgevoerd. Waarschijnlijk is er een probleem met de configuratie van het formulier."
+
+#: classes/admin.php:1341
+msgid "Form could not be imported."
+msgstr "Formulier kan niet worden geïmporteerd."
+
+#: classes/admin.php:1325
+msgid "Form must have a name."
+msgstr "Formulier moet een naam hebben."
+
+#: classes/admin.php:1322
+msgid "File is not a valid Caldera Form Import"
+msgstr "Formulier is niet geldig voor importeren met Caldera Form"
+
+#: classes/admin.php:1289
+msgid "Form could not be deleted."
+msgstr "Formulier kan niet worden verwijderd."
+
+#: ui/panels/processors.php:134
+msgid "Enable Processor"
+msgstr "Verwerkingsregel inschakelen"
+
+#: ui/panels/processors.php:128
+msgid "Disable Processor"
+msgstr "Verwerkingsregel uitschakelen"
+
+#: ui/panels/processors.php:113
+msgid "Enable / Disable Processor"
+msgstr "Verwerkingsregel inschakelen/uitschakelen"
+
+#: includes/cf-pro-client/classes/admin/scripts.php:109
+#: ui/panels/processors.php:104
+msgid "Settings"
+msgstr "Instellingen"
+
+#: ui/panels/emailer.php:38
+msgid "Enable Mailer"
+msgstr "Mailer inschakelen"
+
+#: ui/panels/emailer.php:37
+msgid "Disable Mailer"
+msgstr "Mailer uitschakelen"
+
+#: ui/panels/emailer.php:36
+msgid "Enable Or Disable Mailer"
+msgstr "Mailer in- of uitschakelen"
+
+#: ui/panels/processors.php:140
+msgid "Processor is currently disabled"
+msgstr "Verwerkingsregel is momenteel uitgeschakeld"
+
+#: ui/panels/emailer.php:45
+msgid "Mailer is currently disabled"
+msgstr "Mailer is op dit moment uitgeschakeld"
+
+#: classes/admin.php:650
+msgid "View Entry"
+msgstr "Bekijk inzending"
+
+#: classes/entry/ui.php:190
+msgid "Editing Entry "
+msgstr "Inzending aan het bewerken"
+
+#: classes/admin.php:626
+msgid "Edit Entry"
+msgstr "Inzending bewerken"
+
+#: classes/admin.php:643
+msgid "Save Changes"
+msgstr "Wijzigingen opslaan"
+
+#. Description of the plugin
+msgid "Easy to use, grid based responsive form builder for creating simple to complex forms."
+msgstr "Makkelijk in gebruik. Bouw simpele en complexe formulieren op een responsive grid."
+
+#: ui/panels/variables.php:31 ui/panels/variables.php:51
+msgid "Entry List"
+msgstr "Inzendingenlijst"
+
+#: ui/panels/variables.php:30 ui/panels/variables.php:50
+msgid "Passback"
+msgstr "Terugspelen"
+
+#: ui/panels/variables.php:29 ui/panels/variables.php:49
+msgid "Static"
+msgstr "Statisch"
+
+#: ui/panels/variables.php:16
+msgid "No variables defined"
+msgstr "Geen variabelen gedefineerd"
+
+#: ui/panels/variables.php:14
+msgid "Behaviour"
+msgstr "Gedrag"
+
+#: ui/panels/variable_add.php:1
+msgid "Add Variable"
+msgstr "Variabele toevoegen"
+
+#: ui/panels/processors.php:336
+msgid "This processor has no configurable options."
+msgstr "Deze verwerkingsregel heeft geen aanpasbare opties."
+
+#: ui/panels/processors.php:274
+msgid "by"
+msgstr "door"
+
+#: ui/panels/processors.php:269
+msgid "Use Processor"
+msgstr "Verwerkingsregel gebruiken"
+
+#: ui/panels/processors.php:205
+msgid "Add Processor"
+msgstr "Verwerkingsregel toevoegen"
+
+#: ui/panels/processors.php:161
+msgid "Remove Processor"
+msgstr "Verwerkingsregel verwijderen"
+
+#: ui/panels/processors.php:160
+msgid "Are you sure you want to remove this processor?"
+msgstr "Weet je zeker dat je deze verwerkingsregel wil verwijderen?"
+
+#: ui/panels/processors.php:145
+msgid "Processor Type"
+msgstr "Type verwerkingsregel"
+
+#: ui/panels/processors.php:22 ui/panels/processors.php:52
+#: ui/panels/processors.php:109
+msgid "New Form Processor"
+msgstr "Nieuwe verwerkingsregel voor formulier"
+
+#: ui/panels/pages.php:5
+msgid "ProTip: Use an HTML element to build a custom progress per page"
+msgstr "ProTip: Gebruik een HTML element om een voortgangsbalk per pagina te tonen"
+
+#: ui/panels/pages.php:4
+msgid "Show Breadcrumbs"
+msgstr "Toon kruimelpad"
+
+#: ui/panels/pages.php:2
+msgid "Progress Bar"
+msgstr "Voortgangsbalk"
+
+#: ui/panels/layout_toolbar.php:11
+msgid "Add Page"
+msgstr "Pagina toevoegen"
+
+#: ui/panels/pages.php:14 ui/panels/layout_toolbar.php:4
+#: ui/panels/layout.php:14 ui/panels/layout.php:18 ui/panels/layout.php:22
+#: ui/panels/layout.php:110
+msgid "Page"
+msgstr "Pagina"
+
+#: ui/panels/layout.php:13
+msgid "This will remove all the fields in this row. Are you sure?"
+msgstr "Dit verwijdert alle velden in deze rij. Weet je het zeker?"
+
+#: ui/panels/emailer.php:198
+msgid "If set, entries will have a \"Mailer Debug\" meta tab to see the transaction log. Do not keep this enabled on production as it sends two emails for tracking."
+msgstr "Wanneer ingesteld zullen de gegevens een \"Mailer Debug\" meta tab hebben om het transactielogboek te zien. Gebruik dit niet op productie omdat het twee e-mails verzendt voor het volgen."
+
+#: ui/panels/emailer.php:197
+msgid "Enable email send transaction log"
+msgstr "Inschakelen e-mail verzend transactie log"
+
+#: ui/panels/emailer.php:194
+msgid "Debug Mailer"
+msgstr "Debug Mailer"
+
+#: ui/panels/emailer.php:160
+msgid "Magic tags, %field_slug% are replaced with submitted data. Use {summary} to build an automatic mail based on form content. Leaving the mailer blank, will create an automatic summary."
+msgstr "Magische tags, %field_slug% worden vervangen door opgegeven data. Gebruik {summary} om automatisch een mail te maken op basis van de ingevoerde gegevens. Het leeglaten van de mailer zorgt voor een automatische samenvatting."
+
+#: ui/panels/emailer.php:154
+msgid "Email Message"
+msgstr "E-mailbericht"
+
+#: ui/panels/emailer.php:148
+msgid "Use %field_slug% to use a value from the form"
+msgstr "Gebruik %field_slug% om een waarde van het formulier te gebruiken"
+
+#: ui/panels/emailer.php:136
+msgid "Comma separated list of email addresses to send a BCC to."
+msgstr "Kommagescheiden lijst van e-mailadressen om een BCC naar te versturen"
+
+#: processors/auto_responder/config.php:50 ui/panels/emailer.php:131
+msgid "BCC"
+msgstr "BCC"
+
+#: ui/panels/emailer.php:112
+msgid "Attach a CSV version of the submission"
+msgstr "Voeg CSV-versie van de inzending toe."
+
+#: ui/panels/emailer.php:107
+msgid "CSV Include"
+msgstr "CSV toevoegen"
+
+#: ui/panels/emailer.php:96
+msgid "Email Type"
+msgstr "E-mail type"
+
+#: ui/panels/emailer.php:77 ui/panels/emailer.php:89
+msgid "The email address of the person filling in the form. This will allow replies to the email to go to the sender."
+msgstr "Het e-mailadres van de persoon die het formulier invult. Dit zorgt ervoor dat automatisch geantwoord naar het e-mailadres van de zender."
+
+#: ui/panels/emailer.php:67 ui/panels/emailer.php:84
+msgid "Reply To Email"
+msgstr "Antwoord naar e-mailadres"
+
+#: classes/admin/assets.php:314
+msgid "Select the fields to apply this condition to."
+msgstr "Selecteer velden om voorwaarde toe te passen."
+
+#: classes/admin/assets.php:313
+msgid "Applied Fields"
+msgstr "Toegepaste velden"
+
+#: classes/admin/assets.php:315
+msgid "Remove Condition"
+msgstr "Voorwaarde verwijderen"
+
+#: classes/admin/assets.php:318
+msgid "Hide"
+msgstr "Verbergen"
+
+#: ui/news_templates.php:21
+msgid "Unable to connect or no extensions available."
+msgstr "Verbinding niet mogelijk of extensies niet beschikbaar."
+
+#: classes/admin.php:619 ui/insert_shortcode.php:53 ui/entries/toolbar.php:11
+#: ui/entries_toolbar.php:11
+msgid "Close"
+msgstr "Sluit"
+
+#: ui/insert_shortcode.php:51
+msgid "Insert Form"
+msgstr "Formulier invoegen"
+
+#: ui/insert_shortcode.php:23
+msgid "You don't have any forms to insert."
+msgstr "Je hebt geen formulieren om in te voegen."
+
+#: ui/insert_shortcode.php:5
+msgid "Insert Caldera Form"
+msgstr "Caldera Form formulier invoegen"
+
+#: ui/entries/scripts_templates.php:33 ui/entry_navigation.php:26
+msgid "items"
+msgstr "items"
+
+#: ui/entries/scripts_templates.php:33 ui/entry_navigation.php:26
+msgid "item"
+msgstr "item"
+
+#: ui/entries/toolbar.php:69 ui/entries_toolbar.php:57
+msgid "Apply"
+msgstr "Toepassen"
+
+#: classes/admin/assets.php:317
+msgid "Show"
+msgstr "Weergeven"
+
+#: classes/support.php:195 ui/entries/toolbar.php:31 ui/entries_toolbar.php:30
+msgid "Active"
+msgstr "Actief"
+
+#: ui/edit.php:1055
+msgid "No description given"
+msgstr "Geen beschrijving opgegeven"
+
+#: ui/edit.php:938 ui/edit.php:972
+msgid "Remove"
+msgstr "Verwijderen"
+
+#: ui/edit.php:873
+msgid "Add New"
+msgstr "Nieuwe toevoegen"
+
+#: ui/panels/form-settings.php:281
+msgid "Used when viewing an entry from a non-logged in user."
+msgstr "Gebruikt wanneer een item van een niet-ingelogde gebruiker wordt getoond."
+
+#: ui/panels/form-settings.php:267
+msgid "Gravatar Field"
+msgstr "Gravater veld"
+
+#: ui/panels/form-settings.php:63
+msgid "Success Message"
+msgstr "Succesmelding"
+
+#: ui/panels/form-settings.php:244
+msgid "Honeypot"
+msgstr "Honingpot"
+
+#: ui/panels/form-settings.php:235
+msgid "Hide form after successful submission"
+msgstr "Verberg formulier na succesvolle verzending"
+
+#: ui/panels/form-settings.php:229
+msgid "Hide Form"
+msgstr "Formulier verbergen"
+
+#: ui/panels/form-settings.php:181
+msgid "All"
+msgstr "Alles"
+
+#: ui/panels/form-settings.php:172
+msgid "View Entries"
+msgstr "Toon items"
+
+#: ui/panels/form-settings.php:82
+msgid "Capture Entries"
+msgstr "Regels opvangen"
+
+#: ui/panels/form-settings.php:220
+msgid "Deactivate / Draft"
+msgstr "Deactiveren / Concept"
+
+#: ui/panels/form-settings.php:215
+msgid "State"
+msgstr "Status"
+
+#: ui/edit.php:747
+msgid "Preview Form"
+msgstr "Voorbeeld formulier"
+
+#: ui/edit.php:738
+msgid "Updated Successfully"
+msgstr "Bijwerken succesvol"
+
+#: ui/admin.php:80 ui/admin.php:81 ui/admin.php:85
+msgid "General Settings"
+msgstr "Algemene instellingen"
+
+#: ui/edit.php:648
+msgid "Are you sure you want to remove this field?. 'Cancel' to stop. 'OK' to delete"
+msgstr "Weet je zeker dat je dit veld wil verwijderen? 'Annuleren' om te stoppen. 'OK' om te verwijderen"
+
+#: ui/edit.php:598
+msgid "Show in Entry List"
+msgstr "Toon in item lijst"
+
+#: ui/edit.php:584
+msgid "Required"
+msgstr "Vereist"
+
+#: classes/admin/assets.php:310 classes/admin.php:754
+#: ui/panels/form-settings.php:52 ui/panels/form-settings.php:91
+#: ui/panels/form-settings.php:157 ui/admin.php:193
+msgid "Disable"
+msgstr "Schakel uit"
+
+#: ui/edit.php:569
+msgid "Hide Label"
+msgstr "Label verbergen"
+
+#: ui/edit.php:342 ui/edit.php:344 ui/edit.php:1127 ui/edit.php:1134
+msgid "Label"
+msgstr "Label"
+
+#: ui/edit.php:313
+msgid "Show Values"
+msgstr "Toon waarden"
+
+#: ui/edit.php:312
+msgid "No Default"
+msgstr "Geen standaard"
+
+#: ui/edit.php:308
+msgid "Insert Options"
+msgstr "Opties invoeren"
+
+#: ui/edit.php:307
+msgid "Single option per line. These replace the current list."
+msgstr "Een optie per regel. Deze vervangen de huidige lijst."
+
+#: ui/edit.php:299
+msgid "Add Option"
+msgstr "Optie toevoegen"
+
+#: ui/edit.php:256
+msgid "Descending"
+msgstr "Aflopend"
+
+#: ui/edit.php:253
+msgid "Ascending"
+msgstr "Oplopend"
+
+#: ui/edit.php:249
+msgid "Order"
+msgstr "Volgorde"
+
+#: ui/edit.php:243
+msgid "Menu Order"
+msgstr "Menu volgorde"
+
+#: ui/edit.php:240
+msgid "Comment Count"
+msgstr "Aantal reacties"
+
+#: ui/edit.php:237
+msgid "Parent ID"
+msgstr "Parent ID"
+
+#: ui/edit.php:234
+msgid "Modified Date"
+msgstr "Aanpassingsdatum"
+
+#: ui/edit.php:231
+msgid "Publish Date"
+msgstr "Publicatiedatum"
+
+#: ui/edit.php:225
+msgid "Author"
+msgstr "Auteur"
+
+#: ui/edit.php:222
+msgid "Name (post slug)"
+msgstr "Naam (post slug)"
+
+#: ui/edit.php:209 ui/edit.php:576
+msgid "Slug"
+msgstr "Slug"
+
+#: ui/edit.php:200
+msgid "Count"
+msgstr "Tel"
+
+#: ui/edit.php:196 ui/edit.php:215
+msgid "Orderby"
+msgstr "Sorteren op"
+
+#: ui/edit.php:138 ui/edit.php:155
+msgid "Taxonomy"
+msgstr "Taxonomie"
+
+#: ui/edit.php:137 ui/edit.php:171
+msgid "Post Type"
+msgstr "Berichttype"
+
+#: ui/edit.php:136
+msgid "Select a source"
+msgstr "Selecteer een bron"
+
+#: ui/edit.php:126
+msgid "Auto Populate"
+msgstr "Automatisch vullen"
+
+#: ui/entries/scripts_templates.php:340
+msgid "No entries yet."
+msgstr "Nog geen items tot nu toe."
+
+#: classes/api/entries.php:161 ui/entries/scripts_templates.php:334
+msgid "No entries found"
+msgstr "Geen items gevonden"
+
+#: classes/api/forms.php:570 ui/entries/scripts_templates.php:309
+#: ui/entries/scripts_templates.php:353
+msgid "Submitted"
+msgstr "Verzonden"
+
+#: classes/api/forms.php:566 ui/entries/scripts_templates.php:308
+#: ui/edit.php:203 ui/edit.php:219 ui/edit.php:554
+msgid "ID"
+msgstr "ID"
+
+#: ui/edit.php:591
+msgid "Description"
+msgstr "Beschrijving"
+
+#: ui/admin_templates.php:128
+msgid "Form File"
+msgstr "Formulier bestand"
+
+#: classes/admin.php:372 ui/admin_templates.php:112 ui/admin_templates.php:297
+#: ui/panels/form-settings.php:21
+msgid "Form Name"
+msgstr "Naam formulier"
+
+#: ui/admin_templates.php:102
+msgid "Delete Permanently"
+msgstr "Verwijder permanent"
+
+#: ui/admin_templates.php:69
+msgid "This is not a backup and cannot be imported."
+msgstr "Dit is geen backup en kan niet worden geïmporteerd."
+
+#: ui/admin_templates.php:66
+msgid "This gives you a hardcoded .php file that can be included in projects. It includes the correct filter for the ID specific form allowing you to easily use the form by simply including the file."
+msgstr "Dit geeft je een hardcoded .php-bestand dat in projecten kan worden opgenomen. Het bevat het juiste filter voor het ID-specifieke formulier waarmee je het formulier gemakkelijk kunt gebruiken door eenvoudig het bestand te gebruiken."
+
+#: ui/admin_templates.php:59
+msgid "Convert Field ID's to use field slugs"
+msgstr "Veld ID's omzetten om veld slugs te gebruiken"
+
+#: ui/admin_templates.php:54
+msgid "Field Slugs"
+msgstr "Slugs van velden"
+
+#: ui/admin_templates.php:34
+msgid "Form ID"
+msgstr "Formulier ID"
+
+#: ui/admin_templates.php:29
+msgid "This gives you a .json file that can be imported into Caldera Forms."
+msgstr "Dit geeft een .json-file dat kan worden geïmporteerd in Caldera Forms."
+
+#: ui/admin_templates.php:23
+msgid "PHP include File"
+msgstr "PHP include File"
+
+#: ui/admin_templates.php:22
+msgid "Backup / Importable (json)"
+msgstr "Backup / Importeerbaar (json)"
+
+#: ui/admin_templates.php:18
+msgid "Export Type"
+msgstr "Type export"
+
+#: ui/entries/toolbar.php:65 ui/admin_templates.php:9
+msgid "Move to Trash"
+msgstr "Verplaats naar prullenbak"
+
+#: ui/entries/toolbar.php:62 ui/admin_templates.php:6 ui/admin_templates.php:96
+msgid "Export Selected"
+msgstr "Exporteer geselecteerde"
+
+#: ui/entries/toolbar.php:59 ui/admin_templates.php:3 ui/admin_templates.php:93
+msgid "Bulk Actions"
+msgstr "Acties"
+
+#: ui/admin.php:394
+msgid "Looks like something is not working. Please try again a little later or post to the <a href=\"http://wordpress.org/support/plugin/caldera-forms\" target=\"_blank\">support forum</a>."
+msgstr "Het lijkt dat iets niet helemaal werkt. Probeer het later opnieuw of plaats een bericht op het <a href=\"http://wordpress.org/support/plugin/caldera-forms\" target=\"_blank\">support forum</a>."
+
+#: ui/admin.php:273
+msgid "You don't have any forms yet."
+msgstr "Je hebt nog geen formulieren."
+
+#: ui/admin.php:251
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: ui/admin.php:251
+msgid "This will delete this form permanently. Continue?"
+msgstr "Dit verwijdert het formulier definitief. Doorgaan?"
+
+#: ui/admin.php:248
+msgid "Clone"
+msgstr "Kloon"
+
+#: ui/admin.php:245
+msgid "Clone Form"
+msgstr "Formulier dupliceren"
+
+#: ui/admin.php:232
+msgid "Export"
+msgstr "Exporteer"
+
+#: ui/admin.php:227 ui/admin.php:230
+msgid "Export Form"
+msgstr "Exporteer formulier"
+
+#: classes/entry/ui.php:190 ui/entries.php:14 ui/admin.php:184
+msgid "Edit"
+msgstr "Bewerken"
+
+#: ui/admin.php:180
+msgid "Mailer Debug enabled."
+msgstr "Mailer debug ingeschakeld."
+
+#: ui/admin.php:170
+msgid "Disabled"
+msgstr "Uitgeschakeld"
+
+#: ui/admin.php:153 ui/admin.php:198 ui/admin.php:214
+msgid "Entries"
+msgstr "Items"
+
+#: ui/admin_templates.php:241
+msgid "Grid Structures"
+msgstr "Grid structuren"
+
+#: ui/admin_templates.php:244
+msgid "Includes Bootstrap 3 styles on the frontend for form grid layouts"
+msgstr "Gebruikt de stijlen van Bootstrap 3 voor grid layouts op de voorkant van de site"
+
+#: ui/admin_templates.php:221
+msgid "Form Styles"
+msgstr "Formulierstijlen"
+
+#: ui/admin_templates.php:224
+msgid "Includes Bootstrap 3 styles on the frontend for form fields and buttons"
+msgstr "Gebruikt de stijlen van Bootstrap 3 voor velden en knoppen op de voorkant van de site"
+
+#: ui/admin_templates.php:201
+msgid "Alert Styles"
+msgstr "Meldingsstijlen"
+
+#: ui/admin_templates.php:204
+msgid "Includes Bootstrap 3 styles on the frontend for form alert notices"
+msgstr "Gebruikt de stijlen van Bootstrap 3 voor meldingen op de voorkant van de site"
+
+#: ui/admin.php:62
+msgid "Import"
+msgstr "Importeren"
+
+#: ui/admin_templates.php:166 ui/admin.php:61
+msgid "Import Form"
+msgstr "Importeer formulier"
+
+#: ui/admin.php:49
+msgid "New Form"
+msgstr "Nieuw formulier"
+
+#: ui/admin.php:47
+msgid "Create New Form"
+msgstr "Nieuw formulier"
+
+#: classes/admin.php:384 ui/admin.php:26
+msgid "Create Form"
+msgstr "Formulier aanmaken"
+
+#: processors/redirect/config.php:11
+msgid "Message text shown when redirecting in Ajax mode."
+msgstr "Bericht bij doorsturen in Ajax modus."
+
+#: processors/redirect/config.php:8
+msgid "Redirect Message"
+msgstr "Bericht bij doorsturen"
+
+#: processors/increment/config.php:26
+msgid "If you want to show the incremented value in the entries, select a hidden field in form to capture the value in."
+msgstr "Selecteer een verborgen veld in het formulier om de verhoogde waarde in te vullen. Zo kun je het nummer tonen bij de items."
+
+#: processors/increment/config.php:21
+msgid "Increment Field"
+msgstr "Veld voor verhoogd nummer"
+
+#: processors/increment/config.php:13
+msgid "Increment started at {{start}}. To reset, delete this and insert a new incremental value processor."
+msgstr "Verhogen begonnen bij {{start}}. Verwijder deze verwerkingsregel en voeg een nieuwe toe om dit te resetten."
+
+#: processors/increment/config.php:9
+msgid "Number to start increment at."
+msgstr "Begin met verhogen vanaf dit nummer."
+
+#: processors/increment/config.php:3
+msgid "Increment Start"
+msgstr "Start verhogen bij"
+
+#: processors/classes/get_data.php:76
+msgid "%s is required"
+msgstr "%s is verplicht"
+
+#: processors/auto_responder/config.php:97
+#: includes/templates/starter-contact-form.php:118
+msgid "Message"
+msgstr "Bericht"
+
+#: processors/auto_responder/config.php:86
+msgid "Recipient Email"
+msgstr "E-mail aan ontvanger"
+
+#: processors/auto_responder/config.php:75
+msgid "Recipient Name"
+msgstr "Naam ontvanger"
+
+#: processors/auto_responder/config.php:64 ui/panels/emailer.php:143
+msgid "Email Subject"
+msgstr "E-mail onderwerp"
+
+#: processors/auto_responder/config.php:14 ui/panels/emailer.php:64
+msgid "From Email"
+msgstr "E-mail van afzender"
+
+#: processors/auto_responder/config.php:3 ui/panels/emailer.php:51
+msgid "From Name"
+msgstr "Naam afzender"
+
+#: processors/akismet/config.php:29
+msgid "Sorry, that looked very spammy, try rephrasing things"
+msgstr "Sorry, dat zag er erg uit als spam. Probeer wat te herschrijven."
+
+#: processors/akismet/config.php:27
+msgid "Error Message"
+msgstr "Foutmelding"
+
+#: processors/akismet/config.php:14 processors/redirect/config.php:2
+#: classes/fields.php:241
+msgid "URL"
+msgstr "URL"
+
+#: processors/akismet/config.php:8 classes/admin.php:1737
+#: includes/templates/rate-our-service-example.php:57
+#: ui/panels/anti-spam.php:112
+msgid "Email"
+msgstr "E-mail"
+
+#: processors/akismet/config.php:2 classes/admin/assets.php:309
+#: ui/panels/variables.php:10 ui/edit.php:206 ui/edit.php:562
+msgid "Name"
+msgstr "Naam"
+
+#: includes/custom_field_class.php:21
+msgid "Custom Class"
+msgstr "Aangepaste class"
+
+#: processors/redirect/config.php:10 includes/ajax.php:152
+#: includes/ajax.php:163
+msgid "Redirecting"
+msgstr "Doorsturen"
+
+#: includes/ajax.php:111
+msgid "If set, form can be submitted multiple times with out a new page load."
+msgstr "Wanneer ingesteld kan een formulier meerdere keren worden verzonden zonder de pagina opnieuw te laden."
+
+#: includes/ajax.php:108
+msgid "Multiple Ajax Submissions"
+msgstr "Meermaals verzenden via Ajax"
+
+#: includes/ajax.php:76
+msgid "Javascript function to call on submission. Passed an object containing form submission result."
+msgstr "Javascript functie om op te roepen bij indienen. Een object wordt doorgegeven verzonden met formulier invoer als inhoud."
+
+#: includes/ajax.php:71
+msgid "Callback Function"
+msgstr "Callback functie"
+
+#: includes/ajax.php:62
+msgid "Don't show default alerts (success etc.)"
+msgstr "Toon standaardberichten niet (succes etc.)"
+
+#: includes/ajax.php:59
+msgid "Inhibit Notices"
+msgstr "Meldingen verhinderen"
+
+#: includes/ajax.php:48
+msgid "Add a custom Javascript callback handlers on submission."
+msgstr "Aangepaste Javascript callback handler toevoegen bij verzenden."
+
+#: includes/ajax.php:46
+msgid "Custom Callback"
+msgstr "Aangepaste callback"
+
+#: includes/ajax.php:38
+msgid "Enable Ajax Submissions. (No page reloads)"
+msgstr "Verzenden via Ajax inschakelen. (Zonder herladen van pagina)"
+
+#: includes/ajax.php:35
+msgid "Ajax Submissions"
+msgstr "Verzenden via Ajax"
+
+#: fields/toggle_switch/field.php:30 classes/admin.php:758
+#: ui/panels/anti-spam.php:46 ui/panels/anti-spam.php:71
+#: ui/panels/form-settings.php:45 ui/panels/form-settings.php:87
+#: ui/panels/form-settings.php:153 ui/panels/form-settings.php:234
+#: ui/panels/form-settings.php:257 ui/admin.php:193
+msgid "Enable"
+msgstr "Inschakelen"
+
+#: fields/toggle_switch/config_template.php:25
+msgid "Inactive Class"
+msgstr "Inactieve klasse"
+
+#: fields/toggle_switch/config_template.php:16
+msgid "Active Class"
+msgstr "Actieve klasse"
+
+#: fields/toggle_switch/config_template.php:9
+msgid "Vertical"
+msgstr "Verticaal"
+
+#: fields/toggle_switch/config_template.php:8
+msgid "Justified"
+msgstr "Uitvullen"
+
+#: fields/toggle_switch/config_template.php:7
+msgid "Horizontal"
+msgstr "Horizontaal"
+
+#: fields/toggle_switch/config_template.php:3
+msgid "Orientation"
+msgstr "Oriëntatie"
+
+#: fields/cf2_text/config.php:63 fields/text/config.php:63
+msgid "email"
+msgstr "e-mail"
+
+#: fields/cf2_text/config.php:62 fields/text/config.php:62
+msgid "Any length number only"
+msgstr "Lengte onbeperkt, alleen nummers"
+
+#: fields/cf2_text/config.php:61 fields/text/config.php:61
+msgid "Any length character only"
+msgstr "Onbeperkte lengte, alleen karakters"
+
+#: fields/cf2_text/config.php:59 fields/text/config.php:59
+msgid "length"
+msgstr "lengte"
+
+#: fields/cf2_text/config.php:58 fields/text/config.php:58
+msgid "optional"
+msgstr "optioneel"
+
+#: fields/cf2_text/config.php:57 fields/text/config.php:57
+msgid "alphanumeric"
+msgstr "alfanumeriek"
+
+#: fields/cf2_text/config.php:56 fields/text/config.php:56
+msgid "alphabetical"
+msgstr "alfabetisch"
+
+#: fields/cf2_text/config.php:55 fields/text/config.php:55
+msgid "numeric"
+msgstr "numeriek"
+
+#: fields/cf2_text/config.php:47 fields/text/config.php:47
+msgid "Mask"
+msgstr "Masker"
+
+#: fields/cf2_text/config.php:42 fields/text/config.php:42
+msgid "Enable input mask"
+msgstr "Invoermasker inschakelen"
+
+#: fields/cf2_text/config.php:40 fields/text/config.php:40
+msgid "Masked Input"
+msgstr "Gemaskerde invoer"
+
+#: fields/star-rate/config.php:73
+msgid "Include Cancel"
+msgstr "Neem Annuleren op"
+
+#: fields/star-rate/config.php:65
+msgid "Track Color"
+msgstr "Volg kleur"
+
+#: fields/star-rate/config.php:57
+msgid "Star Color"
+msgstr "Kleur van ster"
+
+#: fields/star-rate/config.php:48
+msgid "Single Select"
+msgstr "Enkele selectie"
+
+#: fields/star-rate/config.php:40
+msgid "Star Spacing"
+msgstr "Tussenruimte sterren"
+
+#: fields/star-rate/config.php:32
+msgid "Star Size"
+msgstr "Grootte van ster"
+
+#: fields/star-rate/config.php:26
+msgid "Dot"
+msgstr "Punt"
+
+#: fields/star-rate/config.php:25
+msgid "Face"
+msgstr "Gezicht"
+
+#: fields/star-rate/config.php:24
+msgid "Heart"
+msgstr "Hart"
+
+#: fields/star-rate/config.php:23
+msgid "Star"
+msgstr "Ster"
+
+#: fields/star-rate/config.php:19
+msgid "Star Type"
+msgstr "Type ster"
+
+#: fields/star-rate/config.php:11
+msgid "Number of Stars"
+msgstr "Aantal sterren"
+
+#: fields/select2/field/config.php:16
+msgid "Enable multiple selections"
+msgstr "Meerdere selecties inschakelen"
+
+#: fields/select2/field/config.php:11
+msgid "Multiple"
+msgstr "Meerdere"
+
+#: fields/recaptcha/preview.php:32
+msgid "No Site Key Added"
+msgstr "Geen site-sleutel toegevoegd"
+
+#: fields/recaptcha/preview.php:29
+msgid "No Secret Key Added"
+msgstr "Geen geheime sleutel toegevoegd"
+
+#: fields/recaptcha/config.php:34
+msgid "Theme changes not available in preview. Save the form and reload to see new theme."
+msgstr "Themaveranderingen zijn niet zichtbaar in voorvertoning. Sla op en herlaad het formulier om het nieuwe thema te zien."
+
+#: fields/recaptcha/config.php:30
+msgid "Dark"
+msgstr "Donker"
+
+#: fields/recaptcha/config.php:27
+msgid "Light"
+msgstr "Licht"
+
+#: fields/recaptcha/config.php:22
+msgid "Theme"
+msgstr "Thema"
+
+#: fields/recaptcha/config.php:14
+msgid "Secret Key"
+msgstr "Geheime sleutel"
+
+#: fields/recaptcha/config.php:6
+msgid "Site Key"
+msgstr "Site-sleutel"
+
+#: fields/recaptcha/config.php:3
+msgid "reCaptcha required keys from Google."
+msgstr "reCaptcha vereist een sleutel van Google."
+
+#: fields/range_slider/config.php:93
+msgid "Suffix"
+msgstr "Achtervoegsel"
+
+#: fields/range_slider/config.php:85
+msgid "Prefix"
+msgstr "Voorvoegsel"
+
+#: fields/range_slider/config.php:77
+msgid "Show Value"
+msgstr "Toon waarde"
+
+#: fields/number/config.php:30 fields/range_slider/config.php:69
+msgid "Maximum"
+msgstr "Maximum"
+
+#: fields/number/config.php:21 fields/range_slider/config.php:61
+msgid "Minimum"
+msgstr "Minimum"
+
+#: fields/range_slider/config.php:53
+msgid "Steps"
+msgstr "Stappen"
+
+#: fields/select2/field/config.php:30 fields/range_slider/config.php:44
+msgid "Border"
+msgstr "Rand"
+
+#: fields/range_slider/config.php:36
+msgid "Handle"
+msgstr "Handvat"
+
+#: fields/select2/field/config.php:22 fields/range_slider/config.php:28
+msgid "Highlight"
+msgstr "Markeer"
+
+#: fields/range_slider/config.php:20
+msgid "Track"
+msgstr "Volgen"
+
+#: fields/phone/config.php:53
+msgid "Use the digit 9 to indicate a number"
+msgstr "Gebruik het getal 9 om een nummer aan te geven"
+
+#: fields/phone/config.php:44
+msgid "Custom"
+msgstr "Aangepast"
+
+#: fields/phone/config.php:35
+msgid "International"
+msgstr "Internationaal"
+
+#: fields/phone/config.php:26
+msgid "Local"
+msgstr "Locaal"
+
+#: fields/phone/config.php:20
+msgid "Style"
+msgstr "Stijl"
+
+#: fields/paragraph/config_template.php:11
+msgid "Rows"
+msgstr "Rijen"
+
+#: fields/hidden/setup.php:3 ui/panels/variables.php:12 ui/edit.php:187
+#: ui/edit.php:334 ui/edit.php:336 ui/edit.php:1111 ui/edit.php:1118
+msgid "Value"
+msgstr "Waarde"
+
+#: fields/gravatar/config.php:67
+msgid "Border Radius"
+msgstr "Afgeronde hoek straal"
+
+#: fields/gravatar/config.php:58
+msgid "Border Size"
+msgstr "Randdikte"
+
+#: fields/gravatar/config.php:49
+msgid "Border Color"
+msgstr "Randkleur"
+
+#: fields/gravatar/config.php:40
+msgid "Size"
+msgstr "Grootte"
+
+#: fields/gravatar/config.php:24
+msgid "Fallback"
+msgstr "Terugvallen"
+
+#: fields/gravatar/config.php:18
+msgid "Retro (Generated)"
+msgstr "Retro (gegenereerd)"
+
+#: fields/gravatar/config.php:17
+msgid "MonsterID (Generated)"
+msgstr "MonsterID (gegenereerd)"
+
+#: fields/gravatar/config.php:16
+msgid "Wavatar (Generated)"
+msgstr "Wavatar (gegenereerd)"
+
+#: fields/gravatar/config.php:15
+msgid "Identicon (Generated)"
+msgstr "Identicon (gegenereerd)"
+
+#: fields/gravatar/config.php:14
+msgid "Gravatar Logo"
+msgstr "Gravatar logo"
+
+#: fields/gravatar/config.php:13
+msgid "Blank"
+msgstr "Leeg"
+
+#: fields/gravatar/config.php:3
+msgid "Email Field"
+msgstr "E-mail veld"
+
+#: fields/cf2_file/config.php:56 fields/file/config_template.php:55
+#: fields/advanced_file/config_template.php:47
+msgid "Comma separated eg. jpg,pdf,txt"
+msgstr "Kommagescheiden, bijvoorbeeld jpg,pdf,txt"
+
+#: fields/cf2_file/config.php:45 fields/file/config_template.php:44
+#: fields/advanced_file/config_template.php:44
+msgid "Allowed Types"
+msgstr "Toegestane types"
+
+#: fields/cf2_file/config.php:27 fields/file/config_template.php:16
+#: fields/advanced_file/config_template.php:19
+msgid "Allow Multiple"
+msgstr "Meerdere toestaan"
+
+#: fields/cf2_file/config.php:16 fields/file/config_template.php:6
+#: fields/advanced_file/config_template.php:10
+msgid "Attach to Mailer"
+msgstr "Toevoegen aan mailer"
+
+#: fields/select2/field/config.php:3 fields/cf2_text/config.php:3
+#: fields/text/config.php:3 fields/phone/config.php:3
+#: fields/credit_card_cvc/config.php:3 fields/credit_card_number/config.php:3
+#: fields/paragraph/config_template.php:3 fields/url/config.php:3
+#: fields/dropdown/config_template.php:3 fields/email/config.php:3
+#: fields/phone_better/config.php:3 fields/number/config.php:3
+#: fields/credit_card_exp/config.php:3
+msgid "Placeholder"
+msgstr "Tijdelijke aanduiding"
+
+#: fields/date_picker/setup.php:144
+msgid "Language to use. e.g. pt-BR"
+msgstr "Taal om te gebruiken. Bijvoorbeeld pt-BR"
+
+#: fields/date_picker/setup.php:74
+msgid "language"
+msgstr "taal"
+
+#: fields/date_picker/setup.php:68
+msgid "The ending date of the date picker like +1d, -2y, +4m. 0d for today."
+msgstr "De einddatum van de datumkiezer, zoals +1d, -2y, +4m. 0d voor vandaag."
+
+#: fields/date_picker/setup.php:63
+msgid "End Date"
+msgstr "Einddatum"
+
+#: fields/date_picker/setup.php:57
+msgid "The starting date of the date picker like +1d, -2y, +4m. 0d for today."
+msgstr "De startdatum van de datumkiezer, zoals +1d, -2y, +4m. 0d voor vandaag."
+
+#: fields/date_picker/setup.php:52
+msgid "Start Date"
+msgstr "Startdatum"
+
+#: fields/date_picker/setup.php:47
+msgid "The starting view of the date picker (month, year, decade)"
+msgstr "Bekijk standaard dit punt in de datumkiezer (maand, jaar, decennium)"
+
+#: fields/date_picker/setup.php:44
+msgid "Decade"
+msgstr "Decennium"
+
+#: fields/date_picker/setup.php:41
+msgid "Year"
+msgstr "Jaar"
+
+#: fields/date_picker/setup.php:38
+msgid "Month (Default)"
+msgstr "Maand (standaard)"
+
+#: fields/date_picker/setup.php:33
+msgid "Start View"
+msgstr "Startpositie"
+
+#: fields/date_picker/setup.php:27
+msgid "If enabled, the date picker will automatically close after selecting the final input"
+msgstr "Wanneer ingeschakeld zal de datumkiezer automatisch sluiten na het selecteren van de laatste invoer."
+
+#: fields/date_picker/setup.php:24
+msgid "Enable autoclose"
+msgstr "Automatisch sluiten inschakelen"
+
+#: fields/date_picker/setup.php:19
+msgid "Autoclose"
+msgstr "Automatisch sluiten"
+
+#: fields/date_picker/setup.php:11
+msgid "Format"
+msgstr "Formaat"
+
+#: fields/cf2_text/config.php:10 fields/text/config.php:10
+#: fields/phone/config.php:11 fields/credit_card_cvc/config.php:12
+#: fields/credit_card_number/config.php:12
+#: fields/paragraph/config_template.php:19 fields/date_picker/setup.php:3
+#: fields/url/config.php:11 fields/email/config.php:11
+#: fields/phone_better/config.php:12 fields/star-rate/config.php:3
+#: fields/number/config.php:12 fields/range_slider/config.php:11
+#: fields/wysiwyg/config_template.php:3 fields/credit_card_exp/config.php:12
+#: ui/edit.php:362 ui/edit.php:1149
+msgid "Default"
+msgstr "Standaard"
+
+#: fields/gdpr/config_template.php:5 fields/radio/config_template.php:6
+#: fields/checkbox/config_template.php:5
+msgid "Inline"
+msgstr "In regel"
+
+#: fields/calculation/config.php:72
+msgid "Use %field_slug% as field value variables"
+msgstr "Gebruik %field_slug% as variabele veldwaarde"
+
+#: fields/calculation/config.php:63
+msgid "Add Operator Group"
+msgstr "Operatorgroep toevoegen"
+
+#: fields/calculation/config.php:50
+msgid "Manual Formula"
+msgstr "Handmatige formule"
+
+#: fields/calculation/config.php:27
+msgid "Money Format"
+msgstr "Geld formaat"
+
+#: fields/calculation/config.php:20
+msgid "After"
+msgstr "Na"
+
+#: fields/calculation/config.php:14
+msgid "Before"
+msgstr "Voor"
+
+#: fields/calculation/config.php:8
+msgid "Classes"
+msgstr "Klassen"
+
+#: fields/calculation/config.php:2
+msgid "Element"
+msgstr "Element"
+
+#: fields/button/config_template.php:49
+msgid "Selector or callback function to push form values on click."
+msgstr "Selectie of callback functie om de formulierwaarden te pushen na klikken."
+
+#: fields/button/config_template.php:45
+msgid "Click Target"
+msgstr "Klikdoel"
+
+#: fields/button/config_template.php:37
+msgid "Add Label Space"
+msgstr "Witruimte om label toevoegen"
+
+#: fields/button/config_template.php:27
+msgid "Class"
+msgstr "Klasse"
+
+#: fields/button/config_template.php:17
+msgid "Previous Page"
+msgstr "Vorige pagina"
+
+#: fields/button/config_template.php:14
+msgid "Next Page"
+msgstr "Volgende pagina"
+
+#: fields/button/config_template.php:8
+#: includes/templates/simple-booking-form-example.php:227
+#: includes/templates/job-application-form-example.php:344
+#: includes/templates/registration-form-example.php:206
+#: includes/templates/rate-our-service-example.php:118
+msgid "Submit"
+msgstr "Verzenden"
+
+#: fields/button/config_template.php:3 classes/admin/assets.php:311
+msgid "Type"
+msgstr "Type"
+
+#: classes/widget.php:84 ui/admin.php:152
+msgid "Form"
+msgstr "Formulier"
+
+#: classes/widget.php:80 includes/templates/job-application-form-example.php:53
+#: ui/edit.php:228
+msgid "Title"
+msgstr "Titel"
+
+#: classes/save.php:165 includes/templates/simple-booking-form-example.php:250
+#: includes/templates/variable-price-example.php:286
+#: includes/templates/registration-form-example.php:299 ui/panels/emailer.php:4
+msgid "Caldera Forms Notification"
+msgstr "Caldera Forms melding"
+
+#: classes/core.php:4752
+msgid "WARNING: Form is in Mailer Debug mode. Disable before going live."
+msgstr "WAARSCHUWING: Formulier is in mailer debug modus. Schakel uit voor het definitief publiceren."
+
+#: classes/core.php:4296 classes/core.php:4302
+msgid "Form is currently not active."
+msgstr "Formulier is op dit moment niet actief"
+
+#: classes/core.php:3163
+msgid "is required"
+msgstr "is verplicht"
+
+#: classes/core.php:3071 classes/core.php:3076 classes/core.php:3083
+#: classes/core.php:4484 classes/core.php:4499 classes/core.php:4503
+#: classes/core.php:4507
+msgid "Permission denied or entry does not exist."
+msgstr "Toestemming geweigerd of het item bestaat niet."
+
+#: classes/core.php:2817 classes/core.php:3877 ui/edit.php:7
+msgid "Invalid form ID"
+msgstr "Ongeldig formulier ID"
+
+#: classes/core.php:2710 classes/core.php:2745
+msgid "Mailer Debug"
+msgstr "Mailer debug"
+
+#: classes/core.php:2129
+msgid "System Tags"
+msgstr "Systeemtags"
+
+#: classes/fields.php:531
+msgid "Autocomplete"
+msgstr "Automatisch aanvullen"
+
+#: classes/fields.php:606
+msgid "Dropdown select for US states and Canadian provinces."
+msgstr "Dropdown selectie voor Amerikaanse staten en Canadese provincies."
+
+#: classes/fields.php:604
+msgid "State/ Province Select"
+msgstr "Staat/provincie selecteren"
+
+#: classes/fields.php:584 classes/fields.php:585
+msgid "Color Picker"
+msgstr "Kleurkiezer"
+
+#: classes/fields.php:550 classes/fields.php:551
+msgid "Date Picker"
+msgstr "Datumkiezer"
+
+#: classes/fields.php:517 classes/fields.php:518
+msgid "Radio"
+msgstr "Radioknop"
+
+#: classes/fields.php:502 classes/fields.php:503
+msgid "Checkbox"
+msgstr "Selectievakje"
+
+#: classes/fields.php:487 classes/fields.php:488
+msgid "Dropdown Select"
+msgstr "Dropdown selectie"
+
+#: classes/fields.php:570 classes/fields.php:571
+msgid "Toggle Switch"
+msgstr "Schakelaar"
+
+#: classes/fields.php:211 classes/fields.php:212
+msgid "Paragraph Textarea"
+msgstr "Paragraaf textgebied"
+
+#: processors/functions.php:61 classes/fields.php:132 classes/fields.php:133
+#: includes/templates/simple-booking-form-example.php:104
+#: includes/templates/job-application-form-example.php:153
+#: includes/templates/starter-contact-form.php:99
+#: includes/plugin-page-banner.php:275
+msgid "Email Address"
+msgstr "E-mailadres"
+
+#: classes/fields.php:144
+msgid "Button, Submit and Reset types"
+msgstr "Knop, verzenden en reset types"
+
+#: fields/button/config_template.php:11 classes/fields.php:143
+#: ui/insert_shortcode.php:37
+msgid "Button"
+msgstr "Knop"
+
+#: classes/fields.php:116 classes/fields.php:117
+msgid "Hidden"
+msgstr "Verborgen"
+
+#: processors/akismet/config.php:20 fields/html/config_template.php:3
+#: classes/fields.php:438 classes/fields.php:456 classes/fields.php:472
+#: ui/edit.php:376 ui/edit.php:1017
+msgid "Content"
+msgstr "Inhoud"
+
+#: classes/fields.php:436
+msgid "Add text/html content"
+msgstr "Voeg text/html content toe"
+
+#: classes/fields.php:435
+msgid "HTML"
+msgstr "HTML"
+
+#: classes/fields.php:621
+msgid "reCAPTCHA anti-spam field"
+msgstr "reCAPTCHA anti-spam veld"
+
+#: classes/fields.php:620
+msgid "reCAPTCHA"
+msgstr "reCAPTCHA"
+
+#: classes/fields.php:405 classes/fields.php:410 ui/edit.php:375
+#: ui/edit.php:1016 cf2/Fields/FieldTypes/FileFieldType.php:25
+msgid "File"
+msgstr "Bestand"
+
+#: classes/fields.php:108 classes/fields.php:119 classes/fields.php:136
+#: classes/fields.php:146 classes/fields.php:167 classes/fields.php:188
+#: classes/fields.php:199 classes/fields.php:214 classes/fields.php:228
+#: classes/fields.php:245 ui/panels/anti-spam.php:34 ui/edit.php:372
+#: ui/edit.php:1014 cf2/Fields/FieldTypes/TextFieldType.php:26
+msgid "Basic"
+msgstr "Standaard"
+
+#: classes/fields.php:105 classes/fields.php:106
+msgid "Single Line Text"
+msgstr "Enkele tekstregel"
+
+#: classes/fields.php:196
+msgid "Phone number with masking"
+msgstr "Gemaskerd telefoonnummer"
+
+#: classes/fields.php:351
+msgid "Star rating input for feedback"
+msgstr "Sterrenwaardering voor feedback"
+
+#: classes/fields.php:347
+msgid "Star Rating"
+msgstr "Waardering met sterren"
+
+#: classes/fields.php:321
+msgid "Range Slider input field"
+msgstr "Schuifregelaar invoerveld"
+
+#: classes/fields.php:318
+msgid "Range Slider"
+msgstr "Schuifregelaar"
+
+#: classes/fields.php:311 includes/templates/variable-price-example.php:204
+msgid "Total"
+msgstr "Totaal"
+
+#: classes/fields.php:304
+msgid "Calculate values"
+msgstr "Bereken waarden"
+
+#: classes/fields.php:303 classes/fields.php:320 classes/fields.php:349
+#: classes/fields.php:375 classes/fields.php:392
+#: includes/custom_field_class.php:37 ui/edit.php:377 ui/edit.php:398
+#: ui/edit.php:1019 ui/edit.php:1058
+msgid "Special"
+msgstr "Speciaal"
+
+#: classes/fields.php:299
+msgid "Calculation"
+msgstr "Berekening"
+
+#: classes/core.php:1332
+msgid "Akismet not setup."
+msgstr "Akismet niet ingesteld."
+
+#: classes/core.php:1248
+msgid "Anti-spam filtering"
+msgstr "Anti-spam filter"
+
+#: classes/core.php:1247
+msgid "Akismet"
+msgstr "Akismet"
+
+#: classes/core.php:1233
+msgid "Increment a value per entry."
+msgstr "Verhoog een nummer per item."
+
+#: classes/core.php:1232
+msgid "Increment Value"
+msgstr "Verhoog waarde"
+
+#: classes/core.php:1220
+msgid "Redirects user to URL on successful submit"
+msgstr "Stuur gebruikers naar URL bij succesvol verzenden van formulier"
+
+#: classes/core.php:1219
+msgid "Redirect"
+msgstr "Doorsturen"
+
+#: classes/core.php:1215 includes/templates/starter-contact-form.php:186
+msgid "Thank you for contacting us"
+msgstr "Bedankt dat je contact met ons opneemt."
+
+#: classes/core.php:1211
+msgid "Sends out an auto response e-mail"
+msgstr "Stuurt een automatische e-mailreactie"
+
+#: classes/core.php:1210
+msgid "Auto Responder"
+msgstr "Automatisch antwoord"
+
+#: classes/entry/token.php:28 classes/entry/token.php:63 classes/core.php:874
+msgid "Permission denied."
+msgstr "Toestemming geweigerd."
+
+#: fields/button/config_template.php:20 classes/core.php:680
+msgid "Reset"
+msgstr "Resetten"
+
+#: classes/admin.php:1739
+msgid "Email Notification Settings"
+msgstr "Instellingen e-mailmeldingen"
+
+#: classes/admin.php:1806
+msgid "Maintain grid always"
+msgstr "Grid altijd aanhouden"
+
+#: classes/admin.php:1799
+msgid "Set the smallest screen size at which to collapse the grid. (based on Bootstrap 3.0)"
+msgstr "Stel de kleinste schermgrootte in waarop het grid moet inklappen. (gebaseerd op Bootstrap 3.0)"
+
+#: classes/admin.php:1797
+msgid "Grid Collapse"
+msgstr "Grid inklappen"
+
+#: classes/admin.php:1793
+msgid "Responsive Settings"
+msgstr "Responsive instellingen"
+
+#: classes/admin.php:1791
+msgid "Responsive"
+msgstr "Responsive"
+
+#: classes/admin.php:1778 classes/admin.php:1780 ui/panels/variables.php:94
+msgid "Variables"
+msgstr "Variabelen"
+
+#: classes/admin.php:1749 ui/panels/processors.php:200
+msgid "Form Processors"
+msgstr "Verwerkingsregels van formulier"
+
+#: classes/admin.php:1747
+msgid "Processors"
+msgstr "Verwerkingsregels"
+
+#: classes/admin.php:1757 classes/admin.php:1759 ui/panels/processors.php:106
+msgid "Conditions"
+msgstr "Voorwaarden"
+
+#: classes/admin.php:1729
+msgid "Form Pages"
+msgstr "Formulier pagina's"
+
+#: classes/admin.php:1727
+msgid "Pages"
+msgstr "Pagina's"
+
+#: classes/admin.php:1713
+msgid "Layout Builder"
+msgstr "Layout Builder"
+
+#: classes/admin.php:1697 classes/admin.php:1711
+msgid "Layout"
+msgstr "Opmaak"
+
+#: classes/forms.php:589 includes/templates/simple-booking-form-example.php:10
+#: includes/templates/variable-price-example.php:20
+#: includes/templates/job-application-form-example.php:18
+#: includes/templates/starter-contact-form.php:17
+#: includes/templates/registration-form-example.php:22
+#: includes/templates/rate-our-service-example.php:10
+#: ui/panels/form-settings.php:69 ui/edit.php:41
+msgid "Form has been successfully submitted. Thank you."
+msgstr "Formulier is verzonden. Bedankt."
+
+#: classes/admin.php:1465
+msgid "Export Expired"
+msgstr "Exporteren verlopen"
+
+#: classes/admin.php:1465
+msgid "Export selection has expired"
+msgstr "Export selectie is verlopen"
+
+#: classes/admin.php:1364
+msgid "Form does not exist."
+msgstr "Formulier bestaat niet"
+
+#: classes/admin.php:1349
+msgid "Sorry, File not uploaded."
+msgstr "Sorry, bestand niet geüpload."
+
+#: classes/admin.php:1349 classes/admin.php:1354
+msgid "Form Import Error"
+msgstr "Fout bij importeren van formulier"
+
+#: classes/admin.php:1282
+msgid "Form Delete Error"
+msgstr "Fout bij verwijderen van formulier"
+
+#: classes/admin.php:1282 classes/admin.php:1354
+msgid "Sorry, please try again"
+msgstr "Sorry, probeer het opnieuw"
+
+#: ui/community.php:8
+msgid "Community"
+msgstr "Gemeenschap"
+
+#: classes/admin.php:1071
+msgid "Forms"
+msgstr "Formulieren"
+
+#: classes/admin.php:1070
+msgid "Caldera Forms Admin"
+msgstr "Caldera Forms Admin"
+
+#. Plugin Name of the plugin
+#. Author of the plugin
+#: classes/admin.php:1061 classes/admin.php:1062 classes/admin.php:1081
+#: classes/admin.php:1140 classes/admin.php:1144 classes/admin.php:2165
+#: includes/filter_addon_plugins.php:50 ui/community.php:5
+msgid "Caldera Forms"
+msgstr "Caldera Forms"
+
+#: classes/widget.php:13 classes/admin.php:713
+msgid "Caldera Form"
+msgstr "Caldera Form"
+
+#: classes/admin.php:713
+msgid "Insert Form Shortcode"
+msgstr "Shortcode van formulier invoegen"
+
+#: classes/admin.php:712 classes/admin.php:722
+msgid "Add Form to Page"
+msgstr "Formulier aan pagina toevoegen"
+
+#: classes/entry/ui.php:195
+msgid "View"
+msgstr "Bekijken"
+
+#: classes/entry/ui.php:195 ui/entries/scripts_templates.php:351
+msgid "Entry"
+msgstr "Item"
+
+#: classes/entry/ui.php:197 classes/admin.php:504 ui/admin_templates.php:100
+msgid "Restore"
+msgstr "Herstellen"
+
+#: ui/entries_toolbar.php:44
+msgid "Trash"
+msgstr "Prullenbak"
+
+#: classes/admin.php:264
+msgid "Registration Form - with optional additional participants"
+msgstr "Registratieformulier - eventueel met meerdere deelnemers"
+
+#: classes/admin.php:260
+msgid "Variable Pricing Form - with add-on products"
+msgstr "Variabel prijsformulier - met add-on producten"
+
+#: classes/admin.php:179 ui/edit.php:18
+msgid "Invalid Form."
+msgstr "Ongeldig formulier."

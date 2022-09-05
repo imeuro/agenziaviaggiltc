@@ -1,0 +1,125 @@
+------------------------------------------------------------
+  Plugin list generated with BackWPup version: 3.10.0
+  http://backwpup.com
+  Blog Name: Agenzia Viaggi LTC
+  Blog URL: https://www.agenziaviaggiltc.it
+  Generated on: 2022-09-02 06:05.35
+------------------------------------------------------------
+
+
+Informazioni di tutti i plugin:
+------------------------------
+Advanced Editor Tools (previously TinyMCE Advanced) (v.5.6.0) da Automattic
+	https://wordpress.org/plugins/tinymce-advanced/
+Akismet Anti-Spam (v.5.0) da Automattic
+	https://akismet.com/
+All-in-One WP Migration (v.7.63) da ServMask
+	https://servmask.com/
+All In One WP Security (v.4.4.12) da All In One WP Security & Firewall Team
+	https://wordpress.org/plugins/all-in-one-wp-security-and-firewall/
+Anti-Malware Security and Brute-Force Firewall (v.4.21.83) da Eli Scheetz
+	https://gotmls.net/
+BackWPup (v.3.10.0) da Inpsyde GmbH
+	http://backwpup.com
+Broken Link Checker (v.1.11.18) da WPMU DEV
+	https://wordpress.org/plugins/broken-link-checker/
+BuddyPress (v.10.4.0) da The BuddyPress Community
+	https://buddypress.org/
+Carousel Slider (v.2.1.0) da Sayful Islam
+	https://sayfulislam.com/?utm_source=wp-plugins&utm_campaign=plugin-uri&utm_medium=wp-dash
+Check & Log Email (v.1.0.6) da WPChill
+	
+Classic Editor (v.1.6.2) da WordPress Contributors
+	https://wordpress.org/plugins/classic-editor/
+Classic Widgets (v.0.3) da WordPress Contributors
+	https://wordpress.org/plugins/classic-widgets/
+Contact Form 7 (v.5.6.2) da Takayuki Miyoshi
+	https://contactform7.com/
+Custom Sidebars (v.3.35) da WebFactory Ltd
+	https://wordpress.org/plugins/custom-sidebars/
+Data Tables Generator by Supsystic (v.1.10.20) da supsystic.com
+	http://supsystic.com
+Ecommerce agenziaviaggiLTS (v.0.0.7) da Meuro
+	
+Happyforms (free) (v.1.17.0) da Happyforms
+	https://happyforms.io
+Hide Admin Toolbar (v.1.0) da Aftab Muni
+	https://www.aftabmuni.wordpress.com
+Italy Cookie Choices (for EU Cookie Law & Cookie Notice) (v.2.5.3) da Enea Overclokk, Andrea Pernici, Andrea Cardinale
+	https://github.com/ItalyCookieChoices/italy-cookie-choices
+Jetpack (v.11.2) da Automattic
+	https://jetpack.com
+Maps Widget for Google Maps (v.4.22) da WebFactory Ltd
+	https://www.gmapswidget.com/
+Product Code for WooCommerce (v.1.3.3) da Artios Media
+	http://wordpress.org/plugins/product-code-for-woocommerce
+ShareThis Dashboard for Google Analytics (v.3.0.0) da ShareThis
+	http://wordpress.org/extend/plugins/googleanalytics/
+Shortcodes by Angie Makes (v.3.46) da Chris Baldelomar
+	http://angiemakes.com/feminine-wordpress-blog-themes-women/
+Social Media Follow Buttons Bar (v.4.73) da Space X-Chimp
+	https://github.com/ArthurGareginyan/social-media-buttons-toolbar
+Viva Wallet Standard Checkout (v.1.4.7) da Viva Wallet
+	http://www.vivawallet.com/
+Widget for Social Page Feeds (v.6.1) da Milap Patel
+	https://patelmilap.wordpress.com/
+WooCommerce (v.6.8.2) da Automattic
+	https://woocommerce.com/
+WooCommerce Admin (v.3.3.2) da WooCommerce
+	https://github.com/woocommerce/woocommerce-admin
+Wordfence Security (v.7.6.0) da Wordfence
+	http://www.wordfence.com/
+WP-CopyProtect [Protect your blog posts] (v.3.1.0) da Chetan Gole
+	http://chetangole.com/blog/wp-copyprotect/
+WP-MailUp (v.1.4.12) da MailUp and N. I. Biz Soft Solutions
+	http://wordpress.org/extend/plugins/wp-mailup/
+WP Google Street View Shortcode (v.0.5.7) da Chris Hickman / Metroplex360.com
+	https://www.metroplex360.com/wordpress-shortcode-for-google-street-view/
+WP Super Cache (v.1.8) da Automattic
+	https://wordpress.org/plugins/wp-super-cache/
+WPZOOM Instagram Widget & Block (v.2.0.8) da WPZOOM
+	https://www.wpzoom.com/plugins/instagram-widget/
+Yoast SEO (v.19.6) da Team Yoast
+	https://yoa.st/1uj
+
+Plugin attivi:
+------------------------------
+Advanced Editor Tools (previously TinyMCE Advanced)
+Akismet Anti-Spam
+All In One WP Security
+BackWPup
+BuddyPress
+Classic Editor
+Classic Widgets
+Contact Form 7
+Custom Sidebars
+Data Tables Generator by Supsystic
+Ecommerce agenziaviaggiLTS
+Happyforms (free)
+Hide Admin Toolbar
+Italy Cookie Choices (for EU Cookie Law & Cookie Notice)
+Jetpack
+Maps Widget for Google Maps
+Product Code for WooCommerce
+ShareThis Dashboard for Google Analytics
+Shortcodes by Angie Makes
+Social Media Follow Buttons Bar
+Viva Wallet Standard Checkout
+Widget for Social Page Feeds
+WooCommerce
+Wordfence Security
+WP-CopyProtect [Protect your blog posts]
+WP-MailUp
+WP Google Street View Shortcode
+WP Super Cache
+WPZOOM Instagram Widget & Block
+Yoast SEO
+
+Plugin disattivati:
+------------------------------
+All-in-One WP Migration
+Anti-Malware Security and Brute-Force Firewall
+Broken Link Checker
+Carousel Slider
+Check & Log Email
+WooCommerce Admin

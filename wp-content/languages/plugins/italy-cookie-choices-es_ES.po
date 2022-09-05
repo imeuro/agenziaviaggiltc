@@ -1,0 +1,453 @@
+# Translation of Plugins - Italy Cookie Choices (for EU Cookie Law) - Stable (latest release) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - Italy Cookie Choices (for EU Cookie Law) - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2018-05-16 16:19:03+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - Italy Cookie Choices (for EU Cookie Law) - Stable (latest release)\n"
+
+#: vendor/overclokk/minimum-requirements/minimum-requirements.php:246
+msgid "Activation of %s in not possible"
+msgstr "La activación de %s no es posible"
+
+#: vendor/overclokk/minimum-requirements/minimum-requirements.php:201
+msgid "requires %s plugins to work"
+msgstr "requiere %s plugins para que funcione"
+
+#: admin/template/allow-script.php:20 admin/template/block-script.php:20
+msgid "Custom"
+msgstr "Perzonalizado"
+
+#: admin/template/allow-script.php:12 admin/template/block-script.php:12
+msgid "script"
+msgstr "script"
+
+#: admin/template/allow-script.php:16 admin/template/block-script.php:16
+msgid "embed"
+msgstr "embed"
+
+#: admin/template/allow-script.php:8 admin/template/block-script.php:8
+msgid "iframe"
+msgstr "iframe"
+
+#: admin/template/admin.php:56
+msgid "Import"
+msgstr "Importar"
+
+#: admin/Settings.php:411
+msgid "Advanced settings"
+msgstr "Ajustes avanzados"
+
+#: admin/template/admin.php:39
+msgid "Export"
+msgstr "Exportar"
+
+#: admin/Settings.php:1448
+msgid "Documentation"
+msgstr "Documentación"
+
+#: admin/Settings.php:421
+msgid "Cookie name"
+msgstr "Nombre de la cookie"
+
+#: admin/Settings.php:389
+msgid "Custom CSS"
+msgstr "CSS personalizado"
+
+#: admin/Settings.php:280
+msgid "Text to display"
+msgstr "Texto a mostrar"
+
+#: admin/Settings.php:269
+msgid "Refresh page"
+msgstr "Recargar página"
+
+#. #-#-#-#-#  tmp-italy-cookie-choices.pot (Italy Cookie Choices (for EU Cookie
+#. Law) 2.5.1)  #-#-#-#-#
+#. Plugin URI of the plugin/theme
+#. #-#-#-#-#  tmp-italy-cookie-choices.pot (Italy Cookie Choices (for EU Cookie
+#. Law) 2.5.1)  #-#-#-#-#
+#. Author URI of the plugin/theme
+msgid "https://github.com/ItalyCookieChoices/italy-cookie-choices"
+msgstr "https://github.com/ItalyCookieChoices/italy-cookie-choices"
+
+#. Author of the plugin/theme
+msgid "Enea Overclokk, Andrea Pernici, Andrea Cardinale"
+msgstr "Enea Overclokk, Andrea Pernici, Andrea Cardinale"
+
+#. Description of the plugin/theme
+msgid "Italy Cookie Choices allows you to easily comply with the european cookie law and block third part cookie in your page."
+msgstr "Italy Cookie Choices te permite fácilmente cumplir con la ley europea de cookies y bloquear cookies de terceros en tu página."
+
+#. Plugin Name of the plugin/theme
+msgid "Italy Cookie Choices (for EU Cookie Law)"
+msgstr "Italy Cookie Choices (for EU Cookie Law)"
+
+#: vendor/overclokk/minimum-requirements/minimum-requirements.php:227
+msgid "Your server is running %s version %s but this plugin requires at least %s"
+msgstr "Tu servidor está ejecutando la versión %s de %s pero este plugin requiere al menos la %s"
+
+#: admin/template/admin.php:48
+msgid "Import the plugin settings from a .json file. This file can be obtained by exporting the settings on another site using the form above."
+msgstr "Importa los ajustes del plugin desde un archivo .json. Este archivo se puede obtener exportando los ajustes de otro sitio usando el formulario de arriba."
+
+#: admin/template/admin.php:46
+msgid "Import Settings"
+msgstr "Ajustes de importación"
+
+#: admin/template/admin.php:32
+msgid "Export the plugin settings for this site as a .json file. This allows you to easily import the configuration into another site."
+msgstr "Exporta los ajustes del plugin de este sitio como archivo .json. Esto te permite importar fácilmente la configuración en otro sitio."
+
+#: admin/template/admin.php:30
+msgid "Export Settings"
+msgstr "Ajustes de exportación"
+
+#: admin/Settings.php:1611
+msgid "No file import"
+msgstr "Ningún archivo a importar"
+
+#: admin/Settings.php:1611
+msgid "Please upload a file to import"
+msgstr "Por favor, sube un archivo para importarlo"
+
+#: admin/Settings.php:1603
+msgid "Empty file"
+msgstr "Archivo vacío"
+
+#: admin/Settings.php:1603
+msgid "The json file can't be empty"
+msgstr "El archivo json no puede estar vacío"
+
+#: admin/Settings.php:1597
+msgid "No valid json file"
+msgstr "Ningún archivo json válido"
+
+#: admin/Settings.php:1597
+msgid "Please upload a valid .json file"
+msgstr "Por favor, sube un archivo .json válido"
+
+#: admin/Settings.php:1446
+msgid "Settings"
+msgstr "Ajustes"
+
+#: admin/Sanitize.php:85 admin/Settings.php:1307
+msgid "Cookie value field it can't be empty. Restored default value."
+msgstr "El campo de valor de la cookie no puede estar vacío. Restaurando los valores por defecto."
+
+#: admin/Sanitize.php:78 admin/Settings.php:1300
+msgid "Cookie name field it can't be empty. Restored default name."
+msgstr "El campo de nombre de la cookie no puede estar vacío. Restaurando el nombre por defecto."
+
+#: admin/Settings.php:1150
+msgid "Your lock message for embedded contents inside posts, pages and widgets"
+msgstr "Tu mensaje de bloqueo para el contenido incrustado dentro de entradas, páginas y widgets"
+
+#: admin/Settings.php:1085 admin/Settings.php:1115
+msgid "For more information see the documentation"
+msgstr "Para más información revisa la documentación"
+
+#: admin/Settings.php:1041
+msgid "Cookie from any embed in your widget area (Beta) (DEPRECATED)"
+msgstr "Cookie de cualquier embed en tu área de widgets (Beta) (OBSOLETO)"
+
+#: admin/Settings.php:1036
+msgid "Cookie from any embed in your content (Beta) (DEPRECATED)"
+msgstr "Cookie de cualquier contenido en tu contenido (Beta) (OBSOLETO)"
+
+#: admin/Settings.php:1012
+msgid "Open your cookie policy page in new one"
+msgstr "Abre tu página de política de cookies en una nueva ventana"
+
+#: admin/Settings.php:992
+msgid "Insert your cookie value (Default: y)"
+msgstr "Inserta el valor de tu cookie (Por defecto: y)"
+
+#: admin/Settings.php:973
+msgid "Insert your cookie name (Default: displayCookieConsent)"
+msgstr "Inserta el nombre de tu cookie (Por defecto: displayCookieConsent)"
+
+#: admin/Settings.php:957
+msgid "Customize your advanced settings"
+msgstr "Personaliza tus ajustes avanzados"
+
+#: admin/Settings.php:941
+msgid "Customize with your personal CSS class"
+msgstr "Personalízalo con tu clase CSS personal"
+
+#: admin/Settings.php:938
+msgid "CSS class for close link (Default <code>itaybtn</code>)"
+msgstr "Clase CSS para el enlace de cerrar (Por defecto <code>itaybtn</code>)"
+
+#: admin/Settings.php:936
+msgid "Eg: closeClass"
+msgstr "P.ej: closeClass"
+
+#: admin/Settings.php:933
+msgid "CSS class for Info link (Default <code>itaybtn</code>)"
+msgstr "Clase CSS para el enlace de información (Por defecto <code>itaybtn</code>)"
+
+#: admin/Settings.php:931
+msgid "Eg: infoClass"
+msgstr "P.ej.: infoClass"
+
+#: admin/Settings.php:928
+msgid "CSS class for span content (Default <code>consentText</code>)"
+msgstr "Clase CSS para el contenido en span (Por defecto <code>consentText</code>)"
+
+#: admin/Settings.php:926
+msgid "Eg: consentText"
+msgstr "P.ej.: consentText"
+
+#: admin/Settings.php:923
+msgid "CSS class for div content (Default <code>contentStyle</code>)"
+msgstr "Clase CSS para el contenido en div (Por defecto <code>consentStyle</code>)"
+
+#: admin/Settings.php:921
+msgid "Eg: contentStyle"
+msgstr "P.ej.: contentStyle"
+
+#: admin/Settings.php:918
+msgid "CSS class for div container (Default <code>bannerStyle</code>)"
+msgstr "Clase CSS para el contenedor div (Por defecto <code>bannerStyle</code>)"
+
+#: admin/Settings.php:916
+msgid "Eg: bannerStyle"
+msgstr "P.ej.: bannerStyle"
+
+#: admin/Settings.php:891
+msgid "Inset here your custom CSS for banner"
+msgstr "Inserta aquí tu CSS personalizado para el banner"
+
+#: admin/Settings.php:888
+msgid "Your custom css"
+msgstr "Tu css personalizado"
+
+#: admin/Settings.php:871
+msgid "Custom text color for banner"
+msgstr "Color del texto personalizado para el banner"
+
+#: admin/Settings.php:851
+msgid "Custom Background color for banner"
+msgstr "Color de fondo personalizado para el banner"
+
+#: admin/Settings.php:830
+msgid "Select the template to use"
+msgstr "Elige la plantilla a utlizar"
+
+#: admin/Settings.php:826
+msgid "My custom CSS"
+msgstr "Mi CSS personalizado"
+
+#: admin/Settings.php:824
+msgid "Centered container with left aligned text and small buttons"
+msgstr "Contenedor centrado con texto alineado a la izquierda y botones pequeños"
+
+#: admin/Settings.php:822
+msgid "Centered container with left aligned text and big buttons"
+msgstr "Contenedor centrado con texto alineado a la izquierda y botones grandes"
+
+#: admin/Settings.php:820
+msgid "Default cookiechoices template (centered with text links)"
+msgstr "Plantilla por defecto cookiechoices (centrada con enlaces de texto)"
+
+#: admin/Settings.php:802
+msgid "Add a page top margin for info top bar, only for default topbar stile"
+msgstr "Añade un margen superior de página para la barra superior de información, solo para el estilo de barra superior por defecto."
+
+#: admin/Settings.php:786
+msgid "Customize your style settings"
+msgstr "Personaliza los ajustes de tu estilo"
+
+#: admin/Settings.php:769 admin/Settings.php:1173
+msgid "Insert here name of button (e.g. \"Close\") "
+msgstr "Inserta aquí el nombre del botón (p.ej. \"Cerrar\")"
+
+#: admin/Settings.php:766 admin/Settings.php:1170
+msgid "e.g. Close"
+msgstr "p.ej. Cerrar"
+
+#: admin/Settings.php:752
+msgid "Insert here anchor text for the link"
+msgstr "Inserta aquí el texto de ancla para el enlace"
+
+#: admin/Settings.php:749
+msgid "e.g. More Info"
+msgstr "p.ej. Más información"
+
+#: admin/Settings.php:733
+msgid "Insert your cookie policy page slug (e.g. for the page http://www.miodominio.it/privacy-e-cookie/ the slug is <strong>privacy-e-cookie</strong>).<br>In this way it will display only the topbar in your cookie policy page, the scroll and the second view will be deactivated in that page too."
+msgstr "Inserta el slug de tu página de política de cookies (p.ej. para la página http://www.midominio.es/privacidad-y-cookies/ el slug es <strong>privacidad-y-cookies</strong>).<br>De este modo se mostrará solo en la barra superior de tu página de política de cookies, el scroll y la vista secundaria se desactivarán también en esa página."
+
+#: admin/Settings.php:730
+msgid "e.g. privacy-e-cookie"
+msgstr "p.ej. privacidad-y-cookies"
+
+#: admin/Settings.php:701
+msgid "otherwise create a new one and then add URL to this input"
+msgstr "en caso contrario crea una nueva y luego añade la URL en este campo"
+
+#: admin/Settings.php:703 admin/Settings.php:735
+msgid "Start typing first two letters of the name of the policy page and then select it from the menu below the input"
+msgstr "Empieza a teclear las primeras dos letras del nombre de la página de la política y luego selecciónala del menú por debajo del campo"
+
+#: admin/Settings.php:701
+msgid "Insert here the link to your policy page"
+msgstr "Inserta aquí el enlace a tu página de políticas"
+
+#: admin/Settings.php:698
+msgid "e.g. http://www.aboutcookies.org/"
+msgstr "p.ej. https//www.sobrelascookies.org/"
+
+#: admin/Settings.php:673 admin/Settings.php:1154
+msgid "People will see this notice only the first time that they enter your site"
+msgstr "La gente verá este aviso solo la primera vez que entren a tu sitio."
+
+#: admin/Settings.php:666
+msgid "Your short cookie policy"
+msgstr "Resumen de tu política de cookies"
+
+#: admin/Settings.php:632
+msgid "Refresh page after button click (DEPRECATED)"
+msgstr "Recarga la página después de hacer clic en el botón (OBSOLETO)"
+
+#: admin/Settings.php:614
+msgid "Activate accept on second view"
+msgstr "Activar la aceptación en la segunda visualización"
+
+#: admin/Settings.php:594
+msgid "Accepts disclosures on mouse scroll event"
+msgstr "Acepta la visualización al hacer scroll con el ratón"
+
+#: admin/Settings.php:574
+msgid "Bottom Bar (Display a bar in the footer with your message)"
+msgstr "Barra inferior (Muestra una barra con tu mensaje en el pie de página)"
+
+#: admin/Settings.php:566
+msgid "Dialog (Display an overlay with your message)"
+msgstr "Cuadro de diálogo (Muestra una capa superpuesta con tu mensaje)"
+
+#: admin/Settings.php:558
+msgid "Top Bar (Default, Display a top bar with your message)"
+msgstr "Barra superior (Muestra una barra superior con tu mensaje)"
+
+#: admin/Settings.php:538
+msgid "Display banner for Cookie Law in front-end"
+msgstr "Muestra el banner de la ley de cookies en la portada del sitio"
+
+#: admin/Settings.php:523
+msgid "Customize your banner for cookie law"
+msgstr "Personaliza tu banner para la ley de cookies"
+
+#: admin/Settings.php:498
+msgid "Button text to activate locked embedded content"
+msgstr "Texto del botón para activar el contenido incrustado bloqueado"
+
+#: admin/Settings.php:487
+msgid "Text message for locked embedded content"
+msgstr "Mensaje de texto para el contenido incrustado bloqueado"
+
+#: admin/Settings.php:476
+msgid "Scripts to be blocked"
+msgstr "Scripts a bloquear"
+
+#: admin/Settings.php:465
+msgid "Scripts allowed in body"
+msgstr "Scripts permitidos en el body"
+
+#: admin/Settings.php:454
+msgid "Third part cookie block (beta)"
+msgstr "Bloqueo de cookies de terceros (beta)"
+
+#: admin/Settings.php:443
+msgid "Open policy in new page"
+msgstr "Abre la política en una nueva página"
+
+#: admin/Settings.php:432
+msgid "Cookie value"
+msgstr "Valor de la cookie"
+
+#: admin/Settings.php:400
+msgid "Custom CSS Class (Optional)"
+msgstr "Clase CSS personalizada (Opcional)"
+
+#: admin/Settings.php:1047
+msgid "Cookie from any embed in all body, except head and footer (Beta)"
+msgstr "Cookie de cualquier embed en todo el body, excepto en head y footer (Beta)"
+
+#: admin/Settings.php:378
+msgid "Banner text color"
+msgstr "Color del texto del banner"
+
+#: admin/Settings.php:367
+msgid "Banner Background color"
+msgstr "Color de fondo del banner"
+
+#: admin/Settings.php:356
+msgid "HTML top margin"
+msgstr "Margen superior en HTML"
+
+#: admin/Settings.php:345
+msgid "CookieChoices Template"
+msgstr "Plantilla CookieChoices"
+
+#: admin/Settings.php:335
+msgid "Style settings"
+msgstr "Ajustes de estilo"
+
+#: admin/Settings.php:324
+msgid "Button text"
+msgstr "Texto del botón"
+
+#: admin/Settings.php:313
+msgid "Anchor text for URL"
+msgstr "Texto de ancla para la URL"
+
+#: admin/Settings.php:302
+msgid "Cookie policy page slug"
+msgstr "Slug de la página de política de cookies"
+
+#: admin/Settings.php:291
+msgid "URL for cookie policy"
+msgstr "URL de la política de cookies"
+
+#: admin/Settings.php:258
+msgid "Accept on second view"
+msgstr "Aceptar en la segunda visualización"
+
+#: admin/Settings.php:247
+msgid "Mouse scroll event"
+msgstr "Al hacer scroll con el ratón"
+
+#: admin/Settings.php:236
+msgid "Where display the banner"
+msgstr "Dónde mostrar el banner"
+
+#: admin/Settings.php:224
+msgid "Activate"
+msgstr "Activar"
+
+#: admin/Settings.php:214
+msgid "Italy Cookie Choices options page"
+msgstr "Página de opciones de Italy Cookie Choices"
+
+#: admin/Settings.php:168
+msgid "You do not have sufficient permissions to access this page."
+msgstr "No tienes suficientes permisos para acceder esta página."
+
+#: admin/Settings.php:154
+msgid "Italy Cookie Choices Dashboard"
+msgstr "Escritorio de Italy Cookie Choices"
+
+#: admin/Settings.php:1112
+msgid "Scripts shown in the head and in the footer does not automatically blocked.<br />Split each script with <strong><em>&lt;---------SEP---------&gt;</em></strong><br>Use <strong><---------SOMETHING---------></strong> for custom regex"
+msgstr "Los scripts mostrados en la head y el footer no se bloquean automáticamente.<br />Separa cada script con <strong><em>&lt;---------SEP---------&gt;</em></strong><br>Usa <strong><---------SOMETHING---------></strong> para un regex personalizado"
+
+#: admin/Settings.php:1082
+msgid "Scripts to be excluded from the automatic block.<br />Split each script with <strong><em>&lt;---------SEP---------&gt;</em></strong><br>Use <strong><---------SOMETHING---------></strong> for custom regex"
+msgstr "Scripts a excluir del bloqueo automático.<br />Separa cada script con <strong><em>&lt;---------SEP---------&gt;</em></strong><br>Usa <strong><---------SOMETHING---------></strong> para un regex personalizado"

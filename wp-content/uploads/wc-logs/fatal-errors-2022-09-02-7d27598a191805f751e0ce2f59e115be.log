@@ -1,0 +1,17 @@
+2022-09-02T16:33:24+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function so_7241_before_order_itemmeta(), 3 passed in /Users/meuro/Sites/agenziaviaggiltc/wp-includes/class-wp-hook.php on line 307 and exactly 4 expected in /Users/meuro/Sites/agenziaviaggiltc/wp-content/plugins/ecommerce-agenziaviaggiltc.php:276
+Stack trace:
+#0 /Users/meuro/Sites/agenziaviaggiltc/wp-includes/class-wp-hook.php(307): so_7241_before_order_itemmeta(30, Object(WC_Order_Item_Product), Object(WC_Product_Simple))
+#1 /Users/meuro/Sites/agenziaviaggiltc/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#2 /Users/meuro/Sites/agenziaviaggiltc/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#3 /Users/meuro/Sites/agenziaviaggiltc/wp-content/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-item.php(43): do_action('woocommerce_bef...', 30, Object(WC_Order_Item_Product), Object(WC_Product_Simple))
+#4 /Users/meuro/Sites/agenziaviaggiltc/wp-content/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-items.php in /Users/meuro/Sites/agenziaviaggiltc/wp-content/plugins/ecommerce-agenziaviaggiltc.php alla riga 276
+
+2022-09-02T16:34:58+00:00 CRITICAL Uncaught Error: Function name must be a string in /Users/meuro/Sites/agenziaviaggiltc/wp-content/plugins/ecommerce-agenziaviaggiltc.php:277
+Stack trace:
+#0 /Users/meuro/Sites/agenziaviaggiltc/wp-includes/class-wp-hook.php(307): so_7241_before_order_itemmeta(30, Object(WC_Order_Item_Product), Object(WC_Product_Simple))
+#1 /Users/meuro/Sites/agenziaviaggiltc/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#2 /Users/meuro/Sites/agenziaviaggiltc/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#3 /Users/meuro/Sites/agenziaviaggiltc/wp-content/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-item.php(43): do_action('woocommerce_bef...', 30, Object(WC_Order_Item_Product), Object(WC_Product_Simple))
+#4 /Users/meuro/Sites/agenziaviaggiltc/wp-content/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-items.php(73): include('/Users/meuro/Si...')
+#5 /Users/meuro/Sites/agenziaviaggiltc/wp-content/plugins/woocommerce/includes/admin/meta-boxes/class-wc-meta-box-order-it in /Users/meuro/Sites/agenziaviaggiltc/wp-content/plugins/ecommerce-agenziaviaggiltc.php alla riga 277
+

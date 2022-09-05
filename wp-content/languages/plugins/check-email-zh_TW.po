@@ -1,0 +1,468 @@
+# Translation of Plugins - Check &amp; Log Email - Stable (latest release) in Chinese (Taiwan)
+# This file is distributed under the same license as the Plugins - Check &amp; Log Email - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-04-10 08:50:37+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/3.0.0-rc.4\n"
+"Language: zh_TW\n"
+"Project-Id-Version: Plugins - Check &amp; Log Email - Stable (latest release)\n"
+
+#: include/Core/UI/Setting/Check_Email_Core_Setting.php:387
+msgid "Check this box if you would like override wordpress default from email and name."
+msgstr "啟用這項設定後，便會覆寫 WordPress 網站預設的寄件者電子郵件地址及名稱"
+
+#: include/Core/UI/Setting/Check_Email_Core_Setting.php:21
+msgid "Change the \"from\" email."
+msgstr "變更寄件者電子郵件地址"
+
+#: include/Core/UI/Setting/Check_Email_Core_Setting.php:20
+msgid "Change the \"from\" name."
+msgstr "變更寄件者名稱"
+
+#: include/Core/UI/Setting/Check_Email_Core_Setting.php:19
+msgid "Override Emails From"
+msgstr "覆寫寄件者資訊"
+
+#: include/Core/UI/Page/Check_Email_Settings_Page.php:164
+msgid "WP SMTP is allready installed and activated."
+msgstr "WP SMTP 已完成安裝並啟用。"
+
+#: include/Core/UI/Page/Check_Email_Settings_Page.php:158
+msgid "Click to %s WP SMTP"
+msgstr "點擊以%s WP SMTP"
+
+#: include/Core/UI/Page/Check_Email_Settings_Page.php:157
+msgid "%s SMTP"
+msgstr "%s SMTP"
+
+#: include/Core/UI/Page/Check_Email_Settings_Page.php:140
+msgid "Install WP SMTP"
+msgstr "安裝 WP SMTP"
+
+#: include/Core/UI/Page/Check_Email_Settings_Page.php:123
+msgid "WP SMTP Installer"
+msgstr "WP SMTP 安裝程式"
+
+#: include/Core/UI/Page/Check_Email_Settings_Page.php:113
+msgid "Suggest a feature"
+msgstr "功能建議"
+
+#: include/Core/UI/Page/Check_Email_Settings_Page.php:112
+msgid "SMTP"
+msgstr "SMTP"
+
+#: include/Core/UI/Page/Check_Email_Settings_Page.php:111
+#: include/Core/UI/Page/Check_Email_Settings_Page.php:121
+msgid "Logging"
+msgstr "記錄"
+
+#: include/Core/UI/Page/Check_Email_Settings_Page.php:110
+msgid "General"
+msgstr "一般"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:98
+msgid "\\r\\n"
+msgstr "\\r\\n"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:97
+msgid "\\n"
+msgstr "\\n"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:71
+msgid "Content-Type: %s"
+msgstr "Content-Type: %s"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:70
+msgid "From: %s"
+msgstr "寄件者: %s"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:69
+msgid "MIME-Version: %s"
+msgstr "MIME 版本: %s"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:51
+msgid "Content-Type:"
+msgstr "Content-Type:"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:48
+msgid "CharSet:"
+msgstr "字元集:"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:45
+msgid "Port:"
+msgstr "通訊埠:"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:42
+msgid "Host:"
+msgstr "主機:"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:39
+msgid "SendMail path:"
+msgstr "SendMail 路徑:"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:36
+msgid "Mailer:"
+msgstr "郵件程式:"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:20
+msgid "for more information. The headers sent were :"
+msgstr "測試用電子郵件的標頭如下:"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:20
+msgid "wp_mail in the Codex"
+msgstr "WordPress 官方關於wp_mail () 函式的說明。"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:19
+msgid "The test email has been sent by WordPress. Please note this does NOT mean it has been delivered. See"
+msgstr "WordPress 已傳送測試用電子郵件。請注意，這不代表一定會寄達收件者信箱。如需進一步了解相關資訊，請參閱"
+
+#: include/Core/UI/Page/Check_Email_Status_Page.php:142
+msgid "This test email proves that your WordPress installation at %1$s can send emails.\\n\\nSent: %2$s"
+msgstr "這封電子郵件代表《%1$s》能傳送電子郵件。\\n\\n傳送時間：%2$s"
+
+#: include/Core/UI/Page/Check_Email_Status_Page.php:141
+msgid "Test email from %s "
+msgstr "由《%s》 傳送的測試電子郵件"
+
+#: include/Core/UI/Setting/Check_Email_Core_Setting.php:219
+msgid "Note"
+msgstr "注意:"
+
+#: include/Core/Request/Check_Email_Log_List_Action.php:62
+msgid "Headers"
+msgstr "標頭"
+
+#: check-email.php:44
+msgid "Check & Log Email requires at least PHP 5.6 to function properly. Please upgrade PHP."
+msgstr "Check & Log Email 能正確執行的 PHP 最低版本需求為 5.6，請升級 PHP 版本。"
+
+#: include/Core/UI/Page/Check_Email_Status_Page.php:42
+#: include/Core/UI/Page/Check_Email_Status_Page.php:43
+#: include/Core/UI/Page/Check_Email_Status_Page.php:54
+msgid "Status"
+msgstr "狀態"
+
+#: include/Core/UI/Page/Check_Email_Log_List_Page.php:81
+msgid "Entries per page"
+msgstr "每頁顯示數量"
+
+#: include/Core/UI/Page/Check_Email_Log_List_Page.php:62
+msgid "Search Logs"
+msgstr "搜尋記錄"
+
+#: include/Core/UI/Page/Check_Email_Log_List_Page.php:57
+msgid "Email Logs"
+msgstr "電子郵件記錄"
+
+#: include/Core/UI/Page/Check_Email_Log_List_Page.php:33
+#: include/Core/UI/Page/Check_Email_Log_List_Page.php:34
+msgid "View Logs"
+msgstr "檢視記錄"
+
+#: include/Core/UI/Page/Check_Email_Settings_Page.php:133
+msgid "Save"
+msgstr "儲存"
+
+#: include/Core/UI/Page/Check_Email_Settings_Page.php:64
+#: include/Core/UI/Page/Check_Email_Settings_Page.php:65
+msgid "Settings"
+msgstr "設定"
+
+#: include/Core/UI/Setting/Check_Email_Core_Setting.php:371
+msgid " email log"
+msgid_plural " email logs"
+msgstr[0] " 筆電子郵件記錄"
+
+#: include/Core/UI/Setting/Check_Email_Core_Setting.php:370
+msgid "Currently there are %1$s logged, which is more than the threshold. You can delete some logs or increase the threshold."
+msgstr "目前有 %1$s，這個數量已超過設定的臨界值。網站管理員可以刪除一些電子郵件記錄，或設定更高的臨界值。"
+
+#: include/Core/UI/Setting/Check_Email_Core_Setting.php:343
+msgid "Check & Log Email: Your log threshold of %s has been met"
+msgstr "Check & Log Email: 已達網站的電子郵件記錄臨界值 %s。"
+
+#: include/Core/UI/Setting/Check_Email_Core_Setting.php:229
+msgid "Last notification email was sent on %1$s. Click %2$s button to reset sending the notification."
+msgstr "最新的通知電子郵件已於 %1$s 傳送。點擊 [%2$s] 按鈕以重設傳送通知。"
+
+#: include/Core/UI/Setting/Check_Email_Core_Setting.php:218
+msgid "%1$s There are %2$s email logs currently logged in the database."
+msgstr "%1$s 目前在資料庫中已記錄 %2$s 筆電子郵件記錄。"
+
+#: include/Core/UI/Setting/Check_Email_Core_Setting.php:208
+msgid "Notify %1$s if there are more than %2$s logs."
+msgstr "超過 %2$s 筆記錄時通知 %1$s"
+
+#: include/Core/UI/Setting/Check_Email_Core_Setting.php:164
+msgid "Check this box if you would like to enable dashboard widget."
+msgstr "啟用這項設定後，便會啟用控制台小工具"
+
+#: include/Core/UI/Setting/Check_Email_Core_Setting.php:123
+msgid "Check this box if you would like to completely remove all of its data when the plugin is deleted."
+msgstr "啟用這項設定後，外掛解除安裝時會完全移除外掛相關資料"
+
+#: include/Core/UI/Setting/Check_Email_Core_Setting.php:107
+msgid "Check this box if you would like to log your emails."
+msgstr "啟用這項設定後，便會記錄這個網站的電子郵件"
+
+#: include/Core/UI/Setting/Check_Email_Core_Setting.php:85
+msgid "Administrator always has access and cannot be disabled."
+msgstr "網站管理員永遠可以存取外掛功能且無法停用使用權限。"
+
+#: include/Core/UI/Setting/Check_Email_Core_Setting.php:84
+msgid "<strong>Note:</strong> Users with the above User Roles can view Status and Logs Page."
+msgstr "<strong>注意:</strong> 在上方啟用的使用者角色，對應的使用者可以檢視 [狀態] 及 [電子郵件記錄] 頁面。"
+
+#: include/Core/UI/Setting/Check_Email_Core_Setting.php:70
+msgid "Administrator"
+msgstr "網站管理員"
+
+#: include/Core/UI/Setting/Check_Email_Core_Setting.php:18
+msgid "Remove Data on Uninstall?"
+msgstr "解除安裝時移除全部資料"
+
+#: include/Core/UI/Setting/Check_Email_Core_Setting.php:24
+msgid "Database Size Notification"
+msgstr "資料庫大小通知"
+
+#: include/Core/UI/Setting/Check_Email_Core_Setting.php:23
+msgid "Enable Dashboard Widget"
+msgstr "啟用控制台小工具"
+
+#: include/Core/UI/Setting/Check_Email_Core_Setting.php:22
+msgid "Enable Logs"
+msgstr "啟用記錄功能"
+
+#: include/Core/UI/Setting/Check_Email_Core_Setting.php:17
+msgid "Allowed User Roles"
+msgstr "授予權限的使用者角色"
+
+#: include/Core/UI/Page/Check_Email_Settings_Page.php:119
+msgid "Core Check Email Log Settings"
+msgstr "核心程式檢查電子郵件記錄設定"
+
+#: include/Core/UI/list_table/Check_Email_Log_List_Table.php:217
+msgid "Search by term"
+msgstr "依關鍵字搜尋"
+
+#: include/Core/UI/list_table/Check_Email_Log_List_Table.php:216
+msgid "Search by date"
+msgstr "依日期搜尋"
+
+#: include/Core/UI/Component/Check_Email_Dashboard_Widget.php:39
+msgid "<a href=\"%s\">Settings</a>"
+msgstr "<a href=\"%s\">設定</a>"
+
+#: include/Core/UI/Component/Check_Email_Dashboard_Widget.php:38
+msgid "<a href=\"%s\">Email Logs</a>"
+msgstr "<a href=\"%s\">電子郵件記錄</a>"
+
+#: include/Core/UI/Component/Check_Email_Dashboard_Widget.php:37
+msgid "<a href=\"%s\">Status</a>"
+msgstr "<a href=\"%s\">狀態</a>"
+
+#: include/Core/UI/Component/Check_Email_Dashboard_Widget.php:29
+msgid "Total number of emails logged"
+msgstr "電子郵件記錄總數"
+
+#: include/Core/UI/Component/Check_Email_Dashboard_Widget.php:15
+msgid "Check Email Summary"
+msgstr "檢查電子郵件摘要"
+
+#: include/Core/Request/Check_Email_Log_List_Action.php:152
+msgid "1 email log deleted."
+msgid_plural "%s email logs deleted"
+msgstr[0] "%s 筆電子郵件記錄已刪除。"
+
+#: include/Core/Request/Check_Email_Log_List_Action.php:148
+msgid "There was some problem in deleting the email logs"
+msgstr "刪除電子郵件記錄時發生錯誤。"
+
+#: include/Core/Request/Check_Email_Log_List_Action.php:86
+msgid "Close"
+msgstr "關閉"
+
+#: include/Core/Request/Check_Email_Log_List_Action.php:73
+msgid "Preview Content as HTML"
+msgstr "以 HTML 方式預覽內容"
+
+#: include/Core/Request/Check_Email_Log_List_Action.php:72
+msgid "Raw Email Content"
+msgstr "原始電子郵件內容"
+
+#: include/Util/helper.php:148
+msgid "Sent Status"
+msgstr "傳送狀態"
+
+#: include/Util/helper.php:147
+msgid "IP Address"
+msgstr "IP 位址"
+
+#: include/Util/helper.php:146
+msgid "Reply To"
+msgstr "回覆至"
+
+#: include/Util/helper.php:145
+msgid "BCC"
+msgstr "密件副本"
+
+#: include/Util/helper.php:141
+msgid "Attachment"
+msgstr "附件"
+
+#: include/Util/helper.php:140
+msgid "Message"
+msgstr "訊息"
+
+#: include/Util/helper.php:136
+msgid "ID"
+msgstr "ID"
+
+#: include/Core/UI/list_table/Check_Email_Log_List_Table.php:197
+msgid "Your email log is empty"
+msgstr "目前尚無任何電子郵件記錄。"
+
+#: include/Core/UI/list_table/Check_Email_Log_List_Table.php:170
+msgid "Delete All Logs"
+msgstr "刪除全部記錄"
+
+#: include/Core/UI/list_table/Check_Email_Log_List_Table.php:92
+#: include/Core/UI/list_table/Check_Email_Log_List_Table.php:169
+msgid "Delete"
+msgstr "刪除"
+
+#: include/Core/UI/list_table/Check_Email_Log_List_Table.php:78
+msgid "View Content"
+msgstr "檢視內容"
+
+#: include/Core/UI/list_table/Check_Email_Log_List_Table.php:77
+msgid "Email Content"
+msgstr "電子郵件內容"
+
+#: include/Core/UI/list_table/Check_Email_Log_List_Table.php:59
+msgid "%s @ %s"
+msgstr "%s %s"
+
+#: include/Core/Request/Check_Email_Log_List_Action.php:58
+#: include/Util/helper.php:139
+msgid "Subject"
+msgstr "主旨"
+
+#: include/Core/Request/Check_Email_Log_List_Action.php:54
+#: include/Util/helper.php:137
+msgid "To"
+msgstr "收件者"
+
+#: include/Core/Request/Check_Email_Log_List_Action.php:50
+#: include/Util/helper.php:142
+msgid "Sent at"
+msgstr "傳送時間"
+
+#. Description of the plugin
+msgid "Check & Log email allows you to test if your WordPress installation is sending emails correctly and logs every email."
+msgstr "Check & Log Email 能讓網站管理員測試 WordPress 是否能正確傳送電子郵件並記錄每一封電子郵件。"
+
+#. Plugin Name of the plugin
+#: include/Core/UI/Page/Check_Email_Status_Page.php:31
+#: include/Core/UI/Page/Check_Email_Status_Page.php:32
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:29
+msgid "Check & Log Email"
+msgstr "Check & Log Email"
+
+#. Author URI of the plugin
+msgid "https://wpchill.com/"
+msgstr "https://wpchill.com/"
+
+#. Author of the plugin
+msgid "WPChill"
+msgstr "WPChill"
+
+#: include/Core/Check_Email_Review.php:21
+msgid "Don't show again"
+msgstr "不再顯示這項訊息"
+
+#: include/Core/Check_Email_Review.php:20
+msgid "Remind me later"
+msgstr "稍後提醒我"
+
+#: include/Core/Check_Email_Review.php:19
+msgid "Rate the plugin"
+msgstr "為外掛進行評分"
+
+#: include/Core/Check_Email_Review.php:18
+msgid "Hi there! Stoked to see you're using Check & Log Email for a few days now - hope you like it! And if you do, please consider rating it. It would mean the world to us.  Keep on rocking!"
+msgstr "你好，這個網站使用 Check & Log Email 已有一段時間，希望它對這個網站有所幫助。如果有時間，請為這個外掛撰寫評論，這對我們有極大的幫助，我們也會繼續努力。"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:106
+msgid "Send test email"
+msgstr "傳送測試用電子郵件"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:105
+msgid "Send"
+msgstr "傳送"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:96
+msgid "Header line break type"
+msgstr "標頭分行符號類型"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:92
+#: include/Util/helper.php:144
+msgid "CC"
+msgstr "副本電子郵件地址"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:88
+#: include/Util/helper.php:138 include/Util/helper.php:143
+msgid "From"
+msgstr "寄件者電子郵件地址"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:84
+msgid "Content type"
+msgstr "內容類型"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:80
+msgid "MIME Version"
+msgstr "MIME 版本"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:78
+msgid "Set your custom headers below"
+msgstr "設定自訂標頭"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:74
+msgid "Use custom headers"
+msgstr "使用自訂標頭"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:64
+msgid "Use standard headers"
+msgstr "使用標準標頭"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:60
+msgid "Send test email to"
+msgstr "測試用電子郵件收件者"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:57
+msgid "Send a test email"
+msgstr "傳送測試用電子郵件"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:33
+msgid "Current mail settings"
+msgstr "目前的電子郵件設定"
+
+#: include/Core/UI/Page/partials/check-email-admin-status-display.php:25
+msgid "Security check failed"
+msgstr "安全性檢查失敗"
+
+#: include/Core/UI/Page/Check_Email_Status_Page.php:77
+msgid "Click here"
+msgstr "點擊這裡"
+
+#: include/Core/UI/Page/Check_Email_Status_Page.php:76
+msgid "Help us build the next set of features for Check & Log Email. Tell us what you think and we will make it happen!"
+msgstr "協助我們為 Check & Log Email 開發更多功能。請告訴我們對新功能的建議，我們盡力讓它實現！"
+
+#: include/Core/UI/Page/Check_Email_Status_Page.php:73
+msgid "Suggest a new feature!"
+msgstr "提出功能建議！"

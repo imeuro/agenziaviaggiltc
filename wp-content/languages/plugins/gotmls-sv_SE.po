@@ -1,0 +1,751 @@
+# Translation of Plugins - Anti-Malware Security and Brute-Force Firewall - Stable (latest release) in Swedish
+# This file is distributed under the same license as the Plugins - Anti-Malware Security and Brute-Force Firewall - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-07-13 17:30:35+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.0-alpha.1\n"
+"Language: sv_SE\n"
+"Project-Id-Version: Plugins - Anti-Malware Security and Brute-Force Firewall - Stable (latest release)\n"
+
+#: images/index.php:634
+msgid "File Size"
+msgstr "Filstorlek"
+
+#: images/index.php:634
+msgid "Threat Found"
+msgstr "Hot hittat"
+
+#: images/index.php:634
+msgid "Date Changed"
+msgstr "Datum ändrat"
+
+#: images/index.php:757
+msgid "View Details:"
+msgstr "Visa detaljer:"
+
+#: index.php:1307
+msgctxt "post type singular name"
+msgid "Quarantine"
+msgstr "Karantän"
+
+#: index.php:1306
+msgctxt "post type general name"
+msgid "Quarantine"
+msgstr "Karantän"
+
+#: images/index.php:148
+msgid "View Scan History"
+msgstr "Visa skanningshistorik"
+
+#: index.php:978 index.php:1148
+msgid "Scan History"
+msgstr "Skanningshistorik"
+
+#: images/index.php:220
+msgid "Refresh and try again?"
+msgstr "Uppdatera och försök igen?"
+
+#: images/index.php:1321
+msgid "Are you sure you want to delete this option?"
+msgstr "Är du säker på att du vill ta bort detta alternativ?"
+
+#: index.php:385
+msgid "Enabled"
+msgstr "Aktiverad"
+
+#: index.php:379
+msgid "Not Installed"
+msgstr "Inte installerat"
+
+#: index.php:391
+msgid "Out of Date"
+msgstr "Inaktuell"
+
+#: images/index.php:1770
+msgid "Examine Current Content"
+msgstr "Granska nuvarande innehåll"
+
+#: images/index.php:70
+msgid "Failed to encode HTML characters!"
+msgstr "Misslyckades att koda HTML-tecken!"
+
+#: images/index.php:1314 images/index.php:1368
+msgid "Update Failed!"
+msgstr "Uppdatering misslyckades!"
+
+#: images/index.php:1768
+msgid "Examine Quarantined Content"
+msgstr "Undersök karantäninnehåll"
+
+#: images/index.php:1375
+msgid "Are you sure you want to delete this revision?"
+msgstr "Är du säker på att du vill ta bort denna version?"
+
+#: index.php:1480
+msgid "Restoration Failed!"
+msgstr "Återställning misslyckades!"
+
+#: index.php:1461
+msgid "Failed to remove!"
+msgstr "Misslyckades att ta bort!"
+
+#: index.php:1522
+msgid "File %s not found!"
+msgstr "Fil %s hittades inte!"
+
+#: index.php:141
+msgid "Delete ALL definitions!"
+msgstr "Ta bort ALLA definitioner!"
+
+#: index.php:527
+msgid "Disable this Rule"
+msgstr "Inaktivera denna regel"
+
+#: index.php:533
+msgid "Whitelist your IP"
+msgstr "Vitlista ditt IP"
+
+#: index.php:533
+msgid " However, if you would like to keep this rule enabled you should at least Whitelist your IP."
+msgstr "Men om du vill behålla denna regel aktiverad bör du åtminstone vitlista din IP."
+
+#: index.php:531
+msgid " However, your current IP has been Whitelisted so you could probably keep this rule enabled if you really want to."
+msgstr "Ditt nuvarande IP har dock blivit vitlistat så du kan antagligen behålla denna regel aktiverad om du verkligen vill det."
+
+#: index.php:130
+msgid "Get FREE Key!"
+msgstr "Få GRATIS nyckel!"
+
+#: images/index.php:634 images/index.php:873
+msgid "Date Infected"
+msgstr "Infektionsdatum"
+
+#: images/index.php:634 images/index.php:873
+msgid "Quarantined"
+msgstr "I karantän"
+
+#. Plugin Name of the plugin
+msgid "Anti-Malware Security and Brute-Force Firewall"
+msgstr "Anti-Malware Security och Brute-Force Firewall"
+
+#: index.php:537
+msgid "Firewall Options"
+msgstr "Brandväggsinställningar"
+
+#: index.php:977
+msgid "Saving these settings requires a valid Nonce Token. No valid Nonce Token was found at this time, either because the token have expired or because the data was invalid. Please try re-submitting the form above."
+msgstr "För att spara dessa inställningar krävs en giltig engångskod (nonce). I detta fall mottogs ingen giltig engångskod, antingen för att engångskoden inte längre var giltig eller innehöll ogiltiga uppgifter. Prova att skicka in ovanstående formulär en gång till."
+
+#: index.php:509
+msgid "Your username is \"admin\", this is the most commonly guessed username by hackers and brute-force scripts. It is highly recommended that you change your username immediately."
+msgstr "Ditt användarnamn är ”admin”. Detta är det vanligaste gissade användarnamnet av hackare och brute-force-skript. Det rekommenderas starkt att du ändrar ditt användarnamn omedelbart."
+
+#: images/index.php:1242
+msgid "Failed: "
+msgstr "Misslyckades:"
+
+#: images/index.php:220
+msgid "Invalid or expired Nonce Token!"
+msgstr "Ogiltig eller utgången engångskod!"
+
+#: index.php:820
+msgid "Save Settings"
+msgstr "Spara inställningar"
+
+#. Author URI of the plugin
+msgid "http://wordpress.ieonly.com/category/my-plugins/anti-malware/"
+msgstr "http://wordpress.ieonly.com/category/my-plugins/anti-malware/"
+
+#. Author of the plugin
+msgid "Eli Scheetz"
+msgstr "Eli Scheetz"
+
+#: index.php:1381
+msgid "New position"
+msgstr "Ny position"
+
+#: index.php:1527
+msgid "Never mind, it worked!"
+msgstr "Glöm det, det fungerade!"
+
+#: index.php:1488 index.php:1497
+msgid "Restore Failed!"
+msgstr "Återställning misslyckades!"
+
+#: images/index.php:1304 images/index.php:1356
+msgid "Failed to delete!"
+msgstr "Misslyckades att ta bort!"
+
+#: index.php:1618
+msgid "Potential threats in file:"
+msgstr "Potentiella hot i filen:"
+
+#: images/index.php:1301 images/index.php:1353 index.php:1458 index.php:1529
+#: index.php:1531
+msgid "Done!"
+msgstr "Klar!"
+
+#: index.php:1385
+msgid "saved."
+msgstr "sparad."
+
+#: index.php:1476 index.php:1494
+msgid "Complete!"
+msgstr "Slutförd!"
+
+#: index.php:1618
+msgid "Are you sure this file is not infected and you want to ignore it in future scans?"
+msgstr "Är du säker på att den här filen inte är infekterad och att du vill ignorera den i framtida skanningar?"
+
+#: index.php:1620
+msgid "The file %s does not exist, it must have already been deleted."
+msgstr "Fil %s finns inte, den måste redan vara borttagen."
+
+#: index.php:1529
+msgid "Nothing Selected to be Changed!"
+msgstr "Inget valdes att bli ändrat!"
+
+#: index.php:1407
+msgid "Failed to empty the trash."
+msgstr "Misslyckades med att tömma papperskorgen."
+
+#: index.php:1527
+msgid "Because some changes were made we need to check to make sure it did not break your site. If this stays Red and the frame below does not load please <a %s>revert the changes</a> made during this automated fix process."
+msgstr "Eftersom vissa ändringar gjordes måste vi kontrollera att det inte kraschade din webbplats. Om detta förblir rött och ramen nedan inte laddas <a %s>återställ ändringarna</a> som gjorts under denna automatiska åtgärdsprocess."
+
+#: safe-load/trace.php:18
+msgid ": Headers sent by %1$s on line %2$s."
+msgstr ": Headers skickade av %1$s på rad %2$s."
+
+#: index.php:1545
+msgid "This record no longer exists in the quarantine."
+msgstr "Detta objekt finns inte längre i karantänen."
+
+#. Plugin URI of the plugin
+msgid "https://gotmls.net/"
+msgstr "https://gotmls.net/"
+
+#: index.php:509
+msgid "Change your username:"
+msgstr "Ändra ditt användarnamn:"
+
+#: index.php:477
+msgid "wp-config.php Not Found!"
+msgstr "wp-config.php hittades inte!"
+
+#: index.php:503
+msgid "You username has been change to %s. Don't forget to use your new username when you login again."
+msgstr "Ditt användarnamn har ändrats till %s. Glöm inte att använda ditt nya användarnamn när du loggar in igen."
+
+#: index.php:496 index.php:1036
+msgid "read my blog"
+msgstr "läs min blogg"
+
+#: index.php:833
+msgid "Quarantined Files"
+msgstr "Filer i karantän"
+
+#: index.php:475
+msgid "wp-config.php Not Readable!"
+msgstr "wp-config.php inte läsbar!"
+
+#: index.php:1076
+msgid "Completed!"
+msgstr "Slutförd!"
+
+#: index.php:950
+msgid "You are not currently scanning for this type of threat!"
+msgstr "Du skannar för närvarande inte för denna typ av hot!"
+
+#: index.php:897
+msgid "Scan Complete!"
+msgstr "Skanning slutförd!"
+
+#: index.php:1040
+msgid "Scan Details:"
+msgstr "Skanningsdetaljer:"
+
+#: index.php:833
+msgid "Scanned Folders"
+msgstr "Skannade mappar"
+
+#: index.php:833
+msgid "Selected Folders"
+msgstr "Valda mappar"
+
+#: index.php:765
+msgid "Run Complete Scan"
+msgstr "Kör fullständig skanning"
+
+#: index.php:820
+msgid "Automatically Update Definitions:"
+msgstr "Uppdatera definitioner automatiskt:"
+
+#: index.php:819
+msgid "Skip directories with the following names:"
+msgstr "Hoppa över kataloger med följande namn:"
+
+#: index.php:819
+msgid "a comma separated list of file extentions to skip"
+msgstr "en kommaseparerad lista över filtillägg att hoppa över"
+
+#: index.php:818
+msgid "Skip files with the following extensions:"
+msgstr "Hoppa över filer med följande tillägg:"
+
+#: index.php:813
+msgid "Custom RegExp:"
+msgstr "Anpassad RegExp:"
+
+#: index.php:795
+msgid "What to scan:"
+msgstr "Vad skall skannas:"
+
+#: index.php:758
+msgid "Only Scan These Folders:"
+msgstr "Skanna endast dessa mappar:"
+
+#: images/index.php:673 images/index.php:891
+msgid "No Items in Quarantine"
+msgstr "Inga objekt i karantän"
+
+#: index.php:216
+msgid "Resources & Links"
+msgstr "Resurser och länkar"
+
+#: index.php:179
+msgid "Email Address is a required field!"
+msgstr "E-postadress är ett obligatoriskt fält!"
+
+#: index.php:177
+msgid "Last Name is a required field!"
+msgstr "Efternamn är ett obligatoriskt fält!"
+
+#: index.php:175
+msgid "First Name is a required field!"
+msgstr "Förnamn är ett obligatoriskt fält!"
+
+#: index.php:146
+msgid "Your Full Name:"
+msgstr "Ditt fullständiga namn:"
+
+#: index.php:136
+msgid "Download new definitions!"
+msgstr "Ladda ner nya definitioner!"
+
+#: index.php:129
+msgid "Updates & Registration"
+msgstr "Uppdateringar och registrering"
+
+#: images/index.php:450
+msgid "No response from server!"
+msgstr "Inget svar från server!"
+
+#: images/index.php:372
+msgid "If this is taking too long, click here."
+msgstr "Om detta tar för lång tid, klicka här."
+
+#: index.php:106
+msgid "Upgrade to %s now!"
+msgstr "Uppgradera till %s nu!"
+
+#: index.php:80
+msgid "FAQs"
+msgstr "Vanliga frågor"
+
+#: index.php:73
+msgid "Getting Started"
+msgstr "Komma igång"
+
+#: images/index.php:1852
+msgid "Failed to read file!"
+msgstr "Misslyckades att läsa fil!"
+
+#: images/index.php:1818
+msgid "Failed to read directory!"
+msgstr "Misslyckade att läsa katalog!"
+
+#: images/index.php:1782
+msgid "Skipped because of file size!"
+msgstr "Hoppades över på grund av filstorlek!"
+
+#: images/index.php:1664 index.php:1061
+msgid "Preparing %s"
+msgstr "Förbereder %s"
+
+#: images/index.php:1250 images/index.php:1257
+msgid "Already Fixed!"
+msgstr "Redan åtgärdat!"
+
+#: images/index.php:1236
+msgid "no file contents!"
+msgstr "inget filinnehåll!"
+
+#: images/index.php:1236
+msgid "file not writable!"
+msgstr "fil inte skrivbar!"
+
+#: images/index.php:1236
+msgid "failed to write!"
+msgstr "misslyckades att skriva!"
+
+#: images/index.php:1236
+msgid "reason unknown!"
+msgstr "anledning okänd!"
+
+#: images/index.php:1236
+msgid "Failed:"
+msgstr "Misslyckades:"
+
+#: images/index.php:1196
+msgid "File does not exist!"
+msgstr "Fil finns inte!"
+
+#: images/index.php:1196
+msgid "File not readable!"
+msgstr "Fil inte läsbar!"
+
+#: images/index.php:1196
+msgid "Fixed file permissions! (try again)"
+msgstr "Åtgärdat filbehörigheter! (försök igen)"
+
+#: images/index.php:1196
+msgid "Empty file!"
+msgstr "Tom fil!"
+
+#: images/index.php:1196
+msgid "Failed to read file contents!"
+msgstr "Misslyckades att läsa filinnehåll!"
+
+#: images/index.php:149
+msgid "This Plugin requires WordPress version %s or higher"
+msgstr "Detta tillägg kräver WordPress version %s eller högre"
+
+#: images/index.php:147 images/index.php:892 index.php:354 index.php:362
+msgid "View Quarantine"
+msgstr "Visa karantän"
+
+#: images/index.php:146
+msgid "Quick Scan"
+msgstr "Snabbskanning"
+
+#: images/index.php:145
+msgid "Failed to list files in directory!"
+msgstr "Misslyckades att lista filer i katalog!"
+
+#: index.php:1351
+msgid "Your Server could not start a Session!"
+msgstr "Din server kunde inte starta en session!"
+
+#: index.php:421 index.php:1347
+msgid "This feature is available to those who have donated!"
+msgstr "Den här funktionen är tillgänglig för dem som har donerat!"
+
+#: index.php:421 index.php:1347
+msgid "You must register and donate to use this feature!"
+msgstr "Du måste registrera och donera för att använda den här funktionen!"
+
+#: images/index.php:82 index.php:865
+msgid "Potential Threats"
+msgstr "Potentiella hot"
+
+#: images/index.php:82
+msgid "Known Threats"
+msgstr "Kända hot"
+
+#: index.php:1359
+msgid "Default position"
+msgstr "Standardposition"
+
+#: index.php:833
+msgid "Skipped Files"
+msgstr "Överhoppade filer"
+
+#: index.php:833
+msgid "Skipped Folders"
+msgstr "Överhoppade mappar"
+
+#: index.php:766
+msgid "What to look for:"
+msgstr "Vad man ska titta efter:"
+
+#: images/index.php:634 images/index.php:873
+msgid " Items in Quarantine"
+msgstr "Objekt i karantän"
+
+#: index.php:156
+msgid "Plugin Installation Key:"
+msgstr "Tilläggets installationsnyckel:"
+
+#: images/index.php:1015 safe-load/trace.php:15
+msgid "an unknown file"
+msgstr "en okänd fil"
+
+#: index.php:505
+msgid "SQL Error changing username: %s. Please try again later."
+msgstr "SQL-fel vid ändring av användarnamn: %s. Försök igen senare."
+
+#: index.php:496
+msgid " For more information on Brute-Force attack prevention and the WordPress wp-login-php file "
+msgstr "För mer information om brute-force attacker och om WordPress-filen wp-login-php"
+
+#: index.php:496
+msgid "Checking for session compatibility ..."
+msgstr "Kontroll av sessionens kompatibilitet ..."
+
+#: index.php:473
+msgid "Failed to install Brute-Force Protection (wp-config.php %s)"
+msgstr "Misslyckades med att installera skydd mot brute force-attacker (wp-config.php %s)"
+
+#: index.php:459
+msgid "Removed Brute-Force Protection"
+msgstr "Skydd mot brute force-attacker har tagits bort"
+
+#: index.php:433
+msgid "Failed to remove XMLRPC Protection [.htaccess %s]"
+msgstr "Misslyckades med att ta bort XMLRPC-skyddet [.htaccess %s]"
+
+#: index.php:1078
+msgid "Starting Scan ..."
+msgstr "Startar genomsökning ..."
+
+#: images/index.php:1233 images/index.php:1311 images/index.php:1365
+msgid "Success!"
+msgstr "Klart!"
+
+#: images/index.php:1017 safe-load/trace.php:17
+msgid "unknown"
+msgstr "okänt"
+
+#: index.php:470
+msgid "Installed Brute-Force Protection"
+msgstr "Skydd mot brute force-attacker har installerats"
+
+#: index.php:464
+msgid "Upgraded Brute-Force Protection"
+msgstr "Skyddet mot brute force-attacker har uppgraderats"
+
+#: index.php:389
+msgid "Your WordPress Login page has the old version of my brute-force protection installed. Upgrade this patch to improve the protection on the WordPress Login page and preserve the integrity of your WordPress core files."
+msgstr "Inloggningssidan för din WordPress-installation använder den äldre versionen av mitt skydd mot brute force-attacker. Uppgradera med denna rättelse för att stärka skyddet av din inloggningssida och säkra filerna i WordPress-kärnan."
+
+#: index.php:383
+msgid "Your WordPress site has the current version of my brute-force Login protection installed."
+msgstr "Din WordPress-webbplats har den aktuella versionen av mitt skydd mot brute force-attacker mot inloggningssidan."
+
+#: index.php:508
+msgid "Your new username must be at least 3 characters and can only contain &quot;%s&quot;. Please try again."
+msgstr "Ditt nya användarnamn måste vara minst 3 tecken långt och får bara innehålla ”%s”. Försök en gång till."
+
+#: index.php:819
+msgid "a folder name or comma separated list of folder names to skip"
+msgstr "ett katalognamn eller en kommaseparerad lista med namn på kataloger som ska ignoreras"
+
+#: index.php:153
+msgid "Your WordPress Site URL:"
+msgstr "Webbadressen (URL) till din WordPress-webbplats:"
+
+#: index.php:833
+msgid "Scanned Files"
+msgstr "Genomsökta filer"
+
+#: index.php:791
+msgid "Download Definition Updates to Use this feature"
+msgstr "Hämta definitionsuppdateringar för att använda denna funktion"
+
+#: images/index.php:1018
+msgid "<b>Headers already sent</b> in %1$s on line %2$s.<br />This is not a good sign, it may just be a poorly written plugin but Headers should not have been sent at this point.<br />Check the code in the above mentioned file to fix this problem."
+msgstr "<b>Headers har redan skickats</b> i %1$s på rad %2$s.<br />Det är inte bra. Felet kan vara ett felaktigt tillägg, men sidans headers borde inte ha skickats redan vid denna tidpunkt.<br />Undersök koden i ovan nämnda fil för att åtgärda detta problem."
+
+#: images/index.php:152
+msgid "Automatically Fix SELECTED Files Now"
+msgstr "Åtgärda de automatiskt valda filerna nu"
+
+#: index.php:1041
+msgid "Not flushing OB Handlers: %s"
+msgstr "Utmatningsbuffrarna (ob_handlers) kan inte tömmas: %s"
+
+#: index.php:1036
+msgid "NOTE: We have detected changes to the WordPress Core files on your site. This could be an intentional modification or the malicious work of a hacker. We can restore these files to their original state to preserve the integrity of your original WordPress %s installation."
+msgstr "OBS! Vi har upptäckt ändringar i filer som tillhör WordPress-kärnan på din webbplats. Detta kan vara en avsiktlig ändring eller resultatet av ett skadligt intrång. Vi kan återställa dessa filer till deras tidigare status för att bevara integriteten i din ursprungliga installation av WordPress %s."
+
+#: index.php:441
+msgid "Failed to install XMLRPC Protection [.htaccess %s]"
+msgstr "Misslyckades med att installera XMLRPC-skyddet [.htaccess %s]"
+
+#: index.php:445
+msgid "Most WordPress sites do not use the XMLRPC features and hack attempts on the xmlrpc.php file are more common then ever before. Even if there are no vulnerabilities for hackers to exploit, these attempts can cause slowness or downtime similar to a DDoS attack. This patch automatically blocks all external access to the xmlrpc.php file."
+msgstr "De flesta WordPress-webbplatser använder inte XMLRPC-funktionerna och hackförsök på xmlrpc.php-filen är vanligare än någonsin tidigare. Även om det inte finns några sårbarheter för hackare att utnyttja kan dessa försök orsaka tröghet eller driftstopp som liknar en DDoS-attack. Denna uppdatering blockerar automatiskt all extern åtkomst till xmlrpc.php-filen."
+
+#: index.php:1007
+msgid "The Quick Scan was unable to finish because of a shortage of memory or a problem accessing a file. Please try using the Complete Scan, it is slower but it will handle these errors better and continue scanning the rest of the files."
+msgstr "Snabbskanningen kunde inte slutföras på grund av brist på minne eller ett problem med åtkomst till en fil. Prova att använda fullständig skanning. Det är långsammare men det kommer att hantera dessa fel bättre och fortsätta att skanna resten av filerna."
+
+#: index.php:820
+msgid "This feature is only available to registered users who have donated at a certain level."
+msgstr "Denna funktion är endast tillgänglig för registrerade användare som har donerat på en viss nivå."
+
+#: index.php:791
+msgid "Download the new definitions (Right sidebar) to activate this feature."
+msgstr "Hämta de nya definitionerna (höger sidopanel) för att aktivera denna funktion."
+
+#: images/index.php:632
+msgid "Are you sure you want to permanently delete the selected files in the Quarantine?"
+msgstr "Är du säker på att du vill ta bort de valda filerna permanent i karantänen?"
+
+#: index.php:189
+msgid "Plugin Installation Key is a required field!"
+msgstr "Tilläggets installationsnyckel är ett obligatoriskt fält!"
+
+#: index.php:150
+msgid "A password will be e-mailed to this address:"
+msgstr "Ett lösenord kommer skickas via e-post till denna adress:"
+
+#: index.php:144
+msgid "If you have not already registered your Key then register now using the form below.<br />* All registration fields are required<br />** I will NOT share your information."
+msgstr "Om du inte redan har registrerat din nyckel, registrera dig nu med formuläret nedan.<br />* Alla registreringsfält är obligatoriska<br />** Jag kommer INTE dela din information."
+
+#: index.php:143
+msgid "<p>Get instant access to definition updates.</p>"
+msgstr "<p>Få omedelbar åtkomst till definitionuppdateringar.</p>"
+
+#: index.php:115
+msgid "Searching for updates ..."
+msgstr "Söker efter uppdateringar…"
+
+#: images/index.php:1836
+msgid "Skipped because of file size (%1$s bytes) or file extention (%2$s)!"
+msgstr "Hoppades över på grund av filstorlek (%1$s byte) eller filtillägg (%2$s)!"
+
+#: images/index.php:1780
+msgid "Failed to determine file size!"
+msgstr "Misslyckades att fastställa filstorlek!"
+
+#: index.php:74
+msgid "A backup of the original infected files are placed in the Quarantine in case you need to restore them or just want to look at them later. You can delete these files if you don't want to save more."
+msgstr "En säkerhetskopia av de ursprungliga infekterade filerna placeras i karantänen om du behöver återställa dem eller bara vill titta på dem senare. Du kan ta bort dessa filer om du inte vill spara mer."
+
+#: index.php:74
+msgid "If Known Threats are found and displayed in red then there will be a button to '%s'. If only Potentional Threats are found then there is no automatic fix because those are probably not malicious."
+msgstr "Om kända hot hittas och visas i rött kommer det att finnas en knapp till ”%s”. Om bara potentiella hot hittas finns det ingen automatisk åtgärd eftersom de förmodligen inte är skadliga."
+
+#: images/index.php:557
+msgid "Please make a donation for the use of this wonderful feature!"
+msgstr "Vänligen gör en donation för användningen av denna underbara funktion!"
+
+#: index.php:1036
+msgid "NOTE: These are probably not malicious scripts (but it's a good place to start looking <u>IF</u> your site is infected and no Known Threats were found)."
+msgstr "OBS! Detta är förmodligen inte skadliga skript (men det är en bra plats att börja titta <u>OM</u> din webbplats är infekterad och inga kända hot hittades)."
+
+#: index.php:378
+msgid "Your WordPress Login page is susceptible to a brute-force attack (just like any other login page). These types of attacks are becoming more prevalent these days and can sometimes cause your server to become slow or unresponsive, even if the attacks do not succeed in gaining access to your site. Applying this patch will block access to the WordPress Login page whenever this type of attack is detected."
+msgstr "Din WordPress-inloggningssida är mottaglig för en brute force-attack (precis som vilken annan inloggningssida). Dessa typer av attacker blir allt vanligare idag och kan ibland leda till att din server blir långsam eller inte svarar, även om attackerna inte lyckas få åtkomst till din webbplats. Om du använder denna patch blockeras åtkomst till WordPress-inloggningssidan när denna typ av attack upptäcks."
+
+#: index.php:865
+msgid "WP-Login Updates"
+msgstr "Uppdateringar för WP-inloggningar"
+
+#: index.php:813
+msgid "For very advanced users only. Do not use this without talking to Eli first. If used incorrectly you could easily break your site."
+msgstr "Endast för mycket avancerade användare. Använd inte detta utan att prata med Eli först. Om det används felaktigt kan du enkelt krascha din webbplats."
+
+#: index.php:359
+msgid "White-lists"
+msgstr "Vitlista"
+
+#: images/index.php:634 images/index.php:873
+msgid "Check all %d"
+msgstr "Kontrollera alla %d"
+
+#: index.php:334
+msgid "# of files"
+msgstr "# av filer"
+
+#: index.php:324
+msgid "Date Updated"
+msgstr "Datum uppdaterad"
+
+#: index.php:324
+msgid "Globally White-listed files"
+msgstr "Globalt vitlistade filer"
+
+#: index.php:317
+msgid "No Scans have been logged"
+msgstr "Inga skanningar har loggats"
+
+#: images/index.php:150
+msgid "Scan Settings"
+msgstr "Skanningsinställningar"
+
+#: images/index.php:82
+msgid "Core File Changes"
+msgstr "Förändringar av kärnfiler"
+
+#: images/index.php:82
+msgid "TimThumb Exploits"
+msgstr "TimThumb-svagheter"
+
+#: images/index.php:82
+msgid "htaccess Threats"
+msgstr "htaccess hot"
+
+#: index.php:480
+msgid "Removed Old Brute-Force Login Patch"
+msgstr "Tagit bort gammal Brute-Force Login Patch"
+
+#: images/index.php:632
+msgid "Are you sure you want to overwrite the previously cleaned files with the selected files in the Quarantine?"
+msgstr "Är du säker på att du vill skriva över de tidigare städade filerna med de valda filerna i karantänen?"
+
+#: index.php:334
+msgid "WordPress Core files"
+msgstr "WordPress Core-filer"
+
+#: images/index.php:566
+msgid "Tested your site. It appears we didn't break anything"
+msgstr "Testade din webbplats. Det verkar som vi inte förstörde något"
+
+#: index.php:74
+msgid "Make sure the Definition Updates are current and Run a Complete Scan."
+msgstr "Se till att definitionsuppdateringarna är aktuella och kör en fullständig genomsökning."
+
+#: images/index.php:1784
+msgid "Skipped because of file extention!"
+msgstr "Hoppades över på grund av filtillägg!"
+
+#: images/index.php:1203
+msgid "Examine File"
+msgstr "Undersök fil"
+
+#: images/index.php:1400 images/index.php:1715 images/index.php:1865
+msgid "Scanned %s"
+msgstr "Genomsökte %s"
+
+#: images/index.php:1398 images/index.php:1696 images/index.php:1809
+msgid "Scanning %s"
+msgstr "Genomsöker %s"
+
+#: images/index.php:1236
+msgid "failed to quarantine!"
+msgstr "misslyckades med karantän!"
+
+#: index.php:324
+msgid "# of patterns"
+msgstr "# av mönster"
+
+#: index.php:187
+msgid "Your WordPress Site URL is a required field!"
+msgstr "URL till din WordPress-webbplats är ett obligatoriskt fält!"
+
+#: images/index.php:151
+msgid "Loading, Please Wait ..."
+msgstr "Laddar in, vänta…"
+
+#: index.php:194
+msgid "Submitting Registration ..."
+msgstr "Skickar registrering …"

@@ -1,0 +1,753 @@
+# Translation of Plugins - Maps Widget for Google Maps - Stable (latest release) in Japanese
+# This file is distributed under the same license as the Plugins - Maps Widget for Google Maps - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-06-05 00:54:48+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/4.0.0-alpha.1\n"
+"Language: ja_JP\n"
+"Project-Id-Version: Plugins - Maps Widget for Google Maps - Stable (latest release)\n"
+
+#: google-maps-widget.php:614
+msgid "Maps Widget for Google Maps PRO"
+msgstr "Maps Widget for Google Maps プロ"
+
+#: google-maps-widget.php:211
+msgid "View Maps Widget for Google Maps documentation"
+msgstr "Maps Widget for Google Maps の説明書を表示"
+
+#: google-maps-widget.php:200
+msgid "Configure Maps Widget for Google Maps for your theme"
+msgstr "お使いのテーマ用の Maps Widget for Google Maps の設定"
+
+#: google-maps-widget.php:199
+msgid "Settings for Maps Widget for Google Maps"
+msgstr "Maps Widget for Google Maps 設定"
+
+#. Plugin Name of the plugin
+#: gmw-widget.php:56 google-maps-widget.php:448 google-maps-widget.php:616
+#: google-maps-widget.php:977 google-maps-widget.php:996
+msgid "Maps Widget for Google Maps"
+msgstr "Maps Widget for Google Maps"
+
+#: gmw-widget.php:77
+msgid "Custom Static Image (save money on API calls)"
+msgstr "固定画像を指定 (API の呼び出し費用を節約)"
+
+#: google-maps-widget.php:626
+msgid ""
+"Are you sure you want to deactivate Maps Widget for Google Maps?\n"
+"All maps will be removed from the site. If you are removing it because of a problem please contact our support. They will be more than glad to help."
+msgstr "Maps Widget for Google Maps を無効化しますか ? サイトからすべての地図が除去されます。問題発生により地図を除去したい場合、私たちのサポートにお問い合わせください。喜んで協力いたします。"
+
+#: gmw-widget.php:318
+msgid "Hide Widget Title"
+msgstr "ウィジットの題名を非表示"
+
+#: gmw-widget.php:182
+msgid "Yes, hide the widget title"
+msgstr "はい、ウィジットの題名を非表示"
+
+#: gmw-widget.php:181
+msgid "No, show the widget title (default)"
+msgstr "いいえ、ウィジットの題名を表示 (標準)"
+
+#: gmw-widget.php:166
+msgid "Neon"
+msgstr "ネオン"
+
+#: google-maps-widget.php:585
+msgid "Help make the plugin better by rating it"
+msgstr "評価によりプラグインの改良を支援"
+
+#: google-maps-widget.php:1008
+msgid "Pins, upload file"
+msgstr "マーカー ファイルのアップロード"
+
+#: google-maps-widget.php:1002
+msgid "Pins, copy/paste"
+msgstr "マーカー コピー/貼り付け"
+
+#: google-maps-widget.php:984
+msgid "Import pins"
+msgstr "マーカーのインポート"
+
+#: gmw-widget.php:368
+msgid "Pins Filtering"
+msgstr "マーカー絞り込み"
+
+#: gmw-widget.php:202
+msgid "Enabled"
+msgstr "有効"
+
+#: gmw-widget.php:363
+msgid "Pins Clustering"
+msgstr "マーカーの集合"
+
+#: gmw-widget.php:199
+msgid "Large cluster radius"
+msgstr "大きな集合範囲"
+
+#: gmw-widget.php:198
+msgid "Medium cluster radius"
+msgstr "中程度の集合範囲"
+
+#: gmw-widget.php:197
+msgid "Small cluster radius"
+msgstr "小さな集合範囲"
+
+#: gmw-widget.php:196 gmw-widget.php:201
+msgid "Disabled (default)"
+msgstr "無効 (標準)"
+
+#: gmw-widget.php:170
+msgid "Custom scheme to match your site"
+msgstr "サイトに合うよう独自の配色"
+
+#: google-maps-widget.php:542
+msgid "<b>Maps Widget for Google Maps <span style=\"color: #d54e21;\">PRO</span></b> has more than 50 extra features &amp; options. Our support is super fast &amp; friendly and with the unlimited license you can install GMW on as many sites as you need.</p>"
+msgstr "<b>Maps Widget for Google Maps <span style=\"color: #d54e21;\">プロ</span></b> には、50以上の追加の機能やオプションがあります。私たちによるサポートも親密かつ迅速です。また GMW の無制限のライセンスの場合は好きなだけインストールすることができます。</p>"
+
+#: gmw-widget.php:150
+msgid "Skip thumbnail map, immediately show interactive one"
+msgstr "画像の地図ではなく、ただちに双方向地図を表示"
+
+#: gmw-widget.php:323
+msgid "Show Appreciation"
+msgstr "感謝を示す"
+
+#: gmw-widget.php:179
+msgid "Please, let us show a tiny link below the map so that others can learn about GMW too"
+msgstr "地図の下に小さくリンクし、GMW をみんなに紹介するお手伝いをします"
+
+#: gmw-widget.php:178
+msgid "No, I do not want to do that"
+msgstr "いいえ、望みません"
+
+#. Description of the plugin
+msgid "Display a single image super-fast loading Google Map in a widget. A larger, full featured map is available in a lightbox. Includes a user-friendly interface and numerous appearance options."
+msgstr "ウィジット内に、Google Map 超高速読み込みの単一画像を表示します。機能的なより大きな地図は Lightbox から利用できます。使いやすい表示、表示設定を備えています。"
+
+#: google-maps-widget.php:1051
+msgid "Include Google Maps API JS"
+msgstr "Google Maps API JS を含める"
+
+#: google-maps-widget.php:986
+msgid "PRO License"
+msgstr "プロ版ライセンス"
+
+#: google-maps-widget.php:559 google-maps-widget.php:573
+msgid "I'm not interested (remove notice)"
+msgstr "興味がない (通知を除去)"
+
+#: google-maps-widget.php:556
+msgid "See what PRO has to offer"
+msgstr "プロの機能を確認してみる"
+
+#: gmw-widget.php:246
+msgid "Pins"
+msgstr "マーカー"
+
+#: gmw-widget.php:233
+msgid "Optional Map title"
+msgstr "追加の地図名"
+
+#: gmw-widget.php:190
+msgid "Close on Esc key (upgrade to PRO)"
+msgstr "Esc キーで閉じる (プロにアップグレード)"
+
+#: gmw-widget.php:189
+msgid "Show close button (upgrade to PRO)"
+msgstr "閉じるボタンを表示 (プロにアップグレード)"
+
+#: gmw-widget.php:169
+msgid "Ultra Light"
+msgstr "ウルトラライト"
+
+#: google-maps-widget.php:620
+msgid "To see what the PRO version offers please open GMW settings in the admin."
+msgstr "プロ版の機能を確認するには、管理画面で GMW の設定を開いてください。"
+
+#: google-maps-widget.php:619
+msgid "At the moment, the address picker is not available in the theme customizer. Please use it in the admin widget GUI."
+msgstr "現時点では、テーマカスタマイザーでは住所選択機能は利用できません。管理画面のウィジェット内の GUI から指定してください。"
+
+#: google-maps-widget.php:1067
+msgid "Disable Hidden Sidebar"
+msgstr "隠しサイドバーを無効化"
+
+#: google-maps-widget.php:613
+msgid "The API key format does not look right. Please double-check it."
+msgstr "API キーの形式が正しくないようです。念入りにご確認ください。"
+
+#: google-maps-widget.php:1123
+msgid "Please double-check the license key. The format is not valid."
+msgstr "ライセンスキーを念入りにご確認ください。形式が正しくないです。"
+
+#: google-maps-widget.php:1085
+msgid "Import widgets"
+msgstr "ウィジットのインポート"
+
+#: google-maps-widget.php:1080
+msgid "Export widgets"
+msgstr "ウィジットのエクスポート"
+
+#: google-maps-widget.php:1029
+msgid "Save Settings"
+msgstr "設定の保存"
+
+#: google-maps-widget.php:1063
+msgid "Disable Admin Tooltips"
+msgstr "管理画面のツールチップを無効"
+
+#: google-maps-widget.php:1059
+msgid "Include Colorbox JS"
+msgstr "Colorbox JS を含める"
+
+#: google-maps-widget.php:1055
+msgid "Include Colorbox &amp; Thumbnail CSS"
+msgstr "サムネイルと Colorbox 用の CSSを含める"
+
+#: google-maps-widget.php:1047
+msgid "Include jQuery"
+msgstr "jQuery を含める"
+
+#: google-maps-widget.php:1043
+msgid "Track with Google Analytics"
+msgstr "Google アナリティクスで追跡"
+
+#: google-maps-widget.php:1038
+msgid "Map Shortcode"
+msgstr "地図用の簡単コード"
+
+#: google-maps-widget.php:1022
+msgid "Google Maps API Key"
+msgstr "Google Maps API キー"
+
+#: google-maps-widget.php:985
+msgid "Export &amp; Import"
+msgstr "エクスポートとインポート"
+
+#: google-maps-widget.php:618
+msgid "Drag&drop address picking interface is a PRO feature. Interested in switching to PRO?"
+msgstr "ドラッグ&ドロップによる住所選択画面はプロ版の機能です。プロ版に興味がありますか ?"
+
+#: google-maps-widget.php:615
+msgid "Pins Library"
+msgstr "マーカー一覧"
+
+#: google-maps-widget.php:611
+msgid "Pick an address by drag &amp; dropping the pin"
+msgstr "印をドラッグ&amp;ドロップして住所を選択"
+
+#: google-maps-widget.php:586
+msgid "I already rated the plugin"
+msgstr "私は評価済みです"
+
+#: google-maps-widget.php:214
+msgid "Activate PRO features"
+msgstr "プロの機能を有効化"
+
+#: google-maps-widget.php:199 google-maps-widget.php:983
+msgid "Settings"
+msgstr "設定"
+
+#: google-maps-widget.php:141
+msgid "Google Maps API key is not valid. Access <a href=\"https://console.developers.google.com/project\">Google Developers Console</a> to generate a key for free."
+msgstr "Google Maps API キーが正しくありません。<a href=\"https://console.developers.google.com/project\">Google Developers Console</a> にアクセスし、無料でキーを生成できます。"
+
+#: gmw-widget.php:592
+msgid "Click to open the interactive map in a new window"
+msgstr "クリックで。新しいウィンドウに双方向地図を開く"
+
+#: gmw-widget.php:584
+msgid "Click to open an interactive map"
+msgstr "クリックで双方向地図を開く"
+
+#: gmw-widget.php:583
+msgid "Click to open the interactive map"
+msgstr "クリックで双方向地図を開く"
+
+#: gmw-widget.php:445
+msgid "Upgrade to Maps Widget for Google Maps <span class=\"gmw-pro-red\">PRO</span> to get more than 50 extra options &amp; features available immeditely. <a class=\"open_promo_dialog\" href=\"#\">Upgrade now</a>."
+msgstr "50以上の追加設定と機能をただちに利用するには、Maps Widget for Google Maps <span class=\"gmw-pro-red\">プロ</span>にアップグレード。<a class=\"open_promo_dialog\" href=\"#\">いますぐアップグレード</a>。"
+
+#: gmw-widget.php:435
+msgid "Activate <span class=\"gmw-pro-red\">PRO</span> features"
+msgstr "<span class=\"gmw-pro-red\">プロ版</span>の機能を有効化"
+
+#: gmw-widget.php:385
+msgid "Click to choose features"
+msgstr "クリックで機能を選択"
+
+#: gmw-widget.php:383
+msgid "Lightbox Features"
+msgstr "Lightbox 機能"
+
+#: gmw-widget.php:349
+msgid "Map Mode"
+msgstr "地図の方式"
+
+#: gmw-widget.php:341
+msgid "Lightbox Size"
+msgstr "Lightbox のサイズ"
+
+#: gmw-widget.php:313 gmw-widget.php:389
+msgid "Map Language"
+msgstr "地図の言語"
+
+#: gmw-widget.php:308
+msgid "Image Format"
+msgstr "画像形式"
+
+#: gmw-widget.php:290
+msgid "Pin Label"
+msgstr "マーカーのラベル"
+
+#: gmw-widget.php:245
+msgid "Interactive Map"
+msgstr "双方向通信の地図"
+
+#: gmw-widget.php:237
+msgid "Address / location to show"
+msgstr "表示する住所や場所"
+
+#: gmw-widget.php:103
+msgid "PRO offers unlimited color choices"
+msgstr "プロ版で自由に色を指定"
+
+#: gmw-widget.php:106
+msgid "Choose a custom label by going PRO"
+msgstr "プロ版で好みのラベルを指定"
+
+#: gmw-widget.php:176 gmw-widget.php:185
+msgid "Add auto-detection and 50 more languages"
+msgstr "自動検出と50言語を追加"
+
+#: gmw-widget.php:173
+msgid "Add 4 more image formats"
+msgstr "4つの画像形式を追加"
+
+#: gmw-widget.php:145
+msgid "GMW pins library (1500+ pins)"
+msgstr "GMW のライブラリー (1500以上の印マーク)"
+
+#: gmw-widget.php:119
+msgid "Fullscreen"
+msgstr "全画面"
+
+#: gmw-widget.php:85
+msgid "Street View"
+msgstr "ストリートビュー"
+
+#: gmw-widget.php:86
+msgid "View (clean map, no markers)"
+msgstr "表示 (マーカーも何もない地図)"
+
+#: gmw-widget.php:84
+msgid "Search"
+msgstr "検索開始"
+
+#: gmw-widget.php:83
+msgid "Directions"
+msgstr "道順"
+
+#: gmw-widget.php:141
+msgid "Wood"
+msgstr "森"
+
+#: gmw-widget.php:140
+msgid "Vintage"
+msgstr "ビンテージ"
+
+#: gmw-widget.php:138
+msgid "Squared white"
+msgstr "白い四角"
+
+#: gmw-widget.php:137
+msgid "Squared black"
+msgstr "黒い四角"
+
+#: gmw-widget.php:124
+msgid "Cartoonish"
+msgstr "漫画風"
+
+#: gmw-widget.php:135
+msgid "Shadow"
+msgstr "影"
+
+#: gmw-widget.php:134
+msgid "Rounded white"
+msgstr "白い丸"
+
+#: gmw-widget.php:131
+msgid "Painting"
+msgstr "絵画"
+
+#: gmw-widget.php:127
+msgid "Gears"
+msgstr "ギアー"
+
+#: gmw-widget.php:139
+msgid "Tablet"
+msgstr "タブレット"
+
+#: gmw-widget.php:132
+msgid "Polaroid"
+msgstr "ポラロイド"
+
+#: gmw-widget.php:136
+msgid "Simple"
+msgstr "シンプル"
+
+#: gmw-widget.php:130
+msgid "Minimalistic #2"
+msgstr "ミニマル #2"
+
+#: gmw-widget.php:129
+msgid "Minimalistic"
+msgstr "ミニマル"
+
+#: gmw-widget.php:128
+msgid "Gray squared"
+msgstr "灰の四角"
+
+#: gmw-widget.php:126
+msgid "Fancy"
+msgstr "ファンシー"
+
+#: gmw-widget.php:125
+msgid "Dark rim"
+msgstr "暗い淵"
+
+#: gmw-widget.php:152
+msgid "Custom URL in a new window"
+msgstr "新規ウィンドウに指定 URL"
+
+#: gmw-widget.php:149
+msgid "Interactive map in a new window"
+msgstr "新規ウィンドウに双方向通信の地図"
+
+#: gmw-widget.php:148
+msgid "Replace thumb map with an interactive map"
+msgstr "地図画像を双方向通信の地図に置き換える"
+
+#: gmw-widget.php:167
+msgid "Pale"
+msgstr "淡色"
+
+#: gmw-widget.php:165
+msgid "Midnight"
+msgstr "真夜中"
+
+#: gmw-widget.php:164
+msgid "Mapbox"
+msgstr "Mapbox"
+
+#: gmw-widget.php:163
+msgid "Light"
+msgstr "ライト"
+
+#: gmw-widget.php:162
+msgid "Gray #2"
+msgstr "灰色 2"
+
+#: gmw-widget.php:160
+msgid "Gowalla"
+msgstr "Gowalla"
+
+#: gmw-widget.php:159
+msgid "Bright"
+msgstr "ブライト"
+
+#: gmw-widget.php:193
+msgid "Imperial"
+msgstr "マイル"
+
+#: gmw-widget.php:194
+msgid "Metric"
+msgstr "メートル"
+
+#: gmw-widget.php:192
+msgid "Detect automatically"
+msgstr "自動検出"
+
+#: gmw-widget.php:188
+msgid "Close on overlay click"
+msgstr "オーバーレイをクリックして閉じる"
+
+#: gmw-widget.php:187
+msgid "Show map title"
+msgstr "地図名を表示"
+
+#: gmw-widget.php:172
+msgid "PNG 8-bit (default)"
+msgstr "PNG 8ビット (標準)"
+
+#: gmw-widget.php:147
+msgid "Interactive map in lightbox (default)"
+msgstr "Lightbox で双方向通信の地図 (標準)"
+
+#: gmw-widget.php:144
+msgid "Custom image"
+msgstr "指定の画像"
+
+#: gmw-widget.php:143
+msgid "Predefined by Google (default)"
+msgstr "Google と同じ (標準)"
+
+#: gmw-widget.php:118
+msgid "Custom size (default)"
+msgstr "指定の大きさ (標準)"
+
+#: gmw-widget.php:105
+msgid "A (default)"
+msgstr "A (標準)"
+
+#: gmw-widget.php:82
+msgid "Place (default)"
+msgstr "場所 (標準)"
+
+#. Author of the plugin
+msgid "WebFactory Ltd"
+msgstr "WebFactory Ltd"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "https://www.gmapswidget.com/"
+msgstr "https://www.gmapswidget.com/"
+
+#: google-maps-widget.php:612
+msgid "An undocumented error has occured. Please refresh the page and try again."
+msgstr "登録のないエラーが発生しました。ページを再読み込みし、再度お試しください。"
+
+#: google-maps-widget.php:583
+msgid "Hi! We saw you've been using <b>Maps Widget for Google Maps</b> for a week and wanted to ask for your help to make the plugin better.<br>We just need a minute of your time to rate the plugin. Thank you!"
+msgstr "こんにちは ! <b>Maps Widget for Google Maps</b> のご利用開始から1週間が経ちました。本プラグインの改善のために手助け願えませんか ? <br>プラグインの評価には1分しかかかりません。私たちは感謝します !"
+
+#: google-maps-widget.php:242
+msgid "Maps Widget for Google Maps <b>requires WordPress version 4.0</b> or higher to function properly. You are using WordPress version %s. Please <a href=\"%s\">update it</a>."
+msgstr "Maps Widget for Google Maps を正しく機能させるには <b>WordPress バージョン4.0以上が必要</b>です。現在、WordPress バージョン%sを使用中です。<a href=\"%s\">更新してください</a>。"
+
+#: google-maps-widget.php:213
+msgid "Review the plugin"
+msgstr "プラグインを評価"
+
+#: google-maps-widget.php:213
+msgid "If you like it, please review the plugin"
+msgstr "気に入っていただけたら、プラグインの評価をお願いします"
+
+#: google-maps-widget.php:212
+msgid "Problems? We are here to help!"
+msgstr "お困りですか ? サポートはここです !"
+
+#: google-maps-widget.php:211
+msgid "Documentation"
+msgstr "説明書"
+
+#: google-maps-widget.php:200
+msgid "Widgets"
+msgstr "ウィジェット"
+
+#: gmw-widget.php:579 gmw-widget.php:580
+msgid "Click to open a larger map"
+msgstr "クリックで拡大地図を開く"
+
+#: gmw-widget.php:439
+msgid "Rate the plugin &amp; spread the word"
+msgstr "本プラグインを評価し支援"
+
+#: gmw-widget.php:431 google-maps-widget.php:212
+msgid "Support"
+msgstr "サポート"
+
+#: gmw-widget.php:378
+msgid "Lightbox Skin"
+msgstr "Lightbox スキン"
+
+#: gmw-widget.php:332 gmw-widget.php:398
+msgid "Text Below Map"
+msgstr "地図の下の文"
+
+#: gmw-widget.php:328 gmw-widget.php:394
+msgid "Text Above Map"
+msgstr "地図の上の文"
+
+#: gmw-widget.php:263
+msgid "Color Scheme"
+msgstr "配色"
+
+#: gmw-widget.php:299
+msgid "Link To"
+msgstr "リンク先"
+
+#: gmw-widget.php:268 gmw-widget.php:373
+msgid "Zoom Level"
+msgstr "拡大率"
+
+#: gmw-widget.php:295
+msgid "Pin Image URL"
+msgstr "マーカーの画像 URL"
+
+#: gmw-widget.php:285
+msgid "Pin Size"
+msgstr "マーカーの大きさ"
+
+#: gmw-widget.php:279
+msgid "Pin Color"
+msgstr "マーカーの色"
+
+#: gmw-widget.php:273
+msgid "Pin Type"
+msgstr "マーカーの種類"
+
+#: gmw-widget.php:258 gmw-widget.php:358
+msgid "Map Type"
+msgstr "地図の種類"
+
+#: gmw-widget.php:253
+msgid "Map Size"
+msgstr "地図の大きさ"
+
+#: gmw-widget.php:248
+msgid "Info &amp; Support"
+msgstr "情報・サポート"
+
+#: gmw-widget.php:247
+msgid "Shortcode"
+msgstr "簡単コード"
+
+#: gmw-widget.php:244
+msgid "Thumbnail Map"
+msgstr "地図の画像"
+
+#: gmw-widget.php:235
+msgid "Address"
+msgstr "住所"
+
+#: gmw-widget.php:232
+msgid "Title"
+msgstr "題名"
+
+#: gmw-widget.php:133
+msgid "Rounded"
+msgstr "丸み"
+
+#: gmw-widget.php:168
+msgid "Paper"
+msgstr "紙"
+
+#: gmw-widget.php:156
+msgid "Refreshed by Google"
+msgstr "Google から再読み込み"
+
+#: gmw-widget.php:155
+msgid "Default"
+msgstr "デフォルト"
+
+#: gmw-widget.php:153
+msgid "Disable link"
+msgstr "リンク無効"
+
+#: gmw-widget.php:151 gmw-widget.php:304
+msgid "Custom URL"
+msgstr "指定 URL"
+
+#: gmw-widget.php:121
+msgid "Dark"
+msgstr "ダーク"
+
+#: gmw-widget.php:122
+msgid "Light (default)"
+msgstr "ライト (標準)"
+
+#: gmw-widget.php:108
+msgid "0 - entire world"
+msgstr "0 - 全体"
+
+#: gmw-widget.php:91
+msgid "Large (default)"
+msgstr "大 (標準)"
+
+#: gmw-widget.php:90
+msgid "Medium"
+msgstr "中"
+
+#: gmw-widget.php:89
+msgid "Small"
+msgstr "小"
+
+#: gmw-widget.php:88
+msgid "Tiny"
+msgstr "極小"
+
+#: gmw-widget.php:101
+msgid "White"
+msgstr "白"
+
+#: gmw-widget.php:100
+msgid "Red (default)"
+msgstr "赤 (標準)"
+
+#: gmw-widget.php:98
+msgid "Orange"
+msgstr "オレンジ"
+
+#: gmw-widget.php:96 gmw-widget.php:161
+msgid "Gray"
+msgstr "グレー"
+
+#: gmw-widget.php:94 gmw-widget.php:123 gmw-widget.php:158
+msgid "Blue"
+msgstr "青"
+
+#: gmw-widget.php:102
+msgid "Yellow"
+msgstr "黄"
+
+#: gmw-widget.php:99
+msgid "Purple"
+msgstr "紫"
+
+#: gmw-widget.php:97
+msgid "Green"
+msgstr "緑"
+
+#: gmw-widget.php:95
+msgid "Brown"
+msgstr "茶"
+
+#: gmw-widget.php:93
+msgid "Black"
+msgstr "黒"
+
+#: gmw-widget.php:73
+msgid "Hybrid"
+msgstr "混合"
+
+#: gmw-widget.php:76
+msgid "Terrain"
+msgstr "地形"
+
+#: gmw-widget.php:75 gmw-widget.php:80
+msgid "Satellite"
+msgstr "衛星"
+
+#: gmw-widget.php:74 gmw-widget.php:79
+msgid "Road (default)"
+msgstr "道路 (標準)"
+
+#: gmw-widget.php:63
+msgid "New York, USA"
+msgstr "Tokyo, Japan"
+
+#: gmw-widget.php:62
+msgid "Map"
+msgstr "地図"
+
+#: gmw-widget.php:58
+msgid "Displays a map image thumbnail with a larger map available in a lightbox."
+msgstr "地図画像のサムネイルを表示します。利用可能であれば Lightbox 内に拡大地図を併用できます。"

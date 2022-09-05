@@ -1,0 +1,613 @@
+# Translation of Plugins - ShareThis Dashboard for Google Analytics - Stable (latest release) in Dutch
+# This file is distributed under the same license as the Plugins - ShareThis Dashboard for Google Analytics - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-08-24 13:54:58+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.0-alpha.1\n"
+"Language: nl\n"
+"Project-Id-Version: Plugins - ShareThis Dashboard for Google Analytics - Stable (latest release)\n"
+
+#: view/templates/ga4-demographic-chart.php:62
+msgid "Demographic by users"
+msgstr "Demografisch per gebruiker"
+
+#: view/templates/ga4-dashboard.php:210
+msgid "New Users"
+msgstr "Nieuwe gebruikers"
+
+#: view/templates/ga4-dashboard.php:206
+msgid "Page Views"
+msgstr "Paginaweergaven"
+
+#: view/page.php:92
+msgid "Universal Analytics Settings"
+msgstr "Universele analytics instellingen"
+
+#: view/page.php:88
+msgid "Google Analytics 4"
+msgstr "Google Analytics 4"
+
+#: view/stats.php:153
+msgid "Traffic Source"
+msgstr "Verkeersbronnen"
+
+#: view/stats.php:149
+msgid "Page View"
+msgstr "Paginaweergave"
+
+#: view/statistics.php:80
+msgid "close"
+msgstr "sluiten"
+
+#: view/page.php:300
+msgid "For debugging purposes only! Should NOT be used on live sites!"
+msgstr "Alleen voor debugging doeleinden! Mag NIET worden gebruikt op live sites!"
+
+#: view/page.php:298
+msgid "WARNING"
+msgstr "WAARSCHUWING"
+
+#: view/page.php:282
+msgid "Turn on GA Debugging"
+msgstr "GA debugging inschakelen"
+
+#: view/ga-ga4-settings.php:160 view/page.php:181
+msgid "Sign out"
+msgstr "Afmelden"
+
+#: view/ga-dashboard-widget.php:41
+msgid "Click here to get data"
+msgstr "Klik hier voor gegevens"
+
+#: view/ga-dashboard-widget.php:26
+msgid "Bounce Rate"
+msgstr "Bounce percentage"
+
+#: view/ga-dashboard-widget.php:25
+msgid "Organic Search"
+msgstr "Organisch zoeken"
+
+#: view/ga-dashboard-widget.php:24
+msgid "Users"
+msgstr "Gebruikers"
+
+#: view/ga-dashboard-widget.php:23
+msgid "Visits"
+msgstr "Bezoeken"
+
+#: view/ga-dashboard-widget.php:18
+msgid "Last 90 Days"
+msgstr "Afgelopen 90 dagen"
+
+#: view/ga-dashboard-widget.php:17
+msgid "Last 30 Days"
+msgstr "Afgelopen 30 dagen"
+
+#: view/ga-dashboard-widget.php:15
+msgid "Last 7 Days"
+msgstr "Afgelopen 7 dagen"
+
+#: view/trending.php:114
+msgid "Send"
+msgstr "Verzenden"
+
+#: view/trending.php:109
+msgid "Enter your email to receive an invite"
+msgstr "Voer je e-mailadres in om een uitnodiging te ontvangen"
+
+#: view/trending.php:100
+msgid ""
+"Interested in receiving alerts via slack or email? Sign into your Social Optimization Platform account and activate it!\n"
+"Enter your email and we'll send you an invite"
+msgstr ""
+"Geïnteresseerd in het ontvangen van waarschuwingen via slack of e-mail? Log in op je Social Optimization Platform account en activeer het!\n"
+"Voer je e-mail in en we sturen je een uitnodiging"
+
+#: view/trending.php:94
+msgid "Trending alerts"
+msgstr "Trending waarschuwingen"
+
+#: view/trending.php:77
+msgid "Click here to learn more"
+msgstr "Klik hier om meer te leren"
+
+#: view/trending.php:75
+msgid "You will see a history of trending content here once the first article takes off."
+msgstr "Je zult hier een geschiedenis van trending inhoud zien zodra het eerste artikel van start gaat."
+
+#: view/trending.php:39
+msgid "Time Notified"
+msgstr "Tijd gemeld"
+
+#: view/trending.php:36
+msgid "Views"
+msgstr "Weergaven"
+
+#: view/trending.php:33
+msgid "Top 5 Recent alerts"
+msgstr "Top 5 recente waarschuwingen"
+
+#: view/trending.php:25
+msgid "Please wait. Trending Content Alerts are loading."
+msgstr "Een ogenblik geduld. Trending Content Alerts worden geladen."
+
+#: view/trending.php:11
+msgid "Trending content"
+msgstr "Trending inhoud"
+
+#: view/templates/sidebar/gdpr-ad.php:57
+msgid "A centralized database where users can review the latest privacy policies and information pertaining to their cookie collection"
+msgstr "Een gecentraliseerde database waar gebruikers het nieuwste privacybeleid en informatie met betrekking tot hun cookieverzameling kunnen bekijken"
+
+#: view/templates/sidebar/gdpr-ad.php:54
+msgid "Access Data Rights"
+msgstr "Toegangsrechten voor gegevens"
+
+#: view/templates/sidebar/gdpr-ad.php:46
+msgid "A comprehensive record of company-level information that allows users to monitor and control the recipients of cookie collection"
+msgstr "Een uitgebreid overzicht van informatie op bedrijfsniveau waarmee gebruikers de ontvangers van het verzamelen van cookies kunnen controleren en controleren"
+
+#: view/templates/sidebar/gdpr-ad.php:43
+msgid "Indicate Company"
+msgstr "Bedrijf aangeven"
+
+#: view/templates/sidebar/gdpr-ad.php:33
+msgid "A transparent system of verifying the intent of collecting a user’s cookies, and giving the option to opt in or out"
+msgstr "Een transparant systeem om de intentie van het verzamelen van cookies van een gebruiker te verifiëren en de mogelijkheid te geven om zich aan of uit te melden"
+
+#: view/templates/sidebar/gdpr-ad.php:30
+msgid "Select Purpose"
+msgstr "Selecteer doel"
+
+#: view/templates/sidebar/gdpr-ad.php:22
+msgid "A simple and streamlined way to confirm a user’s initial acceptance or rejection of cookie collection"
+msgstr "Een eenvoudige en gestroomlijnde manier om de initiële acceptatie of afwijzing van het verzamelen van cookies door een gebruiker te bevestigen"
+
+#: view/templates/sidebar/gdpr-ad.php:19
+msgid "Confirm Consent"
+msgstr "Instemming bevestigen"
+
+#: view/templates/sidebar/gdpr-ad.php:12
+msgid "Check out our new GDPR Compliance Tool!"
+msgstr "Bekijk onze nieuwe GDPR compliancetool!"
+
+#: view/templates/sidebar/demo-ad.php:49
+msgid "Determine your site's age demographic and make the site more friendly to use for that group."
+msgstr "Bepaal de demografische leeftijd van je site en maak de site gebruiksvriendelijker voor die groep."
+
+#: view/templates/sidebar/demo-ad.php:46
+msgid "Age"
+msgstr "Leeftijd"
+
+#: view/templates/sidebar/demo-ad.php:36
+msgid "Understanding exactly which gender visits different areas of your website, could allow you to optimise those areas accordingly."
+msgstr "Als je precies begrijpt welk geslacht verschillende gebieden van je site bezoekt, kun je die gebieden dienovereenkomstig optimaliseren."
+
+#: view/templates/sidebar/demo-ad.php:33
+msgid "Gender"
+msgstr "Geslacht"
+
+#: view/templates/sidebar/demo-ad.php:25
+msgid "By viewing demographics data, you will learn more details about your visitors so you can deliver content/create products that address their needs!"
+msgstr "Door demografische gegevens te bekijken, leer je meer details over je bezoekers, zodat je inhoud kunt leveren/producten kunt maken die aan hun behoeften voldoen!"
+
+#: view/templates/sidebar/demo-ad.php:22
+msgid "Why Collect Demographics and Interests Data?"
+msgstr "Waarom demografische gegevens en interesses verzamelen?"
+
+#: view/templates/sidebar/demo-ad.php:20
+msgid "Find out more about your target audience by enabling the demographics feature!"
+msgstr "Kom meer te weten over je doelgroep door de demografiefunctie in te schakelen!"
+
+#: view/templates/sidebar/demo-ad.php:12
+msgid "Demographics data now available!"
+msgstr "Demografische gegevens nu beschikbaar!"
+
+#: view/templates/purposes.php:196
+msgid "10) Develop and improve products (Do you use data collected on your site visitors to improve your systems or software or create new products?)"
+msgstr "10) Producten ontwikkelen en verbeteren (Gebruik je gegevens die zijn verzameld over je sitebezoekers om je systemen of software te verbeteren of nieuwe producten te maken?)"
+
+#: view/templates/purposes.php:176
+msgid "9) Apply market research to generate audience insights (Do you aggregate reporting on the ads or content show to your site visitors to advertisers)"
+msgstr "9) Marktonderzoek toepassen om publieksinzichten te genereren (Doe je geaggregeerde rapportage over de advertenties of inhoud die wordt weergegeven aan je site bezoekers aan adverteerders)"
+
+#: view/templates/purposes.php:156
+msgid "8) Measure content performance  (Do you measure the performance of content served to your site visitors?)"
+msgstr "8) Meet de prestaties van de inhoud (Meet je de prestaties van de inhoud die wordt aangeboden aan je sitebezoekers?)"
+
+#: view/templates/purposes.php:136
+msgid "7) Measure ad performance (Do you measure the performance of advertisements on your site)"
+msgstr "7) Meet de advertentieprestaties (Meet je de prestaties van advertenties op je site)"
+
+#: view/templates/purposes.php:116
+msgid "6) Select personalised content (Do you serve content to the user on your site based on your recorded content interests)"
+msgstr "6) Selecteer gepersonaliseerde inhoud (Dien je inhoud aan de gebruiker op je site op basis van je geregistreerde inhoudsinteresses)"
+
+#: view/templates/purposes.php:96
+msgid "5) Create a personalised content profile (Do you build a personalized content profile associated with users on your site  based on the type of content they have viewed?)"
+msgstr "5) Maak een gepersonaliseerd inhoudsprofiel (Bouw je een gepersonaliseerd inhoudsprofiel dat is gekoppeld aan gebruikers op je site op basis van het type inhoud dat ze hebben bekeken?)"
+
+#: view/templates/purposes.php:76
+msgid "4) Select personalised ads (Do you show ads to users based on this user profile)"
+msgstr "4) Selecteer gepersonaliseerde advertenties (toon je advertenties aan gebruikers op basis van dit gebruikersprofiel)"
+
+#: view/templates/purposes.php:56
+msgid "3) Create a personalised ads profile (Do you create personalised advertising profiles associated with users on your site (ie: profiles based on demographic information, location, user’s activity)?)"
+msgstr "3) Maak een gepersonaliseerd advertentieprofiel (Maak je gepersonaliseerde advertentieprofielen die zijn gekoppeld aan gebruikers op je site (dwz: profielen op basis van demografische informatie, locatie, gebruikersactiviteit)?)"
+
+#: view/templates/purposes.php:48 view/templates/purposes.php:68
+#: view/templates/purposes.php:88 view/templates/purposes.php:108
+#: view/templates/purposes.php:128 view/templates/purposes.php:148
+#: view/templates/purposes.php:168 view/templates/purposes.php:188
+#: view/templates/purposes.php:208
+msgid "Legitimate Interest"
+msgstr "Gerechtvaardigd belang"
+
+#: view/templates/purposes.php:36
+msgid "2) Select basic ads (Do you serve ads on your site?)"
+msgstr "2) Selecteer basisadvertenties (geef je advertenties weer op je site?)"
+
+#: view/templates/purposes.php:28 view/templates/purposes.php:43
+#: view/templates/purposes.php:63 view/templates/purposes.php:83
+#: view/templates/purposes.php:103 view/templates/purposes.php:123
+#: view/templates/purposes.php:143 view/templates/purposes.php:163
+#: view/templates/purposes.php:183 view/templates/purposes.php:203
+msgid "Consent"
+msgstr "Instemming"
+
+#: view/templates/purposes.php:21
+msgid "1) Store and/or access information on a device (Do you collect information on users on your site through cookies or site identifiers?)"
+msgstr "1) Informatie opslaan en/of openen op een apparaat (Verzamel je informatie over gebruikers op je site via cookies of site ID's?)"
+
+#: view/templates/purposes.php:10
+msgid "WHY ARE YOU COLLECTING CUSTOMER DATA?"
+msgstr "WAAROM VERZAMEL JE KLANTGEGEVENS?"
+
+#: view/templates/gdpr.php:11
+msgid "Enable GDPR Consent Management Tool"
+msgstr "GDPR Consent Management Tool inschakelen"
+
+#: view/templates/gdpr-config.php:156
+msgid "Exclusions"
+msgstr "Uitsluitingen"
+
+#: view/templates/gdpr-config.php:145
+msgid "Purposes"
+msgstr "Doeleinden"
+
+#: view/templates/gdpr-config.php:134
+msgid "Appearance"
+msgstr "Weergave"
+
+#: view/templates/gdpr-config.php:114
+msgid "SELECT LANGUAGE"
+msgstr "SELECTEER TAAL"
+
+#: view/templates/gdpr-config.php:92
+msgid "WHICH USERS SHOULD BE ASKED FOR CONSENT?"
+msgstr "WELKE GEBRUIKERS MOETEN OM INSTEMMING WORDEN GEVRAAGD?"
+
+#: view/templates/gdpr-config.php:81
+msgid "PUBLISHER NAME * (this will be displayed in the consent tool)"
+msgstr "NAAM UITGEVER * (dit wordt weergegeven in de instemmingstool)"
+
+#: view/templates/gdpr-config.php:72
+msgid "Enable GDPR"
+msgstr "GDPR inschakelen"
+
+#: view/templates/gdpr-config.php:46
+msgid "All visitors globally"
+msgstr "Alle bezoekers wereldwijd"
+
+#: view/templates/gdpr-config.php:45
+msgid "Only visitors in the EU"
+msgstr "Alleen bezoekers in de EU"
+
+#: view/templates/exclusions.php:46
+msgid "Purposes: "
+msgstr "Doeleinden: "
+
+#: view/templates/exclusions.php:39
+msgid "Privacy Policy: "
+msgstr "Privacybeleid: "
+
+#: view/templates/exclusions.php:23
+msgid "Manage third-party vendors asking for consent across your sites."
+msgstr "Beheer externe leveranciers die om toestemming vragen op verschillende sites."
+
+#: view/templates/exclusions.php:15
+msgid "Vendor names"
+msgstr "Namen van leveranciers"
+
+#: view/templates/demographic.php:12
+msgid "Enable demographic charts"
+msgstr "Demografische grafieken inschakelen"
+
+#: view/templates/demographic-chart.php:73
+msgid "Demographic by sessions"
+msgstr "Demografisch per sessie"
+
+#: view/templates/demographic-chart.php:53
+msgid "Go to my account"
+msgstr "Ga naar mijn account"
+
+#: view/templates/demographic-chart.php:44
+#: view/templates/ga4-demographic-chart.php:48
+msgid "Wait until there's sufficient Demographic data to display."
+msgstr "Wacht totdat er voldoende demografische gegevens zijn om weer te geven."
+
+#: view/templates/demographic-chart.php:36
+#: view/templates/ga4-demographic-chart.php:40
+msgid "If you just enabled this feature, it may require a refresh prior to seeing data."
+msgstr "Als je deze functie zojuist hebt ingeschakeld, moet deze mogelijk worden vernieuwd voordat je gegevens ziet."
+
+#: view/templates/demographic-chart.php:33
+#: view/templates/ga4-demographic-chart.php:33
+msgid "Enable \"Demographics\" within Google Analytics."
+msgstr "Schakel \"Demografie\" in Google Analytics in."
+
+#: view/templates/demographic-chart.php:26
+#: view/templates/ga4-demographic-chart.php:25
+msgid "If no demographics data is shown, you'll most likely need to do one of the following:"
+msgstr "Als er geen demografische gegevens worden weergegeven, moet je waarschijnlijk een van de volgende handelingen uitvoeren:"
+
+#: view/templates/demographic-chart.php:15
+#: view/templates/ga4-demographic-chart.php:14
+msgid "Click Here To Enable"
+msgstr "Klik hier om in te schakelen"
+
+#: view/templates/demographic-chart.php:13
+#: view/templates/ga4-demographic-chart.php:12
+msgid "Get Demographic Data!"
+msgstr "Krijg demografische gegevens!"
+
+#: view/templates/date-custom-range-filter.php:31
+msgid "Filter"
+msgstr "Filter"
+
+#: view/templates/date-custom-range-filter.php:28
+msgid "To:"
+msgstr "Naar:"
+
+#: view/templates/date-custom-range-filter.php:24
+msgid "From:"
+msgstr "Van:"
+
+#: view/templates/appearance.php:10
+msgid "Form Color"
+msgstr "Formulierkleur"
+
+#: view/stats.php:300 view/stats.php:341 view/templates/ga4-dashboard.php:291
+msgid "Device Breakdown"
+msgstr "Apparaat storing"
+
+#: view/stats.php:299 view/stats.php:340 view/templates/ga4-dashboard.php:290
+msgid "Device"
+msgstr "Apparaat"
+
+#: view/stats.php:278 view/templates/ga4-dashboard.php:205
+#: view/templates/ga4-dashboard.php:209
+msgid "Day"
+msgstr "Dag"
+
+#: view/stats.php:263 view/templates/demographic-chart.php:100
+msgid "View Full Report"
+msgstr "Bekijk het volledige rapport"
+
+#: view/ga-dashboard-widget.php:22 view/stats.php:279
+msgid "Pageviews"
+msgstr "Paginaweergaven"
+
+#: view/stats.php:66
+msgid "Access Now"
+msgstr "Nu toegang"
+
+#: view/stats.php:58
+msgid "Visualize gender and age data with our new demographic feature."
+msgstr "Visualiseer geslachts- en leeftijdsgegevens met onze nieuwe demografische functie."
+
+#: view/statistics.php:74
+msgid "Please spread the word by leaving us a 5 star review!"
+msgstr "Verspreid het woord door ons een 5-sterren beoordeling achter te laten!"
+
+#: view/page.php:353
+msgid " Please help spread the word by leaving a 5-star review!"
+msgstr " Help mee het woord te verspreiden door een 5-sterren beoordeling achter te laten!"
+
+#: view/page.php:352 view/statistics.php:70
+msgid "Love this plugin?"
+msgstr "Hou je van deze plugin?"
+
+#: view/page.php:261
+msgid "Disable all features"
+msgstr "Alle functies uitschakelen"
+
+#: view/ga-ga4-settings.php:228 view/page.php:242
+msgid "If using Google Optimize, enter optimize code here"
+msgstr "Als je Google Optimize gebruikt, voer je hier de optimize code in"
+
+#: view/ga-ga4-settings.php:202 view/page.php:221
+msgid "Enable IP Anonymization"
+msgstr "IP-anonimisering inschakelen"
+
+#: view/ga-ga4-settings.php:168 view/page.php:189
+msgid "Exclude Tracking for Roles"
+msgstr "Tracking voor rollen uitsluiten"
+
+#: view/page.php:149
+msgid "Google Analytics Account"
+msgstr "Google Analytics account"
+
+#: view/page.php:142
+msgid "Please uncheck the \"Manually enter Tracking ID\" option to authenticate and view statistics."
+msgstr "Schakel de optie \"Tracking-ID handmatig invoeren\" uit om statistieken te verifiëren en te bekijken."
+
+#: view/page.php:141
+msgid "Notice"
+msgstr "Bericht"
+
+#: view/ga-ga4-settings.php:137 view/page.php:121
+msgid "Google Profile"
+msgstr "Google profiel"
+
+#: view/ga-ga4-settings.php:250 view/page.php:78 view/page.php:313
+msgid "Save Changes"
+msgstr "Wijzigingen opslaan"
+
+#: view/page.php:69
+msgid "Paste your access code here"
+msgstr "Plak je toegangscode hier"
+
+#: view/page.php:67
+msgid "Access Code"
+msgstr "Toegangscode"
+
+#: view/page.php:62
+msgid "Please paste the access code obtained from Google below:"
+msgstr "Plak hieronder de toegangscode die je van Google hebt verkregen:"
+
+#: view/page.php:45 view/templates/gdpr-config.php:61
+msgid "It appears you have an ad blocker enabled. To avoid affecting this plugin's functionality, please disable while using its admin configurations and registrations. Thank you."
+msgstr "Het lijkt erop dat je een adblocker hebt ingeschakeld. Om te voorkomen dat de functionaliteit van deze plugin wordt beïnvloed, schakel je deze uit tijdens het gebruik van de beheerder configuraties en registraties. Dank je wel."
+
+#: view/ga-debug-modal.php:37
+msgid "Copy"
+msgstr "Kopiëren"
+
+#: view/ga-dashboard-widget.php:75
+msgid "Show more details"
+msgstr "Toon meer details"
+
+#: view/ga-accounts-selector.php:21
+msgid "Please select your Google Analytics account:"
+msgstr "Selecteer je Google Analytics account:"
+
+#: lib/class-ga-lib-google-api-client-exception.php:84
+msgid "Google Reporting API - unknown error."
+msgstr "Google Reporting API - onbekende fout."
+
+#: lib/class-ga-lib-google-api-client.php:365
+msgid "Refresh token is not available. Please re-authenticate."
+msgstr "Vernieuwingstoken is niet beschikbaar. Gelieve opnieuw te verifiëren."
+
+#. translators: %s stands for the URL.
+#: lib/class-ga-lib-api-request.php:221
+msgid "Requested URL doesn't exists: %s"
+msgstr "De gevraagde URL bestaat niet: %s"
+
+#: lib/class-ga-lib-api-request.php:128
+msgid "cURL functions are not available"
+msgstr "cURL-functies zijn niet beschikbaar"
+
+#: lib/class-ga-lib-api-request.php:120
+msgid "There are temporary connection issues, please try again later."
+msgstr "Er zijn tijdelijke verbindingsproblemen, probeer het later opnieuw."
+
+#. translators: %s refers to the Google Analytics directory name.
+#: googleanalytics.php:51
+msgid "Invalid plugin installation directory. Please verify if the plugin's dir name is equal to \"%s\"."
+msgstr "Ongeldige plugin installatiefolder. Controleer of de naam van de plugin folder gelijk is aan \"%s\"."
+
+#: class/class-ga-notice.php:46
+msgid "There are temporary connection issues, please try again later or go to Google Analytics website to see the dashboards"
+msgstr "Er zijn tijdelijke verbindingsproblemen, probeer het later opnieuw of ga naar de Google Analytics site om de dashboards te bekijken"
+
+#. translators: %d stands for the Day or Days.
+#: class/class-ga-helper.php:850
+msgid "%d Day"
+msgid_plural "%d Days"
+msgstr[0] "%d Dag"
+msgstr[1] "%d Dagen"
+
+#. translators: %d stands for the Day or Days.
+#: class/class-ga-helper.php:843
+msgid "Last %d Day"
+msgid_plural "Last %d Days"
+msgstr[0] "Laatste %d dag"
+msgstr[1] "Laatste %d dagen"
+
+#: class/class-ga-helper.php:838
+msgid "This Week"
+msgstr "Deze week"
+
+#: class/class-ga-helper.php:834
+msgid "Today"
+msgstr "Vandaag"
+
+#. translators: %s is the settings page URL.
+#: class/class-ga-helper.php:339
+msgid "Statistics can only be seen after you authenticate with your Google account on the <a href=\"%s\">Settings page</a>."
+msgstr "Statistieken zijn alleen te zien na verificatie met je Google account op de <a href=\"%s\">Instellingenpagina</a>."
+
+#: class/class-ga-admin.php:742
+msgid "Google Analytics Dashboard"
+msgstr "Google Analytics dashboard"
+
+#: class/class-ga-admin.php:689 view/templates/demographic.php:16
+#: view/templates/demographic.php:21 view/templates/gdpr.php:16
+#: view/templates/gdpr.php:21 view/templates/sidebar/demo-ad.php:60
+#: view/templates/sidebar/demo-ad.php:65 view/templates/sidebar/gdpr-ad.php:68
+#: view/templates/sidebar/gdpr-ad.php:73
+msgid "Enable"
+msgstr "Inschakelen"
+
+#: class/class-ga-admin.php:679
+msgid "You have disabled all extra features, click here to enable Dashboards, Viral Alerts and Google API."
+msgstr "Jij hebt alle extra functies uitgeschakeld, klik hier om Dashboards, Viral Alerts en Google API in te schakelen."
+
+#: class/class-ga-admin.php:673
+msgid "Settings saved"
+msgstr "Instellingen opgeslagen"
+
+#: class/class-ga-admin.php:343 class/class-ga-admin.php:427
+msgid "Looks like cURL is not configured on your server. In order to authenticate your Google Analytics account and display statistics, cURL is required. Please contact your server administrator to enable it, or manually enter your Tracking ID."
+msgstr "Het lijkt erop dat cURL niet is geconfigureerd op je server. Om je Google Analytics account te verifiëren en statistieken weer te geven, is cURL vereist. Neem contact op met de beheerder van je server om het in te schakelen, of voer handmatig je Tracking ID in."
+
+#: class/class-ga-admin.php:326
+msgid "Saved data is shown, it will be refreshed soon"
+msgstr "Opgeslagen gegevens worden weergegeven, deze worden binnenkort vernieuwd"
+
+#: class/class-ga-admin.php:299
+msgid "GDPR"
+msgstr "GDPR"
+
+#: class/class-ga-admin.php:293 class/class-ga-admin.php:808 view/page.php:104
+msgid "Settings"
+msgstr "Instellingen"
+
+#: class/class-ga-admin.php:292 view/statistics.php:11
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: class/class-ga-admin.php:936
+#: class/controller/class-ga-admin-controller.php:59
+msgid "Invalid request."
+msgstr "Ongeldige aanvraag."
+
+#: class/controller/class-ga-admin-controller.php:52
+msgid "An invite was sent to this email"
+msgstr "Er is een uitnodiging verzonden naar deze e-mail"
+
+#. Author URI of the plugin
+msgid "http://sharethis.com"
+msgstr "http://sharethis.com"
+
+#. Author of the plugin
+msgid "ShareThis"
+msgstr "ShareThis"
+
+#. Description of the plugin
+msgid "Use Google Analytics on your WordPress site without touching any code, and view visitor reports right in your WordPress admin dashboard!"
+msgstr "Gebruik Google Analytics op je WordPress site zonder code aan te raken en bekijk bezoekersrapporten rechtstreeks in je WordPress beheerder dashboard!"
+
+#. Plugin URI of the plugin
+msgid "http://wordpress.org/extend/plugins/googleanalytics/"
+msgstr "http://wordpress.org/extend/plugins/googleanalytics/"
+
+#. Plugin Name of the plugin
+msgid "ShareThis Dashboard for Google Analytics"
+msgstr "ShareThis Dashboard for Google Analytics"

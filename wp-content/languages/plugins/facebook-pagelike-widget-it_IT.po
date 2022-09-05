@@ -1,0 +1,81 @@
+# Translation of Plugins - Widget for Social Page Feeds - Development (trunk) in Italian
+# This file is distributed under the same license as the Plugins - Widget for Social Page Feeds - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-08-23 13:15:40+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: it\n"
+"Project-Id-Version: Plugins - Widget for Social Page Feeds - Development (trunk)\n"
+
+#: fb_class.php:159
+msgid "Show Friend's Faces"
+msgstr "Mostra le Facce degli Amici"
+
+#: fb_class.php:155
+msgid "Hide Cover Photo"
+msgstr "Nascondi l'immagine di copertina"
+
+#. Author of the plugin
+msgid "Milap Patel"
+msgstr "Milap Patel"
+
+#. Description of the plugin
+msgid "This widget adds a Simple Facebook Page Like Widget into your WordPress website sidebar within few minutes."
+msgstr "Questo widget aggiunge un semplice Facebook Page Like Widget nella tua barra laterale del sito WordPress in pochi minuti."
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "https://patelmilap.wordpress.com/"
+msgstr "https://patelmilap.wordpress.com/"
+
+#: fb_class.php:210
+msgid "Custom Css:"
+msgstr "CSS personalizzato:"
+
+#: fb_class.php:186
+msgid "Language:"
+msgstr "Lingua:"
+
+#: fb_class.php:167
+msgid "Adapt To Plugin Container Width"
+msgstr "Adatta alla larghezza del contenitore del plugin"
+
+#: fb_class.php:174
+msgid "Set Height:"
+msgstr "Imposta altezza:"
+
+#: fb_class.php:170
+msgid "Set Width:"
+msgstr "Imposta larghezza:"
+
+#: fb_class.php:151
+msgid "Show posts from the Page timeline"
+msgstr "Mostra gli articoli dal diario della pagina"
+
+#: fb_class.php:163
+msgid "Show Small Header"
+msgstr "Mostra header piccolo"
+
+#: fb_class.php:118
+msgid "Valid Facebook Pages!"
+msgstr "Pagine Facebook valide!"
+
+#: fb_class.php:113
+msgid "Facebook Page Url:"
+msgstr "URL pagina Facebook:"
+
+#: fb_class.php:109
+msgid "Facebook Application Id:"
+msgstr "ID applicazione Facebook:"
+
+#: fb_class.php:116
+msgid "Works with only"
+msgstr "Funziona solo con"
+
+#: fb_class.php:105
+msgid "Title:"
+msgstr "Titolo:"

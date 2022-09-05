@@ -1,0 +1,658 @@
+# Translation of Themes - Accelerate in Indonesian
+# This file is distributed under the same license as the Themes - Accelerate package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-08-19 21:57:56+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: id\n"
+"Project-Id-Version: Themes - Accelerate\n"
+
+#. Description of the theme
+msgid "Accelerate is multipurpose WordPress theme made for simplicity and ease of use. This theme is a piece of art that has this premium look and feel which will make your site stand out. Supports all post formats. Accelerate can be used for portfolio, business, blog, personal, travel, corporate, business services or any other kinds of sites. Get free support in https://themegrill.com/contact/ and check the demo at https://themegrilldemos.com/accelerate/"
+msgstr "Accelerate adalah tema WordPress multiguna dibuat untuk kesederhanaan dan penggunaan yang mudah. Tema ini adalah bagian dari seni yang memiliki tampilan dan rasa premium yang akan membuat situs Anda gagah. Mendukung semua format artikel. Accelerate dapat digunakan untuk portofolio, bisnis, blog, situs pribadi, travel, perusahaan, layanan bisnis atau situs-situs lainnya. Dapatkan bantuan gratis di https://themegrill.com/contact/ dan lihat demo nya di https://themegrilldemos.com/accelerate/"
+
+#. Theme Name of the theme
+#: inc/admin/class-accelerate-admin.php:57
+#: inc/admin/class-accelerate-theme-review-notice.php:75
+#: inc/admin/class-accelerate-welcome-notice.php:46 inc/functions.php:566
+msgid "Accelerate"
+msgstr "Accelerate"
+
+#: inc/customizer.php:137
+msgid "Switch to new responsive menu."
+msgstr "Beralih ke menu responsif baru."
+
+#: inc/customizer.php:124
+msgid "Responsive Menu Style"
+msgstr "Gaya Menu Responsif"
+
+#: inc/admin/class-accelerate-dashboard.php:104
+msgid "Got theme support question?"
+msgstr "Ada pertanyaan seputar bantuan?"
+
+#: inc/admin/class-accelerate-admin.php:67
+#: inc/admin/class-accelerate-welcome-notice.php:26
+msgid "Get started with Accelerate"
+msgstr "Mulai Accelerate"
+
+#: inc/admin/class-accelerate-admin.php:61
+msgid "Welcome! Thank you for choosing Accelerate! To fully take advantage of the best our theme can offer please make sure you visit our %swelcome page%s."
+msgstr "Selamat Datang! Terimakasih telah memilih Accelerate! Untuk mendapatkan manfaat lebih dari apa yang tema ini bisa tawarkan pastikan Anda mengunjungu %swelcome page%s kami."
+
+#: inc/admin/class-accelerate-admin.php:52
+msgid "Dismiss"
+msgstr "Abaikan"
+
+#: inc/admin/class-accelerate-notice.php:63
+#: inc/admin/class-accelerate-notice.php:82
+#: inc/admin/class-accelerate-welcome-notice.php:81
+msgid "Cheatin&#8217; huh?"
+msgstr "Aneh huh?"
+
+#: inc/admin/class-accelerate-notice.php:59
+#: inc/admin/class-accelerate-notice.php:78
+#: inc/admin/class-accelerate-theme-review-notice.php:152
+#: inc/admin/class-accelerate-theme-review-notice.php:170
+#: inc/admin/class-accelerate-welcome-notice.php:77
+msgid "Action failed. Please refresh the page and retry."
+msgstr "Tindakan gagal. Silahkan muat ulang laman dan coba lagi."
+
+#: search.php:18
+msgid "Search Results"
+msgstr "Hasil Pencarian"
+
+#: inc/customizer.php:41
+msgid "View PRO version"
+msgstr "Lihat versi PRO"
+
+#. Template Name of the theme
+msgid "Contact Page Template"
+msgstr "Template Laman Kontak"
+
+#. Template Name of the theme
+msgid "Business Template"
+msgstr "Template Bisnis"
+
+#: sidebar-left.php:36 sidebar.php:36
+msgid "Meta"
+msgstr "Meta"
+
+#: searchform.php:11 searchform.php:12
+msgid "Search"
+msgstr "Cari"
+
+#: inc/admin/class-accelerate-dashboard.php:95
+msgid "Documentation"
+msgstr "Dokumentasi"
+
+#: inc/customizer.php:485
+msgid "Enter link to redirect for the slide title"
+msgstr "Masukkan link untuk mengarahkan pada judul slide"
+
+#: inc/customizer.php:472
+msgid "Left side"
+msgstr "Sisi kiri"
+
+#: inc/customizer.php:471
+msgid "Right side"
+msgstr "Sisi kanan"
+
+#: inc/customizer.php:467
+msgid "Slider text position."
+msgstr "Posisi teks slide."
+
+#: inc/customizer.php:452
+msgid "Enter description for this slide"
+msgstr "Masukkan deskripsi untuk slide ini"
+
+#: inc/customizer.php:438
+msgid "Enter title for this slide"
+msgstr "Masukkan judul untuk slide ini"
+
+#: inc/customizer.php:424
+msgid "Upload image"
+msgstr "Unggah Gambar"
+
+#: inc/customizer.php:411
+msgid "Slider #%1$s"
+msgstr "Slider #%1$s"
+
+#: inc/customizer.php:402
+msgid "Check to activate slider."
+msgstr "Centang untuk mengaktifkan slider."
+
+#: inc/customizer.php:389
+msgid "Activate slider"
+msgstr "Aktifkan slider"
+
+#: inc/customizer.php:383
+msgid "Slider"
+msgstr "Slider"
+
+#: inc/customizer.php:316
+msgid "Additional"
+msgstr "Tambahan"
+
+#: inc/customizer.php:305
+msgid "This will reflect in links, buttons and many others. Choose a color to match your site and logo."
+msgstr "Akan berdampak pada link, tombol dan banyak lagi. Pilih warna yang cocok untuk situs dan logo Anda."
+
+#: inc/customizer.php:293
+msgid "Primary color option"
+msgstr "Opsi warna utama"
+
+#: inc/customizer.php:284
+msgid "Small featured image with alternating sides"
+msgstr "Gambar andalan kecil dengan sisi bergantian"
+
+#: inc/customizer.php:283
+msgid "Small featured image"
+msgstr "Gambar andalan kecil"
+
+#: inc/customizer.php:282
+msgid "Large featured image"
+msgstr "Gambar andalan besar"
+
+#: inc/customizer.php:280
+msgid "Choose the display type for the latests posts view or posts page view (static front page)."
+msgstr "Tentukan jenis tampilan untuk tampilan pos terbaru atau tampilan laman (laman depan statis)."
+
+#: inc/customizer.php:267
+msgid "Posts page listing display type"
+msgstr "Jenis tampilan daftar Laman Pos"
+
+#: inc/customizer.php:253
+msgid "Select default layout for single posts. This layout will be reflected in all single posts unless unique layout is set for specific post."
+msgstr "Pilih tata letak default untuk pos. Tata letak ini akan berdampak pada semua pos kecuali tata letak unik diterapkan untuk pos tertentu."
+
+#: inc/customizer.php:240
+msgid "Default layout for single posts only"
+msgstr "Tata letak default hanya untuk pos tunggal"
+
+#: inc/customizer.php:226
+msgid "Select default layout for pages. This layout will be reflected in all pages unless unique layout is set for specific page."
+msgstr "Pilih tata letak default untuk laman. Tata letak ini akan berdampak pada semua laman kecuali tata letak unik diterapkan untuk laman tertentu."
+
+#: inc/customizer.php:213
+msgid "Default layout for pages only"
+msgstr "Tata letak default hanya untuk laman"
+
+#: inc/customizer.php:199
+msgid "Select default layout. This layout will be reflected in whole site archives, search etc. The layout for a single post and page can be controlled from below options."
+msgstr "Pilih tata letak default. Tata letak ini akan berdampak di keseluruhan situs arsip, pencarian, dll. Tata letak untuk pos dan laman tunggal bisa diatur dari opsi dibawah."
+
+#: inc/customizer.php:186
+msgid "Default layout"
+msgstr "Tata Letak Bawaan"
+
+#: inc/customizer.php:170
+msgid "Wide layout"
+msgstr "Tata letak lebar"
+
+#: inc/customizer.php:169
+msgid "Boxed layout"
+msgstr "Tata letak kotak"
+
+#: inc/customizer.php:167
+msgid "Choose your site layout. The change is reflected in whole site."
+msgstr "Tentukan tata letak situs Anda. Perubahan akan berdampaj di keseluruhan situs."
+
+#: inc/customizer.php:153
+msgid "Site Layout"
+msgstr "Tata Letak Situs"
+
+#: inc/customizer.php:147
+msgid "Design"
+msgstr "Desain"
+
+#: inc/customizer.php:117
+msgid "Position Three: Display the Header image below main/primary menu."
+msgstr "Posisi Tiga: Tampilkan gambar Header tepat dibawah menu utama."
+
+#: inc/customizer.php:116
+msgid "Position Two (Default): Display the Header image between site title/text and the main/primary menu."
+msgstr "Posisi Dua (Default): Tampilkan gambar Header diantara judul/teks situs dan menu utama."
+
+#: inc/customizer.php:115
+msgid "Position One: Display the Header image just above the site title/text."
+msgstr "Posisi Satu: Tampilkan gambar Header tepat diatas judul/teks situs."
+
+#: inc/customizer.php:112
+msgid "Choose top header image display position."
+msgstr "Tentukan posisi tampilan gambar header atas."
+
+#: inc/customizer.php:99
+msgid "Header Image Position"
+msgstr "Posisi Gambar Header"
+
+#: inc/customizer.php:86
+msgid "Choose the option that you want."
+msgstr "Pilih opsi semaumu."
+
+#: inc/customizer.php:73
+msgid "Show"
+msgstr "Tampilkan"
+
+#: inc/customizer.php:92
+msgid "Disable"
+msgstr "Tiadakan"
+
+#: inc/customizer.php:91
+msgid "Show Both"
+msgstr "Tampilkan Keduanya"
+
+#: inc/customizer.php:90
+msgid "Header Text Only"
+msgstr "Hanya Teks Header"
+
+#: inc/customizer.php:89
+msgid "Header Logo Only"
+msgstr "Hanya Logo Header"
+
+#: inc/customizer.php:66
+msgid "Header Logo"
+msgstr "Logo Header"
+
+#: inc/customizer.php:60
+msgid "Header"
+msgstr "Header"
+
+#: no-results.php:27
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "Rupanya kami tidak dapat menemukan hal yang sedang Anda cari. Cobalah pada pencarian."
+
+#: no-results.php:22
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "Maaf, tidak ada yang cocok dengan kata yang anda cari. Silahkan coba lagi dengan kata kunci yang lain."
+
+#: no-results.php:18
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "Sudah siap menerbitkan pos pertamamu? <a href=\"%1$s\">Mulai disini</a>."
+
+#: navigation.php:21 navigation.php:33
+msgid "Next &rarr;"
+msgstr "Selanjutnya &rarr;"
+
+#: navigation.php:20 navigation.php:32
+msgid "&larr; Previous"
+msgstr "&larr; Sebelumnya"
+
+#: inc/widgets/accelerate-custom-tag-widget.php:14
+msgid "TG: Custom Tag Cloud"
+msgstr "TG: Tag Awan Kustom"
+
+#: inc/widgets/accelerate-custom-tag-widget.php:10
+msgid "Custom Tag Cloud"
+msgstr "Tag Awan Kustom"
+
+#: inc/widgets/accelerate-image-service-widget.php:39
+msgid "Display Read more"
+msgstr "Tampilkan Baca selengkapnya"
+
+#: inc/widgets/accelerate-image-service-widget.php:14
+msgid "TG: Image Services"
+msgstr "TG: Gambar Layanan"
+
+#: inc/widgets/accelerate-image-service-widget.php:10
+msgid "Display some pages as services. Best for Business Top or Bottom sidebar."
+msgstr "Tampilkan beberapa laman sebagai layanan. Bagus untuk Sidebar Atas atau Bawah Bisnis."
+
+#: inc/widgets/accelerate-recent-work-widget.php:38
+msgid "Description"
+msgstr "Deskripsi"
+
+#: inc/widgets/accelerate-recent-work-widget.php:14
+msgid "TG: Featured Widget"
+msgstr "TG: Widget Andalan"
+
+#: inc/widgets/accelerate-recent-work-widget.php:10
+msgid "Show your some pages as recent work. Best for Business Top or Bottom sidebar."
+msgstr "Tampilkan beberapa laman Anda sebagai pekerjaan terbaru. Bagus untuk Sidebar Atas atau Bawah Bisnis."
+
+#: inc/widgets/accelerate-call-to-action-widget.php:45
+msgid "Open in new tab"
+msgstr "Buka di tab baru"
+
+#: inc/widgets/accelerate-call-to-action-widget.php:41
+msgid "Button Redirect Link:"
+msgstr "Link Pengarahan Tombol:"
+
+#: inc/widgets/accelerate-call-to-action-widget.php:37
+msgid "Button Text:"
+msgstr "Teks Tombol:"
+
+#: inc/widgets/accelerate-call-to-action-widget.php:34
+msgid "Call to Action Additional Text"
+msgstr "Teks Tambahan Tombol Tindakan"
+
+#: inc/widgets/accelerate-call-to-action-widget.php:32
+msgid "Call to Action Main Text"
+msgstr "Teks Utama Tombol Tindakan"
+
+#: inc/widgets/accelerate-call-to-action-widget.php:14
+msgid "TG: Call To Action Widget"
+msgstr "TG: Widget Tombol Tindakan"
+
+#: inc/widgets/accelerate-call-to-action-widget.php:10
+msgid "Use this widget to show the call to action section."
+msgstr "Gunakan widget ini untuk  menampilkan bagian tombol tindakan."
+
+#: inc/widgets/accelerate-featured-single-page-widget.php:43
+#: inc/widgets/accelerate-featured-single-page-widget.php:48
+msgid "Show Image After Title"
+msgstr "Tampilkan Gambar Setelah Judul"
+
+#: inc/widgets/accelerate-featured-single-page-widget.php:42
+#: inc/widgets/accelerate-featured-single-page-widget.php:47
+msgid "Show Image Before Title"
+msgstr "Tampilkan Gambar Sebelum Judul"
+
+#: inc/widgets/accelerate-featured-single-page-widget.php:37
+msgid "Remove Featured image"
+msgstr "Singkirkan gambar Andalan"
+
+#: inc/widgets/accelerate-featured-single-page-widget.php:33
+#: inc/widgets/accelerate-image-service-widget.php:32
+#: inc/widgets/accelerate-recent-work-widget.php:42
+msgid "Page"
+msgstr "Laman"
+
+#: inc/widgets/accelerate-featured-single-page-widget.php:30
+msgid "Displays the title of the Page if title input is empty."
+msgstr "Menampilkan judul Laman jika judul input kosong."
+
+#: inc/widgets/accelerate-custom-tag-widget.php:45
+#: inc/widgets/accelerate-featured-single-page-widget.php:27
+#: inc/widgets/accelerate-recent-work-widget.php:35
+msgid "Title:"
+msgstr "Judul:"
+
+#: inc/widgets/accelerate-featured-single-page-widget.php:24
+msgid "Suitable for Business Sidebar and Left/Right Sidebar."
+msgstr "Cocok untuk Sidebar Bisnis dan Sidebar Kiri/Kanan."
+
+#: inc/widgets/accelerate-featured-single-page-widget.php:15
+msgid "TG: Featured Single Page"
+msgstr "TG: Laman Tunggal Andalan"
+
+#: inc/widgets/accelerate-featured-single-page-widget.php:11
+msgid "Display Featured Single Page"
+msgstr "Tampilkan Laman Tunggal Andalan"
+
+#: inc/widgets/widgets.php:108
+msgid "Shows widgets at footer sidebar three."
+msgstr "Menampilkan widget di sidebar footer tiga."
+
+#: inc/widgets/widgets.php:106
+msgid "Footer Sidebar Three"
+msgstr "Sidebar Footer Tiga"
+
+#: inc/widgets/widgets.php:97
+msgid "Shows widgets at footer sidebar two."
+msgstr "Menampilkan widget di sidebar footer dua."
+
+#: inc/widgets/widgets.php:95
+msgid "Footer Sidebar Two"
+msgstr "Sidebar Footer Dua"
+
+#: inc/widgets/widgets.php:86
+msgid "Shows widgets at footer sidebar one."
+msgstr "Menampilkan widget di sidebar footer satu."
+
+#: inc/widgets/widgets.php:84
+msgid "Footer Sidebar One"
+msgstr "Sidebar Footer Satu"
+
+#: inc/widgets/widgets.php:75
+msgid "Shows widgets on Error 404 page."
+msgstr "Menampilkan widget di laman Error 404."
+
+#: inc/widgets/widgets.php:73
+msgid "Error 404 Page Sidebar"
+msgstr "Sidebar Laman Error 404"
+
+#: inc/widgets/widgets.php:64
+msgid "Shows widgets on Contact Page Template."
+msgstr "Menampilkan wdget di Template Laman Kontak."
+
+#: inc/widgets/widgets.php:62
+msgid "Contact Page Sidebar"
+msgstr "Sidebar Laman Kontak"
+
+#: inc/widgets/widgets.php:53
+msgid "Shows widgets on Business Page Template."
+msgstr "Menampilkan widget di Template Laman Bisnis."
+
+#: inc/widgets/widgets.php:51
+msgid "Business Sidebar"
+msgstr "Sidebar Bisnis"
+
+#: inc/widgets/widgets.php:42
+msgid "Shows widgets in header section just above the main navigation menu."
+msgstr "Menampilkan widget di bagian header tepat diatas menu navigasi utama."
+
+#: inc/widgets/widgets.php:40
+msgid "Header Sidebar"
+msgstr "Header Sidebar"
+
+#: inc/widgets/widgets.php:31
+msgid "Shows widgets at Left side."
+msgstr "Menampilkan widget di sisi Kiri."
+
+#: inc/widgets/widgets.php:20
+msgid "Shows widgets at Right side."
+msgstr "Menampilkan widget di sisi Kanan."
+
+#: inc/functions.php:568
+msgid "Theme: %1$s by %2$s."
+msgstr "Tema: %1$s oleh %2$s."
+
+#: inc/functions.php:568
+msgid "Powered by %s."
+msgstr "Dipersembahkan oleh %s."
+
+#: inc/functions.php:564
+msgid "WordPress"
+msgstr "WordPress"
+
+#: inc/functions.php:538
+msgid "Reply"
+msgstr "Balas"
+
+#: inc/functions.php:532
+msgid "Your comment is awaiting moderation."
+msgstr "Komentar Anda menunggu moderasi."
+
+#: inc/functions.php:524
+msgid "%1$s at %2$s"
+msgstr "%1$s pukul %2$s"
+
+#: inc/functions.php:521
+msgid "Post author"
+msgstr "Penulis pos"
+
+#: inc/functions.php:506
+msgid "(Edit)"
+msgstr "(Sunting)"
+
+#: inc/functions.php:506
+msgid "Pingback:"
+msgstr "Pingback:"
+
+#: inc/functions.php:480
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Pos erbaru <span class=\"meta-nav\">&rarr;</span>"
+
+#: inc/functions.php:476
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr "<span class=\"meta-nav\">&larr;</span> Pos terdahulu"
+
+#: inc/functions.php:471 navigation.php:41
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr "&rarr;"
+
+#: inc/functions.php:470 navigation.php:40
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr "&larr;"
+
+#: inc/functions.php:466
+msgid "Post navigation"
+msgstr "Navigasi pos"
+
+#: inc/functions.php:360
+msgid "Edit"
+msgstr "Sunting"
+
+#: inc/functions.php:357
+msgid "<i class=\"fa fa-comments\"></i> % Comments"
+msgstr "<i class=\"fa fa-comments\"></i> % Komentar"
+
+#: inc/functions.php:357
+msgid "<i class=\"fa fa-comment\"></i> 1 Comment"
+msgstr "<i class=\"fa fa-comment\"></i> 1 Komentar"
+
+#: inc/functions.php:357
+msgid "<i class=\"fa fa-comment\"></i> 0 Comment"
+msgstr "<i class=\"fa fa-comment\"></i> 0 Komentar"
+
+#: inc/functions.php:303
+msgid "<span class=\"cat-links\"><i class=\"fa fa-folder-open\"></i>%1$s</span>"
+msgstr "<span class=\"cat-links\"><i class=\"fa fa-folder-open\"></i>%1$s</span>"
+
+#: inc/functions.php:301 inc/functions.php:351
+msgid ", "
+msgstr ", "
+
+#: inc/admin/meta-boxes.php:48
+msgid "No Sidebar Content Centered"
+msgstr "Konten Tengah Tanpa Sidebar"
+
+#: inc/admin/meta-boxes.php:43
+msgid "No Sidebar Full Width"
+msgstr "Lebar Penuh Tanpa Sidebar"
+
+#: inc/admin/meta-boxes.php:38 inc/widgets/widgets.php:29
+msgid "Left Sidebar"
+msgstr "Sidebar Kiri"
+
+#: inc/admin/meta-boxes.php:33 inc/widgets/widgets.php:18
+msgid "Right Sidebar"
+msgstr "Sidebar Kanan"
+
+#: inc/admin/meta-boxes.php:28
+msgid "Default Layout"
+msgstr "Tata Letak Bawaan"
+
+#: inc/admin/meta-boxes.php:16 inc/admin/meta-boxes.php:18
+msgid "Select Layout"
+msgstr "Pilih Tata Letak"
+
+#: header.php:111
+msgid "Menu"
+msgstr "Menu"
+
+#: functions.php:95
+msgid "Footer Menu"
+msgstr "Menu Footer"
+
+#: functions.php:94
+msgid "Primary/Main Menu"
+msgstr "Menu Utama"
+
+#: content-page.php:26 content-single.php:31
+msgid "Pages:"
+msgstr "Laman:"
+
+#: content-blog-large-image.php:40 content-blog-small-image.php:41
+#: content.php:48 inc/widgets/accelerate-featured-single-page-widget.php:95
+#: inc/widgets/accelerate-image-service-widget.php:111
+msgid "Read more"
+msgstr "Baca selengkapnya"
+
+#: comments.php:67
+msgid "Comments are closed."
+msgstr "Komentar ditutup."
+
+#: comments.php:40 comments.php:57
+msgid "Newer Comments &rarr;"
+msgstr "Komentar Terbaru &rarr;"
+
+#: comments.php:39 comments.php:56
+msgid "&larr; Older Comments"
+msgstr "&larr; Komentar Terdahulu"
+
+#: comments.php:38 comments.php:55
+msgid "Comment navigation"
+msgstr "Navigasi komentar"
+
+#: comments.php:31
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "Satu gagasan untuk &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s gagasan untuk &ldquo;%2$s&rdquo;"
+
+#: archive.php:66 sidebar-left.php:29 sidebar.php:29
+msgid "Archives"
+msgstr "Arsip"
+
+#: archive.php:63
+msgid "Links"
+msgstr "Tautan"
+
+#: archive.php:60
+msgid "Quotes"
+msgstr "Kutipan"
+
+#: archive.php:57
+msgid "Videos"
+msgstr "Video"
+
+#: archive.php:54
+msgid "Images"
+msgstr "Gambar"
+
+#: archive.php:51
+msgid "Asides"
+msgstr "Asides"
+
+#: archive.php:48
+msgid "Year: %s"
+msgstr "Tahun: %s"
+
+#: archive.php:45
+msgid "Month: %s"
+msgstr "Bulan: %s"
+
+#: archive.php:42
+msgid "Day: %s"
+msgstr "Hari: %s"
+
+#: archive.php:34
+msgid "Author: %s"
+msgstr "Penulis: %s"
+
+#: 404.php:22
+msgid "It looks like nothing was found at this location. Try the search below."
+msgstr "Sepertinya tidak ada apa-apa disini. Cobalah pencarian dibawah."
+
+#: 404.php:20
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Ups! Laman tersebut tak bisa ditemukan."
+
+#. Author URI of the theme
+msgid "https://themegrill.com"
+msgstr "http://themegrill.com"
+
+#. Theme URI of the theme
+msgid "https://themegrill.com/themes/accelerate/"
+msgstr "http://themegrill.com/themes/accelerate/"
+
+#. Author of the theme
+msgid "ThemeGrill"
+msgstr "ThemeGrill"

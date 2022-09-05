@@ -1,0 +1,656 @@
+# Translation of Plugins - Maps Widget for Google Maps &#8211; Google Maps Builder - Stable (latest release) in German
+# This file is distributed under the same license as the Plugins - Maps Widget for Google Maps &#8211; Google Maps Builder - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2018-07-25 06:10:53+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha\n"
+"Language: de\n"
+"Project-Id-Version: Plugins - Maps Widget for Google Maps &#8211; Google Maps Builder - Stable (latest release)\n"
+
+#: google-maps-widget.php:587
+msgid "Help make the plugin better by rating it"
+msgstr "Hilf uns das Plugin zu verbessern indem du es bewertest"
+
+#: gmw-widget.php:202
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: google-maps-widget.php:982
+msgid "Import pins"
+msgstr "Pins importieren"
+
+#: gmw-widget.php:365
+msgid "Pins Filtering"
+msgstr "Pins filtern"
+
+#: gmw-widget.php:196 gmw-widget.php:201
+msgid "Disabled (default)"
+msgstr "Deaktiviert (Standard)"
+
+#: gmw-widget.php:199
+msgid "Large cluster radius"
+msgstr "Großer Radius für die Gruppierung"
+
+#: gmw-widget.php:198
+msgid "Medium cluster radius"
+msgstr "Mittlerer Radius für die Gruppierung"
+
+#: gmw-widget.php:197
+msgid "Small cluster radius"
+msgstr "Kleiner Radius für die Gruppierung"
+
+#: gmw-widget.php:360
+msgid "Pins Clustering"
+msgstr "Pin-Gruppierung"
+
+#: gmw-widget.php:170
+msgid "Custom scheme to match your site"
+msgstr "Farbschema zur Anpassung an deine Website"
+
+#: gmw-widget.php:150
+msgid "Skip thumbnail map, immediately show interactive one"
+msgstr "Miniaturbild-Karte überspringen, sofort die interaktive anzeigen"
+
+#: gmw-widget.php:320
+msgid "Show Appreciation"
+msgstr "Wertung anzeigen"
+
+#: gmw-widget.php:178
+msgid "No, I do not want to do that"
+msgstr "Nein, das möchte ich nicht tun"
+
+#: gmw-widget.php:179
+msgid "Please, let us show a tiny link below the map so that others can learn about GMW too"
+msgstr "Lass uns bitte einen winzigen Link unter der Karte anzeigen, damit auch andere von GMW erfahren"
+
+#: google-maps-widget.php:561 google-maps-widget.php:575
+msgid "I'm not interested (remove notice)"
+msgstr "Ich bin nicht interessiert (Benachrichtigung ausblenden)"
+
+#: gmw-widget.php:243
+msgid "Pins"
+msgstr "Pins"
+
+#: gmw-widget.php:230
+msgid "Optional Map title"
+msgstr "Optionaler Kartenname"
+
+#: gmw-widget.php:169
+msgid "Ultra Light"
+msgstr "Ultraleicht"
+
+#: google-maps-widget.php:1221
+msgid "Invalid API respone."
+msgstr "Ungültige API-Antwort."
+
+#: google-maps-widget.php:1216
+msgid "An unexpected HTTP error occurred during the API request."
+msgstr "Ein unerwarteter HTTP-Fehler ist während der API-Anforderung aufgetreten."
+
+#: google-maps-widget.php:1049
+msgid "Include Google Maps API JS"
+msgstr "Google Maps API JS inkludieren"
+
+#: google-maps-widget.php:984
+msgid "PRO License"
+msgstr "PRO-Lizenz"
+
+#: google-maps-widget.php:558
+msgid "See what PRO has to offer"
+msgstr "Sieh dir an, was PRO anzubieten hat"
+
+#: gmw-widget.php:190
+msgid "Close on Esc key (upgrade to PRO)"
+msgstr "Schließen durch Esc-Taste (auf PRO upgraden)"
+
+#: gmw-widget.php:189
+msgid "Show close button (upgrade to PRO)"
+msgstr "Schließen-Button anzeigen (auf PRO upgraden)"
+
+#: google-maps-widget.php:622
+msgid "To see what the PRO version offers please open GMW settings in the admin."
+msgstr "Um zu sehen, was die PRO Version anbietet, öffne bitte die GMW-Einstellungen im Adminpanel."
+
+#: google-maps-widget.php:621
+msgid "At the moment, the address picker is not available in the theme customizer. Please use it in the admin widget GUI."
+msgstr "Zur Zeit ist der Adress-Picker nicht im Theme-Customizer verfügbar. Bitte verwende es im Adminwidget GUI."
+
+#: google-maps-widget.php:1065
+msgid "Disable Hidden Sidebar"
+msgstr "Verborgene Seitenleiste deaktivieren"
+
+#: google-maps-widget.php:615
+msgid "The API key format does not look right. Please double-check it."
+msgstr "Das Format des API-Schlüssels sieht nicht richtig aus. Bitte überprüde es noch einmal."
+
+#: google-maps-widget.php:1119
+msgid "Please double-check the license key. The format is not valid."
+msgstr "Bitte überprüfe den Lizenzschlüssel noch einmal. Das Format ist nicht gültig."
+
+#: google-maps-widget.php:1083
+msgid "Import widgets"
+msgstr "Widgets importieren"
+
+#: google-maps-widget.php:1078
+msgid "Export widgets"
+msgstr "Widgets exportieren"
+
+#: google-maps-widget.php:1027
+msgid "Save Settings"
+msgstr "Einstellungen speichern"
+
+#: google-maps-widget.php:588
+msgid "I already rated the plugin"
+msgstr "Ich habe das Plugin bereits bewertet"
+
+#: google-maps-widget.php:1057
+msgid "Include Colorbox JS"
+msgstr "Colorbox JS inkludieren"
+
+#: google-maps-widget.php:1045
+msgid "Include jQuery"
+msgstr "jQuery inkludieren"
+
+#: google-maps-widget.php:1036
+msgid "Map Shortcode"
+msgstr "Karten-Shortcode"
+
+#: google-maps-widget.php:1020
+msgid "Google Maps API Key"
+msgstr "Google Maps API-Schlüssel"
+
+#: google-maps-widget.php:983
+msgid "Export &amp; Import"
+msgstr "Export &amp; Import"
+
+#: google-maps-widget.php:620
+msgid "Drag&drop address picking interface is a PRO feature. Interested in switching to PRO?"
+msgstr "Drag & Drop von Adressen ist ein PRO-Feature. Bist du daran interessiert, zu PRO zu wechseln?"
+
+#: google-maps-widget.php:617
+msgid "Pins Library"
+msgstr "Pin-Bibliothek"
+
+#: google-maps-widget.php:215
+msgid "Activate PRO features"
+msgstr "PRO-Features aktivieren"
+
+#: google-maps-widget.php:1061
+msgid "Disable Admin Tooltips"
+msgstr "Admin-Tooltips deaktivieren"
+
+#: google-maps-widget.php:1041
+msgid "Track with Google Analytics"
+msgstr "Tracking mit Google Analytics"
+
+#: google-maps-widget.php:613
+msgid "Pick an address by drag &amp; dropping the pin"
+msgstr "Wähle eine Adresse durch das Ziehen &amp; und Loslassen des Pins"
+
+#: google-maps-widget.php:1053
+msgid "Include Colorbox &amp; Thumbnail CSS"
+msgstr "Colorbox &amp; Thumbnail-CSS einschließen"
+
+#: google-maps-widget.php:200 google-maps-widget.php:981
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: gmw-widget.php:589
+msgid "Click to open the interactive map in a new window"
+msgstr "Klicken, um die interaktive Karte in einem neuen Fenster zu öffnen"
+
+#: gmw-widget.php:581
+msgid "Click to open an interactive map"
+msgstr "Klicken, um eine interaktive Karte zu öffnen"
+
+#: gmw-widget.php:580
+msgid "Click to open the interactive map"
+msgstr "Klicken, um die interaktive Karte zu öffnen"
+
+#: google-maps-widget.php:142
+msgid "Google Maps API key is not valid. Access <a href=\"https://console.developers.google.com/project\">Google Developers Console</a> to generate a key for free."
+msgstr "Google Maps API-Schlüssel ist nicht gültig. Gehe zur <a href=\"https://console.developers.google.com/project\">Google Entwickler-Konsole</a> um einen Gratis-Schlüssel zu generieren."
+
+#: gmw-widget.php:432
+msgid "Activate <span class=\"gmw-pro-red\">PRO</span> features"
+msgstr "Die <span class=\"gmw-pro-red\">PRO</span>-Funktionen aktivieren."
+
+#: gmw-widget.php:310 gmw-widget.php:386
+msgid "Map Language"
+msgstr "Kartensprache"
+
+#: gmw-widget.php:382
+msgid "Click to choose features"
+msgstr "Klicken, um Features auszuwählen"
+
+#: gmw-widget.php:380
+msgid "Lightbox Features"
+msgstr "Lightbox Features"
+
+#: gmw-widget.php:346
+msgid "Map Mode"
+msgstr "Kartenmodus"
+
+#: gmw-widget.php:338
+msgid "Lightbox Size"
+msgstr "Lightbox Größe"
+
+#: gmw-widget.php:305
+msgid "Image Format"
+msgstr "Bildformat"
+
+#: gmw-widget.php:242
+msgid "Interactive Map"
+msgstr "Interaktive Karte"
+
+#: gmw-widget.php:234
+msgid "Address / location to show"
+msgstr "Adresse / Standort, der anzuzeigen ist"
+
+#: gmw-widget.php:103
+msgid "PRO offers unlimited color choices"
+msgstr "PRO bietet unlimitierte Farbauswahl"
+
+#: gmw-widget.php:287
+msgid "Pin Label"
+msgstr "Pinlabel"
+
+#: gmw-widget.php:106
+msgid "Choose a custom label by going PRO"
+msgstr "Wähle ein benutzerdefiniertes Label, indem du auf PRO umsteigst"
+
+#: gmw-widget.php:173
+msgid "Add 4 more image formats"
+msgstr "Füge  4 weitere Bildformate hinzu"
+
+#: gmw-widget.php:145
+msgid "GMW pins library (1500+ pins)"
+msgstr "GMW Pin-Bibliothek (1500+ Pins)"
+
+#: gmw-widget.php:176 gmw-widget.php:185
+msgid "Add auto-detection and 50 more languages"
+msgstr "Füge eine automatische Erkennung sowie 50 weitere Sprachen hinzu"
+
+#: gmw-widget.php:119
+msgid "Fullscreen"
+msgstr "Vollbild"
+
+#: gmw-widget.php:86
+msgid "View (clean map, no markers)"
+msgstr "Anschauen (Karte ohne Marker)"
+
+#: gmw-widget.php:85
+msgid "Street View"
+msgstr "Street View"
+
+#: gmw-widget.php:140
+msgid "Vintage"
+msgstr "Nostalgisch"
+
+#: gmw-widget.php:84
+msgid "Search"
+msgstr "Suchen"
+
+#: gmw-widget.php:83
+msgid "Directions"
+msgstr "Richtungen"
+
+#: gmw-widget.php:141
+msgid "Wood"
+msgstr "Wald"
+
+#: gmw-widget.php:124
+msgid "Cartoonish"
+msgstr "Cartoon-Stil"
+
+#: gmw-widget.php:138
+msgid "Squared white"
+msgstr "Quadratisch weiß"
+
+#: gmw-widget.php:137
+msgid "Squared black"
+msgstr "Quadratisch black"
+
+#: gmw-widget.php:136
+msgid "Simple"
+msgstr "Simple"
+
+#: gmw-widget.php:139
+msgid "Tablet"
+msgstr "Tablet"
+
+#: gmw-widget.php:135
+msgid "Shadow"
+msgstr "Schatten"
+
+#: gmw-widget.php:132
+msgid "Polaroid"
+msgstr "Polaroid"
+
+#: gmw-widget.php:129
+msgid "Minimalistic"
+msgstr "Minimalistisch"
+
+#: gmw-widget.php:130
+msgid "Minimalistic #2"
+msgstr "Minimalistisch #2"
+
+#: gmw-widget.php:134
+msgid "Rounded white"
+msgstr "Abgerundet weiß"
+
+#: gmw-widget.php:128
+msgid "Gray squared"
+msgstr "Grau quadratisch"
+
+#: gmw-widget.php:165
+msgid "Midnight"
+msgstr "Midnight"
+
+#: gmw-widget.php:149
+msgid "Interactive map in a new window"
+msgstr "Interaktive Karte in einem neuen Fenster"
+
+#: gmw-widget.php:148
+msgid "Replace thumb map with an interactive map"
+msgstr "Thumbnail durch eine interaktive Karte ersetzen"
+
+#: gmw-widget.php:152
+msgid "Custom URL in a new window"
+msgstr "Benutzerdefinierte URL in einem neuen Fenster"
+
+#: gmw-widget.php:167
+msgid "Pale"
+msgstr "Hell"
+
+#: gmw-widget.php:163
+msgid "Light"
+msgstr "Hell"
+
+#: gmw-widget.php:194
+msgid "Metric"
+msgstr "Metrisches System"
+
+#: gmw-widget.php:192
+msgid "Detect automatically"
+msgstr "Automatisch erkennen"
+
+#: gmw-widget.php:172
+msgid "PNG 8-bit (default)"
+msgstr "PNG 8-Bit (Standard)"
+
+#: gmw-widget.php:147
+msgid "Interactive map in lightbox (default)"
+msgstr "Interaktive Karte in Lightbox (Standard)"
+
+#: gmw-widget.php:143
+msgid "Predefined by Google (default)"
+msgstr "Durch Google vorbestimmt (Standard)"
+
+#: gmw-widget.php:105
+msgid "A (default)"
+msgstr "A (Standard)"
+
+#: gmw-widget.php:82
+msgid "Place (default)"
+msgstr "Ort (Standard)"
+
+#: gmw-widget.php:193
+msgid "Imperial"
+msgstr "Imperial"
+
+#: gmw-widget.php:188
+msgid "Close on overlay click"
+msgstr "Schließen durch Overlay-Klick"
+
+#: gmw-widget.php:187
+msgid "Show map title"
+msgstr "Kartentitel anzeigen"
+
+#: gmw-widget.php:144
+msgid "Custom image"
+msgstr "Benutzerdefiniertes Bild"
+
+#: gmw-widget.php:118
+msgid "Custom size (default)"
+msgstr "Benutzerdefinierte Größe (Standard)"
+
+#: gmw-widget.php:159
+msgid "Bright"
+msgstr "Hell"
+
+#: gmw-widget.php:162
+msgid "Gray #2"
+msgstr "Grau #2"
+
+#: google-maps-widget.php:614
+msgid "An undocumented error has occured. Please refresh the page and try again."
+msgstr "Ein nicht dokumentierter Fehler ist aufgetreten. Bitte aktualisiere die Seite und versuche es erneut."
+
+#: gmw-widget.php:108
+msgid "0 - entire world"
+msgstr "0 - ganze Welt"
+
+#: gmw-widget.php:232
+msgid "Address"
+msgstr "Adresse"
+
+#: gmw-widget.php:93
+msgid "Black"
+msgstr "Schwarz"
+
+#: gmw-widget.php:94 gmw-widget.php:123 gmw-widget.php:158
+msgid "Blue"
+msgstr "Blau"
+
+#: gmw-widget.php:95
+msgid "Brown"
+msgstr "Braun"
+
+#: google-maps-widget.php:212
+msgid "Documentation"
+msgstr "Dokumentation"
+
+#: gmw-widget.php:96 gmw-widget.php:161
+msgid "Gray"
+msgstr "Grau"
+
+#: gmw-widget.php:97
+msgid "Green"
+msgstr "Grün"
+
+#: gmw-widget.php:73
+msgid "Hybrid"
+msgstr "Hybrid"
+
+#: gmw-widget.php:62
+msgid "Map"
+msgstr "Karte"
+
+#: gmw-widget.php:90
+msgid "Medium"
+msgstr "Mittel"
+
+#: gmw-widget.php:98
+msgid "Orange"
+msgstr "Orange"
+
+#: gmw-widget.php:99
+msgid "Purple"
+msgstr "Lila"
+
+#: gmw-widget.php:75 gmw-widget.php:80
+msgid "Satellite"
+msgstr "Satellit"
+
+#: gmw-widget.php:89
+msgid "Small"
+msgstr "Klein"
+
+#: gmw-widget.php:76
+msgid "Terrain"
+msgstr "Gelände"
+
+#: gmw-widget.php:325 gmw-widget.php:391
+msgid "Text Above Map"
+msgstr "Text über der Karte"
+
+#: gmw-widget.php:329 gmw-widget.php:395
+msgid "Text Below Map"
+msgstr "Text unter der Karte"
+
+#: gmw-widget.php:241
+msgid "Thumbnail Map"
+msgstr "Miniatur-Karte"
+
+#: gmw-widget.php:88
+msgid "Tiny"
+msgstr "Winzig"
+
+#: gmw-widget.php:229
+msgid "Title"
+msgstr "Titel"
+
+#: gmw-widget.php:101
+msgid "White"
+msgstr "Weiß"
+
+#: google-maps-widget.php:201
+msgid "Widgets"
+msgstr "Widgets"
+
+#: gmw-widget.php:102
+msgid "Yellow"
+msgstr "Gelb"
+
+#: gmw-widget.php:151 gmw-widget.php:301
+msgid "Custom URL"
+msgstr "Benutzerdefinierte URL"
+
+#: gmw-widget.php:155
+msgid "Default"
+msgstr "Standard"
+
+#: gmw-widget.php:244
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: gmw-widget.php:121
+msgid "Dark"
+msgstr "Dunkel"
+
+#: google-maps-widget.php:214
+msgid "Review the plugin"
+msgstr "Plugin bewerten"
+
+#: google-maps-widget.php:213
+msgid "Problems? We are here to help!"
+msgstr "Probleme? Wir sind da, um zu helfen!"
+
+#: gmw-widget.php:576 gmw-widget.php:577
+msgid "Click to open a larger map"
+msgstr "Klicken, um eine größere Karte zu öffnen"
+
+#: gmw-widget.php:375
+msgid "Lightbox Skin"
+msgstr "Lightbox Skin"
+
+#: gmw-widget.php:296
+msgid "Link To"
+msgstr "Link zu"
+
+#: gmw-widget.php:156
+msgid "Refreshed by Google"
+msgstr "Von Google aktualisiert"
+
+#: gmw-widget.php:153
+msgid "Disable link"
+msgstr "Link deaktivieren"
+
+#: gmw-widget.php:91
+msgid "Large (default)"
+msgstr "Groß (Standard)"
+
+#: gmw-widget.php:100
+msgid "Red (default)"
+msgstr "Rot (Standard)"
+
+#: gmw-widget.php:74 gmw-widget.php:79
+msgid "Road (default)"
+msgstr "Straße (Standard)"
+
+#: gmw-widget.php:63
+msgid "New York, USA"
+msgstr "New York, USA"
+
+#: google-maps-widget.php:214
+msgid "If you like it, please review the plugin"
+msgstr "Wenn es dir gefällt, rezensiere bitte das Plugin"
+
+#: gmw-widget.php:436
+msgid "Rate the plugin &amp; spread the word"
+msgstr "Bewerte das Plugin &amp; und sag es weiter"
+
+#: google-maps-widget.php:213 gmw-widget.php:428
+msgid "Support"
+msgstr "Support"
+
+#: gmw-widget.php:260
+msgid "Color Scheme"
+msgstr "Farbschema"
+
+#: gmw-widget.php:265 gmw-widget.php:370
+msgid "Zoom Level"
+msgstr "Zoomstufe"
+
+#: gmw-widget.php:245
+msgid "Info &amp; Support"
+msgstr "Info &amp; Support"
+
+#: gmw-widget.php:122
+msgid "Light (default)"
+msgstr "Hell (Standard)"
+
+#: gmw-widget.php:58
+msgid "Displays a map image thumbnail with a larger map available in a lightbox."
+msgstr "Zeigt eine Miniaturbild-Karte, wobei eine größere Karte in einer Lightbox zur Verfügung steht. "
+
+#: gmw-widget.php:292
+msgid "Pin Image URL"
+msgstr "Pinbild-URL"
+
+#: gmw-widget.php:282
+msgid "Pin Size"
+msgstr "Pin-Größe"
+
+#: gmw-widget.php:276
+msgid "Pin Color"
+msgstr "Pin-Farbe"
+
+#: gmw-widget.php:270
+msgid "Pin Type"
+msgstr "Pin-Typ"
+
+#: gmw-widget.php:255 gmw-widget.php:355
+msgid "Map Type"
+msgstr "Karten-Typ"
+
+#: gmw-widget.php:250
+msgid "Map Size"
+msgstr "Karten-Größe"
+
+#: gmw-widget.php:157
+msgid "Apple"
+msgstr "Apple"
+
+#: gmw-widget.php:168
+msgid "Paper"
+msgstr "Papier"
+
+#: gmw-widget.php:133
+msgid "Rounded"
+msgstr "Abgerundet"
