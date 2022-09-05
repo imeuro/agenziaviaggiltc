@@ -127,7 +127,6 @@ function GenerateDownloads_afterPayment( $order_id ) {
 				$download->set_file( $file_url );
 
 				$downloads[$attachment_id] = $download;
-				$downloads[$attachment_id]['used_in_order']= $order_id;
 
 				$cart_item_dl->set_download_limit( 3 ); // can be downloaded only once
 				$cart_item_dl->set_download_expiry( 7 ); // expires in a week
@@ -289,10 +288,19 @@ function load_custom_plugin_translation_file( $mofile, $domain ) {
 
 
 // backend enhancements:
-add_action( 'woocommerce_before_order_itemmeta', 'so_7241_before_order_itemmeta', 10, 3 );
-function so_7241_before_order_itemmeta( $item_id, $item, $_product ){
+add_action( 'woocommerce_admin_order_data_after_shipping_address', 'ltc_PrintTicketNumber' );
 
-	// TODO: 
-	// mostrare i vari codici dei biglietti generati per questo specifico ordine
-	echo "<p>bacon!</p>";
+function ltc_PrintTicketNumber( $order ){
+	echo '<div class="clear"></div>';
+	echo '<h3>Biglietti assegnati al cliente</h3>';
+	//print_r($order->get_id());
+	$order_id = $order->get_id();
+	$downloads = get_post_meta( $order_id, '_Order_Downloads', true );
+	echo '<p>';
+	foreach($downloads as $ticket) {
+		//print_r($ticket);
+		echo $ticket["name"].'<br/>';
+	}
+	echo '</p>';
+	echo '<div class="clear"></div>';
 }
