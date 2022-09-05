@@ -193,7 +193,7 @@ function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
 	    
 	   // LOG DL details
 	   // $logger->info( wc_print_r( $download, true ) );
-	   $logger->info( wc_print_r($download['file']['file'], true ) );
+	   $logger->info( wc_print_r($download['file'], true ) );
 	 
 
   		$attachments[] = $download['file']['file'];
