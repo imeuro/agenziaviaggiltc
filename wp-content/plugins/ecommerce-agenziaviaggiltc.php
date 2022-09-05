@@ -128,7 +128,6 @@ function GenerateDownloads_afterPayment( $order_id ) {
 
 				$downloads[$attachment_id] = $download;
 				$downloads[$attachment_id]['used_in_order']= $order_id;
-				$downloads[$attachment_id]['folder']= $PDFfolder;
 
 				$cart_item_dl->set_download_limit( 3 ); // can be downloaded only once
 				$cart_item_dl->set_download_expiry( 7 ); // expires in a week
@@ -182,22 +181,19 @@ function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
   	$downloads             	= $order->get_downloadable_items();
   	$unique_downloads 		= unique_multidim_array($downloads,'download_id');
 
-  	// TODO: recuperare $PDFfolder!!!
-  	// forse lo devo appendere a ogni singolo item di $downloads in fase di creazione
-  	$PDFfolder = 'PDF39';
-
   	foreach ($unique_downloads as $download) {
-  		// $attachments[] = ABSPATH . "/wp-content/uploads/woocommerce_uploads/".$order_id.".pdf";
-  		// LOAD THE WC LOGGER
-	   $logger = wc_get_logger();
-	    
-	   // LOG DL details
-	   // $logger->info( wc_print_r( $download, true ) );
-	   $logger->info( wc_print_r($download['download_url'], true ) );
-	 
 
-  		$attachments[] = $download['download_url'];
-  		// $attachments[] = ABSPATH . "/wp-content/uploads/woocommerce_uploads/". $download['folder'] . "/" . $download['download_name'];
+  		// LOAD THE WC LOGGER
+		$logger = wc_get_logger();
+		// LOG DL details
+		$logger->info( '+++++' );
+		$logger->info( "tickets attached to order #".$order_id.": " );
+		$logger->info( wc_print_r(ABSPATH . parse_url($download["file"]["file"], PHP_URL_PATH), true ) );
+
+		$DL_path = parse_url($download["file"]["file"], PHP_URL_PATH);
+		$DL_path = echo ltrim($DL_path = , '/');
+  		$attachments[] = ABSPATH . $DL_path;
+
   	}
 
 	return $attachments;
@@ -213,7 +209,7 @@ function email_order_user_meta( $order, $sent_to_admin, $plain_text ) {
   	if (!empty($unique_downloads)) :
 		echo '<p><strong>codici biglietti acquistati:</strong><br>';
 		foreach ($unique_downloads as $download) {
-			$ticket_code = str_ireplace('.php', '', $download['download_name']);
+			$ticket_code = str_ireplace('.pdf', '', $download['download_name']);
 			echo $ticket_code.'<br>';
 		}
 		echo '</p>';
