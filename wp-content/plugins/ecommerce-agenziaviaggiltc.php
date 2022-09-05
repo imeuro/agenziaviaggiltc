@@ -193,10 +193,10 @@ function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
 	    
 	   // LOG DL details
 	   // $logger->info( wc_print_r( $download, true ) );
-	   $logger->info( wc_print_r($download['file'], true ) );
+	   $logger->info( wc_print_r($download['download_url'], true ) );
 	 
 
-  		$attachments[] = $download['file']['file'];
+  		$attachments[] = $download['download_url'];
   		// $attachments[] = ABSPATH . "/wp-content/uploads/woocommerce_uploads/". $download['folder'] . "/" . $download['download_name'];
   	}
 
