@@ -128,6 +128,7 @@ function GenerateDownloads_afterPayment( $order_id ) {
 
 				$downloads[$attachment_id] = $download;
 				$downloads[$attachment_id]['used_in_order']= $order_id;
+				$downloads[$attachment_id]['folder']= $PDFfolder;
 
 				$cart_item_dl->set_download_limit( 3 ); // can be downloaded only once
 				$cart_item_dl->set_download_expiry( 7 ); // expires in a week
@@ -187,7 +188,7 @@ function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
 
   	foreach ($unique_downloads as $download) {
   		// $attachments[] = ABSPATH . "/wp-content/uploads/woocommerce_uploads/".$order_id.".pdf";
-  		$attachments[] = ABSPATH . "/wp-content/uploads/woocommerce_uploads/". $PDFfolder . "/" . $download['download_name'];
+  		$attachments[] = ABSPATH . "/wp-content/uploads/woocommerce_uploads/". $download['folder'] . "/" . $download['download_name'];
   	}
 
 	return $attachments;
