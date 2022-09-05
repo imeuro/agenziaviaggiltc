@@ -244,7 +244,12 @@ function woo_remove_product_tabs( $tabs ) {
 }
 
 // Remove ‘Add to Cart’ Button in listings
-remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart' );
+add_action( 'woocommerce_after_shop_loop_item', 'remove_add_to_cart_buttons', 1 );
+function remove_add_to_cart_buttons() {
+	if( is_product_category() || is_shop()) { 
+		remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart');
+	}
+}
 
 
 // custom checkout fields
