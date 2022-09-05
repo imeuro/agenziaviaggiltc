@@ -243,6 +243,10 @@ function woo_remove_product_tabs( $tabs ) {
     return $tabs;
 }
 
+// Remove ‘Add to Cart’ Button in listings
+remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart' );
+
+
 // custom checkout fields
 add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
 function custom_override_checkout_fields( $fields ) {
