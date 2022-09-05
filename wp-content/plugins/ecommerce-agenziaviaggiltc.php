@@ -191,7 +191,7 @@ function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
 		$logger->info( wc_print_r(ABSPATH . parse_url($download["file"]["file"], PHP_URL_PATH), true ) );
 
 		$DL_path = parse_url($download["file"]["file"], PHP_URL_PATH);
-		$DL_path = echo ltrim($DL_path = , '/');
+		$DL_path = ltrim($DL_path, '/');
   		$attachments[] = ABSPATH . $DL_path;
 
   	}
@@ -289,6 +289,7 @@ function load_custom_plugin_translation_file( $mofile, $domain ) {
 // backend enhancements:
 add_action( 'woocommerce_before_order_itemmeta', 'so_7241_before_order_itemmeta', 10, 3 );
 function so_7241_before_order_itemmeta( $item_id, $item, $_product ){
+
 	// TODO: 
 	// mostrare i vari codici dei biglietti generati per questo specifico ordine
 	echo "<p>bacon!</p>";
