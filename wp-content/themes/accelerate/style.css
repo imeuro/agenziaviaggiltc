@@ -2225,7 +2225,8 @@ button#wp-custom-header-video-button {
 }
 
 .wc_backtoparent,
-.posted_in { display: none; }
+.posted_in,
+.woocommerce-result-count { display: none; }
 
 .woocommerce div.product p.price { margin: 10px 0 0 0; }
 .single-product .woocommerce-Price-amount bdi {
@@ -2273,6 +2274,12 @@ section.related.products,
 .ltc-product-intro ul li {
 	padding-bottom: 5px;
 }
+
+.woocommerce .related.products ul.products li.product a img {
+	max-width: 125px;
+	margin: 0 auto 1em auto;
+}
+
 @media all and (min-width: 1000px) {
 	.woocommerce #content div.product div.images,
 	.woocommerce div.product div.images,
