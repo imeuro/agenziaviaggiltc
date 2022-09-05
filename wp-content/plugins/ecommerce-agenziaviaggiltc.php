@@ -195,7 +195,8 @@ function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
 	   $logger->info( wc_print_r( $download, true ) );
 	 
 
-  		$attachments[] = ABSPATH . "/wp-content/uploads/woocommerce_uploads/". $download['folder'] . "/" . $download['download_name'];
+  		$attachments[] = $download['file']['file'];
+  		// $attachments[] = ABSPATH . "/wp-content/uploads/woocommerce_uploads/". $download['folder'] . "/" . $download['download_name'];
   	}
 
 	return $attachments;
