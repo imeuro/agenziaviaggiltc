@@ -192,9 +192,9 @@ function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
 	   $logger = wc_get_logger();
 	    
 	   // LOG NEW PRICE TO CUSTOM "price-changes" LOG
-	   $logger->info( $download ) );
+	   $logger->info( $download );
 	 
- 
+
   		$attachments[] = ABSPATH . "/wp-content/uploads/woocommerce_uploads/". $download['folder'] . "/" . $download['download_name'];
   	}
 
