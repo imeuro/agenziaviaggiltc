@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Plugins - WooCommerce - Stable (latest release)\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-08-29 11:12+0200\n"
+"PO-Revision-Date: 2022-09-06 12:25+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -35638,7 +35638,7 @@ msgstr "Città"
 #: includes/class-wc-countries.php:699
 #: includes/customizer/class-wc-shop-customizer.php:687
 msgid "Company name"
-msgstr "Nome della società"
+msgstr "Codice Fiscale"
 
 #: includes/class-wc-countries.php:460
 msgid "(ex. tax)"
