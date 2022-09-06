@@ -2228,7 +2228,9 @@ button#wp-custom-header-video-button {
 .posted_in,
 .woocommerce-result-count,
 .woocommerce-ordering,
-.woocommerce .related.products ul.products li.product a.button { display: none; }
+.woocommerce .related.products ul.products li.product a.button,
+.woocommerce-info::before,
+.woocommerce-message::before { display: none; }
 
 .woocommerce div.product p.price { margin: 10px 0 0 0; }
 .single-product .woocommerce-Price-amount bdi {

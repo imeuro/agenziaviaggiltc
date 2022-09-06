@@ -34,17 +34,18 @@ if ( post_password_required() ) {
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
 
 	<div class="ltc-product-intro">
+
 		<b>ACCEDI AL LUOGO PIÙ MAGICO D’ITALIA IN POCHI SEMPLICI PASSAGGI:</b>
 		<ul>
 			<li>Inserisci nel carrello il n° di biglietti che desideri</li>
-			<li>Clicca su “visualizza carrello”</li>
+			<li>Se hai una convenzione applica il codice sconto a te dedicato</li>
 			<li>Se hai una convenzione applica il codice sconto che ti è stato comunicato</li>
-			<li>Procedi con l’acquisto inserendo i dati richiesti (i biglietti non sono nominativi – vanno inseriti i dati
-			di chi usufruisce della convenzione) e prosegui con il pagamento tramite carta o bonifico (se il
-			pagamento viene effettuato con bonifico, è necessario inviare copia a <a href="mailto:booking@agenziaviaggiLTC.it">booking@agenziaviaggiLTC.it</a>)</li>
-			<li>Entro 24h riceverai all’indirizzo mail inserito nel form i biglietti in formato PDF</li>
+			<li>Inserisci i dati necessari per la registrazione (i biglietti non sono nominativi).<br>
+        	Se usufruisci di una convenzione, i dati da inserire devono necessariamente essere del convenzionato.</li>
+			<li>Prosegui con il pagamento tramite carta o bonifico (se il pagamento viene effettuato con bonifico, è necessario inviare copia a <a href="mailto:booking@agenziaviaggiltc.it">booking@agenziaviaggiltc.it</a>)</li>
+			<li>I biglietti saranno inviati all'indirizzo mail inserito in fase di registrazione entro 1 ora dal ricevimento del pagamento (con carta) entro 24 ore (con bonifico).</li>
 		</ul>
-		<p>Per qualsiasi informazione contattaci al numero: 02 3300 2117, su WhatsApp: 375 561 6651 o tramite e-mail: <a href="mailto:booking@agenziaviaggiLTC.it">booking@agenziaviaggiLTC.it</a></p>
+		<p>Per qualsiasi informazione contattaci al numero: 02 3300 2117, su WhatsApp: 375 561 6651 o tramite e-mail: <a href="mailto:booking@agenziaviaggiltc.it">booking@agenziaviaggiltc.it</a></p>
 	</div>
 	<?php
 	/**

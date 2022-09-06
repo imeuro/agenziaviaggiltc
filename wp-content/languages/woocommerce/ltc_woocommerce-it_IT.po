@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Plugins - WooCommerce - Stable (latest release)\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-09-06 12:25+0200\n"
+"PO-Revision-Date: 2022-09-06 13:53+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -20293,7 +20293,7 @@ msgstr "Non vediamo l'ora di vederti."
 #: templates/emails/customer-new-account.php:25
 #: templates/emails/plain/customer-new-account.php:27
 msgid "Thanks for creating an account on %1$s. Your username is %2$s. You can access your account area to view orders, change your password, and more at: %3$s"
-msgstr "Grazie per aver creato un account su %1$s. Il tuo nome utente è %2$s. Puoi accedere all'area del tuo account per visualizzare ordini, modificare la password e altro ancora all'indirizzo: %3$s"
+msgstr "Grazie per aver creato un account su %1$s. Il tuo nome utente è %2$s."
 
 #. translators: %s Order date
 #. translators: %s: Order date
