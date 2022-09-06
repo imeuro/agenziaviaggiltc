@@ -128,8 +128,8 @@ function GenerateDownloads_afterPayment( $order_id ) {
 
 				$downloads[$attachment_id] = $download;
 
-				$cart_item_dl->set_download_limit( 3 ); // can be downloaded only once
-				$cart_item_dl->set_download_expiry( 7 ); // expires in a week
+				// $cart_item_dl->set_download_limit( 3 ); // can be downloaded only once
+				// $cart_item_dl->set_download_expiry( 7 ); // expires in a week
 
 				// print_r( $downloads );
 				update_post_meta( $cart_item_data['product_id'], '_product_code_second', $PDFprogressive+1 );
