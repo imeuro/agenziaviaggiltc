@@ -2283,6 +2283,11 @@ section.related.products,
 	max-width: 125px;
 	margin: 0 auto 1em auto;
 }
+.woocommerce table.cart td.actions .coupon { display: flex; }
+.woocommerce table.cart td.actions .input-text#coupon_code {
+    width: 225px;
+    margin-right: 10px;
+}
 
 @media all and (min-width: 1000px) {
 	.woocommerce #content div.product div.images,
