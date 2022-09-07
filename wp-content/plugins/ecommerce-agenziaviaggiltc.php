@@ -262,6 +262,34 @@ function custom_override_checkout_fields( $fields ) {
     return $fields;
 }
 
+// prodotto obbligatoriamente con coupon ("convenzioni")
+add_action( 'woocommerce_check_cart_items', 'mandatory_coupon_for_specific_items' );
+function mandatory_coupon_for_specific_items() {
+	$targeted_ids = array(13927); // The targeted product ids (in this array)
+	$coupon_code = 'ltc'; // The required coupon code
+
+	$coupons_entered = WC()->cart->get_applied_coupons();
+	$coupon_prefix = [];
+
+	foreach ($coupons_entered as $key=>$single_coupon_entered) {
+		$short_coupon_entered = substr($single_coupon_entered, 0, 3);
+		$coupon_prefix[] = strtolower($short_coupon_entered);
+	}
+
+	$coupon_applied = in_array( strtolower($coupon_code), $coupon_prefix );
+
+	// Loop through cart items
+	foreach(WC()->cart->get_cart() as $cart_item ) {
+	// Check cart item for defined product Ids and applied coupon
+		if( in_array( $cart_item['product_id'], $targeted_ids ) && ! $coupon_applied ) {
+			wc_clear_notices(); // Clear all other notices
+
+			// Avoid checkout displaying an error notice
+			wc_add_notice( sprintf( 'The product"%s" requires a coupon for checkout.', $cart_item['data']->get_name() ), 'error' );
+			break; // stop the loop
+		}
+	}
+}
 
 /**
  *Reduce the strength requirement on the woocommerce password.
@@ -281,7 +309,8 @@ add_filter( 'woocommerce_min_password_strength', 'reduce_woocommerce_min_strengt
 
 
 
-/*
+/* custom translation file:
+
  * Replace 'textdomain' with your plugin's textdomain. e.g. 'woocommerce'. 
  * File to be named, for example, yourtranslationfile-en_GB.mo
  * File to be placed, for example, wp-content/lanaguages/textdomain/yourtranslationfile-en_GB.mo

@@ -42,7 +42,7 @@ if ( post_password_required() ) {
 			<li>Inserisci i dati necessari per la registrazione (i biglietti non sono nominativi).<br>
 			Se usufruisci di una convenzione, i dati da inserire devono necessariamente essere del convenzionato.</li>
 			<li>Prosegui con il pagamento tramite carta o bonifico (se il pagamento viene effettuato con bonifico, è necessario inviare copia a <a href="mailto:booking@agenziaviaggiltc.it">booking@agenziaviaggiltc.it</a>)</li>
-			<li>I biglietti saranno inviati all'indirizzo mail inserito in fase di registrazione entro 1 ora dal ricevimento del pagamento (con carta) entro 24 ore (dal ricevimento del bonifico).</li>
+			<li>I biglietti saranno inviati all'indirizzo mail inserito in fase di registrazione entro 1 ora dal ricevimento del pagamento con carta o entro 24 ore dal ricevimento del bonifico.</li>
 		</ul>
 		<p>Per qualsiasi informazione contattaci al numero: 02 3300 2117, su WhatsApp: 375 561 6651 o tramite e-mail: <a href="mailto:booking@agenziaviaggiltc.it">booking@agenziaviaggiltc.it</a></p>
 	</div>
