@@ -285,7 +285,7 @@ function mandatory_coupon_for_specific_items() {
 			wc_clear_notices(); // Clear all other notices
 
 			// Avoid checkout displaying an error notice
-			wc_add_notice( sprintf( 'The product"%s" requires a coupon for checkout.', $cart_item['data']->get_name() ), 'error' );
+			wc_add_notice( sprintf( 'Per acquistare "%s" è necessario inserire un codice promozionale.', $cart_item['data']->get_name() ), 'error' );
 			break; // stop the loop
 		}
 	}
