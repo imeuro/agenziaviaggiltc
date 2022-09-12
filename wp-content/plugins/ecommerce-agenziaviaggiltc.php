@@ -201,6 +201,7 @@ function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
 }
 
 
+// aggiungo codici scnto utilizzati e cod.biglietto riservato
 add_action('woocommerce_email_customer_details', 'email_order_user_meta', 30, 3 );
 function email_order_user_meta( $order, $sent_to_admin, $plain_text ) {
   	$order_id 				= $order->get_order_number();
@@ -208,12 +209,24 @@ function email_order_user_meta( $order, $sent_to_admin, $plain_text ) {
   	$unique_downloads 		= unique_multidim_array($downloads,'download_id');
 
   	if (!empty($unique_downloads)) :
-		echo '<p><strong>codici biglietti acquistati:</strong><br>';
+  		$ticket_count = count( $unique_downloads );
+		echo '<p><strong>Biglietti acquistati (' . $ticket_count . '):</strong><br>';
 		foreach ($unique_downloads as $download) {
 			$ticket_code = str_ireplace('.pdf', '', $download['download_name']);
 			echo $ticket_code.'<br>';
 		}
 		echo '</p>';
+	endif;
+
+	if( $order->get_used_coupons() ) :
+		$coupons_count = count( $order->get_used_coupons() );
+		echo '<p><strong>Codici sconto utilizzati (' . $coupons_count . '):</strong><br>';
+		$i = 1;
+		$coupons_list = '';
+		foreach( $order->get_used_coupons() as $coupon) {
+		    echo $coupon.'<br>';
+		}
+		echo $coupons_list . '</p>';
 	endif;
 }
 
@@ -341,4 +354,20 @@ function ltc_PrintTicketNumber( $order ){
 	}
 	echo '</p>';
 	echo '<div class="clear"></div>';
+
+	// eventiali codici sconto
+	if( $order->get_used_coupons() ) {
+    	$coupons_count = count( $order->get_used_coupons() );
+		echo '<div class="clear"></div>';
+        echo '<h3>Codici sconto utilizzati:</h3> ';
+        $i = 1;
+        echo '<p>';
+        foreach( $order->get_used_coupons() as $coupon) {
+	        echo $coupon;
+	        if( $i < $coupons_count )
+	        	echo ', ';
+	        $i++;
+        }
+        echo '</p>';
+    }	
 }

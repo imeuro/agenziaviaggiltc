@@ -2232,6 +2232,12 @@ button#wp-custom-header-video-button {
 .woocommerce-info::before,
 .woocommerce-message::before { display: none; }
 
+
+.woocommerce-error::before {
+	top: 0;
+	left: 0.75em;
+}
+
 .woocommerce div.product p.price { margin: 10px 0 0 0; }
 .single-product .woocommerce-Price-amount bdi {
 	  font-weight: 700;
