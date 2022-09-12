@@ -200,6 +200,13 @@ function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
 	return $attachments;
 }
 
+// invia email "ordine completato" anche a admin
+add_filter( 'woocommerce_email_recipient_customer_completed_order', 'your_email_recipient_filter_function', 10, 2);
+
+function your_email_recipient_filter_function($recipient, $object) {
+    $recipient = $recipient . ', booking@agenziaviaggiltc.it';
+    return $recipient;
+}
 
 // aggiungo codici scnto utilizzati e cod.biglietto riservato
 add_action('woocommerce_email_customer_details', 'email_order_user_meta', 30, 3 );
@@ -355,7 +362,7 @@ function ltc_PrintTicketNumber( $order ){
 	echo '</p>';
 	echo '<div class="clear"></div>';
 
-	// eventiali codici sconto
+	// eventuali codici sconto
 	if( $order->get_used_coupons() ) {
     	$coupons_count = count( $order->get_used_coupons() );
 		echo '<div class="clear"></div>';
