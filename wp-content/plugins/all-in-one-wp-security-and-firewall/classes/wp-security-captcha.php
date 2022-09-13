@@ -109,12 +109,12 @@ class AIOWPSecurity_Captcha {
 		$current_time = time();
 		$enc_result = base64_encode($current_time.$captcha_secret_string.$result);
 		$random_str = AIOWPSecurity_Utility::generate_alpha_numeric_random_string(10);
-		if (AIOWPSecurity_Utility::is_multisite_install()) {
+		if (is_multisite()) {
 			update_site_option('aiowps_captcha_string_info_'.$random_str, $enc_result);
 			update_site_option('aiowps_captcha_string_info_time_'.$random_str, $current_time);
 		} else {
-			update_option('aiowps_captcha_string_info_'.$random_str, $enc_result);
-			update_option('aiowps_captcha_string_info_time_'.$random_str, $current_time);
+			update_option('aiowps_captcha_string_info_'.$random_str, $enc_result, false);
+			update_option('aiowps_captcha_string_info_time_'.$random_str, $current_time, false);
 		}
 		$equation_string .= '<input type="hidden" name="aiowps-captcha-string-info" id="aiowps-captcha-string-info" value="'.$random_str.'" />';
 		$equation_string .= '<input type="hidden" name="aiowps-captcha-temp-string" id="aiowps-captcha-temp-string" value="'.$current_time.'" />';
@@ -199,7 +199,7 @@ class AIOWPSecurity_Captcha {
 		$captcha_temp_string = sanitize_text_field($_POST['aiowps-captcha-temp-string']);
 		$submitted_encoded_string = base64_encode($captcha_temp_string.$captcha_secret_string.$captcha_answer);
 		$trans_handle = sanitize_text_field($_POST['aiowps-captcha-string-info']);
-		if (AIOWPSecurity_Utility::is_multisite_install()) {
+		if (is_multisite()) {
 			$captcha_string_info_option = get_site_option('aiowps_captcha_string_info_'.$trans_handle);
 			delete_site_option('aiowps_captcha_string_info_'.$trans_handle);
 			delete_site_option('aiowps_captcha_string_info_time_'.$trans_handle);

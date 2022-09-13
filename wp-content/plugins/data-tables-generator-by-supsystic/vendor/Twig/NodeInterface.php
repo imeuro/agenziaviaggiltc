@@ -16,12 +16,12 @@
  *
  * @deprecated since 1.12 (to be removed in 3.0)
  */
-interface Twig_SupTwg_NodeInterface extends Countable, IteratorAggregate
+interface Twig_SupTwgDtgs_NodeInterface extends Countable, IteratorAggregate
 {
     /**
      * Compiles the node to PHP.
      */
-    public function compile(Twig_SupTwg_Compiler $compiler);
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler);
 
     /**
      * @deprecated since 1.27 (to be removed in 2.0)

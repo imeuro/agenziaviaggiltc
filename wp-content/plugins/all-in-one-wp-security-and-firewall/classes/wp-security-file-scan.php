@@ -77,7 +77,7 @@ class AIOWPSecurity_Scan {
 	 */
 	public function aiowps_send_file_change_alert_email($scan_result) {
 		global $aio_wp_security;
-		if ($aio_wp_security->configs->get_value('aiowps_send_fcd_scan_email') == '1') {
+		if ('1' == $aio_wp_security->configs->get_value('aiowps_send_fcd_scan_email')) {
 			$site_title = get_bloginfo('name');
 			$from_name = empty($site_title) ? 'WordPress' : $site_title;
 			
@@ -91,9 +91,9 @@ class AIOWPSecurity_Scan {
 			$message .= "\r\n".__('Login to your site to view the scan details.', 'all-in-one-wp-security-and-firewall');
 
 			// Get the email address(es).
-			$addresses = $aio_wp_security->configs->get_value('aiowps_fcd_scan_email_address');
+			$addresses = AIOWPSecurity_Utility::get_array_from_textarea_val($aio_wp_security->configs->get_value('aiowps_fcd_scan_email_address'));
 			// If no explicit email address(es) are given, send email to site admin.
-			$to = empty($addresses) ? array(get_site_option('admin_email')) : explode(PHP_EOL, $addresses);
+			$to = empty($addresses) ? array(get_site_option('admin_email')) : $addresses;
 			if (!wp_mail($to, $subject, $message, $headers)) {
 				$aio_wp_security->debug_logger->log_debug(__METHOD__ . " - File change notification email failed to send.", 4);
 			}

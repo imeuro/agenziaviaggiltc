@@ -54,21 +54,9 @@ class HappyForms_Form_Setup {
 		global $current_user;
 
 		$fields = array(
-			'confirm_submission' => array(
-				'default' => 'success_message_hide_form',
-				'sanitize' => 'sanitize_text_field',
-			),
-			'redirect_on_complete' => array(
-				'default' => 0,
-				'sanitize' => 'happyforms_sanitize_checkbox',
-			),
 			'redirect_url' => array(
 				'default' => '',
 				'sanitize' => 'sanitize_text_field',
-			),
-			'redirect_blank' => array(
-				'default' => 0,
-				'sanitize' => 'happyforms_sanitize_checkbox',
 			),
 			'spam_prevention' => array(
 				'default' => 1,
@@ -130,7 +118,7 @@ class HappyForms_Form_Setup {
 	public function get_messages_fields( $fields ) {
 		$messages_fields = array(
 			'confirmation_message' => array(
-				'default' => __( 'Thank you. Your submission has been sent.', 'happyforms' ),
+				'default' => __( "We've got your submission.", 'happyforms' ),
 				'sanitize' => 'esc_html',
 			),
 			'error_message' => array(
@@ -141,6 +129,10 @@ class HappyForms_Form_Setup {
 				'default' => __( 'Send', 'happyforms' ),
 				'sanitize' => 'sanitize_text_field',
 			),
+			'fill_out_again_link' => array(
+				'default' => __( 'Fill out this form again', 'happyforms' ),
+				'sanitize' => 'sanitize_text_field',
+			)
 		);
 
 		$fields = array_merge( $fields, $messages_fields );
@@ -150,23 +142,6 @@ class HappyForms_Form_Setup {
 
 	public function get_controls() {
 		$controls = array(
-			10 => array(
-				'type' => 'select',
-				'label' => __( 'After the form is submitted', 'happyforms' ),
-				'options' => array(
-					'success_message_hide_form' => __( 'Show a message', 'happyforms' ),
-					'success_message' => __( 'Show a message and allow to resubmit the form', 'happyforms' ),
-					'redirect' => __( 'Redirect to a web address', 'happyforms' ),
-				),
-				'field' => 'confirm_submission',
-			),
-			20 => array(
-				'type' => 'group_start',
-				'trigger' => 'confirm_submission',
-			),
-			110 => array(
-				'type' => 'group_end'
-			),
 			1100 => array(
 				'type' => 'add_submit_button_class-checkbox',
 				'label' => __( 'Add custom CSS classes to submit button', 'happyforms' ),
@@ -228,6 +203,11 @@ class HappyForms_Form_Setup {
 				'type' => 'text',
 				'label' => __( 'Submit form', 'happyforms' ),
 				'field' => 'submit_button_label',
+			),
+			2021 => array(
+				'type' => 'text',
+				'label' => __( 'Fill out again the form', 'happyforms' ),
+				'field' => 'fill_out_again_link',
 			),
 		);
 
@@ -372,18 +352,25 @@ class HappyForms_Form_Setup {
 	}
 
 	public function submission_success( $submission, $form, $message ) {
-		if ( 'success_message_hide_form' !== happyforms_get_form_property( $form, 'confirm_submission' ) && happyforms_is_falsy( happyforms_get_form_property( $form, 'form_hide_on_submit' ) ) ) {
-			return;
-		}
-
 		add_filter( 'happyforms_form_has_captcha', '__return_false', 10, 2 );
 
 		add_action( 'happyforms_part_before', 'ob_start', 10, 0 );
 		add_action( 'happyforms_part_after', 'ob_end_clean', 10, 0 );
 		add_action( 'happyforms_form_submit_before', 'ob_start', 10, 0 );
 		add_action( 'happyforms_form_submit_after', 'ob_end_clean', 10, 0 );
+		add_action( 'happyforms_parts_after', array( $this, 'after_submission_links'), 20 );
 	}
 
+	public function after_submission_links ( $form ) {
+		$template = happyforms_get_core_folder() . '/templates/partials/form-after-submission-links.php';
+		$template = apply_filters( 'happyforms_after_submission_links_template', $template );
+
+		ob_start();
+		require_once( $template );
+		$html = ob_get_clean();
+
+		echo $html;
+	}
 }
 
 if ( ! function_exists( 'happyforms_get_setup' ) ):

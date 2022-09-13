@@ -14,7 +14,7 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Environment
+class Twig_SupTwgDtgs_Environment
 {
     const VERSION = '1.33.2';
     const VERSION_ID = 13302;
@@ -70,10 +70,10 @@ class Twig_SupTwg_Environment
      *  * charset: The charset used by the templates (default to UTF-8).
      *
      *  * base_template_class: The base template class to use for generated
-     *                         templates (default to Twig_SupTwg_Template).
+     *                         templates (default to Twig_SupTwgDtgs_Template).
      *
      *  * cache: An absolute path where to store the compiled templates,
-     *           a Twig_SupTwg_Cache_Interface implementation,
+     *           a Twig_SupTwgDtgs_Cache_Interface implementation,
      *           or false to disable compilation cache (default).
      *
      *  * auto_reload: Whether to reload the template if the original source changed.
@@ -94,21 +94,21 @@ class Twig_SupTwg_Environment
      *                   (default to -1 which means that all optimizations are enabled;
      *                   set it to 0 to disable).
      *
-     * @param Twig_SupTwg_LoaderInterface $loader
+     * @param Twig_SupTwgDtgs_LoaderInterface $loader
      * @param array                $options An array of options
      */
-    public function __construct(Twig_SupTwg_LoaderInterface $loader = null, $options = array())
+    public function __construct(Twig_SupTwgDtgs_LoaderInterface $loader = null, $options = array())
     {
         if (null !== $loader) {
             $this->setLoader($loader);
         } else {
-            @trigger_error('Not passing a Twig_SupTwg_LoaderInterface as the first constructor argument of Twig_SupTwg_Environment is deprecated since version 1.21.', E_USER_DEPRECATED);
+            //@trigger_error('Not passing a Twig_SupTwgDtgs_LoaderInterface as the first constructor argument of Twig_SupTwgDtgs_Environment is deprecated since version 1.21.', E_USER_DEPRECATED);
         }
 
         $options = array_merge(array(
             'debug' => false,
             'charset' => 'UTF-8',
-            'base_template_class' => 'Twig_SupTwg_Template',
+            'base_template_class' => 'Twig_SupTwgDtgs_Template',
             'strict_variables' => false,
             'autoescape' => 'html',
             'cache' => false,
@@ -123,23 +123,23 @@ class Twig_SupTwg_Environment
         $this->strictVariables = (bool) $options['strict_variables'];
         $this->setCache($options['cache']);
 
-        $this->addExtension(new Twig_SupTwg_Extension_Core());
-        $this->addExtension(new Twig_SupTwg_Extension_Escaper($options['autoescape']));
-        $this->addExtension(new Twig_SupTwg_Extension_Optimizer($options['optimizations']));
-        $this->staging = new Twig_SupTwg_Extension_Staging();
+        $this->addExtension(new Twig_SupTwgDtgs_Extension_Core());
+        $this->addExtension(new Twig_SupTwgDtgs_Extension_Escaper($options['autoescape']));
+        $this->addExtension(new Twig_SupTwgDtgs_Extension_Optimizer($options['optimizations']));
+        $this->staging = new Twig_SupTwgDtgs_Extension_Staging();
 
         // For BC
         if (is_string($this->originalCache)) {
             $r = new ReflectionMethod($this, 'writeCacheFile');
             if ($r->getDeclaringClass()->getName() !== __CLASS__) {
-                @trigger_error('The Twig_SupTwg_Environment::writeCacheFile method is deprecated since version 1.22 and will be removed in Twig 2.0.', E_USER_DEPRECATED);
+                //@trigger_error('The Twig_SupTwgDtgs_Environment::writeCacheFile method is deprecated since version 1.22 and will be removed in Twig 2.0.', E_USER_DEPRECATED);
 
                 $this->bcWriteCacheFile = true;
             }
 
             $r = new ReflectionMethod($this, 'getCacheFilename');
             if ($r->getDeclaringClass()->getName() !== __CLASS__) {
-                @trigger_error('The Twig_SupTwg_Environment::getCacheFilename method is deprecated since version 1.22 and will be removed in Twig 2.0.', E_USER_DEPRECATED);
+                //@trigger_error('The Twig_SupTwgDtgs_Environment::getCacheFilename method is deprecated since version 1.22 and will be removed in Twig 2.0.', E_USER_DEPRECATED);
 
                 $this->bcGetCacheFilename = true;
             }
@@ -254,7 +254,7 @@ class Twig_SupTwg_Environment
      *
      * @param bool $original Whether to return the original cache option or the real cache instance
      *
-     * @return Twig_SupTwg_CacheInterface|string|false A Twig_SupTwg_CacheInterface implementation,
+     * @return Twig_SupTwgDtgs_CacheInterface|string|false A Twig_SupTwgDtgs_CacheInterface implementation,
      *                                          an absolute path to the compiled templates,
      *                                          or false to disable cache
      */
@@ -266,7 +266,7 @@ class Twig_SupTwg_Environment
     /**
      * Sets the current cache implementation.
      *
-     * @param Twig_SupTwg_CacheInterface|string|false $cache A Twig_SupTwg_CacheInterface implementation,
+     * @param Twig_SupTwgDtgs_CacheInterface|string|false $cache A Twig_SupTwgDtgs_CacheInterface implementation,
      *                                                an absolute path to the compiled templates,
      *                                                or false to disable cache
      */
@@ -274,18 +274,18 @@ class Twig_SupTwg_Environment
     {
         if (is_string($cache)) {
             $this->originalCache = $cache;
-            $this->cache = new Twig_SupTwg_Cache_Filesystem($cache);
+            $this->cache = new Twig_SupTwgDtgs_Cache_Filesystem($cache);
         } elseif (false === $cache) {
             $this->originalCache = $cache;
-            $this->cache = new Twig_SupTwg_Cache_Null();
+            $this->cache = new Twig_SupTwgDtgs_Cache_Null();
         } elseif (null === $cache) {
-            @trigger_error('Using "null" as the cache strategy is deprecated since version 1.23 and will be removed in Twig 2.0.', E_USER_DEPRECATED);
+            //@trigger_error('Using "null" as the cache strategy is deprecated since version 1.23 and will be removed in Twig 2.0.', E_USER_DEPRECATED);
             $this->originalCache = false;
-            $this->cache = new Twig_SupTwg_Cache_Null();
-        } elseif ($cache instanceof Twig_SupTwg_CacheInterface) {
+            $this->cache = new Twig_SupTwgDtgs_Cache_Null();
+        } elseif ($cache instanceof Twig_SupTwgDtgs_CacheInterface) {
             $this->originalCache = $this->cache = $cache;
         } else {
-            throw new LogicException(sprintf('Cache can only be a string, false, or a Twig_SupTwg_CacheInterface implementation.'));
+            throw new LogicException(sprintf('Cache can only be a string, false, or a Twig_SupTwgDtgs_CacheInterface implementation.'));
         }
     }
 
@@ -300,7 +300,7 @@ class Twig_SupTwg_Environment
      */
     public function getCacheFilename($name)
     {
-        @trigger_error(sprintf('The %s method is deprecated since version 1.22 and will be removed in Twig 2.0.', __METHOD__), E_USER_DEPRECATED);
+        //@trigger_error(sprintf('The %s method is deprecated since version 1.22 and will be removed in Twig 2.0.', __METHOD__), E_USER_DEPRECATED);
 
         $key = $this->cache->generateKey($name, $this->getTemplateClass($name));
 
@@ -340,7 +340,7 @@ class Twig_SupTwg_Environment
      */
     public function getTemplateClassPrefix()
     {
-        @trigger_error(sprintf('The %s method is deprecated since version 1.22 and will be removed in Twig 2.0.', __METHOD__), E_USER_DEPRECATED);
+        //@trigger_error(sprintf('The %s method is deprecated since version 1.22 and will be removed in Twig 2.0.', __METHOD__), E_USER_DEPRECATED);
 
         return $this->templateClassPrefix;
     }
@@ -353,9 +353,9 @@ class Twig_SupTwg_Environment
      *
      * @return string The rendered template
      *
-     * @throws Twig_SupTwg_Error_Loader  When the template cannot be found
-     * @throws Twig_SupTwg_Error_Syntax  When an error occurred during compilation
-     * @throws Twig_SupTwg_Error_Runtime When an error occurred during rendering
+     * @throws Twig_SupTwgDtgs_Error_Loader  When the template cannot be found
+     * @throws Twig_SupTwgDtgs_Error_Syntax  When an error occurred during compilation
+     * @throws Twig_SupTwgDtgs_Error_Runtime When an error occurred during rendering
      */
     public function render($name, array $context = array())
     {
@@ -368,9 +368,9 @@ class Twig_SupTwg_Environment
      * @param string $name    The template name
      * @param array  $context An array of parameters to pass to the template
      *
-     * @throws Twig_SupTwg_Error_Loader  When the template cannot be found
-     * @throws Twig_SupTwg_Error_Syntax  When an error occurred during compilation
-     * @throws Twig_SupTwg_Error_Runtime When an error occurred during rendering
+     * @throws Twig_SupTwgDtgs_Error_Loader  When the template cannot be found
+     * @throws Twig_SupTwgDtgs_Error_Syntax  When an error occurred during compilation
+     * @throws Twig_SupTwgDtgs_Error_Runtime When an error occurred during rendering
      */
     public function display($name, array $context = array())
     {
@@ -380,21 +380,21 @@ class Twig_SupTwg_Environment
     /**
      * Loads a template.
      *
-     * @param string|Twig_SupTwg_TemplateWrapper|Twig_SupTwg_Template $name The template name
+     * @param string|Twig_SupTwgDtgs_TemplateWrapper|Twig_SupTwgDtgs_Template $name The template name
      *
-     * @return Twig_SupTwg_TemplateWrapper
+     * @return Twig_SupTwgDtgs_TemplateWrapper
      */
     public function load($name)
     {
-        if ($name instanceof Twig_SupTwg_TemplateWrapper) {
+        if ($name instanceof Twig_SupTwgDtgs_TemplateWrapper) {
             return $name;
         }
 
-        if ($name instanceof Twig_SupTwg_Template) {
-            return new Twig_SupTwg_TemplateWrapper($this, $name);
+        if ($name instanceof Twig_SupTwgDtgs_Template) {
+            return new Twig_SupTwgDtgs_TemplateWrapper($this, $name);
         }
 
-        return new Twig_SupTwg_TemplateWrapper($this, $this->loadTemplate($name));
+        return new Twig_SupTwgDtgs_TemplateWrapper($this, $this->loadTemplate($name));
     }
 
     /**
@@ -406,11 +406,11 @@ class Twig_SupTwg_Environment
      * @param string $name  The template name
      * @param int    $index The index if it is an embedded template
      *
-     * @return Twig_SupTwg_TemplateInterface A template instance representing the given template name
+     * @return Twig_SupTwgDtgs_TemplateInterface A template instance representing the given template name
      *
-     * @throws Twig_SupTwg_Error_Loader  When the template cannot be found
-     * @throws Twig_SupTwg_Error_Runtime When a previously generated cache is corrupted
-     * @throws Twig_SupTwg_Error_Syntax  When an error occurred during compilation
+     * @throws Twig_SupTwgDtgs_Error_Loader  When the template cannot be found
+     * @throws Twig_SupTwgDtgs_Error_Runtime When a previously generated cache is corrupted
+     * @throws Twig_SupTwgDtgs_Error_Syntax  When an error occurred during compilation
      *
      * @internal
      */
@@ -438,8 +438,8 @@ class Twig_SupTwg_Environment
 
             if (!class_exists($cls, false)) {
                 $loader = $this->getLoader();
-                if (!$loader instanceof Twig_SupTwg_SourceContextLoaderInterface) {
-                    $source = new Twig_SupTwg_Source($loader->getSource($name), $name);
+                if (!$loader instanceof Twig_SupTwgDtgs_SourceContextLoaderInterface) {
+                    $source = new Twig_SupTwgDtgs_Source($loader->getSource($name), $name);
                 } else {
                     $source = $loader->getSourceContext($name);
                 }
@@ -464,7 +464,7 @@ class Twig_SupTwg_Environment
             }
 
             if (!class_exists($cls, false)) {
-                throw new Twig_SupTwg_Error_Runtime(sprintf('Failed to load Twig template "%s", index "%s": cache is corrupted.', $name, $index), -1, $source);
+                throw new Twig_SupTwgDtgs_Error_Runtime(sprintf('Failed to load Twig template "%s", index "%s": cache is corrupted.', $name, $index), -1, $source);
             }
         }
 
@@ -482,17 +482,17 @@ class Twig_SupTwg_Environment
      *
      * @param string $template The template name
      *
-     * @return Twig_SupTwg_Template A template instance representing the given template name
+     * @return Twig_SupTwgDtgs_Template A template instance representing the given template name
      *
-     * @throws Twig_SupTwg_Error_Loader When the template cannot be found
-     * @throws Twig_SupTwg_Error_Syntax When an error occurred during compilation
+     * @throws Twig_SupTwgDtgs_Error_Loader When the template cannot be found
+     * @throws Twig_SupTwgDtgs_Error_Syntax When an error occurred during compilation
      */
     public function createTemplate($template)
     {
         $name = sprintf('__string_template__%s', hash('sha256', uniqid(mt_rand(), true), false));
 
-        $loader = new Twig_SupTwg_Loader_Chain(array(
-            new Twig_SupTwg_Loader_Array(array($name => $template)),
+        $loader = new Twig_SupTwgDtgs_Loader_Chain(array(
+            new Twig_SupTwgDtgs_Loader_Array(array($name => $template)),
             $current = $this->getLoader(),
         ));
 
@@ -542,15 +542,15 @@ class Twig_SupTwg_Environment
     /**
      * Tries to load a template consecutively from an array.
      *
-     * Similar to loadTemplate() but it also accepts Twig_SupTwg_TemplateInterface instances and an array
+     * Similar to loadTemplate() but it also accepts Twig_SupTwgDtgs_TemplateInterface instances and an array
      * of templates where each is tried to be loaded.
      *
-     * @param string|Twig_SupTwg_Template|array $names A template or an array of templates to try consecutively
+     * @param string|Twig_SupTwgDtgs_Template|array $names A template or an array of templates to try consecutively
      *
-     * @return Twig_SupTwg_Template
+     * @return Twig_SupTwgDtgs_Template
      *
-     * @throws Twig_SupTwg_Error_Loader When none of the templates can be found
-     * @throws Twig_SupTwg_Error_Syntax When an error occurred during compilation
+     * @throws Twig_SupTwgDtgs_Error_Loader When none of the templates can be found
+     * @throws Twig_SupTwgDtgs_Error_Syntax When an error occurred during compilation
      */
     public function resolveTemplate($names)
     {
@@ -559,13 +559,13 @@ class Twig_SupTwg_Environment
         }
 
         foreach ($names as $name) {
-            if ($name instanceof Twig_SupTwg_Template) {
+            if ($name instanceof Twig_SupTwgDtgs_Template) {
                 return $name;
             }
 
             try {
                 return $this->loadTemplate($name);
-            } catch (Twig_SupTwg_Error_Loader $e) {
+            } catch (Twig_SupTwgDtgs_Error_Loader $e) {
             }
         }
 
@@ -573,7 +573,7 @@ class Twig_SupTwg_Environment
             throw $e;
         }
 
-        throw new Twig_SupTwg_Error_Loader(sprintf('Unable to find one of the following templates: "%s".', implode('", "', $names)));
+        throw new Twig_SupTwgDtgs_Error_Loader(sprintf('Unable to find one of the following templates: "%s".', implode('", "', $names)));
     }
 
     /**
@@ -583,7 +583,7 @@ class Twig_SupTwg_Environment
      */
     public function clearTemplateCache()
     {
-        @trigger_error(sprintf('The %s method is deprecated since version 1.18.3 and will be removed in Twig 2.0.', __METHOD__), E_USER_DEPRECATED);
+        //@trigger_error(sprintf('The %s method is deprecated since version 1.18.3 and will be removed in Twig 2.0.', __METHOD__), E_USER_DEPRECATED);
 
         $this->loadedTemplates = array();
     }
@@ -595,7 +595,7 @@ class Twig_SupTwg_Environment
      */
     public function clearCacheFiles()
     {
-        @trigger_error(sprintf('The %s method is deprecated since version 1.22 and will be removed in Twig 2.0.', __METHOD__), E_USER_DEPRECATED);
+        //@trigger_error(sprintf('The %s method is deprecated since version 1.22 and will be removed in Twig 2.0.', __METHOD__), E_USER_DEPRECATED);
 
         if (is_string($this->originalCache)) {
             foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($this->originalCache), RecursiveIteratorIterator::LEAVES_ONLY) as $file) {
@@ -609,22 +609,22 @@ class Twig_SupTwg_Environment
     /**
      * Gets the Lexer instance.
      *
-     * @return Twig_SupTwg_LexerInterface
+     * @return Twig_SupTwgDtgs_LexerInterface
      *
      * @deprecated since 1.25 (to be removed in 2.0)
      */
     public function getLexer()
     {
-        @trigger_error(sprintf('The %s() method is deprecated since version 1.25 and will be removed in 2.0.', __FUNCTION__), E_USER_DEPRECATED);
+        //@trigger_error(sprintf('The %s() method is deprecated since version 1.25 and will be removed in 2.0.', __FUNCTION__), E_USER_DEPRECATED);
 
         if (null === $this->lexer) {
-            $this->lexer = new Twig_SupTwg_Lexer($this);
+            $this->lexer = new Twig_SupTwgDtgs_Lexer($this);
         }
 
         return $this->lexer;
     }
 
-    public function setLexer(Twig_SupTwg_LexerInterface $lexer)
+    public function setLexer(Twig_SupTwgDtgs_LexerInterface $lexer)
     {
         $this->lexer = $lexer;
     }
@@ -632,22 +632,22 @@ class Twig_SupTwg_Environment
     /**
      * Tokenizes a source code.
      *
-     * @param string|Twig_SupTwg_Source $source The template source code
+     * @param string|Twig_SupTwgDtgs_Source $source The template source code
      * @param string             $name   The template name (deprecated)
      *
-     * @return Twig_SupTwg_TokenStream
+     * @return Twig_SupTwgDtgs_TokenStream
      *
-     * @throws Twig_SupTwg_Error_Syntax When the code is syntactically wrong
+     * @throws Twig_SupTwgDtgs_Error_Syntax When the code is syntactically wrong
      */
     public function tokenize($source, $name = null)
     {
-        if (!$source instanceof Twig_SupTwg_Source) {
-            @trigger_error(sprintf('Passing a string as the $source argument of %s() is deprecated since version 1.27. Pass a Twig_SupTwg_Source instance instead.', __METHOD__), E_USER_DEPRECATED);
-            $source = new Twig_SupTwg_Source($source, $name);
+        if (!$source instanceof Twig_SupTwgDtgs_Source) {
+            //@trigger_error(sprintf('Passing a string as the $source argument of %s() is deprecated since version 1.27. Pass a Twig_SupTwgDtgs_Source instance instead.', __METHOD__), E_USER_DEPRECATED);
+            $source = new Twig_SupTwgDtgs_Source($source, $name);
         }
 
         if (null === $this->lexer) {
-            $this->lexer = new Twig_SupTwg_Lexer($this);
+            $this->lexer = new Twig_SupTwgDtgs_Lexer($this);
         }
 
         return $this->lexer->tokenize($source);
@@ -656,22 +656,22 @@ class Twig_SupTwg_Environment
     /**
      * Gets the Parser instance.
      *
-     * @return Twig_SupTwg_ParserInterface
+     * @return Twig_SupTwgDtgs_ParserInterface
      *
      * @deprecated since 1.25 (to be removed in 2.0)
      */
     public function getParser()
     {
-        @trigger_error(sprintf('The %s() method is deprecated since version 1.25 and will be removed in 2.0.', __FUNCTION__), E_USER_DEPRECATED);
+        //@trigger_error(sprintf('The %s() method is deprecated since version 1.25 and will be removed in 2.0.', __FUNCTION__), E_USER_DEPRECATED);
 
         if (null === $this->parser) {
-            $this->parser = new Twig_SupTwg_Parser($this);
+            $this->parser = new Twig_SupTwgDtgs_Parser($this);
         }
 
         return $this->parser;
     }
 
-    public function setParser(Twig_SupTwg_ParserInterface $parser)
+    public function setParser(Twig_SupTwgDtgs_ParserInterface $parser)
     {
         $this->parser = $parser;
     }
@@ -679,14 +679,14 @@ class Twig_SupTwg_Environment
     /**
      * Converts a token stream to a node tree.
      *
-     * @return Twig_SupTwg_Node_Module
+     * @return Twig_SupTwgDtgs_Node_Module
      *
-     * @throws Twig_SupTwg_Error_Syntax When the token stream is syntactically or semantically wrong
+     * @throws Twig_SupTwgDtgs_Error_Syntax When the token stream is syntactically or semantically wrong
      */
-    public function parse(Twig_SupTwg_TokenStream $stream)
+    public function parse(Twig_SupTwgDtgs_TokenStream $stream)
     {
         if (null === $this->parser) {
-            $this->parser = new Twig_SupTwg_Parser($this);
+            $this->parser = new Twig_SupTwgDtgs_Parser($this);
         }
 
         return $this->parser->parse($stream);
@@ -695,22 +695,22 @@ class Twig_SupTwg_Environment
     /**
      * Gets the Compiler instance.
      *
-     * @return Twig_SupTwg_CompilerInterface
+     * @return Twig_SupTwgDtgs_CompilerInterface
      *
      * @deprecated since 1.25 (to be removed in 2.0)
      */
     public function getCompiler()
     {
-        @trigger_error(sprintf('The %s() method is deprecated since version 1.25 and will be removed in 2.0.', __FUNCTION__), E_USER_DEPRECATED);
+        //@trigger_error(sprintf('The %s() method is deprecated since version 1.25 and will be removed in 2.0.', __FUNCTION__), E_USER_DEPRECATED);
 
         if (null === $this->compiler) {
-            $this->compiler = new Twig_SupTwg_Compiler($this);
+            $this->compiler = new Twig_SupTwgDtgs_Compiler($this);
         }
 
         return $this->compiler;
     }
 
-    public function setCompiler(Twig_SupTwg_CompilerInterface $compiler)
+    public function setCompiler(Twig_SupTwgDtgs_CompilerInterface $compiler)
     {
         $this->compiler = $compiler;
     }
@@ -720,10 +720,10 @@ class Twig_SupTwg_Environment
      *
      * @return string The compiled PHP source code
      */
-    public function compile(Twig_SupTwg_NodeInterface $node)
+    public function compile(Twig_SupTwgDtgs_NodeInterface $node)
     {
         if (null === $this->compiler) {
-            $this->compiler = new Twig_SupTwg_Compiler($this);
+            $this->compiler = new Twig_SupTwgDtgs_Compiler($this);
         }
 
         return $this->compiler->compile($node)->getSource();
@@ -732,34 +732,34 @@ class Twig_SupTwg_Environment
     /**
      * Compiles a template source code.
      *
-     * @param string|Twig_SupTwg_Source $source The template source code
+     * @param string|Twig_SupTwgDtgs_Source $source The template source code
      * @param string             $name   The template name (deprecated)
      *
      * @return string The compiled PHP source code
      *
-     * @throws Twig_SupTwg_Error_Syntax When there was an error during tokenizing, parsing or compiling
+     * @throws Twig_SupTwgDtgs_Error_Syntax When there was an error during tokenizing, parsing or compiling
      */
     public function compileSource($source, $name = null)
     {
-        if (!$source instanceof Twig_SupTwg_Source) {
-            @trigger_error(sprintf('Passing a string as the $source argument of %s() is deprecated since version 1.27. Pass a Twig_SupTwg_Source instance instead.', __METHOD__), E_USER_DEPRECATED);
-            $source = new Twig_SupTwg_Source($source, $name);
+        if (!$source instanceof Twig_SupTwgDtgs_Source) {
+            //@trigger_error(sprintf('Passing a string as the $source argument of %s() is deprecated since version 1.27. Pass a Twig_SupTwgDtgs_Source instance instead.', __METHOD__), E_USER_DEPRECATED);
+            $source = new Twig_SupTwgDtgs_Source($source, $name);
         }
 
         try {
             return $this->compile($this->parse($this->tokenize($source)));
-        } catch (Twig_SupTwg_Error $e) {
+        } catch (Twig_SupTwgDtgs_Error $e) {
             $e->setSourceContext($source);
             throw $e;
         } catch (Exception $e) {
-            throw new Twig_SupTwg_Error_Syntax(sprintf('An exception has been thrown during the compilation of a template ("%s").', $e->getMessage()), -1, $source, $e);
+            throw new Twig_SupTwgDtgs_Error_Syntax(sprintf('An exception has been thrown during the compilation of a template ("%s").', $e->getMessage()), -1, $source, $e);
         }
     }
 
-    public function setLoader(Twig_SupTwg_LoaderInterface $loader)
+    public function setLoader(Twig_SupTwgDtgs_LoaderInterface $loader)
     {
-        if (!$loader instanceof Twig_SupTwg_SourceContextLoaderInterface && 0 !== strpos(get_class($loader), 'Mock_Twig_SupTwg_LoaderInterface')) {
-            @trigger_error(sprintf('Twig loader "%s" should implement Twig_SupTwg_SourceContextLoaderInterface since version 1.27.', get_class($loader)), E_USER_DEPRECATED);
+        if (!$loader instanceof Twig_SupTwgDtgs_SourceContextLoaderInterface && 0 !== strpos(get_class($loader), 'Mock_Twig_SupTwgDtgs_LoaderInterface')) {
+            //@trigger_error(sprintf('Twig loader "%s" should implement Twig_SupTwgDtgs_SourceContextLoaderInterface since version 1.27.', get_class($loader)), E_USER_DEPRECATED);
         }
 
         $this->loader = $loader;
@@ -768,7 +768,7 @@ class Twig_SupTwg_Environment
     /**
      * Gets the Loader instance.
      *
-     * @return Twig_SupTwg_LoaderInterface
+     * @return Twig_SupTwgDtgs_LoaderInterface
      */
     public function getLoader()
     {
@@ -809,11 +809,11 @@ class Twig_SupTwg_Environment
         $this->runtimeInitialized = true;
 
         foreach ($this->getExtensions() as $name => $extension) {
-            if (!$extension instanceof Twig_SupTwg_Extension_InitRuntimeInterface) {
+            if (!$extension instanceof Twig_SupTwgDtgs_Extension_InitRuntimeInterface) {
                 $m = new ReflectionMethod($extension, 'initRuntime');
 
-                if ('Twig_SupTwg_Extension' !== $m->getDeclaringClass()->getName()) {
-                    @trigger_error(sprintf('Defining the initRuntime() method in the "%s" extension is deprecated since version 1.23. Use the `needs_environment` option to get the Twig_SupTwg_Environment instance in filters, functions, or tests; or explicitly implement Twig_SupTwg_Extension_InitRuntimeInterface if needed (not recommended).', $name), E_USER_DEPRECATED);
+                if ('Twig_SupTwgDtgs_Extension' !== $m->getDeclaringClass()->getName()) {
+                    //@trigger_error(sprintf('Defining the initRuntime() method in the "%s" extension is deprecated since version 1.23. Use the `needs_environment` option to get the Twig_SupTwgDtgs_Environment instance in filters, functions, or tests; or explicitly implement Twig_SupTwgDtgs_Extension_InitRuntimeInterface if needed (not recommended).', $name), E_USER_DEPRECATED);
                 }
             }
 
@@ -833,7 +833,7 @@ class Twig_SupTwg_Environment
         $class = ltrim($class, '\\');
         if (isset($this->extensions[$class])) {
             if ($class !== get_class($this->extensions[$class])) {
-                @trigger_error(sprintf('Referencing the "%s" extension by its name (defined by getName()) is deprecated since 1.26 and will be removed in Twig 2.0. Use the Fully Qualified Extension Class Name instead.', $class), E_USER_DEPRECATED);
+                //@trigger_error(sprintf('Referencing the "%s" extension by its name (defined by getName()) is deprecated since 1.26 and will be removed in Twig 2.0. Use the Fully Qualified Extension Class Name instead.', $class), E_USER_DEPRECATED);
             }
 
             return true;
@@ -845,7 +845,7 @@ class Twig_SupTwg_Environment
     /**
      * Adds a runtime loader.
      */
-    public function addRuntimeLoader(Twig_SupTwg_RuntimeLoaderInterface $loader)
+    public function addRuntimeLoader(Twig_SupTwgDtgs_RuntimeLoaderInterface $loader)
     {
         $this->runtimeLoaders[] = $loader;
     }
@@ -855,7 +855,7 @@ class Twig_SupTwg_Environment
      *
      * @param string $class The extension class name
      *
-     * @return Twig_SupTwg_ExtensionInterface
+     * @return Twig_SupTwgDtgs_ExtensionInterface
      */
     public function getExtension($class)
     {
@@ -863,14 +863,14 @@ class Twig_SupTwg_Environment
 
         if (isset($this->extensions[$class])) {
             if ($class !== get_class($this->extensions[$class])) {
-                @trigger_error(sprintf('Referencing the "%s" extension by its name (defined by getName()) is deprecated since 1.26 and will be removed in Twig 2.0. Use the Fully Qualified Extension Class Name instead.', $class), E_USER_DEPRECATED);
+                //@trigger_error(sprintf('Referencing the "%s" extension by its name (defined by getName()) is deprecated since 1.26 and will be removed in Twig 2.0. Use the Fully Qualified Extension Class Name instead.', $class), E_USER_DEPRECATED);
             }
 
             return $this->extensions[$class];
         }
 
         if (!isset($this->extensionsByClass[$class])) {
-            throw new Twig_SupTwg_Error_Runtime(sprintf('The "%s" extension is not enabled.', $class));
+            throw new Twig_SupTwgDtgs_Error_Runtime(sprintf('The "%s" extension is not enabled.', $class));
         }
 
         return $this->extensionsByClass[$class];
@@ -883,7 +883,7 @@ class Twig_SupTwg_Environment
      *
      * @return object The runtime implementation
      *
-     * @throws Twig_SupTwg_Error_Runtime When the template cannot be found
+     * @throws Twig_SupTwgDtgs_Error_Runtime When the template cannot be found
      */
     public function getRuntime($class)
     {
@@ -897,10 +897,10 @@ class Twig_SupTwg_Environment
             }
         }
 
-        throw new Twig_SupTwg_Error_Runtime(sprintf('Unable to load the "%s" runtime.', $class));
+        throw new Twig_SupTwgDtgs_Error_Runtime(sprintf('Unable to load the "%s" runtime.', $class));
     }
 
-    public function addExtension(Twig_SupTwg_ExtensionInterface $extension)
+    public function addExtension(Twig_SupTwgDtgs_ExtensionInterface $extension)
     {
         if ($this->extensionInitialized) {
             throw new LogicException(sprintf('Unable to register extension "%s" as extensions have already been initialized.', $extension->getName()));
@@ -910,7 +910,7 @@ class Twig_SupTwg_Environment
         if ($class !== $extension->getName()) {
             if (isset($this->extensions[$extension->getName()])) {
                 unset($this->extensions[$extension->getName()], $this->extensionsByClass[$class]);
-                @trigger_error(sprintf('The possibility to register the same extension twice ("%s") is deprecated since version 1.23 and will be removed in Twig 2.0. Use proper PHP inheritance instead.', $extension->getName()), E_USER_DEPRECATED);
+                //@trigger_error(sprintf('The possibility to register the same extension twice ("%s") is deprecated since version 1.23 and will be removed in Twig 2.0. Use proper PHP inheritance instead.', $extension->getName()), E_USER_DEPRECATED);
             }
         }
 
@@ -931,7 +931,7 @@ class Twig_SupTwg_Environment
      */
     public function removeExtension($name)
     {
-        @trigger_error(sprintf('The %s method is deprecated since version 1.12 and will be removed in Twig 2.0.', __METHOD__), E_USER_DEPRECATED);
+        //@trigger_error(sprintf('The %s method is deprecated since version 1.12 and will be removed in Twig 2.0.', __METHOD__), E_USER_DEPRECATED);
 
         if ($this->extensionInitialized) {
             throw new LogicException(sprintf('Unable to remove extension "%s" as extensions have already been initialized.', $name));
@@ -940,7 +940,7 @@ class Twig_SupTwg_Environment
         $class = ltrim($name, '\\');
         if (isset($this->extensions[$class])) {
             if ($class !== get_class($this->extensions[$class])) {
-                @trigger_error(sprintf('Referencing the "%s" extension by its name (defined by getName()) is deprecated since 1.26 and will be removed in Twig 2.0. Use the Fully Qualified Extension Class Name instead.', $class), E_USER_DEPRECATED);
+                //@trigger_error(sprintf('Referencing the "%s" extension by its name (defined by getName()) is deprecated since 1.26 and will be removed in Twig 2.0. Use the Fully Qualified Extension Class Name instead.', $class), E_USER_DEPRECATED);
             }
 
             unset($this->extensions[$class]);
@@ -965,14 +965,14 @@ class Twig_SupTwg_Environment
     /**
      * Returns all registered extensions.
      *
-     * @return Twig_SupTwg_ExtensionInterface[] An array of extensions (keys are for internal usage only and should not be relied on)
+     * @return Twig_SupTwgDtgs_ExtensionInterface[] An array of extensions (keys are for internal usage only and should not be relied on)
      */
     public function getExtensions()
     {
         return $this->extensions;
     }
 
-    public function addTokenParser(Twig_SupTwg_TokenParserInterface $parser)
+    public function addTokenParser(Twig_SupTwgDtgs_TokenParserInterface $parser)
     {
         if ($this->extensionInitialized) {
             throw new LogicException('Unable to add a token parser as extensions have already been initialized.');
@@ -984,7 +984,7 @@ class Twig_SupTwg_Environment
     /**
      * Gets the registered Token Parsers.
      *
-     * @return Twig_SupTwg_TokenParserBrokerInterface
+     * @return Twig_SupTwgDtgs_TokenParserBrokerInterface
      *
      * @internal
      */
@@ -1000,9 +1000,9 @@ class Twig_SupTwg_Environment
     /**
      * Gets registered tags.
      *
-     * Be warned that this method cannot return tags defined by Twig_SupTwg_TokenParserBrokerInterface classes.
+     * Be warned that this method cannot return tags defined by Twig_SupTwgDtgs_TokenParserBrokerInterface classes.
      *
-     * @return Twig_SupTwg_TokenParserInterface[]
+     * @return Twig_SupTwgDtgs_TokenParserInterface[]
      *
      * @internal
      */
@@ -1010,7 +1010,7 @@ class Twig_SupTwg_Environment
     {
         $tags = array();
         foreach ($this->getTokenParsers()->getParsers() as $parser) {
-            if ($parser instanceof Twig_SupTwg_TokenParserInterface) {
+            if ($parser instanceof Twig_SupTwgDtgs_TokenParserInterface) {
                 $tags[$parser->getTag()] = $parser;
             }
         }
@@ -1018,7 +1018,7 @@ class Twig_SupTwg_Environment
         return $tags;
     }
 
-    public function addNodeVisitor(Twig_SupTwg_NodeVisitorInterface $visitor)
+    public function addNodeVisitor(Twig_SupTwgDtgs_NodeVisitorInterface $visitor)
     {
         if ($this->extensionInitialized) {
             throw new LogicException('Unable to add a node visitor as extensions have already been initialized.');
@@ -1030,7 +1030,7 @@ class Twig_SupTwg_Environment
     /**
      * Gets the registered Node Visitors.
      *
-     * @return Twig_SupTwg_NodeVisitorInterface[]
+     * @return Twig_SupTwgDtgs_NodeVisitorInterface[]
      *
      * @internal
      */
@@ -1046,20 +1046,20 @@ class Twig_SupTwg_Environment
     /**
      * Registers a Filter.
      *
-     * @param string|Twig_SupTwg_SimpleFilter               $name   The filter name or a Twig_SupTwg_SimpleFilter instance
-     * @param Twig_SupTwg_FilterInterface|Twig_SupTwg_SimpleFilter $filter
+     * @param string|Twig_SupTwgDtgs_SimpleFilter               $name   The filter name or a Twig_SupTwgDtgs_SimpleFilter instance
+     * @param Twig_SupTwgDtgs_FilterInterface|Twig_SupTwgDtgs_SimpleFilter $filter
      */
     public function addFilter($name, $filter = null)
     {
-        if (!$name instanceof Twig_SupTwg_SimpleFilter && !($filter instanceof Twig_SupTwg_SimpleFilter || $filter instanceof Twig_SupTwg_FilterInterface)) {
-            throw new LogicException('A filter must be an instance of Twig_SupTwg_FilterInterface or Twig_SupTwg_SimpleFilter.');
+        if (!$name instanceof Twig_SupTwgDtgs_SimpleFilter && !($filter instanceof Twig_SupTwgDtgs_SimpleFilter || $filter instanceof Twig_SupTwgDtgs_FilterInterface)) {
+            throw new LogicException('A filter must be an instance of Twig_SupTwgDtgs_FilterInterface or Twig_SupTwgDtgs_SimpleFilter.');
         }
 
-        if ($name instanceof Twig_SupTwg_SimpleFilter) {
+        if ($name instanceof Twig_SupTwgDtgs_SimpleFilter) {
             $filter = $name;
             $name = $filter->getName();
         } else {
-            @trigger_error(sprintf('Passing a name as a first argument to the %s method is deprecated since version 1.21. Pass an instance of "Twig_SupTwg_SimpleFilter" instead when defining filter "%s".', __METHOD__, $name), E_USER_DEPRECATED);
+            //@trigger_error(sprintf('Passing a name as a first argument to the %s method is deprecated since version 1.21. Pass an instance of "Twig_SupTwgDtgs_SimpleFilter" instead when defining filter "%s".', __METHOD__, $name), E_USER_DEPRECATED);
         }
 
         if ($this->extensionInitialized) {
@@ -1077,7 +1077,7 @@ class Twig_SupTwg_Environment
      *
      * @param string $name The filter name
      *
-     * @return Twig_SupTwg_Filter|false A Twig_SupTwg_Filter instance or false if the filter does not exist
+     * @return Twig_SupTwgDtgs_Filter|false A Twig_SupTwgDtgs_Filter instance or false if the filter does not exist
      *
      * @internal
      */
@@ -1123,7 +1123,7 @@ class Twig_SupTwg_Environment
      *
      * Be warned that this method cannot return filters defined with registerUndefinedFilterCallback.
      *
-     * @return Twig_SupTwg_FilterInterface[]
+     * @return Twig_SupTwgDtgs_FilterInterface[]
      *
      * @see registerUndefinedFilterCallback
      *
@@ -1141,20 +1141,20 @@ class Twig_SupTwg_Environment
     /**
      * Registers a Test.
      *
-     * @param string|Twig_SupTwg_SimpleTest             $name The test name or a Twig_SupTwg_SimpleTest instance
-     * @param Twig_SupTwg_TestInterface|Twig_SupTwg_SimpleTest $test A Twig_SupTwg_TestInterface instance or a Twig_SupTwg_SimpleTest instance
+     * @param string|Twig_SupTwgDtgs_SimpleTest             $name The test name or a Twig_SupTwgDtgs_SimpleTest instance
+     * @param Twig_SupTwgDtgs_TestInterface|Twig_SupTwgDtgs_SimpleTest $test A Twig_SupTwgDtgs_TestInterface instance or a Twig_SupTwgDtgs_SimpleTest instance
      */
     public function addTest($name, $test = null)
     {
-        if (!$name instanceof Twig_SupTwg_SimpleTest && !($test instanceof Twig_SupTwg_SimpleTest || $test instanceof Twig_SupTwg_TestInterface)) {
-            throw new LogicException('A test must be an instance of Twig_SupTwg_TestInterface or Twig_SupTwg_SimpleTest.');
+        if (!$name instanceof Twig_SupTwgDtgs_SimpleTest && !($test instanceof Twig_SupTwgDtgs_SimpleTest || $test instanceof Twig_SupTwgDtgs_TestInterface)) {
+            throw new LogicException('A test must be an instance of Twig_SupTwgDtgs_TestInterface or Twig_SupTwgDtgs_SimpleTest.');
         }
 
-        if ($name instanceof Twig_SupTwg_SimpleTest) {
+        if ($name instanceof Twig_SupTwgDtgs_SimpleTest) {
             $test = $name;
             $name = $test->getName();
         } else {
-            @trigger_error(sprintf('Passing a name as a first argument to the %s method is deprecated since version 1.21. Pass an instance of "Twig_SupTwg_SimpleTest" instead when defining test "%s".', __METHOD__, $name), E_USER_DEPRECATED);
+            //@trigger_error(sprintf('Passing a name as a first argument to the %s method is deprecated since version 1.21. Pass an instance of "Twig_SupTwgDtgs_SimpleTest" instead when defining test "%s".', __METHOD__, $name), E_USER_DEPRECATED);
         }
 
         if ($this->extensionInitialized) {
@@ -1167,7 +1167,7 @@ class Twig_SupTwg_Environment
     /**
      * Gets the registered Tests.
      *
-     * @return Twig_SupTwg_TestInterface[]
+     * @return Twig_SupTwgDtgs_TestInterface[]
      *
      * @internal
      */
@@ -1185,7 +1185,7 @@ class Twig_SupTwg_Environment
      *
      * @param string $name The test name
      *
-     * @return Twig_SupTwg_Test|false A Twig_SupTwg_Test instance or false if the test does not exist
+     * @return Twig_SupTwgDtgs_Test|false A Twig_SupTwgDtgs_Test instance or false if the test does not exist
      *
      * @internal
      */
@@ -1205,20 +1205,20 @@ class Twig_SupTwg_Environment
     /**
      * Registers a Function.
      *
-     * @param string|Twig_SupTwg_SimpleFunction                 $name     The function name or a Twig_SupTwg_SimpleFunction instance
-     * @param Twig_SupTwg_FunctionInterface|Twig_SupTwg_SimpleFunction $function
+     * @param string|Twig_SupTwgDtgs_SimpleFunction                 $name     The function name or a Twig_SupTwgDtgs_SimpleFunction instance
+     * @param Twig_SupTwgDtgs_FunctionInterface|Twig_SupTwgDtgs_SimpleFunction $function
      */
     public function addFunction($name, $function = null)
     {
-        if (!$name instanceof Twig_SupTwg_SimpleFunction && !($function instanceof Twig_SupTwg_SimpleFunction || $function instanceof Twig_SupTwg_FunctionInterface)) {
-            throw new LogicException('A function must be an instance of Twig_SupTwg_FunctionInterface or Twig_SupTwg_SimpleFunction.');
+        if (!$name instanceof Twig_SupTwgDtgs_SimpleFunction && !($function instanceof Twig_SupTwgDtgs_SimpleFunction || $function instanceof Twig_SupTwgDtgs_FunctionInterface)) {
+            throw new LogicException('A function must be an instance of Twig_SupTwgDtgs_FunctionInterface or Twig_SupTwgDtgs_SimpleFunction.');
         }
 
-        if ($name instanceof Twig_SupTwg_SimpleFunction) {
+        if ($name instanceof Twig_SupTwgDtgs_SimpleFunction) {
             $function = $name;
             $name = $function->getName();
         } else {
-            @trigger_error(sprintf('Passing a name as a first argument to the %s method is deprecated since version 1.21. Pass an instance of "Twig_SupTwg_SimpleFunction" instead when defining function "%s".', __METHOD__, $name), E_USER_DEPRECATED);
+            //@trigger_error(sprintf('Passing a name as a first argument to the %s method is deprecated since version 1.21. Pass an instance of "Twig_SupTwgDtgs_SimpleFunction" instead when defining function "%s".', __METHOD__, $name), E_USER_DEPRECATED);
         }
 
         if ($this->extensionInitialized) {
@@ -1236,7 +1236,7 @@ class Twig_SupTwg_Environment
      *
      * @param string $name function name
      *
-     * @return Twig_SupTwg_Function|false A Twig_SupTwg_Function instance or false if the function does not exist
+     * @return Twig_SupTwgDtgs_Function|false A Twig_SupTwgDtgs_Function instance or false if the function does not exist
      *
      * @internal
      */
@@ -1282,7 +1282,7 @@ class Twig_SupTwg_Environment
      *
      * Be warned that this method cannot return functions defined with registerUndefinedFunctionCallback.
      *
-     * @return Twig_SupTwg_FunctionInterface[]
+     * @return Twig_SupTwgDtgs_FunctionInterface[]
      *
      * @see registerUndefinedFunctionCallback
      *
@@ -1315,7 +1315,7 @@ class Twig_SupTwg_Environment
 
             if (!array_key_exists($name, $this->globals)) {
                 // The deprecation notice must be turned into the following exception in Twig 2.0
-                @trigger_error(sprintf('Registering global variable "%s" at runtime or when the extensions have already been initialized is deprecated since version 1.21.', $name), E_USER_DEPRECATED);
+                //@trigger_error(sprintf('Registering global variable "%s" at runtime or when the extensions have already been initialized is deprecated since version 1.21.', $name), E_USER_DEPRECATED);
                 //throw new LogicException(sprintf('Unable to add global "%s" as the runtime or the extensions have already been initialized.', $name));
             }
         }
@@ -1405,9 +1405,9 @@ class Twig_SupTwg_Environment
      */
     public function computeAlternatives($name, $items)
     {
-        @trigger_error(sprintf('The %s method is deprecated since version 1.23 and will be removed in Twig 2.0.', __METHOD__), E_USER_DEPRECATED);
+        //@trigger_error(sprintf('The %s method is deprecated since version 1.23 and will be removed in Twig 2.0.', __METHOD__), E_USER_DEPRECATED);
 
-        return Twig_SupTwg_Error_Syntax::computeAlternatives($name, $items);
+        return Twig_SupTwgDtgs_Error_Syntax::computeAlternatives($name, $items);
     }
 
     /**
@@ -1417,11 +1417,11 @@ class Twig_SupTwg_Environment
     {
         $globals = array();
         foreach ($this->extensions as $name => $extension) {
-            if (!$extension instanceof Twig_SupTwg_Extension_GlobalsInterface) {
+            if (!$extension instanceof Twig_SupTwgDtgs_Extension_GlobalsInterface) {
                 $m = new ReflectionMethod($extension, 'getGlobals');
 
-                if ('Twig_SupTwg_Extension' !== $m->getDeclaringClass()->getName()) {
-                    @trigger_error(sprintf('Defining the getGlobals() method in the "%s" extension without explicitly implementing Twig_SupTwg_Extension_GlobalsInterface is deprecated since version 1.23.', $name), E_USER_DEPRECATED);
+                if ('Twig_SupTwgDtgs_Extension' !== $m->getDeclaringClass()->getName()) {
+                    //@trigger_error(sprintf('Defining the getGlobals() method in the "%s" extension without explicitly implementing Twig_SupTwgDtgs_Extension_GlobalsInterface is deprecated since version 1.23.', $name), E_USER_DEPRECATED);
                 }
             }
 
@@ -1447,7 +1447,7 @@ class Twig_SupTwg_Environment
             return;
         }
 
-        $this->parsers = new Twig_SupTwg_TokenParserBroker(array(), array(), false);
+        $this->parsers = new Twig_SupTwgDtgs_TokenParserBroker(array(), array(), false);
         $this->filters = array();
         $this->functions = array();
         $this->tests = array();
@@ -1466,14 +1466,14 @@ class Twig_SupTwg_Environment
     /**
      * @internal
      */
-    protected function initExtension(Twig_SupTwg_ExtensionInterface $extension)
+    protected function initExtension(Twig_SupTwgDtgs_ExtensionInterface $extension)
     {
         // filters
         foreach ($extension->getFilters() as $name => $filter) {
-            if ($filter instanceof Twig_SupTwg_SimpleFilter) {
+            if ($filter instanceof Twig_SupTwgDtgs_SimpleFilter) {
                 $name = $filter->getName();
             } else {
-                @trigger_error(sprintf('Using an instance of "%s" for filter "%s" is deprecated since version 1.21. Use Twig_SupTwg_SimpleFilter instead.', get_class($filter), $name), E_USER_DEPRECATED);
+                //@trigger_error(sprintf('Using an instance of "%s" for filter "%s" is deprecated since version 1.21. Use Twig_SupTwgDtgs_SimpleFilter instead.', get_class($filter), $name), E_USER_DEPRECATED);
             }
 
             $this->filters[$name] = $filter;
@@ -1481,10 +1481,10 @@ class Twig_SupTwg_Environment
 
         // functions
         foreach ($extension->getFunctions() as $name => $function) {
-            if ($function instanceof Twig_SupTwg_SimpleFunction) {
+            if ($function instanceof Twig_SupTwgDtgs_SimpleFunction) {
                 $name = $function->getName();
             } else {
-                @trigger_error(sprintf('Using an instance of "%s" for function "%s" is deprecated since version 1.21. Use Twig_SupTwg_SimpleFunction instead.', get_class($function), $name), E_USER_DEPRECATED);
+                //@trigger_error(sprintf('Using an instance of "%s" for function "%s" is deprecated since version 1.21. Use Twig_SupTwgDtgs_SimpleFunction instead.', get_class($function), $name), E_USER_DEPRECATED);
             }
 
             $this->functions[$name] = $function;
@@ -1492,10 +1492,10 @@ class Twig_SupTwg_Environment
 
         // tests
         foreach ($extension->getTests() as $name => $test) {
-            if ($test instanceof Twig_SupTwg_SimpleTest) {
+            if ($test instanceof Twig_SupTwgDtgs_SimpleTest) {
                 $name = $test->getName();
             } else {
-                @trigger_error(sprintf('Using an instance of "%s" for test "%s" is deprecated since version 1.21. Use Twig_SupTwg_SimpleTest instead.', get_class($test), $name), E_USER_DEPRECATED);
+                //@trigger_error(sprintf('Using an instance of "%s" for test "%s" is deprecated since version 1.21. Use Twig_SupTwgDtgs_SimpleTest instead.', get_class($test), $name), E_USER_DEPRECATED);
             }
 
             $this->tests[$name] = $test;
@@ -1503,14 +1503,14 @@ class Twig_SupTwg_Environment
 
         // token parsers
         foreach ($extension->getTokenParsers() as $parser) {
-            if ($parser instanceof Twig_SupTwg_TokenParserInterface) {
+            if ($parser instanceof Twig_SupTwgDtgs_TokenParserInterface) {
                 $this->parsers->addTokenParser($parser);
-            } elseif ($parser instanceof Twig_SupTwg_TokenParserBrokerInterface) {
-                @trigger_error('Registering a Twig_SupTwg_TokenParserBrokerInterface instance is deprecated since version 1.21.', E_USER_DEPRECATED);
+            } elseif ($parser instanceof Twig_SupTwgDtgs_TokenParserBrokerInterface) {
+                //@trigger_error('Registering a Twig_SupTwgDtgs_TokenParserBrokerInterface instance is deprecated since version 1.21.', E_USER_DEPRECATED);
 
                 $this->parsers->addTokenParserBroker($parser);
             } else {
-                throw new LogicException('getTokenParsers() must return an array of Twig_SupTwg_TokenParserInterface or Twig_SupTwg_TokenParserBrokerInterface instances.');
+                throw new LogicException('getTokenParsers() must return an array of Twig_SupTwgDtgs_TokenParserInterface or Twig_SupTwgDtgs_TokenParserBrokerInterface instances.');
             }
         }
 
@@ -1547,7 +1547,7 @@ class Twig_SupTwg_Environment
         $hashParts = array_merge(
             array_keys($this->extensions),
             array(
-                (int) function_exists('Twig_SupTwg_template_get_attributes'),
+                (int) function_exists('Twig_SupTwgDtgs_template_get_attributes'),
                 PHP_MAJOR_VERSION,
                 PHP_MINOR_VERSION,
                 self::VERSION,

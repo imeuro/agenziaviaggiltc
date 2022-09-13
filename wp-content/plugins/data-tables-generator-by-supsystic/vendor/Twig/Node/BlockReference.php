@@ -15,14 +15,14 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Node_BlockReference extends Twig_SupTwg_Node implements Twig_SupTwg_NodeOutputInterface
+class Twig_SupTwgDtgs_Node_BlockReference extends Twig_SupTwgDtgs_Node implements Twig_SupTwgDtgs_NodeOutputInterface
 {
     public function __construct($name, $lineno, $tag = null)
     {
         parent::__construct(array(), array('name' => $name), $lineno, $tag);
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
             ->addDebugInfo($this)

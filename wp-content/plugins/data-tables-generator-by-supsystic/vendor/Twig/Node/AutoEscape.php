@@ -20,14 +20,14 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Node_AutoEscape extends Twig_SupTwg_Node
+class Twig_SupTwgDtgs_Node_AutoEscape extends Twig_SupTwgDtgs_Node
 {
-    public function __construct($value, Twig_SupTwg_NodeInterface $body, $lineno, $tag = 'autoescape')
+    public function __construct($value, Twig_SupTwgDtgs_NodeInterface $body, $lineno, $tag = 'autoescape')
     {
         parent::__construct(array('body' => $body), array('value' => $value), $lineno, $tag);
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler->subcompile($this->getNode('body'));
     }

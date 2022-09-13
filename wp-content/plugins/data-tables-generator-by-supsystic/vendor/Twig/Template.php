@@ -15,13 +15,13 @@
  *
  * This class is an implementation detail of how template compilation currently
  * works, which might change. It should never be used directly. Use $twig->load()
- * instead, which returns an instance of Twig_SupTwg_TemplateWrapper.
+ * instead, which returns an instance of Twig_SupTwgDtgs_TemplateWrapper.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *
  * @internal
  */
-abstract class Twig_SupTwg_Template implements Twig_SupTwg_TemplateInterface
+abstract class Twig_SupTwgDtgs_Template implements Twig_SupTwgDtgs_TemplateInterface
 {
     /**
      * @internal
@@ -34,7 +34,7 @@ abstract class Twig_SupTwg_Template implements Twig_SupTwg_TemplateInterface
     protected $blocks = array();
     protected $traits = array();
 
-    public function __construct(Twig_SupTwg_Environment $env)
+    public function __construct(Twig_SupTwgDtgs_Environment $env)
     {
         $this->env = $env;
     }
@@ -75,7 +75,7 @@ abstract class Twig_SupTwg_Template implements Twig_SupTwg_TemplateInterface
      */
     public function getSource()
     {
-        @trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use getSourceContext() instead.', E_USER_DEPRECATED);
+        //@trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use getSourceContext() instead.', E_USER_DEPRECATED);
 
         return '';
     }
@@ -83,11 +83,11 @@ abstract class Twig_SupTwg_Template implements Twig_SupTwg_TemplateInterface
     /**
      * Returns information about the original template source code.
      *
-     * @return Twig_SupTwg_Source
+     * @return Twig_SupTwgDtgs_Source
      */
     public function getSourceContext()
     {
-        return new Twig_SupTwg_Source('', $this->getTemplateName());
+        return new Twig_SupTwgDtgs_Source('', $this->getTemplateName());
     }
 
     /**
@@ -95,7 +95,7 @@ abstract class Twig_SupTwg_Template implements Twig_SupTwg_TemplateInterface
      */
     public function getEnvironment()
     {
-        @trigger_error('The '.__METHOD__.' method is deprecated since version 1.20 and will be removed in 2.0.', E_USER_DEPRECATED);
+        //@trigger_error('The '.__METHOD__.' method is deprecated since version 1.20 and will be removed in 2.0.', E_USER_DEPRECATED);
 
         return $this->env;
     }
@@ -108,7 +108,7 @@ abstract class Twig_SupTwg_Template implements Twig_SupTwg_TemplateInterface
      *
      * @param array $context
      *
-     * @return Twig_SupTwg_TemplateInterface|false The parent template or false if there is no parent
+     * @return Twig_SupTwgDtgs_TemplateInterface|false The parent template or false if there is no parent
      *
      * @internal
      */
@@ -132,7 +132,7 @@ abstract class Twig_SupTwg_Template implements Twig_SupTwg_TemplateInterface
             if (!isset($this->parents[$parent])) {
                 $this->parents[$parent] = $this->loadTemplate($parent);
             }
-        } catch (Twig_SupTwg_Error_Loader $e) {
+        } catch (Twig_SupTwgDtgs_Error_Loader $e) {
             $e->setSourceContext(null);
             $e->guess();
 
@@ -173,7 +173,7 @@ abstract class Twig_SupTwg_Template implements Twig_SupTwg_TemplateInterface
         } elseif (false !== $parent = $this->getParent($context)) {
             $parent->displayBlock($name, $context, $blocks, false);
         } else {
-            throw new Twig_SupTwg_Error_Runtime(sprintf('The template has no parent and no traits defining the "%s" block.', $name), -1, $this->getSourceContext());
+            throw new Twig_SupTwgDtgs_Error_Runtime(sprintf('The template has no parent and no traits defining the "%s" block.', $name), -1, $this->getSourceContext());
         }
     }
 
@@ -207,19 +207,19 @@ abstract class Twig_SupTwg_Template implements Twig_SupTwg_TemplateInterface
 
         // avoid RCEs when sandbox is enabled
         if (null !== $template && !$template instanceof self) {
-            throw new LogicException('A block must be a method on a Twig_SupTwg_Template instance.');
+            throw new LogicException('A block must be a method on a Twig_SupTwgDtgs_Template instance.');
         }
 
         if (null !== $template) {
             try {
                 $template->$block($context, $blocks);
-            } catch (Twig_SupTwg_Error $e) {
+            } catch (Twig_SupTwgDtgs_Error $e) {
                 if (!$e->getSourceContext()) {
                     $e->setSourceContext($template->getSourceContext());
                 }
 
-                // this is mostly useful for Twig_SupTwg_Error_Loader exceptions
-                // see Twig_SupTwg_Error_Loader
+                // this is mostly useful for Twig_SupTwgDtgs_Error_Loader exceptions
+                // see Twig_SupTwgDtgs_Error_Loader
                 if (false === $e->getTemplateLine()) {
                     $e->setTemplateLine(-1);
                     $e->guess();
@@ -227,12 +227,12 @@ abstract class Twig_SupTwg_Template implements Twig_SupTwg_TemplateInterface
 
                 throw $e;
             } catch (Exception $e) {
-                throw new Twig_SupTwg_Error_Runtime(sprintf('An exception has been thrown during the rendering of a template ("%s").', $e->getMessage()), -1, $template->getSourceContext(), $e);
+                throw new Twig_SupTwgDtgs_Error_Runtime(sprintf('An exception has been thrown during the rendering of a template ("%s").', $e->getMessage()), -1, $template->getSourceContext(), $e);
             }
         } elseif (false !== $parent = $this->getParent($context)) {
             $parent->displayBlock($name, $context, array_merge($this->blocks, $blocks), false);
         } else {
-            @trigger_error(sprintf('Silent display of undefined block "%s" in template "%s" is deprecated since version 1.29 and will throw an exception in 2.0. Use the "block(\'%s\') is defined" expression to test for block existence.', $name, $this->getTemplateName(), $name), E_USER_DEPRECATED);
+            //@trigger_error(sprintf('Silent display of undefined block "%s" in template "%s" is deprecated since version 1.29 and will throw an exception in 2.0. Use the "block(\'%s\') is defined" expression to test for block existence.', $name, $this->getTemplateName(), $name), E_USER_DEPRECATED);
         }
     }
 
@@ -298,7 +298,7 @@ abstract class Twig_SupTwg_Template implements Twig_SupTwg_TemplateInterface
     public function hasBlock($name, array $context = null, array $blocks = array())
     {
         if (null === $context) {
-            @trigger_error('The '.__METHOD__.' method is internal and should never be called; calling it directly is deprecated since version 1.28 and won\'t be possible anymore in 2.0.', E_USER_DEPRECATED);
+            //@trigger_error('The '.__METHOD__.' method is internal and should never be called; calling it directly is deprecated since version 1.28 and won\'t be possible anymore in 2.0.', E_USER_DEPRECATED);
 
             return isset($this->blocks[(string) $name]);
         }
@@ -334,7 +334,7 @@ abstract class Twig_SupTwg_Template implements Twig_SupTwg_TemplateInterface
     public function getBlockNames(array $context = null, array $blocks = array())
     {
         if (null === $context) {
-            @trigger_error('The '.__METHOD__.' method is internal and should never be called; calling it directly is deprecated since version 1.28 and won\'t be possible anymore in 2.0.', E_USER_DEPRECATED);
+            //@trigger_error('The '.__METHOD__.' method is internal and should never be called; calling it directly is deprecated since version 1.28 and won\'t be possible anymore in 2.0.', E_USER_DEPRECATED);
 
             return array_keys($this->blocks);
         }
@@ -359,14 +359,14 @@ abstract class Twig_SupTwg_Template implements Twig_SupTwg_TemplateInterface
                 return $template;
             }
 
-            if ($template instanceof Twig_SupTwg_TemplateWrapper) {
+            if ($template instanceof Twig_SupTwgDtgs_TemplateWrapper) {
                 return $template;
             }
 
             return $this->env->loadTemplate($template, $index);
-        } catch (Twig_SupTwg_Error $e) {
+        } catch (Twig_SupTwgDtgs_Error $e) {
             if (!$e->getSourceContext()) {
-                $e->setSourceContext($templateName ? new Twig_SupTwg_Source('', $templateName) : $this->getSourceContext());
+                $e->setSourceContext($templateName ? new Twig_SupTwgDtgs_Source('', $templateName) : $this->getSourceContext());
             }
 
             if ($e->getTemplateLine()) {
@@ -430,13 +430,13 @@ abstract class Twig_SupTwg_Template implements Twig_SupTwg_TemplateInterface
     {
         try {
             $this->doDisplay($context, $blocks);
-        } catch (Twig_SupTwg_Error $e) {
+        } catch (Twig_SupTwgDtgs_Error $e) {
             if (!$e->getSourceContext()) {
                 $e->setSourceContext($this->getSourceContext());
             }
 
-            // this is mostly useful for Twig_SupTwg_Error_Loader exceptions
-            // see Twig_SupTwg_Error_Loader
+            // this is mostly useful for Twig_SupTwgDtgs_Error_Loader exceptions
+            // see Twig_SupTwgDtgs_Error_Loader
             if (false === $e->getTemplateLine()) {
                 $e->setTemplateLine(-1);
                 $e->guess();
@@ -444,7 +444,7 @@ abstract class Twig_SupTwg_Template implements Twig_SupTwg_TemplateInterface
 
             throw $e;
         } catch (Exception $e) {
-            throw new Twig_SupTwg_Error_Runtime(sprintf('An exception has been thrown during the rendering of a template ("%s").', $e->getMessage()), -1, $this->getSourceContext(), $e);
+            throw new Twig_SupTwgDtgs_Error_Runtime(sprintf('An exception has been thrown during the rendering of a template ("%s").', $e->getMessage()), -1, $this->getSourceContext(), $e);
         }
     }
 
@@ -473,7 +473,7 @@ abstract class Twig_SupTwg_Template implements Twig_SupTwg_TemplateInterface
      *
      * @return mixed The content of the context variable
      *
-     * @throws Twig_SupTwg_Error_Runtime if the variable does not exist and Twig is running in strict mode
+     * @throws Twig_SupTwgDtgs_Error_Runtime if the variable does not exist and Twig is running in strict mode
      *
      * @internal
      */
@@ -484,7 +484,7 @@ abstract class Twig_SupTwg_Template implements Twig_SupTwg_TemplateInterface
                 return;
             }
 
-            throw new Twig_SupTwg_Error_Runtime(sprintf('Variable "%s" does not exist.', $item), -1, $this->getSourceContext());
+            throw new Twig_SupTwgDtgs_Error_Runtime(sprintf('Variable "%s" does not exist.', $item), -1, $this->getSourceContext());
         }
 
         return $context[$item];
@@ -496,13 +496,13 @@ abstract class Twig_SupTwg_Template implements Twig_SupTwg_TemplateInterface
      * @param mixed  $object            The object or array from where to get the item
      * @param mixed  $item              The item to get from the array or object
      * @param array  $arguments         An array of arguments to pass if the item is an object method
-     * @param string $type              The type of attribute (@see Twig_SupTwg_Template constants)
+     * @param string $type              The type of attribute (@see Twig_SupTwgDtgs_Template constants)
      * @param bool   $isDefinedTest     Whether this is only a defined check
      * @param bool   $ignoreStrictCheck Whether to ignore the strict attribute check or not
      *
      * @return mixed The attribute value, or a Boolean when $isDefinedTest is true, or null when the attribute is not set and $ignoreStrictCheck is true
      *
-     * @throws Twig_SupTwg_Error_Runtime if the attribute does not exist and Twig is running in strict mode and $isDefinedTest is false
+     * @throws Twig_SupTwgDtgs_Error_Runtime if the attribute does not exist and Twig is running in strict mode and $isDefinedTest is false
      *
      * @internal
      */
@@ -553,7 +553,7 @@ abstract class Twig_SupTwg_Template implements Twig_SupTwg_TemplateInterface
                     $message = sprintf('Impossible to access an attribute ("%s") on a %s variable ("%s").', $item, gettype($object), $object);
                 }
 
-                throw new Twig_SupTwg_Error_Runtime($message, -1, $this->getSourceContext());
+                throw new Twig_SupTwgDtgs_Error_Runtime($message, -1, $this->getSourceContext());
             }
         }
 
@@ -572,18 +572,18 @@ abstract class Twig_SupTwg_Template implements Twig_SupTwg_TemplateInterface
                 $message = sprintf('Impossible to invoke a method ("%s") on a %s variable ("%s").', $item, gettype($object), $object);
             }
 
-            throw new Twig_SupTwg_Error_Runtime($message, -1, $this->getSourceContext());
+            throw new Twig_SupTwgDtgs_Error_Runtime($message, -1, $this->getSourceContext());
         }
 
         // object property
-        if (self::METHOD_CALL !== $type && !$object instanceof self) { // Twig_SupTwg_Template does not have public properties, and we don't want to allow access to internal ones
+        if (self::METHOD_CALL !== $type && !$object instanceof self) { // Twig_SupTwgDtgs_Template does not have public properties, and we don't want to allow access to internal ones
             if (isset($object->$item) || !empty($object->$item)) {
                 if ($isDefinedTest) {
                     return true;
                 }
 
-                if ($this->env->hasExtension('Twig_SupTwg_Extension_Sandbox')) {
-                    $this->env->getExtension('Twig_SupTwg_Extension_Sandbox')->checkPropertyAllowed($object, $item);
+                if ($this->env->hasExtension('Twig_SupTwgDtgs_Extension_Sandbox')) {
+                    $this->env->getExtension('Twig_SupTwgDtgs_Extension_Sandbox')->checkPropertyAllowed($object, $item);
                 }
 
                 return $object->$item;
@@ -657,15 +657,15 @@ abstract class Twig_SupTwg_Template implements Twig_SupTwg_TemplateInterface
                 return;
             }
 
-            throw new Twig_SupTwg_Error_Runtime(sprintf('Neither the property "%1$s" nor one of the methods "%1$s()", "get%1$s()"/"is%1$s()" or "__call()" exist and have public access in class "%2$s".', $item, $class), -1, $this->getSourceContext());
+            throw new Twig_SupTwgDtgs_Error_Runtime(sprintf('Neither the property "%1$s" nor one of the methods "%1$s()", "get%1$s()"/"is%1$s()" or "__call()" exist and have public access in class "%2$s".', $item, $class), -1, $this->getSourceContext());
         }
 
         if ($isDefinedTest) {
             return true;
         }
 
-        if ($this->env->hasExtension('Twig_SupTwg_Extension_Sandbox')) {
-            $this->env->getExtension('Twig_SupTwg_Extension_Sandbox')->checkMethodAllowed($object, $method);
+        if ($this->env->hasExtension('Twig_SupTwgDtgs_Extension_Sandbox')) {
+            $this->env->getExtension('Twig_SupTwgDtgs_Extension_Sandbox')->checkMethodAllowed($object, $method);
         }
 
         // Some objects throw exceptions when they have __call, and the method we try
@@ -684,7 +684,7 @@ abstract class Twig_SupTwg_Template implements Twig_SupTwg_TemplateInterface
         }
 
         // @deprecated in 1.28
-        if ($object instanceof Twig_SupTwg_TemplateInterface) {
+        if ($object instanceof Twig_SupTwgDtgs_TemplateInterface) {
             $self = $object->getTemplateName() === $this->getTemplateName();
             $message = sprintf('Calling "%s" on template "%s" from template "%s" is deprecated since version 1.28 and won\'t be supported anymore in 2.0.', $item, $object->getTemplateName(), $this->getTemplateName());
             if ('renderBlock' === $method || 'displayBlock' === $method) {
@@ -694,9 +694,9 @@ abstract class Twig_SupTwg_Template implements Twig_SupTwg_TemplateInterface
             } elseif ('render' === $method || 'display' === $method) {
                 $message .= sprintf(' Use include("%s") instead).', $object->getTemplateName());
             }
-            @trigger_error($message, E_USER_DEPRECATED);
+            //@trigger_error($message, E_USER_DEPRECATED);
 
-            return $ret === '' ? '' : new Twig_SupTwg_Markup($ret, $this->env->getCharset());
+            return $ret === '' ? '' : new Twig_SupTwgDtgs_Markup($ret, $this->env->getCharset());
         }
 
         return $ret;

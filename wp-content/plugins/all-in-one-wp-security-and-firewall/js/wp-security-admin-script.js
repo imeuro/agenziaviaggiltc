@@ -3,7 +3,7 @@ jQuery(document).ready(function($){
 
     //Media Uploader - start
     function aiowps_attach_media_uploader(key) {
-        jQuery('#' + key + '_button').click(function() {
+        jQuery('#' + key + '_button').on('click', function() {
                 text_element = jQuery('#' + key).attr('name');
                 button_element = jQuery('#' + key + '_button').attr('name');
                 tb_show('All In One Security - Please Select a File', 'media-upload.php?referer=aiowpsec&amp;TB_iframe=true&amp;post_id=0width=640&amp;height=485');
@@ -31,7 +31,7 @@ jQuery(document).ready(function($){
     
     //Triggers the more info toggle link
     $(".aiowps_more_info_body").hide();//hide the more info on page load
-    $(".aiowps_more_info_anchor").click(function(){
+    $('.aiowps_more_info_anchor').on('click', function() {
         $(this).next(".aiowps_more_info_body").animate({ "height": "toggle"});
         var toogle_char_ref = $(this).find(".aiowps_more_info_toggle_char");
         var toggle_char_value = toogle_char_ref.text();
@@ -59,6 +59,46 @@ jQuery(document).ready(function($){
 	jQuery('input[name=aiowps_enable_brute_force_attack_prevention]').on('click', function() {
 		jQuery('input[name=aiowps_brute_force_secret_word]').prop('disabled', !jQuery(this).prop('checked'));
 		jQuery('input[name=aiowps_cookie_based_brute_force_redirect_url]').prop('disabled', !jQuery(this).prop('checked'));
+		jQuery('input[name=aiowps_brute_force_attack_prevention_pw_protected_exception]').prop('disabled', !jQuery(this).prop('checked'));
+		jQuery('input[name=aiowps_brute_force_attack_prevention_ajax_exception]').prop('disabled', !jQuery(this).prop('checked'));	
 	});
 	// End of brute force attack prevention toggle handling
+
+	/**
+	 * Take a backup with UpdraftPlus if possible.
+	 *
+	 * @param {String}   file_entities
+	 *
+	 * @return void
+	 */
+	function take_a_backup_with_updraftplus(file_entities) {
+		// Set default for file_entities to empty string
+		if ('undefined' == typeof file_entities) file_entities = '';
+		var exclude_files = file_entities ? 0 : 1;
+
+		if (typeof updraft_backupnow_inpage_go === 'function') {
+			updraft_backupnow_inpage_go(function () {
+				// Close the backup dialogue.
+				$('#updraft-backupnow-inpage-modal').dialog('close');
+			}, file_entities, 'autobackup', 0, exclude_files, 0);
+		}
+	}
+    if (jQuery('#aios-manual-db-backup-now').length) {
+        jQuery('#aios-manual-db-backup-now').on('click', function (e) {
+            e.preventDefault();
+            take_a_backup_with_updraftplus();
+        });
+    }
+
+    // Hide 2FA premium advertisement
+    if (jQuery('.tfa-premium').length) {
+        jQuery('.tfa-premium').hide();
+    }
+
+
+	// Start of trash spam comments toggle handling
+	jQuery('input[name=aiowps_enable_trash_spam_comments]').on('click', function() {
+		jQuery('input[name=aiowps_trash_spam_comments_after_days]').prop('disabled', !jQuery(this).prop('checked'));
+	});
+	// End of trash spam comments toggle handling
 });

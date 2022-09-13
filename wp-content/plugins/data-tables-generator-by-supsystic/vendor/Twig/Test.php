@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-@trigger_error('The Twig_SupTwg_Test class is deprecated since version 1.12 and will be removed in 2.0. Use Twig_SupTwg_SimpleTest instead.', E_USER_DEPRECATED);
+//@trigger_error('The Twig_SupTwgDtgs_Test class is deprecated since version 1.12 and will be removed in 2.0. Use Twig_SupTwgDtgs_SimpleTest instead.', E_USER_DEPRECATED);
 
 /**
  * Represents a template test.
@@ -18,7 +18,7 @@
  *
  * @deprecated since 1.12 (to be removed in 2.0)
  */
-abstract class Twig_SupTwg_Test implements Twig_SupTwg_TestInterface, Twig_SupTwg_TestCallableInterface
+abstract class Twig_SupTwgDtgs_Test implements Twig_SupTwgDtgs_TestInterface, Twig_SupTwgDtgs_TestCallableInterface
 {
     protected $options;
     protected $arguments = array();

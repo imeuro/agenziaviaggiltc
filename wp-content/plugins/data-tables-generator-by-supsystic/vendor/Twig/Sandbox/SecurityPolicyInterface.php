@@ -14,7 +14,7 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-interface Twig_SupTwg_Sandbox_SecurityPolicyInterface
+interface Twig_SupTwgDtgs_Sandbox_SecurityPolicyInterface
 {
     public function checkSecurity($tags, $filters, $functions);
 

@@ -1387,12 +1387,12 @@ msgstr ""
 #: admin/wp-security-database-menu.php:26
 #: admin/wp-security-database-menu.php:31
 #: classes/grade-system/wp-security-feature-item-manager.php:63
-msgid "DB Backup"
+msgid "Database backup"
 msgstr "数据备份"
 
 #: admin/wp-security-database-menu.php:30
 #: classes/grade-system/wp-security-feature-item-manager.php:61
-msgid "DB Prefix"
+msgid "Database prefix"
 msgstr "数据库前缀"
 
 # @ all-in-one-wp-security-and-firewall
@@ -1422,7 +1422,7 @@ msgstr ""
 
 # @ all-in-one-wp-security-and-firewall
 #: admin/wp-security-database-menu.php:133
-msgid "Change Database Prefix"
+msgid "Change database prefix"
 msgstr "更改数据库前缀"
 
 # @ all-in-one-wp-security-and-firewall
@@ -1456,7 +1456,7 @@ msgstr ""
 
 # @ all-in-one-wp-security-and-firewall
 #: admin/wp-security-database-menu.php:145
-msgid "DB Prefix Options"
+msgid "Database prefix options"
 msgstr "数据库前缀选项"
 
 # @ all-in-one-wp-security-and-firewall
@@ -1467,7 +1467,7 @@ msgstr ""
 
 # @ all-in-one-wp-security-and-firewall
 #: admin/wp-security-database-menu.php:165
-msgid "Current DB Table Prefix"
+msgid "Current database table prefix"
 msgstr "当前数据库表前缀"
 
 # @ all-in-one-wp-security-and-firewall
@@ -1481,7 +1481,7 @@ msgstr ""
 
 # @ all-in-one-wp-security-and-firewall
 #: admin/wp-security-database-menu.php:178
-msgid "Generate New DB Table Prefix"
+msgid "Generate new database table prefix"
 msgstr "生成新的数据库表前缀"
 
 # @ all-in-one-wp-security-and-firewall
@@ -1505,7 +1505,7 @@ msgstr ""
 
 # @ all-in-one-wp-security-and-firewall
 #: admin/wp-security-database-menu.php:188
-msgid "Change DB Prefix"
+msgid "Change database prefix"
 msgstr "更改数据库前缀"
 
 # @ all-in-one-wp-security-and-firewall
@@ -1744,7 +1744,7 @@ msgstr ""
 
 # @ all-in-one-wp-security-and-firewall
 #: admin/wp-security-database-menu.php:532
-msgid "DB prefix change tasks have been completed."
+msgid "The database prefix change tasks have been completed."
 msgstr ""
 
 #: admin/wp-security-database-menu.php:575
@@ -5030,7 +5030,7 @@ msgstr ""
 
 # @ all-in-one-wp-security-and-firewall
 #: admin/wp-security-user-login-menu.php:304
-msgid "All records from the Failed Logins table were deleted successfully!"
+msgid "All records from the Failed Logins table were deleted successfully."
 msgstr ""
 
 # @ all-in-one-wp-security-and-firewall

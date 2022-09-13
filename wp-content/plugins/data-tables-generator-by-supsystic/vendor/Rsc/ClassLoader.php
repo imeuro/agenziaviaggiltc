@@ -1,7 +1,7 @@
 <?php
 
 
-class Rsc_ClassLoader
+class RscDtgs_ClassLoader
 {
 
     /**
@@ -22,7 +22,7 @@ class Rsc_ClassLoader
      * Add vendor prefix to the autoload stack
      * @param string $prefix Vendor prefix
      * @param string|array $path Classes path
-     * @return Rsc_ClassLoader
+     * @return RscDtgs_ClassLoader
      */
     public function add($prefix, $path)
     {
@@ -38,7 +38,7 @@ class Rsc_ClassLoader
     /**
      * Remove prefixes from the autoload stack
      * @param string|array $prefix Vendor prefixes to remove
-     * @return Rsc_ClassLoader
+     * @return RscDtgs_ClassLoader
      */
     public function remove($prefix)
     {
@@ -56,7 +56,7 @@ class Rsc_ClassLoader
     /**
      * Add an array of prefixes to the autoload stack
      * @param array $prefixes An array of prefixes
-     * @return Rsc_ClassLoader
+     * @return RscDtgs_ClassLoader
      */
     public function addPrefixes(array $prefixes)
     {
@@ -70,7 +70,7 @@ class Rsc_ClassLoader
     /**
      * Set an array of the vendor prefixes
      * @param array $prefixes An array of prefixes
-     * @return Rsc_ClassLoader
+     * @return RscDtgs_ClassLoader
      */
     public function setPrefixes(array $prefixes)
     {
@@ -145,7 +145,7 @@ class Rsc_ClassLoader
         }
 
         if (stripos($class,'Twig_') !== false) {
-           $className = str_replace('Twig_SupTwg_', '', $name);
+           $className = str_replace('Twig_SupTwgDtgs_', '', $name);
            $classDelimeters = explode('_', $className);
 
            $newName = '';
@@ -153,10 +153,10 @@ class Rsc_ClassLoader
               $newName .= DIRECTORY_SEPARATOR . $classDelimeters[$i];
            }
            $path .= 'Twig' . $newName . '.php';
-           if ($class == 'SupsysticSlider_Slider_Twig_SupTwg_Attachment') {
+           if ($class == 'SupsysticSlider_Slider_Twig_SupTwgDtgs_Attachment') {
              $path = DIRECTORY_SEPARATOR.'SupsysticSlider'.DIRECTORY_SEPARATOR.'Slider'.DIRECTORY_SEPARATOR.'Twig'.DIRECTORY_SEPARATOR.'Attachment.php';
            }
-           if ($class == 'SupsysticSliderPro_Slider_Twig_SupTwg_Video') {
+           if ($class == 'SupsysticSliderPro_Slider_Twig_SupTwgDtgs_Video') {
              $path = DIRECTORY_SEPARATOR.'SupsysticSliderPro'.DIRECTORY_SEPARATOR.'Slider'.DIRECTORY_SEPARATOR.'Twig'.DIRECTORY_SEPARATOR.'Video.php';
            }
          } else {

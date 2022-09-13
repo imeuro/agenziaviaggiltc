@@ -1121,12 +1121,12 @@ msgstr "Arquivo de log está vazio!"
 #: ../../plugins/all-in-one-wp-security-and-firewall/admin/wp-security-database-menu.php:26
 #: ../../plugins/all-in-one-wp-security-and-firewall/admin/wp-security-database-menu.php:31
 #: ../../plugins/all-in-one-wp-security-and-firewall/classes/grade-system/wp-security-feature-item-manager.php:63
-msgid "DB Backup"
+msgid "Database backup"
 msgstr "Backup do BD"
 
 #: ../../plugins/all-in-one-wp-security-and-firewall/admin/wp-security-database-menu.php:30
 #: ../../plugins/all-in-one-wp-security-and-firewall/classes/grade-system/wp-security-feature-item-manager.php:61
-msgid "DB Prefix"
+msgid "Database prefix"
 msgstr "Prefixo de BD"
 
 #: ../../plugins/all-in-one-wp-security-and-firewall/admin/wp-security-database-menu.php:94
@@ -1146,15 +1146,15 @@ msgid "<strong>ERROR</strong>: The table prefix can only contain numbers, letter
 msgstr "<strong>ERRO</strong>: O prefixo da tabela pode conter apenas números, letras e sublinhados."
 
 #: ../../plugins/all-in-one-wp-security-and-firewall/admin/wp-security-database-menu.php:132
-msgid "Change Database Prefix"
+msgid "Change database prefix"
 msgstr "Alterar prefixo do banco de dados"
 
 #: ../../plugins/all-in-one-wp-security-and-firewall/admin/wp-security-database-menu.php:135
-msgid "Your WordPress DB is the most important asset of your website because it contains a lot of your site's precious information."
+msgid "Your WordPress database is the most important asset of your website because it contains a lot of your site's precious information."
 msgstr "Seu banco de dados WordPress é o ativo mais importante de seu site, porque ele contém muitas informações preciosas do seu site."
 
 #: ../../plugins/all-in-one-wp-security-and-firewall/admin/wp-security-database-menu.php:136
-msgid "The DB is also a target for hackers via methods such as SQL injections and malicious and automated code which targets certain tables."
+msgid "The database is also a target for hackers via methods such as SQL injections and malicious and automated code which targets certain tables."
 msgstr "O banco de dados também é um alvo para hackers através de métodos tais como injeções de SQL e código malicioso e automatizado que tem como alvo determinadas tabelas."
 
 #: ../../plugins/all-in-one-wp-security-and-firewall/admin/wp-security-database-menu.php:137
@@ -1166,7 +1166,7 @@ msgid "This feature allows you to easily change the prefix to a value of your ch
 msgstr "Esse recurso permite que você altere facilmente o prefixo para um valor de sua escolha ou para um valor aleatório definido por este plugin."
 
 #: ../../plugins/all-in-one-wp-security-and-firewall/admin/wp-security-database-menu.php:144
-msgid "DB Prefix Options"
+msgid "Database prefix options"
 msgstr "Opções de prefixo do banco de dados"
 
 #: ../../plugins/all-in-one-wp-security-and-firewall/admin/wp-security-database-menu.php:155
@@ -1175,7 +1175,7 @@ msgid "It is recommended that you perform a %s before using this feature"
 msgstr "É recomendável que você execute um %s antes de usar este recurso"
 
 #: ../../plugins/all-in-one-wp-security-and-firewall/admin/wp-security-database-menu.php:164
-msgid "Current DB Table Prefix"
+msgid "Current database table prefix"
 msgstr "Atual prefixo da tabela BD"
 
 #: ../../plugins/all-in-one-wp-security-and-firewall/admin/wp-security-database-menu.php:170
@@ -1187,7 +1187,7 @@ msgstr ""
 "                            Para aumentar a segurança do seu site, você deve considerar mudar o valor de prefixo do banco de dados para outro valor."
 
 #: ../../plugins/all-in-one-wp-security-and-firewall/admin/wp-security-database-menu.php:177
-msgid "Generate New DB Table Prefix"
+msgid "Generate new database table prefix"
 msgstr "Gerar novo prefixo da tabela BD"
 
 #: ../../plugins/all-in-one-wp-security-and-firewall/admin/wp-security-database-menu.php:180
@@ -1203,7 +1203,7 @@ msgid "Choose your own DB prefix by specifying a string which contains letters a
 msgstr "Escolha o seu próprio prefixo do banco de dados especificando uma sequência de caracteres que contém letras, números ou sublinhados. Exemplo: xyz_"
 
 #: ../../plugins/all-in-one-wp-security-and-firewall/admin/wp-security-database-menu.php:187
-msgid "Change DB Prefix"
+msgid "Change database prefix"
 msgstr "Alterar prefixo do banco de dados"
 
 #: ../../plugins/all-in-one-wp-security-and-firewall/admin/wp-security-database-menu.php:208
@@ -1380,7 +1380,7 @@ msgid "The usermeta table records which had references to the old DB prefix were
 msgstr "Os registros da tabela usermeta que tinham referências ao antigo prefixo DB foram atualizados com sucesso!"
 
 #: ../../plugins/all-in-one-wp-security-and-firewall/admin/wp-security-database-menu.php:531
-msgid "DB prefix change tasks have been completed."
+msgid "The database prefix change tasks have been completed."
 msgstr "As tarefas de mudança de prefixo do banco de dados foram concluídas."
 
 #: ../../plugins/all-in-one-wp-security-and-firewall/admin/wp-security-filescan-menu.php:24
@@ -3765,7 +3765,7 @@ msgid "User Login Feature - Delete all failed login records operation failed!"
 msgstr "Recurso de login de usuário - Excluir todas as falhas de operação de registros de falhas de login!"
 
 #: ../../plugins/all-in-one-wp-security-and-firewall/admin/wp-security-user-login-menu.php:277
-msgid "All records from the Failed Logins table were deleted successfully!"
+msgid "All records from the Failed Logins table were deleted successfully."
 msgstr "Todos os registros da tabela falhas de logins foram excluídos com sucesso!"
 
 #: ../../plugins/all-in-one-wp-security-and-firewall/admin/wp-security-user-login-menu.php:292

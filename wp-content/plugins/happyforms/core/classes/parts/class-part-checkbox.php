@@ -264,7 +264,7 @@ class HappyForms_Part_Checkbox extends HappyForms_Form_Part {
 				return $validated_value;
 			}
 
-			$options = range( 0, count( $part['options'] ) - 1 );
+			$options = array_keys( $part['options'] );
 			$intersection = array_intersect( $options, $validated_value );
 
 			if ( count( $validated_value ) !== count( $intersection ) ) {
@@ -286,7 +286,7 @@ class HappyForms_Part_Checkbox extends HappyForms_Form_Part {
 
 		$numeric_values = array_filter( $validated_value, 'is_int' );
 		$array_values = array_filter( $validated_value, 'is_array' );
-		$options = range( 0, count( $part['options'] ) - 1 );
+		$options = array_keys( $part['options'] );
 		$intersection = array_intersect( $options, $numeric_values );
 
 		if ( count( $numeric_values ) !== count( $intersection ) ) {

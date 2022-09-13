@@ -185,33 +185,23 @@ class AIOWPSecurity_Blacklist_Menu extends AIOWPSecurity_Admin_Menu
             <tr valign="top">
                 <th scope="row"><?php _e('Enable IP or User Agent Blacklisting', 'all-in-one-wp-security-and-firewall')?>:</th>
                 <td>
-                <input name="aiowps_enable_blacklisting" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_enable_blacklisting')=='1') echo ' checked="checked"'; ?> value="1"/>
-                <span class="description"><?php _e('Check this if you want to enable the banning (or blacklisting) of selected IP addresses and/or user agents specified in the settings below', 'all-in-one-wp-security-and-firewall'); ?></span>
+                <input id="aiowps_enable_blacklisting" name="aiowps_enable_blacklisting" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_enable_blacklisting')=='1') echo ' checked="checked"'; ?> value="1"/>
+                <label for="aiowps_enable_blacklisting" class="description"><?php _e('Check this if you want to enable the banning (or blacklisting) of selected IP addresses and/or user agents specified in the settings below', 'all-in-one-wp-security-and-firewall'); ?></label>
                 </td>
             </tr>
             <tr valign="top">
-                <th scope="row"><?php _e('Enter IP Addresses:', 'all-in-one-wp-security-and-firewall')?></th>
+                <th scope="row"><label for="aiowps_banned_ip_addresses"><?php _e('Enter IP Addresses:', 'all-in-one-wp-security-and-firewall')?></label></th>
                 <td>
-                    <textarea name="aiowps_banned_ip_addresses" rows="5" cols="50"><?php echo ($result == -1)?htmlspecialchars($_POST['aiowps_banned_ip_addresses']):htmlspecialchars($aio_wp_security->configs->get_value('aiowps_banned_ip_addresses')); ?></textarea>
+                    <textarea id="aiowps_banned_ip_addresses" name="aiowps_banned_ip_addresses" rows="5" cols="50"><?php echo ($result == -1)?htmlspecialchars($_POST['aiowps_banned_ip_addresses']):htmlspecialchars($aio_wp_security->configs->get_value('aiowps_banned_ip_addresses')); ?></textarea>
                     <br />
                     <span class="description"><?php _e('Enter one or more IP addresses or IP ranges.','all-in-one-wp-security-and-firewall');?></span>
-                    <span class="aiowps_more_info_anchor"><span class="aiowps_more_info_toggle_char">+</span><span class="aiowps_more_info_toggle_text"><?php _e('More Info', 'all-in-one-wp-security-and-firewall'); ?></span></span>
-                    <div class="aiowps_more_info_body">
-                            <?php
-                            echo '<p class="description">'.__('Each IP address must be on a new line.', 'all-in-one-wp-security-and-firewall').'</p>';
-                            echo '<p class="description">'.__('To specify an IP range use a wildcard "*" character. Acceptable ways to use wildcards is shown in the examples below:', 'all-in-one-wp-security-and-firewall').'</p>';
-                            echo '<p class="description">'.__('Example 1: 195.47.89.*', 'all-in-one-wp-security-and-firewall').'</p>';
-                            echo '<p class="description">'.__('Example 2: 195.47.*.*', 'all-in-one-wp-security-and-firewall').'</p>';
-                            echo '<p class="description">'.__('Example 3: 195.*.*.*', 'all-in-one-wp-security-and-firewall').'</p>';
-                            ?>
-                    </div>
-
+                    <?php $aio_wp_security->include_template('info/ip-address-ip-range-info.php');?>
                 </td>
             </tr>
             <tr valign="top">
-                <th scope="row"><?php _e('Enter User Agents:', 'all-in-one-wp-security-and-firewall')?></th>
+                <th scope="row"><label for="aiowps_banned_user_agents"><?php _e('Enter User Agents:', 'all-in-one-wp-security-and-firewall')?></label></th>
                 <td>
-                    <textarea name="aiowps_banned_user_agents" rows="5" cols="50"><?php echo ($result == -1)?htmlspecialchars($_POST['aiowps_banned_user_agents']):htmlspecialchars($aio_wp_security->configs->get_value('aiowps_banned_user_agents')); ?></textarea>
+                    <textarea id="aiowps_banned_user_agents" name="aiowps_banned_user_agents" rows="5" cols="50"><?php echo ($result == -1)?htmlspecialchars($_POST['aiowps_banned_user_agents']):htmlspecialchars($aio_wp_security->configs->get_value('aiowps_banned_user_agents')); ?></textarea>
                     <br />
                     <span class="description">
                         <?php _e('Enter one or more user agent strings.','all-in-one-wp-security-and-firewall');?></span>

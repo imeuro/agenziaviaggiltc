@@ -16,14 +16,14 @@
  *
  * @deprecated since 1.12 (to be removed in 3.0)
  */
-interface Twig_SupTwg_CompilerInterface
+interface Twig_SupTwgDtgs_CompilerInterface
 {
     /**
      * Compiles a node.
      *
      * @return $this
      */
-    public function compile(Twig_SupTwg_NodeInterface $node);
+    public function compile(Twig_SupTwgDtgs_NodeInterface $node);
 
     /**
      * Gets the current PHP code after compilation.

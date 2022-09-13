@@ -3,7 +3,7 @@
  * Plugin Name: ShareThis Dashboard for Google Analytics
  * Plugin URI: http://wordpress.org/extend/plugins/googleanalytics/
  * Description: Use Google Analytics on your WordPress site without touching any code, and view visitor reports right in your WordPress admin dashboard!
- * Version: 3.0.0
+ * Version: 3.1.0
  * Author: ShareThis
  * Author URI: http://sharethis.com
  *
@@ -59,7 +59,7 @@ if ( false === preg_match( '/(\/|\\\)' . GA_NAME . '(\/|\\\)/', realpath( __FILE
 	die();
 }
 
-const GOOGLEANALYTICS_VERSION = '3.0.0';
+const GOOGLEANALYTICS_VERSION = '3.1.0';
 
 // Requires.
 require_once GA_PLUGIN_DIR . '/lib/analytics-admin/vendor/autoload.php';
@@ -68,8 +68,25 @@ require_once GA_PLUGIN_DIR . '/class/class-ga-autoloader.php';
 require_once GA_PLUGIN_DIR . '/class/class-ga-autoloader.php';
 require_once GA_PLUGIN_DIR . '/tools/class-ga-supportlogger.php';
 
-Ga_Autoloader::register();
-Ga_Hook::add_hooks( GA_MAIN_FILE_PATH );
+if ( version_compare( phpversion(), '7.4', '>=' ) ) {
+    Ga_Autoloader::register();
+    Ga_Hook::add_hooks( GA_MAIN_FILE_PATH );
 
-add_action( 'plugins_loaded', 'Ga_Admin::loaded_googleanalytics' );
-add_action( 'init', 'Ga_Helper::init' );
+    add_action( 'plugins_loaded', 'Ga_Admin::loaded_googleanalytics' );
+    add_action( 'init', 'Ga_Helper::init' );
+} else {
+    if ( defined( 'WP_CLI' ) ) {
+        WP_CLI::warning( _google_analytics_version_text() );
+    } else {
+        add_action( 'admin_notices', '_google_analytcis_php_version_error' );
+    }
+}
+
+/**
+ * String describing the minimum PHP version.
+ *
+ * @return string
+ */
+function _google_analtyics_php_version_text() {
+    return __( 'ShareThis Dashboard for Google Analytics plugin error: Your version of PHP is too old to run this plugin. You must be running PHP 7.4 or higher.', 'googlanalytics' );
+}

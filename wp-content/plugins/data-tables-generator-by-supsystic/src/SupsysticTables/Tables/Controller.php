@@ -5,7 +5,7 @@ class SupsysticTables_Tables_Controller extends SupsysticTables_Core_BaseControl
 {
     /**
      * Shows the list of the tables.
-     * @return Rsc_Http_Response
+     * @return RscDtgs_Http_Response
      */
     public function indexAction()
     {
@@ -23,10 +23,10 @@ class SupsysticTables_Tables_Controller extends SupsysticTables_Core_BaseControl
 
     /**
      * Validate and creates the new table.
-     * @param Rsc_Http_Request $request
-     * @return Rsc_Http_Response
+     * @param RscDtgs_Http_Request $request
+     * @return RscDtgs_Http_Response
      */
-    public function createAction(Rsc_Http_Request $request)
+    public function createAction(RscDtgs_Http_Request $request)
     {
       if (!$this->_checkNonce($request)) die();
         $title = sanitize_text_field(trim($request->post->get('title')));
@@ -69,10 +69,10 @@ class SupsysticTables_Tables_Controller extends SupsysticTables_Core_BaseControl
 
     /**
      * Removes the table.
-     * @param Rsc_Http_Request $request
-     * @return Rsc_Http_Response
+     * @param RscDtgs_Http_Request $request
+     * @return RscDtgs_Http_Response
      */
-    public function removeAction(Rsc_Http_Request $request)
+    public function removeAction(RscDtgs_Http_Request $request)
     {
       if (!$this->_checkNonce($request)) die();
         $id = $this->isAjax() ? $request->post->get('id') : $request->query->get('id');
@@ -99,10 +99,10 @@ class SupsysticTables_Tables_Controller extends SupsysticTables_Core_BaseControl
 
     /**
      * Show the table settings, editor, etc.
-     * @param Rsc_Http_Request $request
-     * @return Rsc_Http_Response
+     * @param RscDtgs_Http_Request $request
+     * @return RscDtgs_Http_Response
      */
-    public function viewAction(Rsc_Http_Request $request)
+    public function viewAction(RscDtgs_Http_Request $request)
     {
 
 		$this->getEnvironment()->getModule('tables')->setIniLimits();
@@ -165,10 +165,10 @@ class SupsysticTables_Tables_Controller extends SupsysticTables_Core_BaseControl
 
     /**
      * Renames the table.
-     * @param Rsc_Http_Request $request
-     * @return Rsc_Http_Response
+     * @param RscDtgs_Http_Request $request
+     * @return RscDtgs_Http_Response
      */
-    public function renameAction(Rsc_Http_Request $request)
+    public function renameAction(RscDtgs_Http_Request $request)
     {
       if (!$this->_checkNonce($request)) die();
         $id = $request->post->get('id');
@@ -187,10 +187,10 @@ class SupsysticTables_Tables_Controller extends SupsysticTables_Core_BaseControl
 
     /**
      * Get Data for AJAX paging.
-     * @param Rsc_Http_Request $request
-     * @return Rsc_Http_Response
+     * @param RscDtgs_Http_Request $request
+     * @return RscDtgs_Http_Response
      */
-    public function getPageRowsAction(Rsc_Http_Request $request)
+    public function getPageRowsAction(RscDtgs_Http_Request $request)
     {
       if ( !$this->_checkNonce($request) && !$this->_checkNonceFrontend($request) ) die();
         $id = (int)$request->post->get('id');
@@ -257,10 +257,10 @@ class SupsysticTables_Tables_Controller extends SupsysticTables_Core_BaseControl
 
     /**
      * Returns the table columns.
-     * @param Rsc_Http_Request $request
-     * @return Rsc_Http_Response
+     * @param RscDtgs_Http_Request $request
+     * @return RscDtgs_Http_Response
      */
-    public function getColumnsAction(Rsc_Http_Request $request)
+    public function getColumnsAction(RscDtgs_Http_Request $request)
     {
       if (!$this->_checkNonce($request)) die();
         /** @var SupsysticTables_Tables_Model_Tables $tables */
@@ -278,10 +278,10 @@ class SupsysticTables_Tables_Controller extends SupsysticTables_Core_BaseControl
 
     /**
      * Updates the table columns.
-     * @param Rsc_Http_Request $request
-     * @return Rsc_Http_Response
+     * @param RscDtgs_Http_Request $request
+     * @return RscDtgs_Http_Response
      */
-    public function updateColumnsAction(Rsc_Http_Request $request)
+    public function updateColumnsAction(RscDtgs_Http_Request $request)
     {
       if (!$this->_checkNonce($request)) die();
         /** @var SupsysticTables_Tables_Model_Tables $tables */
@@ -307,10 +307,10 @@ class SupsysticTables_Tables_Controller extends SupsysticTables_Core_BaseControl
 
     /**
      * Returns count of table rows.
-     * @param Rsc_Http_Request $request
-     * @return Rsc_Http_Response
+     * @param RscDtgs_Http_Request $request
+     * @return RscDtgs_Http_Response
      */
-    public function getCountRowsAction(Rsc_Http_Request $request)
+    public function getCountRowsAction(RscDtgs_Http_Request $request)
     {
       if (!$this->_checkNonce($request)) die();
         $tables = $this->getModel('tables');
@@ -329,10 +329,10 @@ class SupsysticTables_Tables_Controller extends SupsysticTables_Core_BaseControl
 
     /**
      * Returns the table rows.
-     * @param Rsc_Http_Request $request
-     * @return Rsc_Http_Response
+     * @param RscDtgs_Http_Request $request
+     * @return RscDtgs_Http_Response
      */
-    public function getRowsAction(Rsc_Http_Request $request)
+    public function getRowsAction(RscDtgs_Http_Request $request)
     {
       if (!$this->_checkNonce($request)) die();
         /** @var SupsysticTables_Tables_Model_Tables $tables */
@@ -354,10 +354,10 @@ class SupsysticTables_Tables_Controller extends SupsysticTables_Core_BaseControl
 
     /**
      * Updates the table rows.
-     * @param Rsc_Http_Request $request
-     * @return Rsc_Http_Response
+     * @param RscDtgs_Http_Request $request
+     * @return RscDtgs_Http_Response
      */
-    public function updateRowsAction(Rsc_Http_Request $request)
+    public function updateRowsAction(RscDtgs_Http_Request $request)
     {
       if (!$this->_checkNonce($request)) die();
 		/** @var SupsysticTables_Tables_Model_Tables $tables */
@@ -404,10 +404,10 @@ class SupsysticTables_Tables_Controller extends SupsysticTables_Core_BaseControl
 
     /**
      * Saves the table settings.
-     * @param Rsc_Http_Request $request
-     * @return Rsc_Http_Response
+     * @param RscDtgs_Http_Request $request
+     * @return RscDtgs_Http_Response
      */
-    public function saveSettingsAction(Rsc_Http_Request $request)
+    public function saveSettingsAction(RscDtgs_Http_Request $request)
     {
       if (!$this->_checkNonce($request)) die();
         $id = $request->post->get('id');
@@ -440,10 +440,10 @@ class SupsysticTables_Tables_Controller extends SupsysticTables_Core_BaseControl
 
     /**
      * Renders the table.
-     * @param Rsc_Http_Request $request
-     * @return Rsc_Http_Response
+     * @param RscDtgs_Http_Request $request
+     * @return RscDtgs_Http_Response
      */
-    public function renderAction(Rsc_Http_Request $request)
+    public function renderAction(RscDtgs_Http_Request $request)
     {
       if (!$this->_checkNonce($request)) die();
         /** @var SupsysticTables_Tables_Module $tables */
@@ -477,10 +477,10 @@ class SupsysticTables_Tables_Controller extends SupsysticTables_Core_BaseControl
 
     /**
      * Updates table meta (Cells merging, etc)
-     * @param \Rsc_Http_Request $request
-     * @return \Rsc_Http_Response
+     * @param \RscDtgs_Http_Request $request
+     * @return \RscDtgs_Http_Response
      */
-    public function updateMetaAction(Rsc_Http_Request $request)
+    public function updateMetaAction(RscDtgs_Http_Request $request)
     {
       if (!$this->_checkNonce($request)) die();
         /** @var SupsysticTables_Tables_Model_Tables $tables */
@@ -515,7 +515,7 @@ class SupsysticTables_Tables_Controller extends SupsysticTables_Core_BaseControl
         return $this->ajaxSuccess();
     }
 
-    public function getMetaAction(Rsc_Http_Request $request)
+    public function getMetaAction(RscDtgs_Http_Request $request)
     {
       if (!$this->_checkNonce($request)) die();
         $id = $request->post->get('id');
@@ -586,7 +586,7 @@ class SupsysticTables_Tables_Controller extends SupsysticTables_Core_BaseControl
 		return $decodedData;
 	}
 
-    public function cloneTableAction(Rsc_Http_Request $request)
+    public function cloneTableAction(RscDtgs_Http_Request $request)
     {
       if (!$this->_checkNonce($request)) die();
 		$tablesModule = $this->getEnvironment()->getModule('tables');
@@ -625,7 +625,7 @@ class SupsysticTables_Tables_Controller extends SupsysticTables_Core_BaseControl
         }
     }
 
-    public function reviewNoticeResponseAction(Rsc_Http_Request $request) {
+    public function reviewNoticeResponseAction(RscDtgs_Http_Request $request) {
       if (!$this->_checkNonce($request)) die();
         $responseCode = $request->post->get('responseCode');
         $responseType = $request->post->get('responseType');
@@ -660,7 +660,7 @@ class SupsysticTables_Tables_Controller extends SupsysticTables_Core_BaseControl
 	 * Returns full list of the tables.
 	 * Uses for adding of shortcode button to TinyMCE Editor.
 	 *
-	 * @return Rsc_Http_Response
+	 * @return RscDtgs_Http_Response
 	 */
 	public function listAction() {
 		try{
@@ -674,7 +674,7 @@ class SupsysticTables_Tables_Controller extends SupsysticTables_Core_BaseControl
 		}
 	}
 
-	public function getListForTblAction(Rsc_Http_Request $request)
+	public function getListForTblAction(RscDtgs_Http_Request $request)
 	{
       if (!$this->_checkNonce($request)) die();
 		$data = $request->post->get('data');

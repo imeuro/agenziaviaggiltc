@@ -9,14 +9,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-class Twig_SupTwg_Node_Expression_Filter extends Twig_SupTwg_Node_Expression_Call
+class Twig_SupTwgDtgs_Node_Expression_Filter extends Twig_SupTwgDtgs_Node_Expression_Call
 {
-    public function __construct(Twig_SupTwg_NodeInterface $node, Twig_SupTwg_Node_Expression_Constant $filterName, Twig_SupTwg_NodeInterface $arguments, $lineno, $tag = null)
+    public function __construct(Twig_SupTwgDtgs_NodeInterface $node, Twig_SupTwgDtgs_Node_Expression_Constant $filterName, Twig_SupTwgDtgs_NodeInterface $arguments, $lineno, $tag = null)
     {
         parent::__construct(array('node' => $node, 'filter' => $filterName, 'arguments' => $arguments), array(), $lineno, $tag);
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $name = $this->getNode('filter')->getAttribute('value');
         $filter = $compiler->getEnvironment()->getFilter($name);
@@ -27,10 +27,10 @@ class Twig_SupTwg_Node_Expression_Filter extends Twig_SupTwg_Node_Expression_Cal
         $this->setAttribute('needs_environment', $filter->needsEnvironment());
         $this->setAttribute('needs_context', $filter->needsContext());
         $this->setAttribute('arguments', $filter->getArguments());
-        if ($filter instanceof Twig_SupTwg_FilterCallableInterface || $filter instanceof Twig_SupTwg_SimpleFilter) {
+        if ($filter instanceof Twig_SupTwgDtgs_FilterCallableInterface || $filter instanceof Twig_SupTwgDtgs_SimpleFilter) {
             $this->setAttribute('callable', $filter->getCallable());
         }
-        if ($filter instanceof Twig_SupTwg_SimpleFilter) {
+        if ($filter instanceof Twig_SupTwgDtgs_SimpleFilter) {
             $this->setAttribute('is_variadic', $filter->isVariadic());
         }
 

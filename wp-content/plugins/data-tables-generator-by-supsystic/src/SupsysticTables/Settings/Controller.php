@@ -4,7 +4,7 @@
 class SupsysticTables_Settings_Controller extends SupsysticTables_Core_BaseController
 {
     /**
-     * @return Rsc_Http_Response
+     * @return RscDtgs_Http_Response
      */
     public function indexAction()
     {
@@ -25,17 +25,17 @@ class SupsysticTables_Settings_Controller extends SupsysticTables_Core_BaseContr
         }
     }
 	/**
-	 * @return Rsc_Http_Response
+	 * @return RscDtgs_Http_Response
 	 */
 	public function getSettingsAction() {
 		$settings = get_option($this->getConfig()->get('db_prefix') . 'settings');
 		return $this->response(
-			Rsc_Http_Response::AJAX,
+			RscDtgs_Http_Response::AJAX,
 			array_merge(array('settings'=>$settings), array('success' => true))
 		);
 
 	}
-	public function saveSettingsAction(Rsc_Http_Request $request) {
+	public function saveSettingsAction(RscDtgs_Http_Request $request) {
       if (!$this->_checkNonce($request)) die();
 		$optionsName = $this->getConfig()->get('db_prefix') . 'settings';
 		$currentSettings = get_option($optionsName);

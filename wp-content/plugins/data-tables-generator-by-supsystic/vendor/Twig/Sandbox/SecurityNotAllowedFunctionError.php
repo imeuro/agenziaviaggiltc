@@ -14,7 +14,7 @@
  *
  * @author Martin Hasoň <martin.hason@gmail.com>
  */
-class Twig_SupTwg_Sandbox_SecurityNotAllowedFunctionError extends Twig_SupTwg_Sandbox_SecurityError
+class Twig_SupTwgDtgs_Sandbox_SecurityNotAllowedFunctionError extends Twig_SupTwgDtgs_Sandbox_SecurityError
 {
     private $functionName;
 

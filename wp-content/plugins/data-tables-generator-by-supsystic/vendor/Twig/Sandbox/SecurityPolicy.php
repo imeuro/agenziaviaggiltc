@@ -16,7 +16,7 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Sandbox_SecurityPolicy implements Twig_SupTwg_Sandbox_SecurityPolicyInterface
+class Twig_SupTwgDtgs_Sandbox_SecurityPolicy implements Twig_SupTwgDtgs_Sandbox_SecurityPolicyInterface
 {
     protected $allowedTags;
     protected $allowedFilters;
@@ -65,26 +65,26 @@ class Twig_SupTwg_Sandbox_SecurityPolicy implements Twig_SupTwg_Sandbox_Security
     {
         foreach ($tags as $tag) {
             if (!in_array($tag, $this->allowedTags)) {
-                throw new Twig_SupTwg_Sandbox_SecurityNotAllowedTagError(sprintf('Tag "%s" is not allowed.', $tag), $tag);
+                throw new Twig_SupTwgDtgs_Sandbox_SecurityNotAllowedTagError(sprintf('Tag "%s" is not allowed.', $tag), $tag);
             }
         }
 
         foreach ($filters as $filter) {
             if (!in_array($filter, $this->allowedFilters)) {
-                throw new Twig_SupTwg_Sandbox_SecurityNotAllowedFilterError(sprintf('Filter "%s" is not allowed.', $filter), $filter);
+                throw new Twig_SupTwgDtgs_Sandbox_SecurityNotAllowedFilterError(sprintf('Filter "%s" is not allowed.', $filter), $filter);
             }
         }
 
         foreach ($functions as $function) {
             if (!in_array($function, $this->allowedFunctions)) {
-                throw new Twig_SupTwg_Sandbox_SecurityNotAllowedFunctionError(sprintf('Function "%s" is not allowed.', $function), $function);
+                throw new Twig_SupTwgDtgs_Sandbox_SecurityNotAllowedFunctionError(sprintf('Function "%s" is not allowed.', $function), $function);
             }
         }
     }
 
     public function checkMethodAllowed($obj, $method)
     {
-        if ($obj instanceof Twig_SupTwg_TemplateInterface || $obj instanceof Twig_SupTwg_Markup) {
+        if ($obj instanceof Twig_SupTwgDtgs_TemplateInterface || $obj instanceof Twig_SupTwgDtgs_Markup) {
             return true;
         }
 
@@ -100,7 +100,7 @@ class Twig_SupTwg_Sandbox_SecurityPolicy implements Twig_SupTwg_Sandbox_Security
 
         if (!$allowed) {
             $class = get_class($obj);
-            throw new Twig_SupTwg_Sandbox_SecurityNotAllowedMethodError(sprintf('Calling "%s" method on a "%s" object is not allowed.', $method, $class), $class, $method);
+            throw new Twig_SupTwgDtgs_Sandbox_SecurityNotAllowedMethodError(sprintf('Calling "%s" method on a "%s" object is not allowed.', $method, $class), $class, $method);
         }
     }
 
@@ -117,7 +117,7 @@ class Twig_SupTwg_Sandbox_SecurityPolicy implements Twig_SupTwg_Sandbox_Security
 
         if (!$allowed) {
             $class = get_class($obj);
-            throw new Twig_SupTwg_Sandbox_SecurityNotAllowedPropertyError(sprintf('Calling "%s" property on a "%s" object is not allowed.', $property, $class), $class, $property);
+            throw new Twig_SupTwgDtgs_Sandbox_SecurityNotAllowedPropertyError(sprintf('Calling "%s" property on a "%s" object is not allowed.', $property, $class), $class, $property);
         }
     }
 }

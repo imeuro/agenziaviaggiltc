@@ -22,32 +22,32 @@
  *
  * @final
  */
-class Twig_SupTwg_TokenParser_Sandbox extends Twig_SupTwg_TokenParser
+class Twig_SupTwgDtgs_TokenParser_Sandbox extends Twig_SupTwgDtgs_TokenParser
 {
-    public function parse(Twig_SupTwg_Token $token)
+    public function parse(Twig_SupTwgDtgs_Token $token)
     {
         $stream = $this->parser->getStream();
-        $stream->expect(Twig_SupTwg_Token::BLOCK_END_TYPE);
+        $stream->expect(Twig_SupTwgDtgs_Token::BLOCK_END_TYPE);
         $body = $this->parser->subparse(array($this, 'decideBlockEnd'), true);
-        $stream->expect(Twig_SupTwg_Token::BLOCK_END_TYPE);
+        $stream->expect(Twig_SupTwgDtgs_Token::BLOCK_END_TYPE);
 
         // in a sandbox tag, only include tags are allowed
-        if (!$body instanceof Twig_SupTwg_Node_Include) {
+        if (!$body instanceof Twig_SupTwgDtgs_Node_Include) {
             foreach ($body as $node) {
-                if ($node instanceof Twig_SupTwg_Node_Text && ctype_space($node->getAttribute('data'))) {
+                if ($node instanceof Twig_SupTwgDtgs_Node_Text && ctype_space($node->getAttribute('data'))) {
                     continue;
                 }
 
-                if (!$node instanceof Twig_SupTwg_Node_Include) {
-                    throw new Twig_SupTwg_Error_Syntax('Only "include" tags are allowed within a "sandbox" section.', $node->getTemplateLine(), $stream->getSourceContext());
+                if (!$node instanceof Twig_SupTwgDtgs_Node_Include) {
+                    throw new Twig_SupTwgDtgs_Error_Syntax('Only "include" tags are allowed within a "sandbox" section.', $node->getTemplateLine(), $stream->getSourceContext());
                 }
             }
         }
 
-        return new Twig_SupTwg_Node_Sandbox($body, $token->getLine(), $this->getTag());
+        return new Twig_SupTwgDtgs_Node_Sandbox($body, $token->getLine(), $this->getTag());
     }
 
-    public function decideBlockEnd(Twig_SupTwg_Token $token)
+    public function decideBlockEnd(Twig_SupTwgDtgs_Token $token)
     {
         return $token->test('endsandbox');
     }

@@ -9,9 +9,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-class Twig_SupTwg_Node_Expression_Unary_Pos extends Twig_SupTwg_Node_Expression_Unary
+class Twig_SupTwgDtgs_Node_Expression_Unary_Pos extends Twig_SupTwgDtgs_Node_Expression_Unary
 {
-    public function operator(Twig_SupTwg_Compiler $compiler)
+    public function operator(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler->raw('+');
     }

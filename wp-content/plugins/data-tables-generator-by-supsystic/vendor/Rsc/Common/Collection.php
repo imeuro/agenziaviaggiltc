@@ -1,7 +1,7 @@
 <?php
 
 
-class Rsc_Common_Collection implements Countable, IteratorAggregate, Serializable, ArrayAccess
+class RscDtgs_Common_Collection implements Countable, IteratorAggregate, Serializable, ArrayAccess
 {
 
     /** @var  array */
@@ -15,6 +15,9 @@ class Rsc_Common_Collection implements Countable, IteratorAggregate, Serializabl
     {
         $this->collection = $collection;
     }
+
+    public function __serialize(): array {}
+    public function __unserialize(array $data): void {}
 
     /**
      * Return data for the key
@@ -64,6 +67,7 @@ class Rsc_Common_Collection implements Countable, IteratorAggregate, Serializabl
      * @param string $key Key to verify
      * @return bool TRUE if the key exists, FALSE otherwise
      */
+     #[\ReturnTypeWillChange]
     public function has($key)
     {
         return isset($this->collection[$key]);
@@ -75,6 +79,7 @@ class Rsc_Common_Collection implements Countable, IteratorAggregate, Serializabl
      * @param bool $strict If set TRUE then method use strict check, FALSE means non-strict
      * @return bool
      */
+     #[\ReturnTypeWillChange]
     public function hasValue($value, $strict = true)
     {
         foreach ($this->collection as $collectionValue) {
@@ -96,6 +101,7 @@ class Rsc_Common_Collection implements Countable, IteratorAggregate, Serializabl
      * Returns all items in the collection
      * @return array
      */
+     #[\ReturnTypeWillChange]
     public function all()
     {
         return $this->collection;
@@ -105,8 +111,9 @@ class Rsc_Common_Collection implements Countable, IteratorAggregate, Serializabl
      * Adds a new item to the collection
      * @param string $key Key to add
      * @param mixed $value Value of the element
-     * @return Rsc_Common_Collection
+     * @return RscDtgs_Common_Collection
      */
+     #[\ReturnTypeWillChange]
     public function add($key, $value)
     {
         if (!$this->has($key)) {
@@ -120,8 +127,9 @@ class Rsc_Common_Collection implements Countable, IteratorAggregate, Serializabl
      * Change the value of an existing key
      * @param string $key The key to be edited
      * @param mixed $value The new value
-     * @return Rsc_Common_Collection
+     * @return RscDtgs_Common_Collection
      */
+     #[\ReturnTypeWillChange]
     public function set($key, $value)
     {
         if ($this->has($key)) {
@@ -137,6 +145,7 @@ class Rsc_Common_Collection implements Countable, IteratorAggregate, Serializabl
      * @param mixed $default Value that returns method if the specified key is not in the collection
      * @return mixed
      */
+     #[\ReturnTypeWillChange]
     public function get($key, $default = null)
     {
         if (is_array($key)) {
@@ -155,6 +164,7 @@ class Rsc_Common_Collection implements Countable, IteratorAggregate, Serializabl
      * @param string $key Name of the key to be deleted
      * @return bool TRUE if the key exists and removed, FALSE otherwise
      */
+     #[\ReturnTypeWillChange]
     public function delete($key)
     {
         if ($this->has($key)) {
@@ -168,8 +178,9 @@ class Rsc_Common_Collection implements Countable, IteratorAggregate, Serializabl
     /**
      * Change the current collection to the specified
      * @param array $collection Array elements of the new collection
-     * @return Rsc_Common_Collection
+     * @return RscDtgs_Common_Collection
      */
+     #[\ReturnTypeWillChange]
     public function replace(array $collection)
     {
         $this->collection = $collection;
@@ -180,8 +191,9 @@ class Rsc_Common_Collection implements Countable, IteratorAggregate, Serializabl
     /**
      * Merge the specified array with the current collection
      * @param array $collection Array elements
-     * @return Rsc_Common_Collection
+     * @return RscDtgs_Common_Collection
      */
+     #[\ReturnTypeWillChange]
     public function merge(array $collection)
     {
         $this->collection = array_merge($this->collection, $collection);
@@ -192,8 +204,9 @@ class Rsc_Common_Collection implements Countable, IteratorAggregate, Serializabl
     /**
      * Applies the callback to the elements of the collection
      * @param callable $callback Callback function to run for each element in the collection
-     * @return Rsc_Common_Collection
+     * @return RscDtgs_Common_Collection
      */
+     #[\ReturnTypeWillChange]
     public function map(Callable $callback)
     {
         $this->collection = array_map($callback, $this->collection);
@@ -205,6 +218,7 @@ class Rsc_Common_Collection implements Countable, IteratorAggregate, Serializabl
      * Returns collection keys
      * @return array
      */
+     #[\ReturnTypeWillChange]
     public function getKeys()
     {
         return array_keys($this->collection);
@@ -214,6 +228,7 @@ class Rsc_Common_Collection implements Countable, IteratorAggregate, Serializabl
      * Returns collection values
      * @return array
      */
+     #[\ReturnTypeWillChange]
     public function getValues()
     {
         return array_values($this->collection);
@@ -223,6 +238,7 @@ class Rsc_Common_Collection implements Countable, IteratorAggregate, Serializabl
      * Checks whether the collection is empty
      * @return bool
      */
+     #[\ReturnTypeWillChange]
     public function isEmpty()
     {
         return (count($this->collection) < 1);
@@ -235,6 +251,7 @@ class Rsc_Common_Collection implements Countable, IteratorAggregate, Serializabl
      * @return Traversable An instance of an object implementing <b>Iterator</b> or
      * <b>Traversable</b>
      */
+     #[\ReturnTypeWillChange]
     public function getIterator()
     {
         return new ArrayIterator($this->collection);
@@ -246,6 +263,7 @@ class Rsc_Common_Collection implements Countable, IteratorAggregate, Serializabl
      * @link http://php.net/manual/en/serializable.serialize.php
      * @return string the string representation of the object or null
      */
+     #[\ReturnTypeWillChange]
     public function serialize()
     {
         return serialize($this->collection);
@@ -260,6 +278,7 @@ class Rsc_Common_Collection implements Countable, IteratorAggregate, Serializabl
      * </p>
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function unserialize($serialized)
     {
         $this->collection = unserialize($serialized);
@@ -274,6 +293,7 @@ class Rsc_Common_Collection implements Countable, IteratorAggregate, Serializabl
      * <p>
      * The return value is cast to an integer.
      */
+     #[\ReturnTypeWillChange]
     public function count()
     {
         return count($this->collection);
@@ -291,6 +311,7 @@ class Rsc_Common_Collection implements Countable, IteratorAggregate, Serializabl
      * <p>
      * The return value will be casted to boolean if non-boolean was returned.
      */
+     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return $this->has($offset);
@@ -305,6 +326,7 @@ class Rsc_Common_Collection implements Countable, IteratorAggregate, Serializabl
      * </p>
      * @return mixed Can return all value types.
      */
+     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->get($offset, null);
@@ -322,6 +344,7 @@ class Rsc_Common_Collection implements Countable, IteratorAggregate, Serializabl
      * </p>
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -340,6 +363,7 @@ class Rsc_Common_Collection implements Countable, IteratorAggregate, Serializabl
      * </p>
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         $this->delete($offset);

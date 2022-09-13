@@ -228,7 +228,8 @@ span.members-only {
     font-weight: 400;
 }
 
-.happyforms-form-part-logic span.members-only {
+.happyforms-form-part-logic span.members-only,
+.happyforms-item-logic span.members-only{
   margin-left:  5px;
 }
 
@@ -375,7 +376,7 @@ p.happyforms-step-progress-counter {
 }
 
 .happyforms-widget-title h3,
-.happyforms-part-widget .options .happyforms-choice-item-widget h3 {
+.happyforms-part-widget .options .happyforms-choice-item-widget .happyforms-item-choice-widget-title h3 {
   margin: 0;
   padding: 15px;
   font-size: 1em !important;
@@ -425,17 +426,20 @@ a.happyforms-form-part-advanced-settings {
   line-height: 1.5;
 }
 
-a.happyforms-form-part-logic {
+a.happyforms-form-part-logic,
+a.happyforms-item-logic {
   float: right;
 }
 
-.happyforms-part-logic-wrap {
+.happyforms-part-logic-wrap,
+.happyforms-part-choice-logic-wrap {
   display: none;
   overflow: hidden;
 }
 
 .happyforms-part-logic-wrap .no-parts,
-.happyforms-setup-logic-wrap .no-parts {
+.happyforms-setup-logic-wrap .no-parts,
+.happyforms-part-choice-logic-wrap .no-parts {
   display: none;
   margin-bottom: 15px;
   border: 1px solid #eee;
@@ -443,22 +447,26 @@ a.happyforms-form-part-logic {
 }
 
 .happyforms-part-logic-wrap .no-parts--show,
-.happyforms-setup-logic-wrap .no-parts--show {
+.happyforms-setup-logic-wrap .no-parts--show,
+.happyforms-part-choice-logic-wrap .no-parts--show {
   display: block;
 }
 
 .happyforms-part-logic-wrap .no-parts h3,
-.happyforms-setup-logic-wrap .no-parts h3 {
+.happyforms-setup-logic-wrap .no-parts h3,
+.happyforms-part-choice-logic-wrap .no-parts h3 {
   margin-top: 5px;
 }
 
 .happyforms-part-logic-wrap .no-parts--small h3,
-.happyforms-setup-logic-wrap .no-parts--small h3 {
+.happyforms-setup-logic-wrap .no-parts--small h3,
+.happyforms-part-choice-logic-wrap .no-parts--small h3 {
   margin-bottom: 0;
 }
 
 .happyforms-part-logic-wrap .no-parts--small p,
-.happyforms-setup-logic-wrap .no-parts--small p {
+.happyforms-setup-logic-wrap .no-parts--small p,
+.happyforms-part-choice-logic-wrap .no-parts--small p {
   font-size: 14px;
 }
 
@@ -482,7 +490,8 @@ a.happyforms-form-part-logic {
 
 a.happyforms-form-part-advanced-settings:before,
 a.happyforms-form-part-logic:before,
-a.advanced-column:before {
+a.advanced-column:before,
+a.happyforms-item-logic:before {
   position: relative;
   top: 2px;
   display: inline-block;
@@ -569,7 +578,6 @@ a.happyforms-form-part-remove:hover {
 .happyforms-setup-view #customize-control-email_recipient,
 .happyforms-setup-view #customize-control-email_bccs,
 .happyforms-setup-view #customize-control-alert_email_subject,
-.happyforms-setup-view .customize-control[id*='customize-control-redirect']:not(#customize-control-redirect_on_complete):not(#customize-control-redirect_blank),
 .happyforms-setup-view .customize-control[id*='customize-control-captcha_']:not(#customize-control-captcha_label),
 .happyforms-setup-view #customize-control-email_mark_and_reply {
   padding-bottom: 5px;
@@ -643,7 +651,7 @@ a.happyforms-form-part-remove:hover {
 .has-required-field #customize-control-required_field_label,
 .has-min-limit-choices #customize-control-select_more_choices,
 .has-max-limit-choices #customize-control-select_less_choices,
-.is-show-success-msg #customize-control-confirmation_message,
+#customize-control-confirmation_message,
 .has-min-words-label #customize-control-words_label_min,
 .has-max-words-label #customize-control-words_label_max,
 .has-min-chars-label #customize-control-characters_label_min,
@@ -1198,10 +1206,6 @@ ul.happyforms-parts-list li[data-part-type="scale_dummy"] .happyforms-parts-list
 
 ul.happyforms-parts-list li[data-part-type="rank_order_dummy"] .happyforms-parts-list-item-title:before {
   background-image: url(../svg/icons/rank.svg);
-}
-
-ul.happyforms-parts-list li[data-part-type="likert_scale_dummy"] .happyforms-parts-list-item-title:before {
-  background-image: url(../svg/icons/scale.svg);
 }
 
 ul.happyforms-parts-list li[data-part-type="rating_dummy"] .happyforms-parts-list-item-title:before {

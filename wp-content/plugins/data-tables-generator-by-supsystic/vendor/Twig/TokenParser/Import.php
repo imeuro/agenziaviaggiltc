@@ -18,18 +18,18 @@
  *
  * @final
  */
-class Twig_SupTwg_TokenParser_Import extends Twig_SupTwg_TokenParser
+class Twig_SupTwgDtgs_TokenParser_Import extends Twig_SupTwgDtgs_TokenParser
 {
-    public function parse(Twig_SupTwg_Token $token)
+    public function parse(Twig_SupTwgDtgs_Token $token)
     {
         $macro = $this->parser->getExpressionParser()->parseExpression();
         $this->parser->getStream()->expect('as');
-        $var = new Twig_SupTwg_Node_Expression_AssignName($this->parser->getStream()->expect(Twig_SupTwg_Token::NAME_TYPE)->getValue(), $token->getLine());
-        $this->parser->getStream()->expect(Twig_SupTwg_Token::BLOCK_END_TYPE);
+        $var = new Twig_SupTwgDtgs_Node_Expression_AssignName($this->parser->getStream()->expect(Twig_SupTwgDtgs_Token::NAME_TYPE)->getValue(), $token->getLine());
+        $this->parser->getStream()->expect(Twig_SupTwgDtgs_Token::BLOCK_END_TYPE);
 
         $this->parser->addImportedSymbol('template', $var->getAttribute('name'));
 
-        return new Twig_SupTwg_Node_Import($macro, $var, $token->getLine(), $this->getTag());
+        return new Twig_SupTwgDtgs_Node_Import($macro, $var, $token->getLine(), $this->getTag());
     }
 
     public function getTag()

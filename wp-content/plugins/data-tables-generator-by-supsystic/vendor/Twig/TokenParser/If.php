@@ -25,14 +25,14 @@
  *
  * @final
  */
-class Twig_SupTwg_TokenParser_If extends Twig_SupTwg_TokenParser
+class Twig_SupTwgDtgs_TokenParser_If extends Twig_SupTwgDtgs_TokenParser
 {
-    public function parse(Twig_SupTwg_Token $token)
+    public function parse(Twig_SupTwgDtgs_Token $token)
     {
         $lineno = $token->getLine();
         $expr = $this->parser->getExpressionParser()->parseExpression();
         $stream = $this->parser->getStream();
-        $stream->expect(Twig_SupTwg_Token::BLOCK_END_TYPE);
+        $stream->expect(Twig_SupTwgDtgs_Token::BLOCK_END_TYPE);
         $body = $this->parser->subparse(array($this, 'decideIfFork'));
         $tests = array($expr, $body);
         $else = null;
@@ -41,13 +41,13 @@ class Twig_SupTwg_TokenParser_If extends Twig_SupTwg_TokenParser
         while (!$end) {
             switch ($stream->next()->getValue()) {
                 case 'else':
-                    $stream->expect(Twig_SupTwg_Token::BLOCK_END_TYPE);
+                    $stream->expect(Twig_SupTwgDtgs_Token::BLOCK_END_TYPE);
                     $else = $this->parser->subparse(array($this, 'decideIfEnd'));
                     break;
 
                 case 'elseif':
                     $expr = $this->parser->getExpressionParser()->parseExpression();
-                    $stream->expect(Twig_SupTwg_Token::BLOCK_END_TYPE);
+                    $stream->expect(Twig_SupTwgDtgs_Token::BLOCK_END_TYPE);
                     $body = $this->parser->subparse(array($this, 'decideIfFork'));
                     $tests[] = $expr;
                     $tests[] = $body;
@@ -58,21 +58,21 @@ class Twig_SupTwg_TokenParser_If extends Twig_SupTwg_TokenParser
                     break;
 
                 default:
-                    throw new Twig_SupTwg_Error_Syntax(sprintf('Unexpected end of template. Twig was looking for the following tags "else", "elseif", or "endif" to close the "if" block started at line %d).', $lineno), $stream->getCurrent()->getLine(), $stream->getSourceContext());
+                    throw new Twig_SupTwgDtgs_Error_Syntax(sprintf('Unexpected end of template. Twig was looking for the following tags "else", "elseif", or "endif" to close the "if" block started at line %d).', $lineno), $stream->getCurrent()->getLine(), $stream->getSourceContext());
             }
         }
 
-        $stream->expect(Twig_SupTwg_Token::BLOCK_END_TYPE);
+        $stream->expect(Twig_SupTwgDtgs_Token::BLOCK_END_TYPE);
 
-        return new Twig_SupTwg_Node_If(new Twig_SupTwg_Node($tests), $else, $lineno, $this->getTag());
+        return new Twig_SupTwgDtgs_Node_If(new Twig_SupTwgDtgs_Node($tests), $else, $lineno, $this->getTag());
     }
 
-    public function decideIfFork(Twig_SupTwg_Token $token)
+    public function decideIfFork(Twig_SupTwgDtgs_Token $token)
     {
         return $token->test(array('elseif', 'else', 'endif'));
     }
 
-    public function decideIfEnd(Twig_SupTwg_Token $token)
+    public function decideIfEnd(Twig_SupTwgDtgs_Token $token)
     {
         return $token->test(array('endif'));
     }

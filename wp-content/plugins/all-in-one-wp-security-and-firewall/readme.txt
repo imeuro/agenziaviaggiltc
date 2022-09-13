@@ -4,8 +4,8 @@ Donate link: https://david.dw-perspective.org.uk/donate
 Tags: security, secure, Anti Virus, antivirus, ban, ban hacker, virus, firewall, firewall security, login, lockdown, htaccess, hack, malware, vulnerability, protect, protection, phishing, database, backup, plugin, sql injection, ssl, restrict, login captcha, bot, hotlink, 404 detection, admin, rename, all in one, scan, scanner, iframe,
 Requires PHP: 5.6
 Requires at least: 5.0
-Tested up to: 5.9
-Stable tag: 4.4.12
+Tested up to: 6.0
+Stable tag: 5.0.7
 License: GPLv3 or later
 
 A comprehensive, user-friendly, all in one WordPress security and firewall plugin for your site.
@@ -37,13 +37,13 @@ Below is a list of the security and firewall features offered in this plugin:
 
 = User Accounts Security =
 * Detect if there is a user account which has the default "admin" username and easily change the username to a value of your choice.
-* The plugin will also detect if you have any WordPress user accounts which have identical login and display names. Having account's where display name is identical to login name is bad security practice because 
+* The plugin will also detect if you have any WordPress user accounts which have identical login and display names. Having account's where display name is identical to login name is bad security practice because
 you are making it 50% easier for hackers because they already know the login name.
 * Password strength tool to allow you to create very strong passwords.
 * Stop user enumeration. So users/bots cannot discover user info via author permalink.
 
 = User Login Security =
-* Protect against "Brute Force Login Attack" with the Login Lockdown feature. Users with a certain IP address or range will be locked out of the system for a predetermined amount of time based on the configuration settings and you can also choose to be notified 
+* Protect against "Brute Force Login Attack" with the Login Lockdown feature. Users with a certain IP address or range will be locked out of the system for a predetermined amount of time based on the configuration settings and you can also choose to be notified
 via email whenever somebody gets locked out due to too many login attempts.
 
 * As the administrator you can view a list of all locked out users which are displayed in an easily readable and navigable table which also allows you to unlock individual or bulk IP addresses at the click of a button.
@@ -82,7 +82,7 @@ via email whenever somebody gets locked out due to too many login attempts.
 
 = Firewall Functionality =
 
-This plugin allows you to easily add a lot of firewall protection to your site via htaccess file. An htaccess file is processed by your web server before any other code on your site. 
+This plugin allows you to easily add a lot of firewall protection to your site via htaccess file. An htaccess file is processed by your web server before any other code on your site.
 So these firewall rules will stop malicious script(s) before it gets a chance to reach the WordPress code on your site.
 
 * Access control facility.
@@ -139,7 +139,7 @@ or malicious bots who do not have a special cookie in their browser. You (the si
 * If you are a developer and you need some extra hooks or filters for this plugin then let us know.
 
 = Translations =
-* All In One WP Security plugin can be translated to any language. 
+* All In One WP Security plugin can be translated to any language.
 
 Currently available translations:
 
@@ -177,17 +177,100 @@ https://www.tipsandtricks-hq.com/wordpress-security-and-firewall-plugin
 Check the following page for F.A.Q (see the faq section):
 https://www.tipsandtricks-hq.com/wordpress-security-and-firewall-plugin
 
-== Upgrade Notice ==
-None
-
 == Changelog ==
+
+= 5.0.7 - 08/September/2022 =
+
+* FIX: The Login URL was prefixed with the site URL instead of the home URL when the home URL is different than the site URL.
+* FIX: Rename login and cookie-based brute force protection couldn't work simultaneously when the permalink was set to plain.
+* FIX: Disabling the 5G Firewall Protection didn't remove the 5G rules from the .htaccess file.
+* TWEAK: Add a 'Dismiss' button to the firewall setup notice.
+
+= 5.0.6 - 07/September/2022 =
+
+* FIX: Stopped host cron job working in a specific situation.
+* FIX: A few setting options like enabling the honeypot feature for registration page, disabling the application password, enabling move spam comments to trash after specified days, moving spam comments to trash after days, enabling remove database tables upon uninstalling, and enabling remove all plugin settings upon uninstalling the plugin were overridden on upgrading the plugin.
+
+= 5.0.5 - 05/September/2022 =
+
+* FIX: Cookie based brute force etc rules to be removed from .htaccess if set in older version 4.4.12.
+* FIX: The IP lock notification mail was sent out for the 404 lockdown event.
+* TWEAK:  Resolve a PHP-firewall 'Unable to locate workspace' log message.
+
+= 5.0.4 - 03/September/2022 =
+
+* FIX: PHP coding warning in latest PHP version when handling email address parameter.
+* TWEAK: Added a constant, AIOS_DISABLE_COOKIE_BRUTE_FORCE_PREVENTION. Define this in your wp-config.php to disable cookie based brute force login prevention.
+
+= 5.0.3 - 02/September/2022 =
+
+* FIX: An empty IP lock notification mail could be sent out after upgrading to the 5.0.0 version.
+* FIX: The PHP file couldn't be loaded via commandline if the rename login page is enabled.
+* FIX: When running WordPress from the command line, the warning Undefined index: REQUEST_METHOD was logged.
+* TWEAK: Import latest TFA module, loading JS less aggressively to avoid potential for conflicts.
+
+= 5.0.2 - 02/September/2022 =
+
+* FIX: The user can't login if the user set forced logout and the site's timezone is different than UTC.
+* FIX: Avoid an incompatibility with Wordfence Login Security by not loading our TFA module if that plugin is active
+
+= 5.0.0 - 01/September/2022 =
+
+* FEATURE: Two-Factor Authentication (2FA) functionality & related settings.
+* FEATURE: Set up a mechanism to load the firewall PHP file early.
+* FEATURE: PHP firewall rule engine.
+* FEATURE: Add WHOIS lookup functionality.
+* FEATURE: Implement 6G firewall rules in the new PHP-based firewall.
+* FEATURE: Disable WordPress application passwords.
+* FEATURE: Remove the plugin's tables and options when uninstalling the plugin according to configuration settings.
+* FEATURE: Trash spam comments after n number of days as per configuration set in Admin Dashboard > WP Security > SPAM Prevention > the "Comment SPAM" tab > the  "Comment Processing" section > the "Trash Comments After" settings.
+* FEATURE: Brute force Cookie-based Firewall Protection based on the PHP code instead of htaccess rules so that it also works with Nginx, IIS etc servers.
+* FEATURE: Allow multiple email addresses for the User Login > Notify By Email setting.
+* FEATURE: IPv6 range support in CIDR Format enabled.
+* FIX: The WooCommerce customer was redirected to the wp-login page after payment with an external payment gateway if forced logout configured after a specific number of minutes.
+* FIX: If the WordPress language was set to something other than English, then auto-update core, plugin, and theme emails sent in English instead of the configured language.
+* FIX: Database error for multisite when creating a new site solved.
+* FIX: Captcha options should not be autoloaded.
+* FIX: Database error for multisite cronjob column name.
+* FIX: The plugin clogs up the database with lots of rows. Delete old data after 90 days.
+* FIX: Rename Login issue with wp plugin list command solved.
+* FIX: Rename Login breaks logout functionality if WP_HOME is set to a different URL than the WordPress core files URL.
+* FIX: PHP Fatal error:  Uncaught Error: Class 'AIOWPSecurity_Admin_Init' not found in html/wp-content/plugins/all-in-one-wp-security-and-firewall/wp-security-core.php:366.
+* FIX: The Spam comment blocked IP address remains blocked even after spammed comments are approved.
+* FIX: Admin Dashboard > WP Security > Security Points Breakdown Section piechart tooltips flickering.
+* FIX: The "Time Length of 404 Lockout" option doesn't do anything.
+* FIX: Search did not work for the 404 Event Logs list table.
+* FIX: Search did not work for Failed Logins list table.
+* FIX: Search did not work for the Account Activity list table.
+* FIX: Bulk deletions did not work for the Account Activity list table.
+* FIX: Warning when bots make malformed requests.
+* FIX: When the user had pressed the bottom bulk action button of the list table, the bulk action was confirmed by two confirm alerts.
+* FIX: Unblock link in 404 Event Logs list table redirected to wrong tab.
+* FIX: Temp Block, Blacklist IP and Delete links in 404 Event Logs list table didn't work.
+* FIX: Rename login page and Cookie based brute force login prevention configurations didn't work simultaneously.
+* FIX: Fatal error when activating using older PHP versions
+* FIX: If auto_prepend_file is already pointed to the firewall bootstrap file from php.ini manually, the bootstrap file try to include itself.
+* FIX: The custom logo wasn't displayed on the login lockdown unlock request form.
+* TWEAK: Allow taking database backups via the UpdraftPlus backup plugin.
+* TWEAK: Make lockout reasons more specific.
+* TWEAK: Update notice class.
+* TWEAK: If the user has not performed the cookie test, the brute force attack prevention configuration fields remain disabled in the Admin Dashboard > WP Security > Brute Force > Cookie Based Brute Force Prevention.
+* TWEAK: Display locked IP addresses lockout date and release date in WordPress settings format.
+* TWEAK: Improve success or messages when performing bulk actions on the table list.
+* TWEAK: 404 events date is displayed in WordPress settings format.
+* TWEAK: Account activity login date and logout date are displayed in WordPress settings format.
+* TWEAK: Add a label for each setting field.
+* TWEAK: JQMIGRATE: jQuery.fn.click() event shorthand is deprecated.
+* TWEAK: Fix typos at Admin Dashboard > WP Security > Firewall > Basic Firewall Rules > Block Access to Debug Log File.
 
 = 4.4.12 - 22/April/2022 =
 
 * FEATURE: Disable login lockdown feature when the AIOWPS_DISABLE_LOGIN_LOCKDOWN constant with true value.
+* FEATURE: Implement lockout time multiplied on each lockout up to the maximum lockout time configured.
 * FIX: For multisite giving fatal error on settings and dashboard page Call to a member function on null.
 * FIX: Scores not updating correctly if a feature activated and "Remove wp generator meta info" activated shows 5/5 for all.
 * FIX: Change hard-coded references of wp-content to WP_CONTENT_DIR constant.
+* FIX: The AIOS plugin should not be site-wide activated in a multisite WordPress setup.
 * TWEAK: Get user IP Address using an external service in local server setup.
 * TWEAK: Filter name changed to "aiowps_pre_add_to_permanent_block" from "pre_add_to_permanent_block".
 * TWEAK: Filter name changed to "aiowps_filter_event_logger_data" from "filter_event_logger_data".
@@ -211,7 +294,7 @@ None
 * TWEAK: Add review notice.
 * TWEAK: Improve functionality of fake google bot prevents to access the site.
 * TWEAK: Remove IP address retrieval setting and detect IP address automatically.
-* TWEAK: Verify Google reCaptcha site key before rendering the reCaptcha. 
+* TWEAK: Verify Google reCaptcha site key before rendering the reCaptcha.
 * TWEAK: Remove force logout checking from REST API Call.
 * TWEAK: Made Admin Dashboard > WP Security > Settings tabs extensible.
 * TWEAK: Add G2 review message in the admin footer.
@@ -221,9 +304,9 @@ None
 * TWEAK: Remove Admin Dashboard > WP Security > Site Info tab (now redundant because of WP's "Site Health" tool)
 * TWEAK: The "Allow Login Lockout Request" checkbox is ticked by default.
 
-
 = 4.4.10 - 21/Jan/2022 =
 
+* FEATURE: Send site login lockout emails by batch processing instead of sending them instantly.
 * FEATURE: Auto-purge failed login records after 90 days.
 * FEATURE: Change the debug log so it's stored in the database and not a file
 * FIX: Missing Plugin header fields are added.
@@ -248,7 +331,7 @@ None
 - Fixed an issue with the rename login page feature on WordPress v5.7.
 
 = 4.4.7 =
-- Updated the renamed login page code to reflect the latest WordPress wp-login.php code. 
+- Updated the renamed login page code to reflect the latest WordPress wp-login.php code.
 - Cleaned up/improved repeated code.
 - Translation string fix in the rename login feature.
 - Added action hook "aiowps_site_lockout_settings_saved" that is triggered after the site lockout configuration is saved.
@@ -261,7 +344,7 @@ None
 - Fixed default DateTime to prevent DB error.
 - Added Korean language translation files. Thanks to Jonghyun Cho.
 - Reworked the code for the "Generate New DB Table Prefix" feature to make it more robust. Thanks to @baddiedev.
-- Added translation ability to some strings.  
+- Added translation ability to some strings.
 
 = 4.4.4 =
 - Fixed bugs and improved functionality related to "logged in users" functionality.
@@ -284,7 +367,7 @@ None
 - Fixed bug related to account activity logout date not being set.
 
 = 4.4.0 =
-- Added robustness to login lockdown feature by replacing the strtotime function with DateTime/DateInterval. 
+- Added robustness to login lockdown feature by replacing the strtotime function with DateTime/DateInterval.
 This should prevent 32-bit systems from being constrained to the max date of 19 Jan 2038.
 - Fixed bugs related to captcha features.
 - Fixed and improved "Logged In Users" functionality for multisite.
@@ -352,7 +435,7 @@ This should prevent 32-bit systems from being constrained to the max date of 19 
 = 4.3.5 =
 - Fix - Error: Call to undefined function the_privacy_policy_link() in older versions of WordPress.
 - Added a check to disable file change detection feature and prevent fatal errors when FilesystemIterator is not available due to old versions of PHP.
-- Improved get_login_fail_count method in the AIOWPSecurity_User_Login class which will fix cases where login lockdown 
+- Improved get_login_fail_count method in the AIOWPSecurity_User_Login class which will fix cases where login lockdown
 was not working on some servers due to timestamp difference between PHP current_time( 'mysql' ) and mysql now().
 
 = 4.3.4 =
@@ -449,9 +532,9 @@ was not working on some servers due to timestamp difference between PHP current_
 - Added a message in the debug settings area to state that the log files are reset on every plugin update.
 - Always return an array from scan_dir_sort_date() to prevent PHP notices.
 - Improvements for Automated DB backups filling up space - old backup file will be deleted first.
-- Thanks to RIPS Analyzer for sending us the vulnerability report. 
+- Thanks to RIPS Analyzer for sending us the vulnerability report.
 
-= 4.2.1 = 
+= 4.2.1 =
 - Improve output of .htaccess to include <IfModule mod_rewrite.c> checks and RewriteEngine On directives.
 - Fall back to default DB backup interval in case of invalid value.
 - The aiowps_delete_backup_files() function will produce a debug log message on every call (to help with troubleshooting when needed).
@@ -523,7 +606,7 @@ was not working on some servers due to timestamp difference between PHP current_
 - Replaced deprecated call to get_currentuserinfo() function.
 - Minor code fixes in the backup class file.
 - Fix: display correct (error) message when write_to_htaccess() fails.
-- Tweak: database backup filename is more human-readable. 
+- Tweak: database backup filename is more human-readable.
   Before: 24x7eg8l6i-database-backup-1463042767.zip
   After: database-backup-20160512-104607-24x7eg8l6i.zip
 
@@ -549,7 +632,7 @@ was not working on some servers due to timestamp difference between PHP current_
 - Fixed some potential SQL injection vulnerabilities.
 - Thanks to @chesio for submitting the following changes and applying the fixes.
 - Sub-directory install fixes.
-- Improve behavior of WP File Access tab. 
+- Improve behavior of WP File Access tab.
 - Fix invalid nesting of HTML elements.
 - Do not block HTTP requests that contain "tag=" in query string.
 - Option to enable the 6G firewall.
@@ -597,7 +680,7 @@ was not working on some servers due to timestamp difference between PHP current_
 - Updated text domain to match expected value for translate.wordpress.org translation system.
 - Fixed bug related to multi-site user_roles not being updated for child sites.
 - Fixed minor bug in rename login feature.
-- Updated the Italian language file. 
+- Updated the Italian language file.
 
 = 3.9.9 =
 - Fixed an issue with the rename login page feature for WordPress 4.3
@@ -633,7 +716,7 @@ was not working on some servers due to timestamp difference between PHP current_
 - Fixed the sort order not working in the 404 error logging and account activity page.
 
 = 3.9.2 =
-- Added a check for registration captcha feature to prevent errors when using another captcha plugin. 
+- Added a check for registration captcha feature to prevent errors when using another captcha plugin.
 - Improved a few SQL statements.
 
 = 3.9.1 =
@@ -676,18 +759,18 @@ was not working on some servers due to timestamp difference between PHP current_
 - Fixed the unlock feature so that it works correctly when the Rename Login Page feature is active.
 - Added a check in the list logged in users file to prevent error when get_transient returns false.
 
-= 3.8.4 = 
+= 3.8.4 =
 - Updated POT language file.
 - Tweaked the function which retrieves the IP address to handle cases where traffic is coming from cloudflare
 - The MySQL database will not be forced anymore at the time of creating the table. It also reads the characters set value from the system first.
 - Applied fixes to prevent remotely exploitable vulnerabilities.
 
-= 3.8.3 = 
+= 3.8.3 =
 - Modified "Pingback Protection" .htaccess rules to prevent xmlrpc login attacks and to be compatible with more servers.
 - Made improvements to ensure that the rename login and white list features can be used together.
 - Added a check to force user to enter alphanumeric string for renamed login slug.
 - Improved the turn_off_all_firewall_rules() and turn_off_all_security_features() functions so that they also handle the updating of the htaccess file.
-- Added an alternative way to import settings via a text box (Thanks to Dave McHale). This is for people who might have issues using the config settings file uploader. 
+- Added an alternative way to import settings via a text box (Thanks to Dave McHale). This is for people who might have issues using the config settings file uploader.
 - Added fix to properly update options tables when changing DB prefix in multisite system.
 - Greatly improved the Renamed Login Page feature by removing various potential vulnerabilities.
 - Added an if statement check to fix bug with rename login page feature - special case where user had non permalink structure was not working correctly in some rare scenarios.
@@ -696,9 +779,9 @@ was not working on some servers due to timestamp difference between PHP current_
 - Fixed bug in IP list validation function for blacklist feature.
 - Removed strict filtering of IP addresses so as to allow internal IP address ranges.
 - Added stripping of orderby and order query parameters in the plugin.
-- Added search capability by IP address, URL or referer for the 404 events list table. 
+- Added search capability by IP address, URL or referer for the 404 events list table.
 
-= 3.8.2 = 
+= 3.8.2 =
 - Fixed a CSS issue with the honeypot feature.
 - Fixed a call to the login action handler static function.
 
@@ -713,7 +796,7 @@ was not working on some servers due to timestamp difference between PHP current_
 - The plugin will now work fine even if your wp-config.php file is outside the wordpress root folder.
 
 = 3.7.9.2 =
-- copy protection feature JS code improvement 
+- copy protection feature JS code improvement
 
 = 3.7.9.1 =
 - Added captcha functionality for custom login form which is produced by the WP function: wp_login_form()
@@ -955,7 +1038,7 @@ All other IP addresses trying to access your WP login page which are not in the 
 - Added a "Delete All Failed Login Records" option in the "Failed Login Records" tab. This will delete all entries in the failed logins table and will make it less tedious for users who get a lot of brute force attacks on their site.
 
 = 1.2 =
-- Moved the rules which disable index views from the "basic firewall" rules to the "additional rules" section. This will prevent any site breakage for 
+- Moved the rules which disable index views from the "basic firewall" rules to the "additional rules" section. This will prevent any site breakage for
 those who want to enable the basic firewall but do not have "AllowOverride" option enabled in their httpd.conf
 
 = 1.1 =
@@ -964,3 +1047,7 @@ those who want to enable the basic firewall but do not have "AllowOverride" opti
 
 = 1.0 =
 - First commit to the WP repository.
+
+
+== Upgrade Notice ==
+* 5.0.7: The 5.0 series has various new features such as a PHP-based firewall, Two Factor Authentication, and WHOIS lookup have been added. It contains various fixes and tweaks. 5.0.X releases are fixing issues discovered in the 5.0 branch. A recommended update for all.

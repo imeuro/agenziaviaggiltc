@@ -2,7 +2,14 @@
 
 {% block layout %}
     <div class="supsystic-plugin">
-        <div class="supsystic-content">
+
+        {% block header %}
+            <nav id="supsystic-breadcrumbs" class="supsystic-breadcrumbs">
+                <a href="{{ environment.generateUrl('tables') }}">{{ translate('Data Tables by Supsystic') }}</a>
+            </nav>
+        {% endblock %}
+
+        <section class="supsystic-content">
             <nav class="supsystic-navigation supsystic-sticky supsystic-sticky-active">
                 <ul>
                     {% block navigation %}
@@ -14,7 +21,7 @@
                         </li>
                         <li>
                             <a id="menuItem_addTable" href="#add">
-                                <i class="fa fa-fw fa-plus"></i>
+                                <i class="fa fa-plus-circle"></i>
                                 <span>{{ environment.translate('Add new table') }}</span>
                             </a>
                         </li>
@@ -38,12 +45,6 @@
                                 </a>
                             </li>
                         {% endif %}
-						 <li {% if environment.isModule('featuredplugins') %} class="active"{% endif %}>
-                            <a id="menuItem_tables" href="{{ environment.generateUrl('featuredplugins') }}">
-								<i class="fa fa-fw fa-heart"></i>
-                                <span>{{ environment.translate('Featured Plugins') }}</span>
-                            </a>
-                        </li>
                     {% endblock %}
                 </ul>
                 <div class="clear"></div>
@@ -53,9 +54,9 @@
             <div class="supsystic-container">
                 {{ environment.getDispatcher().dispatch('notices') }}
                 {{ environment.getDispatcher().dispatch('messages') }}
-
+                <div class="clear"></div>
                 {% block content %}{% endblock %}
-
+                <div class="clear"></div>
                 <div id="dtgAddDialog" style="display: none;" title="{{ environment.translate('Add new table') }}" style="min-height: 70px;">
                     <form id="tableForm">
                         <div class="supRow">
@@ -85,9 +86,47 @@
                     </div>
                 </div>
                 <!-- /#dtgAddDialog -->
+
+                {% if DTGS_AC_SHOW == true %}
+                <div class="supsysticOverviewACFormOverlay">
+                    <form method="post" id="overview-ac-form" class="supsysticOverviewACForm">
+                      <div class="supsysticOverviewACTitle">
+                        <div class="supsysticOverviewACClose"><i class="fa fa-times" aria-hidden="true"></i></div>
+                        <a href="https://supsystic.com/" target="_blank"><img src="{{ DTGS_PLUGIN_URL }}/src/SupsysticTables/Overview/assets/img/supsystic-logo-small.png"></a><br>
+                        <b>PRO plugins</b> and <b>amazing gifts</b>!
+                      </div>
+                      <label>Name *</label>
+                      <input type="text" name="username" value="{{ DTGS_USER_NAME }}">
+                      <label>Email *</label>
+                      <input type="text" name="email" value="{{ DTGS_USER_EMAIL }}">
+                      <input type="hidden" name="_wpnonce" value="{{ _wpnonce }}">
+                      <button id="subscribe-btn" type="submit" class="button button-primary button-hero">
+                          <i class="fa fa-check-square" aria-hidden="true"></i>
+                          Subscribe
+                      </button>
+                      <div class="button button-primary button-hero supsysticOverviewACBtn supsysticOverviewACBtnRemind"><i class="fa fa-hourglass-half" aria-hidden="true"></i> Remind me tomorrow</div>
+                      <div class="button button-primary button-hero supsysticOverviewACBtn supsysticOverviewACBtnDisable"><i class="fa fa-times" aria-hidden="true"></i> Do not disturb me again</div>
+                      <div class="supsysticOverviewACFormNotification" style="color: red; float: left;" hidden>Fields with * are required to fill</div>
+                    </form>
+                    <div class="clear"></div>
+                </div>
+                <div id="supsysticOverviewACFormDialog" hidden>
+                      <div class="on-error" style="display:none">
+                          <p>{{ translate('Some errors occurred while sending mail please send your message trough this contact form:') }}</p>
+                          <p><a href="https://supsystic.com/plugins/photo-gallery/#contact" target="_blank">https://supsystic.com/plugins/photo-gallery/#contact</a></p>
+                      </div>
+                      <div class="message"></div>
+                </div>
+                {% endif %}
+
             </div>
             <!-- /.supsystic-container -->
-        </div>
+            <div class="supsystic-footer-wrapper">
+              <div class="supsystic-footer-add-review">Add your <a target="_blank" href="http://wordpress.org/support/view/plugin-reviews/data-tables-generator-by-supsystic?filter=5#postform">★★★★★</a> on wordpress.org</div>
+              <a href="https://supsystic.com/" target="_blank"><img src="{{DTGS_PLUGIN_URL}}/src/SupsysticTables/Overview/assets/img/supsystic-logo-small.png"></a>
+              <div class="supsystic-footer-plugin-version">Data Tables by Supsystic Version: {{' '}} {{DTGS_PLUGIN_VERSION}}</div>
+            </div>
+        </section>
         <!-- /.supsystic-content -->
     </div>
     <!-- /.supsystic-plugin -->

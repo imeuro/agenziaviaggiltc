@@ -9,15 +9,15 @@ class SupsysticTables_Core_ModelsFactory
     protected $models;
 
     /**
-     * @var Rsc_Environment
+     * @var RscDtgs_Environment
      */
     protected $environment;
 
     /**
      * Constructs the models factory
-     * @param Rsc_Environment $environment
+     * @param RscDtgs_Environment $environment
      */
-    public function __construct(Rsc_Environment $environment)
+    public function __construct(RscDtgs_Environment $environment)
     {
         $this->models = array();
         $this->environment = $environment;
@@ -25,7 +25,7 @@ class SupsysticTables_Core_ModelsFactory
 
     /**
      * @param string $model
-     * @param string|Rsc_Mvc_Module $module
+     * @param string|RscDtgs_Mvc_Module $module
      */
     public function factory($model, $module = null)
     {
@@ -55,7 +55,7 @@ class SupsysticTables_Core_ModelsFactory
 
         $class = new $className;
 
-        if ($class instanceof Rsc_Environment_AwareInterface) {
+        if ($class instanceof RscDtgs_Environment_AwareInterface) {
             $class->setEnvironment($this->environment);
         }
 
@@ -68,7 +68,7 @@ class SupsysticTables_Core_ModelsFactory
 
     /**
      * @param string $model
-     * @param string|Rsc_Mvc_Module $module
+     * @param string|RscDtgs_Mvc_Module $module
      * @return SupsysticTables_Core_BaseModel
      */
     public function get($model, $module = null)
@@ -89,7 +89,7 @@ class SupsysticTables_Core_ModelsFactory
     /**
      * Builds the model name.
      * @param string $model
-     * @param string|Rsc_Mvc_Module $module
+     * @param string|RscDtgs_Mvc_Module $module
      * @param string $prefix
      * @return string
      */
@@ -103,7 +103,7 @@ class SupsysticTables_Core_ModelsFactory
             $module = $model;
         }
 
-        if ($module instanceof Rsc_Mvc_Module) {
+        if ($module instanceof RscDtgs_Mvc_Module) {
             $e = explode('_', get_class($module));
             $prefix = array_shift($e);
             $module = $module->getModuleName();

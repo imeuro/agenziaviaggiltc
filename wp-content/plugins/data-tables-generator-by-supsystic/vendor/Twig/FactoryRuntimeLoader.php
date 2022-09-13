@@ -14,7 +14,7 @@
  *
  * @author Robin Chalas <robin.chalas@gmail.com>
  */
-class Twig_SupTwg_FactoryRuntimeLoader implements Twig_SupTwg_RuntimeLoaderInterface
+class Twig_SupTwgDtgs_FactoryRuntimeLoader implements Twig_SupTwgDtgs_RuntimeLoaderInterface
 {
     private $map;
 

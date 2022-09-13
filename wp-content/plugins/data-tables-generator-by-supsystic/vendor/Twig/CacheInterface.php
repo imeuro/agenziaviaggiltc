@@ -18,7 +18,7 @@
  *
  * @author Andrew Tch <andrew@noop.lv>
  */
-interface Twig_SupTwg_CacheInterface
+interface Twig_SupTwgDtgs_CacheInterface
 {
     /**
      * Generates a cache key for the given template class name.

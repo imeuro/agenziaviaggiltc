@@ -15,7 +15,7 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Error_Syntax extends Twig_SupTwg_Error
+class Twig_SupTwgDtgs_Error_Syntax extends Twig_SupTwgDtgs_Error
 {
     /**
      * Tweaks the error message to include suggestions.

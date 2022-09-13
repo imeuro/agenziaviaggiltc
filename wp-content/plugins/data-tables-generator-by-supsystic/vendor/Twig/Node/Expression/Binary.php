@@ -9,14 +9,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-abstract class Twig_SupTwg_Node_Expression_Binary extends Twig_SupTwg_Node_Expression
+abstract class Twig_SupTwgDtgs_Node_Expression_Binary extends Twig_SupTwgDtgs_Node_Expression
 {
-    public function __construct(Twig_SupTwg_NodeInterface $left, Twig_SupTwg_NodeInterface $right, $lineno)
+    public function __construct(Twig_SupTwgDtgs_NodeInterface $left, Twig_SupTwgDtgs_NodeInterface $right, $lineno)
     {
         parent::__construct(array('left' => $left, 'right' => $right), array(), $lineno);
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
             ->raw('(')
@@ -31,5 +31,5 @@ abstract class Twig_SupTwg_Node_Expression_Binary extends Twig_SupTwg_Node_Expre
         ;
     }
 
-    abstract public function operator(Twig_SupTwg_Compiler $compiler);
+    abstract public function operator(Twig_SupTwgDtgs_Compiler $compiler);
 }

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-@trigger_error('The Twig_SupTwg_Autoloader class is deprecated since version 1.21 and will be removed in 2.0. Use Composer instead.', E_USER_DEPRECATED);
+//@trigger_error('The Twig_SupTwgDtgs_Autoloader class is deprecated since version 1.21 and will be removed in 2.0. Use Composer instead.', E_USER_DEPRECATED);
 
 /**
  * Autoloads Twig classes.
@@ -18,16 +18,16 @@
  *
  * @deprecated since 1.21 and will be removed in 2.0. Use Composer instead. 2.0.
  */
-class Twig_SupTwg_Autoloader
+class Twig_SupTwgDtgs_Autoloader
 {
     /**
-     * Registers Twig_SupTwg_Autoloader as an SPL autoloader.
+     * Registers Twig_SupTwgDtgs_Autoloader as an SPL autoloader.
      *
      * @param bool $prepend whether to prepend the autoloader or not
      */
     public static function register($prepend = false)
     {
-        @trigger_error('Using Twig_SupTwg_Autoloader is deprecated since version 1.21. Use Composer instead.', E_USER_DEPRECATED);
+        //@trigger_error('Using Twig_SupTwgDtgs_Autoloader is deprecated since version 1.21. Use Composer instead.', E_USER_DEPRECATED);
 
         if (PHP_VERSION_ID < 50300) {
             spl_autoload_register(array(__CLASS__, 'autoload'));
@@ -43,7 +43,7 @@ class Twig_SupTwg_Autoloader
      */
     public static function autoload($class)
     {
-        if (0 !== strpos($class, 'Twig_SupTwg')) {
+        if (0 !== strpos($class, 'Twig_SupTwgDtgs')) {
             return;
         }
 

@@ -1,7 +1,7 @@
 <?php
 
 
-class Rsc_Form_Rule_Required implements Rsc_Form_Rule_Interface
+class RscDtgs_Form_Rule_Required implements RscDtgs_Form_Rule_Interface
 {
 
     /**
@@ -73,11 +73,11 @@ class Rsc_Form_Rule_Required implements Rsc_Form_Rule_Interface
     /**
      * Creates the new instance of the rule for chaining
      * <code>
-     *      Rsc_Form_Rule_Required::create('Control label', $params)->setMessage('The field %s is required');
+     *      RscDtgs_Form_Rule_Required::create('Control label', $params)->setMessage('The field %s is required');
      * </code>
      * @param string $label Field label
      * @param null $parameters An array of parameters
-     * @return Rsc_Form_Rule_Required
+     * @return RscDtgs_Form_Rule_Required
      */
     public static function create($label, $parameters = null)
     {

@@ -14,7 +14,7 @@
  *
  * @author Martin Hasoň <martin.hason@gmail.com>
  */
-class Twig_SupTwg_Sandbox_SecurityNotAllowedTagError extends Twig_SupTwg_Sandbox_SecurityError
+class Twig_SupTwgDtgs_Sandbox_SecurityNotAllowedTagError extends Twig_SupTwgDtgs_Sandbox_SecurityError
 {
     private $tagName;
 

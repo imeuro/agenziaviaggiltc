@@ -14,12 +14,12 @@
  *
  * @final
  */
-class Twig_SupTwg_Util_DeprecationCollector
+class Twig_SupTwgDtgs_Util_DeprecationCollector
 {
     private $twig;
     private $deprecations;
 
-    public function __construct(Twig_SupTwg_Environment $twig)
+    public function __construct(Twig_SupTwgDtgs_Environment $twig)
     {
         $this->twig = $twig;
     }
@@ -40,7 +40,7 @@ class Twig_SupTwg_Util_DeprecationCollector
             ), '{'.preg_quote($ext).'$}'
         );
 
-        return $this->collect(new Twig_SupTwg_Util_TemplateDirIterator($iterator));
+        return $this->collect(new Twig_SupTwgDtgs_Util_TemplateDirIterator($iterator));
     }
 
     /**
@@ -58,8 +58,8 @@ class Twig_SupTwg_Util_DeprecationCollector
 
         foreach ($iterator as $name => $contents) {
             try {
-                $this->twig->parse($this->twig->tokenize(new Twig_SupTwg_Source($contents, $name)));
-            } catch (Twig_SupTwg_Error_Syntax $e) {
+                $this->twig->parse($this->twig->tokenize(new Twig_SupTwgDtgs_Source($contents, $name)));
+            } catch (Twig_SupTwgDtgs_Error_Syntax $e) {
                 // ignore templates containing syntax errors
             }
         }

@@ -106,7 +106,19 @@ class AIOWPSecurity_Process_Renamed_Login_Page {
 		return $url;
 	}
 
+	/**
+	 * Login page renamed related tasks, do not allow access if not logged with rename login page.
+	 *
+	 * @return void
+	 */
 	public static function renamed_login_init_tasks() {
+		// Bail if the host cron job is running by running the command "php wp-cron.php"
+		// The $_SERVER['REQUEST_URI'] is undefined when running a PHP file from the command line.
+		// for `wp plugin list` it will be empty so showing Not available instead plugin list.
+		if (empty($_SERVER['REQUEST_URI']) || defined('WP_CLI') || 'cli' == PHP_SAPI || wp_doing_cron() || wp_doing_ajax()) {
+			return;
+		}
+
 		global $aio_wp_security;
 
 		//The following will process the native wordpress post password protection form
@@ -134,7 +146,7 @@ class AIOWPSecurity_Process_Renamed_Login_Page {
 		}
 
 		//case where someone attempting to reach wp-admin
-		if (is_admin() && !is_user_logged_in() && !defined('DOING_AJAX') && basename($_SERVER["SCRIPT_FILENAME"]) !== 'admin-post.php') {
+		if (is_admin() && !is_user_logged_in() && basename($_SERVER["SCRIPT_FILENAME"]) !== 'admin-post.php') {
 			//Fix to prevent fatal error caused by some themes and Yoast SEO
 			do_action('aiowps_before_wp_die_renamed_login');
 			wp_die(__('Not available.', 'all-in-one-wp-security-and-firewall'), 403);
@@ -183,7 +195,7 @@ class AIOWPSecurity_Process_Renamed_Login_Page {
 			}
 		}
 
-		$parsed_url = parse_url($_SERVER['REQUEST_URI']);
+		$parsed_url_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 		$login_slug = $aio_wp_security->configs->get_value('aiowps_login_page_slug');
 		$home_url_with_slug = home_url($login_slug, 'relative');
@@ -192,8 +204,7 @@ class AIOWPSecurity_Process_Renamed_Login_Page {
 		 * Compatibility fix for WPML plugin
 		 */
 		if (function_exists('wpml_object_id') && strpos($home_url_with_slug, $login_slug)) {
-			$home_url_with_slug = home_url($login_slug);
-			function qtranxf_init_language() {}// phpcs:ignore Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore,PEAR.WhiteSpace.ScopeClosingBrace.Line,Squiz.PHP.InnerFunctions.NotAllowed
+			$home_url_with_slug = home_url($login_slug);// phpcs:ignore Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore,PEAR.WhiteSpace.ScopeClosingBrace.Line,Squiz.PHP.InnerFunctions.NotAllowed
 		}
 
 		/*
@@ -208,7 +219,7 @@ class AIOWPSecurity_Process_Renamed_Login_Page {
 			$home_url_with_slug = $parsed_home_url_with_slug['path']; //this will return just the path minus the protocol and host
 		}
 
-		if (untrailingslashit($parsed_url['path']) === $home_url_with_slug || (!get_option('permalink_structure') && isset($_GET[$login_slug]))) {
+		if (untrailingslashit($parsed_url_path) === $home_url_with_slug || (!get_option('permalink_structure') && isset($_GET[$login_slug]))) {
 			if (empty($action) && is_user_logged_in()) {
 				//if user is already logged in but tries to access the renamed login page, send them to the dashboard
 				// or to requested redirect-page, filterd in 'login_redirect'.
@@ -245,7 +256,7 @@ class AIOWPSecurity_Process_Renamed_Login_Page {
 		if (get_option('permalink_structure')) {
 			return trailingslashit(trailingslashit(home_url()) . $login_slug);
 		} else {
-			return trailingslashit(home_url()) . '?' . $login_slug;
+			return trailingslashit(site_url()) . '?' . $login_slug;
 		}
 	}
 

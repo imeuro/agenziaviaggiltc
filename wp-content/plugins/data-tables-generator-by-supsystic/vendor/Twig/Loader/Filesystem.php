@@ -14,7 +14,7 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Loader_Filesystem implements Twig_SupTwg_LoaderInterface, Twig_SupTwg_ExistsLoaderInterface, Twig_SupTwg_SourceContextLoaderInterface
+class Twig_SupTwgDtgs_Loader_Filesystem implements Twig_SupTwgDtgs_LoaderInterface, Twig_SupTwgDtgs_ExistsLoaderInterface, Twig_SupTwgDtgs_SourceContextLoaderInterface
 {
     /** Identifier of the main namespace. */
     const MAIN_NAMESPACE = '__main__';
@@ -29,9 +29,9 @@ class Twig_SupTwg_Loader_Filesystem implements Twig_SupTwg_LoaderInterface, Twig
      * @param string|array $paths    A path or an array of paths where to look for templates
      * @param string|null  $rootPath The root path common to all relative paths (null for getcwd())
      */
-    public function __construct($paths = array(), $rootPath = null)
+    public function __construct($paths = array(), $rootPath = '')
     {
-        $this->rootPath = (null === $rootPath ? getcwd() : $rootPath).DIRECTORY_SEPARATOR;
+        $this->rootPath = ('' === $rootPath ? getcwd() : $rootPath).DIRECTORY_SEPARATOR;
         if (false !== $realPath = realpath($rootPath)) {
             $this->rootPath = $realPath.DIRECTORY_SEPARATOR;
         }
@@ -89,7 +89,7 @@ class Twig_SupTwg_Loader_Filesystem implements Twig_SupTwg_LoaderInterface, Twig
      * @param string $path      A path where to look for templates
      * @param string $namespace A path namespace
      *
-     * @throws Twig_SupTwg_Error_Loader
+     * @throws Twig_SupTwgDtgs_Error_Loader
      */
     public function addPath($path, $namespace = self::MAIN_NAMESPACE)
     {
@@ -98,7 +98,7 @@ class Twig_SupTwg_Loader_Filesystem implements Twig_SupTwg_LoaderInterface, Twig
 
         $checkPath = $this->isAbsolutePath($path) ? $path : $this->rootPath.$path;
         if (!is_dir($checkPath)) {
-            throw new Twig_SupTwg_Error_Loader(sprintf('The "%s" directory does not exist ("%s").', $path, $checkPath));
+            throw new Twig_SupTwgDtgs_Error_Loader(sprintf('The "%s" directory does not exist ("%s").', $path, $checkPath));
         }
 
         $this->paths[$namespace][] = rtrim($path, '/\\');
@@ -110,7 +110,7 @@ class Twig_SupTwg_Loader_Filesystem implements Twig_SupTwg_LoaderInterface, Twig
      * @param string $path      A path where to look for templates
      * @param string $namespace A path namespace
      *
-     * @throws Twig_SupTwg_Error_Loader
+     * @throws Twig_SupTwgDtgs_Error_Loader
      */
     public function prependPath($path, $namespace = self::MAIN_NAMESPACE)
     {
@@ -119,7 +119,7 @@ class Twig_SupTwg_Loader_Filesystem implements Twig_SupTwg_LoaderInterface, Twig
 
         $checkPath = $this->isAbsolutePath($path) ? $path : $this->rootPath.$path;
         if (!is_dir($checkPath)) {
-            throw new Twig_SupTwg_Error_Loader(sprintf('The "%s" directory does not exist ("%s").', $path, $checkPath));
+            throw new Twig_SupTwgDtgs_Error_Loader(sprintf('The "%s" directory does not exist ("%s").', $path, $checkPath));
         }
 
         $path = rtrim($path, '/\\');
@@ -133,7 +133,7 @@ class Twig_SupTwg_Loader_Filesystem implements Twig_SupTwg_LoaderInterface, Twig
 
     public function getSource($name)
     {
-        @trigger_error(sprintf('Calling "getSource" on "%s" is deprecated since 1.27. Use getSourceContext() instead.', get_class($this)), E_USER_DEPRECATED);
+        //@trigger_error(sprintf('Calling "getSource" on "%s" is deprecated since 1.27. Use getSourceContext() instead.', get_class($this)), E_USER_DEPRECATED);
 
         return file_get_contents($this->findTemplate($name));
     }
@@ -142,7 +142,7 @@ class Twig_SupTwg_Loader_Filesystem implements Twig_SupTwg_LoaderInterface, Twig
     {
         $path = $this->findTemplate($name);
 
-        return new Twig_SupTwg_Source(file_get_contents($path), $name, $path);
+        return new Twig_SupTwgDtgs_Source(file_get_contents($path), $name, $path);
     }
 
     public function getCacheKey($name)
@@ -166,8 +166,8 @@ class Twig_SupTwg_Loader_Filesystem implements Twig_SupTwg_LoaderInterface, Twig
 
         try {
             return false !== $this->findTemplate($name, false);
-        } catch (Twig_SupTwg_Error_Loader $exception) {
-            @trigger_error(sprintf('In %s::findTemplate(), you must accept a second argument that when set to "false" returns "false" instead of throwing an exception. Not supporting this argument is deprecated since version 1.27.', get_class($this)), E_USER_DEPRECATED);
+        } catch (Twig_SupTwgDtgs_Error_Loader $exception) {
+            //@trigger_error(sprintf('In %s::findTemplate(), you must accept a second argument that when set to "false" returns "false" instead of throwing an exception. Not supporting this argument is deprecated since version 1.27.', get_class($this)), E_USER_DEPRECATED);
 
             return false;
         }
@@ -192,7 +192,7 @@ class Twig_SupTwg_Loader_Filesystem implements Twig_SupTwg_LoaderInterface, Twig
                 return false;
             }
 
-            throw new Twig_SupTwg_Error_Loader($this->errorCache[$name]);
+            throw new Twig_SupTwgDtgs_Error_Loader($this->errorCache[$name]);
         }
 
         $this->validateName($name);
@@ -206,7 +206,7 @@ class Twig_SupTwg_Loader_Filesystem implements Twig_SupTwg_LoaderInterface, Twig
                 return false;
             }
 
-            throw new Twig_SupTwg_Error_Loader($this->errorCache[$name]);
+            throw new Twig_SupTwgDtgs_Error_Loader($this->errorCache[$name]);
         }
 
         foreach ($this->paths[$namespace] as $path) {
@@ -229,14 +229,14 @@ class Twig_SupTwg_Loader_Filesystem implements Twig_SupTwg_LoaderInterface, Twig
             return false;
         }
 
-        throw new Twig_SupTwg_Error_Loader($this->errorCache[$name]);
+        throw new Twig_SupTwgDtgs_Error_Loader($this->errorCache[$name]);
     }
 
     protected function parseName($name, $default = self::MAIN_NAMESPACE)
     {
         if (isset($name[0]) && '@' == $name[0]) {
             if (false === $pos = strpos($name, '/')) {
-                throw new Twig_SupTwg_Error_Loader(sprintf('Malformed namespaced template name "%s" (expecting "@namespace/template_name").', $name));
+                throw new Twig_SupTwgDtgs_Error_Loader(sprintf('Malformed namespaced template name "%s" (expecting "@namespace/template_name").', $name));
             }
 
             $namespace = substr($name, 1, $pos - 1);
@@ -256,7 +256,7 @@ class Twig_SupTwg_Loader_Filesystem implements Twig_SupTwg_LoaderInterface, Twig
     protected function validateName($name)
     {
         if (false !== strpos($name, "\0")) {
-            throw new Twig_SupTwg_Error_Loader('A template name cannot contain NUL bytes.');
+            throw new Twig_SupTwgDtgs_Error_Loader('A template name cannot contain NUL bytes.');
         }
 
         $name = ltrim($name, '/');
@@ -270,7 +270,7 @@ class Twig_SupTwg_Loader_Filesystem implements Twig_SupTwg_LoaderInterface, Twig
             }
 
             if ($level < 0) {
-                throw new Twig_SupTwg_Error_Loader(sprintf('Looks like you try to load a template outside configured directories (%s).', $name));
+                throw new Twig_SupTwgDtgs_Error_Loader(sprintf('Looks like you try to load a template outside configured directories (%s).', $name));
             }
         }
     }

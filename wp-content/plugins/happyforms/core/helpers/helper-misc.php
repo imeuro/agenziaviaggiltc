@@ -894,7 +894,7 @@ endif;
 if ( ! function_exists( 'happyforms_customize_part_footer' ) ):
 
 function happyforms_customize_part_footer() {
-	$template = happyforms_get_core_folder() . '/templates/customize-form-part-footer.php';
+	$template = happyforms_get_include_folder() . '/templates/customize-form-part-footer.php';
 	$template = apply_filters( 'happyforms_part_customize_footer_template_path', $template );
 
 	$html = '';
@@ -923,6 +923,42 @@ function happyforms_customize_part_logic() {
 	}
 
 	echo $template_html;
+}
+
+endif;
+
+if ( ! function_exists( 'happyforms_customize_part_choice_logic' ) ) :
+
+function happyforms_customize_part_choice_logic() {
+	$template_path = '';
+	$template_html = '';
+
+	$template_path = apply_filters( 'happyforms_customize_part_choice_logic_template_path', $template_path );
+
+	if ( '' !== $template_path ) {
+		ob_start();
+			require( $template_path );
+		$template_html = ob_get_clean();
+	}
+
+	echo $template_html;
+}
+
+endif;
+
+if ( ! function_exists( 'happyforms_customize_part_choice_footer' ) ):
+
+function happyforms_customize_part_choice_footer() {
+	$template = happyforms_get_include_folder() . '/templates/customize-form-part-choice-footer.php';
+	$template = apply_filters( 'happyforms_customize_part_choice_footer_template_path', $template );
+
+	$html = '';
+
+	ob_start();
+		require( $template );
+	$html = ob_get_clean();
+
+	echo $html;
 }
 
 endif;

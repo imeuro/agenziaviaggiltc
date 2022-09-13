@@ -12,7 +12,7 @@
 /**
  * @final
  */
-class Twig_SupTwg_Extension_Optimizer extends Twig_SupTwg_Extension
+class Twig_SupTwgDtgs_Extension_Optimizer extends Twig_SupTwgDtgs_Extension
 {
     protected $optimizers;
 
@@ -23,7 +23,7 @@ class Twig_SupTwg_Extension_Optimizer extends Twig_SupTwg_Extension
 
     public function getNodeVisitors()
     {
-        return array(new Twig_SupTwg_NodeVisitor_Optimizer($this->optimizers));
+        return array(new Twig_SupTwgDtgs_NodeVisitor_Optimizer($this->optimizers));
     }
 
     public function getName()

@@ -415,12 +415,12 @@ msgstr ""
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:23
 #: all-in-one-wp-security/classes/grade-system/wp-security-feature-item-manager.php:57
-msgid "DB Prefix"
+msgid "Database prefix"
 msgstr ""
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:24
 #: all-in-one-wp-security/classes/grade-system/wp-security-feature-item-manager.php:59
-msgid "DB Backup"
+msgid "Database backup"
 msgstr ""
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:84
@@ -445,7 +445,7 @@ msgid ""
 msgstr ""
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:122
-msgid "Change Database Prefix"
+msgid "Change database prefix"
 msgstr ""
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:125
@@ -474,7 +474,7 @@ msgid ""
 msgstr ""
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:134
-msgid "DB Prefix Options"
+msgid "Database prefix options"
 msgstr ""
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:145
@@ -483,7 +483,7 @@ msgid "It is recommended that you perform a %s before using this feature"
 msgstr ""
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:154
-msgid "Current DB Table Prefix"
+msgid "Current database table prefix"
 msgstr ""
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:160
@@ -495,7 +495,7 @@ msgid ""
 msgstr ""
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:167
-msgid "Generate New DB Table Prefix"
+msgid "Generate new database table prefix"
 msgstr ""
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:170
@@ -515,7 +515,7 @@ msgid ""
 msgstr ""
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:177
-msgid "Change DB Prefix"
+msgid "Change database prefix"
 msgstr ""
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:198
@@ -716,7 +716,7 @@ msgid ""
 msgstr ""
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:499
-msgid "DB prefix change tasks have been completed."
+msgid "The database prefix change tasks have been completed."
 msgstr ""
 
 #: all-in-one-wp-security/admin/wp-security-filescan-menu.php:22
@@ -2960,7 +2960,7 @@ msgid "User Login Feature - Delete all failed login records operation failed!"
 msgstr ""
 
 #: all-in-one-wp-security/admin/wp-security-user-login-menu.php:498
-msgid "All records from the Failed Logins table were deleted successfully!"
+msgid "All records from the Failed Logins table were deleted successfully."
 msgstr ""
 
 #: all-in-one-wp-security/admin/wp-security-user-login-menu.php:513

@@ -15,14 +15,14 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Node_Expression_Parent extends Twig_SupTwg_Node_Expression
+class Twig_SupTwgDtgs_Node_Expression_Parent extends Twig_SupTwgDtgs_Node_Expression
 {
     public function __construct($name, $lineno, $tag = null)
     {
         parent::__construct(array(), array('output' => false, 'name' => $name), $lineno, $tag);
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         if ($this->getAttribute('output')) {
             $compiler

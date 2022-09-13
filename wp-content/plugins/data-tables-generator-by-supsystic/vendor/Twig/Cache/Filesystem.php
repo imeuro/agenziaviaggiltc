@@ -14,7 +14,7 @@
  *
  * @author Andrew Tch <andrew@noop.lv>
  */
-class Twig_SupTwg_Cache_Filesystem implements Twig_SupTwg_CacheInterface
+class Twig_SupTwgDtgs_Cache_Filesystem implements Twig_SupTwgDtgs_CacheInterface
 {
     const FORCE_BYTECODE_INVALIDATION = 1;
 

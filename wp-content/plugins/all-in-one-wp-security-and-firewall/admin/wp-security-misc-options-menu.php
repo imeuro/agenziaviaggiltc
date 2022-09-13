@@ -24,12 +24,12 @@ class AIOWPSecurity_Misc_Options_Menu extends AIOWPSecurity_Admin_Menu
 
     function set_menu_tabs() 
     {
-        $this->menu_tabs = array(
-        'tab1' => __('Copy Protection', 'all-in-one-wp-security-and-firewall'),
-        'tab2' => __('Frames', 'all-in-one-wp-security-and-firewall'),
-        'tab3' => __('Users Enumeration', 'all-in-one-wp-security-and-firewall'),
-        'tab4' => __('WP REST API', 'all-in-one-wp-security-and-firewall'),
-        );
+		$this->menu_tabs = array(
+			'tab1' => __('Copy Protection', 'all-in-one-wp-security-and-firewall'),
+			'tab2' => __('Frames', 'all-in-one-wp-security-and-firewall'),
+			'tab3' => __('Users Enumeration', 'all-in-one-wp-security-and-firewall'),
+			'tab4' => __('WP REST API', 'all-in-one-wp-security-and-firewall'),
+		);
     }
 
     /*
@@ -105,8 +105,8 @@ class AIOWPSecurity_Misc_Options_Menu extends AIOWPSecurity_Admin_Menu
             <tr valign="top">
                 <th scope="row"><?php _e('Enable Copy Protection', 'all-in-one-wp-security-and-firewall')?>:</th>
                 <td>
-                <input name="aiowps_copy_protection" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_copy_protection')=='1') echo ' checked="checked"'; ?> value="1"/>
-                <span class="description"><?php _e('Check this if you want to disable the "Right Click", "Text Selection" and "Copy" option on the front end of your site.', 'all-in-one-wp-security-and-firewall'); ?></span>
+                <input id="aiowps_copy_protection" name="aiowps_copy_protection" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_copy_protection')=='1') echo ' checked="checked"'; ?> value="1"/>
+                <label for="aiowps_copy_protection" class="description"><?php _e('Check this if you want to disable the "Right Click", "Text Selection" and "Copy" option on the front end of your site.', 'all-in-one-wp-security-and-firewall'); ?></label>
                 </td>
             </tr>
 
@@ -156,8 +156,8 @@ class AIOWPSecurity_Misc_Options_Menu extends AIOWPSecurity_Admin_Menu
             <tr valign="top">
                 <th scope="row"><?php _e('Enable iFrame Protection', 'all-in-one-wp-security-and-firewall')?>:</th>
                 <td>
-                <input name="aiowps_prevent_site_display_inside_frame" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_prevent_site_display_inside_frame')=='1') echo ' checked="checked"'; ?> value="1"/>
-                <span class="description"><?php _e('Check this if you want to stop other sites from displaying your content in a frame or iframe.', 'all-in-one-wp-security-and-firewall'); ?></span>
+                <input id="aiowps_prevent_site_display_inside_frame" name="aiowps_prevent_site_display_inside_frame" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_prevent_site_display_inside_frame')=='1') echo ' checked="checked"'; ?> value="1"/>
+                <label for="aiowps_prevent_site_display_inside_frame" class="description"><?php _e('Check this if you want to stop other sites from displaying your content in a frame or iframe.', 'all-in-one-wp-security-and-firewall'); ?></label>
                 </td>
             </tr>
 
@@ -207,8 +207,8 @@ class AIOWPSecurity_Misc_Options_Menu extends AIOWPSecurity_Admin_Menu
             <tr valign="top">
                 <th scope="row"><?php _e('Disable Users Enumeration', 'all-in-one-wp-security-and-firewall')?>:</th>
                 <td>
-                <input name="aiowps_prevent_users_enumeration" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_prevent_users_enumeration')=='1') echo ' checked="checked"'; ?> value="1"/>
-                <span class="description"><?php _e('Check this if you want to stop users enumeration.', 'all-in-one-wp-security-and-firewall'); ?></span>
+                <input id="aiowps_prevent_users_enumeration" name="aiowps_prevent_users_enumeration" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_prevent_users_enumeration')=='1') echo ' checked="checked"'; ?> value="1"/>
+                <label for="aiowps_prevent_users_enumeration" class="description"><?php _e('Check this if you want to stop users enumeration.', 'all-in-one-wp-security-and-firewall'); ?></label>
                 </td>
             </tr>
 
@@ -267,8 +267,8 @@ class AIOWPSecurity_Misc_Options_Menu extends AIOWPSecurity_Admin_Menu
             <tr valign="top">
                 <th scope="row"><?php _e('Disallow Unauthorized REST Requests', 'all-in-one-wp-security-and-firewall')?>:</th>
                 <td>
-                <input name="aiowps_disallow_unauthorized_rest_requests" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_disallow_unauthorized_rest_requests')=='1') echo ' checked="checked"'; ?> value="1"/>
-                <span class="description"><?php _e('Check this if you want to stop REST API access for non-logged in requests.', 'all-in-one-wp-security-and-firewall'); ?></span>
+                <input id="aiowps_disallow_unauthorized_rest_requests" name="aiowps_disallow_unauthorized_rest_requests" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_disallow_unauthorized_rest_requests')=='1') echo ' checked="checked"'; ?> value="1"/>
+                <label for="aiowps_disallow_unauthorized_rest_requests" class="description"><?php _e('Check this if you want to stop REST API access for non-logged in requests.', 'all-in-one-wp-security-and-firewall'); ?></label>
                 </td>
             </tr>
 
@@ -281,5 +281,5 @@ class AIOWPSecurity_Misc_Options_Menu extends AIOWPSecurity_Admin_Menu
         </div></div>
         <?php
     }
-    
+
 } //end class

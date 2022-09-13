@@ -93,7 +93,7 @@ class AIOWPSecurity_User_Accounts_Menu extends AIOWPSecurity_Admin_Menu
         <?php
         //display a list of all administrator accounts for this site
         $postbox_title = __('List of Administrator Accounts', 'all-in-one-wp-security-and-firewall');
-        if (AIOWPSecurity_Utility::is_multisite_install()) { //Multi-site: get admin accounts for current site
+        if (is_multisite()) { //Multi-site: get admin accounts for current site
           $blog_id = get_current_blog_id();
           $this->postbox($postbox_title, $this->get_all_admin_accounts($blog_id));
         } else {
@@ -115,8 +115,8 @@ class AIOWPSecurity_User_Accounts_Menu extends AIOWPSecurity_Admin_Menu
             <?php wp_nonce_field('aiowpsec-change-admin-nonce'); ?>
             <table class="form-table">
                 <tr valign="top">
-                    <th scope="row"><label for="NewUserName"> <?php _e('New Admin Username', 'all-in-one-wp-security-and-firewall')?>:</label></th>
-                    <td><input type="text" size="16" name="aiowps_new_user_name" />
+                    <th scope="row"><label for="aiowps_new_user_name"><?php _e('New Admin Username', 'all-in-one-wp-security-and-firewall')?>:</label></th>
+                    <td><input type="text" size="16" id="aiowps_new_user_name" name="aiowps_new_user_name" />
                     <p class="description"><?php _e('Choose a new username for admin.', 'all-in-one-wp-security-and-firewall'); ?></p>
                     </td> 
                 </tr>
@@ -266,7 +266,7 @@ class AIOWPSecurity_User_Accounts_Menu extends AIOWPSecurity_Admin_Menu
                     }
 
                     //multisite considerations
-                    if ( AIOWPSecurity_Utility::is_multisite_install() ) { //process sitemeta if we're in a multi-site situation
+                    if ( is_multisite() ) { //process sitemeta if we're in a multi-site situation
                         $oldAdmins = $wpdb->get_var( "SELECT meta_value FROM `" . $wpdb->sitemeta . "` WHERE meta_key = 'site_admins'" );
                         $newAdmins = str_replace( '5:"admin"', strlen( $new_username ) . ':"' . esc_sql( $new_username ) . '"', $oldAdmins );
                         $wpdb->query( "UPDATE `" . $wpdb->sitemeta . "` SET meta_value = '" . esc_sql( $newAdmins ) . "' WHERE meta_key = 'site_admins'" );
@@ -279,7 +279,7 @@ class AIOWPSecurity_User_Accounts_Menu extends AIOWPSecurity_Admin_Menu
                         $after_logout_url = AIOWPSecurity_Utility::get_current_page_url();
                         $after_logout_payload = array('redirect_to'=>$after_logout_url, 'msg'=>$aio_wp_security->user_login_obj->key_login_msg.'=admin_user_changed', );
                         //Save some of the logout redirect data to a transient
-                        AIOWPSecurity_Utility::is_multisite_install() ? set_site_transient('aiowps_logout_payload', $after_logout_payload, 30 * 60) : set_transient('aiowps_logout_payload', $after_logout_payload, 30 * 60);
+                        is_multisite() ? set_site_transient('aiowps_logout_payload', $after_logout_payload, 30 * 60) : set_transient('aiowps_logout_payload', $after_logout_payload, 30 * 60);
                         
                         $logout_url = AIOWPSEC_WP_URL.'?aiowpsec_do_log_out=1';
                         $logout_url = AIOWPSecurity_Utility::add_query_data_to_url($logout_url, 'al_additional_data', '1');

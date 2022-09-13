@@ -1,7 +1,7 @@
 <?php
 
 
-class Rsc_Exception_ConfigLoaderException extends RuntimeException
+class RscDtgs_Exception_ConfigLoaderException extends RuntimeException
 {
 
 } 

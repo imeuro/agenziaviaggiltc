@@ -12,7 +12,7 @@
 /**
  * @final
  */
-class Twig_SupTwg_Extension_Escaper extends Twig_SupTwg_Extension
+class Twig_SupTwgDtgs_Extension_Escaper extends Twig_SupTwgDtgs_Extension
 {
     protected $defaultStrategy;
 
@@ -28,18 +28,18 @@ class Twig_SupTwg_Extension_Escaper extends Twig_SupTwg_Extension
 
     public function getTokenParsers()
     {
-        return array(new Twig_SupTwg_TokenParser_AutoEscape());
+        return array(new Twig_SupTwgDtgs_TokenParser_AutoEscape());
     }
 
     public function getNodeVisitors()
     {
-        return array(new Twig_SupTwg_NodeVisitor_Escaper());
+        return array(new Twig_SupTwgDtgs_NodeVisitor_Escaper());
     }
 
     public function getFilters()
     {
         return array(
-            new Twig_SupTwg_SimpleFilter('raw', 'Twig_SupTwg_raw_filter', array('is_safe' => array('all'))),
+            new Twig_SupTwgDtgs_SimpleFilter('raw', 'Twig_SupTwgDtgs_raw_filter', array('is_safe' => array('all'))),
         );
     }
 
@@ -55,19 +55,19 @@ class Twig_SupTwg_Extension_Escaper extends Twig_SupTwg_Extension
     {
         // for BC
         if (true === $defaultStrategy) {
-            @trigger_error('Using "true" as the default strategy is deprecated since version 1.21. Use "html" instead.', E_USER_DEPRECATED);
+            //@trigger_error('Using "true" as the default strategy is deprecated since version 1.21. Use "html" instead.', E_USER_DEPRECATED);
 
             $defaultStrategy = 'html';
         }
 
         if ('filename' === $defaultStrategy) {
-            @trigger_error('Using "filename" as the default strategy is deprecated since version 1.27. Use "name" instead.', E_USER_DEPRECATED);
+            //@trigger_error('Using "filename" as the default strategy is deprecated since version 1.27. Use "name" instead.', E_USER_DEPRECATED);
 
             $defaultStrategy = 'name';
         }
 
         if ('name' === $defaultStrategy) {
-            $defaultStrategy = array('Twig_SupTwg_FileExtensionEscapingStrategy', 'guess');
+            $defaultStrategy = array('Twig_SupTwgDtgs_FileExtensionEscapingStrategy', 'guess');
         }
 
         $this->defaultStrategy = $defaultStrategy;
@@ -104,7 +104,7 @@ class Twig_SupTwg_Extension_Escaper extends Twig_SupTwg_Extension
  *
  * @return string
  */
-function Twig_SupTwg_raw_filter($string)
+function Twig_SupTwgDtgs_raw_filter($string)
 {
     return $string;
 }

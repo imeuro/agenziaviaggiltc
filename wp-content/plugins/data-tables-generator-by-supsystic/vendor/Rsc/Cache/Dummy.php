@@ -1,7 +1,7 @@
 <?php
 
 
-class Rsc_Cache_Dummy implements Rsc_Cache_Interface
+class RscDtgs_Cache_Dummy implements RscDtgs_Cache_Interface
 {
 
     /**

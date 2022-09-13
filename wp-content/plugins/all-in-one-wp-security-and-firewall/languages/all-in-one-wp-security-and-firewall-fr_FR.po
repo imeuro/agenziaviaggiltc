@@ -1351,12 +1351,12 @@ msgstr "Plages et adresses IP actuellement en lock-out"
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:26
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:31
 #: all-in-one-wp-security/classes/grade-system/wp-security-feature-item-manager.php:63
-msgid "DB Backup"
+msgid "Database backup"
 msgstr "sauvegarde de BdD"
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:30
 #: all-in-one-wp-security/classes/grade-system/wp-security-feature-item-manager.php:61
-msgid "DB Prefix"
+msgid "Database prefix"
 msgstr "Préfixe de BdD"
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:93
@@ -1385,7 +1385,7 @@ msgstr ""
 "chiffres, des lettres et « _ »."
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:131
-msgid "Change Database Prefix"
+msgid "Change database prefix"
 msgstr "Changer le préfixe de BdD"
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:134
@@ -1425,7 +1425,7 @@ msgstr ""
 "l’extension."
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:143
-msgid "DB Prefix Options"
+msgid "Database prefix options"
 msgstr "Options de préfixe BdD"
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:154
@@ -1435,7 +1435,7 @@ msgstr ""
 "Il est recommandé d’effectuer une %s avant d’utiliser cette fonctionnalité"
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:163
-msgid "Current DB Table Prefix"
+msgid "Current database table prefix"
 msgstr "Préfixe actuel des tables de BdD"
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:169
@@ -1451,7 +1451,7 @@ msgstr ""
 "valeur par une autre."
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:176
-msgid "Generate New DB Table Prefix"
+msgid "Generate new database table prefix"
 msgstr "Générer un nouveau préfixe de tables BdD"
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:179
@@ -1475,7 +1475,7 @@ msgstr ""
 "des lettres et / ou des chiffres et / ou « _ ». Exemple : XyZ_3_"
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:186
-msgid "Change DB Prefix"
+msgid "Change database prefix"
 msgstr "Changer le préfixe des tables de la BdD"
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:207
@@ -1719,7 +1719,7 @@ msgstr ""
 "l’ancien préfixe BdD ont été actualisés avec succès !"
 
 #: all-in-one-wp-security/admin/wp-security-database-menu.php:530
-msgid "DB prefix change tasks have been completed."
+msgid "The database prefix change tasks have been completed."
 msgstr "Les tâches de modification du préfixe BdD sont terminées."
 
 #: all-in-one-wp-security/admin/wp-security-filescan-menu.php:24
@@ -4893,7 +4893,7 @@ msgstr ""
 "de tentatives de connexions infructueuses a échoué !"
 
 #: all-in-one-wp-security/admin/wp-security-user-login-menu.php:277
-msgid "All records from the Failed Logins table were deleted successfully!"
+msgid "All records from the Failed Logins table were deleted successfully."
 msgstr ""
 "Tous les enregistrements de la table des tentatives de connexions "
 "infructueuses  ont été supprimés avec succès !"

@@ -14,12 +14,12 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Node_Embed extends Twig_SupTwg_Node_Include
+class Twig_SupTwgDtgs_Node_Embed extends Twig_SupTwgDtgs_Node_Include
 {
     // we don't inject the module to avoid node visitors to traverse it twice (as it will be already visited in the main module)
-    public function __construct($name, $index, Twig_SupTwg_Node_Expression $variables = null, $only = false, $ignoreMissing = false, $lineno = null, $tag = null)
+    public function __construct($name, $index, Twig_SupTwgDtgs_Node_Expression $variables = null, $only = false, $ignoreMissing = false, $lineno = null, $tag = null)
     {
-        parent::__construct(new Twig_SupTwg_Node_Expression_Constant('not_used', $lineno), $variables, $only, $ignoreMissing, $lineno, $tag);
+        parent::__construct(new Twig_SupTwgDtgs_Node_Expression_Constant('not_used', $lineno), $variables, $only, $ignoreMissing, $lineno, $tag);
 
         $this->setAttribute('name', $name);
         // to be removed in 2.0, used name instead
@@ -27,7 +27,7 @@ class Twig_SupTwg_Node_Embed extends Twig_SupTwg_Node_Include
         $this->setAttribute('index', $index);
     }
 
-    protected function addGetTemplate(Twig_SupTwg_Compiler $compiler)
+    protected function addGetTemplate(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
             ->write('$this->loadTemplate(')

@@ -153,7 +153,7 @@ abstract class SupsysticTables_Ui_Asset implements SupsysticTables_Ui_AssetInter
     }
 
     /**
-     * @param string|Rsc_Mvc_Module $module
+     * @param string|RscDtgs_Mvc_Module $module
      * @param string $moduleSource
      * @return SupsysticTables_Ui_Asset
      */
@@ -163,7 +163,7 @@ abstract class SupsysticTables_Ui_Asset implements SupsysticTables_Ui_AssetInter
 
         if (is_string($module)) {
             $module = $baseUrl . ucfirst($module);
-        } elseif ($module instanceof Rsc_Mvc_Module) {
+        } elseif ($module instanceof RscDtgs_Mvc_Module) {
             $module = $module->getLocationUrl();
         } else {
             throw new InvalidArgumentException(

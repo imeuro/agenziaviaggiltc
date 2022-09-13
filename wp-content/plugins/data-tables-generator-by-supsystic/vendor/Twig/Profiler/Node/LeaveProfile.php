@@ -14,14 +14,14 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Profiler_Node_LeaveProfile extends Twig_SupTwg_Node
+class Twig_SupTwgDtgs_Profiler_Node_LeaveProfile extends Twig_SupTwgDtgs_Node
 {
     public function __construct($varName)
     {
         parent::__construct(array(), array('var_name' => $varName));
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
             ->write("\n")

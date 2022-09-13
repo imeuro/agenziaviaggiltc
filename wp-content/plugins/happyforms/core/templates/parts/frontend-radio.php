@@ -19,7 +19,7 @@
 				if ( happyforms_is_truthy( $option['is_heading'] ) ) {
 					$option_classes .= ' option-heading';
 				?>
-			<div class="<?php echo $option_classes; ?>" id="<?php echo happyforms_is_preview() ? esc_attr( $option['id'] ) : ''; ?>">
+			<div class="<?php echo $option_classes; ?>" id="<?php echo esc_attr( $option['id'] ); ?>">
 				<label class="heading-label"><?php echo esc_attr( $option['label'] ); ?></label>
 			</div>
 				<?php

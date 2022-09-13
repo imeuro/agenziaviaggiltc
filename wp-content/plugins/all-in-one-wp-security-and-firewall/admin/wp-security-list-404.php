@@ -5,7 +5,7 @@ if(!defined('ABSPATH')){
 
 class AIOWPSecurity_List_404 extends AIOWPSecurity_List_Table {
 
-    function __construct() {
+    public function __construct() {
         global $status, $page;
 
         //Set parent defaults
@@ -16,15 +16,22 @@ class AIOWPSecurity_List_404 extends AIOWPSecurity_List_Table {
         ));
     }
 
-    function column_default($item, $column_name) {
+    public function column_default($item, $column_name) {
         return $item[$column_name];
     }
 
-    function column_id($item) {
+	/**
+	 * Returns id column html to be rendered.
+	 *
+	 * @param Array - data for the columns on the current row
+	 *
+	 * @return String
+	 */
+	public function column_id($item) {
         $tab = strip_tags($_REQUEST['tab']);
         $ip = $item['ip_or_host'];
 
-        $blocked_ips_tab = 'tab3';
+		$blocked_ips_tab = 'tab2';
         //Check if this IP address is locked
         $is_locked = AIOWPSecurity_Utility::check_locked_ip($ip);
         $delete_url = sprintf('admin.php?page=%s&tab=%s&action=%s&id=%s', AIOWPSEC_FIREWALL_MENU_SLUG, $tab, 'delete_event_log', $item['id']);
@@ -52,7 +59,7 @@ class AIOWPSecurity_List_404 extends AIOWPSecurity_List_Table {
         );
     }
 
-    function column_status($item) {
+    public function column_status($item) {
         global $aio_wp_security;
         $ip = $item['ip_or_host'];
         //Check if this IP address is locked
@@ -69,7 +76,7 @@ class AIOWPSecurity_List_404 extends AIOWPSecurity_List_Table {
         }
     }
 
-    function column_cb($item) {
+    public function column_cb($item) {
         return sprintf(
                 '<input type="checkbox" name="%1$s[]" value="%2$s" />',
                 /* $1%s */ $this->_args['singular'], //Let's simply repurpose the table's singular label
@@ -77,7 +84,7 @@ class AIOWPSecurity_List_404 extends AIOWPSecurity_List_Table {
         );
     }
 
-    function get_columns() {
+    public function get_columns() {
         $columns = array(
             'cb' => '<input type="checkbox" />', //Render a checkbox
             'id' => 'ID',
@@ -92,7 +99,7 @@ class AIOWPSecurity_List_404 extends AIOWPSecurity_List_Table {
         return $columns;
     }
 
-    function get_sortable_columns() {
+    public function get_sortable_columns() {
         $sortable_columns = array(
             'id' => array('id', false),
             'event_type' => array('event_type', false),
@@ -105,7 +112,7 @@ class AIOWPSecurity_List_404 extends AIOWPSecurity_List_Table {
         return $sortable_columns;
     }
 
-    function get_bulk_actions() {
+    public function get_bulk_actions() {
         $actions = array(
             //'unlock' => 'Unlock',
             'bulk_block_ip' => 'Temp Block IP',
@@ -115,7 +122,7 @@ class AIOWPSecurity_List_404 extends AIOWPSecurity_List_Table {
         return $actions;
     }
 
-    function process_bulk_action() {
+    public function process_bulk_action() {
         if ('bulk_block_ip' === $this->current_action()) {//Process delete bulk actions
             if (!isset($_REQUEST['item'])) {
                 AIOWPSecurity_Admin_Menu::show_msg_error_st(__('Please select some records using the checkboxes', 'all-in-one-wp-security-and-firewall'));
@@ -140,13 +147,16 @@ class AIOWPSecurity_List_404 extends AIOWPSecurity_List_Table {
         }
     }
 
-    /*
-     * This function will lock an IP address by adding it to the "login_lockdown" table
-     */
-
-    function block_ip($entries, $username = '') {
+	/**
+	 * Locks an IP address by adding it to the AIOWPSEC_TBL_LOGIN_LOCKDOWN table.
+	 *
+	 * @param Array|String - ids that correspond to ip addresses in the AIOWPSEC_TBL_EVENTS table or a single ip address
+	 * @param String       - (optional)username of user being locked
+	 *
+	 * @return Boolean|Void
+	 */
+	public function block_ip($entries, $username = '') {
         global $wpdb;
-        $events_table = AIOWPSEC_TBL_LOGIN_LOCKDOWN;
         if (is_array($entries)) {
             //lock multiple records
             $entries = array_filter($entries, 'is_numeric'); //discard non-numeric ID values
@@ -176,11 +186,14 @@ class AIOWPSecurity_List_404 extends AIOWPSecurity_List_Table {
         }
     }
 
-    /*
-     * This function will lock an IP address by adding it to the "login_lockdown" table
-     */
-
-    function blacklist_ip_address($entries) {
+	/**
+	 * Permanently blocks an IP address by adding it to the blacklist and writing rules to the htaccess file.
+	 *
+	 * @param Array|String - ids that correspond to ip addresses in the AIOWPSEC_TBL_EVENTS table or a single ip address
+	 *
+	 * @return Boolean|Void
+	 */
+	public function blacklist_ip_address($entries) {
         global $wpdb, $aio_wp_security;
         $bl_ip_addresses = $aio_wp_security->configs->get_value('aiowps_banned_ip_addresses'); //get the currently saved blacklisted IPs
         $ip_list_array = AIOWPSecurity_Utility_IP::create_ip_list_array_from_string_with_newline($bl_ip_addresses);
@@ -229,12 +242,14 @@ class AIOWPSecurity_List_404 extends AIOWPSecurity_List_Table {
         }
     }
 
-    /*
-     * This function will delete selected 404 records from the "events" table.
-     * The function accepts either an array of IDs or a single ID
-     */
-
-    function delete_404_event_records($entries) {
+	/**
+	 * Deletes one or more records from the AIOWPSEC_TBL_EVENTS table.
+	 *
+	 * @param Array|String|Integer - ids or a single id
+	 *
+	 * @return Void
+	 */
+	public function delete_404_event_records($entries) {
         global $wpdb, $aio_wp_security;
         $events_table = AIOWPSEC_TBL_EVENTS;
         if (is_array($entries)) {
@@ -246,9 +261,13 @@ class AIOWPSecurity_List_404 extends AIOWPSecurity_List_Table {
                 $id_list = "(" . implode(",", $entries) . ")"; //Create comma separate list for DB operation
                 $delete_command = "DELETE FROM " . $events_table . " WHERE id IN " . $id_list;
                 $result = $wpdb->query($delete_command);
-                if ($result != NULL) {
-                    AIOWPSecurity_Admin_Menu::show_msg_record_deleted_st();
-                }
+				if ($result) {
+					AIOWPSecurity_Admin_Menu::show_msg_record_deleted_st();
+				} else {
+					// Error on bulk delete
+                    $aio_wp_security->debug_logger->log_debug('Database error occurred when deleting rows from Events table. Database error: '.$wpdb->last_error, 4);
+					AIOWPSecurity_Admin_Menu::show_msg_record_not_deleted_st();
+				}
             }
 
         } elseif ($entries != NULL) {
@@ -263,62 +282,75 @@ class AIOWPSecurity_List_404 extends AIOWPSecurity_List_Table {
             $delete_command = "DELETE FROM " . $events_table . " WHERE id = '" . absint($entries) . "'";
             //$delete_command = $wpdb->prepare("DELETE FROM $events_table WHERE id = %s", absint($entries));
             $result = $wpdb->query($delete_command);
-            if ($result != NULL) {
-                AIOWPSecurity_Admin_Menu::show_msg_record_deleted_st();
-            }
+			if ($result) {
+				AIOWPSecurity_Admin_Menu::show_msg_record_deleted_st();
+			} elseif ($result === false) {
+				// Error on single delete
+                $aio_wp_security->debug_logger->log_debug('Database error occurred when deleting rows from Events table. Database error: '.$wpdb->last_error, 4);
+				AIOWPSecurity_Admin_Menu::show_msg_record_not_deleted_st();
+			}
         }
     }
 
-    function prepare_items($ignore_pagination=false) {
-        /**
-         * First, lets decide how many records per page to show
-         */
-        $per_page = 100;
-        $columns = $this->get_columns();
-        $hidden = array();
-        $sortable = $this->get_sortable_columns();
+	/**
+	 * Retrieves all items from AIOWPSEC_TBL_EVENTS according to a search term inside $_REQUEST['s'] and only '404' events if there is no search term. It then assigns to $this->items.
+	 *
+	 * @param Boolean $ignore_pagination - whether to not paginate
+	 *
+	 * @return Void
+	 */
+	public function prepare_items($ignore_pagination = false) {
+		/**
+		 * First, lets decide how many records per page to show
+		 */
+		$per_page = 100;
+		$columns = $this->get_columns();
+		$hidden = array();
+		$sortable = $this->get_sortable_columns();
+		$search_term = isset($_REQUEST['s']) ? sanitize_text_field(stripslashes($_REQUEST['s'])) : '';
 
-        $this->_column_headers = array($columns, $hidden, $sortable);
+		$this->_column_headers = array($columns, $hidden, $sortable);
 
-        $this->process_bulk_action();
+		$this->process_bulk_action();
 
-        global $wpdb;
-        $events_table_name = AIOWPSEC_TBL_EVENTS;
+		global $wpdb;
+		$events_table_name = AIOWPSEC_TBL_EVENTS;
 
-        /* -- Ordering parameters -- */
-        //Parameters that are going to be used to order the result
-        isset($_GET["orderby"]) ? $orderby = strip_tags($_GET["orderby"]): $orderby = '';
-        isset($_GET["order"]) ? $order = strip_tags($_GET["order"]): $order = '';
+		/* -- Ordering parameters -- */
+		//Parameters that are going to be used to order the result
+		isset($_GET['orderby']) ? $orderby = strip_tags($_GET['orderby']): $orderby = '';
+		isset($_GET['order']) ? $order = strip_tags($_GET['order']): $order = '';
 
-        $orderby = !empty($orderby) ? esc_sql($orderby) : 'id';
-        $order = !empty($order) ? esc_sql($order) : 'DESC';
-        
-        $orderby = AIOWPSecurity_Utility::sanitize_value_by_array($orderby, $sortable);
-        $order = AIOWPSecurity_Utility::sanitize_value_by_array($order, array('DESC' => '1', 'ASC' => '1'));
+		$orderby = !empty($orderby) ? esc_sql($orderby) : 'id';
+		$order = !empty($order) ? esc_sql($order) : 'DESC';
 
-        if (isset($_POST['s'])) {
-            $search_term = trim($_POST['s']);
-            $data = $wpdb->get_results($wpdb->prepare("SELECT * FROM " . $events_table_name . " WHERE `ip_or_host` LIKE '%%%s%%' OR `url` LIKE '%%%s%%' OR `referer_info` LIKE '%%%s%%'", $search_term, $search_term, $search_term), ARRAY_A);
-        } else {
-            $data = $wpdb->get_results($wpdb->prepare("SELECT * FROM $events_table_name WHERE event_type=%s ORDER BY $orderby $order",'404'), ARRAY_A);
-        }
-        $new_data = array();
-        foreach ($data as $row) {
-            //lets insert an empty "status" column - we will use later
-            $row['status'] = '';
-            $new_data[] = $row;
-        }
-        if (!$ignore_pagination) {
-            $current_page = $this->get_pagenum();
-            $total_items = count($new_data);
-            $new_data = array_slice($new_data, (($current_page - 1) * $per_page), $per_page);
-            $this->set_pagination_args(array(
-                'total_items' => $total_items, //WE have to calculate the total number of items
-                'per_page' => $per_page, //WE have to determine how many items to show on a page
-                'total_pages' => ceil($total_items / $per_page)   //WE have to calculate the total number of pages
-            ));
-        }
-        $this->items = $new_data;
-    }
+		$orderby = AIOWPSecurity_Utility::sanitize_value_by_array($orderby, $sortable);
+		$order = AIOWPSecurity_Utility::sanitize_value_by_array($order, array('DESC' => '1', 'ASC' => '1'));
+
+		if (empty($search_term)) {
+			$data = $wpdb->get_results("SELECT * FROM $events_table_name WHERE `event_type` = '404' ORDER BY $orderby $order", ARRAY_A);
+		} else {
+			$data = $wpdb->get_results($wpdb->prepare("SELECT * FROM $events_table_name WHERE `ip_or_host` LIKE '%%%s%%' OR `url` LIKE '%%%s%%' OR `referer_info` LIKE '%%%s%%' ORDER BY $orderby $order", $search_term, $search_term, $search_term), ARRAY_A);
+		}
+
+		if (!$ignore_pagination) {
+			$current_page = $this->get_pagenum();
+			$total_items = count($data);
+			$data = array_slice($data, (($current_page - 1) * $per_page), $per_page);
+			$this->set_pagination_args(array(
+				'total_items' => $total_items, //WE have to calculate the total number of items
+				'per_page' => $per_page, //WE have to determine how many items to show on a page
+				'total_pages' => ceil($total_items / $per_page)   //WE have to calculate the total number of pages
+			));
+		}
+
+		foreach ($data as $index => $row) {
+			// Insert an empty status column - we will use later
+			$data[$index]['status'] = '';
+			$data[$index]['event_date'] = get_date_from_gmt(mysql2date('Y-m-d H:i:s', $row['event_date']), $this->get_wp_date_time_format());
+		}
+
+		$this->items = $data;
+	}
 
 }

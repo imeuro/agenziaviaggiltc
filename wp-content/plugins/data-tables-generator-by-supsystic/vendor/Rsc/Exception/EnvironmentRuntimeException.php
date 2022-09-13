@@ -1,7 +1,7 @@
 <?php
 
 
-class Rsc_Exception_EnvironmentRuntimeException extends RuntimeException
+class RscDtgs_Exception_EnvironmentRuntimeException extends RuntimeException
 {
 
 } 

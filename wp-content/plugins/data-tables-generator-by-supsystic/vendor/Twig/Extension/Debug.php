@@ -12,7 +12,7 @@
 /**
  * @final
  */
-class Twig_SupTwg_Extension_Debug extends Twig_SupTwg_Extension
+class Twig_SupTwgDtgs_Extension_Debug extends Twig_SupTwgDtgs_Extension
 {
     public function getFunctions()
     {
@@ -27,7 +27,7 @@ class Twig_SupTwg_Extension_Debug extends Twig_SupTwg_Extension
         ;
 
         return array(
-            new Twig_SupTwg_SimpleFunction('dump', 'Twig_SupTwg_var_dump', array('is_safe' => $isDumpOutputHtmlSafe ? array('html') : array(), 'needs_context' => true, 'needs_environment' => true)),
+            new Twig_SupTwgDtgs_SimpleFunction('dump', 'Twig_SupTwgDtgs_var_dump', array('is_safe' => $isDumpOutputHtmlSafe ? array('html') : array(), 'needs_context' => true, 'needs_environment' => true)),
         );
     }
 
@@ -37,7 +37,7 @@ class Twig_SupTwg_Extension_Debug extends Twig_SupTwg_Extension
     }
 }
 
-function Twig_SupTwg_var_dump(Twig_SupTwg_Environment $env, $context)
+function Twig_SupTwgDtgs_var_dump(Twig_SupTwgDtgs_Environment $env, $context)
 {
     if (!$env->isDebug()) {
         return;
@@ -49,7 +49,7 @@ function Twig_SupTwg_var_dump(Twig_SupTwg_Environment $env, $context)
     if (2 === $count) {
         $vars = array();
         foreach ($context as $key => $value) {
-            if (!$value instanceof Twig_SupTwg_Template) {
+            if (!$value instanceof Twig_SupTwgDtgs_Template) {
                 $vars[$key] = $value;
             }
         }

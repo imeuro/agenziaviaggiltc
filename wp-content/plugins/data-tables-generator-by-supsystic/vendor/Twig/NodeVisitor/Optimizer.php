@@ -10,7 +10,7 @@
  */
 
 /**
- * Twig_SupTwg_NodeVisitor_Optimizer tries to optimizes the AST.
+ * Twig_SupTwgDtgs_NodeVisitor_Optimizer tries to optimizes the AST.
  *
  * This visitor is always the last registered one.
  *
@@ -21,7 +21,7 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_NodeVisitor_Optimizer extends Twig_SupTwg_BaseNodeVisitor
+class Twig_SupTwgDtgs_NodeVisitor_Optimizer extends Twig_SupTwgDtgs_BaseNodeVisitor
 {
     const OPTIMIZE_ALL = -1;
     const OPTIMIZE_NONE = 0;
@@ -47,22 +47,22 @@ class Twig_SupTwg_NodeVisitor_Optimizer extends Twig_SupTwg_BaseNodeVisitor
         $this->optimizers = $optimizers;
     }
 
-    protected function doEnterNode(Twig_SupTwg_Node $node, Twig_SupTwg_Environment $env)
+    protected function doEnterNode(Twig_SupTwgDtgs_Node $node, Twig_SupTwgDtgs_Environment $env)
     {
         if (self::OPTIMIZE_FOR === (self::OPTIMIZE_FOR & $this->optimizers)) {
             $this->enterOptimizeFor($node, $env);
         }
 
-        if (PHP_VERSION_ID < 50400 && self::OPTIMIZE_VAR_ACCESS === (self::OPTIMIZE_VAR_ACCESS & $this->optimizers) && !$env->isStrictVariables() && !$env->hasExtension('Twig_SupTwg_Extension_Sandbox')) {
+        if (PHP_VERSION_ID < 50400 && self::OPTIMIZE_VAR_ACCESS === (self::OPTIMIZE_VAR_ACCESS & $this->optimizers) && !$env->isStrictVariables() && !$env->hasExtension('Twig_SupTwgDtgs_Extension_Sandbox')) {
             if ($this->inABody) {
-                if (!$node instanceof Twig_SupTwg_Node_Expression) {
-                    if (get_class($node) !== 'Twig_SupTwg_Node') {
+                if (!$node instanceof Twig_SupTwgDtgs_Node_Expression) {
+                    if (get_class($node) !== 'Twig_SupTwgDtgs_Node') {
                         array_unshift($this->prependedNodes, array());
                     }
                 } else {
                     $node = $this->optimizeVariables($node, $env);
                 }
-            } elseif ($node instanceof Twig_SupTwg_Node_Body) {
+            } elseif ($node instanceof Twig_SupTwgDtgs_Node_Body) {
                 $this->inABody = true;
             }
         }
@@ -70,9 +70,9 @@ class Twig_SupTwg_NodeVisitor_Optimizer extends Twig_SupTwg_BaseNodeVisitor
         return $node;
     }
 
-    protected function doLeaveNode(Twig_SupTwg_Node $node, Twig_SupTwg_Environment $env)
+    protected function doLeaveNode(Twig_SupTwgDtgs_Node $node, Twig_SupTwgDtgs_Environment $env)
     {
-        $expression = $node instanceof Twig_SupTwg_Node_Expression;
+        $expression = $node instanceof Twig_SupTwgDtgs_Node_Expression;
 
         if (self::OPTIMIZE_FOR === (self::OPTIMIZE_FOR & $this->optimizers)) {
             $this->leaveOptimizeFor($node, $env);
@@ -84,18 +84,18 @@ class Twig_SupTwg_NodeVisitor_Optimizer extends Twig_SupTwg_BaseNodeVisitor
 
         $node = $this->optimizePrintNode($node, $env);
 
-        if (self::OPTIMIZE_VAR_ACCESS === (self::OPTIMIZE_VAR_ACCESS & $this->optimizers) && !$env->isStrictVariables() && !$env->hasExtension('Twig_SupTwg_Extension_Sandbox')) {
-            if ($node instanceof Twig_SupTwg_Node_Body) {
+        if (self::OPTIMIZE_VAR_ACCESS === (self::OPTIMIZE_VAR_ACCESS & $this->optimizers) && !$env->isStrictVariables() && !$env->hasExtension('Twig_SupTwgDtgs_Extension_Sandbox')) {
+            if ($node instanceof Twig_SupTwgDtgs_Node_Body) {
                 $this->inABody = false;
             } elseif ($this->inABody) {
-                if (!$expression && get_class($node) !== 'Twig_SupTwg_Node' && $prependedNodes = array_shift($this->prependedNodes)) {
+                if (!$expression && get_class($node) !== 'Twig_SupTwgDtgs_Node' && $prependedNodes = array_shift($this->prependedNodes)) {
                     $nodes = array();
                     foreach (array_unique($prependedNodes) as $name) {
-                        $nodes[] = new Twig_SupTwg_Node_SetTemp($name, $node->getTemplateLine());
+                        $nodes[] = new Twig_SupTwgDtgs_Node_SetTemp($name, $node->getTemplateLine());
                     }
 
                     $nodes[] = $node;
-                    $node = new Twig_SupTwg_Node($nodes);
+                    $node = new Twig_SupTwgDtgs_Node($nodes);
                 }
             }
         }
@@ -103,12 +103,12 @@ class Twig_SupTwg_NodeVisitor_Optimizer extends Twig_SupTwg_BaseNodeVisitor
         return $node;
     }
 
-    protected function optimizeVariables(Twig_SupTwg_NodeInterface $node, Twig_SupTwg_Environment $env)
+    protected function optimizeVariables(Twig_SupTwgDtgs_NodeInterface $node, Twig_SupTwgDtgs_Environment $env)
     {
-        if ('Twig_SupTwg_Node_Expression_Name' === get_class($node) && $node->isSimple()) {
+        if ('Twig_SupTwgDtgs_Node_Expression_Name' === get_class($node) && $node->isSimple()) {
             $this->prependedNodes[0][] = $node->getAttribute('name');
 
-            return new Twig_SupTwg_Node_Expression_TempName($node->getAttribute('name'), $node->getTemplateLine());
+            return new Twig_SupTwgDtgs_Node_Expression_TempName($node->getAttribute('name'), $node->getTemplateLine());
         }
 
         return $node;
@@ -121,18 +121,18 @@ class Twig_SupTwg_NodeVisitor_Optimizer extends Twig_SupTwg_BaseNodeVisitor
      *
      *   * "echo $this->render(Parent)Block()" with "$this->display(Parent)Block()"
      *
-     * @return Twig_SupTwg_NodeInterface
+     * @return Twig_SupTwgDtgs_NodeInterface
      */
-    protected function optimizePrintNode(Twig_SupTwg_NodeInterface $node, Twig_SupTwg_Environment $env)
+    protected function optimizePrintNode(Twig_SupTwgDtgs_NodeInterface $node, Twig_SupTwgDtgs_Environment $env)
     {
-        if (!$node instanceof Twig_SupTwg_Node_Print) {
+        if (!$node instanceof Twig_SupTwgDtgs_Node_Print) {
             return $node;
         }
 
         $exprNode = $node->getNode('expr');
         if (
-            $exprNode instanceof Twig_SupTwg_Node_Expression_BlockReference ||
-            $exprNode instanceof Twig_SupTwg_Node_Expression_Parent
+            $exprNode instanceof Twig_SupTwgDtgs_Node_Expression_BlockReference ||
+            $exprNode instanceof Twig_SupTwgDtgs_Node_Expression_Parent
         ) {
             $exprNode->setAttribute('output', true);
 
@@ -145,11 +145,11 @@ class Twig_SupTwg_NodeVisitor_Optimizer extends Twig_SupTwg_BaseNodeVisitor
     /**
      * Removes "raw" filters.
      *
-     * @return Twig_SupTwg_NodeInterface
+     * @return Twig_SupTwgDtgs_NodeInterface
      */
-    protected function optimizeRawFilter(Twig_SupTwg_NodeInterface $node, Twig_SupTwg_Environment $env)
+    protected function optimizeRawFilter(Twig_SupTwgDtgs_NodeInterface $node, Twig_SupTwgDtgs_Environment $env)
     {
-        if ($node instanceof Twig_SupTwg_Node_Expression_Filter && 'raw' == $node->getNode('filter')->getAttribute('value')) {
+        if ($node instanceof Twig_SupTwgDtgs_Node_Expression_Filter && 'raw' == $node->getNode('filter')->getAttribute('value')) {
             return $node->getNode('node');
         }
 
@@ -159,9 +159,9 @@ class Twig_SupTwg_NodeVisitor_Optimizer extends Twig_SupTwg_BaseNodeVisitor
     /**
      * Optimizes "for" tag by removing the "loop" variable creation whenever possible.
      */
-    protected function enterOptimizeFor(Twig_SupTwg_NodeInterface $node, Twig_SupTwg_Environment $env)
+    protected function enterOptimizeFor(Twig_SupTwgDtgs_NodeInterface $node, Twig_SupTwgDtgs_Environment $env)
     {
-        if ($node instanceof Twig_SupTwg_Node_For) {
+        if ($node instanceof Twig_SupTwgDtgs_Node_For) {
             // disable the loop variable by default
             $node->setAttribute('with_loop', false);
             array_unshift($this->loops, $node);
@@ -175,28 +175,28 @@ class Twig_SupTwg_NodeVisitor_Optimizer extends Twig_SupTwg_BaseNodeVisitor
         // when do we need to add the loop variable back?
 
         // the loop variable is referenced for the current loop
-        elseif ($node instanceof Twig_SupTwg_Node_Expression_Name && 'loop' === $node->getAttribute('name')) {
+        elseif ($node instanceof Twig_SupTwgDtgs_Node_Expression_Name && 'loop' === $node->getAttribute('name')) {
             $node->setAttribute('always_defined', true);
             $this->addLoopToCurrent();
         }
 
         // optimize access to loop targets
-        elseif ($node instanceof Twig_SupTwg_Node_Expression_Name && in_array($node->getAttribute('name'), $this->loopsTargets)) {
+        elseif ($node instanceof Twig_SupTwgDtgs_Node_Expression_Name && in_array($node->getAttribute('name'), $this->loopsTargets)) {
             $node->setAttribute('always_defined', true);
         }
 
         // block reference
-        elseif ($node instanceof Twig_SupTwg_Node_BlockReference || $node instanceof Twig_SupTwg_Node_Expression_BlockReference) {
+        elseif ($node instanceof Twig_SupTwgDtgs_Node_BlockReference || $node instanceof Twig_SupTwgDtgs_Node_Expression_BlockReference) {
             $this->addLoopToCurrent();
         }
 
         // include without the only attribute
-        elseif ($node instanceof Twig_SupTwg_Node_Include && !$node->getAttribute('only')) {
+        elseif ($node instanceof Twig_SupTwgDtgs_Node_Include && !$node->getAttribute('only')) {
             $this->addLoopToAll();
         }
 
         // include function without the with_context=false parameter
-        elseif ($node instanceof Twig_SupTwg_Node_Expression_Function
+        elseif ($node instanceof Twig_SupTwgDtgs_Node_Expression_Function
             && 'include' === $node->getAttribute('name')
             && (!$node->getNode('arguments')->hasNode('with_context')
                  || false !== $node->getNode('arguments')->getNode('with_context')->getAttribute('value')
@@ -206,12 +206,12 @@ class Twig_SupTwg_NodeVisitor_Optimizer extends Twig_SupTwg_BaseNodeVisitor
         }
 
         // the loop variable is referenced via an attribute
-        elseif ($node instanceof Twig_SupTwg_Node_Expression_GetAttr
-            && (!$node->getNode('attribute') instanceof Twig_SupTwg_Node_Expression_Constant
+        elseif ($node instanceof Twig_SupTwgDtgs_Node_Expression_GetAttr
+            && (!$node->getNode('attribute') instanceof Twig_SupTwgDtgs_Node_Expression_Constant
                 || 'parent' === $node->getNode('attribute')->getAttribute('value')
                )
             && (true === $this->loops[0]->getAttribute('with_loop')
-                || ($node->getNode('node') instanceof Twig_SupTwg_Node_Expression_Name
+                || ($node->getNode('node') instanceof Twig_SupTwgDtgs_Node_Expression_Name
                     && 'loop' === $node->getNode('node')->getAttribute('name')
                    )
                )
@@ -223,9 +223,9 @@ class Twig_SupTwg_NodeVisitor_Optimizer extends Twig_SupTwg_BaseNodeVisitor
     /**
      * Optimizes "for" tag by removing the "loop" variable creation whenever possible.
      */
-    protected function leaveOptimizeFor(Twig_SupTwg_NodeInterface $node, Twig_SupTwg_Environment $env)
+    protected function leaveOptimizeFor(Twig_SupTwgDtgs_NodeInterface $node, Twig_SupTwgDtgs_Environment $env)
     {
-        if ($node instanceof Twig_SupTwg_Node_For) {
+        if ($node instanceof Twig_SupTwgDtgs_Node_For) {
             array_shift($this->loops);
             array_shift($this->loopsTargets);
             array_shift($this->loopsTargets);

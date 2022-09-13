@@ -15,9 +15,9 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Node_Include extends Twig_SupTwg_Node implements Twig_SupTwg_NodeOutputInterface
+class Twig_SupTwgDtgs_Node_Include extends Twig_SupTwgDtgs_Node implements Twig_SupTwgDtgs_NodeOutputInterface
 {
-    public function __construct(Twig_SupTwg_Node_Expression $expr, Twig_SupTwg_Node_Expression $variables = null, $only = false, $ignoreMissing = false, $lineno = null, $tag = null)
+    public function __construct(Twig_SupTwgDtgs_Node_Expression $expr, Twig_SupTwgDtgs_Node_Expression $variables = null, $only = false, $ignoreMissing = false, $lineno = null, $tag = null)
     {
         $nodes = array('expr' => $expr);
         if (null !== $variables) {
@@ -27,7 +27,7 @@ class Twig_SupTwg_Node_Include extends Twig_SupTwg_Node implements Twig_SupTwg_N
         parent::__construct($nodes, array('only' => (bool) $only, 'ignore_missing' => (bool) $ignoreMissing), $lineno, $tag);
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler->addDebugInfo($this);
 
@@ -49,7 +49,7 @@ class Twig_SupTwg_Node_Include extends Twig_SupTwg_Node implements Twig_SupTwg_N
         if ($this->getAttribute('ignore_missing')) {
             $compiler
                 ->outdent()
-                ->write("} catch (Twig_SupTwg_Error_Loader \$e) {\n")
+                ->write("} catch (Twig_SupTwgDtgs_Error_Loader \$e) {\n")
                 ->indent()
                 ->write("// ignore missing template\n")
                 ->outdent()
@@ -58,7 +58,7 @@ class Twig_SupTwg_Node_Include extends Twig_SupTwg_Node implements Twig_SupTwg_N
         }
     }
 
-    protected function addGetTemplate(Twig_SupTwg_Compiler $compiler)
+    protected function addGetTemplate(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
              ->write('$this->loadTemplate(')
@@ -71,7 +71,7 @@ class Twig_SupTwg_Node_Include extends Twig_SupTwg_Node implements Twig_SupTwg_N
          ;
     }
 
-    protected function addTemplateArguments(Twig_SupTwg_Compiler $compiler)
+    protected function addTemplateArguments(Twig_SupTwgDtgs_Compiler $compiler)
     {
         if (!$this->hasNode('variables')) {
             $compiler->raw(false === $this->getAttribute('only') ? '$context' : 'array()');

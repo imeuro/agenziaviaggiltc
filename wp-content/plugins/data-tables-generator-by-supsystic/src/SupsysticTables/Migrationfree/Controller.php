@@ -4,10 +4,10 @@ class SupsysticTables_Migrationfree_Controller extends SupsysticTables_Core_Base
 {
 	/**
      * Generates download url.
-     * @param \Rsc_Http_Request $request
-     * @return \Rsc_Http_Response
+     * @param \RscDtgs_Http_Request $request
+     * @return \RscDtgs_Http_Response
      */
-    public function generateUrlAction(Rsc_Http_Request $request)
+    public function generateUrlAction(RscDtgs_Http_Request $request)
     {
       if (!$this->_checkNonce($request)) die();
 		$id = $request->post->get_esc_html('id');

@@ -122,6 +122,7 @@ $ga4_exclude_roles = true === is_array($ga4_exclude_roles) ? $ga4_exclude_roles 
     </div>
 </div>
 
+<?php if (true === $setup_done) : ?>
 <div style="margin-top: 0;<?php echo true === $setup_done ? '' : ' display: none;'; ?>" class="ga4_container ga_container">
     <?php if ( false === empty( $data['error_message'] ) ) : ?>
         <?php echo wp_kses_post( $data['error_message'] ); ?>
@@ -251,3 +252,4 @@ $ga4_exclude_roles = true === is_array($ga4_exclude_roles) ? $ga4_exclude_roles 
         </p>
     </form>
 </div>
+<?php endif; ?>

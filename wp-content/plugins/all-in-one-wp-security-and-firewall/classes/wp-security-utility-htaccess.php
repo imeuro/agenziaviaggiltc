@@ -106,8 +106,7 @@ class AIOWPSecurity_Utility_Htaccess {
 			return false; //unable to write to the file
 		}
 
-		if (!function_exists('get_home_path')) require_once(ABSPATH. '/wp-admin/includes/file.php');
-		$home_path = get_home_path();
+		$home_path = AIOWPSecurity_Utility_File::get_home_path();
 		$htaccess = $home_path . '.htaccess';
 
 		if (!$f = @fopen($htaccess, 'a+')) {// phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged,Squiz.PHP.DisallowMultipleAssignments.FoundInControlStructure
@@ -157,8 +156,7 @@ class AIOWPSecurity_Utility_Htaccess {
 	 * @return boolean
 	 */
 	public static function delete_from_htaccess($section = 'All In One WP Security') {
-		if (!function_exists('get_home_path')) require_once(ABSPATH. '/wp-admin/includes/file.php');
-		$home_path = get_home_path();
+		$home_path = AIOWPSecurity_Utility_File::get_home_path();
 		$htaccess = $home_path . '.htaccess';
 
 		if (!file_exists($htaccess)) {
@@ -223,9 +221,7 @@ class AIOWPSecurity_Utility_Htaccess {
 		$rules .= AIOWPSecurity_Utility_Htaccess::getrules_forbid_proxy_comment_posting();
 		$rules .= AIOWPSecurity_Utility_Htaccess::getrules_deny_bad_query_strings();
 		$rules .= AIOWPSecurity_Utility_Htaccess::getrules_advanced_character_string_filter();
-		$rules .= AIOWPSecurity_Utility_Htaccess::getrules_6g_blacklist();
 		$rules .= AIOWPSecurity_Utility_Htaccess::getrules_5g_blacklist();
-		$rules .= AIOWPSecurity_Utility_Htaccess::getrules_enable_brute_force_prevention();
 		$rules .= AIOWPSecurity_Utility_Htaccess::getrules_block_spambots();
 		$rules .= AIOWPSecurity_Utility_Htaccess::getrules_enable_login_whitelist_v2();
 		$rules .= AIOWPSecurity_Utility_Htaccess::prevent_image_hotlinks();
@@ -278,7 +274,7 @@ class AIOWPSecurity_Utility_Htaccess {
 			$hosts = AIOWPSecurity_Utility::explode_trim_filter_empty($aio_wp_security->configs->get_value('aiowps_banned_ip_addresses'));
 			// Filter out duplicate lines, add netmask to IP addresses
 			$ips_with_netmask = self::add_netmask(array_unique($hosts));
-			if (!empty($ips_with_netmask) && ($aio_wp_security->configs->get_value('aiowps_enable_6g_firewall') != '1')) {
+			if (!empty($ips_with_netmask)) {
 				$rules .= AIOWPSecurity_Utility_Htaccess::$ip_blacklist_marker_start . PHP_EOL; //Add feature marker start
 
 				if ($apache_or_litespeed) {
@@ -409,36 +405,6 @@ class AIOWPSecurity_Utility_Htaccess {
 		}
 		return $rules;
 	}
-
-	/**
-	 * This function will write some drectives to block all people who do not have a cookie
-	 * when trying to access the WP login page
-	 */
-	public static function getrules_enable_brute_force_prevention() {
-		global $aio_wp_security;
-		$rules = '';
-		if ($aio_wp_security->configs->get_value('aiowps_enable_brute_force_attack_prevention') == '1') {
-			$cookie_name = $aio_wp_security->configs->get_value('aiowps_brute_force_secret_word');
-			$test_cookie_name = $aio_wp_security->configs->get_value('aiowps_cookie_brute_test');
-			$redirect_url = $aio_wp_security->configs->get_value('aiowps_cookie_based_brute_force_redirect_url');
-			$rules .= AIOWPSecurity_Utility_Htaccess::$enable_brute_force_attack_prevention_marker_start . PHP_EOL; //Add feature marker start
-			$rules .= 'RewriteEngine On' . PHP_EOL;
-			$rules .= 'RewriteCond %{REQUEST_URI} (wp-admin|wp-login)' . PHP_EOL;// If URI contains wp-admin or wp-login
-			if ($aio_wp_security->configs->get_value('aiowps_brute_force_attack_prevention_ajax_exception') == '1') {
-				$rules .= 'RewriteCond %{REQUEST_URI} !(wp-admin/admin-ajax.php)' . PHP_EOL; // To allow ajax requests through
-			}
-			if ($aio_wp_security->configs->get_value('aiowps_brute_force_attack_prevention_pw_protected_exception') == '1') {
-				$rules .= 'RewriteCond %{QUERY_STRING} !(action\=postpass)' . PHP_EOL; // Possible workaround for people usign the password protected page/post feature
-			}
-			$rules .= 'RewriteCond %{HTTP_COOKIE} !' . $cookie_name . '= [NC]' . PHP_EOL;
-			$rules .= 'RewriteCond %{HTTP_COOKIE} !' . $test_cookie_name . '= [NC]' . PHP_EOL;
-			$rules .= 'RewriteRule .* ' . $redirect_url . ' [L]' . PHP_EOL;
-			$rules .= AIOWPSecurity_Utility_Htaccess::$enable_brute_force_attack_prevention_marker_end . PHP_EOL; //Add feature marker end
-		}
-
-		return $rules;
-	}
-
 
 	/**
 	 * This function will write some directives to allow IPs in the whitelist to access wp-login.php or wp-admin
@@ -628,12 +594,11 @@ class AIOWPSecurity_Utility_Htaccess {
 			if (!empty($ips_with_netmask)) {
 				foreach ($ips_with_netmask as $xhost) {
 					$ipv6 = false;
-					if (strpos($xhost, ':') !== false) {
-						//possible ipv6 addr
-						//ipv6 - for now we will support only whole ipv6 addresses, NOT ranges
-						$ipv6 = WP_Http::is_ip_address($xhost);
-						if (false === $ipv6) {
-							continue;
+					if (false !== strpos($xhost, ':')) {
+						//possible ipv6 addr or range
+						$checked_ip = AIOWPSecurity_Utility_IP::is_ipv6_address_or_ipv6_range($xhost);
+						if (false == $checked_ip) {
+								continue;
 						}
 					}
 					$ip_range = substr($xhost, 0, strpos($xhost, "/")); //check if address range
@@ -965,119 +930,6 @@ class AIOWPSecurity_Utility_Htaccess {
 	}
 
 	/**
-	 * This function contains the rules for the 6G blacklist produced by Jeff Starr:
-	 * https://perishablepress.com/6g/
-	 */
-	public static function getrules_6g_blacklist() {
-		global $aio_wp_security;
-		$rules = '';
-		$ip_blacklist_23 = '';
-		$ip_blacklist_24 = '';
-		if ($aio_wp_security->configs->get_value('aiowps_enable_6g_firewall') == '1') {
-			//if ip blacklist is enabled we will merge that code with the 6G rules to prevent clashes
-			if ($aio_wp_security->configs->get_value('aiowps_enable_blacklisting') == '1') {
-				// Let's do the list of blacklisted IPs first
-				$hosts = AIOWPSecurity_Utility::explode_trim_filter_empty($aio_wp_security->configs->get_value('aiowps_banned_ip_addresses'));
-				// Filter out duplicate lines, add netmask to IP addresses
-				$ips_with_netmask = self::add_netmask(array_unique($hosts));
-
-				if (!empty($ips_with_netmask)) {
-					// Apache or LiteSpeed webserver
-					// Apache 2.2 and older
-					$ip_blacklist_23 .= '#AIOWPS_IP_BLACKLIST_2_3_START' . PHP_EOL;
-					$ip_blacklist_24 .= '#AIOWPS_IP_BLACKLIST_2_4_START' . PHP_EOL;
-					foreach ($ips_with_netmask as $ip_with_netmask) {
-						$ip_blacklist_23 .= "Deny from " . $ip_with_netmask . PHP_EOL;
-						$ip_blacklist_24 .= "Require not ip " . $ip_with_netmask . PHP_EOL;
-					}
-					$ip_blacklist_23 .= '#AIOWPS_IP_BLACKLIST_2_3_END' . PHP_EOL;
-					$ip_blacklist_24 .= '#AIOWPS_IP_BLACKLIST_2_4_END' . PHP_EOL;
-				}
-			}
-			
-			$rules .= AIOWPSecurity_Utility_Htaccess::$six_g_blacklist_marker_start . PHP_EOL; //Add feature marker start
-
-			$rules .= '# 6G FIREWALL/BLACKLIST
-						# @ https://perishablepress.com/6g/
-
-						# 6G:[QUERY STRINGS]
-						<IfModule mod_rewrite.c>
-								RewriteEngine On
-								RewriteCond %{QUERY_STRING} (eval\() [NC,OR]
-								RewriteCond %{QUERY_STRING} (127\.0\.0\.1) [NC,OR]
-								RewriteCond %{QUERY_STRING} ([a-z0-9]{2000,}) [NC,OR]
-								RewriteCond %{QUERY_STRING} (javascript:)(.*)(;) [NC,OR]
-								RewriteCond %{QUERY_STRING} (base64_encode)(.*)(\() [NC,OR]
-								RewriteCond %{QUERY_STRING} (GLOBALS|REQUEST)(=|\[|%) [NC,OR]
-								RewriteCond %{QUERY_STRING} (<|%3C)(.*)script(.*)(>|%3) [NC,OR]
-								RewriteCond %{QUERY_STRING} (\\|\.\.\.|\.\./|~|`|<|>|\|) [NC,OR]
-								RewriteCond %{QUERY_STRING} (boot\.ini|etc/passwd|self/environ) [NC,OR]
-								RewriteCond %{QUERY_STRING} (thumbs?(_editor|open)?|tim(thumb)?)\.php [NC,OR]
-								RewriteCond %{QUERY_STRING} (\'|\")(.*)(drop|insert|md5|select|union) [NC]
-								RewriteRule .* - [F]
-						</IfModule>
-
-						# 6G:[REQUEST METHOD]
-						<IfModule mod_rewrite.c>
-								RewriteCond %{REQUEST_METHOD} ^(connect|debug|move|put|trace|track) [NC]
-								RewriteRule .* - [F]
-						</IfModule>
-
-						# 6G:[REFERRERS]
-						<IfModule mod_rewrite.c>
-								RewriteCond %{HTTP_REFERER} ([a-z0-9]{2000,}) [NC,OR]
-								RewriteCond %{HTTP_REFERER} (semalt.com|todaperfeita) [NC]
-								RewriteRule .* - [F]
-						</IfModule>
-
-						# 6G:[REQUEST STRINGS]
-						<IfModule mod_alias.c>
-								RedirectMatch 403 (?i)([a-z0-9]{2000,})
-								RedirectMatch 403 (?i)(https?|ftp|php):/
-								RedirectMatch 403 (?i)(base64_encode)(.*)(\()
-								RedirectMatch 403 (?i)(=\\\'|=\\%27|/\\\'/?)\.
-								RedirectMatch 403 (?i)/(\$(\&)?|\*|\"|\.|,|&|&amp;?)/?$
-								RedirectMatch 403 (?i)(\{0\}|\(/\(|\.\.\.|\+\+\+|\\\"\\\")
-								RedirectMatch 403 (?i)(~|`|<|>|:|;|,|%|\\|\s|\{|\}|\[|\]|\|)
-								RedirectMatch 403 (?i)/(=|\$&|_mm|cgi-|etc/passwd|muieblack)
-								RedirectMatch 403 (?i)(&pws=0|_vti_|\(null\)|\{\$itemURL\}|echo(.*)kae|etc/passwd|eval\(|self/environ)
-								RedirectMatch 403 (?i)\.(aspx?|bash|bak?|cfg|cgi|dll|exe|git|hg|ini|jsp|log|mdb|out|sql|svn|swp|tar|rar|rdf)$
-								RedirectMatch 403 (?i)/(^$|(wp-)?config|mobiquo|phpinfo|shell|sqlpatch|thumb|thumb_editor|thumbopen|timthumb|webshell)\.php
-						</IfModule>
-
-						# 6G:[USER AGENTS]
-						<IfModule mod_setenvif.c>
-								SetEnvIfNoCase User-Agent ([a-z0-9]{2000,}) bad_bot
-								SetEnvIfNoCase User-Agent (archive.org|binlar|casper|checkpriv|choppy|clshttp|cmsworld|diavol|dotbot|extract|feedfinder|flicky|g00g1e|harvest|heritrix|httrack|kmccrew|loader|miner|nikto|nutch|planetwork|postrank|purebot|pycurl|python|seekerspider|siclab|skygrid|sqlmap|sucker|turnit|vikspider|winhttp|xxxyy|youda|zmeu|zune) bad_bot
-
-								# Apache < 2.3
-								<IfModule !mod_authz_core.c>
-										Order Allow,Deny
-										Allow from all
-										Deny from env=bad_bot';
-			if (!empty($ip_blacklist_23))
-				$rules .= PHP_EOL.$ip_blacklist_23; //add ip blacklist if applicable
-			$rules .= '
-								</IfModule>
-
-								# Apache >= 2.3
-								<IfModule mod_authz_core.c>
-										<RequireAll>
-												Require all Granted
-												Require not env bad_bot';
-			if (!empty($ip_blacklist_24))
-				$rules .= PHP_EOL.$ip_blacklist_24; //add ip blacklist if applicable
-			$rules .= '
-										</RequireAll>
-								</IfModule>
-						</IfModule>' . PHP_EOL;
-			$rules .= AIOWPSecurity_Utility_Htaccess::$six_g_blacklist_marker_end . PHP_EOL; //Add feature marker end
-		}
-
-		return $rules;
-	}
-
-	/**
 	 * This function will write some directives to block all comments which do not originate from the blog's domain
 	 * OR if the user agent is empty. All blocked requests will be redirected to 127.0.0.1
 	 */
@@ -1272,15 +1124,13 @@ END;
 		foreach ($ips as $ip) {
 			//Check if ipv6
 			if (strpos($ip, ':') !== false) {
-				//for now we'll only support whole ipv6 (not address ranges)
-				$ipv6 = WP_Http::is_ip_address($ip);
-				if (false === $ipv6) {
-					continue;
+				//for now support whole ipv6 and CIDR range.
+				$checked_ip = AIOWPSecurity_Utility_IP::is_ipv6_address_or_ipv6_range($ip);
+				if (false != $checked_ip) {
+					$output[] = $ip;
 				}
-				$output[] = $ip;
 			}
 			
-
 			$parts = explode('.', $ip);
 
 			// Skip any IP that is empty, has more parts than expected or has

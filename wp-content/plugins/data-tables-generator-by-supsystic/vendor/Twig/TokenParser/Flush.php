@@ -16,13 +16,13 @@
  *
  * @final
  */
-class Twig_SupTwg_TokenParser_Flush extends Twig_SupTwg_TokenParser
+class Twig_SupTwgDtgs_TokenParser_Flush extends Twig_SupTwgDtgs_TokenParser
 {
-    public function parse(Twig_SupTwg_Token $token)
+    public function parse(Twig_SupTwgDtgs_Token $token)
     {
-        $this->parser->getStream()->expect(Twig_SupTwg_Token::BLOCK_END_TYPE);
+        $this->parser->getStream()->expect(Twig_SupTwgDtgs_Token::BLOCK_END_TYPE);
 
-        return new Twig_SupTwg_Node_Flush($token->getLine(), $this->getTag());
+        return new Twig_SupTwgDtgs_Node_Flush($token->getLine(), $this->getTag());
     }
 
     public function getTag()

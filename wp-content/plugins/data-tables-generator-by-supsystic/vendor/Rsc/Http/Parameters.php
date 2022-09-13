@@ -1,7 +1,7 @@
 <?php
 
 
-class Rsc_Http_Parameters extends Rsc_Common_Collection
+class RscDtgs_Http_Parameters extends RscDtgs_Common_Collection
 {
 	public function get_esc_html($key, $default = null)
 	{

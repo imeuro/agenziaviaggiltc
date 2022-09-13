@@ -1046,3 +1046,44 @@
 .happyforms-part--signature .option-label .label p:last-child {
   margin-bottom: 0;
 }
+
+.happyforms-styles button.happyforms-text-button {
+  -webkit-appearance: none;
+  height: auto;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+  background-color: #000;
+  background-color: var(--happyforms-color-submit-background);
+  background: #000;
+  background: var(--happyforms-color-submit-background);
+  text-transform: none;
+  transition-property: all;
+  transition-duration: 0.25s;
+  transition-duration: var(--happyforms-transition-duration);
+  transition-timing-function: ease-in;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  text-shadow: none;
+  text-decoration: none;
+  letter-spacing: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  outline: 0;
+}
+
+.happyforms-styles button.happyforms-text-button {
+  background-color: transparent !important;
+  padding: 0;
+  font-size: var(--happyforms-part-value-font-size);
+  color: #000 !important;
+  color: var(--happyforms-color-part-value) !important;
+  border: 0px solid transparent !important;
+  width: auto !important;
+  border-width: 0px !important;
+  font-weight: normal !important;
+  text-decoration: underline;
+  display: inline-block;
+  cursor: pointer;
+}

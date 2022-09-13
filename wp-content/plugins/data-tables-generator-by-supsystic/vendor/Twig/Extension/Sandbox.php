@@ -12,13 +12,13 @@
 /**
  * @final
  */
-class Twig_SupTwg_Extension_Sandbox extends Twig_SupTwg_Extension
+class Twig_SupTwgDtgs_Extension_Sandbox extends Twig_SupTwgDtgs_Extension
 {
     protected $sandboxedGlobally;
     protected $sandboxed;
     protected $policy;
 
-    public function __construct(Twig_SupTwg_Sandbox_SecurityPolicyInterface $policy, $sandboxed = false)
+    public function __construct(Twig_SupTwgDtgs_Sandbox_SecurityPolicyInterface $policy, $sandboxed = false)
     {
         $this->policy = $policy;
         $this->sandboxedGlobally = $sandboxed;
@@ -26,12 +26,12 @@ class Twig_SupTwg_Extension_Sandbox extends Twig_SupTwg_Extension
 
     public function getTokenParsers()
     {
-        return array(new Twig_SupTwg_TokenParser_Sandbox());
+        return array(new Twig_SupTwgDtgs_TokenParser_Sandbox());
     }
 
     public function getNodeVisitors()
     {
-        return array(new Twig_SupTwg_NodeVisitor_Sandbox());
+        return array(new Twig_SupTwgDtgs_NodeVisitor_Sandbox());
     }
 
     public function enableSandbox()
@@ -54,7 +54,7 @@ class Twig_SupTwg_Extension_Sandbox extends Twig_SupTwg_Extension
         return $this->sandboxedGlobally;
     }
 
-    public function setSecurityPolicy(Twig_SupTwg_Sandbox_SecurityPolicyInterface $policy)
+    public function setSecurityPolicy(Twig_SupTwgDtgs_Sandbox_SecurityPolicyInterface $policy)
     {
         $this->policy = $policy;
     }

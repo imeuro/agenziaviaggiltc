@@ -6,4 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'IPLib\\' => array($vendorDir . '/mlocati/ip-lib/src'),
 );

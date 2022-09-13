@@ -627,24 +627,56 @@ class SupsysticTables_Core_Module extends SupsysticTables_Core_BaseModule
         $twig = $this->getEnvironment()->getTwig();
 
 		$twig->addFunction(
-			new Twig_SupTwg_SimpleFunction('plugin_directory_url', array($this, 'getPluginDirectoryUrl'))
+			new Twig_SupTwgDtgs_SimpleFunction('plugin_directory_url', array($this, 'getPluginDirectoryUrl'))
 		);
 		$twig->addFunction(
-			new Twig_SupTwg_SimpleFunction('build_pro_url', array($this, 'buildProUrl'))
+			new Twig_SupTwgDtgs_SimpleFunction('build_pro_url', array($this, 'buildProUrl'))
 		);
         $twig->addFunction(
-			new Twig_SupTwg_SimpleFunction('translate', array($this, 'translate'))
+			new Twig_SupTwgDtgs_SimpleFunction('translate', array($this, 'translate'))
         );
         if (function_exists('dump') && $this->getEnvironment()->isDev()) {
             $twig->addFunction(
-				new Twig_SupTwg_SimpleFunction('dump', 'dump')
+				new Twig_SupTwgDtgs_SimpleFunction('dump', 'dump')
 			);
         }
 		if (function_exists('preg_replace')) {
 			$twig->addFilter(
-				new Twig_SupTwg_SimpleFilter('preg_replace', array($this, 'addPregReplaceFilter'))
+				new Twig_SupTwgDtgs_SimpleFilter('preg_replace', array($this, 'addPregReplaceFilter'))
 			);
 		}
+    $config = $this->getEnvironment()->getConfig();
+        $twig->addGlobal('DTGS_PLUGIN_URL', DTGS_PLUGIN_URL);
+        $twig->addGlobal('DTGS_PLUGIN_VERSION', $config->get('plugin_version'));
+        $twig->addGlobal('DTGS_PLUGIN_NAME', $config->get('plugin_name'));
+        global $current_user;
+		if ($current_user) :
+			$twig->addGlobal('DTGS_USER_NAME', $current_user->user_firstname . ' ' . 
+			$current_user->user_lastname);
+			$twig->addGlobal('DTGS_USER_EMAIL', $current_user->user_email);
+		endif;
+        $twig->addGlobal('DTGS_WEBSITE', get_bloginfo('url'));
+        $twig->addGlobal('_wpnonce', wp_create_nonce('supsystic-tables'));
+
+        $show = true;
+        $acRemind = get_option('dtgs_ac_remind', false);
+        if (!empty($acRemind)) {
+          $currentDate = date('Y-m-d h:i:s');
+          if ($currentDate > $acRemind) {
+            $show = true;
+          } else {
+            $show = false;
+          }
+        }
+        $acSubscribe = get_option('dtgs_ac_subscribe', false);
+        if (!empty($acSubscribe)) {
+          $show = false;
+        }
+        $acDisabled = get_option('dtgs_ac_disabled', false);
+        if (!empty($acDisabled)) {
+          $show = false;
+        }
+        $twig->addGlobal('DTGS_AC_SHOW', $show);
     }
 
     private function cleanTablesCache() {

@@ -2,9 +2,9 @@
 
 if (!defined('AIO_WP_SECURITY_PATH')) die('No direct access allowed');
 
-if (!class_exists('Updraft_Notices')) require_once(AIO_WP_SECURITY_PATH.'/classes/updraft-notices.php');
+if (!class_exists('Updraft_Notices_1_2')) require_once(AIO_WP_SECURITY_PATH.'/vendor/team-updraft/common-libs/src/updraft-notices/updraft-notices.php');
 
-class AIOWPSecurity_Notices extends Updraft_Notices {
+class AIOWPSecurity_Notices extends Updraft_Notices_1_2 {
 
 	private $initialized = false;
 
@@ -22,6 +22,26 @@ class AIOWPSecurity_Notices extends Updraft_Notices {
 		$parent_notice_content = parent::populate_notices_content();
 
 		$child_notice_content = array(
+			// Upgrade AIOS backup to UDP backup in the 5.0.0 version
+			'automated-database-backup' => array(
+				'title'		  => htmlspecialchars(__('Removed database backup feature from the All In One WP Security & Firewall plugin', 'all-in-one-wp-security-and-firewall')),
+				'text' 		  => '<p>' .
+									__('Beginning with version 5.0.0, AIOS has replaced the AIOS backup method with the superior UpdraftPlus method.', 'all-in-one-wp-security-and-firewall') . '  '.
+									__('It remains free and is fully supported by the UpdraftPlus team.', 'all-in-one-wp-security-and-firewall') .
+								'</p>' .
+								'<p>' .
+									__('You are seeing this notice because you have previously set up automated database backups in AIOS.', 'all-in-one-wp-security-and-firewall') . '   ' .
+									__('Would you like to set up scheduled backups with UpdraftPlus?', 'all-in-one-wp-security-and-firewall') .
+								'</p>',
+				'button_link' => add_query_arg(array(
+					'page' => 'aiowpsec_database',
+					'tab'  => 'tab2',
+				), admin_url('admin.php')) . '#automated-scheduled-backups-heading',
+				'button_meta' => __('Setup UpdraftPlus backup plugin', 'all-in-one-wp-security-and-firewall'),
+				'dismiss_time' => 'dismiss_automated_database_backup_notice',
+				'supported_positions' => array('automated-database-backup'),
+				'validity_function' => 'should_show_automated_database_backup_notice',
+			),
 			'rate_plugin' => array(
 				'text' => sprintf(htmlspecialchars(__('Hey - We noticed All In One WP Security & Firewall has kept your site safe for a while.  If you like us, please consider leaving a positive review to spread the word.  Or if you have any issues or questions please leave us a support message %s.', 'all-in-one-wp-security-and-firewall')), '<a href="https://wordpress.org/support/plugin/all-in-one-wp-security-and-firewall/" target="_blank">'.__('here', 'all-in-one-wp-security-and-firewall').'</a>').'<br>'.__('Thank you so much!', 'all-in-one-wp-security-and-firewall').'<br><br>- <b>'.__('Team All In One WP Security & Firewall', 'all-in-one-wp-security-and-firewall').'</b>',
 				'image' => 'notices/aiowps-logo.png',
@@ -56,6 +76,78 @@ class AIOWPSecurity_Notices extends Updraft_Notices {
 		);
 
 		return array_merge($parent_notice_content, $child_notice_content);
+	}
+
+	/**
+	 * Decides whether to show an automated database backup notice.
+	 *
+	 * @return Boolean True if an automated database notice should be shown, otherwise false.
+	 */
+	protected function should_show_automated_database_backup_notice() {
+		if ($this->is_database_backup_admin_page_tab()) {
+			return false;
+		}
+
+		if ($this->is_updraftplus_plugin_active() && $this->is_schedule_database_backup_set_in_updraftplus()) {
+			return false;
+		}
+
+		global $aio_wp_security;
+		if ('1' == $aio_wp_security->configs->get_value('aiowps_enable_automated_backups')) {
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Whether the current page is the AIOS database backup admin page
+	 *
+	 * @return Boolean True if the current page is the AIOS database backup admin page, otherwise false.
+	 */
+	private function is_database_backup_admin_page_tab() {
+		return $this->is_database_security_admin_page() && $this->is_database_backup_tab();
+	}
+
+	/**
+	 * Whether the current page is the database security admin page.
+	 *
+	 * @return Boolean True if the current page is the database security admin page, otherwise false.
+	 */
+	private function is_database_security_admin_page() {
+		return ('admin.php' == $GLOBALS['pagenow'] && isset($_GET['page']) && 'aiowpsec_database' == $_GET['page']);
+	}
+
+	/**
+	 * Whether the current tab is the database backup tab.
+	 *
+	 * @return Boolean True if the current tab is the database backup tab, otherwise false.
+	 */
+	private function is_database_backup_tab() {
+		return (isset($_GET['tab']) && 'tab2' == $_GET['tab']);
+	}
+
+	/**
+	 * Check whether the UpdraftPlus plugin is active or not.
+	 *
+	 * @return bool True if the UpdraftPlus plugin is active, otherwise false.
+	 */
+	private function is_updraftplus_plugin_active() {
+		return class_exists('UpdraftPlus');
+	}
+
+	/**
+	 * Check whether the database backup scheduled in the UpdraftPlus plugin.
+	 *
+	 * @return bool
+	 */
+	private function is_schedule_database_backup_set_in_updraftplus() {
+		$updraft_interval_database_option_val = get_option('updraft_interval_database', '');
+		if (empty($updraft_interval_database_option_val) || 'manual' == $updraft_interval_database_option_val) {
+			return false;
+		}
+
+		return true;
 	}
 	
 	/**
@@ -170,6 +262,8 @@ class AIOWPSecurity_Notices extends Updraft_Notices {
 	 * Checks whether a notice is dismissed(returns true) or not(returns false).
 	 *
 	 * @param String $dismiss_time - dismiss time id for the notice
+	 *
+	 * @return boolean
 	 */
 	protected function check_notice_dismissed($dismiss_time) {
 		$time_now = $this->get_time_now();
@@ -197,6 +291,8 @@ class AIOWPSecurity_Notices extends Updraft_Notices {
 			$template_file = 'report.php';
 		} elseif ('report-plain' == $position) {
 			$template_file = 'report-plain.php';
+		} elseif ('automated-database-backup' == $position) {
+			$template_file = 'automated-database-backup-notice.php';
 		} else {
 			$template_file = 'horizontal-notice.php';
 		}

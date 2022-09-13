@@ -8,18 +8,18 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-class Twig_SupTwg_Node_Expression_MethodCall extends Twig_SupTwg_Node_Expression
+class Twig_SupTwgDtgs_Node_Expression_MethodCall extends Twig_SupTwgDtgs_Node_Expression
 {
-    public function __construct(Twig_SupTwg_Node_Expression $node, $method, Twig_SupTwg_Node_Expression_Array $arguments, $lineno)
+    public function __construct(Twig_SupTwgDtgs_Node_Expression $node, $method, Twig_SupTwgDtgs_Node_Expression_Array $arguments, $lineno)
     {
         parent::__construct(array('node' => $node, 'arguments' => $arguments), array('method' => $method, 'safe' => false), $lineno);
 
-        if ($node instanceof Twig_SupTwg_Node_Expression_Name) {
+        if ($node instanceof Twig_SupTwgDtgs_Node_Expression_Name) {
             $node->setAttribute('always_defined', true);
         }
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
             ->subcompile($this->getNode('node'))

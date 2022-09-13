@@ -8,12 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-abstract class Twig_SupTwg_Extension implements Twig_SupTwg_ExtensionInterface
+abstract class Twig_SupTwgDtgs_Extension implements Twig_SupTwgDtgs_ExtensionInterface
 {
     /**
-     * @deprecated since 1.23 (to be removed in 2.0), implement Twig_SupTwg_Extension_InitRuntimeInterface instead
+     * @deprecated since 1.23 (to be removed in 2.0), implement Twig_SupTwgDtgs_Extension_InitRuntimeInterface instead
      */
-    public function initRuntime(Twig_SupTwg_Environment $environment)
+    public function initRuntime(Twig_SupTwgDtgs_Environment $environment)
     {
     }
 
@@ -48,7 +48,7 @@ abstract class Twig_SupTwg_Extension implements Twig_SupTwg_ExtensionInterface
     }
 
     /**
-     * @deprecated since 1.23 (to be removed in 2.0), implement Twig_SupTwg_Extension_GlobalsInterface instead
+     * @deprecated since 1.23 (to be removed in 2.0), implement Twig_SupTwgDtgs_Extension_GlobalsInterface instead
      */
     public function getGlobals()
     {

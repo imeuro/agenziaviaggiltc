@@ -103,12 +103,12 @@ class AIOWPSecurity_Maintenance_Menu extends AIOWPSecurity_Admin_Menu
             <tr valign="top">
                 <th scope="row"><?php _e('Enable Front-end Lockout', 'all-in-one-wp-security-and-firewall')?>:</th>
                 <td>
-                <input name="aiowps_site_lockout" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_site_lockout')=='1') echo ' checked="checked"'; ?> value="1"/>
-                <span class="description"><?php _e('Check this if you want all visitors except those who are logged in as administrator to be locked out of the front-end of your site.', 'all-in-one-wp-security-and-firewall'); ?></span>
+                <input id="aiowps_site_lockout" name="aiowps_site_lockout" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_site_lockout')=='1') echo ' checked="checked"'; ?> value="1"/>
+                <label for="aiowps_site_lockout" class="description"><?php _e('Check this if you want all visitors except those who are logged in as administrator to be locked out of the front-end of your site.', 'all-in-one-wp-security-and-firewall'); ?></label>
                 </td>
             </tr>
             <tr valign="top">
-                <th scope="row"><?php _e('Enter a Message:', 'all-in-one-wp-security-and-firewall')?></th>
+                <th scope="row"><label for="aiowps_site_lockout_msg_editor_content"><?php _e('Enter a Message:', 'all-in-one-wp-security-and-firewall')?></label></th>
                 <td>
                     <?php
                     $aiowps_site_lockout_msg_raw = $aio_wp_security->configs->get_value('aiowps_site_lockout_msg');

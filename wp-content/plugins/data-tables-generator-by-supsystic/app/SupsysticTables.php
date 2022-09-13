@@ -9,16 +9,16 @@ class SupsysticTables
 
     public function __construct()
     {
-        if (!class_exists('Rsc_Autoloader', false)) {
+        if (!class_exists('RscDtgs_Autoloader', false)) {
             require dirname(dirname(__FILE__)) . '/vendor/Rsc/Autoloader.php';
-            Rsc_Autoloader::register();
+            RscDtgs_Autoloader::register();
         }
 
 		add_action('init', array($this, 'addShortcodeButton'));
 
         $menuSlug = 'supsystic-tables';
         $pluginPath = dirname(dirname(__FILE__));
-		    $environment = new Rsc_Environment('st', '1.10.20', $pluginPath);
+		    $environment = new RscDtgs_Environment('st', '1.10.24', $pluginPath);
 
         /* Configure */
         $environment->configure(
@@ -32,8 +32,8 @@ class SupsysticTables
                 'plugin_source'    	=> $pluginPath . '/src',
 				        'plugin_title_name' => 'Data Tables',
                 'plugin_menu'      	=> array(
-                    'page_title' => __('Tables by Supsystic', $menuSlug),
-                    'menu_title' => __('Tables by Supsystic', $menuSlug),
+                    'page_title' => __('Data Tables by Supsystic', $menuSlug),
+                    'menu_title' => __('Data Tables by Supsystic', $menuSlug),
                     'capability' => 'manage_options',
                     'menu_slug'  => $menuSlug,
                     'icon_url'   => 'dashicons-editor-table',
@@ -226,11 +226,11 @@ class SupsysticTables
 
     protected function getPluginEnvironment()
     {
-		$environment = Rsc_Environment::ENV_PRODUCTION;
+		$environment = RscDtgs_Environment::ENV_PRODUCTION;
 
 		if (defined('WP_DEBUG') && WP_DEBUG) {
 			if (defined('SUPSYSTIC_STB_DEBUG') && SUPSYSTIC_STB_DEBUG) {
-				$environment = Rsc_Environment::ENV_DEVELOPMENT;
+				$environment = RscDtgs_Environment::ENV_DEVELOPMENT;
 			}
 		}
 

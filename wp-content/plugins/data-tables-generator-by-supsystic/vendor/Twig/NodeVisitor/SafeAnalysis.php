@@ -12,7 +12,7 @@
 /**
  * @final
  */
-class Twig_SupTwg_NodeVisitor_SafeAnalysis extends Twig_SupTwg_BaseNodeVisitor
+class Twig_SupTwgDtgs_NodeVisitor_SafeAnalysis extends Twig_SupTwgDtgs_BaseNodeVisitor
 {
     protected $data = array();
     protected $safeVars = array();
@@ -22,7 +22,7 @@ class Twig_SupTwg_NodeVisitor_SafeAnalysis extends Twig_SupTwg_BaseNodeVisitor
         $this->safeVars = $safeVars;
     }
 
-    public function getSafe(Twig_SupTwg_NodeInterface $node)
+    public function getSafe(Twig_SupTwgDtgs_NodeInterface $node)
     {
         $hash = spl_object_hash($node);
         if (!isset($this->data[$hash])) {
@@ -42,7 +42,7 @@ class Twig_SupTwg_NodeVisitor_SafeAnalysis extends Twig_SupTwg_BaseNodeVisitor
         }
     }
 
-    protected function setSafe(Twig_SupTwg_NodeInterface $node, array $safe)
+    protected function setSafe(Twig_SupTwgDtgs_NodeInterface $node, array $safe)
     {
         $hash = spl_object_hash($node);
         if (isset($this->data[$hash])) {
@@ -60,27 +60,27 @@ class Twig_SupTwg_NodeVisitor_SafeAnalysis extends Twig_SupTwg_BaseNodeVisitor
         );
     }
 
-    protected function doEnterNode(Twig_SupTwg_Node $node, Twig_SupTwg_Environment $env)
+    protected function doEnterNode(Twig_SupTwgDtgs_Node $node, Twig_SupTwgDtgs_Environment $env)
     {
         return $node;
     }
 
-    protected function doLeaveNode(Twig_SupTwg_Node $node, Twig_SupTwg_Environment $env)
+    protected function doLeaveNode(Twig_SupTwgDtgs_Node $node, Twig_SupTwgDtgs_Environment $env)
     {
-        if ($node instanceof Twig_SupTwg_Node_Expression_Constant) {
+        if ($node instanceof Twig_SupTwgDtgs_Node_Expression_Constant) {
             // constants are marked safe for all
             $this->setSafe($node, array('all'));
-        } elseif ($node instanceof Twig_SupTwg_Node_Expression_BlockReference) {
+        } elseif ($node instanceof Twig_SupTwgDtgs_Node_Expression_BlockReference) {
             // blocks are safe by definition
             $this->setSafe($node, array('all'));
-        } elseif ($node instanceof Twig_SupTwg_Node_Expression_Parent) {
+        } elseif ($node instanceof Twig_SupTwgDtgs_Node_Expression_Parent) {
             // parent block is safe by definition
             $this->setSafe($node, array('all'));
-        } elseif ($node instanceof Twig_SupTwg_Node_Expression_Conditional) {
+        } elseif ($node instanceof Twig_SupTwgDtgs_Node_Expression_Conditional) {
             // intersect safeness of both operands
             $safe = $this->intersectSafe($this->getSafe($node->getNode('expr2')), $this->getSafe($node->getNode('expr3')));
             $this->setSafe($node, $safe);
-        } elseif ($node instanceof Twig_SupTwg_Node_Expression_Filter) {
+        } elseif ($node instanceof Twig_SupTwgDtgs_Node_Expression_Filter) {
             // filter expression is safe when the filter is safe
             $name = $node->getNode('filter')->getAttribute('value');
             $args = $node->getNode('arguments');
@@ -93,7 +93,7 @@ class Twig_SupTwg_NodeVisitor_SafeAnalysis extends Twig_SupTwg_BaseNodeVisitor
             } else {
                 $this->setSafe($node, array());
             }
-        } elseif ($node instanceof Twig_SupTwg_Node_Expression_Function) {
+        } elseif ($node instanceof Twig_SupTwgDtgs_Node_Expression_Function) {
             // function expression is safe when the function is safe
             $name = $node->getAttribute('name');
             $args = $node->getNode('arguments');
@@ -103,13 +103,13 @@ class Twig_SupTwg_NodeVisitor_SafeAnalysis extends Twig_SupTwg_BaseNodeVisitor
             } else {
                 $this->setSafe($node, array());
             }
-        } elseif ($node instanceof Twig_SupTwg_Node_Expression_MethodCall) {
+        } elseif ($node instanceof Twig_SupTwgDtgs_Node_Expression_MethodCall) {
             if ($node->getAttribute('safe')) {
                 $this->setSafe($node, array('all'));
             } else {
                 $this->setSafe($node, array());
             }
-        } elseif ($node instanceof Twig_SupTwg_Node_Expression_GetAttr && $node->getNode('node') instanceof Twig_SupTwg_Node_Expression_Name) {
+        } elseif ($node instanceof Twig_SupTwgDtgs_Node_Expression_GetAttr && $node->getNode('node') instanceof Twig_SupTwgDtgs_Node_Expression_Name) {
             $name = $node->getNode('node')->getAttribute('name');
             // attributes on template instances are safe
             if ('_self' == $name || in_array($name, $this->safeVars)) {

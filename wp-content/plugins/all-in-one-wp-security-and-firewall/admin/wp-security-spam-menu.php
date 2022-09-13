@@ -89,9 +89,26 @@ class AIOWPSecurity_Spam_Menu extends AIOWPSecurity_Admin_Menu
             $aio_wp_security->configs->set_value('aiowps_enable_comment_captcha',isset($_POST["aiowps_enable_comment_captcha"])?'1':'');
             $aio_wp_security->configs->set_value('aiowps_enable_spambot_blocking',isset($_POST["aiowps_enable_spambot_blocking"])?'1':'');
 
-            //Commit the config settings
+            $aio_wp_security->configs->set_value('aiowps_enable_trash_spam_comments', isset($_POST['aiowps_enable_trash_spam_comments']) ? '1' : '');
+            $aiowps_trash_spam_comments_after_days = '';
+			if (isset($_POST['aiowps_trash_spam_comments_after_days'])) {
+				if (!empty($_POST['aiowps_trash_spam_comments_after_days'])) {
+					$aiowps_trash_spam_comments_after_days = sanitize_text_field($_POST['aiowps_trash_spam_comments_after_days']);
+				}
+				if (isset($_POST['aiowps_enable_trash_spam_comments']) && !is_numeric($aiowps_trash_spam_comments_after_days)) {
+					$error = __('You entered a non numeric value for the "move spam comments to trash after number of days" field.','all-in-one-wp-security-and-firewall').' '.__('It has been set to the default value.','all-in-one-wp-security-and-firewall');
+					$aiowps_trash_spam_comments_after_days = '14';//Set it to the default value for this field
+					$this->show_msg_error(__('Attention!','all-in-one-wp-security-and-firewall').'&nbsp;'.htmlspecialchars($error));
+				}
+				$aiowps_trash_spam_comments_after_days = absint($aiowps_trash_spam_comments_after_days);
+				$aio_wp_security->configs->set_value('aiowps_trash_spam_comments_after_days', $aiowps_trash_spam_comments_after_days);
+			}
+
+			//Commit the config settings
             $aio_wp_security->configs->save_config();
             
+            AIOWPSecurity_Comment::trash_spam_comments();
+
             //Recalculate points after the feature status/options have been altered
             $aiowps_feature_mgr->check_feature_status_and_recalculate_points();
 
@@ -130,8 +147,8 @@ class AIOWPSecurity_Spam_Menu extends AIOWPSecurity_Admin_Menu
             <tr valign="top">
                 <th scope="row"><?php _e('Enable Captcha On Comment Forms', 'all-in-one-wp-security-and-firewall')?>:</th>
                 <td>
-                <input name="aiowps_enable_comment_captcha" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_enable_comment_captcha')=='1') echo ' checked="checked"'; ?> value="1"/>
-                <span class="description"><?php _e('Check this if you want to insert a captcha field on the comment forms', 'all-in-one-wp-security-and-firewall'); ?></span>
+                <input id="aiowps_enable_comment_captcha" name="aiowps_enable_comment_captcha" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_enable_comment_captcha')=='1') echo ' checked="checked"'; ?> value="1"/>
+                <label for="aiowps_enable_comment_captcha" class="description"><?php _e('Check this if you want to insert a captcha field on the comment forms', 'all-in-one-wp-security-and-firewall'); ?></label>
                 </td>
             </tr>            
         </table>
@@ -151,7 +168,7 @@ class AIOWPSecurity_Spam_Menu extends AIOWPSecurity_Admin_Menu
         //Display security info badge
         $aiowps_feature_mgr->output_feature_details_badge("block-spambots");
         $blog_id = get_current_blog_id(); 
-        if (AIOWPSecurity_Utility::is_multisite_install() && !is_main_site( $blog_id ))
+        if (is_multisite() && !is_main_site( $blog_id ))
         {
            //Hide config settings if MS and not main site
            AIOWPSecurity_Utility::display_multisite_message();
@@ -163,8 +180,8 @@ class AIOWPSecurity_Spam_Menu extends AIOWPSecurity_Admin_Menu
             <tr valign="top">
                 <th scope="row"><?php _e('Block Spambots From Posting Comments', 'all-in-one-wp-security-and-firewall')?>:</th>
                 <td>
-                <input name="aiowps_enable_spambot_blocking" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_enable_spambot_blocking')=='1') echo ' checked="checked"'; ?> value="1"/>
-                <span class="description"><?php _e('Check this if you want to apply a firewall rule which will block comments originating from spambots.', 'all-in-one-wp-security-and-firewall'); ?></span>
+                <input id="aiowps_enable_spambot_blocking" name="aiowps_enable_spambot_blocking" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_enable_spambot_blocking')=='1') echo ' checked="checked"'; ?> value="1"/>
+                <label for="aiowps_enable_spambot_blocking" class="description"><?php _e('Check this if you want to apply a firewall rule which will block comments originating from spambots.', 'all-in-one-wp-security-and-firewall'); ?></label>
                 <span class="aiowps_more_info_anchor"><span class="aiowps_more_info_toggle_char">+</span><span class="aiowps_more_info_toggle_text"><?php _e('More Info', 'all-in-one-wp-security-and-firewall'); ?></span></span>
                 <div class="aiowps_more_info_body">
                         <?php 
@@ -180,13 +197,51 @@ class AIOWPSecurity_Spam_Menu extends AIOWPSecurity_Admin_Menu
         <?php } //End if statement ?>
         </div></div>
 
+		<div class="postbox">
+			<h3 class="hndle"><label for="title"><?php _e('Comment Processing', 'all-in-one-wp-security-and-firewall'); ?></label></h3>
+			<div class="inside">
+				<table class="form-table">
+					<tr valign="top">
+						<th scope="row">
+                            <label for="aiowps_trash_spam_comments_after_days">
+                                <?php _e('Trash spam comments', 'all-in-one-wp-security-and-firewall'); ?>:
+                            </label>
+                        </th>
+						<td>
+							<input name="aiowps_enable_trash_spam_comments" id="aiowps_enable_trash_spam_comments" type="checkbox" <?php checked($aio_wp_security->configs->get_value('aiowps_enable_trash_spam_comments'), 1); ?> value="1"/>
+							<?php
+							$disbled = '';
+							if(!$aio_wp_security->configs->get_value('aiowps_enable_trash_spam_comments')) $disbled = "disabled";
+							echo '<label for="aiowps_enable_trash_spam_comments" class="description">';
+							printf(
+								__('Move spam comments to trash after %s days.', 'all-in-one-wp-security-and-firewall'),
+								'</label><input type="number" min="1" max="99" name="aiowps_trash_spam_comments_after_days" value="'.$aio_wp_security->configs->get_value('aiowps_trash_spam_comments_after_days').'" '.$disbled.'><label for="aiowps_enable_trash_spam_comments">'
+							);
+							echo '</label>';
+							?>
+							<span class="aiowps_more_info_anchor"><span class="aiowps_more_info_toggle_char">+</span><span class="aiowps_more_info_toggle_text"><?php _e('More info', 'all-in-one-wp-security-and-firewall'); ?></span></span>
+							<div class="aiowps_more_info_body">
+								<?php 
+								echo '<p class="description">'.__('Enble this feature in order to move the spam comments to trash after given number of days.', 'all-in-one-wp-security-and-firewall').'</p>';
+								?>
+							</div>
+						</td>
+					</tr>            
+				</table>
+			</div>
+		</div>
+
         <input type="submit" name="aiowps_apply_comment_spam_prevention_settings" value="<?php _e('Save Settings', 'all-in-one-wp-security-and-firewall')?>" class="button-primary" />
         </form>
         <?php
     }
-    
-    function render_tab2()
-    {
+
+	/**
+	 * Renders the submenu's tab2 tab body.
+	 *
+	 * @return Void
+	 */
+	public function render_tab2() {
         global $aio_wp_security;
         global $aiowps_feature_mgr;
         include_once 'wp-security-list-comment-spammer-ip.php'; //For rendering the AIOWPSecurity_List_Table in tab2
@@ -330,13 +385,13 @@ class AIOWPSecurity_Spam_Menu extends AIOWPSecurity_Admin_Menu
                     <tr valign="top">
                         <th scope="row"><?php _e('Enable Auto Block of SPAM Comment IPs', 'all-in-one-wp-security-and-firewall')?>:</th>
                         <td>
-                            <input name="aiowps_enable_autoblock_spam_ip" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_enable_autoblock_spam_ip')=='1') echo ' checked="checked"'; ?> value="1"/>
-                            <span class="description"><?php _e('Check this box if you want this plugin to automatically block IP addresses which submit SPAM comments.', 'all-in-one-wp-security-and-firewall'); ?></span>
+                            <input id="aiowps_enable_autoblock_spam_ip" name="aiowps_enable_autoblock_spam_ip" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_enable_autoblock_spam_ip')=='1') echo ' checked="checked"'; ?> value="1"/>
+                            <label for="aiowps_enable_autoblock_spam_ip" class="description"><?php _e('Check this box if you want this plugin to automatically block IP addresses which submit SPAM comments.', 'all-in-one-wp-security-and-firewall'); ?></label>
                         </td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row"><?php _e('Minimum number of SPAM comments', 'all-in-one-wp-security-and-firewall')?>:</th>
-                        <td><input type="text" size="5" name="aiowps_spam_ip_min_comments_block" value="<?php echo $aio_wp_security->configs->get_value('aiowps_spam_ip_min_comments_block'); ?>" />
+                        <th scope="row"><label for="aiowps_spam_ip_min_comments_block"><?php _e('Minimum number of SPAM comments', 'all-in-one-wp-security-and-firewall')?>:</label></th>
+                        <td><input id="aiowps_spam_ip_min_comments_block" type="text" size="5" name="aiowps_spam_ip_min_comments_block" value="<?php echo $aio_wp_security->configs->get_value('aiowps_spam_ip_min_comments_block'); ?>" />
                             <span class="description"><?php _e('Specify the minimum number of SPAM comments for an IP address before it is permanently blocked.', 'all-in-one-wp-security-and-firewall');?></span>
                             <span class="aiowps_more_info_anchor"><span class="aiowps_more_info_toggle_char">+</span><span class="aiowps_more_info_toggle_text"><?php _e('More Info', 'all-in-one-wp-security-and-firewall'); ?></span></span>
                             <div class="aiowps_more_info_body">
@@ -377,8 +432,8 @@ class AIOWPSecurity_Spam_Menu extends AIOWPSecurity_Admin_Menu
         <?php wp_nonce_field('aiowpsec-spammer-ip-list-nonce'); ?>
         <table class="form-table">
             <tr valign="top">
-                <th scope="row"><?php _e('Minimum number of SPAM comments per IP', 'all-in-one-wp-security-and-firewall')?>:</th>
-                <td><input type="text" size="5" name="aiowps_spam_ip_min_comments" value="<?php echo $aio_wp_security->configs->get_value('aiowps_spam_ip_min_comments'); ?>" />
+                <th scope="row"><label for="aiowps_spam_ip_min_comments"><?php _e('Minimum number of SPAM comments per IP', 'all-in-one-wp-security-and-firewall')?>:</label></th>
+                <td><input id="aiowps_spam_ip_min_comments" type="text" size="5" name="aiowps_spam_ip_min_comments" value="<?php echo $aio_wp_security->configs->get_value('aiowps_spam_ip_min_comments'); ?>" />
                 <span class="description"><?php _e('This field allows you to list only those IP addresses which have been used to post X or more SPAM comments.', 'all-in-one-wp-security-and-firewall');?></span>
                 <span class="aiowps_more_info_anchor"><span class="aiowps_more_info_toggle_char">+</span><span class="aiowps_more_info_toggle_text"><?php _e('More Info', 'all-in-one-wp-security-and-firewall'); ?></span></span>
                 <div class="aiowps_more_info_body">
@@ -398,7 +453,7 @@ class AIOWPSecurity_Spam_Menu extends AIOWPSecurity_Admin_Menu
         <h3 class="hndle"><label for="title"><?php _e('SPAMMER IP Address Results', 'all-in-one-wp-security-and-firewall'); ?></label></h3>
         <div class="inside">
             <?php
-            if (AIOWPSecurity_Utility::is_multisite_install() && get_current_blog_id() != 1)
+            if (is_multisite() && get_current_blog_id() != 1)
             {
                     echo '<div class="aio_yellow_box">';
                     echo '<p>'.__('The plugin has detected that you are using a Multi-Site WordPress installation.', 'all-in-one-wp-security-and-firewall').'</p>
@@ -410,7 +465,7 @@ class AIOWPSecurity_Spam_Menu extends AIOWPSecurity_Admin_Menu
             $spammer_ip_list->prepare_items();
             //echo "put table of locked entries here"; 
             ?>
-            <form id="tables-filter" method="get" onSubmit="return confirm('Are you sure you want to perform this bulk operation on the selected entries?');">
+			<form id="tables-filter" method="get">
             <!-- For plugins, we also need to ensure that the form posts back to our current page -->
             <input type="hidden" name="page" value="<?php echo esc_attr($_REQUEST['page']); ?>" />
             <input type="hidden" name="tab" value="<?php echo esc_attr($_REQUEST['tab']); ?>" />
@@ -468,10 +523,10 @@ class AIOWPSecurity_Spam_Menu extends AIOWPSecurity_Admin_Menu
         ?>
         <table class="form-table">
             <tr valign="top">
-                <th scope="row"><?php _e('Enable Captcha On BuddyPress Registration Form', 'all-in-one-wp-security-and-firewall')?>:</th>
+                <th scope="row"><label for="aiowps_enable_bp_register_captcha"><?php _e('Enable Captcha On BuddyPress Registration Form', 'all-in-one-wp-security-and-firewall')?>:</label></th>
                 <td>
-                <input name="aiowps_enable_bp_register_captcha" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_enable_bp_register_captcha')=='1') echo ' checked="checked"'; ?> value="1"/>
-                <span class="description"><?php _e('Check this if you want to insert a captcha field on the BuddyPress registration forms', 'all-in-one-wp-security-and-firewall'); ?></span>
+                <input id="aiowps_enable_bp_register_captcha" name="aiowps_enable_bp_register_captcha" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_enable_bp_register_captcha')=='1') echo ' checked="checked"'; ?> value="1"/>
+                <label for="aiowps_enable_bp_register_captcha"><?php _e('Check this if you want to insert a captcha field on the BuddyPress registration forms', 'all-in-one-wp-security-and-firewall'); ?></label>
                 </td>
             </tr>            
         </table>
@@ -530,10 +585,10 @@ class AIOWPSecurity_Spam_Menu extends AIOWPSecurity_Admin_Menu
         ?>
         <table class="form-table">
             <tr valign="top">
-                <th scope="row"><?php _e('Enable Captcha On BBPress New Topic Form', 'all-in-one-wp-security-and-firewall')?>:</th>
+                <th scope="row"><label for="aiowps_enable_bbp_new_topic_captcha"><?php _e('Enable Captcha On BBPress New Topic Form', 'all-in-one-wp-security-and-firewall')?>:</label></th>
                 <td>
-                <input name="aiowps_enable_bbp_new_topic_captcha" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_enable_bbp_new_topic_captcha')=='1') echo ' checked="checked"'; ?> value="1"/>
-                <span class="description"><?php _e('Check this if you want to insert a captcha field on the BBPress new topic forms', 'all-in-one-wp-security-and-firewall'); ?></span>
+                <input id="aiowps_enable_bbp_new_topic_captcha" name="aiowps_enable_bbp_new_topic_captcha" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_enable_bbp_new_topic_captcha')=='1') echo ' checked="checked"'; ?> value="1"/>
+                <label for="aiowps_enable_bbp_new_topic_captcha"><?php _e('Check this if you want to insert a captcha field on the BBPress new topic forms', 'all-in-one-wp-security-and-firewall'); ?></label>
                 </td>
             </tr>            
         </table>

@@ -28,15 +28,18 @@ class AIOWPSecurity_General_Init_Tasks {
 			add_filter('retrieve_password_message', array($this, 'decode_reset_pw_msg'), 10, 4); //Fix for non decoded html entities in password reset link
 		}
 
-		if (current_user_can(AIOWPSEC_MANAGEMENT_PERMISSION) && $aio_wp_security->configs->get_value('aios_is_google_recaptcha_wrong_site_key')) {
-			add_action('all_admin_notices', array($this, 'google_recaptcha_notice'));
-		}
+		if (current_user_can(AIOWPSEC_MANAGEMENT_PERMISSION) && is_admin()) {
+			if ($aio_wp_security->configs->get_value('aios_is_google_recaptcha_wrong_site_key')) {
+				add_action('all_admin_notices', array($this, 'google_recaptcha_notice'));
+			}
 
-		if (current_user_can(AIOWPSEC_MANAGEMENT_PERMISSION)) {
+			add_action('all_admin_notices', array($this, 'do_firewall_notice'));
+			add_action('admin_post_aiowps_firewall_setup', array(AIOWPSecurity_Firewall_Setup_Notice::get_instance(), 'handle_setup_form'));
+			add_action('admin_post_aiowps_firewall_setup_dismiss', array(AIOWPSecurity_Firewall_Setup_Notice::get_instance(), 'handle_dismiss_form'));
+
 			$this->reapply_htaccess_rules();
 			add_action('admin_notices', array($this,'reapply_htaccess_rules_notice'));
 		}
-
 
 		/**
 		 * Send X-Frame-Options: SAMEORIGIN in HTTP header
@@ -52,15 +55,40 @@ class AIOWPSecurity_General_Init_Tasks {
 		}
 
 		// For the cookie based brute force prevention feature
-		if ($aio_wp_security->configs->get_value('aiowps_enable_brute_force_attack_prevention') == 1) {
+		if ($aio_wp_security->should_cookie_based_brute_force_prvent()) {
 			$bfcf_secret_word = $aio_wp_security->configs->get_value('aiowps_brute_force_secret_word');
+			$login_page_slug = $aio_wp_security->configs->get_value('aiowps_login_page_slug');
 			if (isset($_GET[$bfcf_secret_word])) {
 				// If URL contains secret word in query param then set cookie and then redirect to the login page
-				AIOWPSecurity_Utility::set_cookie_value($bfcf_secret_word, "1");
-				AIOWPSecurity_Utility::redirect_to_url(AIOWPSEC_WP_URL."/wp-admin");
+				AIOWPSecurity_Utility::set_cookie_value($bfcf_secret_word, '1');
+				if ('1' == $aio_wp_security->configs->get_value('aiowps_enable_rename_login_page') && !is_user_logged_in()) {
+					$login_url = home_url((get_option('permalink_structure') ? '' : '?')  . $aio_wp_security->configs->get_value('aiowps_login_page_slug'));
+					AIOWPSecurity_Utility::redirect_to_url($login_url);
+				} else {
+					AIOWPSecurity_Utility::redirect_to_url(AIOWPSEC_WP_URL.'/wp-admin');
+				}
+			} else {
+				$secret_word_cookie_val = AIOWPSecurity_Utility::get_cookie_value($bfcf_secret_word);
+				$pw_protected_exception = $aio_wp_security->configs->get_value('aiowps_brute_force_attack_prevention_pw_protected_exception');
+				$prevent_ajax_exception = $aio_wp_security->configs->get_value('aiowps_brute_force_attack_prevention_ajax_exception');
+				
+				if ('' != $_SERVER['REQUEST_URI'] && 1 != $secret_word_cookie_val) {
+					// admin section or login page or login custom slug called
+					$is_admin_or_login = (false != strpos($_SERVER['REQUEST_URI'], 'wp-admin') || false != strpos($_SERVER['REQUEST_URI'], 'wp-login') || ('' != $login_page_slug && false != strpos($_SERVER['REQUEST_URI'], $login_page_slug))) ? 1 : 0;
+					
+					// admin side ajax called
+					$is_admin_ajax_request = ('1' == $prevent_ajax_exception && false != strpos($_SERVER['REQUEST_URI'], 'wp-admin/admin-ajax.php')) ? 1 : 0;
+					
+					// password protected page called
+					$is_password_protected_access = ('1' == $pw_protected_exception && isset($_GET['action']) && 'postpass' == $_GET['action']) ? 1 : 0;
+					// cookie based brute force on and accessing admin without ajax and password protected then redirect
+					if ($is_admin_or_login && !$is_admin_ajax_request && !$is_password_protected_access) {
+						$redirect_url = $aio_wp_security->configs->get_value('aiowps_cookie_based_brute_force_redirect_url');
+						AIOWPSecurity_Utility::redirect_to_url($redirect_url);
+					}
+				}
 			}
 		}
-
 		// Stop users enumeration feature
 		if ($aio_wp_security->configs->get_value('aiowps_prevent_users_enumeration') == 1) {
 			include_once(AIO_WP_SECURITY_PATH.'/other-includes/wp-security-stop-users-enumeration.php');
@@ -167,6 +195,25 @@ class AIOWPSecurity_General_Init_Tasks {
 			}
 		}
 
+		// For disable application password feature hide generate password
+		if ('1' == $aio_wp_security->configs->get_value('aiowps_disable_application_password')) {
+			add_filter('wp_is_application_passwords_available', '__return_false');
+			add_action('edit_user_profile', array($this, 'show_disabled_application_password_message'));
+			add_action('show_user_profile', array($this, 'show_disabled_application_password_message'));
+
+			// Override the wp_die handler for app passwords were disabled.
+			if (!empty($_SERVER['SCRIPT_FILENAME']) && ABSPATH . 'wp-admin/authorize-application.php' == $_SERVER['SCRIPT_FILENAME']) {
+				add_filter('wp_die_handler', function () {
+					return function ($message, $title, $args) {
+						if ('Application passwords are not available.' == $message) {
+							$message = htmlspecialchars(__('Application passwords have been disabled by All In One WP Security & Firewall plugin.', 'all-in-one-wp-security-and-firewall'));
+						}
+						_default_wp_die_handler($message, $title, $args);
+					};
+				}, 10, 1);
+			}
+		}
+
 		// For lost password captcha feature
 		if ($aio_wp_security->configs->get_value('aiowps_enable_lost_password_captcha') == '1') {
 			if (!is_user_logged_in()) {
@@ -181,7 +228,7 @@ class AIOWPSecurity_General_Init_Tasks {
 		}
 
 		// For registration page captcha feature
-		if (AIOWPSecurity_Utility::is_multisite_install()) {
+		if (is_multisite()) {
 			$blog_id = get_current_blog_id();
 			switch_to_blog($blog_id);
 			if ($aio_wp_security->configs->get_value('aiowps_enable_registration_page_captcha') == '1') {
@@ -201,7 +248,7 @@ class AIOWPSecurity_General_Init_Tasks {
 		}
 
 		// For comment captcha feature or custom login form captcha
-		if (AIOWPSecurity_Utility::is_multisite_install()) {
+		if (is_multisite()) {
 			$blog_id = get_current_blog_id();
 			switch_to_blog($blog_id);
 			if ($aio_wp_security->configs->get_value('aiowps_enable_comment_captcha') == '1') {
@@ -248,7 +295,6 @@ class AIOWPSecurity_General_Init_Tasks {
 		if ($aio_wp_security->configs->get_value('aiowps_enable_404_logging') == '1') {
 			add_action('wp_head', array($this, 'check_404_event'));
 		}
-
 		// Add more tasks that need to be executed at init time
 
 	} // end _construct()
@@ -433,6 +479,35 @@ class AIOWPSecurity_General_Init_Tasks {
 		$honey_input = '<p style="display: none;"><label>'.__('Enter something special:', 'all-in-one-wp-security-and-firewall').'</label>';
 		$honey_input .= '<input name="aio_special_field" type="text" id="aio_special_field" class="aio_special_field" value="" /></p>';
 		echo $honey_input;
+	}
+
+	/**
+	 * Shows application password disabed message on user edit profile page.
+	 * If logged user is admin showing the Change Setting option.
+	 *
+	 * @return void
+	 */
+	public function show_disabled_application_password_message() {
+		if (is_user_logged_in() && is_admin()) {
+			$disabled_message =	'<h2>'.__('Application Passwords', 'all-in-one-wp-security-and-firewall').'</h2>';
+			$disabled_message .= '<table class="form-table" role="presentation">';
+			$disabled_message .= '<tbody>';
+			$disabled_message .= '<tr id="disable-password">';
+			$disabled_message .= '<th>'.__('Disabled').'</th>';
+			$disabled_message .= '<td>'.htmlspecialchars(__('Application passwords have been disabled by All In One WP Security & Firewall plugin.', 'all-in-one-wp-security-and-firewall'));
+			if (current_user_can(AIOWPSEC_MANAGEMENT_PERMISSION)) {
+				$aiowps_addtional_setting_url = 'admin.php?page=aiowpsec_userlogin&tab=additional';
+				$change_setting_url = is_multisite() ? network_admin_url($aiowps_addtional_setting_url) : admin_url($aiowps_addtional_setting_url);
+				$disabled_message .= '<p><a href="'.$change_setting_url.'"  class="button">'.__('Change Setting', 'all-in-one-wp-security-and-firewall').'</a></p>';
+			} else {
+				$disabled_message .= ' '.__('Site admin can only change this setting.', 'all-in-one-wp-security-and-firewall');
+			}
+			$disabled_message .= '</td>';
+			$disabled_message .= '</tr>';
+			$disabled_message .= '<tbody>';
+			$disabled_message .= '</table>';
+			echo $disabled_message;
+		}
 	}
 
 	public function process_comment_post($comment) {
@@ -656,5 +731,17 @@ class AIOWPSecurity_General_Init_Tasks {
 			//only enqueue when not a woocommerce page
 			wp_enqueue_script('google-recaptcha', 'https://www.google.com/recaptcha/api.js', false);
 		}
+	}
+
+	/**
+	 * Shows the firewall notice
+	 *
+	 * @return void
+	 */
+	public function do_firewall_notice() {
+		
+		$firewall_setup = AIOWPSecurity_Firewall_Setup_Notice::get_instance();
+		$firewall_setup->start_firewall_setup();
+
 	}
 }

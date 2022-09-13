@@ -1,7 +1,7 @@
 <?php
 
 
-class Rsc_Http_ServerParameters extends Rsc_Http_Parameters
+class RscDtgs_Http_ServerParameters extends RscDtgs_Http_Parameters
 {
 
     /**

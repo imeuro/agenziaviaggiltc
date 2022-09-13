@@ -1,3 +1,6 @@
+.wrapper {
+  margin: 10px 20px 0 2px;
+}
 .wrapper h1,
 .wrapper h2 {
     font-size: 23px;
@@ -67,12 +70,14 @@
     box-sizing: border-box;
     float: left;
     position: relative;
-    width: 98%;
+    width: 100%;
     min-height: 353px;
 }
 
 .supsystic-plugin .supsystic-content .supsystic-container {
-    margin-left: 75px;
+  margin-left: 75px;
+  min-height: 360px;
+  background-color: #fff;
     /*overflow: hidden;
     margin-top: 10px;*/
 }
@@ -302,6 +307,10 @@ input[type="color"] {
     background-color: transparent;
     margin-left: 75px;
     padding: 5px 0px;
+    background: #263546;
+    color: white;
+    margin-left: 75px;
+    padding: 10px;
     /*-moz-box-shadow: 0 3px 0 rgba(12,12,12,0.03);
     -webkit-box-shadow: 0 3px 0 rgba(12,12,12,0.03);
     box-shadow: 0 3px 0 rgba(12,12,12,0.03);*/
@@ -326,10 +335,13 @@ input[type="color"] {
 .supsystic-container .supsystic-item {
   min-height:420px !important;
 }
+.supsystic-container {
+  background: #fff;
+  padding: 10px 10px 10px 40px;
+}
 .supsystic-item {
     background: #fff;
-    padding-top: 15px;
-	padding-bottom: 20px;
+	  padding-bottom: 20px;
     position: relative;
 }
 
@@ -929,4 +941,7 @@ h3.nav-tab-wrapper {
 #loadPreviewAutoBtn:hover {
   background: #4ae8ea !important;
   border-color: #4ae8ea !important;
+}
+.supsystic-navigation ul li:hover a i, .supsystic-navigation ul li.active a i {
+    color: #4ae8ea;
 }

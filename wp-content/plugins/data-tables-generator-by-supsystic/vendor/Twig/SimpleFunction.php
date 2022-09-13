@@ -16,7 +16,7 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_SimpleFunction
+class Twig_SupTwgDtgs_SimpleFunction
 {
     protected $name;
     protected $callable;
@@ -33,7 +33,7 @@ class Twig_SupTwg_SimpleFunction
             'is_variadic' => false,
             'is_safe' => null,
             'is_safe_callback' => null,
-            'node_class' => 'Twig_SupTwg_Node_Expression_Function',
+            'node_class' => 'Twig_SupTwgDtgs_Node_Expression_Function',
             'deprecated' => false,
             'alternative' => null,
         ), $options);
@@ -74,7 +74,7 @@ class Twig_SupTwg_SimpleFunction
         return $this->options['needs_context'];
     }
 
-    public function getSafe(Twig_SupTwg_Node $functionArgs)
+    public function getSafe(Twig_SupTwgDtgs_Node $functionArgs)
     {
         if (null !== $this->options['is_safe']) {
             return $this->options['is_safe'];

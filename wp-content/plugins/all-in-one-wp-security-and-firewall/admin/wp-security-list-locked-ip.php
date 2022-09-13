@@ -109,54 +109,55 @@ class AIOWPSecurity_List_Locked_IP extends AIOWPSecurity_List_Table {
             }
         }
     }
-    
-    
-    /*
-     * This function will unlock an IP range by modifying the "release_date" column of a record in the "login_lockdown" table
-     */
-    function unlock_ip_range($entries)
-    {
-        global $wpdb,$aio_wp_security;
-        $lockdown_table = AIOWPSEC_TBL_LOGIN_LOCKDOWN;
-        if (is_array($entries))
-        {
-            if (isset($_REQUEST['_wp_http_referer']))
-            {
-                //Unlock multiple records
-                $entries = array_filter($entries, 'is_numeric'); //discard non-numeric ID values
-                $id_list = "(" .implode(",",$entries) .")"; //Create comma separate list for DB operation
-                $unlock_command = "UPDATE ".$lockdown_table." SET release_date = now() WHERE id IN ".$id_list;
-                $result = $wpdb->query($unlock_command);
-                if($result != NULL)
-                {
-                    AIOWPSecurity_Admin_Menu::show_msg_updated_st(__('The selected IP entries were unlocked successfully!','all-in-one-wp-security-and-firewall'));
-                }
-            }
-        } elseif ($entries != NULL)
-        {
-            $nonce=isset($_GET['aiowps_nonce'])?$_GET['aiowps_nonce']:'';
-            if (!isset($nonce) ||!wp_verify_nonce($nonce, 'unlock_ip'))
-            {
-                $aio_wp_security->debug_logger->log_debug("Nonce check failed for unlock IP operation!",4);
-                die(__('Nonce check failed for unlock IP operation!','all-in-one-wp-security-and-firewall'));
-            }
-            
-            //Unlock single record
-            $unlock_command = $wpdb->prepare( "UPDATE ".$lockdown_table." SET release_date = now() WHERE id = %d", absint($entries) );
-            $result = $wpdb->query($unlock_command);
-            if($result != NULL)
-            {
-                AIOWPSecurity_Admin_Menu::show_msg_updated_st(__('The selected IP entry was unlocked successfully!','all-in-one-wp-security-and-firewall'));
-            }
-        }
-    }
-    
-    /*
-     * This function will delete selected records from the "login_lockdown" table.
-     * The function accepts either an array of IDs or a single ID
-     */
-    function delete_lockdown_records($entries)
-    {
+
+	/**
+	 * Unlocks an IP range by modifying the release_date column of a record in the AIOWPSEC_TBL_LOGIN_LOCKDOWN table.
+	 *
+	 * @param Array|Integer - ids or a single id
+	 *
+	 * @return Void
+	 */
+	public function unlock_ip_range($entries) {
+		global $wpdb, $aio_wp_security;
+
+		$lockdown_table = AIOWPSEC_TBL_LOGIN_LOCKDOWN;
+
+		$now = current_time('mysql', true);
+
+		if (is_array($entries)) {
+			if (isset($_REQUEST['_wp_http_referer'])) {
+				// Unlock multiple records
+				$entries = array_filter($entries, 'is_numeric');  // Discard non-numeric ID values
+				$id_list = '(' .implode(',', $entries) .')';  // Create comma separate list for DB operation
+				$result = $wpdb->query($wpdb->prepare("UPDATE $lockdown_table SET `release_date` = %s WHERE `id` IN $id_list", $now));
+
+				if (NULL != $result) {
+					AIOWPSecurity_Admin_Menu::show_msg_updated_st(__('The selected IP entries were unlocked successfully!', 'all-in-one-wp-security-and-firewall'));
+				}
+			}
+		} elseif (NULL != $entries) {
+			if (!isset($_GET['aiowps_nonce']) || !wp_verify_nonce($_GET['aiowps_nonce'], 'unlock_ip')) {
+				$aio_wp_security->debug_logger->log_debug('Nonce check failed for unlock IP operation.', 4);
+				die(__('Nonce check failed for unlock IP operation!', 'all-in-one-wp-security-and-firewall'));
+			}
+
+			// Unlock single record
+			$result = $wpdb->query($wpdb->prepare("UPDATE $lockdown_table SET `release_date` = %s WHERE `id` = %d", $now, absint($entries)));
+
+			if (NULL != $result) {
+				AIOWPSecurity_Admin_Menu::show_msg_updated_st(__('The selected IP entry was unlocked successfully.', 'all-in-one-wp-security-and-firewall'));
+			}
+		}
+	}
+
+	/**
+	 * Deletes one or more records from the AIOWPSEC_TBL_LOGIN_LOCKDOWN table.
+	 *
+	 * @param Array|String|Integer - ids or a single id
+	 *
+	 * @return Void
+	 */
+	public function delete_lockdown_records($entries) {
         global $wpdb, $aio_wp_security;
         $lockdown_table = AIOWPSEC_TBL_LOGIN_LOCKDOWN;
         if (is_array($entries))
@@ -168,10 +169,13 @@ class AIOWPSecurity_List_Locked_IP extends AIOWPSecurity_List_Table {
                 $id_list = "(" .implode(",",$entries) .")"; //Create comma separate list for DB operation
                 $delete_command = "DELETE FROM ".$lockdown_table." WHERE id IN ".$id_list;
                 $result = $wpdb->query($delete_command);
-                if($result != NULL)
-                {
-                    AIOWPSecurity_Admin_Menu::show_msg_record_deleted_st();
-                }
+				if ($result) {
+					AIOWPSecurity_Admin_Menu::show_msg_record_deleted_st();
+				} else {
+					// Error on bulk delete
+					$aio_wp_security->debug_logger->log_debug('Database error occurred when deleting rows from Login Lockdown table. Database error: '.$wpdb->last_error, 4);
+					AIOWPSecurity_Admin_Menu::show_msg_record_not_deleted_st();
+				}
             }
         } 
         elseif ($entries != NULL)
@@ -185,50 +189,69 @@ class AIOWPSecurity_List_Locked_IP extends AIOWPSecurity_List_Table {
             //Delete single record
             $delete_command = "DELETE FROM ".$lockdown_table." WHERE id = '".absint($entries)."'";
             $result = $wpdb->query($delete_command);
-            if($result != NULL)
-            {
-                AIOWPSecurity_Admin_Menu::show_msg_record_deleted_st();
-            }
+			if ($result) {
+				AIOWPSecurity_Admin_Menu::show_msg_record_deleted_st();
+			} elseif ($result === false) {
+				// Error on single delete
+				$aio_wp_security->debug_logger->log_debug('Database error occurred when deleting rows from Login Lockdown table. Database error: '.$wpdb->last_error, 4);
+				AIOWPSecurity_Admin_Menu::show_msg_record_not_deleted_st();
+			}
         }
     }
-    
-    function prepare_items() {
-        /**
-         * First, lets decide how many records per page to show
-         */
-        $per_page = 100;
-        $columns = $this->get_columns();
-        $hidden = array();
-        $sortable = $this->get_sortable_columns();
 
-        $this->_column_headers = array($columns, $hidden, $sortable);
-        
-        $this->process_bulk_action();
-    	
-    	global $wpdb;
-        $lockdown_table_name = AIOWPSEC_TBL_LOGIN_LOCKDOWN;
+	/**
+	 * Retrieves all items from AIOWPSEC_TBL_LOGIN_LOCKDOWN. It may paginate and then assigns to $this->items.
+	 *
+	 * @param Boolean $ignore_pagination - whether to not paginate
+	 *
+	 * @return Void
+	 */
+	public function prepare_items($ignore_pagination = false) {
+		global $wpdb;
 
-	/* -- Ordering parameters -- */
-	    //Parameters that are going to be used to order the result
-        isset($_GET["orderby"]) ? $orderby = strip_tags($_GET["orderby"]): $orderby = '';
-        isset($_GET["order"]) ? $order = strip_tags($_GET["order"]): $order = '';
+		$lockdown_table = AIOWPSEC_TBL_LOGIN_LOCKDOWN;
 
-	$orderby = !empty($orderby) ? esc_sql($orderby) : 'lockdown_date';
-	$order = !empty($order) ? esc_sql($order) : 'DESC';
+		$this->process_bulk_action();
 
-        $orderby = AIOWPSecurity_Utility::sanitize_value_by_array($orderby, $sortable);
-        $order = AIOWPSecurity_Utility::sanitize_value_by_array($order, array('DESC' => '1', 'ASC' => '1'));
-        
-        $now = current_time( 'mysql' );
-	$data = $wpdb->get_results($wpdb->prepare("SELECT * FROM $lockdown_table_name WHERE (lock_reason=%s OR lock_reason=%s) AND release_date > %s ORDER BY $orderby $order", 'login_fail', '404', $now), ARRAY_A);
-        $current_page = $this->get_pagenum();
-        $total_items = count($data);
-        $data = array_slice($data,(($current_page-1)*$per_page),$per_page);
-        $this->items = $data;
-        $this->set_pagination_args( array(
-            'total_items' => $total_items,                  //WE have to calculate the total number of items
-            'per_page'    => $per_page,                     //WE have to determine how many items to show on a page
-            'total_pages' => ceil($total_items/$per_page)   //WE have to calculate the total number of pages
-        ) );
-    }
+		// How many records per page to show
+		$per_page = 100;
+		$columns = $this->get_columns();
+		$hidden = array();
+		$sortable = $this->get_sortable_columns();
+
+		$this->_column_headers = array($columns, $hidden, $sortable);
+
+		// Parameters that are going to be used to order the result
+		$orderby = isset($_GET['orderby']) ? sanitize_text_field(wp_unslash($_GET['orderby'])) : '';
+		$order = isset($_GET['order']) ? sanitize_text_field(wp_unslash($_GET['order'])) : '';
+
+		$orderby = !empty($orderby) ? esc_sql($orderby) : 'lockdown_date';
+		$order = !empty($order) ? esc_sql($order) : 'DESC';
+
+		$orderby = AIOWPSecurity_Utility::sanitize_value_by_array($orderby, $sortable);
+		$order = AIOWPSecurity_Utility::sanitize_value_by_array($order, array('DESC' => '1', 'ASC' => '1'));
+
+		$now = current_time('mysql', true);
+
+		$data = $wpdb->get_results($wpdb->prepare("SELECT * FROM $lockdown_table WHERE `release_date` > %s ORDER BY $orderby $order", $now), ARRAY_A);
+
+		if (!$ignore_pagination) {
+			$current_page = $this->get_pagenum();
+			$total_items = count($data);
+			$data = array_slice($data, (($current_page - 1) * $per_page), $per_page);
+			$this->set_pagination_args(array(
+				'total_items' => $total_items,  // WE have to calculate the total number of items
+				'per_page'    => $per_page,  // WE have to determine how many items to show on a page
+				'total_pages' => ceil($total_items / $per_page)  // WE have to calculate the total number of pages
+			));
+		}
+
+		foreach ($data as $index => $row) {
+			$data[$index]['lockdown_date'] = get_date_from_gmt(mysql2date('Y-m-d H:i:s', $row['lockdown_date']), $this->get_wp_date_time_format());
+			$data[$index]['release_date'] = get_date_from_gmt(mysql2date('Y-m-d H:i:s', $row['release_date']), $this->get_wp_date_time_format());
+		}
+
+		$this->items = $data;
+	}
+
 }

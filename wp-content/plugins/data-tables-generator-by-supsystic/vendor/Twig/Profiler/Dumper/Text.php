@@ -14,31 +14,31 @@
  *
  * @final
  */
-class Twig_SupTwg_Profiler_Dumper_Text
+class Twig_SupTwgDtgs_Profiler_Dumper_Text
 {
     private $root;
 
-    public function dump(Twig_SupTwg_Profiler_Profile $profile)
+    public function dump(Twig_SupTwgDtgs_Profiler_Profile $profile)
     {
         return $this->dumpProfile($profile);
     }
 
-    protected function formatTemplate(Twig_SupTwg_Profiler_Profile $profile, $prefix)
+    protected function formatTemplate(Twig_SupTwgDtgs_Profiler_Profile $profile, $prefix)
     {
         return sprintf('%s└ %s', $prefix, $profile->getTemplate());
     }
 
-    protected function formatNonTemplate(Twig_SupTwg_Profiler_Profile $profile, $prefix)
+    protected function formatNonTemplate(Twig_SupTwgDtgs_Profiler_Profile $profile, $prefix)
     {
         return sprintf('%s└ %s::%s(%s)', $prefix, $profile->getTemplate(), $profile->getType(), $profile->getName());
     }
 
-    protected function formatTime(Twig_SupTwg_Profiler_Profile $profile, $percent)
+    protected function formatTime(Twig_SupTwgDtgs_Profiler_Profile $profile, $percent)
     {
         return sprintf('%.2fms/%.0f%%', $profile->getDuration() * 1000, $percent);
     }
 
-    private function dumpProfile(Twig_SupTwg_Profiler_Profile $profile, $prefix = '', $sibling = false)
+    private function dumpProfile(Twig_SupTwgDtgs_Profiler_Profile $profile, $prefix = '', $sibling = false)
     {
         if ($profile->isRoot()) {
             $this->root = $profile->getDuration();

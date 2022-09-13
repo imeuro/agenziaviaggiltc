@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-class Twig_SupTwg_Node_Expression_Test extends Twig_SupTwg_Node_Expression_Call
+class Twig_SupTwgDtgs_Node_Expression_Test extends Twig_SupTwgDtgs_Node_Expression_Call
 {
-    public function __construct(Twig_SupTwg_NodeInterface $node, $name, Twig_SupTwg_NodeInterface $arguments = null, $lineno)
+    public function __construct(Twig_SupTwgDtgs_NodeInterface $node, $name, Twig_SupTwgDtgs_NodeInterface $arguments = null, $lineno)
     {
         $nodes = array('node' => $node);
         if (null !== $arguments) {
@@ -20,7 +20,7 @@ class Twig_SupTwg_Node_Expression_Test extends Twig_SupTwg_Node_Expression_Call
         parent::__construct($nodes, array('name' => $name), $lineno);
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $name = $this->getAttribute('name');
         $test = $compiler->getEnvironment()->getTest($name);
@@ -28,10 +28,10 @@ class Twig_SupTwg_Node_Expression_Test extends Twig_SupTwg_Node_Expression_Call
         $this->setAttribute('name', $name);
         $this->setAttribute('type', 'test');
         $this->setAttribute('thing', $test);
-        if ($test instanceof Twig_SupTwg_TestCallableInterface || $test instanceof Twig_SupTwg_SimpleTest) {
+        if ($test instanceof Twig_SupTwgDtgs_TestCallableInterface || $test instanceof Twig_SupTwgDtgs_SimpleTest) {
             $this->setAttribute('callable', $test->getCallable());
         }
-        if ($test instanceof Twig_SupTwg_SimpleTest) {
+        if ($test instanceof Twig_SupTwgDtgs_SimpleTest) {
             $this->setAttribute('is_variadic', $test->isVariadic());
         }
 

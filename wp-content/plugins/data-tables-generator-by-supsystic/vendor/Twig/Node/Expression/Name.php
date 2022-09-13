@@ -9,7 +9,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-class Twig_SupTwg_Node_Expression_Name extends Twig_SupTwg_Node_Expression
+class Twig_SupTwgDtgs_Node_Expression_Name extends Twig_SupTwgDtgs_Node_Expression
 {
     protected $specialVars = array(
         '_self' => '$this',
@@ -22,7 +22,7 @@ class Twig_SupTwg_Node_Expression_Name extends Twig_SupTwg_Node_Expression
         parent::__construct(array(), array('name' => $name, 'is_defined_test' => false, 'ignore_strict_check' => false, 'always_defined' => false), $lineno);
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $name = $this->getAttribute('name');
 

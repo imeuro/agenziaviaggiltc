@@ -1,5 +1,11 @@
 ( function( $, _, Backbone, api, settings ) {
 
+	happyForms.classes.models.Option = Backbone.Model.extend( {
+		defaults: {
+			type: 'option',
+		}
+	} );
+
 	happyForms.classes.views.Option = Backbone.View.extend( {
 		events: {
 			'click .happyforms-delete-item': 'onDeleteClick',
@@ -98,7 +104,7 @@
 		onLabelChange: function( e ) {
 			var label = $( e.target ).val();
 			this.model.set( 'label', label );
-			this.part.trigger( 'change' );
+			this.part.trigger( 'change', this.part, {} );
 			$('.happyforms-item-choice-widget-title h3 .choice-in-widget-title span', this.$el ).text( label );
 
 			var data = {
@@ -136,7 +142,7 @@
 		onItemLabelChange: function( e ) {
 			var label = $( e.target ).val();
 			this.model.set( 'label', label );
-			this.part.trigger( 'change' );
+			this.part.trigger( 'change', this.part, {} );
 			$('.happyforms-item-choice-widget-title h3 .choice-in-widget-title span', this.$el ).text( label );
 
 			var data = {
@@ -385,7 +391,10 @@
 			attrs.id = this.getOptionModelID();
 			var modelClass = this.model.get( 'options' ).model;
 			var clonedModel = new modelClass( attrs );
-			this.model.get( 'options' ).add( clonedModel, { at: index } );
+			this.model.get( 'options' ).add( clonedModel, { 
+				at: index,
+				duplicateOf: fieldChoice,
+			} );
 			this.model.get( 'options' ).findWhere( { id: attrs.id } ).trigger( 'open-widget' );
 		},
 
@@ -405,7 +414,7 @@
 		},
 
 		onOptionModelAdd: function( optionModel, optionsCollection, options ) {
-			this.model.trigger( 'change' );
+			this.model.trigger( 'change', this.model, {} );
 			this.addOptionItemView( optionModel, options );
 
 			var model = this.model;
@@ -415,6 +424,7 @@
 					var data = {
 						id: model.get( 'id' ),
 						html: response,
+						callback: 'onOptionAddCallback',
 					};
 
 					happyForms.previewSend( 'happyforms-form-part-refresh', data );
@@ -423,11 +433,11 @@
 		},
 
 		onOptionModelChange: function( optionModel ) {
-			this.model.trigger( 'change' );
+			this.model.trigger( 'change', this.model, {} );
 		},
 
 		onOptionModelRemove: function( optionModel ) {
-			this.model.trigger( 'change' );
+			this.model.trigger( 'change', this.model, {} );
 
 			var optionViewModel = this.optionViews.find( function( viewModel ) {
 				return viewModel.get( 'view' ).model.id === optionModel.id;
@@ -586,6 +596,10 @@
 	} );
 
 	happyForms.previewer = _.extend( happyForms.previewer, {
+		onOptionAddCallback: function() {
+			// noop
+		},
+
 		onOptionDeleteCallback: function( id, html, options ) {
 			var part = this.getPartModel( id );
 			var $part = this.getPartElement( html );

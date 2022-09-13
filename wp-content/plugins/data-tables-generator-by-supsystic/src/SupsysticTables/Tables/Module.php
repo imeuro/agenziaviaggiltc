@@ -860,14 +860,14 @@ class SupsysticTables_Tables_Module extends SupsysticTables_Core_BaseModule
         $callable = array($this, 'render');
 
 
-        $twig->addFunction(new Twig_SupTwg_SimpleFunction('render_table', $callable, array('is_safe' => array('html'))));
+        $twig->addFunction(new Twig_SupTwgDtgs_SimpleFunction('render_table', $callable, array('is_safe' => array('html'))));
     }
 
 	private function addTwigHighlighter()
 	{
 		$twig = $this->getEnvironment()->getTwig();
 
-		$twig->addFilter( new Twig_SupTwg_SimpleFilter('highlight', 'highlight_string', array('is_safe' => array('html'))));
+		$twig->addFilter( new Twig_SupTwgDtgs_SimpleFilter('highlight', 'highlight_string', array('is_safe' => array('html'))));
 	}
 
 	/**

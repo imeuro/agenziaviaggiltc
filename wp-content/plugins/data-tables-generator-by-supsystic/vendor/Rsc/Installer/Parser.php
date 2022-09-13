@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Class Rsc_Installer_Parser
+ * Class RscDtgs_Installer_Parser
  * Abstract parser
  */
-abstract class Rsc_Installer_Parser
+abstract class RscDtgs_Installer_Parser
 {
     /**
      * @var string

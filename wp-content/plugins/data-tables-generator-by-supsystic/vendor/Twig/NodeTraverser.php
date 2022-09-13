@@ -10,7 +10,7 @@
  */
 
 /**
- * Twig_SupTwg_NodeTraverser is a node traverser.
+ * Twig_SupTwgDtgs_NodeTraverser is a node traverser.
  *
  * It visits all nodes and their children and calls the given visitor for each.
  *
@@ -18,16 +18,16 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_NodeTraverser
+class Twig_SupTwgDtgs_NodeTraverser
 {
     protected $env;
     protected $visitors = array();
 
     /**
-     * @param Twig_SupTwg_Environment            $env
-     * @param Twig_SupTwg_NodeVisitorInterface[] $visitors
+     * @param Twig_SupTwgDtgs_Environment            $env
+     * @param Twig_SupTwgDtgs_NodeVisitorInterface[] $visitors
      */
-    public function __construct(Twig_SupTwg_Environment $env, array $visitors = array())
+    public function __construct(Twig_SupTwgDtgs_Environment $env, array $visitors = array())
     {
         $this->env = $env;
         foreach ($visitors as $visitor) {
@@ -35,7 +35,7 @@ class Twig_SupTwg_NodeTraverser
         }
     }
 
-    public function addVisitor(Twig_SupTwg_NodeVisitorInterface $visitor)
+    public function addVisitor(Twig_SupTwgDtgs_NodeVisitorInterface $visitor)
     {
         if (!isset($this->visitors[$visitor->getPriority()])) {
             $this->visitors[$visitor->getPriority()] = array();
@@ -47,9 +47,9 @@ class Twig_SupTwg_NodeTraverser
     /**
      * Traverses a node and calls the registered visitors.
      *
-     * @return Twig_SupTwg_NodeInterface
+     * @return Twig_SupTwgDtgs_NodeInterface
      */
-    public function traverse(Twig_SupTwg_NodeInterface $node)
+    public function traverse(Twig_SupTwgDtgs_NodeInterface $node)
     {
         ksort($this->visitors);
         foreach ($this->visitors as $visitors) {
@@ -61,7 +61,7 @@ class Twig_SupTwg_NodeTraverser
         return $node;
     }
 
-    protected function traverseForVisitor(Twig_SupTwg_NodeVisitorInterface $visitor, Twig_SupTwg_NodeInterface $node = null)
+    protected function traverseForVisitor(Twig_SupTwgDtgs_NodeVisitorInterface $visitor, Twig_SupTwgDtgs_NodeInterface $node = null)
     {
         if (null === $node) {
             return;

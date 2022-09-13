@@ -10,23 +10,23 @@
  * file that was distributed with this source code.
  */
 
-@trigger_error('The Twig_SupTwg_Function_Method class is deprecated since version 1.12 and will be removed in 2.0. Use Twig_SupTwg_SimpleFunction instead.', E_USER_DEPRECATED);
+//@trigger_error('The Twig_SupTwgDtgs_Function_Method class is deprecated since version 1.12 and will be removed in 2.0. Use Twig_SupTwgDtgs_SimpleFunction instead.', E_USER_DEPRECATED);
 
 /**
  * Represents a method template function.
  *
- * Use Twig_SupTwg_SimpleFunction instead.
+ * Use Twig_SupTwgDtgs_SimpleFunction instead.
  *
  * @author Arnaud Le Blanc <arnaud.lb@gmail.com>
  *
  * @deprecated since 1.12 (to be removed in 2.0)
  */
-class Twig_SupTwg_Function_Method extends Twig_SupTwg_Function
+class Twig_SupTwgDtgs_Function_Method extends Twig_SupTwgDtgs_Function
 {
     protected $extension;
     protected $method;
 
-    public function __construct(Twig_SupTwg_ExtensionInterface $extension, $method, array $options = array())
+    public function __construct(Twig_SupTwgDtgs_ExtensionInterface $extension, $method, array $options = array())
     {
         $options['callable'] = array($extension, $method);
 

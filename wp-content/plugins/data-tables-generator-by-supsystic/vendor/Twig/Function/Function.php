@@ -10,18 +10,18 @@
  * file that was distributed with this source code.
  */
 
-@trigger_error('The Twig_SupTwg_Function_Function class is deprecated since version 1.12 and will be removed in 2.0. Use Twig_SupTwg_SimpleFunction instead.', E_USER_DEPRECATED);
+//@trigger_error('The Twig_SupTwgDtgs_Function_Function class is deprecated since version 1.12 and will be removed in 2.0. Use Twig_SupTwgDtgs_SimpleFunction instead.', E_USER_DEPRECATED);
 
 /**
  * Represents a function template function.
  *
- * Use Twig_SupTwg_SimpleFunction instead.
+ * Use Twig_SupTwgDtgs_SimpleFunction instead.
  *
  * @author Arnaud Le Blanc <arnaud.lb@gmail.com>
  *
  * @deprecated since 1.12 (to be removed in 2.0)
  */
-class Twig_SupTwg_Function_Function extends Twig_SupTwg_Function
+class Twig_SupTwgDtgs_Function_Function extends Twig_SupTwgDtgs_Function
 {
     protected $function;
 

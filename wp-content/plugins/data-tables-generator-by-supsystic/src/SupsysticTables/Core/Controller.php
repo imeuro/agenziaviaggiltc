@@ -2,7 +2,7 @@
 
 class SupsysticTables_Core_Controller extends SupsysticTables_Core_BaseController
 {
-    public function rollbackAction(Rsc_Http_Request $request)
+    public function rollbackAction(RscDtgs_Http_Request $request)
     {
         $config = $this->getEnvironment()->getConfig();
         $revision = (int)$request->query->get('revision');

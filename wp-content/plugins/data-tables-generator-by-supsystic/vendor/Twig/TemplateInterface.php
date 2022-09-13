@@ -16,7 +16,7 @@
  *
  * @deprecated since 1.12 (to be removed in 3.0)
  */
-interface Twig_SupTwg_TemplateInterface
+interface Twig_SupTwgDtgs_TemplateInterface
 {
     const ANY_CALL = 'any';
     const ARRAY_CALL = 'array';
@@ -42,7 +42,7 @@ interface Twig_SupTwg_TemplateInterface
     /**
      * Returns the bound environment for this template.
      *
-     * @return Twig_SupTwg_Environment
+     * @return Twig_SupTwgDtgs_Environment
      */
     public function getEnvironment();
 }

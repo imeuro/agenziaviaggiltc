@@ -14,7 +14,7 @@
  *
  * @author Kit Burton-Senior <mail@kitbs.com>
  */
-class Twig_SupTwg_Sandbox_SecurityNotAllowedMethodError extends Twig_SupTwg_Sandbox_SecurityError
+class Twig_SupTwgDtgs_Sandbox_SecurityNotAllowedMethodError extends Twig_SupTwgDtgs_Sandbox_SecurityError
 {
     private $className;
     private $methodName;

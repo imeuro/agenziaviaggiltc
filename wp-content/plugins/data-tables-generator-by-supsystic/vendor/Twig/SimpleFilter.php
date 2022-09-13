@@ -16,7 +16,7 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_SimpleFilter
+class Twig_SupTwgDtgs_SimpleFilter
 {
     protected $name;
     protected $callable;
@@ -35,7 +35,7 @@ class Twig_SupTwg_SimpleFilter
             'is_safe_callback' => null,
             'pre_escape' => null,
             'preserves_safety' => null,
-            'node_class' => 'Twig_SupTwg_Node_Expression_Filter',
+            'node_class' => 'Twig_SupTwgDtgs_Node_Expression_Filter',
             'deprecated' => false,
             'alternative' => null,
         ), $options);
@@ -76,7 +76,7 @@ class Twig_SupTwg_SimpleFilter
         return $this->options['needs_context'];
     }
 
-    public function getSafe(Twig_SupTwg_Node $filterArgs)
+    public function getSafe(Twig_SupTwgDtgs_Node $filterArgs)
     {
         if (null !== $this->options['is_safe']) {
             return $this->options['is_safe'];

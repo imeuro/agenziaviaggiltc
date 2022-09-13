@@ -16,13 +16,13 @@
  * if a template cannot be loaded, there is nothing to guess.
  * However, when a template is loaded from another one, then, we need
  * to find the current context and this is automatically done by
- * Twig_SupTwg_Template::displayWithErrorHandling().
+ * Twig_SupTwgDtgs_Template::displayWithErrorHandling().
  *
- * This strategy makes Twig_SupTwg_Environment::resolveTemplate() much faster.
+ * This strategy makes Twig_SupTwgDtgs_Environment::resolveTemplate() much faster.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Error_Loader extends Twig_SupTwg_Error
+class Twig_SupTwgDtgs_Error_Loader extends Twig_SupTwgDtgs_Error
 {
     public function __construct($message, $lineno = -1, $source = null, Exception $previous = null)
     {

@@ -17,7 +17,7 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_TokenStream
+class Twig_SupTwgDtgs_TokenStream
 {
     protected $tokens;
     protected $current = 0;
@@ -32,11 +32,11 @@ class Twig_SupTwg_TokenStream
      */
     public function __construct(array $tokens, $name = null, $source = null)
     {
-        if (!$name instanceof Twig_SupTwg_Source) {
+        if (!$name instanceof Twig_SupTwgDtgs_Source) {
             if (null !== $name || null !== $source) {
-                @trigger_error(sprintf('Passing a string as the $name argument of %s() is deprecated since version 1.27. Pass a Twig_SupTwg_Source instance instead.', __METHOD__), E_USER_DEPRECATED);
+                //@trigger_error(sprintf('Passing a string as the $name argument of %s() is deprecated since version 1.27. Pass a Twig_SupTwgDtgs_Source instance instead.', __METHOD__), E_USER_DEPRECATED);
             }
-            $this->source = new Twig_SupTwg_Source($source, $name);
+            $this->source = new Twig_SupTwgDtgs_Source($source, $name);
         } else {
             $this->source = $name;
         }
@@ -60,12 +60,12 @@ class Twig_SupTwg_TokenStream
     /**
      * Sets the pointer to the next token and returns the old one.
      *
-     * @return Twig_SupTwg_Token
+     * @return Twig_SupTwgDtgs_Token
      */
     public function next()
     {
         if (!isset($this->tokens[++$this->current])) {
-            throw new Twig_SupTwg_Error_Syntax('Unexpected end of template.', $this->tokens[$this->current - 1]->getLine(), $this->source);
+            throw new Twig_SupTwgDtgs_Error_Syntax('Unexpected end of template.', $this->tokens[$this->current - 1]->getLine(), $this->source);
         }
 
         return $this->tokens[$this->current - 1];
@@ -74,7 +74,7 @@ class Twig_SupTwg_TokenStream
     /**
      * Tests a token, sets the pointer to the next one and returns it or throws a syntax error.
      *
-     * @return Twig_SupTwg_Token|null The next token if the condition is true, null otherwise
+     * @return Twig_SupTwgDtgs_Token|null The next token if the condition is true, null otherwise
      */
     public function nextIf($primary, $secondary = null)
     {
@@ -86,17 +86,17 @@ class Twig_SupTwg_TokenStream
     /**
      * Tests a token and returns it or throws a syntax error.
      *
-     * @return Twig_SupTwg_Token
+     * @return Twig_SupTwgDtgs_Token
      */
     public function expect($type, $value = null, $message = null)
     {
         $token = $this->tokens[$this->current];
         if (!$token->test($type, $value)) {
             $line = $token->getLine();
-            throw new Twig_SupTwg_Error_Syntax(sprintf('%sUnexpected token "%s" of value "%s" ("%s" expected%s).',
+            throw new Twig_SupTwgDtgs_Error_Syntax(sprintf('%sUnexpected token "%s" of value "%s" ("%s" expected%s).',
                 $message ? $message.'. ' : '',
-                Twig_SupTwg_Token::typeToEnglish($token->getType()), $token->getValue(),
-                Twig_SupTwg_Token::typeToEnglish($type), $value ? sprintf(' with value "%s"', $value) : ''),
+                Twig_SupTwgDtgs_Token::typeToEnglish($token->getType()), $token->getValue(),
+                Twig_SupTwgDtgs_Token::typeToEnglish($type), $value ? sprintf(' with value "%s"', $value) : ''),
                 $line,
                 $this->source
             );
@@ -111,12 +111,12 @@ class Twig_SupTwg_TokenStream
      *
      * @param int $number
      *
-     * @return Twig_SupTwg_Token
+     * @return Twig_SupTwgDtgs_Token
      */
     public function look($number = 1)
     {
         if (!isset($this->tokens[$this->current + $number])) {
-            throw new Twig_SupTwg_Error_Syntax('Unexpected end of template.', $this->tokens[$this->current + $number - 1]->getLine(), $this->source);
+            throw new Twig_SupTwgDtgs_Error_Syntax('Unexpected end of template.', $this->tokens[$this->current + $number - 1]->getLine(), $this->source);
         }
 
         return $this->tokens[$this->current + $number];
@@ -139,11 +139,11 @@ class Twig_SupTwg_TokenStream
      */
     public function isEOF()
     {
-        return $this->tokens[$this->current]->getType() === Twig_SupTwg_Token::EOF_TYPE;
+        return $this->tokens[$this->current]->getType() === Twig_SupTwgDtgs_Token::EOF_TYPE;
     }
 
     /**
-     * @return Twig_SupTwg_Token
+     * @return Twig_SupTwgDtgs_Token
      */
     public function getCurrent()
     {
@@ -159,7 +159,7 @@ class Twig_SupTwg_TokenStream
      */
     public function getFilename()
     {
-        @trigger_error(sprintf('The %s() method is deprecated since version 1.27 and will be removed in 2.0. Use getSourceContext() instead.', __METHOD__), E_USER_DEPRECATED);
+        //@trigger_error(sprintf('The %s() method is deprecated since version 1.27 and will be removed in 2.0. Use getSourceContext() instead.', __METHOD__), E_USER_DEPRECATED);
 
         return $this->source->getName();
     }
@@ -175,7 +175,7 @@ class Twig_SupTwg_TokenStream
      */
     public function getSource()
     {
-        @trigger_error(sprintf('The %s() method is deprecated since version 1.27 and will be removed in 2.0. Use getSourceContext() instead.', __METHOD__), E_USER_DEPRECATED);
+        //@trigger_error(sprintf('The %s() method is deprecated since version 1.27 and will be removed in 2.0. Use getSourceContext() instead.', __METHOD__), E_USER_DEPRECATED);
 
         return $this->source->getCode();
     }
@@ -183,7 +183,7 @@ class Twig_SupTwg_TokenStream
     /**
      * Gets the source associated with this stream.
      *
-     * @return Twig_SupTwg_Source
+     * @return Twig_SupTwgDtgs_Source
      *
      * @internal
      */

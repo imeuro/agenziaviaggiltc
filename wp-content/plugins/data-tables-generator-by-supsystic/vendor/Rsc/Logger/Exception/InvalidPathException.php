@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Class Rsc_Logger_Exception_InvalidPathException
+ * Class RscDtgs_Logger_Exception_InvalidPathException
  */
-class Rsc_Logger_Exception_InvalidPathException extends RuntimeException
+class RscDtgs_Logger_Exception_InvalidPathException extends RuntimeException
 {
 
 } 

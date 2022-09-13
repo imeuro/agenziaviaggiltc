@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Class Rsc_Feedback_SupportMailer
+ * Class RscDtgs_Feedback_SupportMailer
  * @package Rsc\Feedback
  */
-class Rsc_Feedback_SupportMailer
+class RscDtgs_Feedback_SupportMailer
 {
     /**
-     * @var Rsc_Feedback_Mailer
+     * @var RscDtgs_Feedback_Mailer
      */
     private $mailer;
 
@@ -19,14 +19,14 @@ class Rsc_Feedback_SupportMailer
     /**
      * Constructor
      *
-     * @param Rsc_Feedback_Mailer $mailer
+     * @param RscDtgs_Feedback_Mailer $mailer
      * @param string $subject
      * @param string $message
      * @param array $parameters
      */
-    public function __construct(Rsc_Feedback_Mailer $mailer = null, $subject = '', $message = '', array $parameters = array())
+    public function __construct(RscDtgs_Feedback_Mailer $mailer = null, $subject = '', $message = '', array $parameters = array())
     {
-        $this->mailer = (is_null($mailer) ? new Rsc_Feedback_Mailer() : $mailer);
+        $this->mailer = (is_null($mailer) ? new RscDtgs_Feedback_Mailer() : $mailer);
 
         $this->mailer->setSubject($subject);
         $this->mailer->setMessage($message);
@@ -38,7 +38,7 @@ class Rsc_Feedback_SupportMailer
      * Sets the message
      *
      * @param string $message
-     * @return Rsc_Feedback_SupportMailer
+     * @return RscDtgs_Feedback_SupportMailer
      */
     public function setMessage($message)
     {
@@ -51,7 +51,7 @@ class Rsc_Feedback_SupportMailer
      * Sets the subject
      *
      * @param string $subject
-     * @return Rsc_Feedback_SupportMailer
+     * @return RscDtgs_Feedback_SupportMailer
      */
     public function setSubject($subject)
     {
@@ -64,7 +64,7 @@ class Rsc_Feedback_SupportMailer
      * Sets the parameters
      *
      * @param array $parameters
-     * @return Rsc_Feedback_SupportMailer
+     * @return RscDtgs_Feedback_SupportMailer
      */
     public function setParameters(array $parameters)
     {

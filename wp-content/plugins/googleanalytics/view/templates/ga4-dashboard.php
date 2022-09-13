@@ -303,6 +303,31 @@ $x = 1;
 	} );
 </script>
 <div class="dashboard-title">GA4 Dashboard</div>
+
+<?php
+if (true === empty($page_list_count_data)) :
+    echo wp_kses(
+        Ga_Helper::ga_wp_notice(
+            __( 'You don\'t appear to have enough page view data. Please come back at a later date once you do.' ),
+            'warning',
+            false,
+            array(
+
+            )
+        ),
+        array(
+            'button' => array(
+                'class'   => array(),
+                'onclick' => array(),
+            ),
+            'div'    => array(
+                'class' => array(),
+            ),
+            'p'      => array(),
+        )
+    );
+else :
+    ?>
 <div id="page_session_chart_div"></div>
 
 <?php require plugin_dir_path( __FILE__ ) . 'ga4-demographic-chart.php'; ?>
@@ -375,4 +400,5 @@ $x = 1;
 		</div>
 	</div>
 </div>
+<?php endif; ?>
 <div id="user_chart_div"></div>

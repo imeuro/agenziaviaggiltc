@@ -10,25 +10,25 @@
  */
 
 /**
- * Twig_SupTwg_BaseNodeVisitor can be used to make node visitors compatible with Twig 1.x and 2.x.
+ * Twig_SupTwgDtgs_BaseNodeVisitor can be used to make node visitors compatible with Twig 1.x and 2.x.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-abstract class Twig_SupTwg_BaseNodeVisitor implements Twig_SupTwg_NodeVisitorInterface
+abstract class Twig_SupTwgDtgs_BaseNodeVisitor implements Twig_SupTwgDtgs_NodeVisitorInterface
 {
-    final public function enterNode(Twig_SupTwg_NodeInterface $node, Twig_SupTwg_Environment $env)
+    final public function enterNode(Twig_SupTwgDtgs_NodeInterface $node, Twig_SupTwgDtgs_Environment $env)
     {
-        if (!$node instanceof Twig_SupTwg_Node) {
-            throw new LogicException('Twig_SupTwg_BaseNodeVisitor only supports Twig_SupTwg_Node instances.');
+        if (!$node instanceof Twig_SupTwgDtgs_Node) {
+            throw new LogicException('Twig_SupTwgDtgs_BaseNodeVisitor only supports Twig_SupTwgDtgs_Node instances.');
         }
 
         return $this->doEnterNode($node, $env);
     }
 
-    final public function leaveNode(Twig_SupTwg_NodeInterface $node, Twig_SupTwg_Environment $env)
+    final public function leaveNode(Twig_SupTwgDtgs_NodeInterface $node, Twig_SupTwgDtgs_Environment $env)
     {
-        if (!$node instanceof Twig_SupTwg_Node) {
-            throw new LogicException('Twig_SupTwg_BaseNodeVisitor only supports Twig_SupTwg_Node instances.');
+        if (!$node instanceof Twig_SupTwgDtgs_Node) {
+            throw new LogicException('Twig_SupTwgDtgs_BaseNodeVisitor only supports Twig_SupTwgDtgs_Node instances.');
         }
 
         return $this->doLeaveNode($node, $env);
@@ -37,14 +37,14 @@ abstract class Twig_SupTwg_BaseNodeVisitor implements Twig_SupTwg_NodeVisitorInt
     /**
      * Called before child nodes are visited.
      *
-     * @return Twig_SupTwg_Node The modified node
+     * @return Twig_SupTwgDtgs_Node The modified node
      */
-    abstract protected function doEnterNode(Twig_SupTwg_Node $node, Twig_SupTwg_Environment $env);
+    abstract protected function doEnterNode(Twig_SupTwgDtgs_Node $node, Twig_SupTwgDtgs_Environment $env);
 
     /**
      * Called after child nodes are visited.
      *
-     * @return Twig_SupTwg_Node|false The modified node or false if the node must be removed
+     * @return Twig_SupTwgDtgs_Node|false The modified node or false if the node must be removed
      */
-    abstract protected function doLeaveNode(Twig_SupTwg_Node $node, Twig_SupTwg_Environment $env);
+    abstract protected function doLeaveNode(Twig_SupTwgDtgs_Node $node, Twig_SupTwgDtgs_Environment $env);
 }

@@ -1,7 +1,7 @@
 <?php
 
 
-interface Rsc_Form_Rule_Interface
+interface RscDtgs_Form_Rule_Interface
 {
     /**
      * Constructor

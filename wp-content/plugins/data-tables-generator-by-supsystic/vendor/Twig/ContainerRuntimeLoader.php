@@ -19,7 +19,7 @@ use Psr\Container\ContainerInterface;
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Robin Chalas <robin.chalas@gmail.com>
  */
-class Twig_SupTwg_ContainerRuntimeLoader implements Twig_SupTwg_RuntimeLoaderInterface
+class Twig_SupTwgDtgs_ContainerRuntimeLoader implements Twig_SupTwgDtgs_RuntimeLoaderInterface
 {
     private $container;
 

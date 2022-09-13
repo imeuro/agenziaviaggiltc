@@ -14,7 +14,7 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-interface Twig_SupTwg_LoaderInterface
+interface Twig_SupTwgDtgs_LoaderInterface
 {
     /**
      * Gets the source code of a template, given its name.
@@ -23,9 +23,9 @@ interface Twig_SupTwg_LoaderInterface
      *
      * @return string The template source code
      *
-     * @throws Twig_SupTwg_Error_Loader When $name is not found
+     * @throws Twig_SupTwgDtgs_Error_Loader When $name is not found
      *
-     * @deprecated since 1.27 (to be removed in 2.0), implement Twig_SupTwg_SourceContextLoaderInterface
+     * @deprecated since 1.27 (to be removed in 2.0), implement Twig_SupTwgDtgs_SourceContextLoaderInterface
      */
     public function getSource($name);
 
@@ -36,7 +36,7 @@ interface Twig_SupTwg_LoaderInterface
      *
      * @return string The cache key
      *
-     * @throws Twig_SupTwg_Error_Loader When $name is not found
+     * @throws Twig_SupTwgDtgs_Error_Loader When $name is not found
      */
     public function getCacheKey($name);
 
@@ -49,7 +49,7 @@ interface Twig_SupTwg_LoaderInterface
      *
      * @return bool true if the template is fresh, false otherwise
      *
-     * @throws Twig_SupTwg_Error_Loader When $name is not found
+     * @throws Twig_SupTwgDtgs_Error_Loader When $name is not found
      */
     public function isFresh($name, $time);
 }

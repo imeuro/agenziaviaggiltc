@@ -15,7 +15,7 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Compiler implements Twig_SupTwg_CompilerInterface
+class Twig_SupTwgDtgs_Compiler implements Twig_SupTwgDtgs_CompilerInterface
 {
     protected $lastLine;
     protected $source;
@@ -26,7 +26,7 @@ class Twig_SupTwg_Compiler implements Twig_SupTwg_CompilerInterface
     protected $sourceLine;
     protected $filename;
 
-    public function __construct(Twig_SupTwg_Environment $env)
+    public function __construct(Twig_SupTwgDtgs_Environment $env)
     {
         $this->env = $env;
     }
@@ -36,7 +36,7 @@ class Twig_SupTwg_Compiler implements Twig_SupTwg_CompilerInterface
      */
     public function getFilename()
     {
-        @trigger_error(sprintf('The %s() method is deprecated since version 1.25 and will be removed in 2.0.', __FUNCTION__), E_USER_DEPRECATED);
+        //@trigger_error(sprintf('The %s() method is deprecated since version 1.25 and will be removed in 2.0.', __FUNCTION__), E_USER_DEPRECATED);
 
         return $this->filename;
     }
@@ -44,7 +44,7 @@ class Twig_SupTwg_Compiler implements Twig_SupTwg_CompilerInterface
     /**
      * Returns the environment instance related to this compiler.
      *
-     * @return Twig_SupTwg_Environment
+     * @return Twig_SupTwgDtgs_Environment
      */
     public function getEnvironment()
     {
@@ -64,12 +64,12 @@ class Twig_SupTwg_Compiler implements Twig_SupTwg_CompilerInterface
     /**
      * Compiles a node.
      *
-     * @param Twig_SupTwg_NodeInterface $node        The node to compile
+     * @param Twig_SupTwgDtgs_NodeInterface $node        The node to compile
      * @param int                $indentation The current indentation
      *
      * @return $this
      */
-    public function compile(Twig_SupTwg_NodeInterface $node, $indentation = 0)
+    public function compile(Twig_SupTwgDtgs_NodeInterface $node, $indentation = 0)
     {
         $this->lastLine = null;
         $this->source = '';
@@ -79,7 +79,7 @@ class Twig_SupTwg_Compiler implements Twig_SupTwg_CompilerInterface
         $this->sourceLine = 1;
         $this->indentation = $indentation;
 
-        if ($node instanceof Twig_SupTwg_Node_Module) {
+        if ($node instanceof Twig_SupTwgDtgs_Node_Module) {
             // to be removed in 2.0
             $this->filename = $node->getTemplateName();
         }
@@ -89,7 +89,7 @@ class Twig_SupTwg_Compiler implements Twig_SupTwg_CompilerInterface
         return $this;
     }
 
-    public function subcompile(Twig_SupTwg_NodeInterface $node, $raw = true)
+    public function subcompile(Twig_SupTwgDtgs_NodeInterface $node, $raw = true)
     {
         if (false === $raw) {
             $this->source .= str_repeat(' ', $this->indentation * 4);
@@ -138,7 +138,7 @@ class Twig_SupTwg_Compiler implements Twig_SupTwg_CompilerInterface
      */
     public function addIndentation()
     {
-        @trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use write(\'\') instead.', E_USER_DEPRECATED);
+        //@trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use write(\'\') instead.', E_USER_DEPRECATED);
 
         $this->source .= str_repeat(' ', $this->indentation * 4);
 
@@ -207,7 +207,7 @@ class Twig_SupTwg_Compiler implements Twig_SupTwg_CompilerInterface
      *
      * @return $this
      */
-    public function addDebugInfo(Twig_SupTwg_NodeInterface $node)
+    public function addDebugInfo(Twig_SupTwgDtgs_NodeInterface $node)
     {
         if ($node->getTemplateLine() != $this->lastLine) {
             $this->write(sprintf("// line %d\n", $node->getTemplateLine()));
@@ -216,7 +216,7 @@ class Twig_SupTwg_Compiler implements Twig_SupTwg_CompilerInterface
             // mb_substr_count() replaces substr_count()
             // but they have different signatures!
             if (((int) ini_get('mbstring.func_overload')) & 2) {
-                @trigger_error('Support for having "mbstring.func_overload" different from 0 is deprecated version 1.29 and will be removed in 2.0.', E_USER_DEPRECATED);
+                //@trigger_error('Support for having "mbstring.func_overload" different from 0 is deprecated version 1.29 and will be removed in 2.0.', E_USER_DEPRECATED);
 
                 // this is much slower than the "right" version
                 $this->sourceLine += mb_substr_count(mb_substr($this->source, $this->sourceOffset), "\n");

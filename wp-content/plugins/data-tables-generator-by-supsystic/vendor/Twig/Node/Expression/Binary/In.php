@@ -8,12 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-class Twig_SupTwg_Node_Expression_Binary_In extends Twig_SupTwg_Node_Expression_Binary
+class Twig_SupTwgDtgs_Node_Expression_Binary_In extends Twig_SupTwgDtgs_Node_Expression_Binary
 {
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
-            ->raw('Twig_SupTwg_in_filter(')
+            ->raw('Twig_SupTwgDtgs_in_filter(')
             ->subcompile($this->getNode('left'))
             ->raw(', ')
             ->subcompile($this->getNode('right'))
@@ -21,7 +21,7 @@ class Twig_SupTwg_Node_Expression_Binary_In extends Twig_SupTwg_Node_Expression_
         ;
     }
 
-    public function operator(Twig_SupTwg_Compiler $compiler)
+    public function operator(Twig_SupTwgDtgs_Compiler $compiler)
     {
         return $compiler->raw('in');
     }

@@ -129,7 +129,7 @@ class AIOWPSecurity_User_Registration_Menu extends AIOWPSecurity_Admin_Menu
         //Display security info badge
         $aiowps_feature_mgr->output_feature_details_badge("manually-approve-registrations");
         $blog_id = get_current_blog_id(); 
-        if (AIOWPSecurity_Utility::is_multisite_install() && !is_main_site( $blog_id ))
+        if (is_multisite() && !is_main_site( $blog_id ))
         {
            //Hide config settings if MS and not main site
            AIOWPSecurity_Utility::display_multisite_message();
@@ -141,8 +141,8 @@ class AIOWPSecurity_User_Registration_Menu extends AIOWPSecurity_Admin_Menu
             <tr valign="top">
                 <th scope="row"><?php _e('Enable manual approval of new registrations', 'all-in-one-wp-security-and-firewall')?>:</th>
                 <td>
-                <input name="aiowps_enable_manual_registration_approval" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_enable_manual_registration_approval')=='1') echo ' checked="checked"'; ?> value="1"/>
-                <span class="description"><?php _e('Check this if you want to automatically disable all newly registered accounts so that you can approve them manually.', 'all-in-one-wp-security-and-firewall'); ?></span>
+                <input id="aiowps_enable_manual_registration_approval" name="aiowps_enable_manual_registration_approval" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_enable_manual_registration_approval')=='1') echo ' checked="checked"'; ?> value="1"/>
+                <label for="aiowps_enable_manual_registration_approval" class="description"><?php _e('Check this if you want to automatically disable all newly registered accounts so that you can approve them manually.', 'all-in-one-wp-security-and-firewall'); ?></label>
                 </td>
             </tr>            
         </table>
@@ -213,7 +213,7 @@ class AIOWPSecurity_User_Registration_Menu extends AIOWPSecurity_Admin_Menu
         <h3 class="hndle"><label for="title"><?php _e('Registration Page Captcha Settings', 'all-in-one-wp-security-and-firewall'); ?></label></h3>
         <div class="inside">
         <?php
-        if (AIOWPSecurity_Utility::is_multisite_install() && get_current_blog_id() != 1)
+        if (is_multisite() && get_current_blog_id() != 1)
         {
             //Hide config settings if MS and not main site
             $special_msg = '<div class="aio_yellow_box">';
@@ -235,8 +235,8 @@ class AIOWPSecurity_User_Registration_Menu extends AIOWPSecurity_Admin_Menu
                 <tr valign="top">
                     <th scope="row"><?php _e('Enable Captcha On Registration Page', 'all-in-one-wp-security-and-firewall')?>:</th>
                     <td>
-                    <input name="aiowps_enable_registration_page_captcha" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_enable_registration_page_captcha')=='1') echo ' checked="checked"'; ?> value="1"/>
-                    <span class="description"><?php _e('Check this if you want to insert a captcha form on the WordPress user registration page (if you allow user registration).', 'all-in-one-wp-security-and-firewall'); ?></span>
+                    <input id="aiowps_enable_registration_page_captcha" name="aiowps_enable_registration_page_captcha" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_enable_registration_page_captcha')=='1') echo ' checked="checked"'; ?> value="1"/>
+                    <label for="aiowps_enable_registration_page_captcha" class="description"><?php _e('Check this if you want to insert a captcha form on the WordPress user registration page (if you allow user registration).', 'all-in-one-wp-security-and-firewall'); ?></label>
                     </td>
                 </tr>            
             </table>
@@ -296,8 +296,8 @@ class AIOWPSecurity_User_Registration_Menu extends AIOWPSecurity_Admin_Menu
             <tr valign="top">
                 <th scope="row"><?php _e('Enable Honeypot On Registration Page', 'all-in-one-wp-security-and-firewall')?>:</th>
                 <td>
-                <input name="aiowps_enable_registration_honeypot" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_enable_registration_honeypot')=='1') echo ' checked="checked"'; ?> value="1"/>
-                <span class="description"><?php _e('Check this if you want to enable the honeypot feature for the registration page', 'all-in-one-wp-security-and-firewall'); ?></span>
+                <input id="aiowps_enable_registration_honeypot" name="aiowps_enable_registration_honeypot" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_enable_registration_honeypot')=='1') echo ' checked="checked"'; ?> value="1"/>
+                <label for="aiowps_enable_registration_honeypot" class="description"><?php _e('Check this if you want to enable the honeypot feature for the registration page', 'all-in-one-wp-security-and-firewall'); ?></label>
                 </td>
             </tr>            
         </table>

@@ -4,7 +4,7 @@
 */
 class SupsysticTables_Promo_Controller extends SupsysticTables_Core_BaseController
 {
-    public function indexAction(Rsc_Http_Request $request)
+    public function indexAction(RscDtgs_Http_Request $request)
     {
 		$environment = $this->getEnvironment();
 
@@ -37,10 +37,10 @@ class SupsysticTables_Promo_Controller extends SupsysticTables_Core_BaseControll
 
 	/**
      * Just let us know. Love is Sharing
-     * @param Rsc_Http_Request $request
-     * @return Rsc_Http_Response
+     * @param RscDtgs_Http_Request $request
+     * @return RscDtgs_Http_Response
      */
-    public function saveDeactivateDataAction(Rsc_Http_Request $request)
+    public function saveDeactivateDataAction(RscDtgs_Http_Request $request)
     {
 		$this->getModel('promo')->saveDeactivateData(array(
 			'deactivate_reason' => $request->query->get('deactivate_reason'),

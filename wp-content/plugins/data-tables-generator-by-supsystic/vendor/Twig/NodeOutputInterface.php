@@ -14,6 +14,6 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-interface Twig_SupTwg_NodeOutputInterface
+interface Twig_SupTwgDtgs_NodeOutputInterface
 {
 }

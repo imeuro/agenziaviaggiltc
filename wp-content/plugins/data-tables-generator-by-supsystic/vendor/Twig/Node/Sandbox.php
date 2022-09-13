@@ -14,18 +14,18 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Node_Sandbox extends Twig_SupTwg_Node
+class Twig_SupTwgDtgs_Node_Sandbox extends Twig_SupTwgDtgs_Node
 {
-    public function __construct(Twig_SupTwg_NodeInterface $body, $lineno, $tag = null)
+    public function __construct(Twig_SupTwgDtgs_NodeInterface $body, $lineno, $tag = null)
     {
         parent::__construct(array('body' => $body), array(), $lineno, $tag);
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
             ->addDebugInfo($this)
-            ->write("\$sandbox = \$this->env->getExtension('Twig_SupTwg_Extension_Sandbox');\n")
+            ->write("\$sandbox = \$this->env->getExtension('Twig_SupTwgDtgs_Extension_Sandbox');\n")
             ->write("if (!\$alreadySandboxed = \$sandbox->isSandboxed()) {\n")
             ->indent()
             ->write("\$sandbox->enableSandbox();\n")

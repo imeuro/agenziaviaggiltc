@@ -14,22 +14,22 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Node_Macro extends Twig_SupTwg_Node
+class Twig_SupTwgDtgs_Node_Macro extends Twig_SupTwgDtgs_Node
 {
     const VARARGS_NAME = 'varargs';
 
-    public function __construct($name, Twig_SupTwg_NodeInterface $body, Twig_SupTwg_NodeInterface $arguments, $lineno, $tag = null)
+    public function __construct($name, Twig_SupTwgDtgs_NodeInterface $body, Twig_SupTwgDtgs_NodeInterface $arguments, $lineno, $tag = null)
     {
         foreach ($arguments as $argumentName => $argument) {
             if (self::VARARGS_NAME === $argumentName) {
-                throw new Twig_SupTwg_Error_Syntax(sprintf('The argument "%s" in macro "%s" cannot be defined because the variable "%s" is reserved for arbitrary arguments.', self::VARARGS_NAME, $name, self::VARARGS_NAME), $argument->getTemplateLine());
+                throw new Twig_SupTwgDtgs_Error_Syntax(sprintf('The argument "%s" in macro "%s" cannot be defined because the variable "%s" is reserved for arbitrary arguments.', self::VARARGS_NAME, $name, self::VARARGS_NAME), $argument->getTemplateLine());
             }
         }
 
         parent::__construct(array('body' => $body, 'arguments' => $arguments), array('name' => $name), $lineno, $tag);
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
             ->addDebugInfo($this)
@@ -115,7 +115,7 @@ class Twig_SupTwg_Node_Macro extends Twig_SupTwg_Node
             ->write("throw \$e;\n")
             ->outdent()
             ->write("}\n\n")
-            ->write("return ('' === \$tmp = ob_get_clean()) ? '' : new Twig_SupTwg_Markup(\$tmp, \$this->env->getCharset());\n")
+            ->write("return ('' === \$tmp = ob_get_clean()) ? '' : new Twig_SupTwgDtgs_Markup(\$tmp, \$this->env->getCharset());\n")
             ->outdent()
             ->write("}\n\n")
         ;

@@ -4,8 +4,30 @@ if (!defined('ABSPATH')) {
 }
 
 class AIOWPSecurity_Utility {
+
+	/**
+	 * Returned when we can't detect the user's server software
+	 *
+	 * @var int
+	 */
+	const UNSUPPORTED_SERVER_TYPE = -1;
+
+	/**
+	 * Class constructor
+	 */
 	public function __construct() {
 		//NOP
+	}
+
+	/**
+	 * Check whether the current logged in user has the capability to manage the AIOWPS plugin
+	 *
+	 * @return Boolean True if the logged in user has capability to manage the AIOWPS plugin, otherwise false
+	 */
+	public static function has_manage_cap() {
+		// This filter will useful when the administrator would like to give permission to access AIOWPS to Security Analyst.
+		$cap = apply_filters('aiowps_management_capability', AIOWPSEC_MANAGEMENT_PERMISSION);
+		return current_user_can($cap);
 	}
 
 	/**
@@ -86,7 +108,7 @@ class AIOWPSecurity_Utility {
 		}
 
 		//If multisite
-		if (AIOWPSecurity_Utility::is_multisite_install()) {
+		if (is_multisite()) {
 			$blog_id = get_current_blog_id();
 			$admin_users = get_users('blog_id=' . $blog_id . '&orderby=login&role=administrator');
 			foreach ($admin_users as $user) {
@@ -203,15 +225,6 @@ class AIOWPSecurity_Utility {
 			return $_COOKIE[$cookie_name];
 		}
 		return "";
-	}
-
-	/**
-	 * Checks if installation is multisite
-	 *
-	 * @return type
-	 */
-	public static function is_multisite_install() {
-		return function_exists('is_multisite') && is_multisite();
 	}
 
 	/**
@@ -370,7 +383,7 @@ class AIOWPSecurity_Utility {
 			$referer_info = isset($_SERVER['HTTP_REFERER']) ? esc_attr($_SERVER['HTTP_REFERER']) : '';
 		}
 
-		$current_time = current_time('mysql');
+		$current_time = current_time('mysql', true);
 		$data = array(
 			'event_type' => $event_type,
 			'username' => $username,
@@ -401,7 +414,8 @@ class AIOWPSecurity_Utility {
 	public static function check_locked_ip($ip) {
 		global $wpdb;
 		$login_lockdown_table = AIOWPSEC_TBL_LOGIN_LOCKDOWN;
-		$locked_ip = $wpdb->get_row("SELECT * FROM $login_lockdown_table " . "WHERE release_date > now() AND " . "failed_login_ip = '" . esc_sql($ip) . "'", ARRAY_A);
+		$now = current_time('mysql', true);
+		$locked_ip = $wpdb->get_row($wpdb->prepare("SELECT * FROM $login_lockdown_table WHERE release_date > %s AND failed_login_ip = %s", $now, $ip), ARRAY_A);
 		if (null != $locked_ip) {
 			return true;
 		} else {
@@ -418,7 +432,7 @@ class AIOWPSecurity_Utility {
 	public static function get_locked_ips() {
 		global $wpdb;
 		$login_lockdown_table = AIOWPSEC_TBL_LOGIN_LOCKDOWN;
-		$now = current_time('mysql');
+		$now = current_time('mysql', true);
 	$locked_ips = $wpdb->get_results($wpdb->prepare("SELECT * FROM $login_lockdown_table WHERE release_date > %s", $now), ARRAY_A);
 		
 		if (empty($locked_ips)) {
@@ -430,18 +444,27 @@ class AIOWPSecurity_Utility {
 
 
 	/**
-	 * Locks an IP address - Adds an entry to the aiowps_lockdowns table
+	 * Locks an IP address - Adds an entry to the AIOWPSEC_TBL_LOGIN_LOCKDOWN table.
 	 *
-	 * @global type $wpdb
-	 * @global type $aio_wp_security
-	 * @param type $ip
-	 * @param type $lock_reason
-	 * @param type $username
+	 * @global wpdb            $wpdb
+	 * @global AIO_WP_Security $aio_wp_security
+	 *
+	 * @param String $ip
+	 * @param String $lock_reason
+	 * @param String $username
+	 *
+	 * @return Void
 	 */
-	public static function lock_IP($ip, $lock_reason = '', $username = '') {
+	public static function lock_IP($ip, $lock_reason, $username = '') {
 		global $wpdb, $aio_wp_security;
 		$login_lockdown_table = AIOWPSEC_TBL_LOGIN_LOCKDOWN;
-		$lockout_time_length = $aio_wp_security->configs->get_value('aiowps_lockout_time_length'); //TODO add a setting for this feature
+
+		if ('404' == $lock_reason) {
+			$lock_minutes = $aio_wp_security->configs->get_value('aiowps_404_lockout_time_length');
+		} else {
+			$lock_minutes = $aio_wp_security->user_login_obj->get_dynamic_lockout_time_length();
+		}
+
 		$username = sanitize_user($username);
 		$user = get_user_by('login', $username); //Returns WP_User object if exists
 
@@ -455,11 +478,15 @@ class AIOWPSecurity_Utility {
 			$user_id = $user->ID;
 		}
 
-		$ip_str = esc_sql($ip);
-		$insert = "INSERT INTO " . $login_lockdown_table . " (user_id, user_login, lockdown_date, release_date, failed_login_IP, lock_reason) " .
-			"VALUES ('" . $user_id . "', '" . $username . "', now(), date_add(now(), INTERVAL " .
-			$lockout_time_length . " MINUTE), '" . $ip_str . "', '" . $lock_reason . "')";
-		$result = $wpdb->query($insert);
+		$ip = esc_sql($ip);
+
+		$lock_time = current_time('mysql', true);
+		$release_time = date('Y-m-d H:i:s', time() + ($lock_minutes * MINUTE_IN_SECONDS));
+
+		$data = array('user_id' => $user_id, 'user_login' => $username, 'lockdown_date' => $lock_time, 'release_date' => $release_time, 'failed_login_IP' => $ip, 'lock_reason' => $lock_reason);
+		$format = array('%d', '%s', '%s', '%s', '%s', '%s');
+		$result = $wpdb->insert($login_lockdown_table, $data, $format);
+
 		if ($result > 0) {
 		} elseif (false === $result) {
 			$aio_wp_security->debug_logger->log_debug("lock_IP: Error inserting record into " . $login_lockdown_table, 4);//Log the highly unlikely event of DB error
@@ -475,7 +502,7 @@ class AIOWPSecurity_Utility {
 	 */
 	public static function get_blog_ids() {
 		global $wpdb;
-		if (AIOWPSecurity_Utility::is_multisite_install()) {
+		if (is_multisite()) {
 			global $wpdb;
 			$blog_ids = $wpdb->get_col("SELECT blog_id FROM " . $wpdb->prefix . "blogs");
 		} else {
@@ -484,31 +511,56 @@ class AIOWPSecurity_Utility {
 		return $blog_ids;
 	}
 
+	/**
+	 * Purges old records of table
+	 *
+	 * @global type $wpdb            WP Database object
+	 * @global type $aio_wp_security AIO WP Security object
+	 * @param type $table_name               Table name
+	 * @param type $purge_records_after_days Records after days to be deleted
+	 * @param type $date_field               Date field of table
+	 * @return void
+	 */
+	public static function purge_table_records($table_name, $purge_records_after_days, $date_field) {
+		global $wpdb, $aio_wp_security;
+
+		$older_than_date_time = date('Y-m-d H:m:s', strtotime('-' . $purge_records_after_days . ' days', current_time('timestamp', true)));
+		$sql = $wpdb->prepare('DELETE FROM ' . $table_name . ' WHERE '.$date_field.' < %s', $older_than_date_time);
+		$ret_deleted = $wpdb->query($sql);
+		if (false === $ret_deleted) {
+			$err_db = !empty($wpdb->last_error) ? ' ('.$wpdb->last_error.' - '.$wpdb->last_query.')' : '';
+			// Status level 4 indicates failure status.
+			$aio_wp_security->debug_logger->log_debug_cron('Purge records error - failed to purge older records for ' . $table_name . '.' . $err_db, 4);
+		} else {
+			$aio_wp_security->debug_logger->log_debug_cron(sprintf('Purge records - %d records were deleted for ' . $table_name . '.', $ret_deleted));
+		}
+	}
 
 	/**
 	 * This function will delete the oldest rows from a table which are over the max amount of rows specified
 	 *
-	 * @global type $wpdb
-	 * @global type $aio_wp_security
-	 * @param type $table_name
-	 * @param type $max_rows
+	 * @global type $wpdb            WP Database object
+	 * @global type $aio_wp_security AIO WP Security object
+	 * @param type $table_name Table name
+	 * @param type $max_rows   More than max to be deleted
+	 * @param type $id_field   Primary field of table
 	 * @return bool
 	 */
-	public static function cleanup_table($table_name, $max_rows = '10000') {
+	public static function cleanup_table($table_name, $max_rows = '10000', $id_field = 'id') {
 		global $wpdb, $aio_wp_security;
 
 		$num_rows = $wpdb->get_var("select count(*) from $table_name");
 		$result = true;
 		if ($num_rows > $max_rows) {
 			//if the table has more than max entries delete oldest rows
-
+			
 			$del_sql = "DELETE FROM $table_name
-						WHERE id <= (
-						  SELECT id
+						WHERE ".$id_field." <= (
+						  SELECT ".$id_field."
 						  FROM (
-							SELECT id
+							SELECT ".$id_field." 
 							FROM $table_name
-							ORDER BY id DESC
+							ORDER BY ".$id_field." DESC
 							LIMIT 1 OFFSET $max_rows
 						 ) foo_tmp
 						)";
@@ -529,26 +581,28 @@ class AIOWPSecurity_Utility {
 	 *
 	 * @global wpdb $wpdb
 	 */
-		public static function delete_expired_captcha_options() {
-			global $wpdb;
-			$current_unix_time = current_time('timestamp', true);
-			$previous_hour = $current_unix_time - 3600;
-			AIOWPSecurity_Utility::is_multisite_install() ? $tbl = $wpdb->sitemeta : $tbl = $wpdb->prefix . 'options';
-			$query = $wpdb->prepare("SELECT * FROM {$tbl} WHERE option_name LIKE 'aiowps_captcha_string_info_time_%' AND option_value < %s", $previous_hour);
-			$res = $wpdb->get_results($query, ARRAY_A);
-			if (!empty($res)) {
-				foreach ($res as $item) {
-					$option_name = $item['option_name'];
-					if (AIOWPSecurity_Utility::is_multisite_install()) {
-						delete_site_option($option_name);
-						delete_site_option(str_replace('time_', '', $option_name));
-					} else {
-						delete_option($option_name);
-						delete_option(str_replace('time_', '', $option_name));
-					}
+	public static function delete_expired_captcha_options() {
+		global $wpdb;
+		$current_unix_time = current_time('timestamp', true);
+		$previous_hour = $current_unix_time - 3600;
+		$tbl = is_multisite() ? $wpdb->sitemeta : $wpdb->prefix . 'options';
+		$key_name = is_multisite() ? 'meta_key' : 'option_name';
+		$key_val = is_multisite() ? 'meta_value' : 'option_value';
+		$query = $wpdb->prepare("SELECT * FROM {$tbl} WHERE {$key_name} LIKE 'aiowps_captcha_string_info_time_%' AND {$key_val} < %s", $previous_hour);
+		$res = $wpdb->get_results($query, ARRAY_A);
+		if (!empty($res)) {
+			foreach ($res as $item) {
+				$option_name = $item[$key_name];
+				if (is_multisite()) {
+					delete_site_option($option_name);
+					delete_site_option(str_replace('time_', '', $option_name));
+				} else {
+					delete_option($option_name);
+					delete_option(str_replace('time_', '', $option_name));
 				}
 			}
 		}
+	}
 
 	/**
 	 * Get server type.
@@ -592,6 +646,42 @@ class AIOWPSecurity_Utility {
 		}
 		return reset($keys); //Return the first element from the valid values
 	}
+
+	/**
+	 * Get textarea string from array or string.
+	 *
+	 * @param String|Array $vals value to render as textarea val
+	 * @return String value to render in textarea.
+	 */
+	public static function get_textarea_str_val($vals) {
+		if (empty($vals)) {
+			return '';
+		}
+
+		if (is_array($vals)) {
+			return implode("\n", array_filter(array_map('trim', $vals)));
+		}
+
+		return $vals;
+	}
+
+	/**
+	 * Get array from textarea val.
+	 *
+	 * @param String|Array $vals value from textarea val
+	 * @return Array value to from textarea value.
+	 */
+	public static function get_array_from_textarea_val($vals) {
+		if (empty($vals)) {
+			return array();
+		}
+
+		if (is_array($vals)) {
+			return $vals;
+		}
+
+		return array_filter(array_map('trim', explode("\n", $vals)));
+	}
 	
 	/**
 	 * Partially or fully masks a string using '*' to replace original characters
@@ -619,5 +709,74 @@ class AIOWPSecurity_Utility {
 		if ($chars_unmasked >= $str_length) return $str;
 		return preg_replace("/(.{".$chars_unmasked."}$)(*SKIP)(*F)|(.)/u", "*", $str);
 	}
+	
+	/**
+	 * Create a php backtrace log file for login lockdown email
+	 *
+	 * @param Array $logs
+	 * @global AIO_WP_Security $aio_wp_security
+	 * @return string
+	 */
+	public static function login_lockdown_email_backtrace_log_file($logs = array()) {
+		global $aio_wp_security;
+		$temp_dir = get_temp_dir();
+		$backtrace_filename = wp_unique_filename($temp_dir, 'log_backtrace_' . time() . '.txt');
+		$backtrace_filepath = $temp_dir.$backtrace_filename;
+		if (count($logs) > 0) {
+			$dbg = "";
+			foreach ($logs as $log) {
+				$dbg.= "############ BACKTRACE STARTS  ########\n";
+				$dbg.= $log['backtrace_log'];
+				$dbg.= "############ BACKTRACE ENDS  ########\n\n";
+			}
+		} else {
+			$dbg = debug_backtrace();
+		}
+		$is_log_file_written = file_put_contents($backtrace_filepath, print_r($dbg, true));
+		if ($is_log_file_written) {
+			return $backtrace_filepath;
+		} else {
+			$aio_wp_security->debug_logger->log_debug("Error in writing php backtrace file " . $backtrace_filepath . " to attach in email.", 4);
+			return '';
+		}
+	}
 
+	/**
+	 * Check whether the WooCommerce plugin is active.
+	 *
+	 * @return Boolean True if the WooCommerce plugin is active, otherwise false.
+	 */
+	public static function is_woocommerce_plugin_active() {
+		return class_exists('WooCommerce');
+	}
+
+	/**
+	 * Check whether incompatible TFA premium plugin version active.
+	 *
+	 * @return boolean True if the incompatible TFA premium plugin version active, otherwise false.
+	 */
+	public static function is_incopatible_tfa_premium_version_active() {
+		if (!function_exists('get_plugins')) {
+			require_once(ABSPATH.'/wp-admin/includes/plugin.php');
+		}
+		foreach (get_plugins() as $plugin_slug => $plugin_info) {
+			if (is_plugin_active($plugin_slug) && strpos($plugin_slug, '/') && is_dir(WP_PLUGIN_DIR.'/'.explode('/', $plugin_slug)[0].'/simba-tfa/premium') && version_compare($plugin_info['Version'], AIOS_TFA_PREMIUM_LATEST_INCOMPATIBLE_VERSION, '<=')) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Check whether TFA plugin activating.
+	 *
+	 * @return boolean True if the TFA plugin activating, otherwise false.
+	 */
+	public static function is_tfa_or_self_plugin_activating() {
+		// The $GLOBALS['pagenow'] doesn't set in the network admin plugins page and it throws the warning "Notice: Undefined index: pagenow in ..." so we can't use it.
+		// https://core.trac.wordpress.org/ticket/42656
+		return is_admin() &&
+			preg_match('#/wp-admin/plugins.php$#i', $_SERVER['PHP_SELF']) && isset($_GET['plugin']) && (preg_match("/\/two-factor-login.php/", $_GET['plugin']) || preg_match("/all-in-one-wp-security-and-firewall/", $_GET['plugin']));
+	}
 }

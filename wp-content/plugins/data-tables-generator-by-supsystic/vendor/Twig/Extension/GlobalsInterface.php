@@ -10,13 +10,13 @@
  */
 
 /**
- * Enables usage of the deprecated Twig_SupTwg_Extension::getGlobals() method.
+ * Enables usage of the deprecated Twig_SupTwgDtgs_Extension::getGlobals() method.
  *
  * Explicitly implement this interface if you really need to implement the
  * deprecated getGlobals() method in your extensions.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-interface Twig_SupTwg_Extension_GlobalsInterface
+interface Twig_SupTwgDtgs_Extension_GlobalsInterface
 {
 }

@@ -4,19 +4,19 @@
  * In-plugin event dispatcher.
  * Dispatchers plugin-specific events.
  */
-class Rsc_Dispatcher
+class RscDtgs_Dispatcher
 {
 
     /**
-     * @var Rsc_Environment;
+     * @var RscDtgs_Environment;
      */
     protected $environment;
 
     /**
      * Constructor.
-     * @param Rsc_Environment $environment Plugin environment.
+     * @param RscDtgs_Environment $environment Plugin environment.
      */
-    public function __construct(Rsc_Environment $environment)
+    public function __construct(RscDtgs_Environment $environment)
     {
         $this->environment = $environment;
     }
@@ -31,13 +31,13 @@ class Rsc_Dispatcher
      * @param int      $priority Used to specify the order in which the functions associated with a particular action are executed.
      * @param int      $args     The number of arguments the hooked function accepts.
      * @throws InvalidArgumentException
-     * @return Rsc_Dispatcher
+     * @return RscDtgs_Dispatcher
      */
     public function on($action, $function, $priority = 10, $args = 1)
     {
         if (!is_callable($function)) {
             throw new InvalidArgumentException(sprintf(
-                'Argument 2 passed to Rsc_Dispatcher::on() must be a callable, %s given.',
+                'Argument 2 passed to RscDtgs_Dispatcher::on() must be a callable, %s given.',
                 gettype($function)
             ));
         }
@@ -97,14 +97,14 @@ class Rsc_Dispatcher
 	 * @param type $function
 	 * @param type $priority
 	 * @param type $args
-	 * @return \Rsc_Dispatcher
+	 * @return \RscDtgs_Dispatcher
 	 * @throws InvalidArgumentException
 	 */
 	public function filter($action, $function, $priority = 10, $args = 1)
     {
         if (!is_callable($function)) {
             throw new InvalidArgumentException(sprintf(
-                'Argument 2 passed to Rsc_Dispatcher::filter() must be a callable, %s given.',
+                'Argument 2 passed to RscDtgs_Dispatcher::filter() must be a callable, %s given.',
                 gettype($function)
             ));
         }

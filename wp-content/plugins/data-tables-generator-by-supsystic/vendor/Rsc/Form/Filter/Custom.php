@@ -1,7 +1,7 @@
 <?php
 
 
-class Rsc_Form_Filter_Custom implements Rsc_Form_Filter_Interface
+class RscDtgs_Form_Filter_Custom implements RscDtgs_Form_Filter_Interface
 {
 
     public $function;

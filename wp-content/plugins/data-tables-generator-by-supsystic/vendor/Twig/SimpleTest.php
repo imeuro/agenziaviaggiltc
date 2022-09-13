@@ -16,7 +16,7 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_SimpleTest
+class Twig_SupTwgDtgs_SimpleTest
 {
     protected $name;
     protected $callable;
@@ -28,7 +28,7 @@ class Twig_SupTwg_SimpleTest
         $this->callable = $callable;
         $this->options = array_merge(array(
             'is_variadic' => false,
-            'node_class' => 'Twig_SupTwg_Node_Expression_Test',
+            'node_class' => 'Twig_SupTwgDtgs_Node_Expression_Test',
             'deprecated' => false,
             'alternative' => null,
         ), $options);

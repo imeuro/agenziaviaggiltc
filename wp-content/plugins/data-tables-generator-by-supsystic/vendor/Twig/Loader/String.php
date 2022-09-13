@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-@trigger_error('The Twig_SupTwg_Loader_String class is deprecated since version 1.18.1 and will be removed in 2.0. Use Twig_SupTwg_Loader_Array instead or Twig_SupTwg_Environment::createTemplate().', E_USER_DEPRECATED);
+//@trigger_error('The Twig_SupTwgDtgs_Loader_String class is deprecated since version 1.18.1 and will be removed in 2.0. Use Twig_SupTwgDtgs_Loader_Array instead or Twig_SupTwgDtgs_Environment::createTemplate().', E_USER_DEPRECATED);
 
 /**
  * Loads a template from a string.
@@ -27,18 +27,18 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Loader_String implements Twig_SupTwg_LoaderInterface, Twig_SupTwg_ExistsLoaderInterface, Twig_SupTwg_SourceContextLoaderInterface
+class Twig_SupTwgDtgs_Loader_String implements Twig_SupTwgDtgs_LoaderInterface, Twig_SupTwgDtgs_ExistsLoaderInterface, Twig_SupTwgDtgs_SourceContextLoaderInterface
 {
     public function getSource($name)
     {
-        @trigger_error(sprintf('Calling "getSource" on "%s" is deprecated since 1.27. Use getSourceContext() instead.', get_class($this)), E_USER_DEPRECATED);
+        //@trigger_error(sprintf('Calling "getSource" on "%s" is deprecated since 1.27. Use getSourceContext() instead.', get_class($this)), E_USER_DEPRECATED);
 
         return $name;
     }
 
     public function getSourceContext($name)
     {
-        return new Twig_SupTwg_Source($name, $name);
+        return new Twig_SupTwgDtgs_Source($name, $name);
     }
 
     public function exists($name)

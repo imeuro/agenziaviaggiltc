@@ -21,17 +21,6 @@ class AIOWPSecurity_List_Login_Failed_Attempts extends AIOWPSecurity_List_Table 
     	return $item[$column_name];
     }
 
-    /**
-     * This method returns failed login date after being formatted according to the date_format and time_format options.
-     *
-     * @param Array $item - an array containing data for a single row of the failed logins table
-     * 
-     * @return String      returns formatted date-time string
-     */
-    protected function column_failed_login_date($item) {
-        return get_date_from_gmt(mysql2date('Y-m-d H:i:s', $item['failed_login_date']), get_option('date_format').' '.get_option('time_format'));
-    }
-
     function column_login_attempt_ip($item){
         $tab = strip_tags($_REQUEST['tab']);
         $delete_url = sprintf('admin.php?page=%s&tab=%s&action=%s&failed_login_id=%s', AIOWPSEC_USER_LOGIN_MENU_SLUG, $tab, 'delete_failed_login_rec', $item['id']);
@@ -50,7 +39,6 @@ class AIOWPSecurity_List_Login_Failed_Attempts extends AIOWPSecurity_List_Table 
         );
     }
 
-    
     function column_cb($item){
         return sprintf(
             '<input type="checkbox" name="%1$s[]" value="%2$s" />',
@@ -58,7 +46,7 @@ class AIOWPSecurity_List_Login_Failed_Attempts extends AIOWPSecurity_List_Table 
             /*$2%s*/ $item['id']                //The value of the checkbox should be the record's id
        );
     }
-    
+
     function get_columns(){
         $columns = array(
             'cb' => '<input type="checkbox" />', //Render a checkbox
@@ -103,15 +91,15 @@ class AIOWPSecurity_List_Login_Failed_Attempts extends AIOWPSecurity_List_Table 
                 }
             }
     }
-    
-    
-    
-    /*
-     * This function will delete selected records from the "failed_logins" table.
-     * The function accepts either an array of IDs or a single ID
-     */
-    function delete_login_failed_records($entries)
-    {
+
+	/**
+	 * Deletes one or more records from the AIOWPSEC_TBL_FAILED_LOGINS table.
+	 *
+	 * @param Array|String|Integer - ids or a single id
+	 *
+	 * @return Void
+	 */
+	public function delete_login_failed_records($entries) {
         global $wpdb, $aio_wp_security;
         $failed_login_table = AIOWPSEC_TBL_FAILED_LOGINS;
         if (is_array($entries))
@@ -124,17 +112,13 @@ class AIOWPSecurity_List_Login_Failed_Attempts extends AIOWPSecurity_List_Table 
                 $id_list = "(" .implode(",",$entries) .")"; //Create comma separate list for DB operation
                 $delete_command = "DELETE FROM ".$failed_login_table." WHERE ID IN ".$id_list;
                 $result = $wpdb->query($delete_command);
-                if($result !== false)
-                {
-                    $redir_url = sprintf('admin.php?page=%s&tab=%s&bulk_count=%s', AIOWPSEC_USER_LOGIN_MENU_SLUG, $tab, count($entries));
-                    AIOWPSecurity_Utility::redirect_to_url($redir_url);
-                } else {
-                    // error on bulk delete
-                    $aio_wp_security->debug_logger->log_debug("DB error: ".$wpdb->last_error,4);
-                    $redir_url = sprintf('admin.php?page=%s&tab=%s&bulk_error=%s', AIOWPSEC_USER_LOGIN_MENU_SLUG, $tab, 1);
-                    AIOWPSecurity_Utility::redirect_to_url($redir_url);
-                    
-                }
+				if ($result) {
+					AIOWPSecurity_Admin_Menu::show_msg_record_deleted_st();
+				} else {
+					// Error on bulk delete
+					$aio_wp_security->debug_logger->log_debug('Database error occurred when deleting rows from Failed Logins table. Database error: '.$wpdb->last_error, 4);
+					AIOWPSecurity_Admin_Menu::show_msg_record_not_deleted_st();
+				}
             }
             
         } elseif ($entries != NULL)
@@ -148,59 +132,72 @@ class AIOWPSecurity_List_Login_Failed_Attempts extends AIOWPSecurity_List_Table 
             //Delete single record
             $delete_command = "DELETE FROM ".$failed_login_table." WHERE ID = '".absint($entries)."'";
             $result = $wpdb->query($delete_command);
-            if($result !== false)
-            {
-                $success_msg = '<div id="message" class="updated fade"><p><strong>';
-                $success_msg .= __('The selected entry was deleted successfully!','all-in-one-wp-security-and-firewall');
-                $success_msg .= '</strong></p></div>';
-                _e($success_msg);
-            }
+			if ($result) {
+				AIOWPSecurity_Admin_Menu::show_msg_record_deleted_st();
+			} elseif ($result === false) {
+				// Error on single delete
+				$aio_wp_security->debug_logger->log_debug('Database error occurred when deleting rows from Failed Logins table. Database error: '.$wpdb->last_error, 4);
+				AIOWPSecurity_Admin_Menu::show_msg_record_not_deleted_st();
+			}
         }
     }
-    
-    function prepare_items($ignore_pagination = false) {
-        /**
-         * First, lets decide how many records per page to show
-         */
-        $per_page = 100;
-        $columns = $this->get_columns();
-        $hidden = array();
-        $sortable = $this->get_sortable_columns();
-        $search = isset( $_REQUEST['s'] ) ? sanitize_text_field( $_REQUEST['s'] ) : '';
 
-        $this->_column_headers = array($columns, $hidden, $sortable);
+	/**
+	 * Retrieves all items from AIOWPSEC_TBL_FAILED_LOGINS according to a search term inside $_REQUEST['s']. It then assigns to $this->items.
+	 *
+	 * @param Boolean $ignore_pagination - whether to not paginate
+	 *
+	 * @return Void
+	 */
+	public function prepare_items($ignore_pagination = false) {
+		/**
+		 * First, lets decide how many records per page to show
+		 */
+		$per_page = 100;
+		$columns = $this->get_columns();
+		$hidden = array();
+		$sortable = $this->get_sortable_columns();
+		$search_term = isset($_REQUEST['s']) ? sanitize_text_field(stripslashes($_REQUEST['s'])) : '';
 
-        $this->process_bulk_action();
+		$this->_column_headers = array($columns, $hidden, $sortable);
 
-        global $wpdb;
-        $failed_logins_table_name = AIOWPSEC_TBL_FAILED_LOGINS;
+		$this->process_bulk_action();
 
-        /* -- Ordering parameters -- */
-        //Parameters that are going to be used to order the result
-        isset($_GET["orderby"]) ? $orderby = strip_tags($_GET["orderby"]) : $orderby = '';
-        isset($_GET["order"]) ? $order = strip_tags($_GET["order"]) : $order = '';
+		global $wpdb;
+		$failed_logins_table_name = AIOWPSEC_TBL_FAILED_LOGINS;
 
-        $orderby = !empty($orderby) ? esc_sql($orderby) : 'failed_login_date';
-        $order = !empty($order) ? esc_sql($order) : 'DESC';
+		/* -- Ordering parameters -- */
+		//Parameters that are going to be used to order the result
+		isset($_GET['orderby']) ? $orderby = strip_tags($_GET['orderby']) : $orderby = '';
+		isset($_GET['order']) ? $order = strip_tags($_GET['order']) : $order = '';
 
-        $orderby = AIOWPSecurity_Utility::sanitize_value_by_array($orderby, $sortable);
-        $order = AIOWPSecurity_Utility::sanitize_value_by_array($order, array('DESC' => '1', 'ASC' => '1'));
-        if(empty($search)) {
-            $data = $wpdb->get_results("SELECT * FROM " . $failed_logins_table_name . " ORDER BY $orderby $order", ARRAY_A);
-        } else {
-            $data = $wpdb->get_results($wpdb->prepare("SELECT * FROM $failed_logins_table_name WHERE `user_login` LIKE '%%%s%%' OR `login_attempt_ip` LIKE '%%%s%%' ORDER BY $orderby $order", $search, $search), ARRAY_A);
-        }
+		$orderby = !empty($orderby) ? esc_sql($orderby) : 'failed_login_date';
+		$order = !empty($order) ? esc_sql($order) : 'DESC';
 
-        if (!$ignore_pagination) {
-            $current_page = $this->get_pagenum();
-            $total_items = count($data);
-            $data = array_slice($data, (($current_page - 1) * $per_page), $per_page);
-            $this->set_pagination_args(array(
-                'total_items' => $total_items, //WE have to calculate the total number of items
-                'per_page' => $per_page, //WE have to determine how many items to show on a page
-                'total_pages' => ceil($total_items / $per_page)   //WE have to calculate the total number of pages
-            ));
-        }
-        $this->items = $data;
-        }
+		$orderby = AIOWPSecurity_Utility::sanitize_value_by_array($orderby, $sortable);
+		$order = AIOWPSecurity_Utility::sanitize_value_by_array($order, array('DESC' => '1', 'ASC' => '1'));
+		if(empty($search_term)) {
+			$data = $wpdb->get_results("SELECT * FROM $failed_logins_table_name ORDER BY $orderby $order", ARRAY_A);
+		} else {
+			$data = $wpdb->get_results($wpdb->prepare("SELECT * FROM $failed_logins_table_name WHERE `user_login` LIKE '%%%s%%' OR `login_attempt_ip` LIKE '%%%s%%' ORDER BY $orderby $order", $search_term, $search_term), ARRAY_A);
+		}
+
+		if (!$ignore_pagination) {
+			$current_page = $this->get_pagenum();
+			$total_items = count($data);
+			$data = array_slice($data, (($current_page - 1) * $per_page), $per_page);
+			$this->set_pagination_args(array(
+				'total_items' => $total_items, //WE have to calculate the total number of items
+				'per_page' => $per_page, //WE have to determine how many items to show on a page
+				'total_pages' => ceil($total_items / $per_page)   //WE have to calculate the total number of pages
+			));
+		}
+
+		foreach ($data as $index => $row) {
+			$data[$index]['failed_login_date'] = get_date_from_gmt(mysql2date('Y-m-d H:i:s', $row['failed_login_date']), $this->get_wp_date_time_format());
+		}
+
+		$this->items = $data;
+	}
+
 }

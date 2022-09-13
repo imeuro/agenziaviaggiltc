@@ -35,7 +35,7 @@ class HappyForms_Answer_Limiter_Dummy {
 	public function add_part_controls() {
 		?>
 		<p class="input_dummy">
-			<label><?php _e( 'Max times the same answer is allowed', 'happyforms' ); ?>:</label>
+			<label><?php _e( 'Max times the same answer can be submitted', 'happyforms' ); ?>:</label>
 			<span class="members-only"><?php _e( 'Members Only', 'happyforms') ?></span>
 			<input type="number" />
 		</p>

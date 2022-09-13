@@ -14,14 +14,14 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Node_Do extends Twig_SupTwg_Node
+class Twig_SupTwgDtgs_Node_Do extends Twig_SupTwgDtgs_Node
 {
-    public function __construct(Twig_SupTwg_Node_Expression $expr, $lineno, $tag = null)
+    public function __construct(Twig_SupTwgDtgs_Node_Expression $expr, $lineno, $tag = null)
     {
         parent::__construct(array('expr' => $expr), array(), $lineno, $tag);
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
             ->addDebugInfo($this)

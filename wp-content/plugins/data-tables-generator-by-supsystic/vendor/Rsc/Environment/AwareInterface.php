@@ -1,11 +1,11 @@
 <?php
 
-interface Rsc_Environment_AwareInterface 
+interface RscDtgs_Environment_AwareInterface 
 {
 
     /**
      * Sets the environment.
-     * @param Rsc_Environment $environment
+     * @param RscDtgs_Environment $environment
      */
-    public function setEnvironment(Rsc_Environment $environment);
+    public function setEnvironment(RscDtgs_Environment $environment);
 } 

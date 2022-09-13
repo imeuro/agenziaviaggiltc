@@ -15,7 +15,7 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Node implements Twig_SupTwg_NodeInterface
+class Twig_SupTwgDtgs_Node implements Twig_SupTwgDtgs_NodeInterface
 {
     protected $nodes;
     protected $attributes;
@@ -38,8 +38,8 @@ class Twig_SupTwg_Node implements Twig_SupTwg_NodeInterface
     public function __construct(array $nodes = array(), array $attributes = array(), $lineno = 0, $tag = null)
     {
         foreach ($nodes as $name => $node) {
-            // if (!$node instanceof Twig_SupTwg_NodeInterface) {
-            //     @trigger_error(sprintf('Using "%s" for the value of node "%s" of "%s" is deprecated since version 1.25 and will be removed in 2.0.', is_object($node) ? get_class($node) : null === $node ? 'null' : gettype($node), $name, get_class($this)), E_USER_DEPRECATED);
+            // if (!$node instanceof Twig_SupTwgDtgs_NodeInterface) {
+            //     //@trigger_error(sprintf('Using "%s" for the value of node "%s" of "%s" is deprecated since version 1.25 and will be removed in 2.0.', is_object($node) ? get_class($node) : null === $node ? 'null' : gettype($node), $name, get_class($this)), E_USER_DEPRECATED);
             // }
         }
         $this->nodes = $nodes;
@@ -81,7 +81,7 @@ class Twig_SupTwg_Node implements Twig_SupTwg_NodeInterface
      */
     public function toXml($asDom = false)
     {
-        @trigger_error(sprintf('%s is deprecated since version 1.16.1 and will be removed in 2.0.', __METHOD__), E_USER_DEPRECATED);
+        //@trigger_error(sprintf('%s is deprecated since version 1.16.1 and will be removed in 2.0.', __METHOD__), E_USER_DEPRECATED);
 
         $dom = new DOMDocument('1.0', 'UTF-8');
         $dom->formatOutput = true;
@@ -111,7 +111,7 @@ class Twig_SupTwg_Node implements Twig_SupTwg_NodeInterface
         return $asDom ? $dom : $dom->saveXML();
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         foreach ($this->nodes as $node) {
             $node->compile($compiler);
@@ -128,7 +128,7 @@ class Twig_SupTwg_Node implements Twig_SupTwg_NodeInterface
      */
     public function getLine()
     {
-        @trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use getTemplateLine() instead.', E_USER_DEPRECATED);
+        //@trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use getTemplateLine() instead.', E_USER_DEPRECATED);
 
         return $this->lineno;
     }
@@ -162,11 +162,12 @@ class Twig_SupTwg_Node implements Twig_SupTwg_NodeInterface
      * @param string $name
      * @param mixed  $value
      */
+    #[\ReturnTypeWillChange]
     public function setAttribute($name, $value)
     {
         $this->attributes[$name] = $value;
     }
-
+    #[\ReturnTypeWillChange]
     public function removeAttribute($name)
     {
         unset($this->attributes[$name]);
@@ -175,14 +176,16 @@ class Twig_SupTwg_Node implements Twig_SupTwg_NodeInterface
     /**
      * @return bool
      */
+     #[\ReturnTypeWillChange]
     public function hasNode($name)
     {
         return array_key_exists($name, $this->nodes);
     }
 
     /**
-     * @return Twig_SupTwg_Node
+     * @return Twig_SupTwgDtgs_Node
      */
+     #[\ReturnTypeWillChange]
     public function getNode($name)
     {
         if (!array_key_exists($name, $this->nodes)) {
@@ -192,30 +195,31 @@ class Twig_SupTwg_Node implements Twig_SupTwg_NodeInterface
         return $this->nodes[$name];
     }
 
+    #[\ReturnTypeWillChange]
     public function setNode($name, $node = null)
     {
-        // if (!$node instanceof Twig_SupTwg_NodeInterface) {
-        //     @trigger_error(sprintf('Using "%s" for the value of node "%s" of "%s" is deprecated since version 1.25 and will be removed in 2.0.', is_object($node) ? get_class($node) : null === $node ? 'null' : gettype($node), $name, get_class($this)), E_USER_DEPRECATED);
+        // if (!$node instanceof Twig_SupTwgDtgs_NodeInterface) {
+        //     //@trigger_error(sprintf('Using "%s" for the value of node "%s" of "%s" is deprecated since version 1.25 and will be removed in 2.0.', is_object($node) ? get_class($node) : null === $node ? 'null' : gettype($node), $name, get_class($this)), E_USER_DEPRECATED);
         // }
 
         $this->nodes[$name] = $node;
     }
-
+    #[\ReturnTypeWillChange]
     public function removeNode($name)
     {
         unset($this->nodes[$name]);
     }
-
+    #[\ReturnTypeWillChange]
     public function count()
     {
         return count($this->nodes);
     }
-
+    #[\ReturnTypeWillChange]
     public function getIterator()
     {
         return new ArrayIterator($this->nodes);
     }
-
+    #[\ReturnTypeWillChange]
     public function setTemplateName($name)
     {
         $this->name = $name;
@@ -225,7 +229,7 @@ class Twig_SupTwg_Node implements Twig_SupTwg_NodeInterface
             }
         }
     }
-
+    #[\ReturnTypeWillChange]
     public function getTemplateName()
     {
         return $this->name;
@@ -236,7 +240,7 @@ class Twig_SupTwg_Node implements Twig_SupTwg_NodeInterface
      */
     public function setFilename($name)
     {
-        @trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use setTemplateName() instead.', E_USER_DEPRECATED);
+        //@trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use setTemplateName() instead.', E_USER_DEPRECATED);
 
         $this->setTemplateName($name);
     }
@@ -246,7 +250,7 @@ class Twig_SupTwg_Node implements Twig_SupTwg_NodeInterface
      */
     public function getFilename()
     {
-        @trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use getTemplateName() instead.', E_USER_DEPRECATED);
+        //@trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use getTemplateName() instead.', E_USER_DEPRECATED);
 
         return $this->name;
     }

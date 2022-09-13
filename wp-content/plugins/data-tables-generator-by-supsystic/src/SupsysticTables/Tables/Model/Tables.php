@@ -1583,13 +1583,13 @@ class SupsysticTables_Tables_Model_Tables extends SupsysticTables_Core_BaseModel
 		$table->view_id = $table->id . '_' . mt_rand(1, 99999);
         $table->columns = $this->getColumns($table->id);
 
-				$table->settings = htmlspecialchars_decode($table->settings, ENT_QUOTES);
+				$table->settings = htmlspecialchars_decode((string)$table->settings, ENT_QUOTES);
 				$table->settings = $this->fixIncorrectSerialize($table->settings);
 				$table->settings = unserialize($table->settings);
 
         // rev 41
         if (property_exists($table, 'meta')) {
-						$table->meta = htmlspecialchars_decode($table->meta, ENT_QUOTES);
+						$table->meta = htmlspecialchars_decode((string)$table->meta, ENT_QUOTES);
 						$table->meta = $this->fixIncorrectSerialize($table->meta);
 						$table->meta = unserialize($table->meta);
         }

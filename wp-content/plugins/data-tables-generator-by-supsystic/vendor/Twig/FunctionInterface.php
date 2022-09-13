@@ -13,13 +13,13 @@
 /**
  * Represents a template function.
  *
- * Use Twig_SupTwg_SimpleFunction instead.
+ * Use Twig_SupTwgDtgs_SimpleFunction instead.
  *
  * @author Arnaud Le Blanc <arnaud.lb@gmail.com>
  *
  * @deprecated since 1.12 (to be removed in 2.0)
  */
-interface Twig_SupTwg_FunctionInterface
+interface Twig_SupTwgDtgs_FunctionInterface
 {
     /**
      * Compiles a function.
@@ -32,7 +32,7 @@ interface Twig_SupTwg_FunctionInterface
 
     public function needsContext();
 
-    public function getSafe(Twig_SupTwg_Node $filterArgs);
+    public function getSafe(Twig_SupTwgDtgs_Node $filterArgs);
 
     public function setArguments($arguments);
 

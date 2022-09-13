@@ -14,7 +14,7 @@ class AIOWPSecurity_WP_Footer_Content {
 		if ($aio_wp_security->configs->get_value('aiowps_default_recaptcha')) {
 			// For Woocommerce forms.
 			// Only proceed if woocommerce installed and active
-			if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
+			if (AIOWPSecurity_Utility::is_woocommerce_plugin_active()) {
 				if ($aio_wp_security->configs->get_value('aiowps_enable_woo_login_captcha') == '1' || $aio_wp_security->configs->get_value('aiowps_enable_woo_register_captcha') == '1' || $aio_wp_security->configs->get_value('aiowps_enable_woo_lostpassword_captcha') == '1') {
 					$this->print_recaptcha_api_woo();
 				}

@@ -15,7 +15,7 @@
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Karma Dordrak <drak@zikula.org>
  */
-abstract class Twig_SupTwg_Test_IntegrationTestCase extends PHPUnit_Framework_TestCase
+abstract class Twig_SupTwgDtgs_Test_IntegrationTestCase extends PHPUnit_Framework_TestCase
 {
     /**
      * @return string
@@ -23,7 +23,7 @@ abstract class Twig_SupTwg_Test_IntegrationTestCase extends PHPUnit_Framework_Te
     abstract protected function getFixturesDir();
 
     /**
-     * @return Twig_SupTwg_ExtensionInterface[]
+     * @return Twig_SupTwgDtgs_ExtensionInterface[]
      */
     protected function getExtensions()
     {
@@ -31,7 +31,7 @@ abstract class Twig_SupTwg_Test_IntegrationTestCase extends PHPUnit_Framework_Te
     }
 
     /**
-     * @return Twig_SupTwg_SimpleFilter[]
+     * @return Twig_SupTwgDtgs_SimpleFilter[]
      */
     protected function getTwigFilters()
     {
@@ -39,7 +39,7 @@ abstract class Twig_SupTwg_Test_IntegrationTestCase extends PHPUnit_Framework_Te
     }
 
     /**
-     * @return Twig_SupTwg_SimpleFunction[]
+     * @return Twig_SupTwgDtgs_SimpleFunction[]
      */
     protected function getTwigFunctions()
     {
@@ -47,7 +47,7 @@ abstract class Twig_SupTwg_Test_IntegrationTestCase extends PHPUnit_Framework_Te
     }
 
     /**
-     * @return Twig_SupTwg_SimpleTest[]
+     * @return Twig_SupTwgDtgs_SimpleTest[]
      */
     protected function getTwigTests()
     {
@@ -132,14 +132,14 @@ abstract class Twig_SupTwg_Test_IntegrationTestCase extends PHPUnit_Framework_Te
             }
         }
 
-        $loader = new Twig_SupTwg_Loader_Array($templates);
+        $loader = new Twig_SupTwgDtgs_Loader_Array($templates);
 
         foreach ($outputs as $i => $match) {
             $config = array_merge(array(
                 'cache' => false,
                 'strict_variables' => true,
             ), $match[2] ? eval($match[2].';') : array());
-            $twig = new Twig_SupTwg_Environment($loader, $config);
+            $twig = new Twig_SupTwgDtgs_Environment($loader, $config);
             $twig->addGlobal('global', 'global');
             foreach ($this->getExtensions() as $extension) {
                 $twig->addExtension($extension);
@@ -177,7 +177,7 @@ abstract class Twig_SupTwg_Test_IntegrationTestCase extends PHPUnit_Framework_Te
                     return;
                 }
 
-                throw new Twig_SupTwg_Error(sprintf('%s: %s', get_class($e), $e->getMessage()), -1, $file, $e);
+                throw new Twig_SupTwgDtgs_Error(sprintf('%s: %s', get_class($e), $e->getMessage()), -1, $file, $e);
             }
 
             try {
@@ -189,7 +189,7 @@ abstract class Twig_SupTwg_Test_IntegrationTestCase extends PHPUnit_Framework_Te
                     return;
                 }
 
-                $e = new Twig_SupTwg_Error(sprintf('%s: %s', get_class($e), $e->getMessage()), -1, $file, $e);
+                $e = new Twig_SupTwgDtgs_Error(sprintf('%s: %s', get_class($e), $e->getMessage()), -1, $file, $e);
 
                 $output = trim(sprintf('%s: %s', get_class($e), $e->getMessage()));
             }
@@ -207,8 +207,8 @@ abstract class Twig_SupTwg_Test_IntegrationTestCase extends PHPUnit_Framework_Te
                 foreach (array_keys($templates) as $name) {
                     echo "Template: $name\n";
                     $loader = $twig->getLoader();
-                    if (!$loader instanceof Twig_SupTwg_SourceContextLoaderInterface) {
-                        $source = new Twig_SupTwg_Source($loader->getSource($name), $name);
+                    if (!$loader instanceof Twig_SupTwgDtgs_SourceContextLoaderInterface) {
+                        $source = new Twig_SupTwgDtgs_Source($loader->getSource($name), $name);
                     } else {
                         $source = $loader->getSourceContext($name);
                     }

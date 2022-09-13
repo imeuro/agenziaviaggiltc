@@ -31,7 +31,7 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Error extends Exception
+class Twig_SupTwgDtgs_Error extends Exception
 {
     protected $lineno;
     // to be renamed to name in 2.0
@@ -56,14 +56,14 @@ class Twig_SupTwg_Error extends Exception
      *
      * @param string                  $message  The error message
      * @param int                     $lineno   The template line where the error occurred
-     * @param Twig_SupTwg_Source|string|null $source   The source context where the error occurred
+     * @param Twig_SupTwgDtgs_Source|string|null $source   The source context where the error occurred
      * @param Exception               $previous The previous exception
      */
     public function __construct($message, $lineno = -1, $source = null, Exception $previous = null)
     {
         if (null === $source) {
             $name = null;
-        } elseif (!$source instanceof Twig_SupTwg_Source) {
+        } elseif (!$source instanceof Twig_SupTwgDtgs_Source) {
             // for compat with the Twig C ext., passing the template name as string is accepted
             $name = $source;
         } else {
@@ -109,7 +109,7 @@ class Twig_SupTwg_Error extends Exception
      */
     public function getTemplateFile()
     {
-        @trigger_error(sprintf('The "%s" method is deprecated since version 1.27 and will be removed in 2.0. Use getSourceContext() instead.', __METHOD__), E_USER_DEPRECATED);
+        //@trigger_error(sprintf('The "%s" method is deprecated since version 1.27 and will be removed in 2.0. Use getSourceContext() instead.', __METHOD__), E_USER_DEPRECATED);
 
         return $this->filename;
     }
@@ -123,7 +123,7 @@ class Twig_SupTwg_Error extends Exception
      */
     public function setTemplateFile($name)
     {
-        @trigger_error(sprintf('The "%s" method is deprecated since version 1.27 and will be removed in 2.0. Use setSourceContext() instead.', __METHOD__), E_USER_DEPRECATED);
+        //@trigger_error(sprintf('The "%s" method is deprecated since version 1.27 and will be removed in 2.0. Use setSourceContext() instead.', __METHOD__), E_USER_DEPRECATED);
 
         $this->filename = $name;
 
@@ -139,7 +139,7 @@ class Twig_SupTwg_Error extends Exception
      */
     public function getTemplateName()
     {
-        @trigger_error(sprintf('The "%s" method is deprecated since version 1.29 and will be removed in 2.0. Use getSourceContext() instead.', __METHOD__), E_USER_DEPRECATED);
+        //@trigger_error(sprintf('The "%s" method is deprecated since version 1.29 and will be removed in 2.0. Use getSourceContext() instead.', __METHOD__), E_USER_DEPRECATED);
 
         return $this->filename;
     }
@@ -153,7 +153,7 @@ class Twig_SupTwg_Error extends Exception
      */
     public function setTemplateName($name)
     {
-        @trigger_error(sprintf('The "%s" method is deprecated since version 1.29 and will be removed in 2.0. Use setSourceContext() instead.', __METHOD__), E_USER_DEPRECATED);
+        //@trigger_error(sprintf('The "%s" method is deprecated since version 1.29 and will be removed in 2.0. Use setSourceContext() instead.', __METHOD__), E_USER_DEPRECATED);
 
         $this->filename = $name;
         $this->sourceCode = $this->sourcePath = null;
@@ -186,17 +186,17 @@ class Twig_SupTwg_Error extends Exception
     /**
      * Gets the source context of the Twig template where the error occurred.
      *
-     * @return Twig_SupTwg_Source|null
+     * @return Twig_SupTwgDtgs_Source|null
      */
     public function getSourceContext()
     {
-        return $this->filename ? new Twig_SupTwg_Source($this->sourceCode, $this->filename, $this->sourcePath) : null;
+        return $this->filename ? new Twig_SupTwgDtgs_Source($this->sourceCode, $this->filename, $this->sourcePath) : null;
     }
 
     /**
      * Sets the source context of the Twig template where the error occurred.
      */
-    public function setSourceContext(Twig_SupTwg_Source $source = null)
+    public function setSourceContext(Twig_SupTwgDtgs_Source $source = null)
     {
         if (null === $source) {
             $this->sourceCode = $this->filename = $this->sourcePath = null;
@@ -231,7 +231,7 @@ class Twig_SupTwg_Error extends Exception
             return $this->previous;
         }
 
-        throw new BadMethodCallException(sprintf('Method "Twig_SupTwg_Error::%s()" does not exist.', $method));
+        throw new BadMethodCallException(sprintf('Method "Twig_SupTwgDtgs_Error::%s()" does not exist.', $method));
     }
 
     public function appendMessage($rawMessage)
@@ -303,7 +303,7 @@ class Twig_SupTwg_Error extends Exception
         }
 
         foreach ($backtrace as $trace) {
-            if (isset($trace['object']) && $trace['object'] instanceof Twig_SupTwg_Template && 'Twig_SupTwg_Template' !== get_class($trace['object'])) {
+            if (isset($trace['object']) && $trace['object'] instanceof Twig_SupTwgDtgs_Template && 'Twig_SupTwgDtgs_Template' !== get_class($trace['object'])) {
                 $currentClass = get_class($trace['object']);
                 $isEmbedContainer = 0 === strpos($templateClass, $currentClass);
                 if (null === $this->filename || ($this->filename == $trace['object']->getTemplateName() && !$isEmbedContainer)) {

@@ -36,6 +36,9 @@ class WPZOOM_Instagram_Widget_Settings {
 		'layout'                          => array( 'type' => 'integer', 'default' => 0 ),
 		'item-num'                        => array( 'type' => 'integer', 'default' => 9 ),
 		'col-num'                         => array( 'type' => 'integer', 'default' => 3 ),
+		'col-num_tablet'                  => array( 'type' => 'integer', 'default' => 2 ),
+		'col-num_mobile'                  => array( 'type' => 'integer', 'default' => 1 ),
+		'col-num_responsive-enabled'      => array( 'type' => 'boolean', 'default' => false ),
 		'perpage-num'                     => array( 'type' => 'integer', 'default' => 3 ),
 		'spacing-between'                 => array( 'type' => 'number',  'default' => 10 ),
 		'spacing-between-suffix'          => array( 'type' => 'integer', 'default' => 0 ),
@@ -313,6 +316,7 @@ class WPZOOM_Instagram_Widget_Settings {
 		add_filter( 'view_mode_post_types', array( $this, 'view_mode_post_types' ) );
 		add_filter( 'display_post_states', array( $this, 'display_post_states' ), 10, 2 );
 		add_filter( 'get_edit_post_link', array( $this, 'get_edit_post_link' ), 10, 3 );
+		add_filter( 'redirect_post_location', array( $this, 'redirect_post_location' ), 10, 2 );
 		add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ) );
 		add_filter( 'update_footer', array( $this, 'update_footer' ), 11 );
 		add_action( 'manage_wpz-insta_feed_posts_custom_column', array( $this, 'custom_column_feed' ), 10, 2 );
@@ -610,6 +614,14 @@ class WPZOOM_Instagram_Widget_Settings {
 		}
 
 		return $link;
+	}
+
+	function redirect_post_location( $location, $post_id ) {
+		if ( 'wpz-insta_feed' == get_post_type( $post_id ) ) {
+			$location .= false === stripos( $location, '#' ) ? '#design' : '';
+		}
+
+		return $location;
 	}
 
 	function get_token_expire_display( $id ) {
@@ -1104,59 +1116,62 @@ class WPZOOM_Instagram_Widget_Settings {
 
 	function edit_feed_content( $post ) {
 		if ( 'wpz-insta_feed' == $post->post_type ) {
-			$pro_toggle                     = apply_filters( 'wpz-insta_admin-pro-options-toggle', true );
-			$none_label                     = __( 'None', 'instagram-widget-by-wpzoom' );
-			$user_id                        = (int) self::get_feed_setting_value( $post->ID, 'user-id' );
-			$user                           = $user_id > 0 ? get_post( $user_id ) : null;
-			$user_edit_link                 = $user instanceof WP_Post ? admin_url( 'edit.php?post_type=wpz-insta_user#post-' . $user_id ) : '';
-			$user_display_name              = $user instanceof WP_Post ? sprintf( '@%s', get_the_title( $user ) ) : $none_label;
-			$user_account_type              = $user instanceof WP_Post ? ucwords( strtolower( get_post_meta( $user_id, '_wpz-insta_account-type', true ) ?: $none_label ) ) : $none_label;
-			$raw_token                      = get_post_meta( $user_id, '_wpz-insta_token', true );
-			$user_account_token             = $user instanceof WP_Post ? ( false !== $raw_token && ! empty( $raw_token ) ? $raw_token : '-1' ) : '-1';
-			$new_posts_interval_number      = (int) self::get_feed_setting_value( $post->ID, 'check-new-posts-interval-number' );
-			$new_posts_interval_suffix      = (int) self::get_feed_setting_value( $post->ID, 'check-new-posts-interval-suffix' );
-			$enable_request_timeout         = (bool) self::get_feed_setting_value( $post->ID, 'enable-request-timeout' );
-			$raw_feed_layout                = (int) self::get_feed_setting_value( $post->ID, 'layout' );
-			$feed_layout                    = ! $pro_toggle ? $raw_feed_layout : ( $raw_feed_layout > 1 ? 0 : $raw_feed_layout );
-			$feed_items_num                 = (int) self::get_feed_setting_value( $post->ID, 'item-num' );
-			$feed_cols_num                  = (int) self::get_feed_setting_value( $post->ID, 'col-num' );
-			$feed_perpage_num               = (int) self::get_feed_setting_value( $post->ID, 'perpage-num' );
-			$feed_spacing_between           = (float) self::get_feed_setting_value( $post->ID, 'spacing-between' );
-			$feed_spacing_between_suffix    = (int) self::get_feed_setting_value( $post->ID, 'spacing-between-suffix' );
-			$enable_featured_layout         = (bool) self::get_feed_setting_value( $post->ID, 'featured-layout-enable' );
-			$feed_featured_layout           = (int) self::get_feed_setting_value( $post->ID, 'featured-layout' );
-			$show_account_name              = (bool) self::get_feed_setting_value( $post->ID, 'show-account-name' );
-			$show_account_username          = (bool) self::get_feed_setting_value( $post->ID, 'show-account-username' );
-			$show_account_image             = (bool) self::get_feed_setting_value( $post->ID, 'show-account-image' );
-			$show_account_bio               = (bool) self::get_feed_setting_value( $post->ID, 'show-account-bio' );
-			$show_view_instagram_button     = (bool) self::get_feed_setting_value( $post->ID, 'show-view-button' );
-			$view_instagram_button_text     = (string) self::get_feed_setting_value( $post->ID, 'view-button-text' );
-			$view_instagram_button_bg_color = (string) $this->validate_color( self::get_feed_setting_value( $post->ID, 'view-button-bg-color' ) );
-			$feed_bg_color                  = (string) $this->validate_color( self::get_feed_setting_value( $post->ID, 'bg-color' ) );
-			$feed_items_radius              = (float) self::get_feed_setting_value( $post->ID, 'border-radius' );
-			$feed_items_radius_suffix       = (int) self::get_feed_setting_value( $post->ID, 'border-radius-suffix' );
-			$feed_spacing_around            = (float) self::get_feed_setting_value( $post->ID, 'spacing-around' );
-			$feed_spacing_around_suffix     = (int) self::get_feed_setting_value( $post->ID, 'spacing-around-suffix' );
-			$feed_font_size                 = (float) self::get_feed_setting_value( $post->ID, 'font-size' );
-			$feed_font_size_suffix          = (int) self::get_feed_setting_value( $post->ID, 'font-size-suffix' );
-			$lightbox                       = (bool) self::get_feed_setting_value( $post->ID, 'lightbox' );
-			$hide_video_thumbnails          = (bool) self::get_feed_setting_value( $post->ID, 'hide-video-thumbs' );
-			$show_overlay                   = (bool) self::get_feed_setting_value( $post->ID, 'show-overlay' );
-			$lazy_load                      = (bool) self::get_feed_setting_value( $post->ID, 'lazy-load' );
-			$show_media_type_icons          = (bool) self::get_feed_setting_value( $post->ID, 'show-media-type-icons' );
-			$image_size                     = (string) self::get_feed_setting_value( $post->ID, 'image-size' );
-			$image_width                    = (float) self::get_feed_setting_value( $post->ID, 'image-width' );
-			$image_width_suffix             = (int) self::get_feed_setting_value( $post->ID, 'image-width-suffix' );
-			$feed_hover_media_type_icons    = (bool) self::get_feed_setting_value( $post->ID, 'hover-media-type-icons' );
-			$feed_hover_link                = (bool) self::get_feed_setting_value( $post->ID, 'hover-link' );
-			// $feed_hover_autoplay            = (bool) self::get_feed_setting_value( $post->ID, 'hover-autoplay' );
-			$feed_hover_tags_feed           = (bool) self::get_feed_setting_value( $post->ID, 'hover-tags-feed' );
-			$feed_hover_date                = (bool) self::get_feed_setting_value( $post->ID, 'hover-date' );
-			$show_load_more                 = (bool) self::get_feed_setting_value( $post->ID, 'show-load-more' );
-			$load_more_text                 = (string) self::get_feed_setting_value( $post->ID, 'load-more-text' );
-			$load_more_color                = (string) self::validate_color( self::get_feed_setting_value( $post->ID, 'load-more-color' ) );
-			$feed_shortcode                 = sprintf( _x( '[instagram feed="%s"]', 'Instagram Feed Shortcode', 'instagram-widget-by-wpzoom' ), $post->ID );
-			$all_users                      = get_posts( array( 'numberposts' => -1, 'post_type' => 'wpz-insta_user' ) );
+			$pro_toggle                       = apply_filters( 'wpz-insta_admin-pro-options-toggle', true );
+			$none_label                       = __( 'None', 'instagram-widget-by-wpzoom' );
+			$user_id                          = (int) self::get_feed_setting_value( $post->ID, 'user-id' );
+			$user                             = $user_id > 0 ? get_post( $user_id ) : null;
+			$user_edit_link                   = $user instanceof WP_Post ? admin_url( 'edit.php?post_type=wpz-insta_user#post-' . $user_id ) : '';
+			$user_display_name                = $user instanceof WP_Post ? sprintf( '@%s', get_the_title( $user ) ) : $none_label;
+			$user_account_type                = $user instanceof WP_Post ? ucwords( strtolower( get_post_meta( $user_id, '_wpz-insta_account-type', true ) ?: $none_label ) ) : $none_label;
+			$raw_token                        = get_post_meta( $user_id, '_wpz-insta_token', true );
+			$user_account_token               = $user instanceof WP_Post ? ( false !== $raw_token && ! empty( $raw_token ) ? $raw_token : '-1' ) : '-1';
+			$new_posts_interval_number        = (int) self::get_feed_setting_value( $post->ID, 'check-new-posts-interval-number' );
+			$new_posts_interval_suffix        = (int) self::get_feed_setting_value( $post->ID, 'check-new-posts-interval-suffix' );
+			$enable_request_timeout           = (bool) self::get_feed_setting_value( $post->ID, 'enable-request-timeout' );
+			$raw_feed_layout                  = (int) self::get_feed_setting_value( $post->ID, 'layout' );
+			$feed_layout                      = ! $pro_toggle ? $raw_feed_layout : ( $raw_feed_layout > 1 ? 0 : $raw_feed_layout );
+			$feed_items_num                   = (int) self::get_feed_setting_value( $post->ID, 'item-num' );
+			$feed_cols_num                    = (int) self::get_feed_setting_value( $post->ID, 'col-num' );
+			$feed_cols_num_tablet             = (int) self::get_feed_setting_value( $post->ID, 'col-num_tablet' );
+			$feed_cols_num_mobile             = (int) self::get_feed_setting_value( $post->ID, 'col-num_mobile' );
+			$feed_cols_num_responsive_enabled = ! $pro_toggle ? (bool) self::get_feed_setting_value( $post->ID, 'col-num_responsive-enabled' ) : false;
+			$feed_perpage_num                 = (int) self::get_feed_setting_value( $post->ID, 'perpage-num' );
+			$feed_spacing_between             = (float) self::get_feed_setting_value( $post->ID, 'spacing-between' );
+			$feed_spacing_between_suffix      = (int) self::get_feed_setting_value( $post->ID, 'spacing-between-suffix' );
+			$enable_featured_layout           = (bool) self::get_feed_setting_value( $post->ID, 'featured-layout-enable' );
+			$feed_featured_layout             = (int) self::get_feed_setting_value( $post->ID, 'featured-layout' );
+			$show_account_name                = (bool) self::get_feed_setting_value( $post->ID, 'show-account-name' );
+			$show_account_username            = (bool) self::get_feed_setting_value( $post->ID, 'show-account-username' );
+			$show_account_image               = (bool) self::get_feed_setting_value( $post->ID, 'show-account-image' );
+			$show_account_bio                 = (bool) self::get_feed_setting_value( $post->ID, 'show-account-bio' );
+			$show_view_instagram_button       = (bool) self::get_feed_setting_value( $post->ID, 'show-view-button' );
+			$view_instagram_button_text       = (string) self::get_feed_setting_value( $post->ID, 'view-button-text' );
+			$view_instagram_button_bg_color   = (string) $this->validate_color( self::get_feed_setting_value( $post->ID, 'view-button-bg-color' ) );
+			$feed_bg_color                    = (string) $this->validate_color( self::get_feed_setting_value( $post->ID, 'bg-color' ) );
+			$feed_items_radius                = (float) self::get_feed_setting_value( $post->ID, 'border-radius' );
+			$feed_items_radius_suffix         = (int) self::get_feed_setting_value( $post->ID, 'border-radius-suffix' );
+			$feed_spacing_around              = (float) self::get_feed_setting_value( $post->ID, 'spacing-around' );
+			$feed_spacing_around_suffix       = (int) self::get_feed_setting_value( $post->ID, 'spacing-around-suffix' );
+			$feed_font_size                   = (float) self::get_feed_setting_value( $post->ID, 'font-size' );
+			$feed_font_size_suffix            = (int) self::get_feed_setting_value( $post->ID, 'font-size-suffix' );
+			$lightbox                         = (bool) self::get_feed_setting_value( $post->ID, 'lightbox' );
+			$hide_video_thumbnails            = (bool) self::get_feed_setting_value( $post->ID, 'hide-video-thumbs' );
+			$show_overlay                     = (bool) self::get_feed_setting_value( $post->ID, 'show-overlay' );
+			$lazy_load                        = (bool) self::get_feed_setting_value( $post->ID, 'lazy-load' );
+			$show_media_type_icons            = (bool) self::get_feed_setting_value( $post->ID, 'show-media-type-icons' );
+			$image_size                       = (string) self::get_feed_setting_value( $post->ID, 'image-size' );
+			$image_width                      = (float) self::get_feed_setting_value( $post->ID, 'image-width' );
+			$image_width_suffix               = (int) self::get_feed_setting_value( $post->ID, 'image-width-suffix' );
+			$feed_hover_media_type_icons      = (bool) self::get_feed_setting_value( $post->ID, 'hover-media-type-icons' );
+			$feed_hover_link                  = (bool) self::get_feed_setting_value( $post->ID, 'hover-link' );
+			// $feed_hover_autoplay              = (bool) self::get_feed_setting_value( $post->ID, 'hover-autoplay' );
+			$feed_hover_tags_feed             = (bool) self::get_feed_setting_value( $post->ID, 'hover-tags-feed' );
+			$feed_hover_date                  = (bool) self::get_feed_setting_value( $post->ID, 'hover-date' );
+			$show_load_more                   = (bool) self::get_feed_setting_value( $post->ID, 'show-load-more' );
+			$load_more_text                   = (string) self::get_feed_setting_value( $post->ID, 'load-more-text' );
+			$load_more_color                  = (string) self::validate_color( self::get_feed_setting_value( $post->ID, 'load-more-color' ) );
+			$feed_shortcode                   = sprintf( _x( '[instagram feed="%s"]', 'Instagram Feed Shortcode', 'instagram-widget-by-wpzoom' ), $post->ID );
+			$all_users                        = get_posts( array( 'numberposts' => -1, 'post_type' => 'wpz-insta_user' ) );
 
 			?>
 			<div class="wpz-insta_tabs-content">
@@ -1306,10 +1321,30 @@ class WPZOOM_Instagram_Widget_Settings {
 										<div class="wpz-insta_table-cell"><input type="number" name="_wpz-insta_item-num" value="<?php echo esc_attr( $feed_items_num ); ?>" size="3" min="1" max="100" step="1" /></div>
 									</label>
 
-									<label class="wpz-insta_table-row<?php echo 1 === $feed_layout || 3 === $feed_layout ? ' hidden' : ''; ?>">
-										<strong class="wpz-insta_table-cell"><?php esc_html_e( 'Number of columns', 'instagram-widget-by-wpzoom' ); ?></strong>
-										<div class="wpz-insta_table-cell"><input type="number" name="_wpz-insta_col-num" value="<?php echo esc_attr( $feed_cols_num ); ?>" size="3" min="0" max="100" step="1" /></div>
-									</label>
+									<div class="wpz-insta_table-row wpz-insta_responsive-table-row<?php echo ( 1 === $feed_layout || 3 === $feed_layout ? ' hidden' : '' ) . ( $feed_cols_num_responsive_enabled ? ' wpz-insta_responsive-enabled' : '' ); ?>">
+										<div class="wpz-insta_table-cell">
+											<label for="wpz-insta_col-num_desktop"><strong><?php esc_html_e( 'Number of columns', 'instagram-widget-by-wpzoom' ); ?></strong></label>
+											<input type="checkbox" name="_wpz-insta_col-num_responsive-enabled" id="_wpz-insta_col-num_responsive-enabled" class="wpz-insta_responsive-checkbox" title="<?php esc_attr_e( 'Responsive', 'instagram-widget-by-wpzoom' ); ?>" value="1"<?php checked( $feed_cols_num_responsive_enabled ); disabled( $pro_toggle ); ?> />
+										</div>
+										<div class="wpz-insta_table-cell">
+											<div class="wpz-insta_responsive-field">
+												<label class="wpz-insta_responsive-field-type wpz-insta_responsive-field_desktop">
+													<input type="number" name="_wpz-insta_col-num" id="wpz-insta_col-num_desktop" value="<?php echo esc_attr( $feed_cols_num ); ?>" size="3" min="0" max="100" step="1" />
+													<span class="wpz-insta_responsive-field-name"><span class="dashicons dashicons-desktop"></span> <?php esc_html_e( 'Desktop', 'instagram-widget-by-wpzoom' ); ?></span>
+												</label>
+
+												<label class="wpz-insta_responsive-field-type wpz-insta_responsive-field_tablet">
+													<input type="number" name="_wpz-insta_col-num_tablet" value="<?php echo esc_attr( $feed_cols_num_tablet ); ?>" size="3" min="0" max="100" step="1" />
+													<span class="wpz-insta_responsive-field-name"><span class="dashicons dashicons-tablet"></span> <?php esc_html_e( 'Tablet', 'instagram-widget-by-wpzoom' ); ?></span>
+												</label>
+
+												<label class="wpz-insta_responsive-field-type wpz-insta_responsive-field_mobile">
+													<input type="number" name="_wpz-insta_col-num_mobile" value="<?php echo esc_attr( $feed_cols_num_mobile ); ?>" size="3" min="0" max="100" step="1" />
+													<span class="wpz-insta_responsive-field-name"><span class="dashicons dashicons-smartphone"></span> <?php esc_html_e( 'Mobile', 'instagram-widget-by-wpzoom' ); ?></span>
+												</label>
+											</div>
+										</div>
+									</div>
 
 									<label class="wpz-insta_table-row<?php echo 3 !== $feed_layout ? ' hidden' : ''; ?>">
 										<strong class="wpz-insta_table-cell"><?php esc_html_e( 'Number of visible items', 'instagram-widget-by-wpzoom' ); ?></strong>
@@ -1331,20 +1366,18 @@ class WPZOOM_Instagram_Widget_Settings {
 										</div>
 									</label>
 
-									<?php echo $pro_toggle ? '<fieldset class="wpz-insta_feed-only-pro wpz-insta_pro-only wpz-insta_pro-only-with-bottom"><legend><strong>' . esc_html__( 'PRO', 'instagram-widget-by-wpzoom' ) . '</strong></legend>' : ''; ?>
+									<?php echo $pro_toggle ? '<fieldset class="wpz-insta_feed-only-pro wpz-insta_pro-only wpz-insta_pro-only-with-bottom' . ( 1 === $feed_layout ? ' hidden' : '' ) . '"><legend><strong>' . esc_html__( 'PRO', 'instagram-widget-by-wpzoom' ) . '</strong></legend>' : ''; ?>
 
 									<div class="wpz-insta_table-row wpz-insta_table-row-full wpz-insta_table-row-featured-layout<?php echo ( 0 === $feed_layout && $feed_cols_num > 2 && $feed_cols_num < 7 ? '' : ' hidden' ) . ( ! $pro_toggle ? '' : ' pro-only-wrapper' ); ?>">
-										<strong class="wpz-insta_table-cell table-cell-special">
-											<label for="_wpz-insta_featured-layout-enable"><?php esc_html_e( 'Highlight items', 'instagram-widget-by-wpzoom' ); ?></label>
-
-											<?php if ( ! $pro_toggle ) { ?>
+										<?php if ( ! $pro_toggle ) { ?>
+											<strong class="wpz-insta_table-cell table-cell-special">
+												<label for="_wpz-insta_featured-layout-enable"><?php esc_html_e( 'Highlight items', 'instagram-widget-by-wpzoom' ); ?></label>
 												<input type="hidden" name="_wpz-insta_featured-layout-enable" value="0" />
 												<input type="checkbox" name="_wpz-insta_featured-layout-enable" id="_wpz-insta_featured-layout-enable" value="1"<?php checked( $enable_featured_layout ); ?> />
-											<?php } ?>
-										</strong>
+											</strong>
 
-                                        <p class="description"><small><em><?php esc_html_e( 'Works only 3-6 columns', 'instagram-widget-by-wpzoom' ); ?></em></small></p>
-
+											<p class="description"><small><em><?php esc_html_e( 'Works only 3-6 columns', 'instagram-widget-by-wpzoom' ); ?></em></small></p>
+										<?php } ?>
 
 										<div class="wpz-insta_table-cell">
 											<?php if ( ! $pro_toggle ) { ?>
@@ -1400,6 +1433,13 @@ class WPZOOM_Instagram_Widget_Settings {
 											<?php } ?>
 										</div>
 									</div>
+
+									<?php if ( $pro_toggle ) { ?>
+										<label class="wpz-insta_table-row">
+											<input type="checkbox"<?php checked( true ); disabled( true ); ?> />
+											<span><?php esc_html_e( 'Responsive columns', 'instagram-widget-by-wpzoom' ); ?></span>
+										</label>
+									<?php } ?>
 
 									<?php echo $pro_toggle ? '</fieldset>' : ''; ?>
 								</div>

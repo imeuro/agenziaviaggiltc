@@ -10,13 +10,13 @@
  */
 
 /**
- * Enables usage of the deprecated Twig_SupTwg_Extension::initRuntime() method.
+ * Enables usage of the deprecated Twig_SupTwgDtgs_Extension::initRuntime() method.
  *
  * Explicitly implement this interface if you really need to implement the
  * deprecated initRuntime() method in your extensions.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-interface Twig_SupTwg_Extension_InitRuntimeInterface
+interface Twig_SupTwgDtgs_Extension_InitRuntimeInterface
 {
 }

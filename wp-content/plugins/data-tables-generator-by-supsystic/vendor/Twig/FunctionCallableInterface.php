@@ -12,13 +12,13 @@
 /**
  * Represents a callable template function.
  *
- * Use Twig_SupTwg_SimpleFunction instead.
+ * Use Twig_SupTwgDtgs_SimpleFunction instead.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *
  * @deprecated since 1.12 (to be removed in 2.0)
  */
-interface Twig_SupTwg_FunctionCallableInterface
+interface Twig_SupTwgDtgs_FunctionCallableInterface
 {
     public function getCallable();
 }

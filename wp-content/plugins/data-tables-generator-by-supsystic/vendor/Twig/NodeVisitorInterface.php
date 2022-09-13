@@ -10,25 +10,25 @@
  */
 
 /**
- * Twig_SupTwg_NodeVisitorInterface is the interface the all node visitor classes must implement.
+ * Twig_SupTwgDtgs_NodeVisitorInterface is the interface the all node visitor classes must implement.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-interface Twig_SupTwg_NodeVisitorInterface
+interface Twig_SupTwgDtgs_NodeVisitorInterface
 {
     /**
      * Called before child nodes are visited.
      *
-     * @return Twig_SupTwg_NodeInterface The modified node
+     * @return Twig_SupTwgDtgs_NodeInterface The modified node
      */
-    public function enterNode(Twig_SupTwg_NodeInterface $node, Twig_SupTwg_Environment $env);
+    public function enterNode(Twig_SupTwgDtgs_NodeInterface $node, Twig_SupTwgDtgs_Environment $env);
 
     /**
      * Called after child nodes are visited.
      *
-     * @return Twig_SupTwg_NodeInterface|false The modified node or false if the node must be removed
+     * @return Twig_SupTwgDtgs_NodeInterface|false The modified node or false if the node must be removed
      */
-    public function leaveNode(Twig_SupTwg_NodeInterface $node, Twig_SupTwg_Environment $env);
+    public function leaveNode(Twig_SupTwgDtgs_NodeInterface $node, Twig_SupTwgDtgs_Environment $env);
 
     /**
      * Returns the priority for this visitor.

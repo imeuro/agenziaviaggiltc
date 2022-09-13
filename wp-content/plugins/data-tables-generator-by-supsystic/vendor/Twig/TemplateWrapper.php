@@ -14,18 +14,18 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-final class Twig_SupTwg_TemplateWrapper
+final class Twig_SupTwgDtgs_TemplateWrapper
 {
     private $env;
     private $template;
 
     /**
      * This method is for internal use only and should never be called
-     * directly (use Twig_SupTwg_Environment::load() instead).
+     * directly (use Twig_SupTwgDtgs_Environment::load() instead).
      *
      * @internal
      */
-    public function __construct(Twig_SupTwg_Environment $env, Twig_SupTwg_Template $template)
+    public function __construct(Twig_SupTwgDtgs_Environment $env, Twig_SupTwgDtgs_Template $template)
     {
         $this->env = $env;
         $this->template = $template;
@@ -122,7 +122,7 @@ final class Twig_SupTwg_TemplateWrapper
     }
 
     /**
-     * @return Twig_SupTwg_Source
+     * @return Twig_SupTwgDtgs_Source
      */
     public function getSourceContext()
     {

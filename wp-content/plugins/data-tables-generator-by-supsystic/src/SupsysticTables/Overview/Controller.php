@@ -1,14 +1,12 @@
 <?php
-
-
 class SupsysticTables_Overview_Controller extends SupsysticTables_Core_BaseController
 {
-    public function indexAction(Rsc_Http_Request $request)
+    public function indexAction(RscDtgs_Http_Request $request)
     {
         $serverSettings = $this->getServerSettings();
         $config = $this->getEnvironment()->getConfig();
         global $current_user;
-		wp_get_current_user();
+		    wp_get_current_user();
 
         return $this->response(
             '@overview/index.twig',
@@ -24,7 +22,67 @@ class SupsysticTables_Overview_Controller extends SupsysticTables_Core_BaseContr
         );
     }
 
-    public function sendMailAction(Rsc_Http_Request $request) {
+    /**
+       * @param RscDtgs_Http_Request $request
+       */
+      public function sendSubscribeMailAction(RscDtgs_Http_Request $request)
+      {
+          $apiUrl = 'https://supsystic.com/wp-admin/admin-ajax.php';
+          $reqUrl = $apiUrl . '?action=ac_get_plugin_installed';
+          $config = $this->getEnvironment()->getConfig();
+          $mail = $request->post['route']['data'];
+          $isPro = !empty($config->get('is_pro')) ? true : false;
+          $data = array(
+              'body' => array(
+                  'key' => 'kJ#f3(FjkF9fasd124t5t589u9d4389r3r3R#2asdas3(#R03r#(r#t-4t5t589u9d4389r3r3R#$%lfdj',
+                  'user_name' => $mail['username'],
+                  'user_email' => $mail['email'],
+                  'site_url' => get_bloginfo('wpurl'),
+                  'site_name' => get_bloginfo('name'),
+                  'plugin_code' => 'dtgs',
+                  'is_pro' => $isPro,
+              ),
+          );
+          $response = wp_remote_post(
+              $reqUrl,
+              $data
+          );
+          if (is_wp_error($response)) {
+              $response = array(
+                  'success' => false,
+                  'message' => $this->translate('Some errors.')
+              );
+          } else {
+              $response = array(
+                  'success' => true,
+                  'message' => $this->translate('Thank you for subscribtions.')
+              );
+              update_option('dtgs_ac_subscribe', true);
+          }
+          return $this->response(RscDtgs_Http_Response::AJAX, $response);
+      }
+
+      /**
+       * @param RscDtgs_Http_Request $request
+       */
+      public function sendSubscribeRemindAction(RscDtgs_Http_Request $request)
+      {
+          update_option('dtgs_ac_remind', date("Y-m-d h:i:s", time() + 86400));
+          $response = array ('success' => true);
+          return $this->response(RscDtgs_Http_Response::AJAX, $response);
+      }
+
+      /**
+       * @param RscDtgs_Http_Request $request
+       */
+      public function sendSubscribeDisableAction(RscDtgs_Http_Request $request)
+      {
+          update_option('dtgs_ac_disabled', true);
+          $response = array ('success' => true);
+          return $this->response(RscDtgs_Http_Response::AJAX, $response);
+      }
+
+      public function sendMailAction(RscDtgs_Http_Request $request) {
         $mail = $request->post['route']['data'];
 
         $headers = array(
@@ -59,7 +117,7 @@ class SupsysticTables_Overview_Controller extends SupsysticTables_Core_BaseContr
             );
         }
 
-        return $this->response(Rsc_Http_Response::AJAX, $response);
+        return $this->response(RscDtgs_Http_Response::AJAX, $response);
     }
 
     protected function getMailErrors() {

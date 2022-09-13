@@ -14,29 +14,29 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Node_Set extends Twig_SupTwg_Node implements Twig_SupTwg_NodeCaptureInterface
+class Twig_SupTwgDtgs_Node_Set extends Twig_SupTwgDtgs_Node implements Twig_SupTwgDtgs_NodeCaptureInterface
 {
-    public function __construct($capture, Twig_SupTwg_NodeInterface $names, Twig_SupTwg_NodeInterface $values, $lineno, $tag = null)
+    public function __construct($capture, Twig_SupTwgDtgs_NodeInterface $names, Twig_SupTwgDtgs_NodeInterface $values, $lineno, $tag = null)
     {
         parent::__construct(array('names' => $names, 'values' => $values), array('capture' => $capture, 'safe' => false), $lineno, $tag);
 
         /*
          * Optimizes the node when capture is used for a large block of text.
          *
-         * {% set foo %}foo{% endset %} is compiled to $context['foo'] = new Twig_SupTwg_Markup("foo");
+         * {% set foo %}foo{% endset %} is compiled to $context['foo'] = new Twig_SupTwgDtgs_Markup("foo");
          */
         if ($this->getAttribute('capture')) {
             $this->setAttribute('safe', true);
 
             $values = $this->getNode('values');
-            if ($values instanceof Twig_SupTwg_Node_Text) {
-                $this->setNode('values', new Twig_SupTwg_Node_Expression_Constant($values->getAttribute('data'), $values->getTemplateLine()));
+            if ($values instanceof Twig_SupTwgDtgs_Node_Text) {
+                $this->setNode('values', new Twig_SupTwgDtgs_Node_Expression_Constant($values->getAttribute('data'), $values->getTemplateLine()));
                 $this->setAttribute('capture', false);
             }
         }
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler->addDebugInfo($this);
 
@@ -61,7 +61,7 @@ class Twig_SupTwg_Node_Set extends Twig_SupTwg_Node implements Twig_SupTwg_NodeC
             $compiler->subcompile($this->getNode('names'), false);
 
             if ($this->getAttribute('capture')) {
-                $compiler->raw(" = ('' === \$tmp = ob_get_clean()) ? '' : new Twig_SupTwg_Markup(\$tmp, \$this->env->getCharset())");
+                $compiler->raw(" = ('' === \$tmp = ob_get_clean()) ? '' : new Twig_SupTwgDtgs_Markup(\$tmp, \$this->env->getCharset())");
             }
         }
 
@@ -83,7 +83,7 @@ class Twig_SupTwg_Node_Set extends Twig_SupTwg_Node implements Twig_SupTwg_NodeC
                     $compiler
                         ->raw("('' === \$tmp = ")
                         ->subcompile($this->getNode('values'))
-                        ->raw(") ? '' : new Twig_SupTwg_Markup(\$tmp, \$this->env->getCharset())")
+                        ->raw(") ? '' : new Twig_SupTwgDtgs_Markup(\$tmp, \$this->env->getCharset())")
                     ;
                 } else {
                     $compiler->subcompile($this->getNode('values'));

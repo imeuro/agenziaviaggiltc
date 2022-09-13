@@ -21,15 +21,15 @@
  *
  * @final
  */
-class Twig_SupTwg_TokenParser_Include extends Twig_SupTwg_TokenParser
+class Twig_SupTwgDtgs_TokenParser_Include extends Twig_SupTwgDtgs_TokenParser
 {
-    public function parse(Twig_SupTwg_Token $token)
+    public function parse(Twig_SupTwgDtgs_Token $token)
     {
         $expr = $this->parser->getExpressionParser()->parseExpression();
 
         list($variables, $only, $ignoreMissing) = $this->parseArguments();
 
-        return new Twig_SupTwg_Node_Include($expr, $variables, $only, $ignoreMissing, $token->getLine(), $this->getTag());
+        return new Twig_SupTwgDtgs_Node_Include($expr, $variables, $only, $ignoreMissing, $token->getLine(), $this->getTag());
     }
 
     protected function parseArguments()
@@ -37,23 +37,23 @@ class Twig_SupTwg_TokenParser_Include extends Twig_SupTwg_TokenParser
         $stream = $this->parser->getStream();
 
         $ignoreMissing = false;
-        if ($stream->nextIf(Twig_SupTwg_Token::NAME_TYPE, 'ignore')) {
-            $stream->expect(Twig_SupTwg_Token::NAME_TYPE, 'missing');
+        if ($stream->nextIf(Twig_SupTwgDtgs_Token::NAME_TYPE, 'ignore')) {
+            $stream->expect(Twig_SupTwgDtgs_Token::NAME_TYPE, 'missing');
 
             $ignoreMissing = true;
         }
 
         $variables = null;
-        if ($stream->nextIf(Twig_SupTwg_Token::NAME_TYPE, 'with')) {
+        if ($stream->nextIf(Twig_SupTwgDtgs_Token::NAME_TYPE, 'with')) {
             $variables = $this->parser->getExpressionParser()->parseExpression();
         }
 
         $only = false;
-        if ($stream->nextIf(Twig_SupTwg_Token::NAME_TYPE, 'only')) {
+        if ($stream->nextIf(Twig_SupTwgDtgs_Token::NAME_TYPE, 'only')) {
             $only = true;
         }
 
-        $stream->expect(Twig_SupTwg_Token::BLOCK_END_TYPE);
+        $stream->expect(Twig_SupTwgDtgs_Token::BLOCK_END_TYPE);
 
         return array($variables, $only, $ignoreMissing);
     }

@@ -1,7 +1,7 @@
 <?php
 
 
-class Rsc_Profiler
+class RscDtgs_Profiler
 {
 
 

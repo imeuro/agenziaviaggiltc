@@ -8,11 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-abstract class Twig_SupTwg_Node_Expression_Call extends Twig_SupTwg_Node_Expression
+abstract class Twig_SupTwgDtgs_Node_Expression_Call extends Twig_SupTwgDtgs_Node_Expression
 {
     private $reflector;
 
-    protected function compileCallable(Twig_SupTwg_Compiler $compiler)
+    protected function compileCallable(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $closingParenthesis = false;
         if ($this->hasAttribute('callable') && $callable = $this->getAttribute('callable')) {
@@ -26,7 +26,7 @@ abstract class Twig_SupTwg_Node_Expression_Call extends Twig_SupTwg_Node_Express
                     } else {
                         $compiler->raw(sprintf('$this->env->getRuntime(\'%s\')->%s', $callable[0], $callable[1]));
                     }
-                } elseif ($r instanceof ReflectionMethod && $callable[0] instanceof Twig_SupTwg_ExtensionInterface) {
+                } elseif ($r instanceof ReflectionMethod && $callable[0] instanceof Twig_SupTwgDtgs_ExtensionInterface) {
                     $compiler->raw(sprintf('$this->env->getExtension(\'%s\')->%s', get_class($callable[0]), $callable[1]));
                 } else {
                     $type = ucfirst($this->getAttribute('type'));
@@ -45,7 +45,7 @@ abstract class Twig_SupTwg_Node_Expression_Call extends Twig_SupTwg_Node_Express
         }
     }
 
-    protected function compileArguments(Twig_SupTwg_Compiler $compiler)
+    protected function compileArguments(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler->raw('(');
 
@@ -111,7 +111,7 @@ abstract class Twig_SupTwg_Node_Expression_Call extends Twig_SupTwg_Node_Express
                 $named = true;
                 $name = $this->normalizeName($name);
             } elseif ($named) {
-                throw new Twig_SupTwg_Error_Syntax(sprintf('Positional arguments cannot be used after named arguments for %s "%s".', $callType, $callName));
+                throw new Twig_SupTwgDtgs_Error_Syntax(sprintf('Positional arguments cannot be used after named arguments for %s "%s".', $callType, $callName));
             }
 
             $parameters[$name] = $node;
@@ -143,11 +143,11 @@ abstract class Twig_SupTwg_Node_Expression_Call extends Twig_SupTwg_Node_Express
 
             if (array_key_exists($name, $parameters)) {
                 if (array_key_exists($pos, $parameters)) {
-                    throw new Twig_SupTwg_Error_Syntax(sprintf('Argument "%s" is defined twice for %s "%s".', $name, $callType, $callName));
+                    throw new Twig_SupTwgDtgs_Error_Syntax(sprintf('Argument "%s" is defined twice for %s "%s".', $name, $callType, $callName));
                 }
 
                 if (count($missingArguments)) {
-                    throw new Twig_SupTwg_Error_Syntax(sprintf(
+                    throw new Twig_SupTwgDtgs_Error_Syntax(sprintf(
                         'Argument "%s" could not be assigned for %s "%s(%s)" because it is mapped to an internal PHP function which cannot determine default value for optional argument%s "%s".',
                         $name, $callType, $callName, implode(', ', $names), count($missingArguments) > 1 ? 's' : '', implode('", "', $missingArguments))
                     );
@@ -164,7 +164,7 @@ abstract class Twig_SupTwg_Node_Expression_Call extends Twig_SupTwg_Node_Express
                 $optionalArguments = array();
                 ++$pos;
             } elseif ($callableParameter->isDefaultValueAvailable()) {
-                $optionalArguments[] = new Twig_SupTwg_Node_Expression_Constant($callableParameter->getDefaultValue(), -1);
+                $optionalArguments[] = new Twig_SupTwgDtgs_Node_Expression_Constant($callableParameter->getDefaultValue(), -1);
             } elseif ($callableParameter->isOptional()) {
                 if (empty($parameters)) {
                     break;
@@ -172,17 +172,17 @@ abstract class Twig_SupTwg_Node_Expression_Call extends Twig_SupTwg_Node_Express
                     $missingArguments[] = $name;
                 }
             } else {
-                throw new Twig_SupTwg_Error_Syntax(sprintf('Value for argument "%s" is required for %s "%s".', $name, $callType, $callName));
+                throw new Twig_SupTwgDtgs_Error_Syntax(sprintf('Value for argument "%s" is required for %s "%s".', $name, $callType, $callName));
             }
         }
 
         if ($isVariadic) {
-            $arbitraryArguments = new Twig_SupTwg_Node_Expression_Array(array(), -1);
+            $arbitraryArguments = new Twig_SupTwgDtgs_Node_Expression_Array(array(), -1);
             foreach ($parameters as $key => $value) {
                 if (is_int($key)) {
                     $arbitraryArguments->addElement($value);
                 } else {
-                    $arbitraryArguments->addElement($value, new Twig_SupTwg_Node_Expression_Constant($key, -1));
+                    $arbitraryArguments->addElement($value, new Twig_SupTwgDtgs_Node_Expression_Constant($key, -1));
                 }
                 unset($parameters[$key]);
             }
@@ -196,13 +196,13 @@ abstract class Twig_SupTwg_Node_Expression_Call extends Twig_SupTwg_Node_Express
         if (!empty($parameters)) {
             $unknownParameter = null;
             foreach ($parameters as $parameter) {
-                if ($parameter instanceof Twig_SupTwg_Node) {
+                if ($parameter instanceof Twig_SupTwgDtgs_Node) {
                     $unknownParameter = $parameter;
                     break;
                 }
             }
 
-            throw new Twig_SupTwg_Error_Syntax(sprintf(
+            throw new Twig_SupTwgDtgs_Error_Syntax(sprintf(
                 'Unknown argument%s "%s" for %s "%s(%s)".',
                 count($parameters) > 1 ? 's' : '', implode('", "', array_keys($parameters)), $callType, $callName, implode(', ', $names)
             ), $unknownParameter ? $unknownParameter->getTemplateLine() : -1);

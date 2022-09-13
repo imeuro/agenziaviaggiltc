@@ -15,7 +15,7 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Parser implements Twig_SupTwg_ParserInterface
+class Twig_SupTwgDtgs_Parser implements Twig_SupTwgDtgs_ParserInterface
 {
     protected $stack = array();
     protected $stream;
@@ -32,7 +32,7 @@ class Twig_SupTwg_Parser implements Twig_SupTwg_ParserInterface
     protected $traits;
     protected $embeddedTemplates = array();
 
-    public function __construct(Twig_SupTwg_Environment $env)
+    public function __construct(Twig_SupTwgDtgs_Environment $env)
     {
         $this->env = $env;
     }
@@ -42,7 +42,7 @@ class Twig_SupTwg_Parser implements Twig_SupTwg_ParserInterface
      */
     public function getEnvironment()
     {
-        @trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0.', E_USER_DEPRECATED);
+        //@trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0.', E_USER_DEPRECATED);
 
         return $this->env;
     }
@@ -57,12 +57,12 @@ class Twig_SupTwg_Parser implements Twig_SupTwg_ParserInterface
      */
     public function getFilename()
     {
-        @trigger_error(sprintf('The "%s" method is deprecated since version 1.27 and will be removed in 2.0. Use $parser->getStream()->getSourceContext()->getPath() instead.', __METHOD__), E_USER_DEPRECATED);
+        //@trigger_error(sprintf('The "%s" method is deprecated since version 1.27 and will be removed in 2.0. Use $parser->getStream()->getSourceContext()->getPath() instead.', __METHOD__), E_USER_DEPRECATED);
 
         return $this->stream->getSourceContext()->getName();
     }
 
-    public function parse(Twig_SupTwg_TokenStream $stream, $test = null, $dropNeedle = false)
+    public function parse(Twig_SupTwgDtgs_TokenStream $stream, $test = null, $dropNeedle = false)
     {
         // push all variables into the stack to keep the current state of the parser
         // using get_object_vars() instead of foreach would lead to https://bugs.php.net/71336
@@ -87,7 +87,7 @@ class Twig_SupTwg_Parser implements Twig_SupTwg_ParserInterface
         }
 
         if (null === $this->expressionParser) {
-            $this->expressionParser = new Twig_SupTwg_ExpressionParser($this, $this->env);
+            $this->expressionParser = new Twig_SupTwgDtgs_ExpressionParser($this, $this->env);
         }
 
         $this->stream = $stream;
@@ -103,9 +103,9 @@ class Twig_SupTwg_Parser implements Twig_SupTwg_ParserInterface
             $body = $this->subparse($test, $dropNeedle);
 
             if (null !== $this->parent && null === $body = $this->filterBodyNodes($body)) {
-                $body = new Twig_SupTwg_Node();
+                $body = new Twig_SupTwgDtgs_Node();
             }
-        } catch (Twig_SupTwg_Error_Syntax $e) {
+        } catch (Twig_SupTwgDtgs_Error_Syntax $e) {
             if (!$e->getSourceContext()) {
                 $e->setSourceContext($this->stream->getSourceContext());
             }
@@ -117,9 +117,9 @@ class Twig_SupTwg_Parser implements Twig_SupTwg_ParserInterface
             throw $e;
         }
 
-        $node = new Twig_SupTwg_Node_Module(new Twig_SupTwg_Node_Body(array($body)), $this->parent, new Twig_SupTwg_Node($this->blocks), new Twig_SupTwg_Node($this->macros), new Twig_SupTwg_Node($this->traits), $this->embeddedTemplates, $stream->getSourceContext());
+        $node = new Twig_SupTwgDtgs_Node_Module(new Twig_SupTwgDtgs_Node_Body(array($body)), $this->parent, new Twig_SupTwgDtgs_Node($this->blocks), new Twig_SupTwgDtgs_Node($this->macros), new Twig_SupTwgDtgs_Node($this->traits), $this->embeddedTemplates, $stream->getSourceContext());
 
-        $traverser = new Twig_SupTwg_NodeTraverser($this->env, $this->visitors);
+        $traverser = new Twig_SupTwgDtgs_NodeTraverser($this->env, $this->visitors);
 
         $node = $traverser->traverse($node);
 
@@ -137,24 +137,24 @@ class Twig_SupTwg_Parser implements Twig_SupTwg_ParserInterface
         $rv = array();
         while (!$this->stream->isEOF()) {
             switch ($this->getCurrentToken()->getType()) {
-                case Twig_SupTwg_Token::TEXT_TYPE:
+                case Twig_SupTwgDtgs_Token::TEXT_TYPE:
                     $token = $this->stream->next();
-                    $rv[] = new Twig_SupTwg_Node_Text($token->getValue(), $token->getLine());
+                    $rv[] = new Twig_SupTwgDtgs_Node_Text($token->getValue(), $token->getLine());
                     break;
 
-                case Twig_SupTwg_Token::VAR_START_TYPE:
+                case Twig_SupTwgDtgs_Token::VAR_START_TYPE:
                     $token = $this->stream->next();
                     $expr = $this->expressionParser->parseExpression();
-                    $this->stream->expect(Twig_SupTwg_Token::VAR_END_TYPE);
-                    $rv[] = new Twig_SupTwg_Node_Print($expr, $token->getLine());
+                    $this->stream->expect(Twig_SupTwgDtgs_Token::VAR_END_TYPE);
+                    $rv[] = new Twig_SupTwgDtgs_Node_Print($expr, $token->getLine());
                     break;
 
-                case Twig_SupTwg_Token::BLOCK_START_TYPE:
+                case Twig_SupTwgDtgs_Token::BLOCK_START_TYPE:
                     $this->stream->next();
                     $token = $this->getCurrentToken();
 
-                    if ($token->getType() !== Twig_SupTwg_Token::NAME_TYPE) {
-                        throw new Twig_SupTwg_Error_Syntax('A block must start with a tag name.', $token->getLine(), $this->stream->getSourceContext());
+                    if ($token->getType() !== Twig_SupTwgDtgs_Token::NAME_TYPE) {
+                        throw new Twig_SupTwgDtgs_Error_Syntax('A block must start with a tag name.', $token->getLine(), $this->stream->getSourceContext());
                     }
 
                     if (null !== $test && call_user_func($test, $token)) {
@@ -166,19 +166,19 @@ class Twig_SupTwg_Parser implements Twig_SupTwg_ParserInterface
                             return $rv[0];
                         }
 
-                        return new Twig_SupTwg_Node($rv, array(), $lineno);
+                        return new Twig_SupTwgDtgs_Node($rv, array(), $lineno);
                     }
 
                     $subparser = $this->handlers->getTokenParser($token->getValue());
                     if (null === $subparser) {
                         if (null !== $test) {
-                            $e = new Twig_SupTwg_Error_Syntax(sprintf('Unexpected "%s" tag', $token->getValue()), $token->getLine(), $this->stream->getSourceContext());
+                            $e = new Twig_SupTwgDtgs_Error_Syntax(sprintf('Unexpected "%s" tag', $token->getValue()), $token->getLine(), $this->stream->getSourceContext());
 
-                            if (is_array($test) && isset($test[0]) && $test[0] instanceof Twig_SupTwg_TokenParserInterface) {
+                            if (is_array($test) && isset($test[0]) && $test[0] instanceof Twig_SupTwgDtgs_TokenParserInterface) {
                                 $e->appendMessage(sprintf(' (expecting closing tag for the "%s" tag defined near line %s).', $test[0]->getTag(), $lineno));
                             }
                         } else {
-                            $e = new Twig_SupTwg_Error_Syntax(sprintf('Unknown "%s" tag.', $token->getValue()), $token->getLine(), $this->stream->getSourceContext());
+                            $e = new Twig_SupTwgDtgs_Error_Syntax(sprintf('Unknown "%s" tag.', $token->getValue()), $token->getLine(), $this->stream->getSourceContext());
                             $e->addSuggestions($token->getValue(), array_keys($this->env->getTags()));
                         }
 
@@ -194,7 +194,7 @@ class Twig_SupTwg_Parser implements Twig_SupTwg_ParserInterface
                     break;
 
                 default:
-                    throw new Twig_SupTwg_Error_Syntax('Lexer or parser ended up in unsupported state.', $this->getCurrentToken()->getLine(), $this->stream->getSourceContext());
+                    throw new Twig_SupTwgDtgs_Error_Syntax('Lexer or parser ended up in unsupported state.', $this->getCurrentToken()->getLine(), $this->stream->getSourceContext());
             }
         }
 
@@ -202,7 +202,7 @@ class Twig_SupTwg_Parser implements Twig_SupTwg_ParserInterface
             return $rv[0];
         }
 
-        return new Twig_SupTwg_Node($rv, array(), $lineno);
+        return new Twig_SupTwgDtgs_Node($rv, array(), $lineno);
     }
 
     /**
@@ -210,7 +210,7 @@ class Twig_SupTwg_Parser implements Twig_SupTwg_ParserInterface
      */
     public function addHandler($name, $class)
     {
-        @trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0.', E_USER_DEPRECATED);
+        //@trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0.', E_USER_DEPRECATED);
 
         $this->handlers[$name] = $class;
     }
@@ -218,9 +218,9 @@ class Twig_SupTwg_Parser implements Twig_SupTwg_ParserInterface
     /**
      * @deprecated since 1.27 (to be removed in 2.0)
      */
-    public function addNodeVisitor(Twig_SupTwg_NodeVisitorInterface $visitor)
+    public function addNodeVisitor(Twig_SupTwgDtgs_NodeVisitorInterface $visitor)
     {
-        @trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0.', E_USER_DEPRECATED);
+        //@trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0.', E_USER_DEPRECATED);
 
         $this->visitors[] = $visitor;
     }
@@ -255,9 +255,9 @@ class Twig_SupTwg_Parser implements Twig_SupTwg_ParserInterface
         return $this->blocks[$name];
     }
 
-    public function setBlock($name, Twig_SupTwg_Node_Block $value)
+    public function setBlock($name, Twig_SupTwgDtgs_Node_Block $value)
     {
-        $this->blocks[$name] = new Twig_SupTwg_Node_Body(array($value), array(), $value->getTemplateLine());
+        $this->blocks[$name] = new Twig_SupTwgDtgs_Node_Body(array($value), array(), $value->getTemplateLine());
     }
 
     public function hasMacro($name)
@@ -265,10 +265,10 @@ class Twig_SupTwg_Parser implements Twig_SupTwg_ParserInterface
         return isset($this->macros[$name]);
     }
 
-    public function setMacro($name, Twig_SupTwg_Node_Macro $node)
+    public function setMacro($name, Twig_SupTwgDtgs_Node_Macro $node)
     {
         if ($this->isReservedMacroName($name)) {
-            throw new Twig_SupTwg_Error_Syntax(sprintf('"%s" cannot be used as a macro name as it is a reserved keyword.', $name), $node->getTemplateLine(), $this->stream->getSourceContext());
+            throw new Twig_SupTwgDtgs_Error_Syntax(sprintf('"%s" cannot be used as a macro name as it is a reserved keyword.', $name), $node->getTemplateLine(), $this->stream->getSourceContext());
         }
 
         $this->macros[$name] = $node;
@@ -301,14 +301,14 @@ class Twig_SupTwg_Parser implements Twig_SupTwg_ParserInterface
         return count($this->traits) > 0;
     }
 
-    public function embedTemplate(Twig_SupTwg_Node_Module $template)
+    public function embedTemplate(Twig_SupTwgDtgs_Node_Module $template)
     {
         $template->setIndex(mt_rand());
 
         $this->embeddedTemplates[] = $template;
     }
 
-    public function addImportedSymbol($type, $alias, $name = null, Twig_SupTwg_Node_Expression $node = null)
+    public function addImportedSymbol($type, $alias, $name = null, Twig_SupTwgDtgs_Node_Expression $node = null)
     {
         $this->importedSymbols[0][$type][$alias] = array('name' => $name, 'node' => $node);
     }
@@ -338,7 +338,7 @@ class Twig_SupTwg_Parser implements Twig_SupTwg_ParserInterface
     }
 
     /**
-     * @return Twig_SupTwg_ExpressionParser
+     * @return Twig_SupTwgDtgs_ExpressionParser
      */
     public function getExpressionParser()
     {
@@ -356,7 +356,7 @@ class Twig_SupTwg_Parser implements Twig_SupTwg_ParserInterface
     }
 
     /**
-     * @return Twig_SupTwg_TokenStream
+     * @return Twig_SupTwgDtgs_TokenStream
      */
     public function getStream()
     {
@@ -364,34 +364,34 @@ class Twig_SupTwg_Parser implements Twig_SupTwg_ParserInterface
     }
 
     /**
-     * @return Twig_SupTwg_Token
+     * @return Twig_SupTwgDtgs_Token
      */
     public function getCurrentToken()
     {
         return $this->stream->getCurrent();
     }
 
-    protected function filterBodyNodes(Twig_SupTwg_NodeInterface $node)
+    protected function filterBodyNodes(Twig_SupTwgDtgs_NodeInterface $node)
     {
         // check that the body does not contain non-empty output nodes
         if (
-            ($node instanceof Twig_SupTwg_Node_Text && !ctype_space($node->getAttribute('data')))
+            ($node instanceof Twig_SupTwgDtgs_Node_Text && !ctype_space($node->getAttribute('data')))
             ||
-            (!$node instanceof Twig_SupTwg_Node_Text && !$node instanceof Twig_SupTwg_Node_BlockReference && $node instanceof Twig_SupTwg_NodeOutputInterface)
+            (!$node instanceof Twig_SupTwgDtgs_Node_Text && !$node instanceof Twig_SupTwgDtgs_Node_BlockReference && $node instanceof Twig_SupTwgDtgs_NodeOutputInterface)
         ) {
             if (false !== strpos((string) $node, chr(0xEF).chr(0xBB).chr(0xBF))) {
-                throw new Twig_SupTwg_Error_Syntax('A template that extends another one cannot start with a byte order mark (BOM); it must be removed.', $node->getTemplateLine(), $this->stream->getSourceContext());
+                throw new Twig_SupTwgDtgs_Error_Syntax('A template that extends another one cannot start with a byte order mark (BOM); it must be removed.', $node->getTemplateLine(), $this->stream->getSourceContext());
             }
 
-            throw new Twig_SupTwg_Error_Syntax('A template that extends another one cannot include contents outside Twig blocks. Did you forget to put the contents inside a {% block %} tag?', $node->getTemplateLine(), $this->stream->getSourceContext());
+            throw new Twig_SupTwgDtgs_Error_Syntax('A template that extends another one cannot include contents outside Twig blocks. Did you forget to put the contents inside a {% block %} tag?', $node->getTemplateLine(), $this->stream->getSourceContext());
         }
 
         // bypass nodes that will "capture" the output
-        if ($node instanceof Twig_SupTwg_NodeCaptureInterface) {
+        if ($node instanceof Twig_SupTwgDtgs_NodeCaptureInterface) {
             return $node;
         }
 
-        if ($node instanceof Twig_SupTwg_NodeOutputInterface) {
+        if ($node instanceof Twig_SupTwgDtgs_NodeOutputInterface) {
             return;
         }
 

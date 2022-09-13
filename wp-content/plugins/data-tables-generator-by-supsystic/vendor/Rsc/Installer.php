@@ -1,17 +1,17 @@
 <?php
 
 
-class Rsc_Installer
+class RscDtgs_Installer
 {
     /**
-     * @var Rsc_Installer_Parser
+     * @var RscDtgs_Installer_Parser
      */
     private $parser;
 
     /**
-     * @param Rsc_Installer_Parser $parser
+     * @param RscDtgs_Installer_Parser $parser
      */
-    public function __construct(Rsc_Installer_Parser $parser)
+    public function __construct(RscDtgs_Installer_Parser $parser)
     {
         $this->parser = $parser;
     }

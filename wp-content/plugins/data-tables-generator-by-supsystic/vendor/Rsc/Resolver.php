@@ -1,21 +1,21 @@
 <?php
 
 
-class Rsc_Resolver
+class RscDtgs_Resolver
 {
 
     /**
-     * @var Rsc_Environment
+     * @var RscDtgs_Environment
      */
     private $environment;
 
     /**
-     * @var Rsc_Common_Collection
+     * @var RscDtgs_Common_Collection
      */
     protected $modules;
 
     /**
-     * @var Rsc_Http_Request
+     * @var RscDtgs_Http_Request
      */
     protected $request;
 
@@ -31,19 +31,19 @@ class Rsc_Resolver
 
     /**
      * Constructor
-     * @param Rsc_Environment $environment An instance of current environment
+     * @param RscDtgs_Environment $environment An instance of current environment
      */
-    public function __construct(Rsc_Environment $environment)
+    public function __construct(RscDtgs_Environment $environment)
     {
         $this->environment = $environment;
-        $this->modules = new Rsc_Common_Collection();
-        $this->request = new Rsc_Http_Request();
+        $this->modules = new RscDtgs_Common_Collection();
+        $this->request = new RscDtgs_Http_Request();
         $this->routes = array();
     }
 
     /**
      * Returns an instance of environment
-     * @return Rsc_Environment
+     * @return RscDtgs_Environment
      */
     public function getEnvironment()
     {
@@ -52,7 +52,7 @@ class Rsc_Resolver
 
     /**
      * Returns the collection of the found modules
-     * @return Rsc_Common_Collection
+     * @return RscDtgs_Common_Collection
      */
     public function getModules()
     {
@@ -62,7 +62,7 @@ class Rsc_Resolver
     public function setModules($modules)
     {
         if (is_array($modules)) {
-            $modules = new Rsc_Common_Collection($modules);
+            $modules = new RscDtgs_Common_Collection($modules);
         }
 
         $this->modules = $modules;
@@ -81,7 +81,7 @@ class Rsc_Resolver
     {
         $modules = $this->getModulesList();
 
-        /** @var Rsc_Mvc_Module $module */
+        /** @var RscDtgs_Mvc_Module $module */
         foreach ($modules as $name => $module) {
             $module->onInstall();
         }
@@ -97,7 +97,7 @@ class Rsc_Resolver
 
         $modules = $this->getModulesList();
 
-        /** @var Rsc_Mvc_Module $instance */
+        /** @var RscDtgs_Mvc_Module $instance */
         foreach ($modules as $name => $instance) {
             /* Set http request to the module */
             $instance->setRequest($this->request)->onInit();
@@ -114,7 +114,7 @@ class Rsc_Resolver
 
             /* We add module's location to the template & config loaders */
 
-            /** @var Twig_SupTwg_Loader_Filesystem $loader */
+            /** @var Twig_SupTwgDtgs_Loader_Filesystem $loader */
             try {
                 $loader = $this->environment->getTwig()->getLoader();
                 $loader->addPath($instance->getLocation() . '/views', strtolower($name));
@@ -135,7 +135,7 @@ class Rsc_Resolver
 						do_action($actionName);
 					}
 				}
-            } catch (Twig_SupTwg_Error_Loader $e) {  }
+            } catch (Twig_SupTwgDtgs_Error_Loader $e) {  }
 
             $configLoader = $config->getLoader();
             $configLoader->add($instance->getLocation() . '/configs', strtolower($name));
@@ -200,7 +200,7 @@ class Rsc_Resolver
 
                 try {
                     $twig->addPath($location . '/views', $name . '_pro');
-                } catch (Twig_SupTwg_Error_Loader $e) {
+                } catch (Twig_SupTwgDtgs_Error_Loader $e) {
                     // Do nothing. Path does not exists.
                 }
 
@@ -222,7 +222,7 @@ class Rsc_Resolver
         if (in_array($query->get('page'), array_keys($this->routes))) {
             $name = $this->routes[$query->get('page')];
         } else {
-            /** @var Rsc_Mvc_Module $module */
+            /** @var RscDtgs_Mvc_Module $module */
             $name = $query->get('module', $this->environment->getConfig()->get('default_module'));
         }
 
@@ -230,10 +230,10 @@ class Rsc_Resolver
             wp_die ('The module that you requested is not found');
         }
 
-        /** @var Rsc_Http_Response $response */
+        /** @var RscDtgs_Http_Response $response */
         $response = $module = $this->modules->get(strtolower($name))->setRequest($this->request)->handle();
 
-        if (!is_object($response) || !$response instanceof Rsc_Http_Response) {
+        if (!is_object($response) || !$response instanceof RscDtgs_Http_Response) {
             wp_die ('The controller must return the response');
         }
 
@@ -286,7 +286,7 @@ class Rsc_Resolver
                 }
             }
 
-            $this->modulesList = new Rsc_Common_Collection($modulesList);
+            $this->modulesList = new RscDtgs_Common_Collection($modulesList);
         }
 
         return $this->modulesList;

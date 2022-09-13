@@ -1511,12 +1511,12 @@ msgstr "기록 파일이 비었어요."
 #: admin/wp-security-database-menu.php:26
 #: admin/wp-security-database-menu.php:31
 #: classes/grade-system/wp-security-feature-item-manager.php:63
-msgid "DB Backup"
+msgid "Database backup"
 msgstr "DB 백업"
 
 #: admin/wp-security-database-menu.php:30
 #: classes/grade-system/wp-security-feature-item-manager.php:61
-msgid "DB Prefix"
+msgid "Database prefix"
 msgstr "DB 접두사"
 
 # @ all-in-one-wp-security-and-firewall
@@ -1551,7 +1551,7 @@ msgstr ""
 
 # @ all-in-one-wp-security-and-firewall
 #: admin/wp-security-database-menu.php:133
-msgid "Change Database Prefix"
+msgid "Change database prefix"
 msgstr "데이터베이스 접두사 변경"
 
 # @ all-in-one-wp-security-and-firewall
@@ -1593,7 +1593,7 @@ msgstr ""
 
 # @ all-in-one-wp-security-and-firewall
 #: admin/wp-security-database-menu.php:145
-msgid "DB Prefix Options"
+msgid "Database prefix options"
 msgstr "DB 접두사 옵션"
 
 # @ all-in-one-wp-security-and-firewall
@@ -1604,7 +1604,7 @@ msgstr "이 기능을 사용하기 전에 %s를 수행하는 것이 좋습니다
 
 # @ all-in-one-wp-security-and-firewall
 #: admin/wp-security-database-menu.php:165
-msgid "Current DB Table Prefix"
+msgid "Current database table prefix"
 msgstr "현재 DB 테이블 접두사"
 
 # @ all-in-one-wp-security-and-firewall
@@ -1622,7 +1622,7 @@ msgstr ""
 
 # @ all-in-one-wp-security-and-firewall
 #: admin/wp-security-database-menu.php:178
-msgid "Generate New DB Table Prefix"
+msgid "Generate new database table prefix"
 msgstr "새 DB 테이블 접두사 생성"
 
 # @ all-in-one-wp-security-and-firewall
@@ -1649,7 +1649,7 @@ msgstr ""
 
 # @ all-in-one-wp-security-and-firewall
 #: admin/wp-security-database-menu.php:188
-msgid "Change DB Prefix"
+msgid "Change database prefix"
 msgstr "DB 접두사 변경"
 
 # @ all-in-one-wp-security-and-firewall
@@ -1914,7 +1914,7 @@ msgstr ""
 
 # @ all-in-one-wp-security-and-firewall
 #: admin/wp-security-database-menu.php:532
-msgid "DB prefix change tasks have been completed."
+msgid "The database prefix change tasks have been completed."
 msgstr "DB 접두사 변경 작업이 완료되었습니다."
 
 #: admin/wp-security-database-menu.php:575
@@ -5334,7 +5334,7 @@ msgstr ""
 
 # @ all-in-one-wp-security-and-firewall
 #: admin/wp-security-user-login-menu.php:304
-msgid "All records from the Failed Logins table were deleted successfully!"
+msgid "All records from the Failed Logins table were deleted successfully."
 msgstr ""
 
 # @ all-in-one-wp-security-and-firewall

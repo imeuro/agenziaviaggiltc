@@ -17,7 +17,7 @@
  *
  * @final
  */
-class Twig_SupTwg_Token
+class Twig_SupTwgDtgs_Token
 {
     protected $value;
     protected $type;
@@ -159,7 +159,7 @@ class Twig_SupTwg_Token
                 throw new LogicException(sprintf('Token of type "%s" does not exist.', $type));
         }
 
-        return $short ? $name : 'Twig_SupTwg_Token::'.$name;
+        return $short ? $name : 'Twig_SupTwgDtgs_Token::'.$name;
     }
 
     /**

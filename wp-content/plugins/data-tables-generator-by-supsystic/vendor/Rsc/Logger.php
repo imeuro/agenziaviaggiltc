@@ -1,7 +1,7 @@
 <?php
 
 
-class Rsc_Logger implements Rsc_Logger_Interface
+class RscDtgs_Logger implements RscDtgs_Logger_Interface
 {
 
     /**
@@ -23,7 +23,7 @@ class Rsc_Logger implements Rsc_Logger_Interface
      * Sets the path to the log files.
      *
      * @param string $path Path to the log files
-     * @return Rsc_Logger
+     * @return RscDtgs_Logger
      */
     public function setPath($path)
     {
@@ -154,7 +154,7 @@ class Rsc_Logger implements Rsc_Logger_Interface
      * @param mixed $level
      * @param string $message
      * @param array $context
-     * @throws Rsc_Logger_Exception_InvalidPathException If path is does not exists or does not writable
+     * @throws RscDtgs_Logger_Exception_InvalidPathException If path is does not exists or does not writable
      * @return null
      */
     public function log($level, $message, array $context = array())

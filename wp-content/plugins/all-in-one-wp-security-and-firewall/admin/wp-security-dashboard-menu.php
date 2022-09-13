@@ -83,8 +83,12 @@ class AIOWPSecurity_Dashboard_Menu extends AIOWPSecurity_Admin_Menu
 	<?php
     }
 
-    public function render_tab2()
-    {
+	/**
+	 * Renders the submenu's tab2 tab body.
+	 *
+	 * @return Void
+	 */
+	public function render_tab2() {
         global $wpdb;
         include_once 'wp-security-list-locked-ip.php'; //For rendering the AIOWPSecurity_List_Table in tab1
         $locked_ip_list = new AIOWPSecurity_List_Locked_IP(); //For rendering the AIOWPSecurity_List_Table in tab1
@@ -120,8 +124,7 @@ class AIOWPSecurity_Dashboard_Menu extends AIOWPSecurity_Admin_Menu
                 $locked_ip_list->prepare_items();
                 //echo "put table of locked entries here";
                 ?>
-                <form id="tables-filter" method="get"
-                      onSubmit="return confirm('Are you sure you want to perform this bulk operation on the selected entries?');">
+				<form id="tables-filter" method="post">
                     <!-- For plugins, we also need to ensure that the form posts back to our current page -->
                     <input type="hidden" name="page" value="<?php echo esc_attr($_REQUEST['page']); ?>"/>
                     <?php
@@ -138,8 +141,12 @@ class AIOWPSecurity_Dashboard_Menu extends AIOWPSecurity_Admin_Menu
     <?php
     }
 
-   public function render_tab3()
-    {
+	/**
+	 * Renders the submenu's tab3 tab body.
+	 *
+	 * @return Void
+	 */
+	public function render_tab3() {
         global $wpdb;
         include_once 'wp-security-list-permanent-blocked-ip.php'; //For rendering the AIOWPSecurity_List_Table
         $blocked_ip_list = new AIOWPSecurity_List_Blocked_IP(); //For rendering the AIOWPSecurity_List_Table
@@ -150,7 +157,6 @@ class AIOWPSecurity_Dashboard_Menu extends AIOWPSecurity_Admin_Menu
                 $blocked_ip_list->unblock_ip_address(strip_tags($_REQUEST['blocked_id']));
             }
         }
-        AIOWPSecurity_Admin_Menu::display_bulk_result_message();
 
         ?>
         <div class="aio_blue_box">
@@ -170,7 +176,7 @@ class AIOWPSecurity_Dashboard_Menu extends AIOWPSecurity_Admin_Menu
                 //Fetch, prepare, sort, and filter our data...
                 $blocked_ip_list->prepare_items();
                 ?>
-                <form id="tables-filter" method="get">
+                <form id="tables-filter" method="post">
                     <!-- For plugins, we also need to ensure that the form posts back to our current page -->
                     <input type="hidden" name="page" value="<?php echo esc_attr($_REQUEST['page']); ?>"/>
                     <?php
@@ -188,13 +194,12 @@ class AIOWPSecurity_Dashboard_Menu extends AIOWPSecurity_Admin_Menu
     <?php
     }
 
-    /**
-     * Renders tab 5 which is the AIOWPS Logs tab. Responsible for displaying the logs
-     *
-     * @return void
-     */
-    public function render_tab4()
-    {
+	/**
+	 * Renders tab 4 which is the AIOWPS Logs tab. Responsible for displaying the logs
+	 *
+	 * @return void
+	 */
+	public function render_tab4() {
         //Needed for rendering the debug log table
         include_once 'wp-security-list-debug.php'; 
         $debug_log_list = new AIOWPSecurity_List_Debug_Log();
@@ -551,7 +556,7 @@ class AIOWPSecurity_Dashboard_Menu extends AIOWPSecurity_Admin_Menu
             foreach ($data as $entry) {
                 $login_summary_table .= '<tr>';
                 $login_summary_table .= '<td>' . $entry['user_login'] . '</td>';
-                $login_summary_table .= '<td>' . $entry['login_date'] . '</td>';
+                $login_summary_table .= '<td>' . get_date_from_gmt(mysql2date('Y-m-d H:i:s', $entry['login_date']), get_option('date_format').' '.get_option('time_format')) . '</td>';
                 $login_summary_table .= '<td>' . $entry['login_ip'] . '</td>';
                 $login_summary_table .= '</tr>';
             }
@@ -604,7 +609,7 @@ class AIOWPSecurity_Dashboard_Menu extends AIOWPSecurity_Admin_Menu
         //Insert Rename Login Page feature box if this feature is active
         if ($aio_wp_security->configs->get_value('aiowps_enable_rename_login_page') == '1') {
             if (get_option('permalink_structure')) {
-                $home_url = trailingslashit(home_url());
+                 $home_url = trailingslashit(home_url());
             } else {
                 $home_url = trailingslashit(home_url()) . '?';
             }
@@ -626,7 +631,7 @@ class AIOWPSecurity_Dashboard_Menu extends AIOWPSecurity_Admin_Menu
         // default display messages
         $multiple_users_info_msg = __('Number of users currently logged into your site (including you) is:', 'all-in-one-wp-security-and-firewall');
         $single_user_info_msg = __('There are no other users currently logged in.', 'all-in-one-wp-security-and-firewall');
-        if (AIOWPSecurity_Utility::is_multisite_install()) {
+        if (is_multisite()) {
             $current_blog_id = get_current_blog_id();
             $is_main = is_main_site($current_blog_id);
 

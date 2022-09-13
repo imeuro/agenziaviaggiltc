@@ -545,6 +545,7 @@ switch ($action) {
 		 * @param WP_User $user                  The WP_User object for the user that's logging out.
 		 */
 		$redirect_to = apply_filters('logout_redirect', $redirect_to, $requested_redirect_to, $user);
+
 		wp_safe_redirect($redirect_to);
 		exit();
 

@@ -14,14 +14,14 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Node_ForLoop extends Twig_SupTwg_Node
+class Twig_SupTwgDtgs_Node_ForLoop extends Twig_SupTwgDtgs_Node
 {
     public function __construct($lineno, $tag = null)
     {
         parent::__construct(array(), array('with_loop' => false, 'ifexpr' => false, 'else' => false), $lineno, $tag);
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         if ($this->getAttribute('else')) {
             $compiler->write("\$context['_iterated'] = true;\n");

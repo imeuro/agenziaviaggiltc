@@ -20,7 +20,7 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_FileExtensionEscapingStrategy
+class Twig_SupTwgDtgs_FileExtensionEscapingStrategy
 {
     /**
      * Guesses the best autoescaping strategy based on the file name.

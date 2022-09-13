@@ -10,6 +10,7 @@ $display_form = true;
 wp_head();
 wp_admin_css('login', true);
 wp_admin_css('colors-fresh', true);
+do_action('login_head');
 $login_header_url   = __('http://wordpress.org/');
 $login_header_title = __('Powered by WordPress');
 ?>

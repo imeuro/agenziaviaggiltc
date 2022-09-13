@@ -213,9 +213,7 @@ class HappyForms_Part_Select extends HappyForms_Form_Part {
 					return new WP_Error( 'error', happyforms_get_validation_message( 'field_invalid' ) );
 				}
 
-				$options = range( 0, count( $part['options'] ) - 1 );
-
-				if ( ! in_array( intval( $validated_value ), $options ) ) {
+				if ( ! in_array( intval( $validated_value ), array_keys( $part['options'] ) ) ) {
 					return new WP_Error( 'error', happyforms_get_validation_message( 'field_invalid' ) );
 				}
 			}

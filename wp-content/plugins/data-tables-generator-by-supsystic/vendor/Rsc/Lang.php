@@ -1,7 +1,7 @@
 <?php
 
 
-class Rsc_Lang
+class RscDtgs_Lang
 {
 
     /**
@@ -20,7 +20,7 @@ class Rsc_Lang
     protected $files;
 
     /**
-     * @var Rsc_Cache_Interface
+     * @var RscDtgs_Cache_Interface
      */
     protected $cache;
 
@@ -28,9 +28,9 @@ class Rsc_Lang
      * Constructor
      * @param null|string $domain Text domain
      * @param null|string $path Path to the *.mo files
-     * @param Rsc_Cache $cache Caching class
+     * @param RscDtgs_Cache $cache Caching class
      */
-    public function __construct($domain = null, $path = null, Rsc_Cache $cache = null)
+    public function __construct($domain = null, $path = null, RscDtgs_Cache $cache = null)
     {
         $this->domain = $domain;
         $this->path   = $path;
@@ -39,10 +39,10 @@ class Rsc_Lang
 
     /**
      * Set caching class
-     * @param \Rsc_Cache_Interface $cache
-     * @return Rsc_Lang
+     * @param \RscDtgs_Cache_Interface $cache
+     * @return RscDtgs_Lang
      */
-    public function setCache(Rsc_Cache_Interface $cache)
+    public function setCache(RscDtgs_Cache_Interface $cache)
     {
         $this->cache = $cache;
         return $this;
@@ -50,7 +50,7 @@ class Rsc_Lang
 
     /**
      * Load text domain
-     * @throws Rsc_Exception_LangException If path or domain is not specified
+     * @throws RscDtgs_Exception_LangException If path or domain is not specified
      */
     public function loadTextDomain()
     {
@@ -77,7 +77,7 @@ class Rsc_Lang
     }
 
     /**
-     * Alias for Rsc_Lang::translate()
+     * Alias for RscDtgs_Lang::translate()
      * @param string $msgid Message ID
      * @return string|void
      */
@@ -139,7 +139,7 @@ class Rsc_Lang
     /**
      * Set text domain
      * @param string $domain
-     * @return Rsc_Lang
+     * @return RscDtgs_Lang
      */
     public function setDomain($domain)
     {
@@ -159,7 +159,7 @@ class Rsc_Lang
     /**
      * Set domain path
      * @param string $path
-     * @return Rsc_Lang
+     * @return RscDtgs_Lang
      */
     public function setPath($path)
     {

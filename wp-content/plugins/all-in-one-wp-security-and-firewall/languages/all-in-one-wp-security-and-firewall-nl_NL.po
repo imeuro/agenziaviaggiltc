@@ -2130,7 +2130,7 @@ msgid "The deletion of the import file failed. Please delete this file manually 
 msgstr "Het verwijderen van het importbestand is mislukt. Gelieve dit bestand handmatig te verwijderen via het media-menu voor beveiligingsdoeleinden."
 
 #: admin/wp-security-user-login-menu.php:395
-msgid "All records from the Failed Logins table were deleted successfully!"
+msgid "All records from the Failed Logins table were deleted successfully."
 msgstr "Alle records uit de lijst mislukte inlogpogingen zijn met succes verwijderd!"
 
 #: admin/wp-security-user-login-menu.php:391
@@ -2821,7 +2821,7 @@ msgstr "Naam"
 #: classes/grade-system/wp-security-feature-item-manager.php:67
 #: admin/wp-security-database-menu.php:29
 #: admin/wp-security-database-menu.php:34
-msgid "DB Backup"
+msgid "Database backup"
 msgstr "DB back-up"
 
 #: admin/wp-security-database-menu.php:185
@@ -3119,15 +3119,15 @@ msgstr "Logs bekijken"
 
 #: classes/grade-system/wp-security-feature-item-manager.php:65
 #: admin/wp-security-database-menu.php:33
-msgid "DB Prefix"
+msgid "Database prefix"
 msgstr "DB-prefix"
 
 #: admin/wp-security-database-menu.php:136
-msgid "Change Database Prefix"
+msgid "Change database prefix"
 msgstr "Verander database-prefix"
 
 #: admin/wp-security-database-menu.php:148
-msgid "DB Prefix Options"
+msgid "Database prefix options"
 msgstr "Opties database-prefix"
 
 #: admin/wp-security-dashboard-menu.php:204
@@ -3171,7 +3171,7 @@ msgid "wp-config.php file was updated successfully!"
 msgstr "wp-config.php is succesvol bijgewerkt!"
 
 #: admin/wp-security-database-menu.php:535
-msgid "DB prefix change tasks have been completed."
+msgid "The database prefix change tasks have been completed."
 msgstr "Het veranderen van de DB-prefix is afgerond."
 
 #: admin/wp-security-dashboard-menu.php:423
@@ -3266,11 +3266,11 @@ msgid "<strong>ERROR</strong>: The table prefix can only contain numbers, letter
 msgstr "<strong>FOUT</strong>: het tabel voorvoegsel kan alleen cijfers, letters en underscores bevatten."
 
 #: admin/wp-security-database-menu.php:139
-msgid "Your WordPress DB is the most important asset of your website because it contains a lot of your site's precious information."
+msgid "Your WordPress database is the most important asset of your website because it contains a lot of your site's precious information."
 msgstr "Uw WordPress-DB is de belangrijkste troef van uw website, omdat deze heel veel kostbare informatie van uw site bevat."
 
 #: admin/wp-security-database-menu.php:140
-msgid "The DB is also a target for hackers via methods such as SQL injections and malicious and automated code which targets certain tables."
+msgid "The database is also a target for hackers via methods such as SQL injections and malicious and automated code which targets certain tables."
 msgstr "De DB is ook een doelwit voor hackers via methoden zoals SQL-injecties en kwaadaardige en geautomatiseerde code die zich op bepaalde tabellen richt."
 
 #: admin/wp-security-database-menu.php:141
@@ -3895,11 +3895,11 @@ msgid "Backup Time Interval"
 msgstr "Backup-intervaltijd"
 
 #: admin/wp-security-database-menu.php:168
-msgid "Current DB Table Prefix"
+msgid "Current database table prefix"
 msgstr "Huidige database-prefix"
 
 #: admin/wp-security-database-menu.php:181
-msgid "Generate New DB Table Prefix"
+msgid "Generate new database table prefix"
 msgstr "Nieuwe database-prefix aanmaken"
 
 #: admin/wp-security-database-menu.php:184
@@ -3907,7 +3907,7 @@ msgid "Check this if you want the plugin to generate a random 6 character string
 msgstr "Activeer dit als u wilt dat de plug-in een willekeurige tekenreeks van 6 karakters voor de tabel-prefix genereert"
 
 #: admin/wp-security-database-menu.php:191
-msgid "Change DB Prefix"
+msgid "Change database prefix"
 msgstr "Verander database-prefix"
 
 #: admin/wp-security-database-menu.php:229

@@ -5,7 +5,7 @@
 
 	<h3><?php _e('Thank you for installing All In One WP Security & Firewall!', 'all-in-one-wp-security-and-firewall');?></h3>
 	
-	<a href="https://aiowpsecurity.com/"><img style="border: 0px; float: right; width: 150px; margin-right: 40px;" alt="All In One WP Security & Firewall" src="<?php echo AIO_WP_SECURITY_URL.'/images/notices/ud_smile.png'; ?>"></a>
+	<a href="https://teamupdraft.com/"><img style="border: 0px; float: right; width: 150px; margin-right: 40px;" alt="<?php echo htmlspecialchars('All In One WP Security & Firewall'); ?>"  title="<?php echo htmlspecialchars('All In One WP Security & Firewall'); ?>"src="<?php echo AIO_WP_SECURITY_URL.'/images/notices/ud_smile.png'; ?>"></a>
 
 	<div id="aiowps-dashnotice_wrapper" style="max-width: 800px;">
 

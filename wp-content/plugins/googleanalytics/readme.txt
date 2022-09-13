@@ -2,9 +2,9 @@
 Contributors: sharethis, scottstorebloom, scottmweaver
 Tags: analytics, google analytics, google analytics plugin, google analytics widget, google analytics dashboard
 Requires at least: 5.2
-Tested up to: 6.0.1
-Stable tag: 3.0.0
-Version: 3.0.0
+Tested up to: 6.0.2
+Stable tag: 3.1.0
+Version: 3.1.0
 
 Use Google Analytics on your WordPress site without touching any code, and view visitor reports right in your WordPress admin dashboard!
 
@@ -18,7 +18,7 @@ Unlike other plugins, there are no monthly fees or paid upgrades for this plugin
 
 Get started in less than 10 minutes. Installation is quick and easy, no developers required.
 
-Simply download the plugin, log into Google, select the required website, and it will automatically include the appropriate code.
+Simply download the plugin, log into Google, select the required website, and it will automatically include the appropriate code. This plugin is compatible with both Universal Analytics and Google Analytics 4 (GA4).
 
 **GOOGLE ANALYTICS DASHBOARD**
 
@@ -27,28 +27,28 @@ Start making data-driven decisions with real time stats including:
 * Visitor trends – Dive deeper into your website’s page views, users, pages per session, and bounce rate for the past 7 days as compared to the previous 7 days
 * Traffic sources – Discover which 5 traffic sources are driving the most visitors to your website
 * Top pages – Stay updated on your 10 most viewed pages
-* New! Demographics - Get age and gender data in your dashboard.
-* New! GDPR Compliance Tool - For all your EU Compliance, we've integrated the ShareThis GDPR Compliance Tool into our plugin!
+* Demographics – Get device type and gender data in your dashboard
+* GDPR Compliance Tool – For EU Compliance, we’ve integrated the ShareThis GDPR Compliance Tool into our plugin.
 
 With our mobile-optimized plugin, you’ll be able to stay informed and get actionable insights on any device. For more accurate stats, you also have the option to disable tracking for any role like Admins or Editors so your analytics represent real visitors.
 
-If you don’t have a Google Analytics account, you can sign up for free here: [https://www.google.com/analytics/](https://www.google.com/analytics/)
+If you don’t have a Google Analytics account, you can sign up for free here:
+
+[https://www.google.com/analytics/](https://www.google.com/analytics/)
 
 **LOOKING FOR MORE WAYS TO GROW YOUR WEBSITE?**
 
-[Share buttons](https://wordpress.org/plugins/sharethis-share-buttons/) - Enable one-click sharing to start scaling your site traffic today.
+[Share buttons](https://wordpress.org/plugins/sharethis-share-buttons/) – Enable one-click sharing to start scaling your site traffic today.
 
-[Follow buttons](https://wordpress.org/plugins/sharethis-follow-buttons/) - Expand your social following across 20+ social channels including Facebook, Twitter, WhatsApp, and Pinterest.
+[Follow buttons](https://wordpress.org/plugins/sharethis-follow-buttons/) – Expand your social following across 20+ social channels including Facebook, Twitter, WhatsApp, and Pinterest.
 
-[Reaction buttons](https://wordpress.org/plugins/sharethis-reaction-buttons/) - Give your audience a fun and easy way to react to your content.
-
+[Reaction buttons](https://wordpress.org/plugins/sharethis-reaction-buttons/) – Give your audience a fun and easy way to react to your content.
 
 **SUPPORT**
 
 If you have any questions, please contact us at [support@sharethis.com](mailto:support@sharethis.com).
 
 By downloading and installing this plugin, you are agreeing to the [Privacy Policy](http://www.sharethis.com/privacy/) and [Terms of Service](http://www.sharethis.com/publisher-terms-of-use/).
-
 
 **USEFUL GOOGLE ANALYTICS & SEO RESOURCES**
 
@@ -106,14 +106,45 @@ When the General Data Protection Regulation (GDPR) was first introduced, website
 Fortunately, a number of useful compliance tools emerged to make compliance easier for publishers and businesses of all sizes. Consent Management Platforms (CMPs) are tools designed to inform visitors about the data a website or third-party tool is collecting about them and how that data will be used, provide an opt-in option for users to grant consent to have their data collected (as well as an opt-out option to decline), and communicate the consent status of users and cookies to other vendors operating within the IAB Framework. CMPs also offer transparency to users, providing granular information on the companies their data will be shared with and allowing them to monitor and control who receives their data. Finally, CMPs provide a centralized database for users to review the most up-to-date privacy policies and information related to their data collection.
 If you’re using Google Analytics on your WordPress website or a plugin like the Google Analytics Dashboard for WordPress, you must comply with GDPR. A CMP is the best way to manage the consent process for GDPR compliance. With ShareThis’ GDPR Compliance Tool built right in to the Google Analytics Dashboard for WordPress plugin, you can easily stay on top of getting consent to collect your visitors’ data and provide visitors with clear and valuable information. Our GDPR Compliance Tool is compliant with the IAB’s Transparency & Consent Framework v2.0, meaning it meets the latest standards for transparency in data collection and consent management. Check out our GDPR checklist for publishers & website owners to make sure you’re meeting the requirements or download our GDPR Compliance Guide for detailed information on GDPR compliance with ShareThis’ tools.
 
+= What is Universal Analytics? =
+Universal Analytics is Google’s legacy Google Analytics. The code line will normally look like so: UA-XXXXXXX. This is the product that we have been using on your behalf to collect data for your Google Analytics.
+
+= What is GA4 =
+Google Analytics 4 (GA4) is the latest update from Google Analytic’s platform. GA4's biggest update is allowing you to track both websites and apps under one account. There are also many new reporting features and it provides deeper insights into how users interact with your content.
+
+On the back end, the way data is maintained is a little bit different, which will ultimately provide all of us new ways to track, measure and eventually analyze traffic.
+
+= Do I have to use GA4? =
+In theory, you don’t have to set up GA4 if you do not want to.
+Our ShareThis Google Analytics plugin will continue working with UA and support it as long as possible. However, like all new products that are brought to market, Google will only release new features that support GA4 moving forward.
+We highly suggest setting up a GA4 property even if you do not plan on using it for the moment. That way, when you do decide to make the cross over, you’ll have access to historical data as soon as possible.
+
+Our plugin will collect data at the same time for UA and GA4. Setting up a GA4 property is very easy and we provide the ability to connect through your Wordpress admin section.
+
+= What happens to my data? =
+Nothing will happen to your existing data! Your UA property will be kept as is.
+If you do decide to start using GA4, a new property will be created in Google Analytics. As with all new properties, it means there won’t be any data (you start from scratch).
+
+Luckily we’ve allowed you to use both UA and GA4 properties and view both analytics on the same dashboard.
+
+= When will Google switch to GA4? =
+Google has already switched to supporting Google Analytics 4. However, you can still use your UA code and it will continue to collect data.
+
 == Screenshots ==
 
 1. Overall site performance - the past 7/30 days
 2. The top 10 page views for the past 7/30 days
 3. Directly authenticate Google Analytics, and exclude sets of logged in users
 4. Just click to authenticate, then copy the API key and add it to the plugin
+5. GA4 dashboard graphs
+6. GA4 Top 10 pages and new users by page view
+7. UA and GA4 tabs for settings
 
 == Changelog ==
+
+= 3.1.0 =
+* Fix chart starting at 0.
+* Enable GA4 for public use.
 
 = 3.0.0 =
 * Add GA4 property auth.

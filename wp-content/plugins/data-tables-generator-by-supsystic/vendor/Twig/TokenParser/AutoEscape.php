@@ -29,19 +29,19 @@
  *
  * @final
  */
-class Twig_SupTwg_TokenParser_AutoEscape extends Twig_SupTwg_TokenParser
+class Twig_SupTwgDtgs_TokenParser_AutoEscape extends Twig_SupTwgDtgs_TokenParser
 {
-    public function parse(Twig_SupTwg_Token $token)
+    public function parse(Twig_SupTwgDtgs_Token $token)
     {
         $lineno = $token->getLine();
         $stream = $this->parser->getStream();
 
-        if ($stream->test(Twig_SupTwg_Token::BLOCK_END_TYPE)) {
+        if ($stream->test(Twig_SupTwgDtgs_Token::BLOCK_END_TYPE)) {
             $value = 'html';
         } else {
             $expr = $this->parser->getExpressionParser()->parseExpression();
-            if (!$expr instanceof Twig_SupTwg_Node_Expression_Constant) {
-                throw new Twig_SupTwg_Error_Syntax('An escaping strategy must be a string or a bool.', $stream->getCurrent()->getLine(), $stream->getSourceContext());
+            if (!$expr instanceof Twig_SupTwgDtgs_Node_Expression_Constant) {
+                throw new Twig_SupTwgDtgs_Error_Syntax('An escaping strategy must be a string or a bool.', $stream->getCurrent()->getLine(), $stream->getSourceContext());
             }
             $value = $expr->getAttribute('value');
 
@@ -51,25 +51,25 @@ class Twig_SupTwg_TokenParser_AutoEscape extends Twig_SupTwg_TokenParser
                 $value = 'html';
             }
 
-            if ($compat && $stream->test(Twig_SupTwg_Token::NAME_TYPE)) {
-                @trigger_error('Using the autoescape tag with "true" or "false" before the strategy name is deprecated since version 1.21.', E_USER_DEPRECATED);
+            if ($compat && $stream->test(Twig_SupTwgDtgs_Token::NAME_TYPE)) {
+                //@trigger_error('Using the autoescape tag with "true" or "false" before the strategy name is deprecated since version 1.21.', E_USER_DEPRECATED);
 
                 if (false === $value) {
-                    throw new Twig_SupTwg_Error_Syntax('Unexpected escaping strategy as you set autoescaping to false.', $stream->getCurrent()->getLine(), $stream->getSourceContext());
+                    throw new Twig_SupTwgDtgs_Error_Syntax('Unexpected escaping strategy as you set autoescaping to false.', $stream->getCurrent()->getLine(), $stream->getSourceContext());
                 }
 
                 $value = $stream->next()->getValue();
             }
         }
 
-        $stream->expect(Twig_SupTwg_Token::BLOCK_END_TYPE);
+        $stream->expect(Twig_SupTwgDtgs_Token::BLOCK_END_TYPE);
         $body = $this->parser->subparse(array($this, 'decideBlockEnd'), true);
-        $stream->expect(Twig_SupTwg_Token::BLOCK_END_TYPE);
+        $stream->expect(Twig_SupTwgDtgs_Token::BLOCK_END_TYPE);
 
-        return new Twig_SupTwg_Node_AutoEscape($value, $body, $lineno, $this->getTag());
+        return new Twig_SupTwgDtgs_Node_AutoEscape($value, $body, $lineno, $this->getTag());
     }
 
-    public function decideBlockEnd(Twig_SupTwg_Token $token)
+    public function decideBlockEnd(Twig_SupTwgDtgs_Token $token)
     {
         return $token->test('endautoescape');
     }

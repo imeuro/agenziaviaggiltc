@@ -112,7 +112,7 @@ class AIOWPSecurity_List_Logged_In_Users extends AIOWPSecurity_List_Table {
     	global $wpdb;
         global $aio_wp_security;
 
-        if (AIOWPSecurity_Utility::is_multisite_install()) {
+        if (is_multisite()) {
             $current_blog_id = get_current_blog_id();
             $logged_in_users = AIOWPSecurity_User_Login::get_subsite_logged_in_users($current_blog_id);
         } else {

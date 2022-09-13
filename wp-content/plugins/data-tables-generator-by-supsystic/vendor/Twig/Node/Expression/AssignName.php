@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-class Twig_SupTwg_Node_Expression_AssignName extends Twig_SupTwg_Node_Expression_Name
+class Twig_SupTwgDtgs_Node_Expression_AssignName extends Twig_SupTwgDtgs_Node_Expression_Name
 {
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
             ->raw('$context[')

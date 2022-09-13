@@ -9,22 +9,22 @@
  * file that was distributed with this source code.
  */
 
-class Twig_SupTwg_Extension_Profiler extends Twig_SupTwg_Extension
+class Twig_SupTwgDtgs_Extension_Profiler extends Twig_SupTwgDtgs_Extension
 {
     private $actives = array();
 
-    public function __construct(Twig_SupTwg_Profiler_Profile $profile)
+    public function __construct(Twig_SupTwgDtgs_Profiler_Profile $profile)
     {
         $this->actives[] = $profile;
     }
 
-    public function enter(Twig_SupTwg_Profiler_Profile $profile)
+    public function enter(Twig_SupTwgDtgs_Profiler_Profile $profile)
     {
         $this->actives[0]->addProfile($profile);
         array_unshift($this->actives, $profile);
     }
 
-    public function leave(Twig_SupTwg_Profiler_Profile $profile)
+    public function leave(Twig_SupTwgDtgs_Profiler_Profile $profile)
     {
         $profile->leave();
         array_shift($this->actives);
@@ -36,7 +36,7 @@ class Twig_SupTwg_Extension_Profiler extends Twig_SupTwg_Extension
 
     public function getNodeVisitors()
     {
-        return array(new Twig_SupTwg_Profiler_NodeVisitor_Profiler(get_class($this)));
+        return array(new Twig_SupTwgDtgs_Profiler_NodeVisitor_Profiler(get_class($this)));
     }
 
     public function getName()

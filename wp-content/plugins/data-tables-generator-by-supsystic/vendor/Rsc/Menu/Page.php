@@ -1,11 +1,11 @@
 <?php
 
 
-class Rsc_Menu_Page
+class RscDtgs_Menu_Page
 {
 
     /**
-     * @var Rsc_Resolver
+     * @var RscDtgs_Resolver
      */
     protected $resolver;
 
@@ -44,7 +44,7 @@ class Rsc_Menu_Page
      */
     protected $submenu;
 
-    public function __construct(Rsc_Resolver $resolver)
+    public function __construct(RscDtgs_Resolver $resolver)
     {
         $this->resolver = $resolver;
     }
@@ -52,7 +52,7 @@ class Rsc_Menu_Page
     /**
      * Set the capability
      * @param string $capability The capability required for this menu to be displayed to the user
-     * @return Rsc_Menu_Page
+     * @return RscDtgs_Menu_Page
      */
     public function setCapability($capability)
     {
@@ -72,7 +72,7 @@ class Rsc_Menu_Page
     /**
      * Set the icon url
      * @param string $iconUrl The icon for this menu
-     * @return Rsc_Menu_Page
+     * @return RscDtgs_Menu_Page
      */
     public function setIconUrl($iconUrl)
     {
@@ -92,7 +92,7 @@ class Rsc_Menu_Page
     /**
      * Set the slug name
      * @param string $menuSlug The slug name to refer to this menu by
-     * @return Rsc_Menu_Page
+     * @return RscDtgs_Menu_Page
      */
     public function setMenuSlug($menuSlug)
     {
@@ -112,7 +112,7 @@ class Rsc_Menu_Page
     /**
      * Set the menu title
      * @param string $menuTitle The on-screen name text for the menu
-     * @return Rsc_Menu_Page
+     * @return RscDtgs_Menu_Page
      */
     public function setMenuTitle($menuTitle)
     {
@@ -132,7 +132,7 @@ class Rsc_Menu_Page
     /**
      * Set the page title
      * @param string $pageTitle The text to be displayed in the title tags of the page when the menu is selected
-     * @return Rsc_Menu_Page
+     * @return RscDtgs_Menu_Page
      */
     public function setPageTitle($pageTitle)
     {
@@ -152,7 +152,7 @@ class Rsc_Menu_Page
     /**
      * Set the position
      * @param int|string $position The position in the menu order this menu should appear
-     * @return Rsc_Menu_Page
+     * @return RscDtgs_Menu_Page
      */
     public function setPosition($position)
     {
@@ -172,19 +172,19 @@ class Rsc_Menu_Page
 
     /**
      * Create an instance of the submenu item class
-     * @return Rsc_Menu_Item
+     * @return RscDtgs_Menu_Item
      */
     public function createSubmenuItem()
     {
-        return new Rsc_Menu_Item($this->menuSlug, $this->resolver);
+        return new RscDtgs_Menu_Item($this->menuSlug, $this->resolver);
     }
 
     /**
      * @param string $handle The handle of the item
-     * @param Rsc_Menu_Item $submenu An instance of the submenu item class
-     * @return Rsc_Menu_Page
+     * @param RscDtgs_Menu_Item $submenu An instance of the submenu item class
+     * @return RscDtgs_Menu_Page
      */
-    public function addSubmenuItem($handle, Rsc_Menu_Item $submenu)
+    public function addSubmenuItem($handle, RscDtgs_Menu_Item $submenu)
     {
         $this->submenu[$handle] = $submenu;
         return $this;
@@ -208,7 +208,7 @@ class Rsc_Menu_Page
     /**
      * Returns an instance of the submenu item
      * @param string $handle The handle of the submenu item
-     * @return null|Rsc_Menu_Item
+     * @return null|RscDtgs_Menu_Item
      */
     public function getSubmenuItem($handle)
     {
@@ -227,7 +227,7 @@ class Rsc_Menu_Page
         add_action('admin_menu', array($this, 'addMenuPage'));
 		if(is_array($this->submenu) && count($this->submenu) > 0) {
 			usort($this->submenu, array($this, 'sortSubMenuItemsClb'));
-            /** @var Rsc_Menu_Item $submenu */
+            /** @var RscDtgs_Menu_Item $submenu */
             foreach ($this->submenu as $submenu) {
                 add_action('admin_menu', array($submenu, 'register'));
             }

@@ -1,7 +1,7 @@
 <?php
 
 
-abstract class SupsysticTables_Core_BaseModule extends Rsc_Mvc_Module
+abstract class SupsysticTables_Core_BaseModule extends RscDtgs_Mvc_Module
 {
     /**
      * {@inheritdoc}

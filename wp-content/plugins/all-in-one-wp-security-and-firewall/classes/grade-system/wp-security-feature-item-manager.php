@@ -72,10 +72,10 @@ class AIOWPSecurity_Feature_Item_Manager {
 		$this->feature_items[] = new AIOWPSecurity_Feature_Item("registration-honeypot", __("Enable Registration Honeypot", "all-in-one-wp-security-and-firewall"), $this->feature_point_2, $this->sec_level_inter);
 		
 		//Database Security Menu Features
-		//DB Prefix
-		$this->feature_items[] = new AIOWPSecurity_Feature_Item("db-security-db-prefix", __("DB Prefix", "all-in-one-wp-security-and-firewall"), $this->feature_point_2, $this->sec_level_inter);
-		//DB Backup
-		$this->feature_items[] = new AIOWPSecurity_Feature_Item("db-security-db-backup", __("DB Backup", "all-in-one-wp-security-and-firewall"), $this->feature_point_4, $this->sec_level_basic);
+		//Database prefix
+		$this->feature_items[] = new AIOWPSecurity_Feature_Item("db-security-db-prefix", __("Database prefix", "all-in-one-wp-security-and-firewall"), $this->feature_point_2, $this->sec_level_inter);
+		//Database backup
+		$this->feature_items[] = new AIOWPSecurity_Feature_Item("db-security-db-backup", __("Database backup", "all-in-one-wp-security-and-firewall"), $this->feature_point_4, $this->sec_level_basic);
 		
 		//File System Security Menu Features
 		//File Permissions
@@ -102,6 +102,9 @@ class AIOWPSecurity_Feature_Item_Manager {
 		//Login Honeypot
 		$this->feature_items[] = new AIOWPSecurity_Feature_Item("login-honeypot", __("Enable Login Honeypot", "all-in-one-wp-security-and-firewall"), $this->feature_point_2, $this->sec_level_inter);
 		
+		//Disabled application password feture set points and level
+		$this->feature_items[] = new AIOWPSecurity_Feature_Item('disable-application-password', __('Disable Application Password', 'all-in-one-wp-security-and-firewall'), $this->feature_point_2, $this->sec_level_inter);
+
 		//Additional and Advanced firewall
 		$this->feature_items[] = new AIOWPSecurity_Feature_Item("firewall-enable-brute-force-attack-prevention", __("Enable Brute Force Attack Prevention", "all-in-one-wp-security-and-firewall"), $this->feature_point_4, $this->sec_level_advanced);
 		$this->feature_items[] = new AIOWPSecurity_Feature_Item("firewall-disable-index-views", __("Disable Index Views", "all-in-one-wp-security-and-firewall"), $this->feature_point_1, $this->sec_level_inter);
@@ -310,6 +313,10 @@ class AIOWPSecurity_Feature_Item_Manager {
 			
 			if ("login-honeypot" == $item->feature_id) {
 				$this->check_enable_login_honeypot_feature($item);
+			}
+			
+			if ("disable-application-password" == $item->feature_id) {
+				$this->check_disable_application_password_feature($item);
 			}
 
 			if ("block-spambots" == $item->feature_id) {
@@ -697,6 +704,22 @@ class AIOWPSecurity_Feature_Item_Manager {
 	public function check_enable_login_honeypot_feature($item) {
 		global $aio_wp_security;
 		if ($aio_wp_security->configs->get_value('aiowps_enable_login_honeypot') == '1') {
+			$item->set_feature_status($this->feature_active);
+		} else {
+			$item->set_feature_status($this->feature_inactive);
+		}
+	}
+	
+	/**
+	 * Featurs list updated based on the disabled appliction password on or off
+	 *
+	 * @param object $item
+	 * @global AIO_WP_Security $aio_wp_security
+	 * @return void
+	 */
+	public function check_disable_application_password_feature($item) {
+		global $aio_wp_security;
+		if ('1' == $aio_wp_security->configs->get_value('aiowps_disable_application_password')) {
 			$item->set_feature_status($this->feature_active);
 		} else {
 			$item->set_feature_status($this->feature_inactive);

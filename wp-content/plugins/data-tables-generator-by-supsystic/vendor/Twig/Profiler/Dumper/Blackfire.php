@@ -14,9 +14,9 @@
  *
  * @final
  */
-class Twig_SupTwg_Profiler_Dumper_Blackfire
+class Twig_SupTwgDtgs_Profiler_Dumper_Blackfire
 {
-    public function dump(Twig_SupTwg_Profiler_Profile $profile)
+    public function dump(Twig_SupTwgDtgs_Profiler_Profile $profile)
     {
         $data = array();
         $this->dumpProfile('main()', $profile, $data);
@@ -38,7 +38,7 @@ EOF;
         return $str;
     }
 
-    private function dumpChildren($parent, Twig_SupTwg_Profiler_Profile $profile, &$data)
+    private function dumpChildren($parent, Twig_SupTwgDtgs_Profiler_Profile $profile, &$data)
     {
         foreach ($profile as $p) {
             if ($p->isTemplate()) {
@@ -51,7 +51,7 @@ EOF;
         }
     }
 
-    private function dumpProfile($edge, Twig_SupTwg_Profiler_Profile $profile, &$data)
+    private function dumpProfile($edge, Twig_SupTwgDtgs_Profiler_Profile $profile, &$data)
     {
         if (isset($data[$edge])) {
             $data[$edge]['ct'] += 1;

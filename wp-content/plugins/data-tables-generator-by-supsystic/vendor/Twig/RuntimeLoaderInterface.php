@@ -14,7 +14,7 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-interface Twig_SupTwg_RuntimeLoaderInterface
+interface Twig_SupTwgDtgs_RuntimeLoaderInterface
 {
     /**
      * Creates the runtime implementation of a Twig element (filter/function/test).

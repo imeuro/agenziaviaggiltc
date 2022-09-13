@@ -1,7 +1,7 @@
 <?php
 
 
-interface Rsc_Config_ListenerInterface
+interface RscDtgs_Config_ListenerInterface
 {
 
     public function onAdd($key, $value);

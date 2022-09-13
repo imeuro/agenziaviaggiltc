@@ -1,7 +1,7 @@
 <?php
 
 
-class Rsc_Installer_PhpParser extends Rsc_Installer_Parser
+class RscDtgs_Installer_PhpParser extends RscDtgs_Installer_Parser
 {
     /**
      * Checks whether the required resource is supported by selected parser

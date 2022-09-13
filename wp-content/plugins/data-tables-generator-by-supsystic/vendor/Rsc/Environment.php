@@ -1,7 +1,7 @@
 <?php
 
 
-class Rsc_Environment
+class RscDtgs_Environment
 {
 
     const ENV_DEVELOPMENT = 'development';
@@ -27,42 +27,42 @@ class Rsc_Environment
     protected $pluginPath;
 
     /**
-     * @var Rsc_Config
+     * @var RscDtgs_Config
      */
     protected $config;
 
     /**
-     * @var Rsc_Cache
+     * @var RscDtgs_Cache
      */
     protected $cache;
 
     /**
-     * @var Rsc_ClassLoader
+     * @var RscDtgs_ClassLoader
      */
     protected $loader;
 
     /**
-     * @var Rsc_Lang
+     * @var RscDtgs_Lang
      */
     protected $lang;
 
     /**
-     * @var Rsc_Menu_Page
+     * @var RscDtgs_Menu_Page
      */
     protected $menu;
 
     /**
-     * @var Rsc_Resolver
+     * @var RscDtgs_Resolver
      */
     protected $resolver;
 
     /**
-     * @var Twig_SupTwg_Environment
+     * @var Twig_SupTwgDtgs_Environment
      */
     protected $twig;
 
     /**
-     * @var Rsc_Logger_Interface
+     * @var RscDtgs_Logger_Interface
      */
     protected $logger;
 
@@ -72,7 +72,7 @@ class Rsc_Environment
     protected $profilerEnabled;
 
     /**
-     * @var Rsc_Dispatcher
+     * @var RscDtgs_Dispatcher
      */
     protected $dispatcher;
 
@@ -92,13 +92,13 @@ class Rsc_Environment
         $this->pluginPath = $path;
 
         /* Class loader */
-        $this->loader = new Rsc_ClassLoader();
+        $this->loader = new RscDtgs_ClassLoader();
 
         /* Modules resolver */
-        $this->resolver = new Rsc_Resolver($this);
+        $this->resolver = new RscDtgs_Resolver($this);
 
         /* Config */
-        $this->config = new Rsc_Config($this->defaults);
+        $this->config = new RscDtgs_Config($this->defaults);
         $this->config->setDefaultPath(untrailingslashit($path) . '/app/configs');
         try {
             $this->config->load('@app/global.php');
@@ -109,7 +109,7 @@ class Rsc_Environment
         $this->config->add('plugin_path', $path);
 
         /* Dispatcher */
-        $this->dispatcher = new Rsc_Dispatcher($this);
+        $this->dispatcher = new RscDtgs_Dispatcher($this);
 
         add_action('init', array($this, 'wpInitCallback'));
     }
@@ -125,7 +125,7 @@ class Rsc_Environment
     /**
      * Configure plugin environment
      * @param array $parameters An associative array with the parameters
-     * @return Rsc_Environment
+     * @return RscDtgs_Environment
      */
     public function configure(array $parameters)
     {
@@ -168,8 +168,8 @@ class Rsc_Environment
         try {
             $templatesPath = $this->getPluginPath() . '/app/templates';
 
-            $this->twig = new Twig_SupTwg_Environment(
-                new Twig_SupTwg_Loader_Filesystem($templatesPath),
+            $this->twig = new Twig_SupTwgDtgs_Environment(
+                new Twig_SupTwgDtgs_Loader_Filesystem($templatesPath),
                 array(
                     'cache' => $this->config->get('plugin_cache_twig', false),
                     'debug' => $this->isDev(),
@@ -178,9 +178,9 @@ class Rsc_Environment
 
 
             if ($this->isDev()) {
-                $this->twig->addExtension(new Twig_SupTwg_Extension_Debug());
+                $this->twig->addExtension(new Twig_SupTwgDtgs_Extension_Debug());
             }
-        } catch (Twig_SupTwg_Error_Loader $e) {
+        } catch (Twig_SupTwgDtgs_Error_Loader $e) {
             wp_die(
                 sprintf('Invalid plugin path specified: "%s"', $e->getMessage())
             );
@@ -190,7 +190,7 @@ class Rsc_Environment
 
         /** @TODO THROW TRY CATCH */
         if ($this->config->has('plugin_menu')) {
-            $this->menu = new Rsc_Menu_Page($this->resolver);
+            $this->menu = new RscDtgs_Menu_Page($this->resolver);
 
             foreach ($parameters = $this->config->get('plugin_menu') as $key => $value) {
                 if (method_exists($this->menu, $method = sprintf('set%s', str_replace('_', '', $key)))) {
@@ -207,7 +207,7 @@ class Rsc_Environment
         }
 
         $this->twig->addGlobal('environment', $this);
-        $this->twig->addGlobal('request', new Rsc_Http_Request());
+        $this->twig->addGlobal('request', new RscDtgs_Http_Request());
 
         $this->resolver = apply_filters(
             sprintf('%s_before_resolver_register', $this->pluginName),
@@ -259,7 +259,7 @@ class Rsc_Environment
 
     /**
      * Returns an instance of the Twig
-     * @return Twig_SupTwg_Environment
+     * @return Twig_SupTwgDtgs_Environment
      */
     public function getTwig()
     {
@@ -268,7 +268,7 @@ class Rsc_Environment
 
     /**
      * Returns an instance of the language class
-     * @return Rsc_Lang
+     * @return RscDtgs_Lang
      */
     public function getLang()
     {
@@ -287,7 +287,7 @@ class Rsc_Environment
                 $this->config->add('lang_path', $path);
             }
 
-            $this->lang = new Rsc_Lang($domain, $path);
+            $this->lang = new RscDtgs_Lang($domain, $path);
         }
 
         return $this->lang;
@@ -295,7 +295,7 @@ class Rsc_Environment
 
     /**
      * Returns plugin environment configurations
-     * @return Rsc_Config
+     * @return RscDtgs_Config
      */
     public function getConfig()
     {
@@ -304,7 +304,7 @@ class Rsc_Environment
 
     /**
      * Returns an instance of the caching class
-     * @return Rsc_Cache
+     * @return RscDtgs_Cache
      */
     public function getCache()
     {
@@ -313,7 +313,7 @@ class Rsc_Environment
 
     /**
      * Returns ClassLoader
-     * @return Rsc_ClassLoader
+     * @return RscDtgs_ClassLoader
      */
     public function getLoader()
     {
@@ -322,7 +322,7 @@ class Rsc_Environment
 
     /**
      * Returns an instance of the current menu page
-     * @return \Rsc_Menu_Page
+     * @return \RscDtgs_Menu_Page
      */
     public function getMenu()
     {
@@ -331,7 +331,7 @@ class Rsc_Environment
 
     /**
      * Returns an instance of the modules resolver
-     * @return Rsc_Resolver
+     * @return RscDtgs_Resolver
      */
     public function getResolver()
     {
@@ -339,17 +339,17 @@ class Rsc_Environment
     }
 
     /**
-     * @param \Rsc_Logger_Interface $logger
-     * @return Rsc_Environment
+     * @param \RscDtgs_Logger_Interface $logger
+     * @return RscDtgs_Environment
      */
-    public function setLogger(Rsc_Logger_Interface $logger)
+    public function setLogger(RscDtgs_Logger_Interface $logger)
     {
         $this->logger = $logger;
         return $this;
     }
 
     /**
-     * @return \Rsc_Logger_Interface
+     * @return \RscDtgs_Logger_Interface
      */
     public function getLogger()
     {
@@ -402,27 +402,17 @@ class Rsc_Environment
     }
     public function getNonceFrontend()
     {
-        $pluginName = $this->config->get('plugin_name');
-        if ($pluginName === 'sss') {
-          return wp_create_nonce('ssbs_nonce_frontend');
-        } else {
-          return wp_create_nonce('dtgs_nonce_frontend');
-        }
+      return wp_create_nonce('dtgs_nonce_frontend');
     }
     public function getNonce()
     {
-      $pluginName = $this->config->get('plugin_name');
-      if ($pluginName === 'sss') {
-        return wp_create_nonce('ssbs_nonce');
-      } else {
-        return wp_create_nonce('dtgs_nonce');
-      }
+      return wp_create_nonce('dtgs_nonce');
     }
 
     /**
      * Returns an instance of the specified module
      * @param string $module The name of the module
-     * @return Rsc_Mvc_Module|null
+     * @return RscDtgs_Mvc_Module|null
      */
     public function getModule($module)
     {
@@ -441,19 +431,19 @@ class Rsc_Environment
 
     /**
      * Set an instance of the caching class
-     * @param Rsc_Cache_Interface $adapter
-     * @return Rsc_Environment
+     * @param RscDtgs_Cache_Interface $adapter
+     * @return RscDtgs_Environment
      */
-    public function setCacheAdapter(Rsc_Cache_Interface $adapter)
+    public function setCacheAdapter(RscDtgs_Cache_Interface $adapter)
     {
-        $this->cache = new Rsc_Cache($adapter);
+        $this->cache = new RscDtgs_Cache($adapter);
         return $this;
     }
 
     /**
      * Set profiler state
      * @param boolean $profilerEnabled
-     * @return Rsc_Environment
+     * @return RscDtgs_Environment
      */
     public function setProfilerEnabled($profilerEnabled)
     {
@@ -508,7 +498,7 @@ class Rsc_Environment
      */
     public function isPluginPage()
     {
-        $request  = new Rsc_Http_Request();
+        $request  = new RscDtgs_Http_Request();
         $menuSlug = $this->menu->getMenuSlug();
 
         if ($menuSlug === null) {
@@ -527,7 +517,7 @@ class Rsc_Environment
      */
     public function isModule($module, $action = null)
     {
-        $request = new Rsc_Http_Request();
+        $request = new RscDtgs_Http_Request();
         $default = $this->config->get('default_module');
 
         if (!$this->isPluginPage()) {
@@ -551,7 +541,7 @@ class Rsc_Environment
      */
     public function isAction($action)
     {
-        $request = new Rsc_Http_Request();
+        $request = new RscDtgs_Http_Request();
 
         if (!$this->isPluginPage()) {
             return false;
@@ -573,7 +563,7 @@ class Rsc_Environment
     /**
      * Returns event dispatcher
      *
-     * @return \Rsc_Dispatcher
+     * @return \RscDtgs_Dispatcher
      */
     public function getDispatcher()
     {

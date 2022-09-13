@@ -322,10 +322,6 @@ class Ga_Admin {
 			)
 		);
 
-		if ( Ga_Cache::is_data_cache_outdated( '', Ga_Helper::get_account_id() ) ) {
-			self::api_client()->add_own_error( '1', __( 'Saved data is shown, it will be refreshed soon' ), 'Ga_Data_Outdated_Exception' );
-		}
-
 		self::display_api_errors();
 	}
 
@@ -736,7 +732,7 @@ class Ga_Admin {
 	 * Adds GA dashboard widget only for administrators.
 	 */
 	public static function add_dashboard_device_widget() {
-		if ( true === Ga_Helper::is_administrator() ) {
+		if (true === Ga_Helper::is_administrator() && true === Ga_Helper::is_dashboard_page()) {
 			wp_add_dashboard_widget(
 				'ga-dashboard-widget',
 				__( 'Google Analytics Dashboard' ),
@@ -1363,8 +1359,6 @@ class Ga_Admin {
 		$client->setScopes(
 			[
 				'https://www.googleapis.com/auth/analytics.readonly',
-				'https://www.googleapis.com/auth/analytics.edit',
-				'https://www.googleapis.com/auth/analytics',
 			]
 		);
 		$client->setAuthConfig(GOOGLE_APPLICATION_CREDENTIALS);

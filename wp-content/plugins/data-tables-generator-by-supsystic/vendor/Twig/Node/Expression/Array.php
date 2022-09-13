@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-class Twig_SupTwg_Node_Expression_Array extends Twig_SupTwg_Node_Expression
+class Twig_SupTwgDtgs_Node_Expression_Array extends Twig_SupTwgDtgs_Node_Expression
 {
     protected $index;
 
@@ -18,7 +18,7 @@ class Twig_SupTwg_Node_Expression_Array extends Twig_SupTwg_Node_Expression
 
         $this->index = -1;
         foreach ($this->getKeyValuePairs() as $pair) {
-            if ($pair['key'] instanceof Twig_SupTwg_Node_Expression_Constant && ctype_digit((string) $pair['key']->getAttribute('value')) && $pair['key']->getAttribute('value') > $this->index) {
+            if ($pair['key'] instanceof Twig_SupTwgDtgs_Node_Expression_Constant && ctype_digit((string) $pair['key']->getAttribute('value')) && $pair['key']->getAttribute('value') > $this->index) {
                 $this->index = $pair['key']->getAttribute('value');
             }
         }
@@ -38,7 +38,7 @@ class Twig_SupTwg_Node_Expression_Array extends Twig_SupTwg_Node_Expression
         return $pairs;
     }
 
-    public function hasElement(Twig_SupTwg_Node_Expression $key)
+    public function hasElement(Twig_SupTwgDtgs_Node_Expression $key)
     {
         foreach ($this->getKeyValuePairs() as $pair) {
             // we compare the string representation of the keys
@@ -51,16 +51,16 @@ class Twig_SupTwg_Node_Expression_Array extends Twig_SupTwg_Node_Expression
         return false;
     }
 
-    public function addElement(Twig_SupTwg_Node_Expression $value, Twig_SupTwg_Node_Expression $key = null)
+    public function addElement(Twig_SupTwgDtgs_Node_Expression $value, Twig_SupTwgDtgs_Node_Expression $key = null)
     {
         if (null === $key) {
-            $key = new Twig_SupTwg_Node_Expression_Constant(++$this->index, $value->getTemplateLine());
+            $key = new Twig_SupTwgDtgs_Node_Expression_Constant(++$this->index, $value->getTemplateLine());
         }
 
         array_push($this->nodes, $key, $value);
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler->raw('array(');
         $first = true;

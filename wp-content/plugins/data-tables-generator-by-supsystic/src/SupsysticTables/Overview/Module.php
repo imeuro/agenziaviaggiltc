@@ -24,9 +24,9 @@ class SupsysticTables_Overview_Module extends SupsysticTables_Core_BaseModule
     {
         parent::afterUiLoaded($ui);
 
-        if (!$this->getEnvironment()->isModule('overview')) {
-            return;
-        }
+        // if (!$this->getEnvironment()->isModule('overview')) {
+        //     return;
+        // }
 
         $hook = 'admin_enqueue_scripts';
         $ui->add(

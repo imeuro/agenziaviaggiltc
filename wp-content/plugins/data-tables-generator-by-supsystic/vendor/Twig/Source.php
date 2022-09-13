@@ -16,7 +16,7 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Source
+class Twig_SupTwgDtgs_Source
 {
     private $code;
     private $name;

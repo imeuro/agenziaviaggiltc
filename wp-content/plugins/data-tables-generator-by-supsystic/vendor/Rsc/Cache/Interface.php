@@ -1,7 +1,7 @@
 <?php
 
 
-interface Rsc_Cache_Interface
+interface RscDtgs_Cache_Interface
 {
     /**
      * Caches data

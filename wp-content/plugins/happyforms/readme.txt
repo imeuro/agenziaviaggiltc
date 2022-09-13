@@ -1,15 +1,15 @@
-=== Contact Form to Manage and respond to conversations with customers — Happyforms ===
+=== Form builder to get in touch with visitors, grow your email list and collect payments — Happyforms ===
 
 Contributors: happyforms
 Tags: contact form, contact form plugin, forms, form builder, custom form, intake form, registration form, survey form, quiz form, payment form, newsletter form, giveaway form, fundraising form, donation form, nomination form, order form, questionnaire form, onboarding form, contract form, estimate form, research form, qualitative form, quantitative form, membership form, mobile form, feedback form, release form, inquiry form, request form, evaluation form, RSVP form, reservation form, sales lead form, popup form, quote form, event form, booking form, application form, agreement form, safety form, compliance form, assessment form, sponsorship form, report form, file upload form, satisfaction form
 Requires at least: 5.0
 Tested up to: 6.0
 Requires PHP: 7.0
-Stable tag: 1.17.0
+Stable tag: 1.18.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-The WordPress form builder you need to manage and respond to conversations with customers. Easily create contact forms, lead generation forms, feedback forms, quote forms, survey forms and more!
+Contact form, newsletter form and payment form builder without the sucky stuff — lost emails, pesky spam, leaky privacy and outsourced support.
 
 == Description ==
 
@@ -142,6 +142,13 @@ Aw, honestly, the thought that you're writing about our contact form builder is 
 * Happy Form (incorrect)
 
 == Changelog ==
+
+= 1.18.1 =
+* Bugfix: On some setups, Dropdown field's default choices wouldn't be selected by default.
+
+= 1.18.0 =
+* Improvement: Forms are now automatically hidden after a successful submission, and a "Fill out this form again" link lets submitters submit again for better usability.
+* Improvement: Control labels in the builder have been reworded for better clarity.
 
 = 1.17.0 =
 * Improvement: All sections in Style tab are now always visible for easier access to controls.
@@ -954,6 +961,12 @@ Aw, honestly, the thought that you're writing about our contact form builder is 
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.18.1 =
+* Minor bugfixes.
+
+= 1.18.0 =
+* Improved behavior after successful submission, minor tweaks and improvements.
 
 = 1.17.0 =
 * Single-bundle frontend styles for better performance, builder interface improvements.

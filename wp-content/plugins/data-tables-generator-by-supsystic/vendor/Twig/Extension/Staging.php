@@ -12,13 +12,13 @@
 /**
  * Internal class.
  *
- * This class is used by Twig_SupTwg_Environment as a staging area and must not be used directly.
+ * This class is used by Twig_SupTwgDtgs_Environment as a staging area and must not be used directly.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *
  * @internal
  */
-class Twig_SupTwg_Extension_Staging extends Twig_SupTwg_Extension
+class Twig_SupTwgDtgs_Extension_Staging extends Twig_SupTwgDtgs_Extension
 {
     protected $functions = array();
     protected $filters = array();
@@ -30,7 +30,7 @@ class Twig_SupTwg_Extension_Staging extends Twig_SupTwg_Extension
     public function addFunction($name, $function)
     {
         if (isset($this->functions[$name])) {
-            @trigger_error(sprintf('Overriding function "%s" that is already registered is deprecated since version 1.30 and won\'t be possible anymore in 2.0.', $name), E_USER_DEPRECATED);
+            //@trigger_error(sprintf('Overriding function "%s" that is already registered is deprecated since version 1.30 and won\'t be possible anymore in 2.0.', $name), E_USER_DEPRECATED);
         }
 
         $this->functions[$name] = $function;
@@ -44,7 +44,7 @@ class Twig_SupTwg_Extension_Staging extends Twig_SupTwg_Extension
     public function addFilter($name, $filter)
     {
         if (isset($this->filters[$name])) {
-            @trigger_error(sprintf('Overriding filter "%s" that is already registered is deprecated since version 1.30 and won\'t be possible anymore in 2.0.', $name), E_USER_DEPRECATED);
+            //@trigger_error(sprintf('Overriding filter "%s" that is already registered is deprecated since version 1.30 and won\'t be possible anymore in 2.0.', $name), E_USER_DEPRECATED);
         }
 
         $this->filters[$name] = $filter;
@@ -55,7 +55,7 @@ class Twig_SupTwg_Extension_Staging extends Twig_SupTwg_Extension
         return $this->filters;
     }
 
-    public function addNodeVisitor(Twig_SupTwg_NodeVisitorInterface $visitor)
+    public function addNodeVisitor(Twig_SupTwgDtgs_NodeVisitorInterface $visitor)
     {
         $this->visitors[] = $visitor;
     }
@@ -65,10 +65,10 @@ class Twig_SupTwg_Extension_Staging extends Twig_SupTwg_Extension
         return $this->visitors;
     }
 
-    public function addTokenParser(Twig_SupTwg_TokenParserInterface $parser)
+    public function addTokenParser(Twig_SupTwgDtgs_TokenParserInterface $parser)
     {
         if (isset($this->tokenParsers[$parser->getTag()])) {
-            @trigger_error(sprintf('Overriding tag "%s" that is already registered is deprecated since version 1.30 and won\'t be possible anymore in 2.0.', $parser->getTag()), E_USER_DEPRECATED);
+            //@trigger_error(sprintf('Overriding tag "%s" that is already registered is deprecated since version 1.30 and won\'t be possible anymore in 2.0.', $parser->getTag()), E_USER_DEPRECATED);
         }
 
         $this->tokenParsers[$parser->getTag()] = $parser;
@@ -92,7 +92,7 @@ class Twig_SupTwg_Extension_Staging extends Twig_SupTwg_Extension
     public function addTest($name, $test)
     {
         if (isset($this->tests[$name])) {
-            @trigger_error(sprintf('Overriding test "%s" that is already registered is deprecated since version 1.30 and won\'t be possible anymore in 2.0.', $name), E_USER_DEPRECATED);
+            //@trigger_error(sprintf('Overriding test "%s" that is already registered is deprecated since version 1.30 and won\'t be possible anymore in 2.0.', $name), E_USER_DEPRECATED);
         }
 
         $this->tests[$name] = $test;

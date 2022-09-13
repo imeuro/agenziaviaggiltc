@@ -1,11 +1,11 @@
 <?php
 
 
-class Rsc_Autoloader
+class RscDtgs_Autoloader
 {
 
     /**
-     * Register Rsc_Autoloader in the SPL autoloader stack
+     * Register RscDtgs_Autoloader in the SPL autoloader stack
      */
     public static function register()
     {
@@ -23,12 +23,12 @@ class Rsc_Autoloader
              die(); exit();
              }
         }
-
-        if (substr($classname, 0, 3) !== 'Rsc') {
-            return;
+        if (substr($classname, 0, 7) !== 'RscDtgs') {
+          return;
         }
-
-        if (is_file($file = dirname(__FILE__) . '/../' . str_replace(array('_', '\0'), array('/', ''), $classname) . '.php')) {
+        $classname = str_replace('RscDtgs', '', $classname);
+        $file = dirname(__FILE__) . '/' . str_replace(array('_', '\0'), array('/', ''), $classname) . '.php';
+        if (is_file($file)) {
             require_once $file;
         }
     }

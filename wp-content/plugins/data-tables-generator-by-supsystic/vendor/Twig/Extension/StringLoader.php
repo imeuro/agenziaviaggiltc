@@ -12,12 +12,12 @@
 /**
  * @final
  */
-class Twig_SupTwg_Extension_StringLoader extends Twig_SupTwg_Extension
+class Twig_SupTwgDtgs_Extension_StringLoader extends Twig_SupTwgDtgs_Extension
 {
     public function getFunctions()
     {
         return array(
-            new Twig_SupTwg_SimpleFunction('template_from_string', 'Twig_SupTwg_template_from_string', array('needs_environment' => true)),
+            new Twig_SupTwgDtgs_SimpleFunction('template_from_string', 'Twig_SupTwgDtgs_template_from_string', array('needs_environment' => true)),
         );
     }
 
@@ -34,12 +34,12 @@ class Twig_SupTwg_Extension_StringLoader extends Twig_SupTwg_Extension
  * {{ include(template_from_string("Hello {{ name }}")) }}
  * </pre>
  *
- * @param Twig_SupTwg_Environment $env      A Twig_SupTwg_Environment instance
+ * @param Twig_SupTwgDtgs_Environment $env      A Twig_SupTwgDtgs_Environment instance
  * @param string           $template A template as a string or object implementing __toString()
  *
- * @return Twig_SupTwg_Template
+ * @return Twig_SupTwgDtgs_Template
  */
-function Twig_SupTwg_template_from_string(Twig_SupTwg_Environment $env, $template)
+function Twig_SupTwgDtgs_template_from_string(Twig_SupTwgDtgs_Environment $env, $template)
 {
     return $env->createTemplate((string) $template);
 }

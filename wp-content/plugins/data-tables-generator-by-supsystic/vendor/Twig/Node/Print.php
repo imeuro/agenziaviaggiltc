@@ -15,14 +15,14 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Node_Print extends Twig_SupTwg_Node implements Twig_SupTwg_NodeOutputInterface
+class Twig_SupTwgDtgs_Node_Print extends Twig_SupTwgDtgs_Node implements Twig_SupTwgDtgs_NodeOutputInterface
 {
-    public function __construct(Twig_SupTwg_Node_Expression $expr, $lineno, $tag = null)
+    public function __construct(Twig_SupTwgDtgs_Node_Expression $expr, $lineno, $tag = null)
     {
         parent::__construct(array('expr' => $expr), array(), $lineno, $tag);
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
             ->addDebugInfo($this)

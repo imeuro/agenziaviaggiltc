@@ -17,43 +17,43 @@
  *
  * @deprecated since 1.12 (to be removed in 2.0)
  */
-class Twig_SupTwg_TokenParserBroker implements Twig_SupTwg_TokenParserBrokerInterface
+class Twig_SupTwgDtgs_TokenParserBroker implements Twig_SupTwgDtgs_TokenParserBrokerInterface
 {
     protected $parser;
     protected $parsers = array();
     protected $brokers = array();
 
     /**
-     * @param array|Traversable $parsers                 A Traversable of Twig_SupTwg_TokenParserInterface instances
-     * @param array|Traversable $brokers                 A Traversable of Twig_SupTwg_TokenParserBrokerInterface instances
+     * @param array|Traversable $parsers                 A Traversable of Twig_SupTwgDtgs_TokenParserInterface instances
+     * @param array|Traversable $brokers                 A Traversable of Twig_SupTwgDtgs_TokenParserBrokerInterface instances
      * @param bool              $triggerDeprecationError
      */
     public function __construct($parsers = array(), $brokers = array(), $triggerDeprecationError = true)
     {
         if ($triggerDeprecationError) {
-            @trigger_error('The '.__CLASS__.' class is deprecated since version 1.12 and will be removed in 2.0.', E_USER_DEPRECATED);
+            //@trigger_error('The '.__CLASS__.' class is deprecated since version 1.12 and will be removed in 2.0.', E_USER_DEPRECATED);
         }
 
         foreach ($parsers as $parser) {
-            if (!$parser instanceof Twig_SupTwg_TokenParserInterface) {
-                throw new LogicException('$parsers must a an array of Twig_SupTwg_TokenParserInterface.');
+            if (!$parser instanceof Twig_SupTwgDtgs_TokenParserInterface) {
+                throw new LogicException('$parsers must a an array of Twig_SupTwgDtgs_TokenParserInterface.');
             }
             $this->parsers[$parser->getTag()] = $parser;
         }
         foreach ($brokers as $broker) {
-            if (!$broker instanceof Twig_SupTwg_TokenParserBrokerInterface) {
-                throw new LogicException('$brokers must a an array of Twig_SupTwg_TokenParserBrokerInterface.');
+            if (!$broker instanceof Twig_SupTwgDtgs_TokenParserBrokerInterface) {
+                throw new LogicException('$brokers must a an array of Twig_SupTwgDtgs_TokenParserBrokerInterface.');
             }
             $this->brokers[] = $broker;
         }
     }
 
-    public function addTokenParser(Twig_SupTwg_TokenParserInterface $parser)
+    public function addTokenParser(Twig_SupTwgDtgs_TokenParserInterface $parser)
     {
         $this->parsers[$parser->getTag()] = $parser;
     }
 
-    public function removeTokenParser(Twig_SupTwg_TokenParserInterface $parser)
+    public function removeTokenParser(Twig_SupTwgDtgs_TokenParserInterface $parser)
     {
         $name = $parser->getTag();
         if (isset($this->parsers[$name]) && $parser === $this->parsers[$name]) {
@@ -61,12 +61,12 @@ class Twig_SupTwg_TokenParserBroker implements Twig_SupTwg_TokenParserBrokerInte
         }
     }
 
-    public function addTokenParserBroker(Twig_SupTwg_TokenParserBroker $broker)
+    public function addTokenParserBroker(Twig_SupTwgDtgs_TokenParserBroker $broker)
     {
         $this->brokers[] = $broker;
     }
 
-    public function removeTokenParserBroker(Twig_SupTwg_TokenParserBroker $broker)
+    public function removeTokenParserBroker(Twig_SupTwgDtgs_TokenParserBroker $broker)
     {
         if (false !== $pos = array_search($broker, $this->brokers)) {
             unset($this->brokers[$pos]);
@@ -80,7 +80,7 @@ class Twig_SupTwg_TokenParserBroker implements Twig_SupTwg_TokenParserBrokerInte
      *
      * @param string $tag A tag name
      *
-     * @return null|Twig_SupTwg_TokenParserInterface A Twig_SupTwg_TokenParserInterface or null if no suitable TokenParser was found
+     * @return null|Twig_SupTwgDtgs_TokenParserInterface A Twig_SupTwgDtgs_TokenParserInterface or null if no suitable TokenParser was found
      */
     public function getTokenParser($tag)
     {
@@ -107,7 +107,7 @@ class Twig_SupTwg_TokenParserBroker implements Twig_SupTwg_TokenParserBrokerInte
         return $this->parser;
     }
 
-    public function setParser(Twig_SupTwg_ParserInterface $parser)
+    public function setParser(Twig_SupTwgDtgs_ParserInterface $parser)
     {
         $this->parser = $parser;
         foreach ($this->parsers as $tokenParser) {

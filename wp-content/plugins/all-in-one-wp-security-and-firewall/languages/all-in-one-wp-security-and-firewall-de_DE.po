@@ -1225,13 +1225,13 @@ msgstr ""
 #: admin/wp-security-database-menu.php:31
 #: classes/grade-system/wp-security-feature-item-manager.php:62
 #@ all-in-one-wp-security-and-firewall
-msgid "DB Backup"
+msgid "Database backup"
 msgstr ""
 
 #: admin/wp-security-database-menu.php:30
 #: classes/grade-system/wp-security-feature-item-manager.php:60
 #@ all-in-one-wp-security-and-firewall
-msgid "DB Prefix"
+msgid "Database prefix"
 msgstr ""
 
 #: admin/wp-security-database-menu.php:93
@@ -1256,17 +1256,17 @@ msgstr ""
 
 #: admin/wp-security-database-menu.php:131
 #@ all-in-one-wp-security-and-firewall
-msgid "Change Database Prefix"
+msgid "Change database prefix"
 msgstr ""
 
 #: admin/wp-security-database-menu.php:134
 #@ all-in-one-wp-security-and-firewall
-msgid "Your WordPress DB is the most important asset of your website because it contains a lot of your site's precious information."
+msgid "Your WordPress database is the most important asset of your website because it contains a lot of your site's precious information."
 msgstr ""
 
 #: admin/wp-security-database-menu.php:135
 #@ all-in-one-wp-security-and-firewall
-msgid "The DB is also a target for hackers via methods such as SQL injections and malicious and automated code which targets certain tables."
+msgid "The database is also a target for hackers via methods such as SQL injections and malicious and automated code which targets certain tables."
 msgstr ""
 
 #: admin/wp-security-database-menu.php:136
@@ -1281,7 +1281,7 @@ msgstr ""
 
 #: admin/wp-security-database-menu.php:143
 #@ all-in-one-wp-security-and-firewall
-msgid "DB Prefix Options"
+msgid "Database prefix options"
 msgstr ""
 
 #: admin/wp-security-database-menu.php:154
@@ -1292,7 +1292,7 @@ msgstr ""
 
 #: admin/wp-security-database-menu.php:163
 #@ all-in-one-wp-security-and-firewall
-msgid "Current DB Table Prefix"
+msgid "Current database table prefix"
 msgstr ""
 
 #: admin/wp-security-database-menu.php:169
@@ -1304,7 +1304,7 @@ msgstr ""
 
 #: admin/wp-security-database-menu.php:176
 #@ all-in-one-wp-security-and-firewall
-msgid "Generate New DB Table Prefix"
+msgid "Generate new database table prefix"
 msgstr ""
 
 #: admin/wp-security-database-menu.php:179
@@ -1324,7 +1324,7 @@ msgstr ""
 
 #: admin/wp-security-database-menu.php:186
 #@ all-in-one-wp-security-and-firewall
-msgid "Change DB Prefix"
+msgid "Change database prefix"
 msgstr ""
 
 #: admin/wp-security-database-menu.php:207
@@ -1532,7 +1532,7 @@ msgstr ""
 
 #: admin/wp-security-database-menu.php:513
 #@ all-in-one-wp-security-and-firewall
-msgid "DB prefix change tasks have been completed."
+msgid "The database prefix change tasks have been completed."
 msgstr ""
 
 #: admin/wp-security-filescan-menu.php:23
@@ -3845,7 +3845,7 @@ msgstr ""
 
 #: admin/wp-security-user-login-menu.php:277
 #@ all-in-one-wp-security-and-firewall
-msgid "All records from the Failed Logins table were deleted successfully!"
+msgid "All records from the Failed Logins table were deleted successfully."
 msgstr ""
 
 #: admin/wp-security-user-login-menu.php:292

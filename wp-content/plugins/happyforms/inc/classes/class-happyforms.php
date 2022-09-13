@@ -50,9 +50,6 @@ class HappyForms extends HappyForms_Core {
 		require_once( happyforms_get_include_folder() . '/classes/parts/class-part-scale-dummy.php' );
 		$part_library->register_part( 'HappyForms_Part_Scale_Dummy', 14 );
 
-		require_once( happyforms_get_include_folder() . '/classes/parts/class-part-likert-scale-dummy.php' );
-		$part_library->register_part( 'HappyForms_Part_LikertScale_Dummy', 16 );
-
 		require_once( happyforms_get_include_folder() . '/classes/parts/class-part-signature-dummy.php' );
 		$part_library->register_part( 'HappyForms_Part_Signature_Dummy', 19 );
 
@@ -98,6 +95,12 @@ class HappyForms extends HappyForms_Core {
 			'label' => __( 'Upgrade', 'happyforms' ),
 			'field' => '',
 			'id' => 'happyforms-redirect-upsell',
+		);
+
+		$controls[1449] = array(
+			'type' => 'text_dummy',
+			'dummy_id' => 'redirect_url',
+			'label' => __( 'Redirect to this page address (URL) after submission', 'happyforms' ),
 		);
 
 		$controls[1450] = array(
@@ -224,6 +227,10 @@ class HappyForms extends HappyForms_Core {
 
 		if ( 'panel_dummy' === $type ) {
 			require( happyforms_get_include_folder() . '/templates/customize-controls/panel_dummy.php' );
+		}
+
+		if ( 'text_dummy' === $type ) {
+			require( happyforms_get_include_folder() . '/templates/customize-controls/text_dummy.php' );
 		}
 	}
 

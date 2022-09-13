@@ -1,7 +1,7 @@
 <?php
 
 
-abstract class SupsysticTables_Core_BaseController extends Rsc_Mvc_Controller
+abstract class SupsysticTables_Core_BaseController extends RscDtgs_Mvc_Controller
 {
     /**
      * Returns an instance of the model.
@@ -17,7 +17,7 @@ abstract class SupsysticTables_Core_BaseController extends Rsc_Mvc_Controller
     /**
      * Creates an instance of the model and returns it.
      * @param string $model
-     * @param string|Rsc_Mvc_Module $module
+     * @param string|RscDtgs_Mvc_Module $module
      * @return SupsysticTables_Core_BaseModel
      */
     public function createModel($model, $module = null)
@@ -51,12 +51,12 @@ abstract class SupsysticTables_Core_BaseController extends Rsc_Mvc_Controller
     /**
      * Returns AJAX success response.
      * @param array $data
-     * @return Rsc_Http_Response
+     * @return RscDtgs_Http_Response
      */
     public function ajaxSuccess(array $data = array())
     {
         return $this->response(
-            Rsc_Http_Response::AJAX,
+            RscDtgs_Http_Response::AJAX,
             array_merge($data, array('success' => true))
         );
     }
@@ -65,14 +65,14 @@ abstract class SupsysticTables_Core_BaseController extends Rsc_Mvc_Controller
      * Returns AJAX error response.
      * @param string $message
      * @param array $data
-     * @return Rsc_Http_Response
+     * @return RscDtgs_Http_Response
      */
     public function ajaxError(
         $message = 'Something went wrong.',
         array $data = array()
     ) {
         return $this->response(
-            Rsc_Http_Response::AJAX,
+            RscDtgs_Http_Response::AJAX,
             array_merge($data, array('success' => false, 'message' => $message))
         );
     }

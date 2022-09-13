@@ -1,7 +1,7 @@
 <?php
 
 
-class Rsc_Form_Rule_Regex implements Rsc_Form_Rule_Interface
+class RscDtgs_Form_Rule_Regex implements RscDtgs_Form_Rule_Interface
 {
 
     /**
@@ -62,7 +62,7 @@ class Rsc_Form_Rule_Regex implements Rsc_Form_Rule_Interface
     /**
      * Sets the error message
      * @param string $message Error message
-     * @return Rsc_Form_Rule_Regex
+     * @return RscDtgs_Form_Rule_Regex
      */
     public function setMessage($message)
     {
@@ -75,7 +75,7 @@ class Rsc_Form_Rule_Regex implements Rsc_Form_Rule_Interface
      * Creates the new instance
      * @param string $label Field label
      * @param string $parameters Rule parameters
-     * @return Rsc_Form_Rule_Regex
+     * @return RscDtgs_Form_Rule_Regex
      */
     public static function create($label, $parameters)
     {

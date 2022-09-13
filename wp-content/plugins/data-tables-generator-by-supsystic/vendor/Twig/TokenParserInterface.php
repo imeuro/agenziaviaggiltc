@@ -14,21 +14,21 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-interface Twig_SupTwg_TokenParserInterface
+interface Twig_SupTwgDtgs_TokenParserInterface
 {
     /**
      * Sets the parser associated with this token parser.
      */
-    public function setParser(Twig_SupTwg_Parser $parser);
+    public function setParser(Twig_SupTwgDtgs_Parser $parser);
 
     /**
      * Parses a token and returns a node.
      *
-     * @return Twig_SupTwg_NodeInterface
+     * @return Twig_SupTwgDtgs_NodeInterface
      *
-     * @throws Twig_SupTwg_Error_Syntax
+     * @throws Twig_SupTwgDtgs_Error_Syntax
      */
-    public function parse(Twig_SupTwg_Token $token);
+    public function parse(Twig_SupTwgDtgs_Token $token);
 
     /**
      * Gets the tag name associated with this token parser.

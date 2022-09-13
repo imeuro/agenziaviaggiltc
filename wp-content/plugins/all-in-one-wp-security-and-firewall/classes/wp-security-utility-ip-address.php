@@ -90,6 +90,36 @@ class AIOWPSecurity_Utility_IP {
 		return $ip_list_array;
 	}
 	
+	/**
+	 * Returns IPv6 ip address or IPv6 range if valid
+	 *
+	 * @param string $item possible IPv6 ip address or IPv6 range
+	 * @return string|boolean $checked_ip trimmed IPv6 ip address or IPv6 range if given input is valid otherwise false.
+	 */
+	public static function is_ipv6_address_or_ipv6_range($item) {
+		$checked_ip = false;
+		$res = WP_Http::is_ip_address($item);
+		if ('6' == $res && Requests_IPv6::check_ipv6($item)) {
+			$checked_ip = trim($item);
+		} else {
+			//ipv6 - range check for valid CIDR range
+			$item_ip_range = explode('/', $item);
+			$ip_part_valid = filter_var($item_ip_range[0], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6);
+			//1 - 164 range of the IPv6 subnect masking as per CISCO propersed change from 128.
+			if (2 == count($item_ip_range) && $ip_part_valid && $item_ip_range[1] >= 1 && $item_ip_range[1] <= 164) {
+				$checked_ip = trim($item);
+			}
+		}
+		return $checked_ip;
+	}
+	
+	/**
+	 * Validates IP or IP range
+	 *
+	 * @param array  $ip_list_array
+	 * @param string $list_type
+	 * @return array $return_payload
+	 */
 	public static function validate_ip_list($ip_list_array, $list_type = '') {
 		$errors = '';
 
@@ -101,18 +131,18 @@ class AIOWPSecurity_Utility_IP {
 			foreach ($submitted_ips as $item) {
 				$item = sanitize_text_field($item);
 				if (strlen($item) > 0) {
-					//ipv6 - for now we will support only whole ipv6 addresses, NOT ranges
+					//ipv6 - check
 					if (strpos($item, ':') !== false) {
 						//possible ipv6 addr
-						$res = WP_Http::is_ip_address($item);
-						if (false === $res) {
+						$checked_ip = AIOWPSecurity_Utility_IP::is_ipv6_address_or_ipv6_range($item);
+						if (false === $checked_ip) {
 							$errors .= "\n".$item.__(' is not a valid ip address format.', 'all-in-one-wp-security-and-firewall');
-						} elseif ('6' == $res) {
+						} else {
 							$list[] = trim($item);
 						}
 						continue;
 					}
-
+					
 					$ipParts = explode('.', $item);
 					$isIP = 0;
 					$partcount = 1;
@@ -132,18 +162,18 @@ class AIOWPSecurity_Utility_IP {
 
 							switch ($partcount) {
 								case 1:
-									if (trim($part) == '*') {
+									if ('*' == trim($part)) {
 										$goodip = false;
 										$errors .= "\n".$item.__(' is not a valid ip address format.', 'all-in-one-wp-security-and-firewall');
 									}
 									break;
 								case 2:
-									if (trim($part) == '*') {
+									if ('*' == trim($part)) {
 										$foundwild = true;
 									}
 									break;
 								default:
-									if (trim($part) != '*') {
+									if ('*' != trim($part)) {
 										if (true == $foundwild) {
 											$goodip = false;
 											$errors .= "\n".$item.__(' is not a valid ip address format.', 'all-in-one-wp-security-and-firewall');
@@ -203,30 +233,20 @@ class AIOWPSecurity_Utility_IP {
 		if (empty($ip_address) || empty($whitelisted_ips)) return false;
 		
 		$ip_list_array = AIOWPSecurity_Utility_IP::create_ip_list_array_from_string_with_newline($whitelisted_ips);
-		
 		if (empty($ip_list_array)) return false;
 		
-		$visitor_ipParts = explode('.', $ip_address);
+		require_once(AIO_WP_SECURITY_PATH.'/vendor/mlocati/ip-lib/ip-lib.php');
+		$ip_address_parsed = \IPLib\Factory::parseAddressString($ip_address);
 		foreach ($ip_list_array as $white_ip) {
 			$ipParts = explode('.', $white_ip);
 			$found = array_search('*', $ipParts);
-			if (false !== $found) {
-				//Means we have a whitelisted IP range so do some checks
-				if (1 == $found) {
-					//means last 3 octets are wildcards - check if visitor IP falls inside this range
-					if ($visitor_ipParts[0] == $ipParts[0]) {
-						return true;
-					}
-				} elseif (2 == $found) {
-					//means last 2 octets are wildcards - check if visitor IP falls inside this range
-					if ($visitor_ipParts[0] == $ipParts[0] && $visitor_ipParts[1] == $ipParts[1]) {
-						return true;
-					}
-				} elseif (3 == $found) {
-					//means last octet is wildcard - check if visitor IP falls inside this range
-					if ($visitor_ipParts[0] == $ipParts[0] && $visitor_ipParts[1] == $ipParts[1] && $visitor_ipParts[2] == $ipParts[2]) {
-						return true;
-					}
+			$found_white_ipv6 = strpos($white_ip, ':');
+			// ipv4 range check starts
+			if (false !== $found || false != $found_white_ipv6) {
+				$range = \IPLib\Factory::parseRangeString($white_ip);
+				$with_in_range = $range->contains($ip_address_parsed);
+				if (true == $with_in_range) {
+					return true;
 				}
 			} elseif ($white_ip == $ip_address) {
 				return true;

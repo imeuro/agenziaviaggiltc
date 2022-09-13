@@ -14,49 +14,49 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-interface Twig_SupTwg_ExtensionInterface
+interface Twig_SupTwgDtgs_ExtensionInterface
 {
     /**
      * Initializes the runtime environment.
      *
      * This is where you can load some file that contains filter functions for instance.
      *
-     * @deprecated since 1.23 (to be removed in 2.0), implement Twig_SupTwg_Extension_InitRuntimeInterface instead
+     * @deprecated since 1.23 (to be removed in 2.0), implement Twig_SupTwgDtgs_Extension_InitRuntimeInterface instead
      */
-    public function initRuntime(Twig_SupTwg_Environment $environment);
+    public function initRuntime(Twig_SupTwgDtgs_Environment $environment);
 
     /**
      * Returns the token parser instances to add to the existing list.
      *
-     * @return Twig_SupTwg_TokenParserInterface[]
+     * @return Twig_SupTwgDtgs_TokenParserInterface[]
      */
     public function getTokenParsers();
 
     /**
      * Returns the node visitor instances to add to the existing list.
      *
-     * @return Twig_SupTwg_NodeVisitorInterface[]
+     * @return Twig_SupTwgDtgs_NodeVisitorInterface[]
      */
     public function getNodeVisitors();
 
     /**
      * Returns a list of filters to add to the existing list.
      *
-     * @return Twig_SupTwg_SimpleFilter[]
+     * @return Twig_SupTwgDtgs_SimpleFilter[]
      */
     public function getFilters();
 
     /**
      * Returns a list of tests to add to the existing list.
      *
-     * @return Twig_SupTwg_SimpleTest[]
+     * @return Twig_SupTwgDtgs_SimpleTest[]
      */
     public function getTests();
 
     /**
      * Returns a list of functions to add to the existing list.
      *
-     * @return Twig_SupTwg_SimpleFunction[]
+     * @return Twig_SupTwgDtgs_SimpleFunction[]
      */
     public function getFunctions();
 
@@ -72,7 +72,7 @@ interface Twig_SupTwg_ExtensionInterface
      *
      * @return array An array of global variables
      *
-     * @deprecated since 1.23 (to be removed in 2.0), implement Twig_SupTwg_Extension_GlobalsInterface instead
+     * @deprecated since 1.23 (to be removed in 2.0), implement Twig_SupTwgDtgs_Extension_GlobalsInterface instead
      */
     public function getGlobals();
 

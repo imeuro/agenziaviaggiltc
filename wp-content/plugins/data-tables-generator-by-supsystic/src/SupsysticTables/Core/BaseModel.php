@@ -1,18 +1,18 @@
 <?php
 
 
-abstract class SupsysticTables_Core_BaseModel extends Rsc_Mvc_Model implements Rsc_Environment_AwareInterface
+abstract class SupsysticTables_Core_BaseModel extends RscDtgs_Mvc_Model implements RscDtgs_Environment_AwareInterface
 {
     /**
-     * @var Rsc_Environment
+     * @var RscDtgs_Environment
      */
     protected $environment;
 
     /**
      * Sets the environment.
-     * @param Rsc_Environment $environment
+     * @param RscDtgs_Environment $environment
      */
-    public function setEnvironment(Rsc_Environment $environment)
+    public function setEnvironment(RscDtgs_Environment $environment)
     {
         $this->environment = $environment;
     }

@@ -1,7 +1,7 @@
 <?php
 
 
-class Rsc_Feedback_Mailer
+class RscDtgs_Feedback_Mailer
 {
     /**
      * @var array
@@ -66,7 +66,7 @@ class Rsc_Feedback_Mailer
      *
      * @param array $headers
      * @throws InvalidArgumentException If the headers is not an array or not a string
-     * @return Rsc_Feedback_Mailer
+     * @return RscDtgs_Feedback_Mailer
      */
     public function setHeaders(array $headers)
     {
@@ -94,7 +94,7 @@ class Rsc_Feedback_Mailer
      * Sets the attachments
      *
      * @param array $attachments
-     * @return Rsc_Feedback_Mailer
+     * @return RscDtgs_Feedback_Mailer
      * @throws InvalidArgumentException If the attachments is not an array or not a string
      */
     public function setAttachments(array $attachments)
@@ -129,7 +129,7 @@ class Rsc_Feedback_Mailer
      * @param array $emails
      * @throws LogicException
      * @throws InvalidArgumentException
-     * @return Rsc_Feedback_Mailer
+     * @return RscDtgs_Feedback_Mailer
      */
     public function setEmails(array $emails)
     {
@@ -187,7 +187,7 @@ class Rsc_Feedback_Mailer
      * Sets the message
      *
      * @param string $message
-     * @return Rsc_Feedback_Mailer
+     * @return RscDtgs_Feedback_Mailer
      */
     public function setMessage($message)
     {
@@ -209,7 +209,7 @@ class Rsc_Feedback_Mailer
      * Sets the subject
      *
      * @param string $subject
-     * @return Rsc_Feedback_Mailer
+     * @return RscDtgs_Feedback_Mailer
      */
     public function setSubject($subject)
     {

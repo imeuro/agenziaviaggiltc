@@ -14,8 +14,8 @@ class Ga_Helper {
 	const GA_DEFAULT_WEB_ID             = 'UA-0000000-0';
 	const GA_STATISTICS_PAGE_URL        = 'admin.php?page=googleanalytics';
 	const GA_SETTINGS_PAGE_URL          = 'admin.php?page=googleanalytics/settings';
-	const DASHBOARD_PAGE_NAME           = 'dashboard';
-	const PHP_VERSION_REQUIRED          = '5.2.17';
+	const DASHBOARD_PAGE_NAME           = 'admin.php?page=googleanalytics';
+	const PHP_VERSION_REQUIRED          = '7.4';
 	const GA_WP_MODERN_VERSION          = '4.1';
 	const GA_TOOLTIP_TERMS_NOT_ACCEPTED = 'Please accept the terms to use this feature.';
 	const GA_TOOLTIP_FEATURES_DISABLED  = 'Click the Enable button at the top to start using this feature.';

@@ -1,11 +1,11 @@
 <?php
 
 
-class Rsc_Cache
+class RscDtgs_Cache
 {
 
     /**
-     * @var Rsc_Cache_Interface
+     * @var RscDtgs_Cache_Interface
      */
     protected $adapter;
 
@@ -21,9 +21,9 @@ class Rsc_Cache
 
     /**
      * Constructor
-     * @param Rsc_Cache_Interface $adapter The caching adapter
+     * @param RscDtgs_Cache_Interface $adapter The caching adapter
      */
-    public function __construct(Rsc_Cache_Interface $adapter)
+    public function __construct(RscDtgs_Cache_Interface $adapter)
     {
         $this->adapter = $adapter;
     }
@@ -71,7 +71,7 @@ class Rsc_Cache
     /**
      * Sets the prefix for keys
      * @param string $prefix
-     * @return Rsc_Cache
+     * @return RscDtgs_Cache
      */
     public function setPrefix($prefix)
     {
@@ -91,7 +91,7 @@ class Rsc_Cache
     /**
      * Sets the time to life for cached data
      * @param int $ttl
-     * @return Rsc_Cache
+     * @return RscDtgs_Cache
      */
     public function setTtl($ttl)
     {

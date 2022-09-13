@@ -183,6 +183,7 @@
 			this.$submit.on( 'click', this.buttonSubmit.bind( this ) );
 			this.$submitLinks.on( 'click', this.linkSubmit.bind( this ) );
 			this.$el.on( 'happyforms-scrolltop', this.onScrollTop.bind( this ) );
+			this.$el.on( 'click', '.happyforms-fill-out-again', this.fillAgain.bind( this ) );
 		},
 
 		detach: function() {
@@ -349,7 +350,20 @@
 			$( 'html, body' ).animate( {
 				scrollTop: offset + 'px'
 			}, 500 );
-		}
+		},
+
+		fillAgain: function( e ) {
+			e.preventDefault();
+
+			var path = window.location.pathname;
+			path = path.substring(0, path.length - 1);
+
+			var url = window.location.origin + path;
+			url += '#' + this.$form.attr( 'id' );
+
+			window.history.pushState( null, null, url );
+			window.location.reload();
+		},
 	}
 
 	HappyForms.Part = function( el ) {

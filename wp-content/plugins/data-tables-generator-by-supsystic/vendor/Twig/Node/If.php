@@ -15,9 +15,9 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Node_If extends Twig_SupTwg_Node
+class Twig_SupTwgDtgs_Node_If extends Twig_SupTwgDtgs_Node
 {
-    public function __construct(Twig_SupTwg_NodeInterface $tests, Twig_SupTwg_NodeInterface $else = null, $lineno, $tag = null)
+    public function __construct(Twig_SupTwgDtgs_NodeInterface $tests, Twig_SupTwgDtgs_NodeInterface $else = null, $lineno, $tag = null)
     {
         $nodes = array('tests' => $tests);
         if (null !== $else) {
@@ -27,7 +27,7 @@ class Twig_SupTwg_Node_If extends Twig_SupTwg_Node
         parent::__construct($nodes, array(), $lineno, $tag);
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler->addDebugInfo($this);
         for ($i = 0, $count = count($this->getNode('tests')); $i < $count; $i += 2) {

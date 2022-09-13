@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-@trigger_error('The Twig_SupTwg_Filter class is deprecated since version 1.12 and will be removed in 2.0. Use Twig_SupTwg_SimpleFilter instead.', E_USER_DEPRECATED);
+//@trigger_error('The Twig_SupTwgDtgs_Filter class is deprecated since version 1.12 and will be removed in 2.0. Use Twig_SupTwgDtgs_SimpleFilter instead.', E_USER_DEPRECATED);
 
 /**
  * Represents a template filter.
  *
- * Use Twig_SupTwg_SimpleFilter instead.
+ * Use Twig_SupTwgDtgs_SimpleFilter instead.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *
  * @deprecated since 1.12 (to be removed in 2.0)
  */
-abstract class Twig_SupTwg_Filter implements Twig_SupTwg_FilterInterface, Twig_SupTwg_FilterCallableInterface
+abstract class Twig_SupTwgDtgs_Filter implements Twig_SupTwgDtgs_FilterInterface, Twig_SupTwgDtgs_FilterCallableInterface
 {
     protected $options;
     protected $arguments = array();
@@ -56,7 +56,7 @@ abstract class Twig_SupTwg_Filter implements Twig_SupTwg_FilterInterface, Twig_S
         return $this->options['needs_context'];
     }
 
-    public function getSafe(Twig_SupTwg_Node $filterArgs)
+    public function getSafe(Twig_SupTwgDtgs_Node $filterArgs)
     {
         if (isset($this->options['is_safe'])) {
             return $this->options['is_safe'];

@@ -14,9 +14,9 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Node_With extends Twig_SupTwg_Node
+class Twig_SupTwgDtgs_Node_With extends Twig_SupTwgDtgs_Node
 {
-    public function __construct(Twig_SupTwg_Node $body, Twig_SupTwg_Node $variables = null, $only = false, $lineno, $tag = null)
+    public function __construct(Twig_SupTwgDtgs_Node $body, Twig_SupTwgDtgs_Node $variables = null, $only = false, $lineno, $tag = null)
     {
         $nodes = array('body' => $body);
         if (null !== $variables) {
@@ -26,7 +26,7 @@ class Twig_SupTwg_Node_With extends Twig_SupTwg_Node
         parent::__construct($nodes, array('only' => (bool) $only), $lineno, $tag);
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler->addDebugInfo($this);
 
@@ -38,7 +38,7 @@ class Twig_SupTwg_Node_With extends Twig_SupTwg_Node
                 ->raw(";\n")
                 ->write(sprintf("if (!is_array(\$%s)) {\n", $varsName))
                 ->indent()
-                ->write("throw new Twig_SupTwg_Error_Runtime('Variables passed to the \"with\" tag must be a hash.');\n")
+                ->write("throw new Twig_SupTwgDtgs_Error_Runtime('Variables passed to the \"with\" tag must be a hash.');\n")
                 ->outdent()
                 ->write("}\n")
             ;

@@ -1,5 +1,5 @@
 <?php
-class Rsc_Html {
+class RscDtgs_Html {
     static public function nameToClassId($name, $params = array()) {
 		if(!empty($params) && isset($params['attrs']) && strpos($params['attrs'], 'id="') !== false) {
 			preg_match('/id="(.+)"/ui', $params['attrs'], $idMatches);

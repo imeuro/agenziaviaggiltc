@@ -15,16 +15,16 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Node_For extends Twig_SupTwg_Node
+class Twig_SupTwgDtgs_Node_For extends Twig_SupTwgDtgs_Node
 {
     protected $loop;
 
-    public function __construct(Twig_SupTwg_Node_Expression_AssignName $keyTarget, Twig_SupTwg_Node_Expression_AssignName $valueTarget, Twig_SupTwg_Node_Expression $seq, Twig_SupTwg_Node_Expression $ifexpr = null, Twig_SupTwg_NodeInterface $body, Twig_SupTwg_NodeInterface $else = null, $lineno, $tag = null)
+    public function __construct(Twig_SupTwgDtgs_Node_Expression_AssignName $keyTarget, Twig_SupTwgDtgs_Node_Expression_AssignName $valueTarget, Twig_SupTwgDtgs_Node_Expression $seq, Twig_SupTwgDtgs_Node_Expression $ifexpr = null, Twig_SupTwgDtgs_NodeInterface $body, Twig_SupTwgDtgs_NodeInterface $else = null, $lineno, $tag = null)
     {
-        $body = new Twig_SupTwg_Node(array($body, $this->loop = new Twig_SupTwg_Node_ForLoop($lineno, $tag)));
+        $body = new Twig_SupTwgDtgs_Node(array($body, $this->loop = new Twig_SupTwgDtgs_Node_ForLoop($lineno, $tag)));
 
         if (null !== $ifexpr) {
-            $body = new Twig_SupTwg_Node_If(new Twig_SupTwg_Node(array($ifexpr, $body)), null, $lineno, $tag);
+            $body = new Twig_SupTwgDtgs_Node_If(new Twig_SupTwgDtgs_Node(array($ifexpr, $body)), null, $lineno, $tag);
         }
 
         $nodes = array('key_target' => $keyTarget, 'value_target' => $valueTarget, 'seq' => $seq, 'body' => $body);
@@ -35,12 +35,12 @@ class Twig_SupTwg_Node_For extends Twig_SupTwg_Node
         parent::__construct($nodes, array('with_loop' => true, 'ifexpr' => null !== $ifexpr), $lineno, $tag);
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
             ->addDebugInfo($this)
             ->write("\$context['_parent'] = \$context;\n")
-            ->write("\$context['_seq'] = Twig_SupTwg_ensure_traversable(")
+            ->write("\$context['_seq'] = Twig_SupTwgDtgs_ensure_traversable(")
             ->subcompile($this->getNode('seq'))
             ->raw(");\n")
         ;

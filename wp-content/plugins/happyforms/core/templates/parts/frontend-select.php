@@ -47,7 +47,7 @@
 
 							$option_value = isset( $option['value'] ) ? $option['value'] : $index;
 							$submissions_left_label = isset( $option['submissions_left_label'] ) ? ' ' . $option['submissions_left_label'] : '';
-							$selected = ( $value != '' && $value == $option_value ) ? ' selected' : '';
+							$selected = ( $value !== '' && $value == $option_value ) ? ' selected' : '';
 							$disabled = ( '' != $option['limit_submissions_amount'] && $option['submissions_left'] == 0 ) ? ' disabled' : '';
 						?>
 							<option value="<?php echo $option_value; ?>" <?php echo $selected; ?> <?php echo $disabled; ?> id="<?php echo esc_attr( $option['id'] ); ?>"><?php echo esc_attr( $option['label'] ); ?><?php echo $submissions_left_label; ?></option>

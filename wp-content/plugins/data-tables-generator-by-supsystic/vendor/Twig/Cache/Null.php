@@ -16,7 +16,7 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Cache_Null implements Twig_SupTwg_CacheInterface
+class Twig_SupTwgDtgs_Cache_Null implements Twig_SupTwgDtgs_CacheInterface
 {
     public function generateKey($name, $className)
     {

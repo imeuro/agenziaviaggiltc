@@ -158,7 +158,7 @@ class AIOWPSecurity_Filescan_Menu extends AIOWPSecurity_Admin_Menu
             }
 
             // Explode by end-of-line character, then trim and filter empty lines
-            $email_list_array = array_filter(array_map('trim', explode(PHP_EOL, $_POST['aiowps_fcd_scan_email_address'])), 'strlen');
+            $email_list_array = array_filter(array_map('trim', explode('\n', $_POST['aiowps_fcd_scan_email_address'])), 'strlen');
             $errors = array();
             foreach($email_list_array as $key=>$value){
                 $email_sane = sanitize_email($value);
@@ -288,13 +288,13 @@ class AIOWPSecurity_Filescan_Menu extends AIOWPSecurity_Admin_Menu
             <tr valign="top">
                 <th scope="row"><?php _e('Enable Automated File Change Detection Scan', 'all-in-one-wp-security-and-firewall')?>:</th>
                 <td>
-                <input name="aiowps_enable_automated_fcd_scan" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_enable_automated_fcd_scan')=='1') echo ' checked="checked"'; ?> value="1"/>
-                <span class="description"><?php _e('Check this if you want the system to automatically/periodically scan your files to check for file changes based on the settings below', 'all-in-one-wp-security-and-firewall'); ?></span>
+                <input id="aiowps_enable_automated_fcd_scan" name="aiowps_enable_automated_fcd_scan" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_enable_automated_fcd_scan')=='1') echo ' checked="checked"'; ?> value="1"/>
+                <label for="aiowps_enable_automated_fcd_scan" class="description"><?php _e('Check this if you want the system to automatically/periodically scan your files to check for file changes based on the settings below', 'all-in-one-wp-security-and-firewall'); ?></label>
                 </td>
             </tr>            
             <tr valign="top">
-                <th scope="row"><?php _e('Scan Time Interval', 'all-in-one-wp-security-and-firewall')?>:</th>
-                <td><input type="text" size="5" name="aiowps_fcd_scan_frequency" value="<?php echo $aio_wp_security->configs->get_value('aiowps_fcd_scan_frequency'); ?>" />
+                <th scope="row"><label for="aiowps_fcd_scan_frequency"><?php _e('Scan Time Interval', 'all-in-one-wp-security-and-firewall')?>:</label></th>
+                <td><input id="aiowps_fcd_scan_frequency" type="text" size="5" name="aiowps_fcd_scan_frequency" value="<?php echo $aio_wp_security->configs->get_value('aiowps_fcd_scan_frequency'); ?>" />
                     <select id="backup_interval" name="aiowps_fcd_scan_interval">
                         <option value="0" <?php selected( $aio_wp_security->configs->get_value('aiowps_fcd_scan_interval'), '0' ); ?>><?php _e( 'Hours', 'all-in-one-wp-security-and-firewall' ); ?></option>
                         <option value="1" <?php selected( $aio_wp_security->configs->get_value('aiowps_fcd_scan_interval'), '1' ); ?>><?php _e( 'Days', 'all-in-one-wp-security-and-firewall' ); ?></option>
@@ -304,8 +304,8 @@ class AIOWPSecurity_Filescan_Menu extends AIOWPSecurity_Admin_Menu
                 </td> 
             </tr>
             <tr valign="top">
-                <th scope="row"><?php _e('File Types To Ignore', 'all-in-one-wp-security-and-firewall')?>:</th>
-                <td><textarea name="aiowps_fcd_exclude_filetypes" rows="5" cols="50"><?php echo htmlspecialchars($aio_wp_security->configs->get_value('aiowps_fcd_exclude_filetypes')); ?></textarea>
+                <th scope="row"><label for="aiowps_fcd_exclude_filetypes"><?php _e('File Types To Ignore', 'all-in-one-wp-security-and-firewall')?>:</label></th>
+                <td><textarea id="aiowps_fcd_exclude_filetypes" name="aiowps_fcd_exclude_filetypes" rows="5" cols="50"><?php echo htmlspecialchars($aio_wp_security->configs->get_value('aiowps_fcd_exclude_filetypes')); ?></textarea>
                     <br />
                     <span class="description"><?php _e('Enter each file type or extension on a new line which you wish to exclude from the file change detection scan.', 'all-in-one-wp-security-and-firewall'); ?></span>
                     <span class="aiowps_more_info_anchor"><span class="aiowps_more_info_toggle_char">+</span><span class="aiowps_more_info_toggle_text"><?php _e('More Info', 'all-in-one-wp-security-and-firewall'); ?></span></span>
@@ -321,8 +321,8 @@ class AIOWPSecurity_Filescan_Menu extends AIOWPSecurity_Admin_Menu
                 </td> 
             </tr>
             <tr valign="top">
-                <th scope="row"><?php _e('Files/Directories To Ignore', 'all-in-one-wp-security-and-firewall')?>:</th>
-                <td><textarea name="aiowps_fcd_exclude_files" rows="5" cols="50"><?php echo htmlspecialchars($aio_wp_security->configs->get_value('aiowps_fcd_exclude_files')); ?></textarea>
+                <th scope="row"><label for="aiowps_fcd_exclude_files"><?php _e('Files/Directories To Ignore', 'all-in-one-wp-security-and-firewall')?>:</label></th>
+                <td><textarea id="aiowps_fcd_exclude_files" name="aiowps_fcd_exclude_files" rows="5" cols="50"><?php echo htmlspecialchars($aio_wp_security->configs->get_value('aiowps_fcd_exclude_files')); ?></textarea>
                     <br />
                     <span class="description"><?php _e('Enter each file or directory on a new line which you wish to exclude from the file change detection scan.', 'all-in-one-wp-security-and-firewall'); ?></span>
                     <span class="aiowps_more_info_anchor"><span class="aiowps_more_info_toggle_char">+</span><span class="aiowps_more_info_toggle_text"><?php _e('More Info', 'all-in-one-wp-security-and-firewall'); ?></span></span>
@@ -337,12 +337,16 @@ class AIOWPSecurity_Filescan_Menu extends AIOWPSecurity_Admin_Menu
                 </td> 
             </tr>
             <tr valign="top">
-                <th scope="row"><?php _e('Send Email When Change Detected', 'all-in-one-wp-security-and-firewall')?>:</th>
+                <th scope="row">
+                    <label for="aiowps_fcd_scan_email_address">
+                        <?php _e('Send Email When Change Detected', 'all-in-one-wp-security-and-firewall'); ?>:
+                    </label>
+                </th>
                 <td>
-                <input name="aiowps_send_fcd_scan_email" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_send_fcd_scan_email')=='1') echo ' checked="checked"'; ?> value="1"/>
-                <span class="description"><?php _e('Check this if you want the system to email you if a file change was detected', 'all-in-one-wp-security-and-firewall'); ?></span>
+                <input id="aiowps_send_fcd_scan_email" name="aiowps_send_fcd_scan_email" type="checkbox"<?php if($aio_wp_security->configs->get_value('aiowps_send_fcd_scan_email')=='1') echo ' checked="checked"'; ?> value="1"/>
+                <label for="aiowps_send_fcd_scan_email" class="description"><?php _e('Check this if you want the system to email you if a file change was detected', 'all-in-one-wp-security-and-firewall'); ?></label>
                 <br />
-                    <textarea name="aiowps_fcd_scan_email_address" rows="5" cols="50"><?php echo htmlspecialchars($aio_wp_security->configs->get_value('aiowps_fcd_scan_email_address')); ?></textarea>
+                    <textarea name="aiowps_fcd_scan_email_address" id="aiowps_fcd_scan_email_address" rows="5" cols="50"><?php echo esc_textarea(wp_unslash(AIOWPSecurity_Utility::get_textarea_str_val($aio_wp_security->configs->get_value('aiowps_fcd_scan_email_address')))); ?></textarea>
                     <br />
                     <span class="description"><?php _e('Enter one or more email addresses on a new line.', 'all-in-one-wp-security-and-firewall'); ?></span>
                 </td>

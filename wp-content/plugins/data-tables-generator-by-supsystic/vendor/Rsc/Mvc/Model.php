@@ -1,7 +1,7 @@
 <?php
 
 
-class Rsc_Mvc_Model
+class RscDtgs_Mvc_Model
 {
 
     /**

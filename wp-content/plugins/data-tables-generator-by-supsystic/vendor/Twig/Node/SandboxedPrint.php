@@ -10,7 +10,7 @@
  */
 
 /**
- * Twig_SupTwg_Node_SandboxedPrint adds a check for the __toString() method
+ * Twig_SupTwgDtgs_Node_SandboxedPrint adds a check for the __toString() method
  * when the variable is an object and the sandbox is activated.
  *
  * When there is a simple Print statement, like {{ article }},
@@ -19,13 +19,13 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Node_SandboxedPrint extends Twig_SupTwg_Node_Print
+class Twig_SupTwgDtgs_Node_SandboxedPrint extends Twig_SupTwgDtgs_Node_Print
 {
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
             ->addDebugInfo($this)
-            ->write('echo $this->env->getExtension(\'Twig_SupTwg_Extension_Sandbox\')->ensureToStringAllowed(')
+            ->write('echo $this->env->getExtension(\'Twig_SupTwgDtgs_Extension_Sandbox\')->ensureToStringAllowed(')
             ->subcompile($this->getNode('expr'))
             ->raw(");\n")
         ;
@@ -36,11 +36,11 @@ class Twig_SupTwg_Node_SandboxedPrint extends Twig_SupTwg_Node_Print
      *
      * This is mostly needed when another visitor adds filters (like the escaper one).
      *
-     * @return Twig_SupTwg_Node
+     * @return Twig_SupTwgDtgs_Node
      */
-    protected function removeNodeFilter(Twig_SupTwg_Node $node)
+    protected function removeNodeFilter(Twig_SupTwgDtgs_Node $node)
     {
-        if ($node instanceof Twig_SupTwg_Node_Expression_Filter) {
+        if ($node instanceof Twig_SupTwgDtgs_Node_Expression_Filter) {
             return $this->removeNodeFilter($node->getNode('node'));
         }
 

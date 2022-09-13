@@ -1,7 +1,7 @@
 <?php
 
 
-class Rsc_Menu_Item
+class RscDtgs_Menu_Item
 {
 
     /**
@@ -30,7 +30,7 @@ class Rsc_Menu_Item
     protected $menuSlug;
 
     /**
-     * @var Rsc_Resolver
+     * @var RscDtgs_Resolver
      */
     protected $resolver;
 
@@ -47,9 +47,9 @@ class Rsc_Menu_Item
     /**
      * Constructor
      * @param string $parentSlug
-     * @param Rsc_Resolver $resolver
+     * @param RscDtgs_Resolver $resolver
      */
-    public function __construct($parentSlug, Rsc_Resolver $resolver)
+    public function __construct($parentSlug, RscDtgs_Resolver $resolver)
     {
         $this->parentSlug = $parentSlug;
         $this->resolver = $resolver;
@@ -58,7 +58,7 @@ class Rsc_Menu_Item
     /**
      * Set the capability
      * @param string $capability The capability required for this menu to be displayed to the user
-     * @return Rsc_Menu_Item
+     * @return RscDtgs_Menu_Item
      */
     public function setCapability($capability)
     {
@@ -78,7 +78,7 @@ class Rsc_Menu_Item
     /**
      * Set the menu slug
      * @param string $menuSlug The slug name to refer to this menu by
-     * @return Rsc_Menu_Item
+     * @return RscDtgs_Menu_Item
      */
     public function setMenuSlug($menuSlug)
     {
@@ -98,7 +98,7 @@ class Rsc_Menu_Item
     /**
      * Set the menu title
      * @param string $menuTitle The text to be used for the menu
-     * @return Rsc_Menu_Item
+     * @return RscDtgs_Menu_Item
      */
     public function setMenuTitle($menuTitle)
     {
@@ -118,7 +118,7 @@ class Rsc_Menu_Item
     /**
      * Set the page title
      * @param string $pageTitle The text to be displayed in the title tags of the page when the menu is selected
-     * @return Rsc_Menu_Item
+     * @return RscDtgs_Menu_Item
      */
     public function setPageTitle($pageTitle)
     {
@@ -138,7 +138,7 @@ class Rsc_Menu_Item
     /**
      * Sets the module name
      * @param string $moduleName
-     * @return Rsc_Menu_Item
+     * @return RscDtgs_Menu_Item
      */
     public function setModuleName($moduleName)
     {

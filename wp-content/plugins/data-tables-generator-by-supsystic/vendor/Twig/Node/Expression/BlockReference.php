@@ -15,15 +15,15 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Node_Expression_BlockReference extends Twig_SupTwg_Node_Expression
+class Twig_SupTwgDtgs_Node_Expression_BlockReference extends Twig_SupTwgDtgs_Node_Expression
 {
     /**
-     * @param Twig_SupTwg_Node|null $template
+     * @param Twig_SupTwgDtgs_Node|null $template
      */
-    public function __construct(Twig_SupTwg_NodeInterface $name, $template = null, $lineno, $tag = null)
+    public function __construct(Twig_SupTwgDtgs_NodeInterface $name, $template = null, $lineno, $tag = null)
     {
         if (is_bool($template)) {
-            @trigger_error(sprintf('The %s method "$asString" argument is deprecated since version 1.28 and will be removed in 2.0.', __METHOD__), E_USER_DEPRECATED);
+            //@trigger_error(sprintf('The %s method "$asString" argument is deprecated since version 1.28 and will be removed in 2.0.', __METHOD__), E_USER_DEPRECATED);
 
             $template = null;
         }
@@ -36,7 +36,7 @@ class Twig_SupTwg_Node_Expression_BlockReference extends Twig_SupTwg_Node_Expres
         parent::__construct($nodes, array('is_defined_test' => false, 'output' => false), $lineno, $tag);
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         if ($this->getAttribute('is_defined_test')) {
             $this->compileTemplateCall($compiler, 'hasBlock');
@@ -53,7 +53,7 @@ class Twig_SupTwg_Node_Expression_BlockReference extends Twig_SupTwg_Node_Expres
         }
     }
 
-    private function compileTemplateCall(Twig_SupTwg_Compiler $compiler, $method)
+    private function compileTemplateCall(Twig_SupTwgDtgs_Compiler $compiler, $method)
     {
         if (!$this->hasNode('template')) {
             $compiler->write('$this');
@@ -75,7 +75,7 @@ class Twig_SupTwg_Node_Expression_BlockReference extends Twig_SupTwg_Node_Expres
         return $compiler;
     }
 
-    private function compileBlockArguments(Twig_SupTwg_Compiler $compiler)
+    private function compileBlockArguments(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
             ->raw('(')

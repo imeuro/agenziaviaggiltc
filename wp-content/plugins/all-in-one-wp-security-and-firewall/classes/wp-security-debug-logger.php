@@ -16,7 +16,6 @@ class AIOWPSecurity_Logger {
  
 	public function __construct($debug_enabled) {
 		$this->debug_enabled = $debug_enabled;
-		$this->maybe_create_debug_log_table();
 	}
 	
 	/**
@@ -27,46 +26,6 @@ class AIOWPSecurity_Logger {
 	 */
 	private function get_readable_level_from_code($level_code) {
 		return isset($this->debug_readable_level[$level_code]) ? $this->debug_readable_level[$level_code] : 'UNKNOWN';
-	}
-
-	/**
-	 * Creates the debug log table if it doesn't already exist
-	 *
-	 * @return void
-	 */
-	private function maybe_create_debug_log_table() {
-
-		global $wpdb;
-
-		if (!function_exists('maybe_create_table')) {
-			//needed for the maybe_create_table function
-			require_once ABSPATH . 'wp-admin/includes/upgrade.php';
-		}
-
-		$charset_collate = '';
-		if (!empty($wpdb->charset)) {
-			$charset_collate = "DEFAULT CHARACTER SET $wpdb->charset";
-		} else {
-			$charset_collate = "DEFAULT CHARSET=utf8";
-		}
-		if (!empty($wpdb->collate)) {
-			$charset_collate .= " COLLATE $wpdb->collate";
-		}
-
-		//This exists as a constant, but multisite will need to refresh $wpdb->prefix
-		$debug_log_tbl_name = $wpdb->prefix.'aiowps_debug_log';
-
-		$debug_log_tbl_sql = "CREATE TABLE " . $debug_log_tbl_name . " (
-			id bigint(20) NOT NULL AUTO_INCREMENT,
-			level varchar(25) NOT NULL DEFAULT '',
-			message text NOT NULL DEFAULT '',
-			type varchar(25) NOT NULL DEFAULT '',
-			created datetime NOT NULL DEFAULT '1000-10-10 10:00:00',
-			PRIMARY KEY  (id)
-			)" . $charset_collate . ";";
-
-		maybe_create_table($debug_log_tbl_name, $debug_log_tbl_sql);
-
 	}
 
 	/**

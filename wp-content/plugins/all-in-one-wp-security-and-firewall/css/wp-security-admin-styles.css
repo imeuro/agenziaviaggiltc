@@ -413,3 +413,11 @@
     border: 1px solid #ccc;
     background: #f7f7f7;
 }
+
+svg > g > g.google-visualization-tooltip {
+    pointer-events: none;
+}
+
+.wp-security_page_aiowpsec_settings h2, .wp-security_page_aiowpsec_settings #poststuff h2 {
+    padding-left: 0;
+}

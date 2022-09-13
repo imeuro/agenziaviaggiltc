@@ -1,30 +1,30 @@
 <?php
 
 
-class Rsc_Http_Request
+class RscDtgs_Http_Request
 {
     /**
-     * @var Rsc_Http_Parameters
+     * @var RscDtgs_Http_Parameters
      */
     public $post;
 
     /**
-     * @var Rsc_Http_Parameters
+     * @var RscDtgs_Http_Parameters
      */
     public $query;
 
     /**
-     * @var Rsc_Http_Parameters
+     * @var RscDtgs_Http_Parameters
      */
     public $files;
 
     /**
-     * @var Rsc_Http_ServerParameters
+     * @var RscDtgs_Http_ServerParameters
      */
     public $server;
 
     /**
-     * @var Rsc_Http_Parameters
+     * @var RscDtgs_Http_Parameters
      */
     public $headers;
 
@@ -40,16 +40,16 @@ class Rsc_Http_Request
 		if(!is_array($postTempVar)) {
 			$postTempVar = array();
 		}
-		$this->post = new Rsc_Http_Parameters($postTempVar);
-        $this->query = new Rsc_Http_Parameters($_GET);
-        $this->files = new Rsc_Http_Parameters($_FILES);
-        $this->server = new Rsc_Http_ServerParameters($_SERVER);
-        $this->headers = new Rsc_Http_Parameters($this->server->getHeaders());
+		$this->post = new RscDtgs_Http_Parameters($postTempVar);
+        $this->query = new RscDtgs_Http_Parameters($_GET);
+        $this->files = new RscDtgs_Http_Parameters($_FILES);
+        $this->server = new RscDtgs_Http_ServerParameters($_SERVER);
+        $this->headers = new RscDtgs_Http_Parameters($this->server->getHeaders());
     }
 
     /**
      * Returns new request from the global variables
-     * @return Rsc_Http_Request
+     * @return RscDtgs_Http_Request
      */
     public static function create()
     {

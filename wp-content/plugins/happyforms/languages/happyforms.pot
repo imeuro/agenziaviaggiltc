@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Happyforms (free) plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Happyforms (free) 1.17.0\n"
+"Project-Id-Version: Happyforms (free) 1.18.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/happyforms/\n"
 "Last-Translator: The Theme Foundry\n"
 "Language-Team: The Theme Foundry\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-08-11T10:54:16+00:00\n"
+"POT-Creation-Date: 2022-09-02T13:20:18+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: happyforms\n"
@@ -24,7 +24,7 @@ msgid "https://happyforms.io"
 msgstr ""
 
 #. Description of the plugin
-msgid "We're changin' WordPress forms."
+msgid "Form builder to get in touch with visitors, grow your email list and collect payments."
 msgstr ""
 
 #. Author of the plugin
@@ -36,7 +36,7 @@ msgstr ""
 #: core/classes/class-happyforms-core.php:186
 #: core/classes/class-happyforms-core.php:187
 #: core/classes/class-happyforms-widget.php:13
-#: core/helpers/helper-misc.php:1021
+#: core/helpers/helper-misc.php:1057
 msgid "Forms"
 msgstr ""
 
@@ -79,13 +79,8 @@ msgstr ""
 
 #: core/classes/class-form-admin.php:454
 #: core/templates/customize-form-item.php:27
-#: core/templates/customize-form-part-footer.php:4
-#: core/templates/parts/customize-checkbox.php:162
-#: core/templates/parts/customize-checkbox.php:190
-#: core/templates/parts/customize-radio.php:148
-#: core/templates/parts/customize-radio.php:176
-#: core/templates/parts/customize-select.php:133
-#: core/templates/parts/customize-select.php:161
+#: inc/templates/customize-form-part-choice-footer.php:3
+#: inc/templates/customize-form-part-footer.php:4
 msgid "Duplicate"
 msgstr ""
 
@@ -170,7 +165,7 @@ msgid "Email me a copy of each submission"
 msgstr ""
 
 #: core/classes/class-form-email.php:106
-#: inc/classes/class-happyforms.php:170
+#: inc/classes/class-happyforms.php:173
 msgid "To email address"
 msgstr ""
 
@@ -344,64 +339,56 @@ msgstr ""
 msgid "Missing validation callback for field %s"
 msgstr ""
 
-#: core/classes/class-form-setup.php:98
+#: core/classes/class-form-setup.php:86
 msgid "Validate your submission"
 msgstr ""
 
-#: core/classes/class-form-setup.php:133
-msgid "Thank you. Your submission has been sent."
+#: core/classes/class-form-setup.php:121
+msgid "We've got your submission."
 msgstr ""
 
-#: core/classes/class-form-setup.php:137
+#: core/classes/class-form-setup.php:125
 msgid "Bummer. The form can't be submitted. Please check for mistakes."
 msgstr ""
 
-#: core/classes/class-form-setup.php:141
+#: core/classes/class-form-setup.php:129
 msgid "Send"
 msgstr ""
 
-#: core/classes/class-form-setup.php:155
-msgid "After the form is submitted"
+#: core/classes/class-form-setup.php:133
+msgid "Fill out this form again"
 msgstr ""
 
-#: core/classes/class-form-setup.php:157
-msgid "Show a message"
-msgstr ""
-
-#: core/classes/class-form-setup.php:158
-msgid "Show a message and allow to resubmit the form"
-msgstr ""
-
-#: core/classes/class-form-setup.php:159
-msgid "Redirect to a web address"
-msgstr ""
-
-#: core/classes/class-form-setup.php:172
+#: core/classes/class-form-setup.php:147
 msgid "Add custom CSS classes to submit button"
 msgstr ""
 
-#: core/classes/class-form-setup.php:181
+#: core/classes/class-form-setup.php:156
 msgid "Submit button CSS classes"
 msgstr ""
 
-#: core/classes/class-form-setup.php:190
+#: core/classes/class-form-setup.php:165
 msgid "Add custom HTML ID to form"
 msgstr ""
 
-#: core/classes/class-form-setup.php:199
+#: core/classes/class-form-setup.php:174
 msgid "Form HTML ID"
 msgstr ""
 
-#: core/classes/class-form-setup.php:219
+#: core/classes/class-form-setup.php:194
 msgid "Form is successfully submitted"
 msgstr ""
 
-#: core/classes/class-form-setup.php:224
+#: core/classes/class-form-setup.php:199
 msgid "Form can’t be submitted"
 msgstr ""
 
-#: core/classes/class-form-setup.php:229
+#: core/classes/class-form-setup.php:204
 msgid "Submit form"
+msgstr ""
+
+#: core/classes/class-form-setup.php:209
+msgid "Fill out again the form"
 msgstr ""
 
 #: core/classes/class-form-styles.php:54
@@ -686,16 +673,16 @@ msgstr ""
 #: core/classes/class-form-styles.php:682
 #: core/templates/parts/customize-checkbox.php:4
 #: core/templates/parts/customize-checkbox.php:139
-#: core/templates/parts/customize-checkbox.php:184
+#: core/templates/parts/customize-checkbox.php:187
 #: core/templates/parts/customize-email.php:4
 #: core/templates/parts/customize-multi-line-text.php:4
 #: core/templates/parts/customize-number.php:4
 #: core/templates/parts/customize-radio.php:4
 #: core/templates/parts/customize-radio.php:125
-#: core/templates/parts/customize-radio.php:170
+#: core/templates/parts/customize-radio.php:174
 #: core/templates/parts/customize-select.php:4
 #: core/templates/parts/customize-select.php:116
-#: core/templates/parts/customize-select.php:155
+#: core/templates/parts/customize-select.php:158
 #: core/templates/parts/customize-single-line-text.php:4
 msgid "Label"
 msgstr ""
@@ -2634,13 +2621,15 @@ msgid "part value is currently used as subject"
 msgstr ""
 
 #: core/templates/customize-controls/setup/upsell.php:2
-#: core/templates/customize-form-part-footer.php:5
 #: core/templates/customize-form-parts-drawer.php:37
 #: inc/classes/class-answer-limiter-dummy.php:39
 #: inc/templates/customize-controls/checkbox_dummy.php:7
 #: inc/templates/customize-controls/email-parts-list-dummy.php:2
 #: inc/templates/customize-controls/number_dummy.php:4
 #: inc/templates/customize-controls/panel_dummy.php:3
+#: inc/templates/customize-controls/text_dummy.php:4
+#: inc/templates/customize-form-part-choice-footer.php:4
+#: inc/templates/customize-form-part-footer.php:5
 msgid "Members Only"
 msgstr ""
 
@@ -2680,13 +2669,8 @@ msgid "Style"
 msgstr ""
 
 #: core/templates/customize-form-item.php:33
-#: core/templates/customize-form-part-footer.php:3
-#: core/templates/parts/customize-checkbox.php:161
-#: core/templates/parts/customize-checkbox.php:189
-#: core/templates/parts/customize-radio.php:147
-#: core/templates/parts/customize-radio.php:175
-#: core/templates/parts/customize-select.php:132
-#: core/templates/parts/customize-select.php:160
+#: inc/templates/customize-form-part-choice-footer.php:2
+#: inc/templates/customize-form-part-footer.php:3
 msgid "Delete"
 msgstr ""
 
@@ -2694,8 +2678,9 @@ msgstr ""
 msgid "Preview"
 msgstr ""
 
-#: core/templates/customize-form-part-footer.php:5
 #: core/templates/customize-form-part-logic.php:2
+#: inc/templates/customize-form-part-choice-footer.php:4
+#: inc/templates/customize-form-part-footer.php:5
 msgid "Logic"
 msgstr ""
 
@@ -2904,7 +2889,9 @@ msgid "Choice"
 msgstr ""
 
 #: core/templates/parts/customize-checkbox.php:151
-msgid "Max submissions"
+#: core/templates/parts/customize-radio.php:137
+#: core/templates/parts/customize-select.php:122
+msgid "Max times this choice can be submitted"
 msgstr ""
 
 #: core/templates/parts/customize-checkbox.php:157
@@ -2913,9 +2900,9 @@ msgstr ""
 msgid "Make this choice default"
 msgstr ""
 
-#: core/templates/parts/customize-checkbox.php:177
-#: core/templates/parts/customize-radio.php:163
-#: core/templates/parts/customize-select.php:148
+#: core/templates/parts/customize-checkbox.php:180
+#: core/templates/parts/customize-radio.php:167
+#: core/templates/parts/customize-select.php:151
 #: inc/classes/parts/class-part-layout-title-dummy.php:8
 msgid "Heading"
 msgstr ""
@@ -2981,77 +2968,79 @@ msgid ""
 "Click the \"Add Choice\" button to start."
 msgstr ""
 
-#: core/templates/parts/customize-radio.php:137
-#: core/templates/parts/customize-select.php:122
-#: inc/classes/class-happyforms.php:136
-msgid "Max number of submissions"
-msgstr ""
-
 #: core/templates/preview-form-pencil.php:3
 msgid "Click to edit this part."
 msgstr ""
 
 #: inc/classes/class-answer-limiter-dummy.php:38
-msgid "Max times the same answer is allowed"
+msgid "Max times the same answer can be submitted"
 msgstr ""
 
-#: inc/classes/class-happyforms.php:98
+#: inc/classes/class-happyforms.php:95
 msgid "Upgrade"
 msgstr ""
 
-#: inc/classes/class-happyforms.php:106
+#: inc/classes/class-happyforms.php:103
+msgid "Redirect to this page address (URL) after submission"
+msgstr ""
+
+#: inc/classes/class-happyforms.php:109
 msgid "Shuffle order of fields"
 msgstr ""
 
-#: inc/classes/class-happyforms.php:112
+#: inc/classes/class-happyforms.php:115
 msgid "Use reCAPTCHA"
 msgstr ""
 
-#: inc/classes/class-happyforms.php:118
+#: inc/classes/class-happyforms.php:121
 msgid "Save incomplete and abandoned submissions"
 msgstr ""
 
-#: inc/classes/class-happyforms.php:124
+#: inc/classes/class-happyforms.php:127
 msgid "Let submitters save a draft for set number of days"
 msgstr ""
 
-#: inc/classes/class-happyforms.php:130
+#: inc/classes/class-happyforms.php:133
 msgid "Require submitters to review a submission"
 msgstr ""
 
-#: inc/classes/class-happyforms.php:142
+#: inc/classes/class-happyforms.php:139
+msgid "Max number of submissions"
+msgstr ""
+
+#: inc/classes/class-happyforms.php:145
 msgid "Erase submitter's personal data after set number of days"
 msgstr ""
 
-#: inc/classes/class-happyforms.php:148
+#: inc/classes/class-happyforms.php:151
 msgid "Show an error message if field contains words in Disallowed Comment Keys"
 msgstr ""
 
-#: inc/classes/class-happyforms.php:158
+#: inc/classes/class-happyforms.php:161
 msgid "Include reply link"
 msgstr ""
 
-#: inc/classes/class-happyforms.php:164
+#: inc/classes/class-happyforms.php:167
 msgid "Include referral web address"
 msgstr ""
 
-#: inc/classes/class-happyforms.php:176
+#: inc/classes/class-happyforms.php:179
 msgid "Send abandonment email"
 msgstr ""
 
-#: inc/classes/class-happyforms.php:186
+#: inc/classes/class-happyforms.php:189
 msgid "Checkboxes & Radios"
 msgstr ""
 
-#: inc/classes/class-happyforms.php:192
+#: inc/classes/class-happyforms.php:195
 msgid "Rating"
 msgstr ""
 
-#: inc/classes/class-happyforms.php:198
+#: inc/classes/class-happyforms.php:201
 msgid "Separators"
 msgstr ""
 
-#: inc/classes/class-happyforms.php:204
+#: inc/classes/class-happyforms.php:207
 msgid "Multi Step"
 msgstr ""
 
@@ -3123,14 +3112,6 @@ msgstr ""
 
 #: inc/classes/parts/class-part-layout-title-dummy.php:9
 msgid "For adding titles to visually separate fields."
-msgstr ""
-
-#: inc/classes/parts/class-part-likert-scale-dummy.php:8
-msgid "Scale"
-msgstr ""
-
-#: inc/classes/parts/class-part-likert-scale-dummy.php:9
-msgid "For collecting ratings using a fixed numeric scale."
 msgstr ""
 
 #: inc/classes/parts/class-part-media-dummy.php:8

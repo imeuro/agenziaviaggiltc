@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-class Twig_SupTwg_Node_SetTemp extends Twig_SupTwg_Node
+class Twig_SupTwgDtgs_Node_SetTemp extends Twig_SupTwgDtgs_Node
 {
     public function __construct($name, $lineno)
     {
         parent::__construct(array(), array('name' => $name), $lineno);
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $name = $this->getAttribute('name');
         $compiler

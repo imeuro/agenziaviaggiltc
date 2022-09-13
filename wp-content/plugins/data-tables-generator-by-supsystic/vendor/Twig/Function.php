@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-@trigger_error('The Twig_SupTwg_Function class is deprecated since version 1.12 and will be removed in 2.0. Use Twig_SupTwg_SimpleFunction instead.', E_USER_DEPRECATED);
+//@trigger_error('The Twig_SupTwgDtgs_Function class is deprecated since version 1.12 and will be removed in 2.0. Use Twig_SupTwgDtgs_SimpleFunction instead.', E_USER_DEPRECATED);
 
 /**
  * Represents a template function.
  *
- * Use Twig_SupTwg_SimpleFunction instead.
+ * Use Twig_SupTwgDtgs_SimpleFunction instead.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *
  * @deprecated since 1.12 (to be removed in 2.0)
  */
-abstract class Twig_SupTwg_Function implements Twig_SupTwg_FunctionInterface, Twig_SupTwg_FunctionCallableInterface
+abstract class Twig_SupTwgDtgs_Function implements Twig_SupTwgDtgs_FunctionInterface, Twig_SupTwgDtgs_FunctionCallableInterface
 {
     protected $options;
     protected $arguments = array();
@@ -54,7 +54,7 @@ abstract class Twig_SupTwg_Function implements Twig_SupTwg_FunctionInterface, Tw
         return $this->options['needs_context'];
     }
 
-    public function getSafe(Twig_SupTwg_Node $functionArgs)
+    public function getSafe(Twig_SupTwgDtgs_Node $functionArgs)
     {
         if (isset($this->options['is_safe'])) {
             return $this->options['is_safe'];

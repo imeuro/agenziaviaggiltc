@@ -16,7 +16,7 @@
  *
  * @deprecated since 1.12 (to be removed in 3.0)
  */
-interface Twig_SupTwg_ExistsLoaderInterface
+interface Twig_SupTwgDtgs_ExistsLoaderInterface
 {
     /**
      * Check if we have the source code of a template, given its name.

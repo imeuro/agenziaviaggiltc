@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-class Twig_SupTwg_Node_Expression_Binary_EndsWith extends Twig_SupTwg_Node_Expression_Binary
+class Twig_SupTwgDtgs_Node_Expression_Binary_EndsWith extends Twig_SupTwgDtgs_Node_Expression_Binary
 {
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $left = $compiler->getVarName();
         $right = $compiler->getVarName();
@@ -23,7 +23,7 @@ class Twig_SupTwg_Node_Expression_Binary_EndsWith extends Twig_SupTwg_Node_Expre
         ;
     }
 
-    public function operator(Twig_SupTwg_Compiler $compiler)
+    public function operator(Twig_SupTwgDtgs_Compiler $compiler)
     {
         return $compiler->raw('');
     }

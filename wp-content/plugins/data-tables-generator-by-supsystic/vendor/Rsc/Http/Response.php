@@ -1,7 +1,7 @@
 <?php
 
 
-class Rsc_Http_Response
+class RscDtgs_Http_Response
 {
 
     const AJAX = 'ajax';
@@ -13,7 +13,7 @@ class Rsc_Http_Response
 
     /**
      * Creates the new response for chaining methods
-     * @return Rsc_Http_Response
+     * @return RscDtgs_Http_Response
      */
     public static function create()
     {
@@ -23,7 +23,7 @@ class Rsc_Http_Response
     /**
      * Sets the content of the response
      * @param string $content
-     * @return Rsc_Http_Response
+     * @return RscDtgs_Http_Response
      */
     public function setContent($content)
     {

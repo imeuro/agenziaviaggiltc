@@ -19,15 +19,15 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Node_Module extends Twig_SupTwg_Node
+class Twig_SupTwgDtgs_Node_Module extends Twig_SupTwgDtgs_Node
 {
     private $source;
 
-    public function __construct(Twig_SupTwg_NodeInterface $body, Twig_SupTwg_Node_Expression $parent = null, Twig_SupTwg_NodeInterface $blocks, Twig_SupTwg_NodeInterface $macros, Twig_SupTwg_NodeInterface $traits, $embeddedTemplates, $name, $source = '')
+    public function __construct(Twig_SupTwgDtgs_NodeInterface $body, Twig_SupTwgDtgs_Node_Expression $parent = null, Twig_SupTwgDtgs_NodeInterface $blocks, Twig_SupTwgDtgs_NodeInterface $macros, Twig_SupTwgDtgs_NodeInterface $traits, $embeddedTemplates, $name, $source = '')
     {
-        if (!$name instanceof Twig_SupTwg_Source) {
-            @trigger_error(sprintf('Passing a string as the $name argument of %s() is deprecated since version 1.27. Pass a Twig_SupTwg_Source instance instead.', __METHOD__), E_USER_DEPRECATED);
-            $this->source = new Twig_SupTwg_Source($source, $name);
+        if (!$name instanceof Twig_SupTwgDtgs_Source) {
+            //@trigger_error(sprintf('Passing a string as the $name argument of %s() is deprecated since version 1.27. Pass a Twig_SupTwgDtgs_Source instance instead.', __METHOD__), E_USER_DEPRECATED);
+            $this->source = new Twig_SupTwgDtgs_Source($source, $name);
         } else {
             $this->source = $name;
         }
@@ -37,11 +37,11 @@ class Twig_SupTwg_Node_Module extends Twig_SupTwg_Node
             'blocks' => $blocks,
             'macros' => $macros,
             'traits' => $traits,
-            'display_start' => new Twig_SupTwg_Node(),
-            'display_end' => new Twig_SupTwg_Node(),
-            'constructor_start' => new Twig_SupTwg_Node(),
-            'constructor_end' => new Twig_SupTwg_Node(),
-            'class_end' => new Twig_SupTwg_Node(),
+            'display_start' => new Twig_SupTwgDtgs_Node(),
+            'display_end' => new Twig_SupTwgDtgs_Node(),
+            'constructor_start' => new Twig_SupTwgDtgs_Node(),
+            'constructor_end' => new Twig_SupTwgDtgs_Node(),
+            'class_end' => new Twig_SupTwgDtgs_Node(),
         );
         if (null !== $parent) {
             $nodes['parent'] = $parent;
@@ -66,7 +66,7 @@ class Twig_SupTwg_Node_Module extends Twig_SupTwg_Node
         $this->setAttribute('index', $index);
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $this->compileTemplate($compiler);
 
@@ -75,7 +75,7 @@ class Twig_SupTwg_Node_Module extends Twig_SupTwg_Node
         }
     }
 
-    protected function compileTemplate(Twig_SupTwg_Compiler $compiler)
+    protected function compileTemplate(Twig_SupTwgDtgs_Compiler $compiler)
     {
         if (!$this->getAttribute('index')) {
             $compiler->write('<?php');
@@ -87,7 +87,7 @@ class Twig_SupTwg_Node_Module extends Twig_SupTwg_Node
             count($this->getNode('blocks'))
             || count($this->getNode('traits'))
             || !$this->hasNode('parent')
-            || $this->getNode('parent') instanceof Twig_SupTwg_Node_Expression_Constant
+            || $this->getNode('parent') instanceof Twig_SupTwgDtgs_Node_Expression_Constant
             || count($this->getNode('constructor_start'))
             || count($this->getNode('constructor_end'))
         ) {
@@ -115,7 +115,7 @@ class Twig_SupTwg_Node_Module extends Twig_SupTwg_Node
         $this->compileClassFooter($compiler);
     }
 
-    protected function compileGetParent(Twig_SupTwg_Compiler $compiler)
+    protected function compileGetParent(Twig_SupTwgDtgs_Compiler $compiler)
     {
         if (!$this->hasNode('parent')) {
             return;
@@ -129,7 +129,7 @@ class Twig_SupTwg_Node_Module extends Twig_SupTwg_Node
             ->write('return ')
         ;
 
-        if ($parent instanceof Twig_SupTwg_Node_Expression_Constant) {
+        if ($parent instanceof Twig_SupTwgDtgs_Node_Expression_Constant) {
             $compiler->subcompile($parent);
         } else {
             $compiler
@@ -150,7 +150,7 @@ class Twig_SupTwg_Node_Module extends Twig_SupTwg_Node
         ;
     }
 
-    protected function compileClassHeader(Twig_SupTwg_Compiler $compiler)
+    protected function compileClassHeader(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
             ->write("\n\n")
@@ -163,10 +163,10 @@ class Twig_SupTwg_Node_Module extends Twig_SupTwg_Node
         ;
     }
 
-    protected function compileConstructor(Twig_SupTwg_Compiler $compiler)
+    protected function compileConstructor(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
-            ->write("public function __construct(Twig_SupTwg_Environment \$env)\n", "{\n")
+            ->write("public function __construct(Twig_SupTwgDtgs_Environment \$env)\n", "{\n")
             ->indent()
             ->subcompile($this->getNode('constructor_start'))
             ->write("parent::__construct(\$env);\n\n")
@@ -175,7 +175,7 @@ class Twig_SupTwg_Node_Module extends Twig_SupTwg_Node
         // parent
         if (!$this->hasNode('parent')) {
             $compiler->write("\$this->parent = false;\n\n");
-        } elseif (($parent = $this->getNode('parent')) && $parent instanceof Twig_SupTwg_Node_Expression_Constant) {
+        } elseif (($parent = $this->getNode('parent')) && $parent instanceof Twig_SupTwgDtgs_Node_Expression_Constant) {
             $compiler
                 ->addDebugInfo($parent)
                 ->write('$this->parent = $this->loadTemplate(')
@@ -198,7 +198,7 @@ class Twig_SupTwg_Node_Module extends Twig_SupTwg_Node
                     ->addDebugInfo($trait->getNode('template'))
                     ->write(sprintf("if (!\$_trait_%s->isTraitable()) {\n", $i))
                     ->indent()
-                    ->write("throw new Twig_SupTwg_Error_Runtime('Template \"'.")
+                    ->write("throw new Twig_SupTwgDtgs_Error_Runtime('Template \"'.")
                     ->subcompile($trait->getNode('template'))
                     ->raw(".'\" cannot be used as a trait.');\n")
                     ->outdent()
@@ -212,7 +212,7 @@ class Twig_SupTwg_Node_Module extends Twig_SupTwg_Node
                         ->string($key)
                         ->raw("])) {\n")
                         ->indent()
-                        ->write("throw new Twig_SupTwg_Error_Runtime(sprintf('Block ")
+                        ->write("throw new Twig_SupTwgDtgs_Error_Runtime(sprintf('Block ")
                         ->string($key)
                         ->raw(' is not defined in trait ')
                         ->subcompile($trait->getNode('template'))
@@ -292,7 +292,7 @@ class Twig_SupTwg_Node_Module extends Twig_SupTwg_Node
         ;
     }
 
-    protected function compileDisplay(Twig_SupTwg_Compiler $compiler)
+    protected function compileDisplay(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
             ->write("protected function doDisplay(array \$context, array \$blocks = array())\n", "{\n")
@@ -304,7 +304,7 @@ class Twig_SupTwg_Node_Module extends Twig_SupTwg_Node
         if ($this->hasNode('parent')) {
             $parent = $this->getNode('parent');
             $compiler->addDebugInfo($parent);
-            if ($parent instanceof Twig_SupTwg_Node_Expression_Constant) {
+            if ($parent instanceof Twig_SupTwgDtgs_Node_Expression_Constant) {
                 $compiler->write('$this->parent');
             } else {
                 $compiler->write('$this->getParent($context)');
@@ -319,7 +319,7 @@ class Twig_SupTwg_Node_Module extends Twig_SupTwg_Node
         ;
     }
 
-    protected function compileClassFooter(Twig_SupTwg_Compiler $compiler)
+    protected function compileClassFooter(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
             ->subcompile($this->getNode('class_end'))
@@ -328,12 +328,12 @@ class Twig_SupTwg_Node_Module extends Twig_SupTwg_Node
         ;
     }
 
-    protected function compileMacros(Twig_SupTwg_Compiler $compiler)
+    protected function compileMacros(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler->subcompile($this->getNode('macros'));
     }
 
-    protected function compileGetTemplateName(Twig_SupTwg_Compiler $compiler)
+    protected function compileGetTemplateName(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
             ->write("public function getTemplateName()\n", "{\n")
@@ -346,7 +346,7 @@ class Twig_SupTwg_Node_Module extends Twig_SupTwg_Node
         ;
     }
 
-    protected function compileIsTraitable(Twig_SupTwg_Compiler $compiler)
+    protected function compileIsTraitable(Twig_SupTwgDtgs_Compiler $compiler)
     {
         // A template can be used as a trait if:
         //   * it has no parent
@@ -357,14 +357,14 @@ class Twig_SupTwg_Node_Module extends Twig_SupTwg_Node
         // only contains blocks and use statements.
         $traitable = !$this->hasNode('parent') && 0 === count($this->getNode('macros'));
         if ($traitable) {
-            if ($this->getNode('body') instanceof Twig_SupTwg_Node_Body) {
+            if ($this->getNode('body') instanceof Twig_SupTwgDtgs_Node_Body) {
                 $nodes = $this->getNode('body')->getNode(0);
             } else {
                 $nodes = $this->getNode('body');
             }
 
             if (!count($nodes)) {
-                $nodes = new Twig_SupTwg_Node(array($nodes));
+                $nodes = new Twig_SupTwgDtgs_Node(array($nodes));
             }
 
             foreach ($nodes as $node) {
@@ -372,11 +372,11 @@ class Twig_SupTwg_Node_Module extends Twig_SupTwg_Node
                     continue;
                 }
 
-                if ($node instanceof Twig_SupTwg_Node_Text && ctype_space($node->getAttribute('data'))) {
+                if ($node instanceof Twig_SupTwgDtgs_Node_Text && ctype_space($node->getAttribute('data'))) {
                     continue;
                 }
 
-                if ($node instanceof Twig_SupTwg_Node_BlockReference) {
+                if ($node instanceof Twig_SupTwgDtgs_Node_BlockReference) {
                     continue;
                 }
 
@@ -398,7 +398,7 @@ class Twig_SupTwg_Node_Module extends Twig_SupTwg_Node
         ;
     }
 
-    protected function compileDebugInfo(Twig_SupTwg_Compiler $compiler)
+    protected function compileDebugInfo(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
             ->write("public function getDebugInfo()\n", "{\n")
@@ -409,13 +409,13 @@ class Twig_SupTwg_Node_Module extends Twig_SupTwg_Node
         ;
     }
 
-    protected function compileGetSource(Twig_SupTwg_Compiler $compiler)
+    protected function compileGetSource(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
             ->write("/** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */\n")
             ->write("public function getSource()\n", "{\n")
             ->indent()
-            ->write("@trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use getSourceContext() instead.', E_USER_DEPRECATED);\n\n")
+            ->write("//@trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use getSourceContext() instead.', E_USER_DEPRECATED);\n\n")
             ->write('return $this->getSourceContext()->getCode();')
             ->raw("\n")
             ->outdent()
@@ -423,12 +423,12 @@ class Twig_SupTwg_Node_Module extends Twig_SupTwg_Node
         ;
     }
 
-    protected function compileGetSourceContext(Twig_SupTwg_Compiler $compiler)
+    protected function compileGetSourceContext(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
             ->write("public function getSourceContext()\n", "{\n")
             ->indent()
-            ->write('return new Twig_SupTwg_Source(')
+            ->write('return new Twig_SupTwgDtgs_Source(')
             ->string($compiler->getEnvironment()->isDebug() ? $this->source->getCode() : '')
             ->raw(', ')
             ->string($this->source->getName())
@@ -440,9 +440,9 @@ class Twig_SupTwg_Node_Module extends Twig_SupTwg_Node
         ;
     }
 
-    protected function compileLoadTemplate(Twig_SupTwg_Compiler $compiler, $node, $var)
+    protected function compileLoadTemplate(Twig_SupTwgDtgs_Compiler $compiler, $node, $var)
     {
-        if ($node instanceof Twig_SupTwg_Node_Expression_Constant) {
+        if ($node instanceof Twig_SupTwgDtgs_Node_Expression_Constant) {
             $compiler
                 ->write(sprintf('%s = $this->loadTemplate(', $var))
                 ->subcompile($node)

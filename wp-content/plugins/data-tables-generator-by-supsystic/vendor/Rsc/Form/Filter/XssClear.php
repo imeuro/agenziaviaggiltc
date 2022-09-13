@@ -1,7 +1,7 @@
 <?php
 
 
-class Rsc_Form_Filter_XssClear implements Rsc_Form_Filter_Interface
+class RscDtgs_Form_Filter_XssClear implements RscDtgs_Form_Filter_Interface
 {
     /**
      * Filters data

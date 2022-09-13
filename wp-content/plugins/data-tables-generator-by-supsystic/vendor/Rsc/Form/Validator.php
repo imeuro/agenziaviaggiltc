@@ -1,14 +1,14 @@
 <?php
 
 
-class Rsc_Form_Validator
+class RscDtgs_Form_Validator
 {
 
     const METHOD_POST = 'post';
     const METHOD_GET = 'query';
 
     /**
-     * @var Rsc_Http_Request
+     * @var RscDtgs_Http_Request
      */
     protected $request;
 
@@ -18,12 +18,12 @@ class Rsc_Form_Validator
     protected $method;
 
     /**
-     * @var Rsc_Common_Collection
+     * @var RscDtgs_Common_Collection
      */
     protected $rules;
 
     /**
-     * @var Rsc_Common_Collection
+     * @var RscDtgs_Common_Collection
      */
     protected $filters;
 
@@ -34,14 +34,14 @@ class Rsc_Form_Validator
 
     /**
      * Constructor
-     * @param Rsc_Http_Request $request
+     * @param RscDtgs_Http_Request $request
      * @param string|null $method
-     * @param Rsc_Common_Collection|array $rules
-     * @param Rsc_Common_Collection|array $filters
+     * @param RscDtgs_Common_Collection|array $rules
+     * @param RscDtgs_Common_Collection|array $filters
      */
-    public function __construct(Rsc_Http_Request $request = null, $method = null, array $rules = array(), array $filters = array())
+    public function __construct(RscDtgs_Http_Request $request = null, $method = null, array $rules = array(), array $filters = array())
     {
-        $this->request = ($request === null ? Rsc_Http_Request::create() : $request);
+        $this->request = ($request === null ? RscDtgs_Http_Request::create() : $request);
         $this->method = ($method === null ? self::METHOD_POST : $this->prepareMethod($method));
         $this->rules = $rules;
         $this->filters = $filters;
@@ -50,15 +50,15 @@ class Rsc_Form_Validator
     /**
      * Is valid HTTP request?
      * @return bool
-     * @throws Rsc_Form_Validator_EmptyRequestException If HTTP request is not specified
+     * @throws RscDtgs_Form_Validator_EmptyRequestException If HTTP request is not specified
      */
     public function isValid()
     {
         if (!$this->request) {
-            throw new Rsc_Form_Validator_EmptyRequestException('You must submit the request via ' . __CLASS__ . '::setRequest() method');
+            throw new RscDtgs_Form_Validator_EmptyRequestException('You must submit the request via ' . __CLASS__ . '::setRequest() method');
         }
 
-        /** @var Rsc_Http_Parameters $method */
+        /** @var RscDtgs_Http_Parameters $method */
         $method = $this->request->{$this->method};
 
         if ($method->isEmpty()) {
@@ -77,10 +77,10 @@ class Rsc_Form_Validator
 
     /**
      * Set current HTTP request for validation
-     * @param Rsc_Http_Request $request
-     * @return Rsc_Form_Validator
+     * @param RscDtgs_Http_Request $request
+     * @return RscDtgs_Form_Validator
      */
-    public function setRequest(Rsc_Http_Request $request)
+    public function setRequest(RscDtgs_Http_Request $request)
     {
         $this->request = $request;
         return $this;
@@ -88,7 +88,7 @@ class Rsc_Form_Validator
 
     /**
      * Returns object of current HTTP request
-     * @return Rsc_Http_Request
+     * @return RscDtgs_Http_Request
      */
     public function getRequest()
     {
@@ -98,15 +98,15 @@ class Rsc_Form_Validator
     /**
      * Set HTTP method to validate
      * @param string $method HTTP method to validate (POST or GET)
-     * @throws Rsc_Form_Validator_InvalidMethodException If specified method is wrong
-     * @return Rsc_Form_Validator
+     * @throws RscDtgs_Form_Validator_InvalidMethodException If specified method is wrong
+     * @return RscDtgs_Form_Validator
      */
     public function setMethod($method)
     {
         $method = $this->prepareMethod($method);
 
         if (!in_array($method, array(self::METHOD_GET, self::METHOD_POST))) {
-            throw new Rsc_Form_Validator_InvalidMethodException('Invalid method. Type of the method can only be POST or GET (QUERY)');
+            throw new RscDtgs_Form_Validator_InvalidMethodException('Invalid method. Type of the method can only be POST or GET (QUERY)');
         }
 
         return $this;
@@ -124,7 +124,7 @@ class Rsc_Form_Validator
     /**
      * Set fields filters
      * @param array $filters
-     * @return Rsc_Form_Validator
+     * @return RscDtgs_Form_Validator
      */
     public function setFilters(array $filters)
     {
@@ -145,7 +145,7 @@ class Rsc_Form_Validator
     /**
      * Set validation rules
      * @param array $rules
-     * @return Rsc_Form_Validator
+     * @return RscDtgs_Form_Validator
      */
     public function setRules(array $rules)
     {
@@ -198,15 +198,15 @@ class Rsc_Form_Validator
 
     /**
      * Applies the specified filters
-     * @param Rsc_Http_Parameters $method
+     * @param RscDtgs_Http_Parameters $method
      */
-    protected function applyFilters(Rsc_Http_Parameters $method)
+    protected function applyFilters(RscDtgs_Http_Parameters $method)
     {
         if (empty($this->filters)) {
             return;
         }
 
-        /** @var Rsc_Form_Filter_Interface $filter */
+        /** @var RscDtgs_Form_Filter_Interface $filter */
         foreach ($this->filters as $field => $filters) {
 
             if (!is_array($this->filters[$field])) {
@@ -225,15 +225,15 @@ class Rsc_Form_Validator
 
     /**
      * Do validation
-     * @param Rsc_Http_Parameters $method
+     * @param RscDtgs_Http_Parameters $method
      */
-    protected function doValidation(Rsc_Http_Parameters $method)
+    protected function doValidation(RscDtgs_Http_Parameters $method)
     {
         if (empty($this->rules)) {
             return;
         }
 
-        /** @var Rsc_Form_Rule_Interface $rule */
+        /** @var RscDtgs_Form_Rule_Interface $rule */
         foreach ($this->rules as $field => $rules) {
 
             if (!is_array($this->rules[$field])) {

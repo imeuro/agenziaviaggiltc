@@ -20,26 +20,26 @@
  *
  * @final
  */
-class Twig_SupTwg_TokenParser_Filter extends Twig_SupTwg_TokenParser
+class Twig_SupTwgDtgs_TokenParser_Filter extends Twig_SupTwgDtgs_TokenParser
 {
-    public function parse(Twig_SupTwg_Token $token)
+    public function parse(Twig_SupTwgDtgs_Token $token)
     {
         $name = $this->parser->getVarName();
-        $ref = new Twig_SupTwg_Node_Expression_BlockReference(new Twig_SupTwg_Node_Expression_Constant($name, $token->getLine()), null, $token->getLine(), $this->getTag());
+        $ref = new Twig_SupTwgDtgs_Node_Expression_BlockReference(new Twig_SupTwgDtgs_Node_Expression_Constant($name, $token->getLine()), null, $token->getLine(), $this->getTag());
 
         $filter = $this->parser->getExpressionParser()->parseFilterExpressionRaw($ref, $this->getTag());
-        $this->parser->getStream()->expect(Twig_SupTwg_Token::BLOCK_END_TYPE);
+        $this->parser->getStream()->expect(Twig_SupTwgDtgs_Token::BLOCK_END_TYPE);
 
         $body = $this->parser->subparse(array($this, 'decideBlockEnd'), true);
-        $this->parser->getStream()->expect(Twig_SupTwg_Token::BLOCK_END_TYPE);
+        $this->parser->getStream()->expect(Twig_SupTwgDtgs_Token::BLOCK_END_TYPE);
 
-        $block = new Twig_SupTwg_Node_Block($name, $body, $token->getLine());
+        $block = new Twig_SupTwgDtgs_Node_Block($name, $body, $token->getLine());
         $this->parser->setBlock($name, $block);
 
-        return new Twig_SupTwg_Node_Print($filter, $token->getLine(), $this->getTag());
+        return new Twig_SupTwgDtgs_Node_Print($filter, $token->getLine(), $this->getTag());
     }
 
-    public function decideBlockEnd(Twig_SupTwg_Token $token)
+    public function decideBlockEnd(Twig_SupTwgDtgs_Token $token)
     {
         return $token->test('endfilter');
     }

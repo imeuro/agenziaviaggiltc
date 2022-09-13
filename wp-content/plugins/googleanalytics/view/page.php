@@ -15,8 +15,6 @@ $plugin_dir    = plugin_dir_path( __FILE__ );
 $plugin_uri    = trailingslashit( get_home_url() ) . 'wp-content/plugins/googleanalytics/';
 $has_code = filter_input(INPUT_GET, 'code');
 $has_code = isset($has_code) ? $has_code : false;
-$show_ga4 = filter_input(INPUT_GET, 'ga4');
-$show_ga4 = false === empty($show_ga4);
 $has_property = get_option('googleanalytics-ga4-property');
 $has_property = isset($has_property) ? $has_property : false;
 $ga4_optimize = get_option('googleanalytics-ga4-optimize');
@@ -83,26 +81,22 @@ $setup_done = false !== $has_property &&
 <?php echo wp_kses_post( $data['debug_modal'] ); ?>
 	<div class="wrap ga-wrap do-flex">
 		<div class="setting-tabs">
-			<?php if (true === $show_ga4) : ?>
-			<div class="setting-tabs__tab ga4<?php echo false !== $has_code || true === $show_ga4 ? ' engage' : ''; ?>">
+			<div class="setting-tabs__tab ga4<?php echo false !== $has_code ? ' engage' : ''; ?>">
 				<?php esc_html_e('Google Analytics 4', 'googleanalytics'); ?>
 			</div>
-			<?php endif; ?>
-			<div class="ua setting-tabs__tab<?php echo false === $has_code && false === $show_ga4 ? ' engage' : ''; ?>">
+			<div class="ua setting-tabs__tab<?php echo false === $has_code ? ' engage' : ''; ?>">
 				<?php esc_html_e('Universal Analytics Settings', 'googleanalytics'); ?>
 			</div>
 		</div>
-		<?php if (true === $show_ga4) : ?>
 		<div class="ga4-settings-wrap setting-tab-content st-notice-there
 		<?php echo true === $setup_done ? ' normal-settings' : '';
-		echo false !== $has_code || true === $show_ga4 ? ' engage' : '';
+		echo false !== $has_code ? ' engage' : '';
 		?>">
 			<?php include 'ga-ga4-settings.php'; ?>
 		</div>
-		<?php endif; ?>
-		<div class="ua-settings-wrap setting-tab-content<?php echo false === $has_code && false === $show_ga4 ? ' engage' : ''; ?>">
+		<div class="ua-settings-wrap setting-tab-content<?php echo false === $has_code ? ' engage' : ''; ?>">
 			<h1>Universal Analytics - <?php esc_html_e( 'Settings', 'googleanalytics' ); ?></h1>
-			<?php if (false === $setup_done && true === $show_ga4) : ?>
+			<?php if (false === $setup_done) : ?>
 				<button class="open-ga4">Setup Google Analytics 4</button>
 			<?php endif; ?>
 			<div style="margin-top: 0;" class="ga_container">

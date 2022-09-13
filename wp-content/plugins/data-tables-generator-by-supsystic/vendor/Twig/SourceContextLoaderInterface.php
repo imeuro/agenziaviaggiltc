@@ -16,16 +16,16 @@
  *
  * @deprecated since 1.27 (to be removed in 3.0)
  */
-interface Twig_SupTwg_SourceContextLoaderInterface
+interface Twig_SupTwgDtgs_SourceContextLoaderInterface
 {
     /**
      * Returns the source context for a given template logical name.
      *
      * @param string $name The template logical name
      *
-     * @return Twig_SupTwg_Source
+     * @return Twig_SupTwgDtgs_Source
      *
-     * @throws Twig_SupTwg_Error_Loader When $name is not found
+     * @throws Twig_SupTwgDtgs_Error_Loader When $name is not found
      */
     public function getSourceContext($name);
 }

@@ -18,17 +18,17 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Node_Expression_Filter_Default extends Twig_SupTwg_Node_Expression_Filter
+class Twig_SupTwgDtgs_Node_Expression_Filter_Default extends Twig_SupTwgDtgs_Node_Expression_Filter
 {
-    public function __construct(Twig_SupTwg_NodeInterface $node, Twig_SupTwg_Node_Expression_Constant $filterName, Twig_SupTwg_NodeInterface $arguments, $lineno, $tag = null)
+    public function __construct(Twig_SupTwgDtgs_NodeInterface $node, Twig_SupTwgDtgs_Node_Expression_Constant $filterName, Twig_SupTwgDtgs_NodeInterface $arguments, $lineno, $tag = null)
     {
-        $default = new Twig_SupTwg_Node_Expression_Filter($node, new Twig_SupTwg_Node_Expression_Constant('default', $node->getTemplateLine()), $arguments, $node->getTemplateLine());
+        $default = new Twig_SupTwgDtgs_Node_Expression_Filter($node, new Twig_SupTwgDtgs_Node_Expression_Constant('default', $node->getTemplateLine()), $arguments, $node->getTemplateLine());
 
-        if ('default' === $filterName->getAttribute('value') && ($node instanceof Twig_SupTwg_Node_Expression_Name || $node instanceof Twig_SupTwg_Node_Expression_GetAttr)) {
-            $test = new Twig_SupTwg_Node_Expression_Test_Defined(clone $node, 'defined', new Twig_SupTwg_Node(), $node->getTemplateLine());
-            $false = count($arguments) ? $arguments->getNode(0) : new Twig_SupTwg_Node_Expression_Constant('', $node->getTemplateLine());
+        if ('default' === $filterName->getAttribute('value') && ($node instanceof Twig_SupTwgDtgs_Node_Expression_Name || $node instanceof Twig_SupTwgDtgs_Node_Expression_GetAttr)) {
+            $test = new Twig_SupTwgDtgs_Node_Expression_Test_Defined(clone $node, 'defined', new Twig_SupTwgDtgs_Node(), $node->getTemplateLine());
+            $false = count($arguments) ? $arguments->getNode(0) : new Twig_SupTwgDtgs_Node_Expression_Constant('', $node->getTemplateLine());
 
-            $node = new Twig_SupTwg_Node_Expression_Conditional($test, $default, $false, $node->getTemplateLine());
+            $node = new Twig_SupTwgDtgs_Node_Expression_Conditional($test, $default, $false, $node->getTemplateLine());
         } else {
             $node = $default;
         }
@@ -36,7 +36,7 @@ class Twig_SupTwg_Node_Expression_Filter_Default extends Twig_SupTwg_Node_Expres
         parent::__construct($node, $filterName, $arguments, $lineno, $tag);
     }
 
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler->subcompile($this->getNode('node'));
     }

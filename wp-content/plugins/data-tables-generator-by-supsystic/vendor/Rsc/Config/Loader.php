@@ -1,7 +1,7 @@
 <?php
 
 
-class Rsc_Config_Loader
+class RscDtgs_Config_Loader
 {
 
     const DEFAULT_NAMESPACE = 'app';
@@ -15,7 +15,7 @@ class Rsc_Config_Loader
      * Adds
      * @param string $path
      * @param string $namespace
-     * @return Rsc_Config_Loader
+     * @return RscDtgs_Config_Loader
      */
     public function add($path, $namespace = self::DEFAULT_NAMESPACE)
     {
@@ -53,7 +53,7 @@ class Rsc_Config_Loader
     /**
      * @param string $file The full path to the file
      * @return array
-     * @throws Rsc_Exception_ConfigLoaderException
+     * @throws RscDtgs_Exception_ConfigLoaderException
      */
     public function load($file)
     {
@@ -64,7 +64,7 @@ class Rsc_Config_Loader
         try {
             return $this->loadFromNamespace($file);
         } catch (Exception $e) {
-            throw new Rsc_Exception_ConfigLoaderException(sprintf(
+            throw new RscDtgs_Exception_ConfigLoaderException(sprintf(
                 'Unable to load config %s: %s',
                 $file,
                 $e->getMessage()

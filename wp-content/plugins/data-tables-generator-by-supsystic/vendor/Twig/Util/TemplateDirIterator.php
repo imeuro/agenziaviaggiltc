@@ -12,7 +12,7 @@
 /**
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Util_TemplateDirIterator extends IteratorIterator
+class Twig_SupTwgDtgs_Util_TemplateDirIterator extends IteratorIterator
 {
     public function current()
     {

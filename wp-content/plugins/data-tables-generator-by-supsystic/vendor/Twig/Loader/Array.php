@@ -23,7 +23,7 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Loader_Array implements Twig_SupTwg_LoaderInterface, Twig_SupTwg_ExistsLoaderInterface, Twig_SupTwg_SourceContextLoaderInterface
+class Twig_SupTwgDtgs_Loader_Array implements Twig_SupTwgDtgs_LoaderInterface, Twig_SupTwgDtgs_ExistsLoaderInterface, Twig_SupTwgDtgs_SourceContextLoaderInterface
 {
     protected $templates = array();
 
@@ -48,11 +48,11 @@ class Twig_SupTwg_Loader_Array implements Twig_SupTwg_LoaderInterface, Twig_SupT
 
     public function getSource($name)
     {
-        @trigger_error(sprintf('Calling "getSource" on "%s" is deprecated since 1.27. Use getSourceContext() instead.', get_class($this)), E_USER_DEPRECATED);
+        //@trigger_error(sprintf('Calling "getSource" on "%s" is deprecated since 1.27. Use getSourceContext() instead.', get_class($this)), E_USER_DEPRECATED);
 
         $name = (string) $name;
         if (!isset($this->templates[$name])) {
-            throw new Twig_SupTwg_Error_Loader(sprintf('Template "%s" is not defined.', $name));
+            throw new Twig_SupTwgDtgs_Error_Loader(sprintf('Template "%s" is not defined.', $name));
         }
 
         return $this->templates[$name];
@@ -62,10 +62,10 @@ class Twig_SupTwg_Loader_Array implements Twig_SupTwg_LoaderInterface, Twig_SupT
     {
         $name = (string) $name;
         if (!isset($this->templates[$name])) {
-            throw new Twig_SupTwg_Error_Loader(sprintf('Template "%s" is not defined.', $name));
+            throw new Twig_SupTwgDtgs_Error_Loader(sprintf('Template "%s" is not defined.', $name));
         }
 
-        return new Twig_SupTwg_Source($this->templates[$name], $name);
+        return new Twig_SupTwgDtgs_Source($this->templates[$name], $name);
     }
 
     public function exists($name)
@@ -77,7 +77,7 @@ class Twig_SupTwg_Loader_Array implements Twig_SupTwg_LoaderInterface, Twig_SupT
     {
         $name = (string) $name;
         if (!isset($this->templates[$name])) {
-            throw new Twig_SupTwg_Error_Loader(sprintf('Template "%s" is not defined.', $name));
+            throw new Twig_SupTwgDtgs_Error_Loader(sprintf('Template "%s" is not defined.', $name));
         }
 
         return $name.':'.$this->templates[$name];
@@ -87,7 +87,7 @@ class Twig_SupTwg_Loader_Array implements Twig_SupTwg_LoaderInterface, Twig_SupT
     {
         $name = (string) $name;
         if (!isset($this->templates[$name])) {
-            throw new Twig_SupTwg_Error_Loader(sprintf('Template "%s" is not defined.', $name));
+            throw new Twig_SupTwgDtgs_Error_Loader(sprintf('Template "%s" is not defined.', $name));
         }
 
         return true;

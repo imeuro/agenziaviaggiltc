@@ -12,13 +12,13 @@
 /**
  * Represents a template filter.
  *
- * Use Twig_SupTwg_SimpleFilter instead.
+ * Use Twig_SupTwgDtgs_SimpleFilter instead.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *
  * @deprecated since 1.12 (to be removed in 2.0)
  */
-interface Twig_SupTwg_FilterInterface
+interface Twig_SupTwgDtgs_FilterInterface
 {
     /**
      * Compiles a filter.
@@ -31,7 +31,7 @@ interface Twig_SupTwg_FilterInterface
 
     public function needsContext();
 
-    public function getSafe(Twig_SupTwg_Node $filterArgs);
+    public function getSafe(Twig_SupTwgDtgs_Node $filterArgs);
 
     public function getPreservesSafety();
 

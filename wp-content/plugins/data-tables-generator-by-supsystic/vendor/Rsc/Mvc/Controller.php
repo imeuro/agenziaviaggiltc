@@ -1,27 +1,27 @@
 <?php
 
 
-class Rsc_Mvc_Controller
+class RscDtgs_Mvc_Controller
 {
 
     /**
-     * @var Rsc_Environment
+     * @var RscDtgs_Environment
      */
     private $environment;
 
     /**
-     * @var Rsc_Http_Request
+     * @var RscDtgs_Http_Request
      */
     private $request;
 
     /**
      * Constructor
-     * @param Rsc_Environment $environment
-     * @param Rsc_Http_Request $request
+     * @param RscDtgs_Environment $environment
+     * @param RscDtgs_Http_Request $request
      */
     public function __construct(
-        Rsc_Environment $environment,
-        Rsc_Http_Request $request
+        RscDtgs_Environment $environment,
+        RscDtgs_Http_Request $request
     ) {
         $this->environment = $environment;
         $this->request = $request;
@@ -52,11 +52,11 @@ class Rsc_Mvc_Controller
      * Creates new response
      * @param string $template The name of the template
      * @param array $data An associative array of the data
-     * @return Rsc_Http_Response
+     * @return RscDtgs_Http_Response
      */
     public function response($template, array $data = array())
     {
-        if ($template != Rsc_Http_Response::AJAX) {
+        if ($template != RscDtgs_Http_Response::AJAX) {
             try {
                 $twig = $this->environment->getTwig();
                 $content = $twig->render($template, $data);
@@ -67,7 +67,7 @@ class Rsc_Mvc_Controller
             wp_send_json($data);
         }
 
-        return Rsc_Http_Response::create()->setContent($content);
+        return RscDtgs_Http_Response::create()->setContent($content);
     }
 
     /**
@@ -88,7 +88,7 @@ class Rsc_Mvc_Controller
     /**
      * Makes redirects to the specified URL
      * @param string $url
-     * @return \Rsc_Http_Response
+     * @return \RscDtgs_Http_Response
      */
     public function redirect($url)
     {
@@ -99,12 +99,12 @@ class Rsc_Mvc_Controller
 
         $content = "<script type=\"text/javascript\">document.location.href = '$url'</script>";
 
-        return Rsc_Http_Response::create()->setContent($content);
+        return RscDtgs_Http_Response::create()->setContent($content);
     }
 
     /**
      * Returns an instance of the environment
-     * @return \Rsc_Environment
+     * @return \RscDtgs_Environment
      */
     public function getEnvironment()
     {
@@ -113,7 +113,7 @@ class Rsc_Mvc_Controller
 
     /**
      * Returns an instance of the current request
-     * @return \Rsc_Http_Request
+     * @return \RscDtgs_Http_Request
      */
     public function getRequest()
     {

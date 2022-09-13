@@ -3,9 +3,9 @@
 /**
  * Plugin Name: Happyforms (free)
  * Plugin URI:  https://happyforms.io
- * Description: We're changin' WordPress forms.
+ * Description: Form builder to get in touch with visitors, grow your email list and collect payments.
  * Author:      Happyforms
- * Version:     1.17.0
+ * Version:     1.18.1
  * Author URI:  https://happyforms.io
  * Upgrade URI: https://happyforms.io/upgrade
  */
@@ -22,7 +22,7 @@ if ( defined( 'HAPPYFORMS_UPGRADE_VERSION' ) ) {
 /**
  * The current version of the plugin.
  */
-define( 'HAPPYFORMS_VERSION', '1.17.0' );
+define( 'HAPPYFORMS_VERSION', '1.18.1' );
 
 if ( ! function_exists( 'happyforms_get_version' ) ):
 

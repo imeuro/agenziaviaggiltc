@@ -18,9 +18,9 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_SupTwg_Node_Expression_Test_Odd extends Twig_SupTwg_Node_Expression_Test
+class Twig_SupTwgDtgs_Node_Expression_Test_Odd extends Twig_SupTwgDtgs_Node_Expression_Test
 {
-    public function compile(Twig_SupTwg_Compiler $compiler)
+    public function compile(Twig_SupTwgDtgs_Compiler $compiler)
     {
         $compiler
             ->raw('(')

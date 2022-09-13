@@ -1,7 +1,7 @@
 <?php
 
 
-class Rsc_Form_Rule_Numeric implements Rsc_Form_Rule_Interface
+class RscDtgs_Form_Rule_Numeric implements RscDtgs_Form_Rule_Interface
 {
 
     /**
@@ -66,7 +66,7 @@ class Rsc_Form_Rule_Numeric implements Rsc_Form_Rule_Interface
      * Creates the new instance
      * @param string $label Field label
      * @param null $parameters Rule parameters
-     * @return Rsc_Form_Rule_Numeric
+     * @return RscDtgs_Form_Rule_Numeric
      */
     public static function create($label, $parameters)
     {

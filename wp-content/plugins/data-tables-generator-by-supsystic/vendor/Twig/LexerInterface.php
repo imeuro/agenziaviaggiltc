@@ -16,17 +16,17 @@
  *
  * @deprecated since 1.12 (to be removed in 3.0)
  */
-interface Twig_SupTwg_LexerInterface
+interface Twig_SupTwgDtgs_LexerInterface
 {
     /**
      * Tokenizes a source code.
      *
-     * @param string|Twig_SupTwg_Source $code The source code
+     * @param string|Twig_SupTwgDtgs_Source $code The source code
      * @param string             $name A unique identifier for the source code
      *
-     * @return Twig_SupTwg_TokenStream
+     * @return Twig_SupTwgDtgs_TokenStream
      *
-     * @throws Twig_SupTwg_Error_Syntax When the code is syntactically wrong
+     * @throws Twig_SupTwgDtgs_Error_Syntax When the code is syntactically wrong
      */
     public function tokenize($code, $name = null);
 }

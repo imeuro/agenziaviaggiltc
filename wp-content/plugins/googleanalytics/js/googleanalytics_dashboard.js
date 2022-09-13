@@ -15,15 +15,18 @@
 			if (showLoader) {
 				ga_loader.show();
 			}
-			google.charts.load( 'current', {'packages': ['corechart']} );
-			google.charts.setOnLoadCallback(
-				function () {
-					if (dataArr) {
-						ga_dashboard.drawChart( dataArr );
-						ga_dashboard.setChartData( dataArr );
+
+			if ( google ) {
+				google.charts.load( 'current', { 'packages': [ 'corechart' ] } );
+				google.charts.setOnLoadCallback(
+					function () {
+						if ( dataArr ) {
+							ga_dashboard.drawChart( dataArr );
+							ga_dashboard.setChartData( dataArr );
+						}
 					}
-				}
-			);
+				);
+			}
 		},
 		events: function (data) {
 			$( document ).ready(

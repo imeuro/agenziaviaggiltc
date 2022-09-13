@@ -736,6 +736,14 @@
 			var attrs = part.toJSON();
 			delete attrs.id;
 
+			if ( [ 'radio', 'checkbox', 'select' ].includes( part.get( 'type' ) ) ) {
+				var duplicatePartId = happyForms.utils.uniqueId( part.get( 'type' ) + '_', part.collection );
+
+				for ( var o = 0; o < attrs.options.length; o ++ ) {
+					attrs.options[o].id = attrs.options[o].id.replace( `${part.id}_`, `${duplicatePartId}_` );
+				}
+			}
+
 			var duplicate = PartFactory.model(
 				attrs,
 				{ collection: this.model.get( 'parts' ) },
@@ -1042,6 +1050,7 @@
 			'click .apply-all-check': 'applyOptionGlobally',
 			'click .happyforms-form-part-advanced-settings': 'onAdvancedSettingsClick',
 			'click .happyforms-form-part-logic': 'openUpgradeModal',
+			'click .happyforms-item-logic': 'openUpgradeModal',
 			'click .input_dummy': 'openUpgradeModal',
 		},
 
@@ -1517,6 +1526,7 @@
 			'change input[type=number]': 'onNumberChange',
 			'click .customize-control-checkbox_dummy': 'openUpgradeModal',
 			'click .customize-control-number_dummy': 'openUpgradeModal',
+			'click .customize-control-text_dummy': 'openUpgradeModal',
 		} ),
 
 		pointers: {},
@@ -1651,6 +1661,7 @@
 			'click .customize-control-checkbox_dummy': 'openUpgradeModal',
 			'click .customize-control-email-parts-list_dummy': 'openUpgradeModal',
 			'click .customize-control-number_dummy': 'openUpgradeModal',
+			'click .customize-control-text_dummy': 'openUpgradeModal',
 		} ),
 
 		editors: {

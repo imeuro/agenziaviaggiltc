@@ -1,16 +1,16 @@
 <?php
 
 
-class Rsc_Config extends Rsc_Common_Collection
+class RscDtgs_Config extends RscDtgs_Common_Collection
 {
 
     /**
-     * @var Rsc_Config_Loader
+     * @var RscDtgs_Config_Loader
      */
     protected $loader;
 
     /**
-     * @var Rsc_Config_ListenerInterface[]
+     * @var RscDtgs_Config_ListenerInterface[]
      */
     protected $listener;
 
@@ -22,7 +22,7 @@ class Rsc_Config extends Rsc_Common_Collection
     {
         parent::__construct($config);
 
-        $this->loader = new Rsc_Config_Loader();
+        $this->loader = new RscDtgs_Config_Loader();
     }
 
     /**
@@ -55,8 +55,8 @@ class Rsc_Config extends Rsc_Common_Collection
         try {
             $this->merge($this->loader->load($filename));
             return true;
-        } catch(Rsc_Exception_ConfigLoaderException $e) {
-            if ($this->isEnvironment(Rsc_Environment::ENV_DEVELOPMENT)) {
+        } catch(RscDtgs_Exception_ConfigLoaderException $e) {
+            if ($this->isEnvironment(RscDtgs_Environment::ENV_DEVELOPMENT)) {
                 wp_die ($e->getMessage());
             }
 
@@ -66,7 +66,7 @@ class Rsc_Config extends Rsc_Common_Collection
 
     /**
      * Returns the instance of the config loader
-     * @return Rsc_Config_Loader
+     * @return RscDtgs_Config_Loader
      */
     public function getLoader()
     {
@@ -76,10 +76,10 @@ class Rsc_Config extends Rsc_Common_Collection
     /**
      * Adds the listener
      * @param string $name The unique name of the listener
-     * @param Rsc_Config_ListenerInterface $listener
-     * @return Rsc_Config
+     * @param RscDtgs_Config_ListenerInterface $listener
+     * @return RscDtgs_Config
      */
-    public function addListener($name, Rsc_Config_ListenerInterface $listener)
+    public function addListener($name, RscDtgs_Config_ListenerInterface $listener)
     {
         $this->listener[$name] = $listener;
         return $this;
@@ -156,6 +156,6 @@ class Rsc_Config extends Rsc_Common_Collection
     {
         $loader = $this->getLoader();
 
-        $loader->add($defaultPath, Rsc_Config_Loader::DEFAULT_NAMESPACE);
+        $loader->add($defaultPath, RscDtgs_Config_Loader::DEFAULT_NAMESPACE);
     }
 } 

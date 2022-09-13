@@ -47,7 +47,6 @@ const GA_AUTHENTICATION_CODE_ERROR = 'That looks like your Google Analytics Trac
 			if ( ga_popup.validateCode( e, ac_tmp ) ) {
 				$( '#' + GA_ACCESS_CODE_ID ).val( ac_tmp );
 				$( '#' + GA_FORM_ID ).submit();
-				$( '#ga4_form' ).submit();
 			}
 		},
 		validateCode: function( e, code ) {
@@ -1063,12 +1062,14 @@ const GA_AUTHENTICATION_CODE_ERROR = 'That looks like your Google Analytics Trac
 
 			data = google.visualization.arrayToDataTable( data );
 
-			var chart   = new google.visualization.PieChart( document.getElementById( demoChartGenderContainer ) );
-			var options = {
-				title: 'Gender',
-			};
+			if ( document.getElementById( demoChartGenderContainer ) ) {
+				var chart = new google.visualization.PieChart( document.getElementById( demoChartGenderContainer ) );
+				var options = {
+					title: 'Gender',
+				};
 
-			chart.draw( data, options );
+				chart.draw( data, options );
+			}
 		},
 		drawDemoDeviceChart: function( data, chartWidth ) {
 			if ( typeof chartWidth == 'undefined' ) {
@@ -1077,12 +1078,14 @@ const GA_AUTHENTICATION_CODE_ERROR = 'That looks like your Google Analytics Trac
 
 			data = google.visualization.arrayToDataTable( data );
 
-			var chart   = new google.visualization.PieChart( document.getElementById( demoChartDeviceContainer ) );
-			var options = {
-				title: 'Device Breakdown',
-			};
+			if ( document.getElementById( demoChartDeviceContainer ) ) {
+				var chart = new google.visualization.PieChart( document.getElementById( demoChartDeviceContainer ) );
+				var options = {
+					title: 'Device Breakdown',
+				};
 
-			chart.draw( data, options );
+				chart.draw( data, options );
+			}
 		},
 
 		drawGa4DemoDeviceChart: function( data, chartWidth ) {
@@ -1092,12 +1095,14 @@ const GA_AUTHENTICATION_CODE_ERROR = 'That looks like your Google Analytics Trac
 
 			data = google.visualization.arrayToDataTable( data );
 
-			var chart   = new google.visualization.PieChart( document.getElementById( demoGa4ChartDeviceContainer ) );
-			var options = {
-				title: 'Device Breakdown',
-			};
+			if ( document.getElementById( demoGa4ChartDeviceContainer ) ) {
+				var chart = new google.visualization.PieChart( document.getElementById( demoGa4ChartDeviceContainer ) );
+				var options = {
+					title: 'Device Breakdown',
+				};
 
-			chart.draw( data, options );
+				chart.draw( data, options );
+			}
 		},
 
 		drawDemoAgeChart: function( data, chartWidth ) {
@@ -1115,9 +1120,11 @@ const GA_AUTHENTICATION_CODE_ERROR = 'That looks like your Google Analytics Trac
 				},
 			};
 
-			var chart = new google.visualization.BarChart( document.getElementById( demoChartAgeContainer ) );
+			if ( document.getElementById( demoChartAgeContainer ) ) {
+				var chart = new google.visualization.BarChart( document.getElementById( demoChartAgeContainer ) );
 
-			chart.draw( data, options );
+				chart.draw( data, options );
+			}
 		},
 		drawDemoGenderGa4Chart: function( data, chartWidth ) {
 			if ( typeof chartWidth == 'undefined' ) {
@@ -1126,12 +1133,14 @@ const GA_AUTHENTICATION_CODE_ERROR = 'That looks like your Google Analytics Trac
 
 			data = google.visualization.arrayToDataTable( data );
 
-			var chart   = new google.visualization.PieChart( document.getElementById( demoChartGenderGa4Container ) );
-			var options = {
-				title: 'Gender',
-			};
+			if ( document.getElementById( demoChartGenderGa4Container ) ) {
+				var chart = new google.visualization.PieChart( document.getElementById( demoChartGenderGa4Container ) );
+				var options = {
+					title: 'Gender',
+				};
 
-			chart.draw( data, options );
+				chart.draw( data, options );
+			}
 		},
 		drawDemoAgeGa4Chart: function( data, chartWidth ) {
 			if ( typeof chartWidth == 'undefined' ) {
@@ -1148,9 +1157,11 @@ const GA_AUTHENTICATION_CODE_ERROR = 'That looks like your Google Analytics Trac
 				},
 			};
 
-			var chart = new google.visualization.BarChart( document.getElementById( demoChartAgeGa4Container ) );
+			if ( document.getElementById( demoChartAgeGa4Container ) ) {
+				var chart = new google.visualization.BarChart( document.getElementById( demoChartAgeGa4Container ) );
 
-			chart.draw( data, options );
+				chart.draw( data, options );
+			}
 		},
 	};
 	ga_debug = {

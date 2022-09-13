@@ -1,7 +1,7 @@
 <?php
 
 
-interface Rsc_Form_Filter_Interface
+interface RscDtgs_Form_Filter_Interface
 {
     /**
      * Filters data

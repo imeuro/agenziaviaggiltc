@@ -14,7 +14,7 @@
  *
  * @final
  */
-class Twig_SupTwg_Profiler_Profile implements IteratorAggregate, Serializable
+class Twig_SupTwgDtgs_Profiler_Profile implements IteratorAggregate, Serializable
 {
     const ROOT = 'ROOT';
     const BLOCK = 'block';
@@ -76,7 +76,7 @@ class Twig_SupTwg_Profiler_Profile implements IteratorAggregate, Serializable
         return $this->profiles;
     }
 
-    public function addProfile(Twig_SupTwg_Profiler_Profile $profile)
+    public function addProfile(Twig_SupTwgDtgs_Profiler_Profile $profile)
     {
         $this->profiles[] = $profile;
     }

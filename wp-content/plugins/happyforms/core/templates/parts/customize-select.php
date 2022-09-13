@@ -119,7 +119,7 @@
 				</p>
 				<p>
 					<label>
-						<?php _e( 'Max number of submissions', 'happyforms' ); ?>:
+						<?php _e( 'Max times this choice can be submitted', 'happyforms' ); ?>:
 						<input type="number" class="widefat" name="limit_submissions_amount" min="0" value="<%= typeof limit_submissions_amount !== 'undefined' ? limit_submissions_amount : '' %>">
 					</label>
 				</p>
@@ -128,10 +128,13 @@
 						<input type="checkbox" name="is_default" value="1" class="default-option-switch"<% if (is_default == 1) { %> checked="checked"<% } %>> <?php _e( 'Make this choice default', 'happyforms' ); ?>
 					</label>
 				</p>
-				<div class="option-actions">
-					<a href="#" class="happyforms-delete-item"><?php _e( 'Delete', 'happyforms' ); ?></a> |
-					<a href="#" class="happyforms-duplicate-item"><?php _e( 'Duplicate', 'happyforms' ); ?></a>
+				<div class="happyforms-part-choice-logic-wrap">
+					<div class="happyforms-logic-view">
+						<?php happyforms_customize_part_choice_logic(); ?>
+					</div>
 				</div>
+
+				<?php happyforms_customize_part_choice_footer(); ?>
 			</div>
 		</div>
 	</li>
@@ -156,10 +159,13 @@
 						<input type="text" class="widefat" name="label" value="<%= label %>" data-option-attribute="label">
 					</label>
 				</p>
-				<div class="option-actions">
-					<a href="#" class="happyforms-delete-item"><?php _e( 'Delete', 'happyforms' ); ?></a> |
-					<a href="#" class="happyforms-duplicate-item"><?php _e( 'Duplicate', 'happyforms' ); ?></a>
+				<div class="happyforms-part-choice-logic-wrap">
+					<div class="happyforms-logic-view">
+						<?php happyforms_customize_part_choice_logic(); ?>
+					</div>
 				</div>
+
+				<?php happyforms_customize_part_choice_footer(); ?>
 			</div>
 		</div>
 	</li>

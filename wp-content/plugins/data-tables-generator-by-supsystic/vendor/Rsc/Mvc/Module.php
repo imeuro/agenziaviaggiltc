@@ -1,11 +1,11 @@
 <?php
 
 
-class Rsc_Mvc_Module
+class RscDtgs_Mvc_Module
 {
 
     /**
-     * @var Rsc_Environment
+     * @var RscDtgs_Environment
      */
     private $environment;
 
@@ -20,12 +20,12 @@ class Rsc_Mvc_Module
     private $namespace;
 
     /**
-     * @var Rsc_Http_Request
+     * @var RscDtgs_Http_Request
      */
     private $request;
 
     /**
-     * @var Rsc_Mvc_Controller
+     * @var RscDtgs_Mvc_Controller
      */
     private $controller;
 
@@ -36,11 +36,11 @@ class Rsc_Mvc_Module
 
     /**
      * Constructor.
-     * @param Rsc_Environment $environment An instance of the current environment
+     * @param RscDtgs_Environment $environment An instance of the current environment
      * @param string          $location    Full path to the directory where is module
      * @param string          $namespace   Module prefix
      */
-    public function __construct(Rsc_Environment $environment, $location, $namespace)
+    public function __construct(RscDtgs_Environment $environment, $location, $namespace)
     {
         $this->environment = $environment;
         $this->location    = $location;
@@ -66,7 +66,7 @@ class Rsc_Mvc_Module
 
     /**
      * Returns an instance of the current environment
-     * @return Rsc_Environment
+     * @return RscDtgs_Environment
      */
     public function getEnvironment()
     {
@@ -116,7 +116,7 @@ class Rsc_Mvc_Module
 
     /**
      * Returns an instance of controller
-     * @return null|Rsc_Mvc_Controller
+     * @return null|RscDtgs_Mvc_Controller
      */
     public function getController()
     {
@@ -129,7 +129,7 @@ class Rsc_Mvc_Module
 
     /**
      * Returns the HTTP request to the module
-     * @return Rsc_Http_Request
+     * @return RscDtgs_Http_Request
      */
     public function getRequest()
     {
@@ -138,10 +138,10 @@ class Rsc_Mvc_Module
 
     /**
      * Set HTTP request to the module
-     * @param Rsc_Http_Request $request HTTP request
-     * @return Rsc_Mvc_Module
+     * @param RscDtgs_Http_Request $request HTTP request
+     * @return RscDtgs_Mvc_Module
      */
-    public function setRequest(Rsc_Http_Request $request)
+    public function setRequest(RscDtgs_Http_Request $request)
     {
         $this->request = $request;
         return $this;
@@ -171,7 +171,7 @@ class Rsc_Mvc_Module
 
 		$twig = $this->environment->getTwig();
 
-		return Rsc_Http_Response::create()->setContent($twig->render('404.twig', array(
+		return RscDtgs_Http_Response::create()->setContent($twig->render('404.twig', array(
 			'controller' => $this->getModuleName(),
 			'action' => $action,
 		)));
