@@ -3,7 +3,7 @@
 * Plugin Name: 				Ecommerce agenziaviaggiLTS
 * Description: 				funzioni specifiche per l'ecommerce di agenziaviaggiLTC. Richiede i plugin woocommerce + product-code-for-woocommerce
 * Author: 					Meuro
-* Version: 					0.0.71
+* Version: 					7.2
 * Author URI: 				https://meuro.dev
 * License: 					GPLv3 or later
 * License URI:         		http://www.gnu.org/licenses/gpl-3.0.html
@@ -131,7 +131,6 @@ function GenerateDownloads_afterPayment( $order_id ) {
 				// $cart_item_dl->set_download_limit( 3 ); // can be downloaded only once
 				// $cart_item_dl->set_download_expiry( 7 ); // expires in a week
 
-				// print_r( $downloads );
 				update_post_meta( $cart_item_data['product_id'], '_product_code_second', $PDFprogressive+1 );
 
 			}
@@ -140,14 +139,7 @@ function GenerateDownloads_afterPayment( $order_id ) {
 			$cart_item_dl->save();
 
 
-			// echo '<pre>$downloads: <br><br>';
-			// print_r($downloads);
-			// echo '</pre>';
-
-			// update_post_meta( $cart_item_data['product_id'], '_product_code_second', $PDFprogressive+$item['quantity'] );
-
 			if ($last_order_processed < $order_id) {
-				//echo 'wwwwwww';
 				// aggiorno last_order_processed a ordine pagato
 				update_post_meta ( $cart_item_data['product_id'], 'last_order_processed', $order_id );
 			}
@@ -168,7 +160,38 @@ function GenerateDownloads_afterPayment( $order_id ) {
 }
 
 
+/*
+add_action( 'woocommerce_order_status_cancelled', 'respawn_tickets', 
+21, 1 );
+function respawn_tickets( $order_id ) {
 
+	$downloads 				= get_post_meta( $order_id, '_Order_Downloads', true );
+  	$unique_downloads 		= unique_multidim_array($downloads,'id');
+
+	// LOAD THE WC LOGGER
+	$logger = wc_get_logger();
+	$logger->info( 'xxxxx' );
+	$logger->info( "tickets that were attached to order #".$order_id.": " );
+
+  	foreach ($unique_downloads as $download) {
+
+		$DL_path = parse_url($download["file"], PHP_URL_PATH);
+		$DL_path = ltrim($DL_path, '/');
+
+		$logger->info( wc_print_r($DL_path, true ) );
+
+	}
+}
+*/
+
+
+/*****************************************
+ * EMAIL RELATED *
+ *****************************************/
+
+
+// [ EMAIL ]
+// aggiungo pdf acquistati come allegato
 add_filter( 'woocommerce_email_attachments', 'attach_to_wc_emails', 10, 4);
 function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
 
@@ -177,18 +200,21 @@ function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
         return $attachments;
     }
   	$order_id 				= $order->get_order_number();
-  	$downloads             	= $order->get_downloadable_items();
-  	$unique_downloads 		= unique_multidim_array($downloads,'download_id');
+  	// $downloads             	= $order->get_downloadable_items();
+  	$downloads             	= get_post_meta( $order_id, '_Order_Downloads', true );
+  	$unique_downloads 		= unique_multidim_array($downloads,'id');
+
+	// LOAD THE WC LOGGER
+	$logger = wc_get_logger();
+	// LOG DL details
+	$logger->info( '+++++' );
+	$logger->info( "---> EMAIL ATTACHMENTS for order #".$order_id.": " );
+	//$logger->info( wc_print_r($downloads, true ) );
+
 
   	foreach ($unique_downloads as $download) {
 
-  		// LOAD THE WC LOGGER
-		$logger = wc_get_logger();
-		// LOG DL details
-		$logger->info( '+++++' );
-		$logger->info( "tickets attached to order #".$order_id.": " );
-		
-		$DL_path = parse_url($download["file"]["file"], PHP_URL_PATH);
+		$DL_path = parse_url($download["file"], PHP_URL_PATH);
 		$DL_path = ltrim($DL_path, '/');
 
 		$logger->info( wc_print_r(ABSPATH . $DL_path, true ) );
@@ -200,6 +226,7 @@ function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
 	return $attachments;
 }
 
+// [ EMAIL ] 
 // invia email "ordine completato" anche a admin
 add_filter( 'woocommerce_email_recipient_customer_completed_order', 'your_email_recipient_filter_function', 10, 2);
 
@@ -208,19 +235,31 @@ function your_email_recipient_filter_function($recipient, $object) {
     return $recipient;
 }
 
+// [ EMAIL ]
 // aggiungo codici scnto utilizzati e cod.biglietto riservato
 add_action('woocommerce_email_customer_details', 'email_order_user_meta', 30, 3 );
 function email_order_user_meta( $order, $sent_to_admin, $plain_text ) {
   	$order_id 				= $order->get_order_number();
-  	$downloads             	= $order->get_downloadable_items();
-  	$unique_downloads 		= unique_multidim_array($downloads,'download_id');
+  	// $downloads             	= $order->get_downloadable_items();
+  	$downloads             	= get_post_meta( $order_id, '_Order_Downloads', true );
+  	$unique_downloads 		= unique_multidim_array($downloads,'id');
+
+  	// LOAD THE WC LOGGER
+	$logger = wc_get_logger();
+	// LOG DL details
+	$logger->info( '======' );
+	$logger->info( "listing tickets # for order ".$order_id.": " );
+	// $logger->info( wc_print_r($downloads, true ) );
+
 
   	if (!empty($unique_downloads)) :
   		$ticket_count = count( $unique_downloads );
 		echo '<p><strong>Biglietti acquistati (' . $ticket_count . '):</strong><br>';
 		foreach ($unique_downloads as $download) {
-			$ticket_code = str_ireplace('.pdf', '', $download['download_name']);
+			$ticket_code = str_ireplace('.pdf', '', $download['name']);
 			echo $ticket_code.'<br>';
+
+			$logger->info( wc_print_r($ticket_code, true ) );
 		}
 		echo '</p>';
 	endif;
@@ -238,6 +277,17 @@ function email_order_user_meta( $order, $sent_to_admin, $plain_text ) {
 }
 
 
+
+
+
+
+
+/*****************************************
+ * FRONTEND ENHANCEMENTS *
+ *****************************************/
+
+
+// [ FRONTEND ]
 // remove jetpack Related Posts in woocommerce products page
 function jetpackme_remove_related() {
     if ( class_exists( 'Jetpack_RelatedPosts' ) && is_product() ) {
@@ -251,6 +301,7 @@ add_action( 'wp', 'jetpackme_remove_related', 20 );
 
 
 
+// [ FRONTEND ]
 // Remove product data tabs
 add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
 
@@ -263,6 +314,7 @@ function woo_remove_product_tabs( $tabs ) {
     return $tabs;
 }
 
+// [ FRONTEND ]
 // Remove ‘Add to Cart’ Button in listings
 add_action( 'woocommerce_after_shop_loop_item', 'remove_add_to_cart_buttons', 1 );
 function remove_add_to_cart_buttons() {
@@ -272,6 +324,7 @@ function remove_add_to_cart_buttons() {
 }
 
 
+// [ FRONTEND ]
 // custom checkout fields
 add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
 function custom_override_checkout_fields( $fields ) {
@@ -282,6 +335,7 @@ function custom_override_checkout_fields( $fields ) {
     return $fields;
 }
 
+// [ FRONTEND ]
 // prodotto obbligatoriamente con coupon ("convenzioni")
 add_action( 'woocommerce_check_cart_items', 'mandatory_coupon_for_specific_items' );
 function mandatory_coupon_for_specific_items() {
@@ -311,26 +365,9 @@ function mandatory_coupon_for_specific_items() {
 	}
 }
 
-/**
- *Reduce the strength requirement on the woocommerce password.
- *
- * Strength Settings
- * 3 = Strong (default)
- * 2 = Medium
- * 1 = Weak
- * 0 = Very Weak / Anything
- */
-function reduce_woocommerce_min_strength_requirement( $strength ) {
-  return 2;
-}
-add_filter( 'woocommerce_min_password_strength', 'reduce_woocommerce_min_strength_requirement' );
 
-
-
-
-
+// [ FRONTEND ]
 /* custom translation file:
-
  * Replace 'textdomain' with your plugin's textdomain. e.g. 'woocommerce'. 
  * File to be named, for example, yourtranslationfile-en_GB.mo
  * File to be placed, for example, wp-content/lanaguages/textdomain/yourtranslationfile-en_GB.mo
@@ -345,22 +382,35 @@ function load_custom_plugin_translation_file( $mofile, $domain ) {
 
 
 
-// backend enhancements:
+
+
+
+
+
+/*****************************************
+ * BACKEND ENHANCEMENTS *
+ *****************************************/
+
+// [ BACKEND ]
+// stampo codici biglietti e codici utilizzati in riepilogo ordine
 add_action( 'woocommerce_admin_order_data_after_shipping_address', 'ltc_PrintTicketNumber' );
 
 function ltc_PrintTicketNumber( $order ){
 	echo '<div class="clear"></div>';
-	echo '<h3>Biglietti assegnati al cliente</h3>';
 	//print_r($order->get_id());
 	$order_id = $order->get_id();
 	$downloads = get_post_meta( $order_id, '_Order_Downloads', true );
-	echo '<p>';
-	foreach($downloads as $ticket) {
-		//print_r($ticket);
-		echo $ticket["name"].'<br/>';
+
+	if ($downloads) {
+		echo '<h3>Biglietti assegnati al cliente</h3>';
+		echo '<p>';
+		foreach($downloads as $ticket) {
+			//print_r($ticket);
+			echo $ticket["name"].'<br/>';
+		}
+		echo '</p>';
+		echo '<div class="clear"></div>';
 	}
-	echo '</p>';
-	echo '<div class="clear"></div>';
 
 	// eventuali codici sconto
 	if( $order->get_used_coupons() ) {
@@ -378,3 +428,17 @@ function ltc_PrintTicketNumber( $order ){
         echo '</p>';
     }	
 }
+
+
+
+// [ BACKEND ]
+// password per gli utenti meno difficile
+
+/**
+* Reduce the strength requirement on the woocommerce password.
+* 3 = Strong  ...  0 = Very Weak
+*/
+function reduce_woocommerce_min_strength_requirement( $strength ) {
+  return 2;
+}
+add_filter( 'woocommerce_min_password_strength', 'reduce_woocommerce_min_strength_requirement' );
