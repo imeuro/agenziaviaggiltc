@@ -10,6 +10,7 @@ wp-content/*
 #!wp-content/plugins/
 !wp-content/themes/
 #!wp-content/languages/woocommerce/
+wp-content/plugins/*
 !wp-content/plugins/ecommerce-agenziaviaggiltc.php
 
 # ignore these plugins
