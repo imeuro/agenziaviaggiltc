@@ -375,6 +375,7 @@ function email_order_user_meta( $order, $sent_to_admin, $plain_text ) {
 
 
 
+
 /*****************************************
  * FRONTEND ENHANCEMENTS *
  *****************************************/
