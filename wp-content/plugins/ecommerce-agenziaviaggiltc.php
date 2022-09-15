@@ -384,6 +384,17 @@ function email_order_user_meta( $order, $sent_to_admin, $plain_text ) {
 
 
 // [ FRONTEND ]
+// add cart items number in menu after "shop"
+add_filter( 'wp_nav_menu_items', 'add_loginout_link', 10, 2 );
+function add_loginout_link( $items, $args ) {
+	$cart_items = WC()->cart->get_cart_contents_count();
+    if ( $args->theme_location == 'primary' && $cart_items > 0 && (is_cart() !== 1) ) {
+        $items .= '<li id="ltc_cart_qty"><a title="Hai ' . $cart_items . ' elementi nel carrello" href="'. get_site_url(null, '/cart/', 'https') .'">' . $cart_items . '</a></li>';
+    }
+    return $items;
+}
+
+// [ FRONTEND ]
 // remove jetpack Related Posts in woocommerce products page
 function jetpackme_remove_related() {
     if ( class_exists( 'Jetpack_RelatedPosts' ) && is_product() ) {

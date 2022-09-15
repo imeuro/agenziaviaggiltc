@@ -2295,6 +2295,23 @@ section.related.products,
     margin-right: 10px;
 }
 
+#menu-sezioni {position: relative;}
+#menu-sezioni #ltc_cart_qty a {
+    position: absolute;
+    top: -38px;
+    right: 10px;
+    padding: 0;
+    margin: 0;
+    background: #d32f2f;
+    color: #fff;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    font-weight: 700;
+    line-height: 35px;
+    font-size: 16px;
+}
 @media all and (min-width: 1000px) {
 	.woocommerce #content div.product div.images,
 	.woocommerce div.product div.images,
@@ -2308,5 +2325,9 @@ section.related.products,
 	.woocommerce-page div.product div.summary {
 	    width: calc(96% - 300px);
 	}
+	#menu-sezioni #ltc_cart_qty a {
+    top: -10px;
+    right: -18px;
+  }
 }
 

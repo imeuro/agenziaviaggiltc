@@ -7,12 +7,13 @@ wp-includes/
 # "mu-plugins", "plugins", "themes" directory
 wp-content/*
 !wp-content/mu-plugins/
-!wp-content/plugins/
+#!wp-content/plugins/
 !wp-content/themes/
-!wp-content/languages/woocommerce/
+#!wp-content/languages/woocommerce/
+!wp-content/plugins/ecommerce-agenziaviaggiltc.php
 
 # ignore these plugins
-wp-content/plugins/hello.php
+#wp-content/plugins/hello.php
 
 # ignore specific themes
 wp-content/themes/twenty*/
