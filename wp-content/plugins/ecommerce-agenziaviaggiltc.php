@@ -3,7 +3,7 @@
 * Plugin Name: 				Ecommerce agenziaviaggiLTS
 * Description: 				funzioni specifiche per l'ecommerce di agenziaviaggiLTC. Richiede i plugin woocommerce + product-code-for-woocommerce
 * Author: 					Meuro
-* Version: 					7.2
+* Version: 					8.0
 * Author URI: 				https://meuro.dev
 * License: 					GPLv3 or later
 * License URI:         		http://www.gnu.org/licenses/gpl-3.0.html
@@ -11,6 +11,21 @@
 * Text Domain: 				ecommerce-lts
 * Domain Path: 				/languages
 */
+
+
+// SECTIONS:
+// [ OUTILS ]
+// [ BOOKING ]
+// [ EMAIL ]
+// [ FRONTEND ]
+// [ BACKEND ]
+
+
+
+/*****************************************
+ * OUTILS *
+ *****************************************/
+
 
 defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
@@ -52,6 +67,13 @@ function unique_multidim_array($array, $key) {
 }
 
 
+
+/*****************************************
+ * BOOKING RELATED *
+ *****************************************/
+
+
+// [ BOOKING ]
 // create and add download path ASAP after checkout completed
 // based on:
 // https://stackoverflow.com/questions/47747596/add-downloads-in-woocommerce-downloadable-product-programmatically
@@ -160,29 +182,82 @@ function GenerateDownloads_afterPayment( $order_id ) {
 }
 
 
-/*
+// [ BOOKING ]
+// gestisce l'ordine cancellato:
+// la quantità a amagazzino viene aggiornata in automatico, ma rimettiamo in vendita i biglietti 
 add_action( 'woocommerce_order_status_cancelled', 'respawn_tickets', 
 21, 1 );
 function respawn_tickets( $order_id ) {
 
 	$downloads 				= get_post_meta( $order_id, '_Order_Downloads', true );
-  	$unique_downloads 		= unique_multidim_array($downloads,'id');
+	$unique_downloads 		= unique_multidim_array($downloads,'id');
 
 	// LOAD THE WC LOGGER
 	$logger = wc_get_logger();
-	$logger->info( 'xxxxx' );
-	$logger->info( "tickets that were attached to order #".$order_id.": " );
+	$logger->info( '==================' );
+	$logger->info( "---> tickets that were attached to order #".$order_id.": " );
 
-  	foreach ($unique_downloads as $download) {
 
-		$DL_path = parse_url($download["file"], PHP_URL_PATH);
-		$DL_path = ltrim($DL_path, '/');
+	
+	$order = wc_get_order( $order_id );
+	$items = $order->get_items();
+	$order_item = [];
 
-		$logger->info( wc_print_r($DL_path, true ) );
+	$respawned = 0;
+
+	foreach ( $items as $item ) {
+	  
+	    $product = $item->get_product();
+	    $productID = $item->get_product_id();
+
+	    //ticket data i need later to rename file
+		$order_item['ticket_folder'] 		= $product->get_sku();
+		$order_item['ticket_matrix'] 		= get_post_meta($productID, '_product_code', true);
+		$order_item['ticket_progressive'] 	= get_post_meta($productID, '_product_code_second', true );
+		$order_item['ticket_stock_qty'] 	= $product->get_stock_quantity();
+		$order_item['ticket_purchased'] 	= $item->get_quantity();
+
+
+		for($t=1; $t<=$order_item['ticket_purchased']; $t++) {
+			$order_item['ticket_canceled'] 	= str_pad(($order_item['ticket_progressive']-$t),3,"0", STR_PAD_LEFT);
+
+			$order_item['ticket_respawned'] =  str_pad(($order_item['ticket_progressive']+$order_item['ticket_stock_qty']-$t+1),3,"0", STR_PAD_LEFT);
+
+			$order_item['ticket_basepath'] 	= ABSPATH . '/wp-content/uploads/woocommerce_uploads/' . $order_item['ticket_folder'] . "/";
+
+			if ( file_exists($order_item['ticket_basepath'].$order_item['ticket_matrix']."_".$order_item['ticket_canceled'].".pdf") ) {
+
+				// reinserisco il biglietto aggiungendolo in fondo come numerazione
+				copy($order_item['ticket_basepath'].$order_item['ticket_matrix']."_".$order_item['ticket_canceled'].".pdf", $order_item['ticket_basepath'].$order_item['ticket_matrix']."_".$order_item['ticket_respawned'].".pdf");
+
+				// disabilito il biglietto dell'ordine annullato anteponendo un underscore
+				rename($order_item['ticket_basepath'].$order_item['ticket_matrix']."_".$order_item['ticket_canceled'].".pdf", $order_item['ticket_basepath']."_".$order_item['ticket_matrix']."_".$order_item['ticket_canceled'].".pdf");
+
+
+				// $logger->info( wc_print_r($order_item, true ) );
+				$logger->info( $order_item['ticket_matrix']."_".$order_item['ticket_canceled'].".pdf --> ".$order_item['ticket_matrix']."_".$order_item['ticket_respawned'].".pdf" );
+
+				$respawned++;
+
+			} else {
+				$logger->info( "".$order_item['ticket_matrix']."_".$order_item['ticket_canceled'].".pdf --> Errore! File non trovato." );
+			}
+		}
+
+		//$logger->info( wc_print_r($order_item, true ) );
 
 	}
+
+	$logger->info( "Order #".$order_id." status changed to: " . $order->get_status() );
+
+	$logger->info( $respawned . " of " . count($unique_downloads) . " tickets were respawned" );
+
+	// too much.. viene cestinato in automatico dopo 1 giorno
+	// $order->update_status('trash', 'Ordine annullato manualmente, biglietti rimessi in vendita.');
+
+
 }
-*/
+
 
 
 /*****************************************
@@ -206,8 +281,7 @@ function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
 
 	// LOAD THE WC LOGGER
 	$logger = wc_get_logger();
-	// LOG DL details
-	$logger->info( '+++++' );
+	$logger->info( '==================' );
 	$logger->info( "---> EMAIL ATTACHMENTS for order #".$order_id.": " );
 	//$logger->info( wc_print_r($downloads, true ) );
 
@@ -235,8 +309,28 @@ function your_email_recipient_filter_function($recipient, $object) {
     return $recipient;
 }
 
+// [ EMAIL ] 
+// *** TEMPORANEAMENTEH *** 
+// invia tutte le email anche a me!!
+function woo_cc_all_emails() {
+  return 'Bcc: hello@meuro.dev' . "\r\n";
+}
+add_filter('woocommerce_email_headers', 'woo_cc_all_emails' );
+
+
+// [ EMAIL ] 
+// Add payment method to admin new order email
+add_action( 'woocommerce_email_after_order_table', 'woo_add_payment_method_to_admin_new_order', 15, 2 ); 
+
+function woo_add_payment_method_to_admin_new_order( $order, $is_admin_email ) { 
+	if ( $is_admin_email ) { 
+		echo '<p><strong>[Nota per Admin]:<br>Metodo pagamento utilizzato:</strong> ' . $order->payment_method_title . '</p>'; 
+	} 
+}
+
+
 // [ EMAIL ]
-// aggiungo codici scnto utilizzati e cod.biglietto riservato
+// aggiungo codici sconto utilizzati e cod.biglietto riservato
 add_action('woocommerce_email_customer_details', 'email_order_user_meta', 30, 3 );
 function email_order_user_meta( $order, $sent_to_admin, $plain_text ) {
   	$order_id 				= $order->get_order_number();
@@ -244,36 +338,38 @@ function email_order_user_meta( $order, $sent_to_admin, $plain_text ) {
   	$downloads             	= get_post_meta( $order_id, '_Order_Downloads', true );
   	$unique_downloads 		= unique_multidim_array($downloads,'id');
 
-  	// LOAD THE WC LOGGER
-	$logger = wc_get_logger();
-	// LOG DL details
-	$logger->info( '======' );
-	$logger->info( "listing tickets # for order ".$order_id.": " );
-	// $logger->info( wc_print_r($downloads, true ) );
+
+  	if($order->get_status() != 'cancelled') {
+	  	// LOAD THE WC LOGGER
+		$logger = wc_get_logger();
+		$logger->info( '==================' );
+		$logger->info( "---> listing reserved tickets # for order ".$order_id.": " );
+		// $logger->info( wc_print_r($downloads, true ) );
 
 
-  	if (!empty($unique_downloads)) :
-  		$ticket_count = count( $unique_downloads );
-		echo '<p><strong>Biglietti acquistati (' . $ticket_count . '):</strong><br>';
-		foreach ($unique_downloads as $download) {
-			$ticket_code = str_ireplace('.pdf', '', $download['name']);
-			echo $ticket_code.'<br>';
+	  	if (!empty($unique_downloads)) :
+	  		$ticket_count = count( $unique_downloads );
+			echo '<p><strong>Biglietti acquistati (' . $ticket_count . '):</strong><br>';
+			foreach ($unique_downloads as $download) {
+				$ticket_code = str_ireplace('.pdf', '', $download['name']);
+				echo $ticket_code.'<br>';
 
-			$logger->info( wc_print_r($ticket_code, true ) );
-		}
-		echo '</p>';
-	endif;
+				$logger->info( wc_print_r($ticket_code, true ) );
+			}
+			echo '</p>';
+		endif;
 
-	if( $order->get_used_coupons() ) :
-		$coupons_count = count( $order->get_used_coupons() );
-		echo '<p><strong>Codici sconto utilizzati (' . $coupons_count . '):</strong><br>';
-		$i = 1;
-		$coupons_list = '';
-		foreach( $order->get_used_coupons() as $coupon) {
-		    echo $coupon.'<br>';
-		}
-		echo $coupons_list . '</p>';
-	endif;
+		if( $order->get_used_coupons() ) :
+			$coupons_count = count( $order->get_used_coupons() );
+			echo '<p><strong>Codici sconto utilizzati (' . $coupons_count . '):</strong><br>';
+			$i = 1;
+			$coupons_list = '';
+			foreach( $order->get_used_coupons() as $coupon) {
+			    echo $coupon.'<br>';
+			}
+			echo $coupons_list . '</p>';
+		endif;
+	}
 }
 
 
