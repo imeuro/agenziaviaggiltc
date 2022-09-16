@@ -191,19 +191,19 @@ function respawn_tickets( $order_id ) {
 
 	$downloads 				= get_post_meta( $order_id, '_Order_Downloads', true );
 	$unique_downloads 		= unique_multidim_array($downloads,'id');
-
-	// LOAD THE WC LOGGER
-	$logger = wc_get_logger();
-	$logger->info( '==================' );
-	$logger->info( "---> tickets that were attached to order #".$order_id.": " );
-
-
 	
 	$order = wc_get_order( $order_id );
 	$items = $order->get_items();
 	$order_item = [];
 
 	$respawned = 0;
+
+	// LOAD THE WC LOGGER
+	$logger = wc_get_logger();
+	$logger->info( '==================' );
+	$logger->info( "---> Status for order ".$order_id.": ".$order->get_status() );
+	$logger->info( "---> tickets that were attached to order #".$order_id.": " );
+
 
 	foreach ( $items as $item ) {
 	  
@@ -282,6 +282,7 @@ function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
 	// LOAD THE WC LOGGER
 	$logger = wc_get_logger();
 	$logger->info( '==================' );
+	$logger->info( "---> Status for order ".$order_id.": ".$order->get_status() );
 	$logger->info( "---> EMAIL ATTACHMENTS for order #".$order_id.": " );
 	//$logger->info( wc_print_r($downloads, true ) );
 
@@ -333,6 +334,7 @@ function email_order_user_meta( $order, $sent_to_admin, $plain_text ) {
 	  	// LOAD THE WC LOGGER
 		$logger = wc_get_logger();
 		$logger->info( '==================' );
+		$logger->info( "---> Status for order ".$order_id.": ".$order->get_status() );
 		$logger->info( "---> listing reserved tickets # for order ".$order_id.": " );
 		// $logger->info( wc_print_r($downloads, true ) );
 
