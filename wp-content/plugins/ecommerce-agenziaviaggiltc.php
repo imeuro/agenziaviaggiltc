@@ -318,16 +318,6 @@ function woo_cc_all_emails() {
 add_filter('woocommerce_email_headers', 'woo_cc_all_emails' );
 
 
-// [ EMAIL ] 
-// Add payment method to admin new order email
-add_action( 'woocommerce_email_after_order_table', 'woo_add_payment_method_to_admin_new_order', 15, 2 ); 
-
-function woo_add_payment_method_to_admin_new_order( $order, $is_admin_email ) { 
-	if ( $is_admin_email ) { 
-		echo '<p><strong>[Nota per Admin]:<br>Metodo pagamento utilizzato:</strong> ' . $order->payment_method_title . '</p>'; 
-	} 
-}
-
 
 // [ EMAIL ]
 // aggiungo codici sconto utilizzati e cod.biglietto riservato
