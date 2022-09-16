@@ -271,7 +271,7 @@ add_filter( 'woocommerce_email_attachments', 'attach_to_wc_emails', 10, 4);
 function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
 
 	// Avoiding errors and problems
-    if ( ! is_a( $order, 'WC_Order' ) || ! isset( $email_id ) || !$wc_email->is_customer_email() ) {
+    if ( ! is_a( $order, 'WC_Order' ) || ! isset( $email_id ) || !$wc_email->is_customer_email() || $order->get_status() != 'completed' ) {
         return $attachments;
     }
   	$order_id 				= $order->get_order_number();
@@ -387,11 +387,14 @@ function email_order_user_meta( $order, $sent_to_admin, $plain_text ) {
 // add cart items number in menu after "shop"
 add_filter( 'wp_nav_menu_items', 'add_loginout_link', 10, 2 );
 function add_loginout_link( $items, $args ) {
-	$cart_items = WC()->cart->get_cart_contents_count();
+	
 	if ( class_exists( 'WooCommerce' ) && ( !is_cart() && !is_checkout() ) ) {
+		$cart_items = WC()->cart->get_cart_contents_count();
+
 		if ( $args->theme_location == 'primary' && $cart_items > 0  ) {
 			$items .= '<li id="ltc_cart_qty"><a title="Hai ' . $cart_items . ' elementi nel carrello" href="'. get_site_url(null, '/cart/', 'https') .'">' . $cart_items . '</a></li>';
 		}
+
 	}
     return $items;
 }
