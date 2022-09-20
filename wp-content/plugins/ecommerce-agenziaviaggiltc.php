@@ -521,16 +521,16 @@ function custom_orders_list_column_content( $column, $post_id )
             // Get custom post meta data
             $downloads = get_post_meta( $post_id, '_Order_Downloads', true );
             if(!empty($downloads)){
-            	echo '<small class="ticket_codes">';
+            	echo '<p class="ticket_codes"><small>';
 				foreach($downloads as $ticket) {
 					//print_r($ticket);
 					echo $ticket["name"].'<br/>';
 				}
-				echo '</small>';
+				echo '</small></p>';
             }
             // Testing (to be removed) - Empty value case
             else {
-                echo '<small>(<em>no value</em>)</small>';
+                echo '<small><em>no tickets (???)</em></small>';
             }
 
             break;
