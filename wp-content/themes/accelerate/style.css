@@ -2230,7 +2230,9 @@ button#wp-custom-header-video-button {
 .woocommerce-ordering,
 .woocommerce .related.products ul.products li.product a.button,
 .woocommerce-info::before,
-.woocommerce-message::before { display: none; }
+.woocommerce-message::before,
+.woocommerce .sku_wrapper,
+.woocommerce .stock { display: none; }
 
 
 .woocommerce-error::before {

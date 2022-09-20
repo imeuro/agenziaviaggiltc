@@ -496,6 +496,55 @@ function load_custom_plugin_translation_file( $mofile, $domain ) {
  *****************************************/
 
 // [ BACKEND ]
+// stampo codici biglietti e codici utilizzati in lista ordini
+add_filter( 'manage_edit-shop_order_columns', 'custom_shop_order_column', 20 );
+function custom_shop_order_column($columns)
+{
+    $reordered_columns = array();
+
+    // Inserting columns to a specific location
+    foreach( $columns as $key => $column){
+        $reordered_columns[$key] = $column;
+        if( $key ==  'order_status' ){
+            // Inserting after "Status" column
+            $reordered_columns['ticket_codes'] = __( 'Biglietti','theme_domain');
+        }
+    }
+    return $reordered_columns;
+}
+add_action( 'manage_shop_order_posts_custom_column' , 'custom_orders_list_column_content', 20, 2 );
+function custom_orders_list_column_content( $column, $post_id )
+{
+    switch ( $column )
+    {
+        case 'ticket_codes' :
+            // Get custom post meta data
+            $downloads = get_post_meta( $post_id, '_Order_Downloads', true );
+            if(!empty($downloads)){
+            	echo '<small class="ticket_codes">';
+				foreach($downloads as $ticket) {
+					//print_r($ticket);
+					echo $ticket["name"].'<br/>';
+				}
+				echo '</small>';
+            }
+            // Testing (to be removed) - Empty value case
+            else {
+                echo '<small>(<em>no value</em>)</small>';
+            }
+
+            break;
+
+        // case 'gigi' :
+        	//...
+            // break;
+    }
+}
+
+
+
+
+// [ BACKEND ]
 // stampo codici biglietti e codici utilizzati in riepilogo ordine
 add_action( 'woocommerce_admin_order_data_after_shipping_address', 'ltc_PrintTicketNumber' );
 
