@@ -496,7 +496,7 @@ function load_custom_plugin_translation_file( $mofile, $domain ) {
  *****************************************/
 
 // [ BACKEND ]
-// stampo codici biglietti e codici utilizzati in lista ordini
+// stampo codici biglietti per singolo ordine in lista ordini
 add_filter( 'manage_edit-shop_order_columns', 'custom_shop_order_column', 20 );
 function custom_shop_order_column($columns)
 {
