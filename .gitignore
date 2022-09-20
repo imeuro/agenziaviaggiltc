@@ -1,26 +1,45 @@
-# ignore everything in the root except the "wp-content" directory.
-!wp-content/
-wp-admin/
-wp-includes/
+# Wordpress - ignore core, configuration, examples, uploads and logs.
+# https://github.com/github/gitignore/blob/main/WordPress.gitignore
 
-# ignore everything in the "wp-content" directory, except:
-# "mu-plugins", "plugins", "themes" directory
-wp-content/*
-!wp-content/mu-plugins/
-!wp-content/plugins/
-!wp-content/themes/
-#!wp-content/languages/woocommerce/
-wp-content/plugins/*
+# Core
+#
+# Note: if you want to stage/commit WP core files
+# you can delete this whole section/until Configuration.
+/wp-admin/
+/wp-content/index.php
+/wp-content/languages
+/wp-content/plugins/index.php
+/wp-content/themes/index.php
+/wp-includes/
+/index.php
+/license.txt
+/readme.html
+/wp-*.php
+/xmlrpc.php
+
+# Configuration
+wp-config.php
+
+# Example themes
+/wp-content/themes/twenty*/
+
+# Uploads & stuff
+/wp-content/uploads/
+/wp-content/maintenance/
+/wp-content/aiowps_backups/
+/wp-content/wflogs/
+/wp-content/*.php
+
+# Log files
+*.log
+
+# htaccess
+/.htaccess
+
+# All plugins
+/wp-content/plugins
+# ...except mine!
 !wp-content/plugins/ecommerce-agenziaviaggiltc.php
-
-# ignore these plugins
-#wp-content/plugins/hello.php
-
-# ignore specific themes
-wp-content/themes/twenty*/
-
-# ignore node dependency directories
-node_modules/
 
 wp-config.*
 
