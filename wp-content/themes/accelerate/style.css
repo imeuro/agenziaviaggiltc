@@ -2231,8 +2231,8 @@ button#wp-custom-header-video-button {
 .woocommerce .related.products ul.products li.product a.button,
 .woocommerce-info::before,
 .woocommerce-message::before,
-.woocommerce .sku_wrapper,
-.woocommerce .stock { display: none; }
+.woocommerce div.product .sku_wrapper,
+.woocommerce div.product p.stock { display: none; }
 
 
 .woocommerce-error::before {
