@@ -2297,23 +2297,88 @@ section.related.products,
     margin-right: 10px;
 }
 
-#menu-sezioni {position: relative;}
-#menu-sezioni #ltc_cart_qty a {
+#header-right-sidebar {
+    overflow: visible;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+aside.widget_woocommerce {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 20px;
+    padding-left: 15px;
+    height: auto;
+}
+
+
+aside.widget_woocommerce .wcicon {
+    background: #0e4a92;
+    color: #fff;
+    display: inline-block;
+    padding: 5px 0px;
+    border-radius: 6px;
+    margin: 3px 6px;
+    font-size: 18px;
+    line-height: 18px;
+    position: relative;
+}
+
+#ltc_cart_qty {
     position: absolute;
-    top: -38px;
-    right: 10px;
+    top: -15px;
+    right: -15px;
     padding: 0;
     margin: 0;
     background: #d32f2f;
     color: #fff;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
+    border-radius: 6px;
+    width: 25px;
+    height: 25px;
     text-align: center;
     font-weight: 700;
-    line-height: 35px;
-    font-size: 16px;
+    line-height: 25px;
+    font-size: 12px;
 }
+
+.wcicon:before {
+	  display: block;
+    font-family: WooCommerce;
+    speak: never;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    margin-left: 0.618em;
+    content: "\e038";
+    text-decoration: none;
+}
+.wcicon.wcicon-user:before {
+    display: inline-block;
+    content: "\e038";
+}
+.wcicon.wcicon-user-logged:before {
+    display: inline-block;
+    content: "\e03a";
+}
+.wcicon.wcicon-cart:before {
+    display: inline-block;
+    content: "\e01d";
+}
+.wcicon.wcicon-cart-full:before {
+    display: inline-block;
+    content: "\e01d";
+}
+
+aside.widget_woocommerce .wcicon:before {margin: 0 6px;}
+
+
+
 @media all and (min-width: 1000px) {
 	.woocommerce #content div.product div.images,
 	.woocommerce div.product div.images,
@@ -2327,9 +2392,9 @@ section.related.products,
 	.woocommerce-page div.product div.summary {
 	    width: calc(96% - 300px);
 	}
-	#menu-sezioni #ltc_cart_qty a {
+	#ltc_cart_qty {
     top: -10px;
-    right: -18px;
+    right: -10px;
   }
 }
 

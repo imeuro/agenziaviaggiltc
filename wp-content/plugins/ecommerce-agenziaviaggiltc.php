@@ -377,7 +377,8 @@ function email_order_user_meta( $order, $sent_to_admin, $plain_text ) {
 
 // [ FRONTEND ]
 // add cart items number in menu after "shop"
-add_filter( 'wp_nav_menu_items', 'add_loginout_link', 10, 2 );
+/*
+ add_filter( 'wp_nav_menu_items', 'add_loginout_link', 10, 2 );
 function add_loginout_link( $items, $args ) {
 	
 	if ( class_exists( 'WooCommerce' ) && ( !is_cart() && !is_checkout() ) ) {
@@ -390,6 +391,7 @@ function add_loginout_link( $items, $args ) {
 	}
     return $items;
 }
+*/
 
 // [ FRONTEND ]
 // remove jetpack Related Posts in woocommerce products page
