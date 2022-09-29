@@ -2316,6 +2316,10 @@ aside.widget_woocommerce {
 }
 
 
+aside.widget_woocommerce .widget-title {
+    color: #f8f8f8;
+}
+
 aside.widget_woocommerce .wcicon {
     background: #0e4a92;
     color: #fff;
