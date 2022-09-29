@@ -69,7 +69,10 @@ function ltc_PrintTicketNumber( $order ){
 		echo '<p>';
 		foreach($downloads as $ticket) {
 			//print_r($ticket);
-			echo $ticket["name"].'<br/>';
+			$basepath 	= str_replace($ticket['name'],'',$ticket['file']);
+			$sku		= str_replace(get_site_url().'/wp-content/uploads/woocommerce_uploads/','',$basepath);
+
+			echo $sku.$ticket["name"].'<br/>';
 		}
 		echo '</p>';
 		echo '<div class="clear"></div>';

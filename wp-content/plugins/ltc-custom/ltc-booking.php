@@ -134,58 +134,49 @@ function respawn_tickets( $order_id ) {
 	$logger = wc_get_logger();
 	$logger->info( '==================' );
 	$logger->info( "---> Status for order ".$order_id.": ".$order->get_status() );
-	$logger->info( "---> tickets that were attached to order #".$order_id.": " );
+	$logger->info( "---> listing respawned tickets # from order ".$order_id.": " );
 
 
-	foreach ( $items as $item ) {
-	  
-	    $product = $item->get_product();
-	    $productID = $item->get_product_id();
+	foreach ($unique_downloads as $reserved_ticket) {
+		// recupero tutti i dati necessari scomponendo la url del file
+		// metodo non elegante ma d'altra parte è così
 
-	    //ticket data i need later to rename file
-		$order_item['ticket_folder'] 		= $product->get_sku();
-		$order_item['ticket_matrix'] 		= get_post_meta($productID, '_product_code', true);
-		$order_item['ticket_progressive'] 	= get_post_meta($productID, '_product_code_second', true );
-		$order_item['ticket_stock_qty'] 	= $product->get_stock_quantity();
-		$order_item['ticket_purchased'] 	= $item->get_quantity();
+		$basepath 			= str_replace($reserved_ticket['name'],'',$reserved_ticket['file']);
+		$basepath 			= str_replace(get_site_url(null,"/","https"),ABSPATH,$basepath);
+		$ticket_matrix 	= strstr($reserved_ticket['name'], '_', true);
+		// $logger->info( "ABSPATH: ".ABSPATH );
+		// $logger->info( "basepath: ".$basepath );
 
+		$files= glob($basepath.$ticket_matrix.'_*.pdf');
+		sort($files); // sort the files from lowest to highest, alphabetically
+		// $logger->info( wc_print_r($files, true ) );
+		$last_ticket	= array_pop($files); // return the last element of the array
+		$last_ticket = str_replace($basepath,'',$last_ticket); 
+		// $logger->info( "possibly highest ticket: ".$last_ticket );
 
-		for($t=1; $t<=$order_item['ticket_purchased']; $t++) {
-			$order_item['ticket_canceled'] 	= str_pad(($order_item['ticket_progressive']-$t),3,"0", STR_PAD_LEFT);
-
-			$order_item['ticket_respawned'] =  str_pad(($order_item['ticket_progressive']+$order_item['ticket_stock_qty']-$t+1),3,"0", STR_PAD_LEFT);
-
-			$order_item['ticket_basepath'] 	= ABSPATH . '/wp-content/uploads/woocommerce_uploads/' . $order_item['ticket_folder'] . "/";
-
-			if ( file_exists($order_item['ticket_basepath'].$order_item['ticket_matrix']."_".$order_item['ticket_canceled'].".pdf") ) {
-
-				// reinserisco il biglietto aggiungendolo in fondo come numerazione
-				copy($order_item['ticket_basepath'].$order_item['ticket_matrix']."_".$order_item['ticket_canceled'].".pdf", $order_item['ticket_basepath'].$order_item['ticket_matrix']."_".$order_item['ticket_respawned'].".pdf");
-
-				// disabilito il biglietto dell'ordine annullato anteponendo un underscore
-				rename($order_item['ticket_basepath'].$order_item['ticket_matrix']."_".$order_item['ticket_canceled'].".pdf", $order_item['ticket_basepath']."_".$order_item['ticket_matrix']."_".$order_item['ticket_canceled'].".pdf");
+		$Hinum 	= str_replace($ticket_matrix.'_','',$last_ticket);
+		$Hinum 	= str_replace('.pdf','',$Hinum);
+		$ticket_respawned = $ticket_matrix.'_'.str_pad( intval($Hinum) + 1, 3, '0', STR_PAD_LEFT).'.pdf';
+		// $logger->info( "possibly next ticket: ".$ticket_respawned );
 
 
-				// $logger->info( wc_print_r($order_item, true ) );
-				$logger->info( $order_item['ticket_matrix']."_".$order_item['ticket_canceled'].".pdf --> ".$order_item['ticket_matrix']."_".$order_item['ticket_respawned'].".pdf" );
+		if ( file_exists($basepath.$reserved_ticket['name']) ) {
+			
+			// create new ticket and put them in queue to be sold
+			copy($basepath.$reserved_ticket['name'], $basepath.$ticket_respawned);
 
-				$respawned++;
+			// deactivate previously reserved ticket
+			rename($basepath.$reserved_ticket['name'], $basepath."_".$reserved_ticket['name']);
+			$logger->info( $reserved_ticket['name']. " --> ".$ticket_respawned );
 
-			} else {
-				$logger->info( "".$order_item['ticket_matrix']."_".$order_item['ticket_canceled'].".pdf --> Errore! File non trovato." );
-			}
+			$respawned++;
+		} else {
+			$logger->info( $reserved_ticket['name']." --> Errore! File non trovato." );
 		}
-
-		//$logger->info( wc_print_r($order_item, true ) );
-
+		
 	}
 
-	$logger->info( "Order #".$order_id." status changed to: " . $order->get_status() );
-
 	$logger->info( $respawned . " of " . count($unique_downloads) . " tickets were respawned" );
-
-	// too much.. viene cestinato in automatico dopo 1 giorno
-	// $order->update_status('trash', 'Ordine annullato manualmente, biglietti rimessi in vendita.');
 
 
 }
