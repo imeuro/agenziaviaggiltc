@@ -207,7 +207,7 @@ function jsonAPIToCSV($jfilename, $cfilename) {
 			unset($row['billing_country']);
 			$row['TELEFONO'] = $row['billing_phone'];
 			unset($row['billing_phone']);
-			$row['CODICE FISCALE'] = $row['billing_company'];
+			$row['CODICE FISCALE'] = strtoupper($row['billing_company']);
 			unset($row['billing_company']);
 			$row['DATA DI NASCITA'] = $row['birth_date'];
 			unset($row['birth_date']);
@@ -240,7 +240,7 @@ function jsonAPIToCSV($jfilename, $cfilename) {
 			endforeach;
 
 			$unique_coupons = array_unique($coupons);
-			$used_coupons = '-';
+			$used_coupons = ' — ';
 			if(!empty($unique_coupons)) {
 				$used_coupons = '';
 				foreach($unique_coupons as $unique_coupon) :
