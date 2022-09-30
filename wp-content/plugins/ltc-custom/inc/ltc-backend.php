@@ -147,8 +147,6 @@ function jsonAPIToCSV($jfilename, $cfilename) {
     if (($json = file_get_contents($jfilename)) == false)
         die('Error reading json file from '.$jfilename.'...');
 
-    echo '<style>#ltc_table {display: block; overflow-x: auto; white-space: nowrap;}#ltc_table tbody {display: table; width: 100%;}#ltc_table th {font-size: 0.85rem; font-weight: 700; padding: 8px 24px; background-color: #f8f9fa; border-bottom: 1px solid #e2e4e7; text-align: left;}#ltc_table tr { background-color: #fff; }#ltc_table tr:hover { background-color: #ddd; }#ltc_table td {font-size: 0.75rem; font-weight: 400; padding: 15px 24px; margin-bottom: 10px; border-bottom: 1px solid #e2e4e7; text-align: left;}div#ltc_section_header {display: flex; flex-flow: row wrap; align-items: center; justify-content: space-between; margin: 0 0 15px 0;} div#ltc_section_header button {margin-right: 15px; line-height: 18px; padding-left: 10px;}</style>';
-
     if (isset($_GET['regenerate_csv']) && $_GET['regenerate_csv'] == 'true') {
 		$data = json_decode($json, true);
 		$fp = fopen($cfilename, 'w');
@@ -277,7 +275,7 @@ function csvPreview($cfilename) {
 	$row = 0;
 	if (($handle = fopen($cfilename, "r")) !== FALSE) {
 
-		echo '<table id="ltc_table" cellspacing="0" cellpadding="0">';
+		echo '<div id="ltc_table_container"><table id="ltc_table" cellspacing="0" cellpadding="0">';
 		echo '<tbody>';
 		while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 			$num = count($data);
@@ -290,23 +288,30 @@ function csvPreview($cfilename) {
 			echo "</tr>\n";
 			$row++;
 		}
-		echo "</tbody></table>\n\n";
+		echo "</tbody></table></div>\n\n";
 		fclose($handle);
 	}
 }
 
-add_action( 'admin_menu', 'lts_add_admin_menu' );
-add_action( 'admin_init', 'lts_settings_init' );
+add_action( 'admin_menu', 'ltc_add_admin_menu' );
+add_action( 'admin_init', 'ltc_settings_init' );
+add_action( 'admin_enqueue_scripts', 'ltc_enqueue_css', 10 );
 
 
-function lts_add_admin_menu(  ) { 
+function ltc_add_admin_menu(  ) { 
 
-	add_menu_page( 'Ecommerce agenziaviaggiLTS - export utenti', 'Export Clienti', 'manage_options', 'lts-export-clienti', 'lts_options_page', 'dashicons-database-export', 70 );
+	add_menu_page( 'Export Clienti', 'Export Clienti', 'manage_options', 'lts-export-clienti', 'lts_options_page', 'dashicons-database-export', 70 );
 
 }
 
+function ltc_enqueue_css( $hook_suffix ) {
+	// print_r($hook_suffix);
+    if( 'toplevel_page_lts-export-clienti' === $hook_suffix ) {       
+        wp_enqueue_style('ltc-custom-css', plugins_url('../css/style.css',__FILE__));
+    }
+}
 
-function lts_settings_init(  ) { 
+function ltc_settings_init(  ) { 
 
 	register_setting( 'pluginPage', 'lts_settings' );
 
@@ -327,21 +332,20 @@ function lts_settings_section_callback(  ) {
 	$disabled = (isset($_GET['regenerate_csv']) && $_GET['regenerate_csv'] == 'true') ? '' : ' disabled';
 	echo '<div id="ltc_section_header">';
 	echo "<script>function GETcsv(){window.open('".$csv_url."');}</script>";
-	echo __( '<p>Da questa pagina è possibile eseguire il download della lista clienti e relativi dettagli in formato CSV, importabile in excel.</p>', 'woocommerce' );
-	echo '<div><input type="hidden" name="page" value="lts-export-clienti" />
+	echo __( '<p class="page_spiega">Da questa pagina è possibile eseguire il download della lista clienti e relativi dettagli in formato CSV, importabile in excel.</p>', 'woocommerce' );
+	echo '<div class="page_agisci"><input type="hidden" name="page" value="lts-export-clienti" />
 	<input type="hidden" name="regenerate_csv" value="true" />
 	<button type="submit" value="regenerate_csv" class="button button-large button-primary dashicons-before dashicons-update">&nbsp;&nbsp;Aggiorna Lista Clienti</button>
 	<button'.$disabled.' type="button" onclick="GETcsv()" class="button button-large button-primary dashicons-before dashicons-download">&nbsp;&nbsp;Download CSV</button></div>';
 	echo '</div>';
 
-
 }
-
 
 function lts_options_page(  ) { 
 	global $api_url, $json_filename, $csv_filename, $csv_url;
 
 		?>
+		
 		<form action='./admin.php' method='GET' name="gencsv" >
 			<?php
 			settings_fields( 'pluginPage' );

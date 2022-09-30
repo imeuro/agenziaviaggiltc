@@ -93,25 +93,25 @@ function unique_multidim_array($array, $key) {
  * BOOKING RELATED *
  *****************************************/
 
-include 'ltc-booking.php';
+include 'inc/ltc-booking.php';
 
 
 /*****************************************
  * EMAIL RELATED *
  *****************************************/
 
-include 'ltc-email.php';
+include 'inc/ltc-email.php';
 
 
 /*****************************************
  * FRONTEND ENHANCEMENTS *
  *****************************************/
 
-include 'ltc-frontend.php';
+include 'inc/ltc-frontend.php';
 
 
 /*****************************************
  * BACKEND ENHANCEMENTS *
  *****************************************/
 
-include 'ltc-backend.php';
+include 'inc/ltc-backend.php';
