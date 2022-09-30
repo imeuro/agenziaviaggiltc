@@ -72,7 +72,7 @@ function ltc_PrintTicketNumber( $order ){
 			$basepath 	= str_replace($ticket['name'],'',$ticket['file']);
 			$sku		= str_replace(get_site_url().'/wp-content/uploads/woocommerce_uploads/','',$basepath);
 
-			echo $sku. '/' .$ticket["name"].'<br/>';
+			echo rtrim($sku,"/"). ' / ' .$ticket["name"].'<br/>';
 		}
 		echo '</p>';
 		echo '<div class="clear"></div>';
@@ -154,31 +154,110 @@ function jsonAPIToCSV($jfilename, $cfilename) {
 		$fp = fopen($cfilename, 'w');
 		$header = false;
 
+
 		foreach ($data as $key => $row) {
 
 
-		    // don't need this data:
-		    unset($row['date_created']);
-		    unset($row['date_modified']);
-		    unset($row['date_created_gmt']);
-		    unset($row['date_modified_gmt']);
-		    unset($row['role']);
-		    unset($row['shipping']);
-		    unset($row['is_paying_customer']);
-		    unset($row['avatar_url']);
-		    unset($row['billing']['first_name']);
-		    unset($row['billing']['last_name']);
+			// don't need this data:
+			unset($row['username']);
+			unset($row['date_created']);
+			unset($row['date_modified']);
+			unset($row['date_created_gmt']);
+			unset($row['date_modified_gmt']);
+			unset($row['role']);
+			unset($row['shipping']);
+			unset($row['is_paying_customer']);
+			unset($row['avatar_url']);
+			unset($row['billing']['first_name']);
+			unset($row['billing']['last_name']);
+			unset($row['billing']['email']);
 
-		    unset($row['meta_data']);
-		    unset($row['role']);
-		    unset($row['_links']);
-		    unset($row['collection']);
+			unset($row['meta_data']);
+			unset($row['role']);
+			unset($row['_links']);
+			unset($row['collection']);
 
 			foreach ($row['billing'] as $key => $billing) {
-		    	$row['billing_'.$key] = $billing;
+				$row['billing_'.$key] = $billing;
+			}
+			unset($row['billing']);
+
+
+		    //rename headers:
+			$row['ID'] = $row['id'];
+			unset($row['id']);
+			$row['MAIL'] = $row['email'];
+			unset($row['email']);
+			$row['COGNOME'] = $row['last_name'];
+			unset($row['last_name']);
+			$row['NOME'] = $row['first_name'];
+			unset($row['first_name']);
+			$row['SESSO'] = $row['sex'];
+			unset($row['sex']);
+			$row['VIA'] = $row['billing_address_1'].' '.$row['billing_address_2'];
+			unset($row['billing_address_1']);
+			unset($row['billing_address_2']);
+			$row['CAP'] = $row['billing_postcode'];
+			unset($row['billing_postcode']);
+			$row['COMUNE'] = $row['billing_city'];
+			unset($row['billing_city']);
+			$row['PROVICIA'] = $row['billing_state'];
+			unset($row['billing_state']);
+			$row['STATO'] = $row['billing_country'];
+			unset($row['billing_country']);
+			$row['TELEFONO'] = $row['billing_phone'];
+			unset($row['billing_phone']);
+			$row['CODICE FISCALE'] = $row['billing_company'];
+			unset($row['billing_company']);
+			$row['DATA DI NASCITA'] = $row['birth_date'];
+			unset($row['birth_date']);
+
+			// Get all customer orders
+			$customer_orders = get_posts(array(
+				'numberposts' => -1,
+				'meta_key' => '_customer_user',
+				// 'orderby' => 'date',
+				// 'order' => 'DESC',
+				'meta_value' => $row['ID'],
+				'post_type' => 'shop_order',
+				'post_status'    => 'completed'
+				//'post_status' => array_keys(wc_get_order_statuses()), 'post_status' => array('wc-processing'),
+		    ));
+		    $orders_count = count($customer_orders);
+		    $coupons = [];
+
+			foreach($customer_orders as $order) :
+				$orderID = $order->ID;
+				$order = wc_get_order( $orderID );
+
+				if( $order->get_used_coupons() ) {
+					$coupons_count = count( $order->get_used_coupons() );
+					$i = 1;
+					foreach( $order->get_used_coupons() as $coupon) {
+					    $coupons[] = $coupon;
+					}
+				}	
+			endforeach;
+
+			$unique_coupons = array_unique($coupons);
+			$used_coupons = '-';
+			if(!empty($unique_coupons)) {
+				$used_coupons = '';
+				foreach($unique_coupons as $unique_coupon) :
+					$used_coupons .= $unique_coupon.' ';
+				endforeach;				
 			}
 
-			unset($row['billing']);
+			$row['CODICE SCONTO'] = $used_coupons;
+
+			$row['ACQUISTI'] = $orders_count;
+
+			$row['NOTE'] = $row['order_notes'];
+			unset($row['order_notes']);
+
+
+
+
 
 			// echo '$header: '.$header;
 		    if (empty($header)) {
