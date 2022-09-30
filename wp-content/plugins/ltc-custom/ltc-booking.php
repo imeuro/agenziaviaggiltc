@@ -138,15 +138,16 @@ function respawn_tickets( $order_id ) {
 
 
 	foreach ($unique_downloads as $reserved_ticket) {
-		// recupero tutti i dati necessari scomponendo la url del file
+		// recupero dati necessari scomponendo la url del file
 		// metodo non elegante ma d'altra parte è così
-
 		$basepath 			= str_replace($reserved_ticket['name'],'',$reserved_ticket['file']);
 		$basepath 			= str_replace(get_site_url(null,"/","https"),ABSPATH,$basepath);
 		$ticket_matrix 	= strstr($reserved_ticket['name'], '_', true);
 		// $logger->info( "ABSPATH: ".ABSPATH );
 		// $logger->info( "basepath: ".$basepath );
 
+		// cerco il ticket con numero più alto
+		// e mi preparo per generare il prossimo
 		$files= glob($basepath.$ticket_matrix.'_*.pdf');
 		sort($files); // sort the files from lowest to highest, alphabetically
 		// $logger->info( wc_print_r($files, true ) );

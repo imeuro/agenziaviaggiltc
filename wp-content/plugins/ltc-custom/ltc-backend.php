@@ -72,7 +72,7 @@ function ltc_PrintTicketNumber( $order ){
 			$basepath 	= str_replace($ticket['name'],'',$ticket['file']);
 			$sku		= str_replace(get_site_url().'/wp-content/uploads/woocommerce_uploads/','',$basepath);
 
-			echo $sku.$ticket["name"].'<br/>';
+			echo $sku. '/' .$ticket["name"].'<br/>';
 		}
 		echo '</p>';
 		echo '<div class="clear"></div>';
@@ -112,25 +112,56 @@ add_filter( 'woocommerce_min_password_strength', 'reduce_woocommerce_min_strengt
 
 
 // [ BACKEND ]
-// export untenti coi campi che ci servono a noi
+// export utenti coi campi che ci servono a noi
+
+
+// * API prod (readonly)
+$ck='ck_949470a85574c84b7a3cc662ca8f58cd7c7b3679';
+$cs='cs_faf8293e8b36f6e0b41d49db552a5057a061d9f8';
+$api_url = 'https://www.agenziaviaggiltc.it/wp-json/wc/v3/customers?consumer_key='.$ck.'&consumer_secret='.$cs.'&orderby=id&order=desc&per_page=30';
+$json_filename = ABSPATH . 'wp-content/uploads/customer-data.json';
+$csv_filename = ABSPATH . 'wp-content/uploads/customer-data.csv';
+$csv_url =  get_site_url(null, '/wp-content/uploads/customer-data.csv', 'https');
+
+
+function retrieveAPIdata($endpoint) {
+	global $json_filename, $csv_filename, $csv_url;
+	if (isset($_GET['regenerate_csv']) && $_GET['regenerate_csv'] == 'true') {
+		$responseBody='';
+		for($i = 1; $i < 20; $i++) {
+			$response = wp_remote_get($endpoint.'&page='.$i);
+			$responseData = $response['body'];
+			//print_r($responseData);
+			if ($responseData == "[]") {
+				break;
+			}
+			$responseBody .= $responseData;
+			$responseBody = str_replace("][",",",$responseBody);
+		}
+		file_put_contents($json_filename, $responseBody);
+	}
+	//print_r($responseBody);
+}
 
 function jsonAPIToCSV($jfilename, $cfilename) {
     if (($json = file_get_contents($jfilename)) == false)
         die('Error reading json file from '.$jfilename.'...');
 
-    echo '<style>#ltc_table {display: block; overflow-x: auto; white-space: nowrap;}#ltc_table tbody {display: table; width: 100%;}#ltc_table th {font-size: 0.85rem; font-weight: 700; padding: 8px 24px; background-color: #f8f9fa; border-bottom: 1px solid #e2e4e7; text-align: left;}#ltc_table tr { background-color: #fff; }#ltc_table tr:hover { background-color: #ddd; }#ltc_table td {font-size: 0.75rem; font-weight: 400; padding: 15px 24px; margin-bottom: 10px; border-bottom: 1px solid #e2e4e7; text-align: left;}div#ltc_section_header {display: flex; flex-flow: row wrap; align-items: center; justify-content: space-between; margin: 0 15px 15px 0;}</style>';
+    echo '<style>#ltc_table {display: block; overflow-x: auto; white-space: nowrap;}#ltc_table tbody {display: table; width: 100%;}#ltc_table th {font-size: 0.85rem; font-weight: 700; padding: 8px 24px; background-color: #f8f9fa; border-bottom: 1px solid #e2e4e7; text-align: left;}#ltc_table tr { background-color: #fff; }#ltc_table tr:hover { background-color: #ddd; }#ltc_table td {font-size: 0.75rem; font-weight: 400; padding: 15px 24px; margin-bottom: 10px; border-bottom: 1px solid #e2e4e7; text-align: left;}div#ltc_section_header {display: flex; flex-flow: row wrap; align-items: center; justify-content: space-between; margin: 0 0 15px 0;} div#ltc_section_header button {margin-right: 15px; line-height: 18px; padding-left: 10px;}</style>';
 
     if (isset($_GET['regenerate_csv']) && $_GET['regenerate_csv'] == 'true') {
 		$data = json_decode($json, true);
 		$fp = fopen($cfilename, 'w');
 		$header = false;
 
-		foreach ($data as $akey => $row) {
+		foreach ($data as $key => $row) {
 
 
 		    // don't need this data:
 		    unset($row['date_created']);
 		    unset($row['date_modified']);
+		    unset($row['date_created_gmt']);
+		    unset($row['date_modified_gmt']);
 		    unset($row['role']);
 		    unset($row['shipping']);
 		    unset($row['is_paying_customer']);
@@ -143,21 +174,6 @@ function jsonAPIToCSV($jfilename, $cfilename) {
 		    unset($row['_links']);
 		    unset($row['collection']);
 
-			// switch ( $akey ) {
-			// 	case 'date_created_gmt' :
-			// 		$header = 'Primo Accesso';
-			// 		break ;
-			// 	case 'date_modified_gmt' :
-			// 		$header = 'Ultimo Accesso';
-			// 		break ;
-			// 	case 'first_name' :
-			// 		$header = 'Nome';
-			// 		break ;
-			// 	case 'last_name' :
-			// 		$header = 'Cognome';
-			// 		break ;
-			// }
-
 			foreach ($row['billing'] as $key => $billing) {
 		    	$row['billing_'.$key] = $billing;
 			}
@@ -169,10 +185,9 @@ function jsonAPIToCSV($jfilename, $cfilename) {
 		        $header = array_keys($row);
 		        fputcsv($fp, $header);
 		        $header = array_flip($header);
+		        //print_r($header);
 		    }
-		    //print_r($header);
 		    fputcsv($fp, array_merge($header, $row));
-			//fputcsv($fp, $row);
 		}
 		fclose($fp);
 	}
@@ -229,15 +244,15 @@ function lts_settings_init(  ) {
 
 
 function lts_settings_section_callback(  ) { 
-
-	$csv_url =  get_site_url(null, '/wp-content/uploads/customer-data.csv', 'https');
+	global $csv_url;
+	$disabled = (isset($_GET['regenerate_csv']) && $_GET['regenerate_csv'] == 'true') ? '' : ' disabled';
 	echo '<div id="ltc_section_header">';
 	echo "<script>function GETcsv(){window.open('".$csv_url."');}</script>";
 	echo __( '<p>Da questa pagina è possibile eseguire il download della lista clienti e relativi dettagli in formato CSV, importabile in excel.</p>', 'woocommerce' );
 	echo '<div><input type="hidden" name="page" value="lts-export-clienti" />
 	<input type="hidden" name="regenerate_csv" value="true" />
-	<button type="submit" value="regenerate_csv" class="button button-large button-primary">1. Aggiorna Lista Clienti</button>
-	<button type="button" onclick="GETcsv()" class="button button-large button-primary">2. Download CSV</button></div>';
+	<button type="submit" value="regenerate_csv" class="button button-large button-primary dashicons-before dashicons-update">&nbsp;&nbsp;Aggiorna Lista Clienti</button>
+	<button'.$disabled.' type="button" onclick="GETcsv()" class="button button-large button-primary dashicons-before dashicons-download">&nbsp;&nbsp;Download CSV</button></div>';
 	echo '</div>';
 
 
@@ -245,6 +260,7 @@ function lts_settings_section_callback(  ) {
 
 
 function lts_options_page(  ) { 
+	global $api_url, $json_filename, $csv_filename, $csv_url;
 
 		?>
 		<form action='./admin.php' method='GET' name="gencsv" >
@@ -252,26 +268,9 @@ function lts_options_page(  ) {
 			settings_fields( 'pluginPage' );
 			do_settings_sections( 'pluginPage' );
 
-			// * prod
-			$ck='ck_949470a85574c84b7a3cc662ca8f58cd7c7b3679';
-			$cs='cs_faf8293e8b36f6e0b41d49db552a5057a061d9f8';
-			$api_url = 'https://www.agenziaviaggiltc.it/wp-json/wc/v3/customers?consumer_key='.$ck.'&consumer_secret='.$cs;
-
-
-			$response = wp_remote_get($api_url);
-			// $responseData = json_encode($response['body']);
-			$responseData = $response['body'];
-
-
-			// echo '$responseData: <pre>'; 
-			// print_r($responseData);
-			// echo '</pre>';
-			// curl_close($ch);
-			$json_filename = ABSPATH . 'wp-content/uploads/customer-data.json';
-			$csv_filename = ABSPATH . 'wp-content/uploads/customer-data.csv';
-			$csv_url =  get_site_url(null, '/wp-content/uploads/customer-data.csv', 'https');
-			file_put_contents($json_filename, $responseData);
-
+			global $api_url;
+			// retrieve data from API
+			retrieveAPIdata($api_url);
 
 			// convert to csv
 			jsonAPIToCSV($json_filename, $csv_filename);
