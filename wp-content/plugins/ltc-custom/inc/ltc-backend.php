@@ -110,7 +110,6 @@ function reduce_woocommerce_min_strength_requirement( $strength ) {
 add_filter( 'woocommerce_min_password_strength', 'reduce_woocommerce_min_strength_requirement' );
 
 
-
 // [ BACKEND ]
 // export utenti coi campi che ci servono a noi
 
