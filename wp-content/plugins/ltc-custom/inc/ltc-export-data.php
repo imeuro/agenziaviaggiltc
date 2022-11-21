@@ -1,13 +1,11 @@
 <?php 
 // [ BACKEND ]
 // export utenti coi campi che ci servono a noi
-if ( !defined('ABSPATH') )
-    define('ABSPATH', 'https://www.agenziaviaggiltc.it/');
 
 // * API prod (readonly)
 $ck='ck_949470a85574c84b7a3cc662ca8f58cd7c7b3679';
 $cs='cs_faf8293e8b36f6e0b41d49db552a5057a061d9f8';
-$api_url = ABSPATH . 'wp-json/wc/v3/customers?consumer_key='.$ck.'&consumer_secret='.$cs.'&orderby=id&order=desc&per_page=30';
+$api_url = 'https://www.agenziaviaggiltc.it/wp-json/wc/v3/customers?consumer_key='.$ck.'&consumer_secret='.$cs.'&orderby=id&order=desc&per_page=30';
 $json_filename = ABSPATH . 'wp-content/uploads/customer-data.json';
 $csv_filename = ABSPATH . 'wp-content/uploads/customer-data.csv';
 $csv_url =  'https://www.agenziaviaggiltc.it/wp-content/uploads/customer-data.csv';
