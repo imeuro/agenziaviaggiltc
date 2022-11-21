@@ -122,8 +122,8 @@ add_action( 'admin_enqueue_scripts', 'ltc_enqueue_css', 10 );
 add_action('LTC_daily_action', 'refreshCSV');
 function refreshCSV() {
 	global $api_url;
-	global $json_filename
-	global $csv_filename
+	global $json_filename;
+	global $csv_filename;
 	// retrieve data from API
 	retrieveAPIdata($api_url, true);
 	// convert to csv
@@ -190,8 +190,8 @@ function lts_options_page() {
 			do_settings_sections( 'pluginPage' );
 
 			global $api_url;
-			global $json_filename
-			global $csv_filename
+			global $json_filename;
+			global $csv_filename;
 
 			refreshCSV();
 
