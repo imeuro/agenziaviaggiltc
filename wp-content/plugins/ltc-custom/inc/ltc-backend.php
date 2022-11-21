@@ -117,6 +117,21 @@ add_action( 'admin_init', 'ltc_settings_init' );
 add_action( 'admin_enqueue_scripts', 'ltc_enqueue_css', 10 );
 
 
+
+
+add_action('LTC_daily_action', 'refreshCSV');
+function refreshCSV() {
+	// retrieve data from API
+	retrieveAPIdata($api_url, true);
+	// convert to csv
+	jsonAPIToCSV($json_filename, $csv_filename, true);
+}
+if ( ! wp_next_scheduled( 'LTC_daily_action' ) ) {
+    wp_schedule_event( time(), 'minutes_10', 'LTC_daily_action' );
+}
+
+
+
 function ltc_add_admin_menu(  ) { 
 
 	add_menu_page( 'Export Clienti', 'Export Clienti', 'manage_options', 'lts-export-clienti', 'lts_options_page', 'dashicons-database-export', 70 );
@@ -187,14 +202,3 @@ function lts_options_page() {
 
 }
 
-
-
-
-add_action('LTC_daily_action', 'refreshCSV');
-function refreshCSV() {
-	// retrieve data from API
-	retrieveAPIdata($api_url, true);
-	// convert to csv
-	jsonAPIToCSV($json_filename, $csv_filename, true);
-}
-wp_schedule_event( time(), 'minutes_10', 'LTC_daily_action' );
