@@ -114,4 +114,5 @@ include 'inc/ltc-frontend.php';
  * BACKEND ENHANCEMENTS *
  *****************************************/
 
+include 'inc/ltc-export-data.php';
 include 'inc/ltc-backend.php';

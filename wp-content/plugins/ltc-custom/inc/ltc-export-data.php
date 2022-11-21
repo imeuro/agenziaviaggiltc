@@ -1,24 +1,36 @@
 <?php 
 // [ BACKEND ]
 // export utenti coi campi che ci servono a noi
+if ( !defined('ABSURL') )
+    define('ABSURL', 'https://www.agenziaviaggiltc.it/');
 
 // * API prod (readonly)
 $ck='ck_949470a85574c84b7a3cc662ca8f58cd7c7b3679';
 $cs='cs_faf8293e8b36f6e0b41d49db552a5057a061d9f8';
-$api_url = 'https://www.agenziaviaggiltc.it/wp-json/wc/v3/customers?consumer_key='.$ck.'&consumer_secret='.$cs.'&orderby=id&order=desc&per_page=30';
-$json_filename = ABSPATH . 'wp-content/uploads/customer-data.json';
-$csv_filename = ABSPATH . 'wp-content/uploads/customer-data.csv';
-$csv_url =  'https://www.agenziaviaggiltc.it/wp-content/uploads/customer-data.csv';
+$api_url = ABSURL . 'wp-json/wc/v3/customers?consumer_key='.$ck.'&consumer_secret='.$cs.'&orderby=id&order=desc&per_page=30';
+$json_filename = ABSURL . 'wp-content/uploads/customer-data.json';
+$csv_filename = ABSURL . 'wp-content/uploads/customer-data.csv';
+$csv_url =  ABSURL . 'wp-content/uploads/customer-data.csv';
 
 
-function retrieveAPIdata($endpoint) {
+// retrieves max last 6000 clients
+// if not enough, raise that "20" in the for cycle
+
+function retrieveAPIdata($endpoint,$force_regenerate) {
 	global $json_filename, $csv_filename, $csv_url;
-	if (isset($_GET['regenerate_csv']) && $_GET['regenerate_csv'] == 'true') {
+	if (( isset($_GET['regenerate_csv']) && $_GET['regenerate_csv'] == 'true' ) || $force_regenerate === true) {
 		$responseBody='';
 		for($i = 1; $i < 20; $i++) {
-			$response = wp_remote_get($endpoint.'&page='.$i);
+			if (function_exists('wp_remote_get')) {
+				$response = wp_remote_get($endpoint.'&page='.$i);
+			} else {
+				$ch = curl_init($endpoint.'&page='.$i);
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+				$response = curl_exec($ch);
+				curl_close($ch);
+			}
 			$responseData = $response['body'];
-			//print_r($responseData);
+			print_r($responseData);
 			if ($responseData == "[]") {
 				break;
 			}
@@ -30,11 +42,11 @@ function retrieveAPIdata($endpoint) {
 	//print_r($responseBody);
 }
 
-function jsonAPIToCSV($jfilename, $cfilename) {
+function jsonAPIToCSV($jfilename, $cfilename, $force_regenerate) {
     if (($json = file_get_contents($jfilename)) == false)
         die('Error reading json file from '.$jfilename.'...');
 
-    if (isset($_GET['regenerate_csv']) && $_GET['regenerate_csv'] == 'true') {
+    if (( isset($_GET['regenerate_csv']) && $_GET['regenerate_csv'] == 'true' ) || $force_regenerate === true) {
 		$data = json_decode($json, true);
 		$fp = fopen($cfilename, 'w');
 		$header = false;
@@ -181,67 +193,13 @@ function csvPreview($cfilename) {
 }
 
 
-
-	global $api_url;
-	print_r($api_url);
+add_action('LTC_daily_action', 'refreshCSV');
+function refreshCSV() {
 	// retrieve data from API
-	retrieveAPIdata($api_url);
-
+	retrieveAPIdata($api_url, false);
 	// convert to csv
-	jsonAPIToCSV($json_filename, $csv_filename);
+	jsonAPIToCSV($json_filename, $csv_filename, false);
+}
+wp_schedule_event( time(), 'minutes_10', 'LTC_daily_action' );
 
-
- ?>
-
-<script>
-	
-	const key = '01ngKDBQUQUnkcy6QITwW9Gyek7sZq9G';
-
-
-$ck='ck_949470a85574c84b7a3cc662ca8f58cd7c7b3679';
-$cs='cs_faf8293e8b36f6e0b41d49db552a5057a061d9f8';
-https://www.agenziaviaggiltc.it/wp-json/wc/v3/customers?consumer_key=ck_949470a85574c84b7a3cc662ca8f58cd7c7b3679&consumer_secret=cs_faf8293e8b36f6e0b41d49db552a5057a061d9f8&orderby=id&order=desc&per_page=30
-
-
-// (async () => {
-//   const rawResponse = await fetch('http://api.squalomail.com/v1/', {
-//     method: 'POST',
-//     headers: {
-//       'Accept': 'application/json',
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(
-//     	{
-//     		a: 1,
-//     		b: 'Textual content'
-//     	}
-//     )
-//   });
-//   const content = await rawResponse.json();
-
-//   console.log(content);
-// })();
-
-
-
-// fetch("https://www.agenziaviaggiltc.it/wp-admin/options.php", {
-// "headers": {
-// "accept": "*/*",
-// "accept-language": "en-US,en;q=0.7",
-// "cache-control": "no-cache",
-// "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-// "pragma": "no-cache",
-// "sec-fetch-dest": "empty",
-// "sec-fetch-mode": "cors",
-// "sec-fetch-site": "same-origin",
-// "sec-gpc": "1",
-// "x-requested-with": "XMLHttpRequest"
-// },
-// "referrer": "https://www.agenziaviaggiltc.it/wp-admin/admin.php?page=squalomail-woocommerce",
-// "referrerPolicy": "strict-origin-when-cross-origin",
-// "body": "apikey="+key+"&squalomail_woocommerce_settings_hidden=Y&option_page=squalomail-woocommerce&action=update&_wpnonce=b0cc30d3bf&_wp_http_referer=%2Fwp-admin%2Fadmin.php%3Fpage%3Dsqualomail-woocommerce&squalomail-woocommerce%5Bsqualomail_active_tab%5D=sync&squalomail_active_settings_tab=store_sync&_resync-nonce=34ab38c566&_wp_http_referer=%2Fwp-admin%2Fadmin.php%3Fpage%3Dsqualomail-woocommerce&store_id=636cdfcbe4b95&account_id=6294&org=Agenzia+Viaggi+LTC&first_name_edited=&last_name_edited=&email=info%40agenziaviaggiltc.it&subject=&message=&squalomail_woocommerce_resync=1",
-// "method": "POST",
-// "mode": "cors",
-// "credentials": "include"
-// });
-</script>
+?>
