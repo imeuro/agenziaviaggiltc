@@ -161,6 +161,8 @@ function ltc_settings_init() {
 
 function lts_settings_section_callback() { 
 	global $csv_url;
+
+	date_default_timezone_set('Europe/Rome');
 	$nextRun = date('j M H:i', wp_next_scheduled( 'LTC_daily_action' ));
 	$disabled = (isset($_GET['regenerate_csv']) && $_GET['regenerate_csv'] == 'true') ? '' : ' disabled';
 	echo '<div id="ltc_section_header">';
