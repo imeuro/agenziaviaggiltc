@@ -55,7 +55,7 @@ echo "[Sync db] retrieving data from csv: $csv_filename <br>";
 
 $handle = fopen($csv_filename, "rb");
 $contents = stream_get_contents($handle);
-print_r($contents);
+// print_r($contents);
 $b64_contents = base64_encode($contents);
 // echo 'kjsnbfkwrjw_____<br>';
 echo "[Sync db] encoding content: <br>";

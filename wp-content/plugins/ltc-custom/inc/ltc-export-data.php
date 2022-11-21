@@ -183,14 +183,4 @@ function csvPreview($cfilename) {
 	}
 }
 
-
-add_action('LTC_daily_action', 'refreshCSV');
-function refreshCSV() {
-	// retrieve data from API
-	retrieveAPIdata($api_url, true);
-	// convert to csv
-	jsonAPIToCSV($json_filename, $csv_filename, true);
-}
-wp_schedule_event( time(), 'minutes_10', 'LTC_daily_action' );
-
 ?>
