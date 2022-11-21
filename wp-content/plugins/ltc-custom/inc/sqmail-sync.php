@@ -50,10 +50,10 @@ include './ltc-export-data.php';
 echo '[Sync db] starting sync...  <br>';
 echo "[Sync db] service url: $api_url <br> <br>";
 
-echo "[Sync db] retrieving data from csv: $csv_filename <br>";
+echo "[Sync db] retrieving data from csv: $csv_url <br>";
 
 
-$handle = fopen($csv_filename, "rb");
+$handle = fopen($csv_url, "rb");
 $contents = stream_get_contents($handle);
 // print_r($contents);
 $b64_contents = base64_encode($contents);
