@@ -21,14 +21,7 @@ function retrieveAPIdata($endpoint,$force_regenerate) {
 	if (( isset($_GET['regenerate_csv']) && $_GET['regenerate_csv'] == 'true' ) || $force_regenerate === true) {
 		$responseBody='';
 		for($i = 1; $i < 20; $i++) {
-			if (function_exists('wp_remote_get')) {
-				$response = wp_remote_get($endpoint.'&page='.$i);
-			} else {
-				$ch = curl_init($endpoint.'&page='.$i);
-				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-				$response = curl_exec($ch);
-				curl_close($ch);
-			}
+			$response = wp_remote_get($endpoint.'&page='.$i);
 			$responseData = $response['body'];
 			print_r($responseData);
 			if ($responseData == "[]") {
@@ -196,9 +189,9 @@ function csvPreview($cfilename) {
 add_action('LTC_daily_action', 'refreshCSV');
 function refreshCSV() {
 	// retrieve data from API
-	retrieveAPIdata($api_url, false);
+	retrieveAPIdata($api_url, true);
 	// convert to csv
-	jsonAPIToCSV($json_filename, $csv_filename, false);
+	jsonAPIToCSV($json_filename, $csv_filename, true);
 }
 wp_schedule_event( time(), 'minutes_10', 'LTC_daily_action' );
 
