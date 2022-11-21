@@ -1,16 +1,16 @@
 <?php 
 // [ BACKEND ]
 // export utenti coi campi che ci servono a noi
-if ( !defined('ABSURL') )
-    define('ABSURL', 'https://www.agenziaviaggiltc.it/');
+if ( !defined('ABSPATH') )
+    define('ABSPATH', 'https://www.agenziaviaggiltc.it/');
 
 // * API prod (readonly)
 $ck='ck_949470a85574c84b7a3cc662ca8f58cd7c7b3679';
 $cs='cs_faf8293e8b36f6e0b41d49db552a5057a061d9f8';
-$api_url = ABSURL . 'wp-json/wc/v3/customers?consumer_key='.$ck.'&consumer_secret='.$cs.'&orderby=id&order=desc&per_page=30';
-$json_filename = ABSURL . 'wp-content/uploads/customer-data.json';
-$csv_filename = ABSURL . 'wp-content/uploads/customer-data.csv';
-$csv_url =  ABSURL . 'wp-content/uploads/customer-data.csv';
+$api_url = ABSPATH . 'wp-json/wc/v3/customers?consumer_key='.$ck.'&consumer_secret='.$cs.'&orderby=id&order=desc&per_page=30';
+$json_filename = ABSPATH . 'wp-content/uploads/customer-data.json';
+$csv_filename = ABSPATH . 'wp-content/uploads/customer-data.csv';
+$csv_url =  'https://www.agenziaviaggiltc.it/wp-content/uploads/customer-data.csv';
 
 
 // retrieves max last 6000 clients
@@ -23,7 +23,7 @@ function retrieveAPIdata($endpoint,$force_regenerate) {
 		for($i = 1; $i < 20; $i++) {
 			$response = wp_remote_get($endpoint.'&page='.$i);
 			$responseData = $response['body'];
-			print_r($responseData);
+			//print_r($responseData);
 			if ($responseData == "[]") {
 				break;
 			}
