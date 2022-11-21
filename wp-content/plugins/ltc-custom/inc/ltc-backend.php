@@ -121,6 +121,7 @@ add_action( 'admin_enqueue_scripts', 'ltc_enqueue_css', 10 );
 
 add_action('LTC_daily_action', 'refreshCSV');
 function refreshCSV() {
+	global $api_url;
 	// retrieve data from API
 	retrieveAPIdata($api_url, true);
 	// convert to csv
