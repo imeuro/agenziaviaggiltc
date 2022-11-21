@@ -163,11 +163,11 @@ function lts_settings_section_callback() {
 	global $csv_url;
 
 	date_default_timezone_set('Europe/Rome');
-	$nextRun = date('j M H:i', wp_next_scheduled( 'LTC_daily_action' ));
+	$nextRun = date('j M alle H:i', wp_next_scheduled( 'LTC_daily_action' ));
 	$disabled = (isset($_GET['regenerate_csv']) && $_GET['regenerate_csv'] == 'true') ? '' : ' disabled';
 	echo '<div id="ltc_section_header">';
 	echo "<script>function GETcsv(){window.open('".$csv_url."');}</script>";
-	echo __( '<p class="page_spiega">Da questa pagina è possibile eseguire il download della lista clienti e relativi dettagli in formato CSV, importabile in excel.<br>Prossima generazione automatica: '.$nextRun.'</p>', 'woocommerce' );
+	echo __( '<p class="page_spiega">Da questa pagina è possibile eseguire il download della lista clienti e relativi dettagli in formato CSV, importabile in excel.<br><small>Prossima generazione automatica: '.$nextRun.'</small></p>', 'woocommerce' );
 	echo '<div class="page_agisci"><input type="hidden" name="page" value="lts-export-clienti" />
 	<input type="hidden" name="regenerate_csv" value="true" />
 	<button type="submit" value="regenerate_csv" class="button button-large button-primary dashicons-before dashicons-update">&nbsp;&nbsp;Aggiorna Lista Clienti</button>
