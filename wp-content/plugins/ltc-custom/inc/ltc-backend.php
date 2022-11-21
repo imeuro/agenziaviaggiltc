@@ -187,11 +187,14 @@ function lts_options_page() {
 			do_settings_sections( 'pluginPage' );
 
 			global $api_url;
-			// retrieve data from API
-			retrieveAPIdata($api_url, false);
 
-			// convert to csv
-			jsonAPIToCSV($json_filename, $csv_filename, false);
+			refreshCSV()
+			
+			// // retrieve data from API
+			// retrieveAPIdata($api_url, false);
+
+			// // convert to csv
+			// jsonAPIToCSV($json_filename, $csv_filename, false);
 
 			// display csv preview
 			csvPreview($csv_filename);
