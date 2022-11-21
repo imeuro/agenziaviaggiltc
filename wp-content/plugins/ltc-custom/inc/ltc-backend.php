@@ -188,8 +188,8 @@ function lts_options_page() {
 
 			global $api_url;
 
-			refreshCSV()
-			
+			refreshCSV();
+
 			// // retrieve data from API
 			// retrieveAPIdata($api_url, false);
 
