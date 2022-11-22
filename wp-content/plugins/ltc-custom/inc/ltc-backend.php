@@ -193,13 +193,13 @@ function lts_options_page() {
 			global $json_filename;
 			global $csv_filename;
 
-			refreshCSV();
+			// refreshCSV();
 
-			// // retrieve data from API
-			// retrieveAPIdata($api_url, false);
+			// retrieve data from API
+			retrieveAPIdata($api_url, false);
 
-			// // convert to csv
-			// jsonAPIToCSV($json_filename, $csv_filename, false);
+			// convert to csv
+			jsonAPIToCSV($json_filename, $csv_filename, false);
 
 			// display csv preview
 			csvPreview($csv_filename);
