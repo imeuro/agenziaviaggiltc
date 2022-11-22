@@ -82,7 +82,7 @@ function jsonAPIToCSV($jfilename, $cfilename, $force_regenerate) {
 			unset($row['first_name']);
 			$row['SESSO'] = $row['sex'];
 			unset($row['sex']);
-			$row['VIA'] = $row['billing_address_1'].' '.$row['billing_address_2'];
+			$row['INDIRIZZO'] = $row['billing_address_1'].' '.$row['billing_address_2'];
 			unset($row['billing_address_1']);
 			unset($row['billing_address_2']);
 			$row['CAP'] = $row['billing_postcode'];
