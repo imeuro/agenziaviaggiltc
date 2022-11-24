@@ -3,7 +3,7 @@
 // export utenti coi campi che ci servono a noi
 
 if ( !defined('ABSPATH') )
-    define('ABSPATH', dirname(__FILE__) . '/');
+    define('ABSPATH', '/var/www/vhosts/agenziaviaggiltc.it/httpdocs/');
 
 // * API prod (readonly)
 $ck='ck_949470a85574c84b7a3cc662ca8f58cd7c7b3679';
