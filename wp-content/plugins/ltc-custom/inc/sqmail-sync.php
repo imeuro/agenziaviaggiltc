@@ -45,6 +45,10 @@
 
 
 <?php 
+
+if ( !defined('ABSPATH') )
+    define('ABSPATH', '/var/www/vhosts/agenziaviaggiltc.it/httpdocs/');
+    
 include './ltc-export-data.php';
 
 echo '[Sync db] starting sync...  <br>';
