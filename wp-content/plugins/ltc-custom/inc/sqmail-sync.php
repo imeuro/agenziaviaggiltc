@@ -79,10 +79,10 @@ curl_setopt_array($curl, array(
   CURLOPT_CUSTOMREQUEST => 'POST',
   CURLOPT_POSTFIELDS =>'{
     "apiKey": "'.$SQMkey.'",
-    "autogenerateNames": "true",
+    "autogenerateNames": "false",
     "listIdsToAdd": ["1"],
     "overwriteData": "1",
-    "clearPreviousListIds": "true",
+    "clearPreviousListIds": "false",
     "importAsDisabled": "false",
     "base64EncodedFile": "'.$b64_contents.'"
 }',

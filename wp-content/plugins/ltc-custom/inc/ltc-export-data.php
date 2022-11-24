@@ -89,7 +89,7 @@ function jsonAPIToCSV($jfilename, $cfilename, $force_regenerate) {
 			unset($row['billing_postcode']);
 			$row['COMUNE'] = $row['billing_city'];
 			unset($row['billing_city']);
-			$row['PROVICIA'] = $row['billing_state'];
+			$row['PROVINCIA'] = $row['billing_state'];
 			unset($row['billing_state']);
 			$row['STATO'] = $row['billing_country'];
 			unset($row['billing_country']);
