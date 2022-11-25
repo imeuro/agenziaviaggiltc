@@ -72,7 +72,7 @@ function jsonAPIToCSV($jfilename, $cfilename, $force_regenerate) {
 
 
 		    //rename headers:
-			$row['ID'] = $row['id'];
+			$row['ID'] = $row['id_wordpress'];
 			unset($row['id']);
 			$row['MAIL'] = $row['email'];
 			unset($row['email']);

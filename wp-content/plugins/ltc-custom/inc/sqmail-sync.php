@@ -43,7 +43,6 @@
 </head>
 <body>
 
-
 <?php 
 
 if ( !defined('ABSPATH') )
@@ -54,56 +53,105 @@ include './ltc-export-data.php';
 echo '[Sync db] starting sync...  <br>';
 echo "[Sync db] service url: $api_url <br> <br>";
 
-echo "[Sync db] retrieving data from csv: $csv_filename <br>";
+
+if ($_GET['mode'] === 'FULL') {
+
+	// FULL IMPORT:
+
+	echo "[FULL IMPORT] retrieving data from csv: $csv_filename <br>";
+
+	$handle = fopen($csv_filename, "rb");
+	$contents = stream_get_contents($handle);
+	// print_r($contents);
+	$b64_contents = base64_encode($contents);
+	// echo 'kjsnbfkwrjw_____<br>';
+	echo "[FULL IMPORT] encoding content: <br>";
+	echo "<span id=\"b64c\">$b64_contents</span>";
+	fclose($handle);
+	echo "[FULL IMPORT] data encoded, calling API: <br>";
+
+	$SQMkey = '01ngKDBQUQUnkcy6QITwW9Gyek7sZq9G';
+
+	// API CALL
+	$curl = curl_init();
+	curl_setopt_array($curl, array(
+	  CURLOPT_URL => 'https://api.squalomail.com/v1/import-recipients-async',
+	  CURLOPT_RETURNTRANSFER => true,
+	  CURLOPT_ENCODING => '',
+	  CURLOPT_MAXREDIRS => 10,
+	  CURLOPT_TIMEOUT => 0,
+	  CURLOPT_FOLLOWLOCATION => true,
+	  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+	  CURLOPT_CUSTOMREQUEST => 'POST',
+	  CURLOPT_POSTFIELDS =>'{
+	    "apiKey": "'.$SQMkey.'",
+	    "autogenerateNames": "false",
+	    "listIdsToAdd": ["1"],
+	    "overwriteData": "1",
+	    "clearPreviousListIds": "false",
+	    "importAsDisabled": "false",
+	    "base64EncodedFile": "'.$b64_contents.'"
+	}',
+	  CURLOPT_HTTPHEADER => array(
+	    'Content-Type: application/json'
+	  ),
+	));
+
+	$response = curl_exec($curl);
+
+	curl_close($curl);
+	echo "[FULL IMPORT] operation ended, response : <br>";
+
+	print_r($response);
+	$jresponse = json_decode($response);
+	echo " <br> <br><b>http status: $jresponse->httpStatusCode</b> <br> <br>"
 
 
-$handle = fopen($csv_filename, "rb");
-$contents = stream_get_contents($handle);
-// print_r($contents);
-$b64_contents = base64_encode($contents);
-// echo 'kjsnbfkwrjw_____<br>';
-echo "[Sync db] encoding content: <br>";
-echo "<span id=\"b64c\">$b64_contents</span>";
-fclose($handle);
-echo "[Sync db] data encoded, calling API: <br>";
+} else {
 
-$SQMkey = '01ngKDBQUQUnkcy6QITwW9Gyek7sZq9G';
+	// SYNC ONLY
 
-// API CALL
-$curl = curl_init();
+	echo "[SYNC ONLY] retrieving data from json: $json_filename <br>";
 
-curl_setopt_array($curl, array(
-  CURLOPT_URL => 'https://api.squalomail.com/v1/import-recipients-async',
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => '',
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 0,
-  CURLOPT_FOLLOWLOCATION => true,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => 'POST',
-  CURLOPT_POSTFIELDS =>'{
-    "apiKey": "'.$SQMkey.'",
-    "autogenerateNames": "false",
-    "listIdsToAdd": ["1"],
-    "overwriteData": "1",
-    "clearPreviousListIds": "false",
-    "importAsDisabled": "false",
-    "base64EncodedFile": "'.$b64_contents.'"
-}',
-  CURLOPT_HTTPHEADER => array(
-    'Content-Type: application/json'
-  ),
-));
 
-$response = curl_exec($curl);
+	$handle = fopen($json_filename, "rb");
+	$contents = json_decode($handle);
+	// print_r($contents);
+	echo "[FULL IMPORT] encoding content: <br>";
+	echo "<span id=\"b64c\">$contents</span>";
+	fclose($handle);
 
-curl_close($curl);
-echo "[Sync db] sync operation ended, response : <br>";
 
-print_r($response);
-$jresponse = json_decode($response);
-echo " <br> <br><b>http status: $jresponse->httpStatusCode</b> <br> <br>"
- ?>
+	// CHECK USER BY 'id_wordpress'
+
+
+
+	// UPDATE EXISTING
+	// OR INSERT NEW
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
 
 
 </body>
