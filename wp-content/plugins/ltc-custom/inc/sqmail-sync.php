@@ -50,11 +50,39 @@ if ( !defined('ABSPATH') )
     
 include './ltc-export-data.php';
 
+$SQMkey = '01ngKDBQUQUnkcy6QITwW9Gyek7sZq9G';
+
+function sqm_APIcall($url,$type,$params) {
+	$curl = curl_init();
+	curl_setopt_array($curl, array(
+	  CURLOPT_URL => $url,
+	  CURLOPT_RETURNTRANSFER => true,
+	  CURLOPT_ENCODING => '',
+	  CURLOPT_MAXREDIRS => 10,
+	  CURLOPT_TIMEOUT => 0,
+	  CURLOPT_FOLLOWLOCATION => true,
+	  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+	  CURLOPT_CUSTOMREQUEST => $type,
+	  CURLOPT_POSTFIELDS => $params,
+	  CURLOPT_HTTPHEADER => array(
+	    'Content-Type: application/json'
+	  ),
+	));
+
+	$response = curl_exec($curl);
+	print_r($response);
+	return $response;
+	curl_close($curl);
+}
+
+
+
+
 echo '[Sync db] starting sync...  <br>';
 echo "[Sync db] service url: $api_url <br> <br>";
 
 
-if ($_GET['mode'] === 'FULL') {
+if ($_GET['mode'] && $_GET['mode'] === 'FULL') {
 
 	// FULL IMPORT:
 
@@ -64,13 +92,11 @@ if ($_GET['mode'] === 'FULL') {
 	$contents = stream_get_contents($handle);
 	// print_r($contents);
 	$b64_contents = base64_encode($contents);
-	// echo 'kjsnbfkwrjw_____<br>';
+
 	echo "[FULL IMPORT] encoding content: <br>";
 	echo "<span id=\"b64c\">$b64_contents</span>";
 	fclose($handle);
 	echo "[FULL IMPORT] data encoded, calling API: <br>";
-
-	$SQMkey = '01ngKDBQUQUnkcy6QITwW9Gyek7sZq9G';
 
 	// API CALL
 	$curl = curl_init();
@@ -104,7 +130,7 @@ if ($_GET['mode'] === 'FULL') {
 
 	print_r($response);
 	$jresponse = json_decode($response);
-	echo " <br> <br><b>http status: $jresponse->httpStatusCode</b> <br> <br>"
+	echo " <br> <br><b>http status: $jresponse->httpStatusCode</b> <br> <br>";
 
 
 } else {
@@ -113,21 +139,28 @@ if ($_GET['mode'] === 'FULL') {
 
 	echo "[SYNC ONLY] retrieving data from json: $json_filename <br>";
 
+	$contents = file_get_contents($json_filename);
+	$ARR_contents = json_decode($contents);
+	// print_r($ARR_contents);
+	echo "[SYNC ONLY] encoding content: <br>";
+	echo "<span id=\"b64c\">".$ARR_contents."</span>";
+	foreach ($ARR_contents as $recipient) {
+		$id_wp = $recipient->id;
+		echo '<br>___________<br>$recipient->id: '.$id_wp.'<br><br><br><br>';
+		// CHECK USER BY 'id_wordpress'
+		$callparams = '{
+			"apiKey": "'.$SQMkey.'",
+			"entity": "field",
+			"filter": "namekey==\"wordpress_id\"",
+		}';
+		$API_call = sqm_APIcall('https://api.squalomail.com/v1/get-data','POST',$callparams);
 
-	$handle = fopen($json_filename, "rb");
-	$contents = json_decode($handle);
-	// print_r($contents);
-	echo "[FULL IMPORT] encoding content: <br>";
-	echo "<span id=\"b64c\">$contents</span>";
-	fclose($handle);
+		die();
+		// UPDATE EXISTING
+		// OR INSERT NEW
 
 
-	// CHECK USER BY 'id_wordpress'
-
-
-
-	// UPDATE EXISTING
-	// OR INSERT NEW
+	}
 
 
 
