@@ -130,7 +130,7 @@ function refreshCSV() {
 	jsonAPIToCSV($json_filename, $csv_filename, true);
 }
 if ( ! wp_next_scheduled( 'LTC_daily_action' ) ) {
-    wp_schedule_event( time(), 'minutes_10', 'LTC_daily_action' );
+    wp_schedule_event( time(), 'daily', 'LTC_daily_action' );
 }
 
 
