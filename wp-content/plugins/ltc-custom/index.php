@@ -3,7 +3,7 @@
 * Plugin Name: 				LTC Ecommerce agenziaviaggi
 * Description: 				funzioni specifiche per l'ecommerce di agenziaviaggiLTC. Richiede i plugin woocommerce + product-code-for-woocommerce
 * Author: 					Meuro
-* Version: 					9
+* Version: 					11
 * Author URI: 				https://meuro.dev
 * License: 					GPLv3 or later
 * License URI:         		http://www.gnu.org/licenses/gpl-3.0.html
