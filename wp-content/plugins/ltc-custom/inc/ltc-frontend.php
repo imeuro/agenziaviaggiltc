@@ -4,25 +4,6 @@
  * FRONTEND ENHANCEMENTS *
  *****************************************/
 
-
-// [ FRONTEND ]
-// add cart items number in menu after "shop"
-/*
- add_filter( 'wp_nav_menu_items', 'add_loginout_link', 10, 2 );
-function add_loginout_link( $items, $args ) {
-	
-	if ( class_exists( 'WooCommerce' ) && ( !is_cart() && !is_checkout() ) ) {
-		$cart_items = WC()->cart->get_cart_contents_count();
-
-		if ( $args->theme_location == 'primary' && $cart_items > 0  ) {
-			$items .= '<li id="ltc_cart_qty"><a title="Hai ' . $cart_items . ' elementi nel carrello" href="'. get_site_url(null, '/cart/', 'https') .'">' . $cart_items . '</a></li>';
-		}
-
-	}
-    return $items;
-}
-*/
-
 // [ FRONTEND ]
 // remove jetpack Related Posts in woocommerce products page
 function jetpackme_remove_related() {
@@ -62,14 +43,50 @@ function remove_add_to_cart_buttons() {
 
 // [ FRONTEND ]
 // custom checkout fields
-add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields', 0, 999 );
 function custom_override_checkout_fields( $fields ) {
     $fields['billing']['billing_company']['label'] = 'Codice Fiscale';
     $fields['billing']['billing_company']['required'] = true;
     unset($fields['billing']['billing_address_2']);
-    
     return $fields;
 }
+
+// [ FRONTEND ]
+// Aggiungi acuni campi al checkout a seconda della categoria prodotto (es. vacanze-studio)
+
+function has_product_category_in_cart( $product_category ) {
+    foreach ( WC()->cart->get_cart() as $cart_item ) {
+        // If any product category is found in cart items
+        if ( has_term( $product_category, 'product_cat', $cart_item['product_id'] ) ) {
+            return true;
+        }
+    }
+    return false;
+}
+function startsWith ($string, $startString) {
+    $len = strlen($startString);
+    return (substr($string, 0, $len) === $startString);
+}
+
+
+add_action('woocommerce_checkout_fields', 'LTC_enable_custom_checkout_fields');
+
+function LTC_enable_custom_checkout_fields( $fields ) {
+	if ( has_product_category_in_cart( 'vacanze-studio' ) ) {
+		$additional_fields = get_option('wc_fields_additional');
+		if(is_array($additional_fields)){ //se ci sono campi aggiuntivi
+			foreach ($additional_fields as $addtlfld) {
+				if(startsWith($addtlfld['name'],"vacanzestudio_")) { // e se cominciano con ...
+					$addtlfld['enabled'] = 1;
+					array_push($fields['order'], $addtlfld);
+				}
+			}
+		}
+	}
+	return $fields;
+}
+
+
 
 // [ FRONTEND ]
 // prodotto obbligatoriamente con coupon ("convenzioni")
