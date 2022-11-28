@@ -52,7 +52,7 @@ include './ltc-export-data.php';
 
 $SQMkey = '01ngKDBQUQUnkcy6QITwW9Gyek7sZq9G';
 
-function sqm_APIcall($url,$type,$params) {
+function SQM_APIcall($url,$type,$params) {
 	$curl = curl_init();
 	curl_setopt_array($curl, array(
 	  CURLOPT_URL => $url,
@@ -70,7 +70,7 @@ function sqm_APIcall($url,$type,$params) {
 	));
 
 	$response = curl_exec($curl);
-	print_r($response);
+	//print_r($response);
 	return $response;
 	curl_close($curl);
 }
@@ -128,7 +128,7 @@ if ($_GET['mode'] && $_GET['mode'] === 'FULL') {
 	curl_close($curl);
 	echo "[FULL IMPORT] operation ended, response : <br>";
 
-	print_r($response);
+	//print_r($response);
 	$jresponse = json_decode($response);
 	echo " <br> <br><b>http status: $jresponse->httpStatusCode</b> <br> <br>";
 
@@ -137,51 +137,198 @@ if ($_GET['mode'] && $_GET['mode'] === 'FULL') {
 
 	// SYNC ONLY
 
+	// SI MA DOVEVO PRENDERE IL CSV MANNAGGIA
+
 	echo "[SYNC ONLY] retrieving data from json: $json_filename <br>";
 
-	$contents = file_get_contents($json_filename);
-	$ARR_contents = json_decode($contents);
-	// print_r($ARR_contents);
-	echo "[SYNC ONLY] encoding content: <br>";
-	echo "<span id=\"b64c\">".$ARR_contents."</span>";
-	foreach ($ARR_contents as $recipient) {
-		$id_wp = $recipient->id;
-		echo '<br>___________<br>$recipient->id: '.$id_wp.'<br><br><br><br>';
-		// CHECK USER BY 'id_wordpress'
-		$callparams = '{
-			"apiKey": "'.$SQMkey.'",
-			"entity": "field",
-			"filter": "namekey==\"wordpress_id\"",
-		}';
-		$API_call = sqm_APIcall('https://api.squalomail.com/v1/get-data','POST',$callparams);
+	$WP_contents = file_get_contents($json_filename);
+	$WP_recipientList = json_decode($WP_contents);
+	// echo "<br><pre>";
+	// print_r($WP_recipientList);
+	// echo "</pre><br>";
 
-		die();
-		// UPDATE EXISTING
-		// OR INSERT NEW
+	$SQM_params = '{
+		"apiKey": "'.$SQMkey.'",
+		"listId": 1
+	}';
+	$SQM_contents = SQM_APIcall('https://api.squalomail.com/v1/get-subscribed-recipients','POST',$SQM_params);
+	$SQM_contents = json_decode($SQM_contents);
+	$SQM_recipientList = $SQM_contents->recipientList;
 
+	// mi porto in root dell'array il wordpress_id che sta nei customAttributes di ogni recipient
+	// ammazzatevi tutti, comunque...
+	function searchForId($id, $obj) {
+		foreach ($obj as $key => $val) {
+			if ($val->name === $id) {
+				return $key;
+			}
+		}
+		return null;
+	}
+	foreach ($SQM_recipientList as $SQM_recipient) {
+		$SQM_recipient_wordpress_id = searchForId('wordpress_id', $SQM_recipient->customAttributes);
+		$SQM_recipient->WP_ID = $SQM_recipient->customAttributes[$SQM_recipient_wordpress_id]->value;
+		// echo "<br><pre>";
+		// print_r($SQM_recipient->WP_ID);
+		// echo "</pre><br>";
+	}
+	
+	// echo "<br><pre>";
+	// print_r($SQM_recipientList);
+	// echo "</pre><br>";
+
+	// die();
+
+	foreach ($WP_recipientList as $WPrecipient) {
+		$WP_id = $WPrecipient->id;
+
+		// CHECK IF USER WITH 'id_wordpress' ($WP_id) EXISTS and get its SQM_id
+		$SQM_user = array_column($SQM_recipientList, null, 'WP_ID')[$WP_id] ?? false;
+
+		if ($SQM_user !== false) {
+			$SQM_id = $SQM_user->id;
+			echo '<br>___________<br>$WPrecipient->id: '.$WP_id.' --->  '.$SQM_id;
+			// UPDATE EXISTING USER
+			// echo '<pre>';
+			// print_r($SQM_user);
+			// echo "</pre><br>";
+
+
+			$UPD_params = '{
+				"apiKey": "'.$SQMkey.'",
+				"id":'.$SQM_id.',
+				"accept":true,
+				"confirmed":true,
+				"customAttributes":[
+					{
+						"name":"codice_fiscale",
+						"value":"'.$WPrecipient->billing->company.'"
+					},
+					{
+						"name":"wordpress_id",
+						"value":'.$WPrecipient->id.'
+					},
+					{
+						"name":"indirizzo",
+						"value":"'.$WPrecipient->billing->address_1.' '.$WPrecipient->billing->address_2.'"
+					},
+					{
+						"name":"cap",
+						"value":"'.$WPrecipient->billing->postcode.'"
+					},
+					{
+						"name":"comune",
+						"value":"'.$WPrecipient->billing->city.'"
+					},
+					{
+						"name":"provincia",
+						"value":"'.$WPrecipient->billing->state.'"
+					},
+					{
+						"name":"stato",
+						"value":"'.$WPrecipient->billing->country.'"
+					}
+				],
+				"email":"'.$WPrecipient->email.'",
+				"enabled":true,
+				"html":true,
+				"listIds":[1],
+				"name":"'.$WPrecipient->first_name.'",
+        "surname": "'.$WPrecipient->last_name.'",
+        "phone": "'.$WPrecipient->billing->phone.'"
+			}';
+
+					// TODO:
+					// more customAttributes...
+
+					// {
+					// 	"name":"codice_sconto",
+					// 	"value":""
+					// },
+					// {
+					// 	"name":"acquisti",
+					// 	"value":''
+					// },
+					// {
+					// 	"name":"note",
+					// 	"value":""
+					// },
+					// {
+					// 	"name":"azienda",
+					// 	"value":""
+					// },
+					// {
+					// 	"name":"regione",
+					// 	"value":""
+					// }
+
+			print_r($UPD_params);
+			SQM_APIcall('https://api.squalomail.com/v1/update-recipient','POST',$UPD_params);
+
+		} else {
+			echo '<br>___________<br>$WPrecipient->id: '.$WP_id.' --->  non existent!!';
+			// INSERT AS NEW
+
+			$ADD_params = '{
+				"apiKey": "'.$SQMkey.'",
+				"accept":true,
+				"confirmed":true,
+				"customAttributes":[
+					{
+						"name":"codice_fiscale",
+						"value":"'.$WPrecipient->billing->company.'"
+					},
+					{
+						"name":"wordpress_id",
+						"value":'.$WPrecipient->id.'
+					},
+					{
+						"name":"indirizzo",
+						"value":"'.$WPrecipient->billing->address_1.' '.$WPrecipient->billing->address_2.'"
+					},
+					{
+						"name":"cap",
+						"value":"'.$WPrecipient->billing->postcode.'"
+					},
+					{
+						"name":"comune",
+						"value":"'.$WPrecipient->billing->city.'"
+					},
+					{
+						"name":"provincia",
+						"value":"'.$WPrecipient->billing->state.'"
+					},
+					{
+						"name":"stato",
+						"value":"'.$WPrecipient->billing->country.'"
+					}
+				],
+				"email":"'.$WPrecipient->email.'",
+				"enabled":true,
+				"html":true,
+				"listIds":[1],
+				"name":"'.$WPrecipient->first_name.'",
+        "surname": "'.$WPrecipient->last_name.'",
+        "phone": "'.$WPrecipient->billing->phone.'",
+        "gdprCanSend": true,
+        "gdprCanTrack": true
+			}';
+
+
+			SQM_APIcall('https://api.squalomail.com/v1/create-recipient','POST',$ADD_params);
+
+
+
+
+		}
+		
+		usleep(0.25);
 
 	}
 
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ?>
