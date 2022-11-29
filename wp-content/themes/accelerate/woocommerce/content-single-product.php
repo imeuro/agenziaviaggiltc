@@ -32,20 +32,27 @@ if ( post_password_required() ) {
 }
 ?>
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
+	<?php 
+	$pcats = $product->category_ids;
 
-	<div class="ltc-product-intro">
+	if ( in_array( 85, $pcats ) ) :
+	// se è biglietti-gardaland...
+	?>
+		<div class="ltc-product-intro">
 
-		<b>ACCEDI AL LUOGO PIÙ MAGICO D’ITALIA IN POCHI SEMPLICI PASSAGGI:</b>
-		<ul>
-			<li>Inserisci nel carrello il n° di biglietti che desideri</li>
-			<li>Se hai una convenzione applica il codice sconto a te dedicato</li>
-			<li>Inserisci i dati necessari per la registrazione (i biglietti non sono nominativi).<br>
-			Se usufruisci di una convenzione, i dati da inserire devono necessariamente essere del convenzionato.</li>
-			<li>Prosegui con il pagamento tramite carta o bonifico (se il pagamento viene effettuato con bonifico, è necessario inviare copia a <a href="mailto:booking@agenziaviaggiltc.it">booking@agenziaviaggiltc.it</a>)</li>
-			<li>I biglietti saranno inviati all'indirizzo mail inserito in fase di registrazione entro 1 ora dal ricevimento del pagamento con carta o entro 24 ore dal ricevimento del bonifico.</li>
-		</ul>
-		<p>Per qualsiasi informazione contattaci al numero: 02 3300 2117, su WhatsApp: 375 561 6651 o tramite e-mail: <a href="mailto:booking@agenziaviaggiltc.it">booking@agenziaviaggiltc.it</a></p>
-	</div>
+			<b>ACCEDI AL LUOGO PIÙ MAGICO D’ITALIA IN POCHI SEMPLICI PASSAGGI:</b>
+			<ul>
+				<li>Inserisci nel carrello il n° di biglietti che desideri</li>
+				<li>Se hai una convenzione applica il codice sconto a te dedicato</li>
+				<li>Inserisci i dati necessari per la registrazione (i biglietti non sono nominativi).<br>
+				Se usufruisci di una convenzione, i dati da inserire devono necessariamente essere del convenzionato.</li>
+				<li>Prosegui con il pagamento tramite carta o bonifico (se il pagamento viene effettuato con bonifico, è necessario inviare copia a <a href="mailto:booking@agenziaviaggiltc.it">booking@agenziaviaggiltc.it</a>)</li>
+				<li>I biglietti saranno inviati all'indirizzo mail inserito in fase di registrazione entro 1 ora dal ricevimento del pagamento con carta o entro 24 ore dal ricevimento del bonifico.</li>
+			</ul>
+			<p>Per qualsiasi informazione contattaci al numero: 02 3300 2117, su WhatsApp: 375 561 6651 o tramite e-mail: <a href="mailto:booking@agenziaviaggiltc.it">booking@agenziaviaggiltc.it</a></p>
+		</div>`;
+	<?php endif; ?>
+
 	<?php
 	/**
 	 * Hook: woocommerce_before_single_product_summary.
