@@ -72,17 +72,28 @@ function startsWith ($string, $startString) {
 add_action('woocommerce_checkout_fields', 'LTC_enable_custom_checkout_fields');
 
 function LTC_enable_custom_checkout_fields( $fields ) {
-	if ( has_product_category_in_cart( 'vacanze-studio' ) ) {
-		$additional_fields = get_option('wc_fields_additional');
-		if(is_array($additional_fields)){ //se ci sono campi aggiuntivi
-			foreach ($additional_fields as $addtlfld) {
-				if(startsWith($addtlfld['name'],"vacanzestudio_")) { // e se cominciano con ...
-					$addtlfld['enabled'] = 1;
-					array_push($fields['order'], $addtlfld);
-				}
+	$additional_fields = get_option('wc_fields_additional');
+	
+	$isEnabled = ( has_product_category_in_cart( array('vacanze-studio','form-lungo') ) ) ? 1 : 0;
+
+	if(is_array($additional_fields)){ //se ci sono campi aggiuntivi
+		foreach ($additional_fields as $addtlkey => $addtlfld) {
+			if(startsWith($addtlkey,"vacanzestudio_")) { // e se cominciano con ...
+				$addtlfld['enabled'] = $isEnabled;
+				$fields['order'][$addtlkey] = $addtlfld;
 			}
 		}
 	}
+
+	// comunque mettimi le note in fondo
+	$fields['order']['order_comments']['enabled'] = 1;
+	$fields['order']['order_comments']['priority'] = 999;
+	THWCFD_Utils::update_fields('additional', $fields['order']);
+
+	// echo '<pre>';
+	// print_r($fields['order']);
+	// echo '</pre>';
+
 	return $fields;
 }
 
