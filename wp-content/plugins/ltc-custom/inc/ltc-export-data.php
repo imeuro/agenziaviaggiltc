@@ -1,8 +1,8 @@
 <?php 
 // [ BACKEND ]
 // export utenti coi campi che ci servono a noi
-if ($_SERVER['SERVER_NAME'] == 'www.agenziaviaggiltc.it/') :
-	$ABSURL = 'https://www.agenziaviaggiltc.it';
+if ($_SERVER['SERVER_NAME'] == 'www.agenziaviaggiltc.it') :
+	$ABSURL = 'https://www.agenziaviaggiltc.it/';
 	$ABSPATH = ABSPATH;
 elseif ($_SERVER['SERVER_NAME'] == 'meuro.dev') :
 	$ABSURL = 'https://meuro.dev/agenziaviaggiltc/';
