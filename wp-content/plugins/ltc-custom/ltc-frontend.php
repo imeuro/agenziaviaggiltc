@@ -4,25 +4,6 @@
  * FRONTEND ENHANCEMENTS *
  *****************************************/
 
-
-// [ FRONTEND ]
-// add cart items number in menu after "shop"
-/*
- add_filter( 'wp_nav_menu_items', 'add_loginout_link', 10, 2 );
-function add_loginout_link( $items, $args ) {
-	
-	if ( class_exists( 'WooCommerce' ) && ( !is_cart() && !is_checkout() ) ) {
-		$cart_items = WC()->cart->get_cart_contents_count();
-
-		if ( $args->theme_location == 'primary' && $cart_items > 0  ) {
-			$items .= '<li id="ltc_cart_qty"><a title="Hai ' . $cart_items . ' elementi nel carrello" href="'. get_site_url(null, '/cart/', 'https') .'">' . $cart_items . '</a></li>';
-		}
-
-	}
-    return $items;
-}
-*/
-
 // [ FRONTEND ]
 // remove jetpack Related Posts in woocommerce products page
 function jetpackme_remove_related() {
@@ -62,14 +43,45 @@ function remove_add_to_cart_buttons() {
 
 // [ FRONTEND ]
 // custom checkout fields
-add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields', 0, 999 );
 function custom_override_checkout_fields( $fields ) {
     $fields['billing']['billing_company']['label'] = 'Codice Fiscale';
     $fields['billing']['billing_company']['required'] = true;
     unset($fields['billing']['billing_address_2']);
-    
     return $fields;
 }
+
+// [ FRONTEND ]
+// Aggiungi acuni campi al checkout a seconda della categoria prodotto (es. vacanze-studio)
+add_action('woocommerce_checkout_fields', 'LTC_enable_custom_checkout_fields');
+
+function LTC_enable_custom_checkout_fields( $fields ) {
+	$additional_fields = get_option('wc_fields_additional');
+	
+	$isEnabled = ( has_product_category_in_cart( array('vacanze-studio','longform') ) ) ? 1 : 0;
+
+	if(is_array($additional_fields)){ //se ci sono campi aggiuntivi
+		foreach ($additional_fields as $addtlkey => $addtlfld) {
+			if(startsWith($addtlkey,"vacanzestudio_")) { // e se cominciano con ...
+				$addtlfld['enabled'] = $isEnabled;
+				$fields['order'][$addtlkey] = $addtlfld;
+			}
+		}
+	}
+
+	// comunque mettimi le note in fondo
+	$fields['order']['order_comments']['enabled'] = 1;
+	$fields['order']['order_comments']['priority'] = 999;
+	THWCFD_Utils::update_fields('additional', $fields['order']);
+
+	// echo '<pre>';
+	// print_r($fields['order']);
+	// echo '</pre>';
+
+	return $fields;
+}
+
+
 
 // [ FRONTEND ]
 // prodotto obbligatoriamente con coupon ("convenzioni")

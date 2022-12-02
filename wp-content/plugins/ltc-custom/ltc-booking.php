@@ -181,3 +181,19 @@ function respawn_tickets( $order_id ) {
 
 
 }
+
+
+
+
+
+
+// [ BOOKING ]
+// aggiunge meta data se l'ordine contiene item in categoria "vacanze studio" o "longform" 
+// array('vacanze-studio','longform')
+// mi serve poi per export dati...
+add_action('woocommerce_checkout_create_order', 'add_flag_to_order', 20, 2);
+function add_flag_to_order( $order, $data ) {
+	if ( has_product_category_in_cart( array('vacanze-studio','longform') ) ) :
+    	$order->update_meta_data( '_Order_Flag', 'longform' );
+    endif;
+}
