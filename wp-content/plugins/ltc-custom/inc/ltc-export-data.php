@@ -1,14 +1,21 @@
 <?php 
 // [ BACKEND ]
 // export utenti coi campi che ci servono a noi
+if ($_SERVER['SERVER_NAME'] == 'www.agenziaviaggiltc.it/') :
+	$ABSURL = 'https://www.agenziaviaggiltc.it';
+	$ABSPATH = ABSPATH;
+elseif ($_SERVER['SERVER_NAME'] == 'meuro.dev') :
+	$ABSURL = 'https://meuro.dev/agenziaviaggiltc/';
+	$ABSPATH = '/home/pi/www_root/agenziaviaggiltc/';
+endif;
 
 // * API prod (readonly)
 $ck='ck_949470a85574c84b7a3cc662ca8f58cd7c7b3679';
 $cs='cs_faf8293e8b36f6e0b41d49db552a5057a061d9f8';
-$api_url = 'https://www.agenziaviaggiltc.it/wp-json/wc/v3/customers?consumer_key='.$ck.'&consumer_secret='.$cs.'&orderby=id&order=desc&per_page=30';
-$json_filename = ABSPATH . 'wp-content/uploads/customer-data.json';
-$csv_filename = ABSPATH . 'wp-content/uploads/customer-data.csv';
-$csv_url =  'https://www.agenziaviaggiltc.it/wp-content/uploads/customer-data.csv';
+$api_url = $ABSURL . 'wp-json/wc/v3/customers?consumer_key='.$ck.'&consumer_secret='.$cs.'&orderby=id&order=desc&per_page=30';
+$json_filename = $ABSPATH . 'wp-content/uploads/customer-data.json';
+$csv_filename = $ABSPATH . 'wp-content/uploads/customer-data.csv';
+$csv_url =  $ABSURL . 'wp-content/uploads/customer-data.csv';
 
 
 // retrieves max last 6000 clients
@@ -42,6 +49,54 @@ function jsonAPIToCSV($jfilename, $cfilename, $force_regenerate) {
 		$fp = fopen($cfilename, 'w');
 		$header = false;
 
+		// qui devo ciclare, in tutti gli ordini del sito, i metadata e vedere quelli che cominciano con "vacanzestudio", in modo da poter predisporre una colonna per ogni campo del form
+		// !! : forse posso fare query per ordini con uno specifico metadata che mi indicano presenza di "form lungo"
+
+		$HeadersList = [];
+		$loop = new WP_Query( array(
+			'post_type'         => 'shop_order',
+			'post_status'       =>  array_keys( wc_get_order_statuses() ),
+			'posts_per_page'    => -1,
+			'meta_key' 			=> '_Order_Flag',
+			'meta_value' 		=> 'longform',
+		) );
+
+		// The Wordpress post loop
+		if ( $loop->have_posts() ): 
+			while ( $loop->have_posts() ) : 
+				$loop->the_post();
+
+				// The order ID
+				$order_id = $loop->post->ID;
+
+				// Get an instance of the WC_Order Object
+				$order = wc_get_order($loop->post->ID);
+
+				foreach( $order->get_meta_data() as $meta_data_obj ) {
+					$meta_data_array = $meta_data_obj->get_data();
+
+					$meta_key   = $meta_data_array['key']; // The meta key
+					$meta_value = $meta_data_array['value']; // The meta value
+					if ( startsWith($meta_key,'vacanzestudio_') ) {
+						$HeadersList[] = $meta_data_array['key'];
+					}
+				}
+
+			endwhile;
+
+		wp_reset_postdata();
+
+		endif;
+
+
+		// ...
+		// mi tiro fuori un array ($HeadersList) , e poi passo a creare le $row (da riga ~115) così ottengo le intestazioni della colonna
+		
+		// echo "<pre>ooo";
+		// print_r($HeadersList);
+		// echo "</pre>";
+		// die();
+
 
 		foreach ($data as $key => $row) {
 
@@ -69,7 +124,6 @@ function jsonAPIToCSV($jfilename, $cfilename, $force_regenerate) {
 				$row['billing_'.$key] = $billing;
 			}
 			unset($row['billing']);
-
 
 		    //rename headers:
 			$row['ID'] = $row['id'];
@@ -104,27 +158,37 @@ function jsonAPIToCSV($jfilename, $cfilename, $force_regenerate) {
 			$customer_orders = get_posts(array(
 				'numberposts' => -1,
 				'meta_key' => '_customer_user',
-				// 'orderby' => 'date',
-				// 'order' => 'DESC',
 				'meta_value' => $row['ID'],
 				'post_type' => 'shop_order',
 				'post_status'    => 'completed'
-				//'post_status' => array_keys(wc_get_order_statuses()), 'post_status' => array('wc-processing'),
 		    ));
 		    $orders_count = count($customer_orders);
 		    $coupons = [];
+		    $questionario = [];
 
 			foreach($customer_orders as $order) :
 				$orderID = $order->ID;
 				$order = wc_get_order( $orderID );
 
+				// coupons
 				if( $order->get_used_coupons() ) {
 					$coupons_count = count( $order->get_used_coupons() );
 					$i = 1;
 					foreach( $order->get_used_coupons() as $coupon) {
 					    $coupons[] = $coupon;
 					}
-				}	
+				}
+				// additional data
+				if ( sizeof( $order->get_items() ) > 0 ) {
+					foreach( $order->get_items() as $item ) {						
+
+						$fullmeta = get_post_meta( $order->get_id());
+						$questionario = array_filter($fullmeta, function($key) {
+							return strpos($key, 'vacanzestudio_') === 0;
+						}, ARRAY_FILTER_USE_KEY);
+
+					}
+				}
 			endforeach;
 
 			$unique_coupons = array_unique($coupons);
@@ -140,22 +204,43 @@ function jsonAPIToCSV($jfilename, $cfilename, $force_regenerate) {
 
 			$row['ACQUISTI'] = $orders_count;
 
-			$row['NOTE'] = $row['order_notes'];
-			unset($row['order_notes']);
+			// comunque creo le colonne per i dati del longform
+			foreach ($HeadersList as $heading) {
+				$humanheading = strtoupper(str_replace('_',' ',$heading));
+				$row[$humanheading] = ' - ';
+			}
+			$qval = ' - ';
+			// poi se sono valorizzate, sovrascrivo il ' - ' con il valore
+			if(!empty($questionario)) {
+				$questionarii = '';
+				foreach($questionario as $key => $value) :
+					$humankey = strtoupper(str_replace('_',' ',$key));
+					$qval = $value[0];
+					$row[$humankey] = $qval;
+				endforeach;	
+			}
+			// unset($row[$key]);
 
 
 
+			// ste stronze non ne vogliono sapere proprio... 
+			$row['NOTE'] = $row['customer_notes'];
+			unset($row['customer_notes']);
 
 
 			// echo '$header: '.$header;
-		    if (empty($header)) {
-		        $header = array_keys($row);
-		        fputcsv($fp, $header);
-		        $header = array_flip($header);
-		        //print_r($header);
-		    }
+			if (empty($header)) {
+			    $header = array_keys($row);
+			    fputcsv($fp, $header);
+			    $header = array_flip($header);
+			    // echo '<pre>qqq';
+			    // print_r($header);
+			    // echo '</pre>';
+			}
+		    
 		    fputcsv($fp, array_merge($header, $row));
 		}
+
 		fclose($fp);
 	}
     return;

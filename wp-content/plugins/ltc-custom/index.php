@@ -87,6 +87,21 @@ function unique_multidim_array($array, $key) {
     return $temp_array;
 }
 
+// i try to give self explanatory function names :P
+function has_product_category_in_cart( $product_category ) {
+    foreach ( WC()->cart->get_cart() as $cart_item ) {
+        // If any product category is found in cart items
+        if ( has_term( $product_category, 'product_cat', $cart_item['product_id'] ) ) {
+            return true;
+        }
+    }
+    return false;
+}
+// if string starts with
+function startsWith ($string, $startString) {
+    $len = strlen($startString);
+    return (substr($string, 0, $len) === $startString);
+}
 
 
 /*****************************************

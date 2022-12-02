@@ -53,28 +53,12 @@ function custom_override_checkout_fields( $fields ) {
 
 // [ FRONTEND ]
 // Aggiungi acuni campi al checkout a seconda della categoria prodotto (es. vacanze-studio)
-
-function has_product_category_in_cart( $product_category ) {
-    foreach ( WC()->cart->get_cart() as $cart_item ) {
-        // If any product category is found in cart items
-        if ( has_term( $product_category, 'product_cat', $cart_item['product_id'] ) ) {
-            return true;
-        }
-    }
-    return false;
-}
-function startsWith ($string, $startString) {
-    $len = strlen($startString);
-    return (substr($string, 0, $len) === $startString);
-}
-
-
 add_action('woocommerce_checkout_fields', 'LTC_enable_custom_checkout_fields');
 
 function LTC_enable_custom_checkout_fields( $fields ) {
 	$additional_fields = get_option('wc_fields_additional');
 	
-	$isEnabled = ( has_product_category_in_cart( array('vacanze-studio','form-lungo') ) ) ? 1 : 0;
+	$isEnabled = ( has_product_category_in_cart( array('vacanze-studio','longform') ) ) ? 1 : 0;
 
 	if(is_array($additional_fields)){ //se ci sono campi aggiuntivi
 		foreach ($additional_fields as $addtlkey => $addtlfld) {
