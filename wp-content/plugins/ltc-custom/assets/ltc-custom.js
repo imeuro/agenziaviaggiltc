@@ -10,13 +10,13 @@ addEventListener("DOMContentLoaded", (event) => {
 		let rawFormHeadings = FormHeadings.innerHTML;
 
 		var result = rawFormHeadings.replace('<div class="form-row ltc_small_heading', 'PLACEHOLDER')
-	          .replace(/\<div class="form-row ltc_small_heading/g, '<div class="slide-new"><div class="form-row ltc_small_heading')
+	          .replace(/\<div class="form-row ltc_small_heading/g, '<div class="checkoutSlides-new"><div class="form-row ltc_small_heading')
 	          .replace('PLACEHOLDER', '<div class="form-row ltc_small_heading');
 
 	    console.debug(result);
 	    FormHeadings.innerHTML = result;
 
-	    let muvit = document.querySelector('.slide-new');
+	    let muvit = document.querySelector('.checkoutSlides-new');
 	    // lo wrappo in un div pero'
 	    var w_muvit = document.createElement('div');
 		// insert wrapper before muvit in the DOM tree
@@ -28,8 +28,8 @@ addEventListener("DOMContentLoaded", (event) => {
 
 
 	    _formContainer = document.getElementById('customer_details');
-		_formContainer.parentNode.classList.add('slider');
-		_formContainer.classList = 'slides';
+		_formContainer.parentNode.classList.add('checkoutSlider');
+		_formContainer.classList = 'checkoutSlides';
 
 		let formNav = document.createElement('nav');
 		formNav.classList = 'form-navigation';

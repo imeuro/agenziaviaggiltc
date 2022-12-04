@@ -1,5 +1,5 @@
 
-.slider {
+.checkoutSlider {
   width: 100%;
   text-align: center;
 }
@@ -16,7 +16,7 @@ nav.form-navigation:before {
     color: #0e4a92;
 }
 
-.slides {
+.checkoutSlides {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -25,18 +25,18 @@ nav.form-navigation:before {
   margin-bottom: 40px;
   
 }
-.slides::-webkit-scrollbar {
+.checkoutSlides::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
-.slides::-webkit-scrollbar-thumb {
-  background: black;
+.checkoutSlides::-webkit-scrollbar-thumb {
+  background: #ccc;
   border-radius: 10px;
 }
-.slides::-webkit-scrollbar-track {
+.checkoutSlides::-webkit-scrollbar-track {
   background: transparent;
 }
-.slides > div {
+.checkoutSlides > div {
   scroll-snap-align: start;
   flex-shrink: 0;
   width: 90%;
@@ -57,23 +57,23 @@ nav.form-navigation:before {
   align-items: flex-start;
   font-size: 100px;
 }
-.slides > div:target {
+.checkoutSlides > div:target {
 /*   transform: scale(0.8); */
 }
-.slide-new {
+.checkoutSlides-new {
 	max-width: 480px;
     width: auto;
 }
 
-.slides input[type="text"], 
-.slides input[type="email"], 
-.slides input[type="password"], 
-.slides input[type="tel"], 
-.slides textarea {
+.checkoutSlides input[type="text"], 
+.checkoutSlides input[type="email"], 
+.checkoutSlides input[type="password"], 
+.checkoutSlides input[type="tel"], 
+.checkoutSlides textarea {
 	background: #fff;
 }
 
-.slider .form-navigation > a {
+.checkoutSlider .form-navigation > a {
   display: inline-flex;
   width: 40px;
   height: 40px;
@@ -87,16 +87,16 @@ nav.form-navigation:before {
   margin: 0 10px;
   position: relative;
 }
-.slider .form-navigation > a.active,
-.slider .form-navigation > a:active,
-.slider .form-navigation > a:focus {
+.checkoutSlider .form-navigation > a.active,
+.checkoutSlider .form-navigation > a:active,
+.checkoutSlider .form-navigation > a:focus {
   background: #0e4a92;
   color: #fff;
 }
 
 /* Don't need button navigation
 @supports (scroll-snap-type) {
-  .slider .form-navigation > a {
+  .checkoutSlider .form-navigation > a {
     display: none;
   }
 }*/
