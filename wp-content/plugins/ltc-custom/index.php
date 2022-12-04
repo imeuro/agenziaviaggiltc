@@ -1,9 +1,9 @@
 <?php
 /*
 * Plugin Name: 				LTC Ecommerce agenziaviaggi
-* Description: 				funzioni specifiche per l'ecommerce di agenziaviaggiLTC. Richiede i plugin woocommerce + product-code-for-woocommerce
+* Description: 				funzioni specifiche per l'ecommerce di agenziaviaggiLTC. Richiede i plugin "Woocommerce", "Product code for Woocommerce", "Checkout Field Editor for WooCommerce", "Viva Wallet Standard Checkout" 
 * Author: 					Meuro
-* Version: 					11
+* Version: 					12
 * Author URI: 				https://meuro.dev
 * License: 					GPLv3 or later
 * License URI:         		http://www.gnu.org/licenses/gpl-3.0.html
@@ -31,7 +31,13 @@ define( 'PLUGIN_DIR', dirname(__FILE__).'/' );
 defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
 // check for plugin using plugin name
-if(in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins'))) && in_array('product-code-for-woocommerce/product-code-for-woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) { 
+if(
+	in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins'))) && 
+	in_array('product-code-for-woocommerce/product-code-for-woocommerce.php', apply_filters('active_plugins', get_option('active_plugins'))) &&
+	in_array('woo-checkout-field-editor-pro/checkout-form-designer.php', apply_filters('active_plugins', get_option('active_plugins'))) &&
+	in_array('viva-wallet-for-woocommerce/woocommerce-vivawallet-gateway.php', apply_filters('active_plugins', get_option('active_plugins')))
+
+) { 
 		//... you did good!
 } else {
 	function check_necessary_plugin_notice() {
@@ -40,7 +46,7 @@ if(in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_o
 		<p>
 			<?php
 			printf(
-				esc_html__( 'ATTENZIONE: Il plugin "Ecommerce agenziaviaggiLTC" necessita che "Woocommerce" e "Product code for Woocommerce" siano installati e attivati', 'ecommerce-ltc' )
+				esc_html__( 'ATTENZIONE: Il plugin "Ecommerce agenziaviaggiLTC" necessita "Woocommerce", "Product code for Woocommerce", "Checkout Field Editor for WooCommerce", "Viva Wallet Standard Checkout" siano installati e attivati', 'ecommerce-ltc' )
 			);
 			?>
 		</p>
@@ -131,3 +137,11 @@ include 'inc/ltc-frontend.php';
 
 include 'inc/ltc-export-data.php';
 include 'inc/ltc-backend.php';
+
+
+function LTC_load_scripts($hook) {
+	$LTC_js_ver  = date("ymd-Gis", filemtime( plugin_dir_path( __FILE__ ) . 'assets/ltc-custom.js' ));
+	wp_enqueue_script( 'custom_js', plugins_url( 'assets/ltc-custom.js', __FILE__ ), array(), $LTC_js_ver );
+	wp_enqueue_style('ltc-custom-css', plugins_url('assets/ltc-custom.css',__FILE__));
+}
+add_action('wp_enqueue_scripts', 'LTC_load_scripts', 10);

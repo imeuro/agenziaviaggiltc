@@ -115,6 +115,27 @@ function mandatory_coupon_for_specific_items() {
 
 
 // [ FRONTEND ]
+// tipo di pagamento in base a categoria prodotto
+add_filter('woocommerce_available_payment_gateways', 'conditional_payment_gateways', 10, 1);
+function conditional_payment_gateways( $available_gateways ) {
+    // Not in backend (admin)
+    if( is_admin() ) 
+        return $available_gateways;
+
+    $isBACSonly = ( has_product_category_in_cart( array('vacanze-studio','longform') ) ) ? 1 : 0;
+
+    // Remove Vivawallet (vivawallet_native) payment gateway for these products
+    if($isBACSonly)
+        unset($available_gateways['vivawallet_native']); // unset 'vivawallet_native'
+    // Remove Bank wire (Bacs) payment gateway for subscription products
+    // if($prod_subscription)
+    //     unset($available_gateways['bacs']); // unset 'bacs'
+
+    return $available_gateways;
+}
+
+
+// [ FRONTEND ]
 /* custom translation file:
  * Replace 'textdomain' with your plugin's textdomain. e.g. 'woocommerce'. 
  * File to be named, for example, yourtranslationfile-en_GB.mo

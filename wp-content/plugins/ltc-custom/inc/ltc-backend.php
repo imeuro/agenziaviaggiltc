@@ -142,9 +142,8 @@ function ltc_add_admin_menu(  ) {
 }
 
 function ltc_enqueue_css( $hook_suffix ) {
-	// print_r($hook_suffix);
     if( 'toplevel_page_lts-export-clienti' === $hook_suffix ) {       
-        wp_enqueue_style('ltc-custom-css', plugins_url('../css/style.css',__FILE__));
+        wp_enqueue_style('ltc-admin-custom-css', plugins_url('../assets/ltc-admin-custom.css',__FILE__));
     }
 }
 
