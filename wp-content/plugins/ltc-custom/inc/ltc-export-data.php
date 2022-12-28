@@ -3,12 +3,14 @@
 // export utenti coi campi che ci servono a noi
 if ($_SERVER['SERVER_NAME'] == 'www.agenziaviaggiltc.it') :
 	$ABSURL = 'https://www.agenziaviaggiltc.it/';
-	$ABSPATH = ABSPATH;
-	// $ABSPATH = '/home/customer/www/agenziaviaggiltc.it/public_html/';
+	//$ABSPATH = ABSPATH;
+	$ABSPATH = '/home/customer/www/agenziaviaggiltc.it/public_html/';
 elseif ($_SERVER['SERVER_NAME'] == 'meuro.dev') :
 	$ABSURL = 'https://meuro.dev/agenziaviaggiltc/';
 	$ABSPATH = '/home/pi/www_root/agenziaviaggiltc/';
 endif;
+
+var_dump($ABSPATH);
 
 // * API prod (readonly)
 $ck='ck_949470a85574c84b7a3cc662ca8f58cd7c7b3679';
