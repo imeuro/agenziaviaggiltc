@@ -4,6 +4,9 @@
 if ($_SERVER['SERVER_NAME'] == 'www.agenziaviaggiltc.it') :
 	$ABSURL = 'https://www.agenziaviaggiltc.it/';
 	$ABSPATH = ABSPATH;
+elseif ($_SERVER['SERVER_NAME'] == 'stevenb138.sg-host.com') :
+	$ABSURL = 'https://stevenb138.sg-host.com/';
+	$ABSPATH = '/home/customer/www/stevenb138.sg-host.com/public_html/';
 elseif ($_SERVER['SERVER_NAME'] == 'meuro.dev') :
 	$ABSURL = 'https://meuro.dev/agenziaviaggiltc/';
 	$ABSPATH = '/home/pi/www_root/agenziaviaggiltc/';

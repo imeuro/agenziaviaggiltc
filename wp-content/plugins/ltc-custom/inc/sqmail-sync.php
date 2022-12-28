@@ -47,6 +47,7 @@
 
 if ( !defined('ABSPATH') )
     define('ABSPATH', '/var/www/vhosts/agenziaviaggiltc.it/httpdocs/');
+    // define('ABSPATH', '/home/customer/www/stevenb138.sg-host.com/public_html/');
     
 include './ltc-export-data.php';
 
