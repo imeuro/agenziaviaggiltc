@@ -10,8 +10,6 @@ elseif ($_SERVER['SERVER_NAME'] == 'meuro.dev') :
 	$ABSPATH = '/home/pi/www_root/agenziaviaggiltc/';
 endif;
 
-var_dump($ABSPATH);
-
 // * API prod (readonly)
 $ck='ck_949470a85574c84b7a3cc662ca8f58cd7c7b3679';
 $cs='cs_faf8293e8b36f6e0b41d49db552a5057a061d9f8';
