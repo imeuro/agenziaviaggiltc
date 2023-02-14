@@ -34,7 +34,6 @@ if ( post_password_required() ) {
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
 	<?php 
 	$pcats = $product->category_ids;
-
 	if ( in_array( 85, $pcats ) ) :
 	// se è biglietti-gardaland...
 	?>
@@ -63,7 +62,7 @@ if ( post_password_required() ) {
 	do_action( 'woocommerce_before_single_product_summary' );
 	?>
 
-	<div class="summary entry-summary">
+	<div class="summary entry-summary<?php if ( in_array( 89, $pcats ) ) : echo' convenzioni'; endif;?>">
 		<?php
 		/**
 		 * Hook: woocommerce_single_product_summary.

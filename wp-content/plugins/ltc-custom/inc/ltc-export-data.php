@@ -8,6 +8,9 @@ if ($_SERVER['SERVER_NAME'] == 'www.agenziaviaggiltc.it') :
 elseif ($_SERVER['SERVER_NAME'] == 'meuro.dev') :
 	$ABSURL = 'https://meuro.dev/agenziaviaggiltc/';
 	$ABSPATH = '/home/pi/www_root/agenziaviaggiltc/';
+elseif ($_SERVER['SERVER_NAME'] == 'localhost') :
+	$ABSURL = 'https://localhost/agenziaviaggiltc/';
+	$ABSPATH = '/Users/meuro/Sites/agenziaviaggiltc/';
 endif;
 
 // * API prod (readonly)

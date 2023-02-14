@@ -85,9 +85,29 @@ function LTC_enable_custom_checkout_fields( $fields ) {
 
 // [ FRONTEND ]
 // prodotto obbligatoriamente con coupon ("convenzioni")
+function get_post_ids_for_specific_cat($catID, $taxonomy='product_cat') {
+	return get_posts(array(
+		'post_type' => 'product',
+    	'tax_query' => array(
+	        array(
+	            'taxonomy' => 'product_cat',
+	            'field' => 'ID', //can be set to ID
+	            'terms' => $catID //if field is ID you can reference by cat/term number
+	        )
+	    ),
+		'fields'        => 'ids', // only get post IDs.
+    ));
+}
+function is_coupon_valid( $coupon_code ) {
+    $coupon = new \WC_Coupon( $coupon_code );   
+    $discounts = new \WC_Discounts( WC()->cart );
+    $response = $discounts->is_coupon_valid( $coupon );
+    return is_wp_error( $response ) ? false : true;     
+}
+
 add_action( 'woocommerce_check_cart_items', 'mandatory_coupon_for_specific_items' );
 function mandatory_coupon_for_specific_items() {
-	$targeted_ids = array(13927); // The targeted product ids (in this array)
+	$targeted_ids = get_post_ids_for_specific_cat(89,'product_cat'); // The targeted product ids (in this array) 
 	$coupon_code = 'ltc'; // The required coupon code
 
 	$coupons_entered = WC()->cart->get_applied_coupons();
@@ -102,9 +122,14 @@ function mandatory_coupon_for_specific_items() {
 
 	// Loop through cart items
 	foreach(WC()->cart->get_cart() as $cart_item ) {
+		
 	// Check cart item for defined product Ids and applied coupon
 		if( in_array( $cart_item['product_id'], $targeted_ids ) && ! $coupon_applied ) {
 			wc_clear_notices(); // Clear all other notices
+
+			print_r($coupon_applied);
+			// blur price
+			echo "document.addEventListener('DOMContentLoaded', (event) => { const cartprices = document.querySelectorAll('.woocommerce-cart-form bdi, .cart_totals bdi'); Array.from(cartprices).forEach((el)=>{ el.classList.add('xyz');});});</script>";
 
 			// Avoid checkout displaying an error notice
 			wc_add_notice( sprintf( 'Per acquistare "%s" è necessario inserire un codice promozionale.', $cart_item['data']->get_name() ), 'error' );
