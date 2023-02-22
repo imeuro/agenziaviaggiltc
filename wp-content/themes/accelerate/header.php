@@ -86,16 +86,12 @@ if ( function_exists( 'wp_body_open' ) ) {
 						</div><!-- #header-text -->
 					</div><!-- #header-left-section -->
 					<div id="header-right-section">
-						<?php
-						if( is_active_sidebar( 'accelerate_header_sidebar' ) ) {
-						?>
 						<div id="header-right-sidebar" class="clearfix">
 							<?php
+							if( is_active_sidebar( 'accelerate_header_sidebar' ) ) {
 								// Calling the header sidebar if it exists.
 								if ( !dynamic_sidebar( 'accelerate_header_sidebar' ) ):
 								endif;
-							?>
-							<?php
 							}
 							?>
 							<aside class="widget widget_woocommerce">
