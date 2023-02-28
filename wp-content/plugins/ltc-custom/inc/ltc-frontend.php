@@ -53,26 +53,32 @@ function custom_override_checkout_fields( $fields ) {
 
 // [ FRONTEND ]
 // Aggiungi acuni campi al checkout a seconda della categoria prodotto (es. vacanze-studio)
-add_action('woocommerce_checkout_fields', 'LTC_enable_custom_checkout_fields');
-
+//add_action('woocommerce_checkout_fields', 'LTC_enable_custom_checkout_fields');
+/*
 function LTC_enable_custom_checkout_fields( $fields ) {
-	$additional_fields = get_option('wc_fields_additional');
+	//$additional_fields = get_option('wc_fields_additional');
 	
 	$isEnabled = ( has_product_category_in_cart( array('vacanze-studio','longform') ) ) ? 1 : 0;
+	$needs_additionalForm = false; // partiamo che "NO"
+	$additionalForm = '';
 
-	if(is_array($additional_fields)){ //se ci sono campi aggiuntivi
-		foreach ($additional_fields as $addtlkey => $addtlfld) {
-			if(startsWith($addtlkey,"vacanzestudio_")) { // e se cominciano con ...
-				$addtlfld['enabled'] = $isEnabled;
-				$fields['order'][$addtlkey] = $addtlfld;
+	if ($isEnabled === 1):
+		foreach( WC()->cart->get_cart() as $cart_item ){
+			$additionalForm = get_post_meta($cart_item['product_id'], 'domande_post_prenotazione', true);
+
+			if ($additionalForm != '') {
+				$needs_additionalForm = true;
+				break;
 			}
 		}
-	}
+		
+	endif;
+
 
 	// comunque mettimi le note in fondo
 	$fields['order']['order_comments']['enabled'] = 1;
 	$fields['order']['order_comments']['priority'] = 999;
-	THWCFD_Utils::update_fields('additional', $fields['order']);
+	// THWCFD_Utils::update_fields('additional', $fields['order']);
 
 	// echo '<pre>';
 	// print_r($fields['order']);
@@ -80,7 +86,7 @@ function LTC_enable_custom_checkout_fields( $fields ) {
 
 	return $fields;
 }
-
+*/
 
 
 // [ FRONTEND ]

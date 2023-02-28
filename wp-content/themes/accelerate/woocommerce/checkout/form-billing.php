@@ -18,13 +18,33 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
+
+<?php
+/*  cerco di capire se devo inserire il form 
+    con le domande specifiche per il vacanza studio: 
+*/
+    $needs_additionalForm = false; // partiamo che "NO"
+	$contenuti_cestello = WC()->cart->cart_contents;
+	foreach ($contenuti_cestello as $key => $value) {
+		//print_r($value['product_id']);
+		$additionalForm = get_post_meta($value['product_id'], 'domande_post_prenotazione', true);
+
+		if ($additionalForm != '') {
+			$needs_additionalForm = true;
+			break;
+		}
+
+		
+	}
+?>
+
+
 <div class="woocommerce-billing-fields">
 	<?php if ( wc_ship_to_billing_address_only() && WC()->cart->needs_shipping() ) : ?>
 
 		<h3><?php esc_html_e( 'Billing &amp; Shipping', 'woocommerce' ); ?></h3>
 
 	<?php else : ?>
-
 		<h3>Dettagli cliente</h3>
 
 	<?php endif; ?>
@@ -43,6 +63,16 @@ defined( 'ABSPATH' ) || exit;
 
 	<?php do_action( 'woocommerce_after_checkout_billing_form', $checkout ); ?>
 </div>
+
+
+
+<?php if ($needs_additionalForm === true) : ?>
+	<div class="woocommerce-custom-LTC-fields">
+		<?php echo do_shortcode( $additionalForm ); ?>
+		<?php //echo  $additionalForm ; ?>
+	</div>
+<?php endif; ?>
+
 
 <?php if ( ! is_user_logged_in() && $checkout->is_registration_enabled() ) : ?>
 	<div class="woocommerce-account-fields">

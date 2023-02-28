@@ -1,30 +1,25 @@
 addEventListener("DOMContentLoaded", (event) => {
-	
-    let formContainer = document.getElementById('customer_details');
-	if (formContainer) {
-		console.debug({formContainer});
 
+	
+    let additionalFormContainer = document.querySelector('.woocommerce-custom-LTC-fields');
+	if (additionalFormContainer) {
+		console.debug({additionalFormContainer});
+
+		// rimuovo css non desiderato
+		document.querySelector('link[href$="/happyforms/bundles/css/frontend.css"]').disabled = true;
 
 		// spezzare pagina..
 		let FormHeadings = document.querySelector('.col-2');
 		let rawFormHeadings = FormHeadings.innerHTML;
 
-		var result = rawFormHeadings.replace('<div class="form-row ltc_small_heading', 'PLACEHOLDER')
-	          .replace(/\<div class="form-row ltc_small_heading/g, '<div class="checkoutSlides-new"><div class="form-row ltc_small_heading')
-	          .replace('PLACEHOLDER', '<div class="form-row ltc_small_heading');
-
-	    console.debug(result);
-	    FormHeadings.innerHTML = result;
-
-	    let muvit = document.querySelector('.checkoutSlides-new');
 	    // lo wrappo in un div pero'
 	    var w_muvit = document.createElement('div');
-		// insert wrapper before muvit in the DOM tree
-		muvit.parentNode.insertBefore(w_muvit, muvit);
-		// move muvit into wrapper
-		w_muvit.appendChild(muvit);
-	    //_formContainer.append(slideNew);
-	    FormHeadings.after(w_muvit);
+		// insert wrapper before FormHeadings in the DOM tree
+		additionalFormContainer.parentNode.insertBefore(w_muvit, additionalFormContainer);
+		// move FormHeadings into wrapper
+		w_muvit.appendChild(additionalFormContainer);
+		// inserisce il form prima dell'ultima slide
+	    FormHeadings.before(w_muvit);
 
 
 	    _formContainer = document.getElementById('customer_details');
@@ -73,4 +68,6 @@ addEventListener("DOMContentLoaded", (event) => {
 
 		
 	}
+
+
 });

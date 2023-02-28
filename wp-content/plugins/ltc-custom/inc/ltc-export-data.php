@@ -23,7 +23,7 @@ $csv_url =  $ABSURL . 'wp-content/uploads/customer-data.csv';
 
 
 // retrieves max last 6000 clients
-// if not enough, raise that "20" in the for cycle
+// if not enough 🤭, raise that "20" in the for cycle
 
 function retrieveAPIdata($endpoint,$force_regenerate) {
 	global $json_filename, $csv_filename, $csv_url;

@@ -1,13 +1,13 @@
 <?php
 /*
 * Plugin Name: 				LTC Ecommerce agenziaviaggi
-* Description: 				funzioni specifiche per l'ecommerce di agenziaviaggiLTC. Richiede i plugin "Woocommerce", "Product code for Woocommerce", "Checkout Field Editor for WooCommerce", "Viva Wallet Standard Checkout" 
+* Description: 				funzioni specifiche per l'ecommerce di agenziaviaggiLTC. Richiede i plugin "Woocommerce", "Product code for Woocommerce", "Viva Wallet Standard Checkout" 
 * Author: 					Meuro
-* Version: 					12
+* Version: 					13
 * Author URI: 				https://meuro.dev
 * License: 					GPLv3 or later
 * License URI:         		http://www.gnu.org/licenses/gpl-3.0.html
-* Requires PHP: 	    	7.1
+* Requires PHP: 	    	7.2
 * Text Domain: 				ecommerce-lts
 * Domain Path: 				/languages
 */
@@ -34,7 +34,6 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 if(
 	in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins'))) && 
 	in_array('product-code-for-woocommerce/product-code-for-woocommerce.php', apply_filters('active_plugins', get_option('active_plugins'))) &&
-	in_array('woo-checkout-field-editor-pro/checkout-form-designer.php', apply_filters('active_plugins', get_option('active_plugins'))) &&
 	in_array('viva-wallet-for-woocommerce/woocommerce-vivawallet-gateway.php', apply_filters('active_plugins', get_option('active_plugins')))
 
 ) { 
