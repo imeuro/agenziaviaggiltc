@@ -93,7 +93,7 @@ if ( function_exists( 'wp_body_open' ) ) {
 								if ( !dynamic_sidebar( 'accelerate_header_sidebar' ) ):
 								endif;
 							}
-							?>
+							?> 
 							<aside class="widget widget_woocommerce">
 								<h3 class="widget-title">Shop</h3>
 								<p>
