@@ -38,14 +38,14 @@
 
 
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5EE2D8RYGB"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-REGMRHHJM4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'UA-78561161-1');
-  gtag('config', 'G-5EE2D8RYGB');
+  gtag('config', 'G-REGMRHHJM4');
 </script>
 </body>
 </html>
