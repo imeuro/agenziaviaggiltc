@@ -21,6 +21,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $product;
 $pcats = $product->category_ids;
-if ( !in_array( 90, $pcats ) ) : // not in 'convenzioni' ?>
+if ( !in_array( 85, $pcats ) ) : // not in 'gardaland' ?>
     <p class="<?php echo esc_attr( apply_filters( 'woocommerce_product_price_class', 'price' ) ); ?>"><?php echo $product->get_price_html(); ?></p>
 <?php endif; ?>

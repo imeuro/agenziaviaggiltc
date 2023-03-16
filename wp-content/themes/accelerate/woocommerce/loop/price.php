@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $product;
 $pcats = $product->category_ids;
-if ( !in_array( 90, $pcats ) ) : // not in 'convenzioni' ?>
+if ( !in_array( 85, $pcats ) ) : // not in 'gardaland' ?>
     <?php if ( $price_html = $product->get_price_html() ) : ?>
     	<span class="price"><?php echo $price_html; ?></span>
     <?php endif; ?>

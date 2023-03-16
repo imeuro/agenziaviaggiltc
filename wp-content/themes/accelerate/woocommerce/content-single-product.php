@@ -62,7 +62,7 @@ if ( post_password_required() ) {
 	do_action( 'woocommerce_before_single_product_summary' );
 	?>
 
-	<div class="summary entry-summary<?php if ( in_array( 90, $pcats ) ) : echo' convenzioni'; endif;?>">
+	<div class="summary entry-summary<?php if ( in_array( 85, $pcats ) ) : echo' gardaland'; endif;?>">
 		<?php
 		/**
 		 * Hook: woocommerce_single_product_summary.

@@ -133,7 +133,7 @@ function mandatory_coupon_for_specific_items() {
 		if( in_array( $cart_item['product_id'], $targeted_ids ) && ! $coupon_applied ) {
 			wc_clear_notices(); // Clear all other notices
 
-			print_r($coupon_applied);
+			// print_r($coupon_applied);
 			// blur price
 			echo "document.addEventListener('DOMContentLoaded', (event) => { const cartprices = document.querySelectorAll('.woocommerce-cart-form bdi, .cart_totals bdi'); Array.from(cartprices).forEach((el)=>{ el.classList.add('xyz');});});</script>";
 
