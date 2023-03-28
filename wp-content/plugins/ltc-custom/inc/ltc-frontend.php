@@ -140,6 +140,12 @@ function mandatory_coupon_for_specific_items() {
 			// Avoid checkout displaying an error notice
 			wc_add_notice( sprintf( 'Per acquistare "%s" è necessario inserire un codice promozionale.', $cart_item['data']->get_name() ), 'error' );
 			break; // stop the loop
+		} else {
+			echo 'gigi';
+			$valid = apply_filters('woocommerce_is_valid', true);
+			if (!$valid) {
+				echo "<script>document.addEventListener('DOMContentLoaded', (event) => { const cartprices = document.querySelectorAll('.woocommerce-cart-form bdi, .cart_totals bdi'); Array.from(cartprices).forEach((el)=>{ el.classList.add('xyz');});});</script>";
+			}
 		}
 	}
 }
