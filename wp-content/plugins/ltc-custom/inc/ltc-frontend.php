@@ -113,7 +113,7 @@ function is_coupon_valid( $coupon_code ) {
 
 add_action( 'woocommerce_check_cart_items', 'mandatory_coupon_for_specific_items' );
 function mandatory_coupon_for_specific_items() {
-	$targeted_ids = get_post_ids_for_specific_cat(90,'product_cat'); // The targeted product ids (in this array) 
+	$targeted_ids = get_post_ids_for_specific_cat(85,'product_cat'); // The targeted product ids (in this array) 
 	$coupon_code = 'ltc'; // The required coupon code
 
 	$coupons_entered = WC()->cart->get_applied_coupons();
@@ -135,7 +135,7 @@ function mandatory_coupon_for_specific_items() {
 
 			// print_r($coupon_applied);
 			// blur price
-			echo "document.addEventListener('DOMContentLoaded', (event) => { const cartprices = document.querySelectorAll('.woocommerce-cart-form bdi, .cart_totals bdi'); Array.from(cartprices).forEach((el)=>{ el.classList.add('xyz');});});</script>";
+			echo "<script>document.addEventListener('DOMContentLoaded', (event) => { const cartprices = document.querySelectorAll('.woocommerce-cart-form bdi, .cart_totals bdi'); Array.from(cartprices).forEach((el)=>{ el.classList.add('xyz');});});</script>";
 
 			// Avoid checkout displaying an error notice
 			wc_add_notice( sprintf( 'Per acquistare "%s" è necessario inserire un codice promozionale.', $cart_item['data']->get_name() ), 'error' );
