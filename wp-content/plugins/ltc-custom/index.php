@@ -94,15 +94,15 @@ function unique_multidim_array($array, $key) {
 
 // i try to give self explanatory function names :P
 function has_product_category_in_cart( $product_category ) {
-	print_r('has_product_category_in_cart');
+	//print_r('has_product_category_in_cart');
     foreach ( WC()->cart->get_cart() as $cart_item ) {
         // If any product category is found in cart items
         if ( has_term( $product_category, 'product_cat', $cart_item['product_id'] ) ) {
-        	print_r('true');
+        	//print_r('true');
             return true;
         }
     }
-    print_r('false');
+    //print_r('false');
     return false;
 }
 // if string starts with
