@@ -82,7 +82,7 @@ defined( 'ABSPATH' ) || exit;
 
 
 		<?php if ($order->get_payment_method() == 'bacs') : ?>
-			<h2 style="color: #c62828;">IMPORTANTE!</h3>
+			<h2 style="color: #c62828;">IMPORTANTE!</h2>
 			<ul>
 				<li style="color:#c62828">Inserire il <strong>numero di ordine ( <?php echo $order->get_order_number(); ?> ) nella causale</strong> del bonifico bancario</li>
 				<li style="color:#c62828"><strong>Inviare prova dell'avvenuto pagamento</strong> all'indirizzo <a style="color:#c62828; text-decoration: underline;" href="mailto:booking@agenziaviaggiltc.it"><strong>booking@agenziaviaggiltc.it</strong></a> per concludere l'ordine e ricevere i prodotti acquistati</li>

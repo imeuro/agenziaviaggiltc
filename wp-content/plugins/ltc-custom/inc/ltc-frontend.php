@@ -140,12 +140,6 @@ function mandatory_coupon_for_specific_items() {
 			// Avoid checkout displaying an error notice
 			wc_add_notice( sprintf( 'Per acquistare "%s" è necessario inserire un codice promozionale.', $cart_item['data']->get_name() ), 'error' );
 			break; // stop the loop
-		} else {
-			echo 'gigi';
-			$valid = apply_filters('woocommerce_is_valid', true);
-			if (!$valid) {
-				echo "<script>document.addEventListener('DOMContentLoaded', (event) => { const cartprices = document.querySelectorAll('.woocommerce-cart-form bdi, .cart_totals bdi'); Array.from(cartprices).forEach((el)=>{ el.classList.add('xyz');});});</script>";
-			}
 		}
 	}
 }
@@ -162,7 +156,7 @@ function conditional_payment_gateways( $available_gateways ) {
     $isBACSonly = ( has_product_category_in_cart( array('vacanze-studio','longform') ) ) ? 1 : 0;
 
     // Remove Vivawallet (vivawallet_native) payment gateway for these products
-    if($isBACSonly)
+    if($isBACSonly === 1)
         unset($available_gateways['vivawallet_native']); // unset 'vivawallet_native'
     // Remove Bank wire (Bacs) payment gateway for subscription products
     // if($prod_subscription)
