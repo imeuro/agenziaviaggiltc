@@ -147,7 +147,7 @@ function mandatory_coupon_for_specific_items() {
 
 // [ FRONTEND ]
 // tipo di pagamento in base a categoria prodotto
-add_filter('woocommerce_available_payment_gateways', 'conditional_payment_gateways', 10, 1);
+// add_filter('woocommerce_available_payment_gateways', 'conditional_payment_gateways', 10, 1);
 function conditional_payment_gateways( $available_gateways ) {
     // Not in backend (admin)
     if( is_admin() ) 
