@@ -112,6 +112,8 @@ function is_coupon_valid( $coupon_code ) {
 }
 
 add_action( 'woocommerce_check_cart_items', 'mandatory_coupon_for_specific_items' );
+add_action( 'woocommerce_update_cart_action_cart_updated', 'mandatory_coupon_for_specific_items' );
+
 function mandatory_coupon_for_specific_items() {
 	$targeted_ids = get_post_ids_for_specific_cat(85,'product_cat'); // The targeted product ids (in this array) 
 	$coupon_code = 'ltc'; // The required coupon code

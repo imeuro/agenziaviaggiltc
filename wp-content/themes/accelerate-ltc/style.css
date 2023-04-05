@@ -131,7 +131,7 @@ button#wp-custom-header-video-button {
 }
 
 .woocommerce div.product form.cart div.quantity:before {
-    content: "Quantit√†: ";
+    content: "Quantità: ";
     font-weight: 600;
     margin-right: 2px;
 }
