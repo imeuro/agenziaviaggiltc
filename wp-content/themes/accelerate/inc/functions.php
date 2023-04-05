@@ -605,18 +605,10 @@ remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wr
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
 
-//add_filter( 'woocommerce_show_page_title', '__return_false' );
+add_filter( 'woocommerce_show_page_title', '__return_false' );
 
 add_action( 'woocommerce_before_main_content', 'accelerate_wrapper_start', 10 );
 add_action( 'woocommerce_after_main_content', 'accelerate_wrapper_end', 10 );
-
-/**
- * Change number or products per row to 4
- */
-add_filter('loop_shop_columns', 'loop_columns', 999);
-function loop_columns() {
-	return 4; // 4 products per row
-}
 
 function accelerate_wrapper_start() {
 	echo '<div id="primary">';

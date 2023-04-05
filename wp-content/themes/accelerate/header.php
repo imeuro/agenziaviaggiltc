@@ -86,40 +86,19 @@ if ( function_exists( 'wp_body_open' ) ) {
 						</div><!-- #header-text -->
 					</div><!-- #header-left-section -->
 					<div id="header-right-section">
+						<?php
+						if( is_active_sidebar( 'accelerate_header_sidebar' ) ) {
+						?>
 						<div id="header-right-sidebar" class="clearfix">
-							<?php
-							if( is_active_sidebar( 'accelerate_header_sidebar' ) ) {
-								// Calling the header sidebar if it exists.
-								if ( !dynamic_sidebar( 'accelerate_header_sidebar' ) ):
-								endif;
-							}
-							?> 
-							<aside class="widget widget_woocommerce">
-								<h3 class="widget-title">Shop</h3>
-								<p>
-									<?php if ( is_user_logged_in() ) { ?>
-										<a class="wcicon wcicon-user-logged" href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My account page','woocommerce'); ?>"><?php //_e('My account page','woocommerce'); ?></a>
-									<?php } 
-									else { ?>
-										<a class="wcicon wcicon-user" href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('Login / Register','woocommerce'); ?>"><?php // _e('Login / Register','woocommerce'); ?></a>
-									<?php } ?>
-
-									<a class="wcicon wcicon-cart" href="<?php echo get_site_url(null, '/cart/', 'https'); ?>" title="<?php _e('Cart','woocommerce'); ?>"><?php // _e('Cart','woocommerce'); ?>
-										
-										<?php	
-										if ( class_exists( 'WooCommerce' ) && ( !is_checkout() ) ) {
-											$cart_items = WC()->cart->get_cart_contents_count();
-											// echo $cart_items.'sdve';
-											if ( $cart_items > 0  ) {
-												echo '<span id="ltc_cart_qty" title="Hai ' . $cart_items . ' elementi nel carrello">' . $cart_items . '</span>'; 
-											}
-										}
-										?>
-
-									</a>
-								</p>
-							</aside>
+						<?php
+							// Calling the header sidebar if it exists.
+							if ( !dynamic_sidebar( 'accelerate_header_sidebar' ) ):
+							endif;
+						?>
 						</div>
+						<?php
+						}
+						?>
 			    	</div><!-- #header-right-section -->
 
 			   </div><!-- #header-text-nav-wrap -->
