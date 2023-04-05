@@ -65,7 +65,7 @@ consultare la nostra pagina dedicata, <a href="https://www.agenziaviaggiltc.it/g
 										<time datetime="<?php echo esc_attr( date( 'Y-m-d', strtotime( $download['access_expires'] ) ) ); ?>" title="<?php echo esc_attr( strtotime( $download['access_expires'] ) ); ?>"><?php echo esc_html( date_i18n( get_option( 'date_format' ), strtotime( $download['access_expires'] ) ) ); ?></time>
 										<?php
 									} else {
-										esc_html_e( 'Never', 'woocommerce' );
+										//esc_html_e( 'Never', 'woocommerce' );
 									}
 									break;
 							}
