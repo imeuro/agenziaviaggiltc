@@ -111,9 +111,14 @@ function is_coupon_valid( $coupon_code ) {
     return is_wp_error( $response ) ? false : true;     
 }
 
-add_action( 'woocommerce_check_cart_items', 'mandatory_coupon_for_specific_items' );
-add_action( 'woocommerce_update_cart_action_cart_updated', 'mandatory_coupon_for_specific_items' );
 
+// enable 'coupon-warning' notice type
+add_filter('woocommerce_notice_types', function ($notice_types) {
+    $notice_types[] =   "coupon-warning";
+    return $notice_types;
+});
+
+add_action( 'woocommerce_check_cart_items', 'mandatory_coupon_for_specific_items' );
 function mandatory_coupon_for_specific_items() {
 	$targeted_ids = get_post_ids_for_specific_cat(85,'product_cat'); // The targeted product ids (in this array) 
 	$coupon_code = 'ltc'; // The required coupon code
@@ -140,12 +145,27 @@ function mandatory_coupon_for_specific_items() {
 			echo "<script>document.addEventListener('DOMContentLoaded', (event) => { const cartprices = document.querySelectorAll('.woocommerce-cart-form bdi, .cart_totals bdi'); Array.from(cartprices).forEach((el)=>{ el.classList.add('xyz');});});</script>";
 
 			// Avoid checkout displaying an error notice
-			wc_add_notice( sprintf( 'Per acquistare "%s" è necessario inserire un codice promozionale.', $cart_item['data']->get_name() ), 'error' );
+			wc_add_notice( sprintf( 'Per acquistare "%s" è necessario inserire un codice promozionale.', $cart_item['data']->get_name() ), 'coupon-warning' );
 			break; // stop the loop
 		}
 	}
 }
 
+function filter_woocommerce_add_to_cart_fragments(array $array): array
+{
+    // Your logic …
+
+    $array['#blurpricer'] = <<<HTML
+    <script id=blurpricer>
+        var cartprices = document.querySelectorAll('.woocommerce-cart-form bdi, .cart_totals bdi');
+        Array.from(cartprices).forEach((el)=>{ el.classList.add('xyz');});
+        console.debug('blurred');
+    </script>
+    HTML;
+    return $array;
+};
+
+add_filter('woocommerce_add_to_cart_fragments', 'filter_woocommerce_add_to_cart_fragments', 0, 1);
 
 // [ FRONTEND ]
 // tipo di pagamento in base a categoria prodotto
