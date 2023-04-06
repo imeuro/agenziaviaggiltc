@@ -153,16 +153,19 @@ function mandatory_coupon_for_specific_items() {
 
 function filter_woocommerce_add_to_cart_fragments(array $array): array
 {
-    // Your logic …
+    $applied_coupons = WC()->cart->get_applied_coupons();
+ 
+	if( count( $applied_coupons ) > 0 ) {
+    	$array['#blurpricer'] = <<<HTML
+	    <script id=blurpricer>
+	        var cartprices = document.querySelectorAll('.woocommerce-cart-form bdi, .cart_totals bdi');
+	        Array.from(cartprices).forEach((el)=>{ el.classList.add('xyz');});
+	        console.debug('blurred');
+	    </script>
+	    HTML;
+	    return $array;
+    }
 
-    $array['#blurpricer'] = <<<HTML
-    <script id=blurpricer>
-        var cartprices = document.querySelectorAll('.woocommerce-cart-form bdi, .cart_totals bdi');
-        Array.from(cartprices).forEach((el)=>{ el.classList.add('xyz');});
-        console.debug('blurred');
-    </script>
-    HTML;
-    return $array;
 };
 
 add_filter('woocommerce_add_to_cart_fragments', 'filter_woocommerce_add_to_cart_fragments', 0, 1);
