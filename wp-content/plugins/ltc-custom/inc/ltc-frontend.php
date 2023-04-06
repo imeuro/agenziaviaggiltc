@@ -154,8 +154,9 @@ function mandatory_coupon_for_specific_items() {
 function filter_woocommerce_add_to_cart_fragments(array $array): array
 {
     $applied_coupons = WC()->cart->get_applied_coupons();
+    echo '$applied_coupons = '.$applied_coupons;
  
-	if( count( $applied_coupons ) > 0 ) {
+	if( count( $applied_coupons ) === 0 ) {
 		$array['#blurpricer'] = <<<HTML
 		<script id=blurpricer>
 			var cartprices = document.querySelectorAll('.woocommerce-cart-form bdi, .cart_totals bdi');
