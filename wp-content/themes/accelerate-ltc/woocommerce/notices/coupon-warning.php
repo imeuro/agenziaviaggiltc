@@ -31,4 +31,4 @@ if ( ! $notices ) {
 		</li>
 	<?php endforeach; ?>
 </ul>
-<span id="blurpricer"></span>
+<span id="blurpricerd"></span>

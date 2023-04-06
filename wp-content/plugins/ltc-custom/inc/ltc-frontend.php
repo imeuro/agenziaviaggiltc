@@ -159,8 +159,8 @@ function filter_woocommerce_add_to_cart_fragments(array $array): array
     echo '</pre>';
  
 	if( count( $applied_coupons ) === 0 ) {
-		$array['#blurpricer'] = <<<HTML
-		<script id=blurpricer>
+		$array['#blurpricerd'] = <<<HTML
+		<script id=blurpricerd>
 			var cartprices = document.querySelectorAll('.woocommerce-cart-form bdi, .cart_totals bdi');
 			Array.from(cartprices).forEach((el)=>{ el.classList.add('xyz');});
 			console.debug('blurred');
