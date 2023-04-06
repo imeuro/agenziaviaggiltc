@@ -167,27 +167,6 @@ function filter_woocommerce_add_to_cart_fragments(array $array): array
 
 add_filter('woocommerce_add_to_cart_fragments', 'filter_woocommerce_add_to_cart_fragments', 0, 1);
 
-
-add_filter( 'woocommerce_coupon_message', 'filter_woocommerce_coupon_message', 10, 3 );
-function filter_woocommerce_coupon_message( $msg, $msg_code, $coupon ) {
-	// $applied_coupons = WC()->cart->get_applied_coupons(); // Get applied coupons
-
-	if( $msg === __( 'Coupon code applied successfully.', 'woocommerce' ) ) {
-
-	$array['#blurpricer'] = <<<HTML
-	<script id=blurpricer>
-		var cartprices = document.querySelectorAll('.woocommerce-cart-form bdi, .cart_totals bdi');
-		Array.from(cartprices).forEach((el)=>{ el.classList.remove('xyz');});
-		console.debug('DEblurred');
-	</script>
-	HTML;
-	
-	}
-
-	return $array;
-}
-
-
 // [ FRONTEND ]
 // tipo di pagamento in base a categoria prodotto
 // add_filter('woocommerce_available_payment_gateways', 'conditional_payment_gateways', 10, 1);
