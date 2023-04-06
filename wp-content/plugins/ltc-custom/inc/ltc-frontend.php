@@ -153,21 +153,21 @@ function mandatory_coupon_for_specific_items() {
 
 function filter_woocommerce_add_to_cart_fragments(array $array): array
 {
-    $applied_coupons = WC()->cart->get_applied_coupons();
-    echo '<pre>';
-    print_r($applied_coupons);
-    echo '</pre>';
- 
-	if( count( $applied_coupons ) === 0 ) {
-		$array['#blurpricerd'] = <<<HTML
-		<script id=blurpricerd>
-			var cartprices = document.querySelectorAll('.woocommerce-cart-form bdi, .cart_totals bdi');
+
+	$array['#blurpricer'] = <<<HTML
+	<script id=blurpricer>
+		var isDiscount = document.querySelectorAll('.cart-discount');
+		var cartprices = document.querySelectorAll('.woocommerce-cart-form bdi, .cart_totals bdi');
+		if (isDiscount.length === 0) {
 			Array.from(cartprices).forEach((el)=>{ el.classList.add('xyz');});
 			console.debug('blurred');
-		</script>
-		HTML;
-		return $array;
-	}
+		} else {
+			Array.from(cartprices).forEach((el)=>{ el.classList.remove('xyz');});
+			console.debug('DE-blurred');
+		}
+	</script>
+	HTML;
+	return $array;
 
 };
 
