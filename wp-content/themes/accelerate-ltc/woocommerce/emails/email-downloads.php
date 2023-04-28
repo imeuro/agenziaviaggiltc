@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
 
 $text_align = is_rtl() ? 'right' : 'left';
 
-?><h2 class="woocommerce-order-downloads__title"><?php esc_html_e( 'Downloads', 'woocommerce' ); ?></h2>
+?><h2 class="woocommerce-order-downloads__title">I tuoi acquisti</h2>
 <p><strong>N.B.</strong> I biglietti acquistati sono disponibili in allegato a questa email</p>
 <p>Per tutte le indicazioni sull'utilizzo dei biglietti, consigliamo vivamente di
 consultare la nostra pagina dedicata, <a href="https://www.agenziaviaggiltc.it/gardaland/indicazioni-biglietti-gardaland">cliccando qui</a>.</p>
@@ -31,7 +31,10 @@ consultare la nostra pagina dedicata, <a href="https://www.agenziaviaggiltc.it/g
 		<thead>
 			<tr>
 				<?php foreach ( $columns as $column_id => $column_name ) : ?>
-					<th class="td" scope="col" style="text-align:<?php echo esc_attr( $text_align ); ?>;"><?php echo esc_html( $column_name ); ?></th>
+					<th class="td" scope="col" style="text-align:<?php echo esc_attr( $text_align ); ?>;"><?php 
+					if (esc_html( $column_name ) == 'Scarica') {
+						echo 'Cod. Biglietto';
+					} else { echo esc_html( $column_name ); } ?></th>
 				<?php endforeach; ?>
 			</tr>
 		</thead>
@@ -58,7 +61,7 @@ consultare la nostra pagina dedicata, <a href="https://www.agenziaviaggiltc.it/g
 									?>
 
 									<?php echo esc_html( $download['download_name'] ); ?>
-									
+
 									<?php
 									break;
 								case 'download-expires':
