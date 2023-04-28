@@ -56,9 +56,7 @@ consultare la nostra pagina dedicata, <a href="https://www.agenziaviaggiltc.it/g
 									break;
 								case 'download-file':
 									?>
-
-									<?php echo esc_html( $download['download_name'] ); ?>
-									
+									<a href="<?php echo esc_url( $download['download_url'] ); ?>" class="woocommerce-MyAccount-downloads-file button alt"><?php echo esc_html( $download['download_name'] ); ?></a>
 									<?php
 									break;
 								case 'download-expires':
