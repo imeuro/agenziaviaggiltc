@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<h2 class="woocommerce-order-downloads__title">I tuoi Acquisti</h2>
 	<?php endif; ?>
 
-	<p><b>Riceverai i biglietti acquistati via email</b> all'indirizzo specificato in fase di registrazione.</p>
-	<p>Consulenza immediata e assistenza post acquisto tramite WhatsApp: 375 561 6651 o tramite e-mail all’indirizzo: <a href="mailto:booking@agenziaviaggiltc.it">booking@agenziaviaggiltc.it<a></p>
+	<p><b>Riceverai i biglietti acquistati via email all'indirizzo specificato in fase di registrazione.</b></p>
+	<p>Consulenza immediata e assistenza post acquisto tramite WhatsApp: 375 561 6651 o tramite e-mail all’indirizzo: <a href="mailto:booking@agenziaviaggiltc.it">booking@agenziaviaggiltc.it</a></p>
 
 </section>
