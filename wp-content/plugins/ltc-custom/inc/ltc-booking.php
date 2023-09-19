@@ -45,6 +45,7 @@ function GenerateDownloads_afterPayment( $order_id ) {
 			$cart_item_data = $item->get_data();
 
 			$product = wc_get_product($item->get_product_id());
+			if ($product->is_downloadable('no')) { return; }
 			$PDFfolder = $product->get_sku();
 			$PDFmatrix = get_post_meta($cart_item_data['product_id'],'_product_code', true);
 			$last_order_processed = get_post_meta( $cart_item_data['product_id'], 'last_order_processed', true) != '' ? get_post_meta( $cart_item_data['product_id'], 'last_order_processed', true) : 0;
@@ -62,7 +63,7 @@ function GenerateDownloads_afterPayment( $order_id ) {
 			
 			// Virtual+Downloadable item : YES
 			$cart_item_dl->set_virtual( true );
-			// $cart_item_dl->set_downloadable( true );
+			$cart_item_dl->set_downloadable( true );
 
 			for($k=0; $k<$item['quantity']; $k++) {
 
