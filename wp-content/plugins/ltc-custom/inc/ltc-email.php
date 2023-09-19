@@ -21,7 +21,7 @@ function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
   	if ( empty($downloads) ) {
         return $attachments;
     }
-    
+
   	$unique_downloads 		= unique_multidim_array($downloads,'id');
 
 	// LOAD THE WC LOGGER
@@ -72,6 +72,11 @@ function email_order_user_meta( $order, $sent_to_admin, $plain_text ) {
   	$order_id 				= $order->get_order_number();
   	// $downloads             	= $order->get_downloadable_items();
   	$downloads             	= get_post_meta( $order_id, '_Order_Downloads', true );
+
+  	if ( empty($downloads) ) {
+        return;
+    }
+
   	$unique_downloads 		= unique_multidim_array($downloads,'id');
 
 
