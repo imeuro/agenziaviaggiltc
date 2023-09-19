@@ -74,6 +74,8 @@ function email_order_user_meta( $order, $sent_to_admin, $plain_text ) {
   	$downloads             	= get_post_meta( $order_id, '_Order_Downloads', true );
 
   	if ( empty($downloads) ) {
+  		$logger->info( '==================' );
+  		$logger->info( 'no downloads for order #'.$order_id );
         return;
     }
 
