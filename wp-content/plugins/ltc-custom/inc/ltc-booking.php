@@ -37,6 +37,12 @@ function GenerateDownloads_afterPayment( $order_id ) {
 		$items = $order->get_items();
 		// $downloads = array();
 
+		$logger = wc_get_logger();
+		$logger->info( '*++++++*' );
+		$logger->info( wc_print_r($items, true ) );
+
+
+
 		foreach ( $items as $item_id => $item ) {
 			// echo '<pre>$item: <br><br>';
 			// print_r($item->get_data());
