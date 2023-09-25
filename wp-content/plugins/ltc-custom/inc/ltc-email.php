@@ -9,6 +9,8 @@
 // aggiungo pdf acquistati come allegato
 add_filter( 'woocommerce_email_attachments', 'attach_to_wc_emails', 10, 4);
 function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
+	// LOAD THE WC LOGGER
+	$logger = wc_get_logger();
 
 	// Avoiding errors and problems
     if ( ! is_a( $order, 'WC_Order' ) || ! isset( $email_id ) || !$wc_email->is_customer_email() || $order->get_status() != 'completed' ) {
@@ -19,13 +21,17 @@ function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
   	$downloads             	= get_post_meta( $order_id, '_Order_Downloads', true );
   	$unique_downloads 		= unique_multidim_array($downloads,'id');
 
-	// LOAD THE WC LOGGER
-	$logger = wc_get_logger();
+	// LOG SOME STUFF
 	$logger->info( '==================' );
 	$logger->info( "---> Status for order ".$order_id.": ".$order->get_status() );
+	$logger->info( wc_print_r($downloads, true ) );
+	$logger->info( wc_print_r($unique_downloads, true ) );
+	$logger->info( wc_print_r($order->get_downloadable_items(), true ) );
 	$logger->info( "---> EMAIL ATTACHMENTS for order #".$order_id.": " );
-	//$logger->info( wc_print_r($downloads, true ) );
-
+	
+  	if ( empty($downloads) ) {
+        return $attachments;
+    }
 
   	foreach ($unique_downloads as $download) {
 
@@ -47,6 +53,7 @@ add_filter( 'woocommerce_email_recipient_customer_completed_order', 'your_email_
 
 function your_email_recipient_filter_function($recipient, $object) {
     $recipient = $recipient . ', booking@agenziaviaggiltc.it';
+    //$recipient = $recipient . ', mauro.fioravanzi@gmail.com';
     return $recipient;
 }
 
@@ -54,7 +61,7 @@ function your_email_recipient_filter_function($recipient, $object) {
 // *** TEMPORANEAMENTEH *** 
 // invia tutte le email anche a me!!
 function woo_cc_all_emails() {
-  return 'Bcc: hello@meuro.dev' . "\r\n";
+  return 'Bcc: mauro.fioravanzi@gmail.com' . "\r\n";
 }
 add_filter('woocommerce_email_headers', 'woo_cc_all_emails' );
 
@@ -77,6 +84,8 @@ function email_order_user_meta( $order, $sent_to_admin, $plain_text ) {
 		$logger->info( "---> Status for order ".$order_id.": ".$order->get_status() );
 		$logger->info( "---> listing reserved tickets # for order ".$order_id.": " );
 		// $logger->info( wc_print_r($downloads, true ) );
+		// $logger->info( wc_print_r($unique_downloads, true ) );
+		// $logger->info( wc_print_r($order->get_downloadable_items(), true ) );
 
 
 	  	if (!empty($unique_downloads)) :
