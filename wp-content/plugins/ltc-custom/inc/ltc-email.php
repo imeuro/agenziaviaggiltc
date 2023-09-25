@@ -83,7 +83,9 @@ function email_order_user_meta( $order, $sent_to_admin, $plain_text ) {
 		$logger->info( '==================' );
 		$logger->info( "---> Status for order ".$order_id.": ".$order->get_status() );
 		$logger->info( "---> listing reserved tickets # for order ".$order_id.": " );
-		// $logger->info( wc_print_r($downloads, true ) );
+		$logger->info( wc_print_r($downloads, true ) );
+		$logger->info( wc_print_r($unique_downloads, true ) );
+		$logger->info( wc_print_r($order->get_downloadable_items(), true ) );
 
 
 	  	if (!empty($unique_downloads)) :
