@@ -53,67 +53,68 @@ function GenerateDownloads_afterPayment( $order_id ) {
 
 			$product = wc_get_product($item->get_product_id());
 
-            $logger->info( '-> ok, but is downloadable?' );
+            $logger->info( '-> ok, show me the downloads for '.$product );
             $logger->info( wc_print_r($product->get_downloads(), true ) );
+            $logger->info( '-> ok, but is downloadable?' );
             $logger->info( wc_print_r($product->is_downloadable(), true ) );
 
 
-            if (! $product->is_downloadable()) {
-            	return;
-            }
+			if ($product->is_downloadable()) {
 
-            
-			$PDFfolder = $product->get_sku();
-			$PDFmatrix = get_post_meta($cart_item_data['product_id'],'_product_code', true);
-			$last_order_processed = get_post_meta( $cart_item_data['product_id'], 'last_order_processed', true) != '' ? get_post_meta( $cart_item_data['product_id'], 'last_order_processed', true) : 0;
+				$PDFfolder = $product->get_sku();
+				$PDFmatrix = get_post_meta($cart_item_data['product_id'],'_product_code', true);
+				$last_order_processed = get_post_meta( $cart_item_data['product_id'], 'last_order_processed', true) != '' ? get_post_meta( $cart_item_data['product_id'], 'last_order_processed', true) : 0;
+				
+
+				$cart_item_dl = '';
+
+				$cart_item_dl = wc_get_product($cart_item_data['product_id']);
+				
+				// vedere se ci sono già downloads per questo item, e preservarli!!
+				// $cart_item_dl->get_downloads();
+				// $older_downloads = $cart_item_dl->get_downloads();
+				//print_r($older_downloads);
+
+				
+				// Virtual+Downloadable item : YES
+				$cart_item_dl->set_virtual( true );
+				$cart_item_dl->set_downloadable( true );
+
+				for($k=0; $k<$item['quantity']; $k++) {
+
+					$PDFprogressive = get_post_meta($cart_item_data['product_id'],'_product_code_second', true);
+					// add leading zeroes...
+					$PDFprogressive_000 = str_pad($PDFprogressive,3,"0", STR_PAD_LEFT);
+					// $file_url = get_site_url(null, '/wp-content/uploads/woocommerce_uploads/PDF39/' . $PDFmatrix.'_'.$PDFprogressive_000.'.pdf', 'https');
+					$file_url = get_site_url(null, '/wp-content/uploads/woocommerce_uploads/'. $PDFfolder . '/' . $PDFmatrix.'_'.$PDFprogressive_000.'.pdf', 'https');
+					$attachment_id = md5( $file_url );
+
+					// Creating a download with... yes, WC_Product_Download class
+					$download = new WC_Product_Download();
+
+					$download->set_name( $PDFmatrix.'_'.$PDFprogressive_000.'.pdf' );
+					$download->set_id( $attachment_id );
+					$download->set_file( $file_url );
+
+					$downloads[$attachment_id] = $download;
+
+					// $cart_item_dl->set_download_limit( 3 ); // can be downloaded only once
+					// $cart_item_dl->set_download_expiry( 7 ); // expires in a week
+
+					update_post_meta( $cart_item_data['product_id'], '_product_code_second', $PDFprogressive+1 );
+
+				}
+
+				$cart_item_dl->set_downloads( $downloads );
+				$cart_item_dl->save();
+
+
+				if ($last_order_processed < $order_id) {
+					// aggiorno last_order_processed a ordine pagato
+					update_post_meta ( $cart_item_data['product_id'], 'last_order_processed', $order_id );
+				}
+
 			
-
-			$cart_item_dl = '';
-
-			$cart_item_dl = wc_get_product($cart_item_data['product_id']);
-			
-			// vedere se ci sono già downloads per questo item, e preservarli!!
-			// $cart_item_dl->get_downloads();
-			// $older_downloads = $cart_item_dl->get_downloads();
-			//print_r($older_downloads);
-
-			
-			// Virtual+Downloadable item : YES
-			$cart_item_dl->set_virtual( true );
-			$cart_item_dl->set_downloadable( true );
-
-			for($k=0; $k<$item['quantity']; $k++) {
-
-				$PDFprogressive = get_post_meta($cart_item_data['product_id'],'_product_code_second', true);
-				// add leading zeroes...
-				$PDFprogressive_000 = str_pad($PDFprogressive,3,"0", STR_PAD_LEFT);
-				// $file_url = get_site_url(null, '/wp-content/uploads/woocommerce_uploads/PDF39/' . $PDFmatrix.'_'.$PDFprogressive_000.'.pdf', 'https');
-				$file_url = get_site_url(null, '/wp-content/uploads/woocommerce_uploads/'. $PDFfolder . '/' . $PDFmatrix.'_'.$PDFprogressive_000.'.pdf', 'https');
-				$attachment_id = md5( $file_url );
-
-				// Creating a download with... yes, WC_Product_Download class
-				$download = new WC_Product_Download();
-
-				$download->set_name( $PDFmatrix.'_'.$PDFprogressive_000.'.pdf' );
-				$download->set_id( $attachment_id );
-				$download->set_file( $file_url );
-
-				$downloads[$attachment_id] = $download;
-
-				// $cart_item_dl->set_download_limit( 3 ); // can be downloaded only once
-				// $cart_item_dl->set_download_expiry( 7 ); // expires in a week
-
-				update_post_meta( $cart_item_data['product_id'], '_product_code_second', $PDFprogressive+1 );
-
-			}
-
-			$cart_item_dl->set_downloads( $downloads );
-			$cart_item_dl->save();
-
-
-			if ($last_order_processed < $order_id) {
-				// aggiorno last_order_processed a ordine pagato
-				update_post_meta ( $cart_item_data['product_id'], 'last_order_processed', $order_id );
 			}
 
 		}
