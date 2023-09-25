@@ -52,18 +52,18 @@ function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
 add_filter( 'woocommerce_email_recipient_customer_completed_order', 'your_email_recipient_filter_function', 10, 2);
 
 function your_email_recipient_filter_function($recipient, $object) {
-    //$recipient = $recipient . ', booking@agenziaviaggiltc.it';
-    $recipient = $recipient . ', mauro.fioravanzi@gmail.com';
+    $recipient = $recipient . ', booking@agenziaviaggiltc.it';
+    //$recipient = $recipient . ', mauro.fioravanzi@gmail.com';
     return $recipient;
 }
 
 // [ EMAIL ] 
 // *** TEMPORANEAMENTEH *** 
 // invia tutte le email anche a me!!
-// function woo_cc_all_emails() {
-//   return 'Bcc: hello@meuro.dev' . "\r\n";
-// }
-// add_filter('woocommerce_email_headers', 'woo_cc_all_emails' );
+function woo_cc_all_emails() {
+  return 'Bcc: mauro.fioravanzi@gmail.com' . "\r\n";
+}
+add_filter('woocommerce_email_headers', 'woo_cc_all_emails' );
 
 
 

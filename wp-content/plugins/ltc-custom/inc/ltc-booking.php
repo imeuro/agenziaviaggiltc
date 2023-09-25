@@ -53,7 +53,7 @@ function GenerateDownloads_afterPayment( $order_id ) {
 
 			$product = wc_get_product($item->get_product_id());
 
-            $logger->info( '-> ok, show me the downloads for '.$product );
+            $logger->info( '-> ok, show me the downloads for '.$item->get_product_id() );
             $logger->info( wc_print_r($product->get_downloads(), true ) );
             $logger->info( '-> ok, but is downloadable?' );
             $logger->info( wc_print_r($product->is_downloadable(), true ) );
