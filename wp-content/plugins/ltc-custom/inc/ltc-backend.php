@@ -37,7 +37,7 @@ function custom_orders_list_column_content( $column, $post_id ) {
             }
             // Testing (to be removed) - Empty value case
             else {
-                echo '<small><em>nessun biglietto acquistato (???)</em></small>';
+                echo '<small><em>pre-acquisto:<br> nessun biglietto assegnato</em></small>';
             }
 
             break;
