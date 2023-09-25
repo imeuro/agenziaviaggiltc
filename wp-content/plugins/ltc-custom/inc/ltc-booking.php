@@ -37,9 +37,6 @@ function GenerateDownloads_afterPayment( $order_id ) {
 		$items = $order->get_items();
 		// $downloads = array();
 
-		$logger = wc_get_logger();
-		$logger->info( '*++++++*' );
-		$logger->info( wc_print_r($items, true ) );
 
 
 
@@ -47,6 +44,12 @@ function GenerateDownloads_afterPayment( $order_id ) {
 			// echo '<pre>$item: <br><br>';
 			// print_r($item->get_data());
 			// echo '</pre>';
+
+			$logger = wc_get_logger();
+			$logger->info( '*++++++*' );
+			$logger->info( wc_print_r($item, true ) );
+			$logger->info( '-> ok, but is downloadable?' );
+			$logger->info( wc_print_r($item->is_downloadable(), true ) );
 
 			$cart_item_data = $item->get_data();
 
