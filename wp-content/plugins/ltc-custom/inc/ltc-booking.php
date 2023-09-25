@@ -47,13 +47,16 @@ function GenerateDownloads_afterPayment( $order_id ) {
 
 			$logger = wc_get_logger();
 			$logger->info( '*++++++*' );
-			$logger->info( wc_print_r($item, true ) );
-			$logger->info( '-> ok, but is downloadable?' );
-			$logger->info( wc_print_r($item->is_downloadable(), true ) );
+			//$logger->info( wc_print_r($item, true ) );
 
 			$cart_item_data = $item->get_data();
 
 			$product = wc_get_product($item->get_product_id());
+
+            $logger->info( '-> ok, but is downloadable?' );
+            $logger->info( wc_print_r($product->get_downloads(), true ) );
+            $logger->info( wc_print_r($product->is_downloadable(), true ) );
+
 			$PDFfolder = $product->get_sku();
 			$PDFmatrix = get_post_meta($cart_item_data['product_id'],'_product_code', true);
 			$last_order_processed = get_post_meta( $cart_item_data['product_id'], 'last_order_processed', true) != '' ? get_post_meta( $cart_item_data['product_id'], 'last_order_processed', true) : 0;
