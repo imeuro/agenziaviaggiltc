@@ -62,7 +62,7 @@ function GenerateDownloads_afterPayment( $order_id ) {
 			
 			// Virtual+Downloadable item : YES
 			$cart_item_dl->set_virtual( true );
-			$cart_item_dl->set_downloadable( true );
+			// $cart_item_dl->set_downloadable( true );
 
 			for($k=0; $k<$item['quantity']; $k++) {
 

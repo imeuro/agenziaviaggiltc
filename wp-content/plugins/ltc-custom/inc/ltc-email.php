@@ -28,8 +28,10 @@ function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
 	$logger = wc_get_logger();
 	$logger->info( '==================' );
 	$logger->info( "---> Status for order ".$order_id.": ".$order->get_status() );
+	$logger->info( wc_print_r($downloads, true ) );
+	$logger->info( wc_print_r($unique_downloads, true ) );
 	$logger->info( "---> EMAIL ATTACHMENTS for order #".$order_id.": " );
-	//$logger->info( wc_print_r($downloads, true ) );
+	
 
 
   	foreach ($unique_downloads as $download) {
@@ -51,17 +53,18 @@ function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
 add_filter( 'woocommerce_email_recipient_customer_completed_order', 'your_email_recipient_filter_function', 10, 2);
 
 function your_email_recipient_filter_function($recipient, $object) {
-    $recipient = $recipient . ', booking@agenziaviaggiltc.it';
+    //$recipient = $recipient . ', booking@agenziaviaggiltc.it';
+    $recipient = $recipient . ', mauro.fioravanzi@gmail.com';
     return $recipient;
 }
 
 // [ EMAIL ] 
 // *** TEMPORANEAMENTEH *** 
 // invia tutte le email anche a me!!
-function woo_cc_all_emails() {
-  return 'Bcc: hello@meuro.dev' . "\r\n";
-}
-add_filter('woocommerce_email_headers', 'woo_cc_all_emails' );
+// function woo_cc_all_emails() {
+//   return 'Bcc: hello@meuro.dev' . "\r\n";
+// }
+// add_filter('woocommerce_email_headers', 'woo_cc_all_emails' );
 
 
 
