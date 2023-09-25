@@ -35,9 +35,9 @@ function custom_orders_list_column_content( $column, $post_id ) {
 				}
 				echo '</small></p>';
             }
-            // Testing (to be removed) - Empty value case
+            // no downloads - most likely a preorder
             else {
-                echo '<small><em>pre-acquisto:<br> nessun biglietto assegnato</em></small>';
+                echo '<small style="line-height: 1.25; display: inline-block;">biglietto da assegnare e da inviare al cliente</small>';
             }
 
             break;
