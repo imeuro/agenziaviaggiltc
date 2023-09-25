@@ -9,6 +9,8 @@
 // aggiungo pdf acquistati come allegato
 add_filter( 'woocommerce_email_attachments', 'attach_to_wc_emails', 10, 4);
 function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
+	// LOAD THE WC LOGGER
+	$logger = wc_get_logger();
 
 	// Avoiding errors and problems
     if ( ! is_a( $order, 'WC_Order' ) || ! isset( $email_id ) || !$wc_email->is_customer_email() || $order->get_status() != 'completed' ) {
@@ -17,22 +19,19 @@ function attach_to_wc_emails( $attachments, $email_id, $order, $wc_email ) {
   	$order_id 				= $order->get_order_number();
   	// $downloads             	= $order->get_downloadable_items();
   	$downloads             	= get_post_meta( $order_id, '_Order_Downloads', true );
-
-  	if ( empty($downloads) ) {
-        return $attachments;
-    }
-    
   	$unique_downloads 		= unique_multidim_array($downloads,'id');
 
-	// LOAD THE WC LOGGER
-	$logger = wc_get_logger();
+	// LOG SOME STUFF
 	$logger->info( '==================' );
 	$logger->info( "---> Status for order ".$order_id.": ".$order->get_status() );
 	$logger->info( wc_print_r($downloads, true ) );
 	$logger->info( wc_print_r($unique_downloads, true ) );
+	$logger->info( wc_print_r($order->get_downloadable_items(), true ) );
 	$logger->info( "---> EMAIL ATTACHMENTS for order #".$order_id.": " );
 	
-
+  	if ( empty($downloads) ) {
+        return $attachments;
+    }
 
   	foreach ($unique_downloads as $download) {
 
