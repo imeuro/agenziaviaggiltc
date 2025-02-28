@@ -142,7 +142,7 @@ function mandatory_coupon_for_specific_items() {
 
 			// print_r($coupon_applied);
 			// blur price
-			echo "<script>document.addEventListener('DOMContentLoaded', (event) => { const cartprices = document.querySelectorAll('.woocommerce-cart-form bdi, .cart_totals bdi'); Array.from(cartprices).forEach((el)=>{ el.classList.add('xyz');});});</script>";
+			echo "<script>document.addEventListener('DOMContentLoaded', (event) => { const cartprices = document.querySelectorAll('.woocommerce-cart-form bdi, .cart_totals bdi'); Array.from(cartprices).forEach((el)=>{ el.classList.add('xyz');});document.querySelector('.wc-proceed-to-checkout > a').removeAttribute('href');});</script>";
 
 			// Avoid checkout displaying an error notice
 			wc_add_notice( sprintf( 'Per acquistare "%s" è necessario inserire un codice promozionale.', $cart_item['data']->get_name() ), 'coupon-warning' );
