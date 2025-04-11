@@ -10,14 +10,10 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see     https://woocommerce.com/document/template-structure/
+ * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 9.8.0
- *
- * @var bool $show_downloads Controls whether the downloads table should be rendered.
+ * @version 4.6.0
  */
-
- // phpcs:disable WooCommerce.Commenting.CommentHooks.MissingHookComment
 
 defined( 'ABSPATH' ) || exit;
 
@@ -99,7 +95,7 @@ if ( $show_downloads ) {
 			<?php if ( $order->get_customer_note() ) : ?>
 				<tr>
 					<th><?php esc_html_e( 'Note:', 'woocommerce' ); ?></th>
-					<td><?php echo wp_kses( nl2br( wptexturize( $order->get_customer_note() ) ), array( 'br' => array() ) ); ?></td>
+					<td><?php echo wp_kses_post( nl2br( wptexturize( $order->get_customer_note() ) ) ); ?></td>
 				</tr>
 			<?php endif; ?>
 		</tfoot>

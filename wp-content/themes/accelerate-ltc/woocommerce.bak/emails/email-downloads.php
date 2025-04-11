@@ -10,12 +10,14 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see https://woocommerce.com/document/template-structure/
+ * @see https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 9.7.0
+ * @version 3.4.0
  */
 
 defined( 'ABSPATH' ) || exit;
+
+$text_align = is_rtl() ? 'right' : 'left';
 
 ?><h2 class="woocommerce-order-downloads__title">I tuoi acquisti</h2>
 <p><strong>N.B.</strong> I biglietti acquistati sono disponibili in allegato a questa email</p>
@@ -29,7 +31,7 @@ consultare la nostra pagina dedicata, <a href="https://www.agenziaviaggiltc.it/g
 		<thead>
 			<tr>
 				<?php foreach ( $columns as $column_id => $column_name ) : ?>
-					<th class="td text-align-left" scope="col"><?php 
+					<th class="td" scope="col" style="text-align:<?php echo esc_attr( $text_align ); ?>;"><?php 
 					if (esc_html( $column_name ) == 'Scarica') {
 						echo 'Cod. Biglietto';
 					} else { echo esc_html( $column_name ); } ?></th>
@@ -44,7 +46,7 @@ consultare la nostra pagina dedicata, <a href="https://www.agenziaviaggiltc.it/g
 		<?php foreach ( $unique_downloads as $download ) : ?>
 			<tr>
 				<?php foreach ( $columns as $column_id => $column_name ) : ?>
-					<td class="td text-align-left">
+					<td class="td" style="text-align:<?php echo esc_attr( $text_align ); ?>;">
 						<?php
 						if ( has_action( 'woocommerce_email_downloads_column_' . $column_id ) ) {
 							do_action( 'woocommerce_email_downloads_column_' . $column_id, $download, $plain_text );
