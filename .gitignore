@@ -50,3 +50,4 @@ wp-config.*
 *.sqlite
 
 .DS_Store
+.cursor.json
